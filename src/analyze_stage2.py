@@ -129,6 +129,15 @@ def run_tag(tag, items, out):
         out.append("|---|---|---|---|")
         for i, nm in enumerate(names):
             out.append(f"| {nm} | {beta[i]:+.4f} | [{lo[i]:+.4f}, {hi[i]:+.4f}] | {p[i]:.4f} |")
+        # A non-significant distance term is not evidence of no effect. Preregistered
+        # equivalence bound: |beta_distance| < 0.05 REI per 100 tokens is negligible
+        # next to a Before/After term of ~0.3.
+        EQ = 0.05
+        ok = (lo[1] > -EQ) and (hi[1] < EQ)
+        out.append(f"\nEquivalence (TOST) on the distance term against a bound of "
+                   f"+/-{EQ} REI per 100 tokens: CI [{lo[1]:+.4f}, {hi[1]:+.4f}] "
+                   f"{'lies inside' if ok else 'does NOT lie inside'} the bound -> "
+                   f"{'distance is practically negligible' if ok else 'inconclusive'}.")
 
     # ---------------- 2. ID binding ----------------
     anch2 = anchored(runs, items, "id_base", ["id_admit_pre", "id_admit_post"])

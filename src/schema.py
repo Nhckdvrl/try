@@ -10,6 +10,9 @@ from dataclasses import dataclass, field, asdict
 from typing import Optional
 import json
 import conditions_v2 as v2
+import conditions_v3 as v3
+import conditions_v4 as v4
+import routing_blocks as rt
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
@@ -26,8 +29,19 @@ EXTRA_CONDITIONS = [
 # Stage-2 families (see conditions_v2): rule-position factorial, ID binding,
 # requested-weight sweep.
 V2_CONDITIONS = v2.ALL_V2
+
+# Stage-3A families (see conditions_v3)
+V3_CONDITIONS = v3.ALL_V3
+V3_PROBES = v3.WEIGHT_PROBES
+
+# Ruling paraphrases
+V4_CONDITIONS = v4.PP_CONDITIONS
+
+# Stage-3B: prospective selective routing over a stream of tagged evidence
+ROUTING_CONDITIONS = rt.ROUTING_CONDITIONS
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
-          "rule_probe_admit_post", "memory_probe_exclude_post"]
+          "rule_probe_admit_post", "memory_probe_exclude_post",
+          "wprobe_pre", "wprobe_post"]
 
 
 @dataclass
@@ -89,6 +103,14 @@ def _blocks(item: Item, cond: str):
         # the excluded item is simply not in the record the decision is made from
         return [B, ("RECORD NOTE\nOne item of information was ruled inadmissible and has been "
                     "removed from this record. It is not available to you.")]
+    if cond in rt.ROUTING_CONDITIONS:
+        return rt.blocks(item, cond)
+    if cond in v4.PP_CONDITIONS:
+        return v4.blocks(item, cond, B, E)
+    if cond in v3.ALL_V3:
+        ID_B = "BACKGROUND\n" + item.base_context + "\n" + v2.ID_PREAMBLE
+        ID_E = "EVIDENCE E7\n" + item.critical_evidence
+        return v3.blocks(item, cond, B, E, ID_B, ID_E, v2.ID_ADMIT)
     if cond in v2.POSITION_CONDITIONS:
         return v2.position_blocks(item, B, E, Radm, Rexc, cond)
     if cond in v2.IDBIND_CONDITIONS:
@@ -146,6 +168,10 @@ def compile_probe(item: Item, probe: str) -> str:
     elif probe == "rule_probe_admit_post":
         blocks = _blocks(item, "admit_post")
         q = item.rule_probe_question
+    elif probe in v3.WEIGHT_PROBES:
+        arm = probe.split("_")[1]
+        blocks = _blocks(item, f"nz0000_{arm}")
+        q = v3.WEIGHT_PROBE_Q.format(lab=item.critical_label)
     elif probe == "memory_probe_exclude_post":
         blocks = _blocks(item, "exclude_post")
         q = item.memory_question

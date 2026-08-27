@@ -1,0 +1,13 @@
+=== ROUTE qwen3.5-9b on fvcrc21 gpu 3 env fgvd ===
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+WARNING 08-27 20:52:59 [system_utils.py:157] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+(EngineCore pid=3659425) [transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=3659425) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=3659425) Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=3659425) Loading safetensors checkpoint shards:  25% Completed | 1/4 [08:10<24:30, 490.07s/it]
+(EngineCore pid=3659425) Loading safetensors checkpoint shards:  50% Completed | 2/4 [08:11<06:44, 202.44s/it]
+(EngineCore pid=3659425) Loading safetensors checkpoint shards:  75% Completed | 3/4 [08:12<01:50, 110.51s/it]
+(EngineCore pid=3659425) Loading safetensors checkpoint shards: 100% Completed | 4/4 [08:13<00:00, 67.17s/it]
+(EngineCore pid=3659425)  Loading safetensors checkpoint shards: 100% Completed | 4/4 [08:13<00:00, 123.25s/it]
+(EngineCore pid=3659425) 

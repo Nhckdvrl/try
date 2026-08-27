@@ -16,7 +16,8 @@ decode with a strict numeric parse.  No LLM judge is used anywhere.
 import argparse, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, V2_CONDITIONS, PROBES, ANSWER_CUE, rule_char_offset)
+                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, ROUTING_CONDITIONS, PROBES, ANSWER_CUE,
+                    rule_char_offset)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ITEMS = os.path.join(ROOT, "data", "items", "items_v1.jsonl")
@@ -116,14 +117,17 @@ def main():
 
     recs = []
     for it in items:
-        digit_scale = it.task_family != "numeric_aggregation"
+        digit_scale = it.task_family not in ("numeric_aggregation", "selective_routing")
         for k in kinds:
-            if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS:
+            if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS \
+                    or k in V3_CONDITIONS or k in V4_CONDITIONS \
+                    or k in ROUTING_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
             elif k in PROBES:
                 user = compile_probe(it, k)
-                kind = "memory" if k.startswith("memory") else "rule"
+                kind = ("memory" if k.startswith("memory")
+                        else "wprobe" if k.startswith("wprobe") else "rule")
             else:
                 raise SystemExit(f"unknown kind {k}")
             rec = dict(item_id=it.item_id, task_family=it.task_family, kind_name=k,
@@ -187,6 +191,16 @@ def main():
             r["p_yes"], r["mass"] = yes_probability(o)
             r["yesno"] = None if r["p_yes"] is None else ("YES" if r["p_yes"] >= 0.5 else "NO")
             r["readout"] = "yes_probability"
+
+    wp = [r for r in recs if r["kind"] == "wprobe"]
+    if wp:
+        # declarative policy state: greedy short answer, strict numeric parse
+        outs = llm.generate([tp(r["ids"]) for r in wp],
+                            SamplingParams(temperature=0.0, max_tokens=8))
+        for r, o in zip(wp, outs):
+            r["raw"] = o.outputs[0].text
+            r["value"] = parse_number(r["raw"])
+            r["readout"] = "greedy_number_percent"
 
     mem = [r for r in recs if r["kind"] == "memory"]
     if mem:
