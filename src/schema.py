@@ -11,6 +11,16 @@ from typing import Optional
 import json
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
+
+# Stage-1 follow-ups: mechanism probes at the prompt level, plus the two
+# structural mitigations from the plan (context sanitation, evidence ledger).
+EXTRA_CONDITIONS = [
+    "exclude_pre_repeat",     # B -> R -> E -> R : is Pre failure just rule distance?
+    "admit_pre_repeat",       # matched order control for the above
+    "exclude_post_reencode",  # B -> E -> R -> [E restated as excluded]
+    "sanitation",             # B only, with the excluded item removed from the record
+    "ledger",                 # explicit [ADMISSIBLE] / [EXCLUDED] ledger
+]
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
           "rule_probe_admit_post", "memory_probe_exclude_post"]
 
@@ -62,6 +72,22 @@ def _blocks(item: Item, cond: str):
         return [B, Rexc, E]
     if cond == "exclude_post":
         return [B, E, Rexc]
+    if cond == "exclude_pre_repeat":
+        return [B, Rexc, E, Rexc]
+    if cond == "admit_pre_repeat":
+        return [B, Radm, E, Radm]
+    if cond == "exclude_post_reencode":
+        return [B, E, Rexc,
+                ("EXCLUDED ITEM — RESTATED\n" + item.critical_evidence
+                 + "\nThis item is excluded. It must not be used in your answer.")]
+    if cond == "sanitation":
+        # the excluded item is simply not in the record the decision is made from
+        return [B, ("RECORD NOTE\nOne item of information was ruled inadmissible and has been "
+                    "removed from this record. It is not available to you.")]
+    if cond == "ledger":
+        return [("EVIDENCE LEDGER\n\n[ADMISSIBLE]\n" + item.base_context
+                 + "\n\n[EXCLUDED — must not be used]\n" + item.critical_evidence
+                 + "\nReason: " + item.exclude_rule)]
     raise ValueError(cond)
 
 

@@ -15,8 +15,8 @@ decode with a strict numeric parse.  No LLM judge is used anywhere.
 """
 import argparse, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS, PROBES,
-                    ANSWER_CUE)
+from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
+                    EXTRA_CONDITIONS, PROBES, ANSWER_CUE)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ITEMS = os.path.join(ROOT, "data", "items", "items_v1.jsonl")
@@ -103,7 +103,7 @@ def main():
     for it in items:
         digit_scale = it.task_family != "numeric_aggregation"
         for k in kinds:
-            if k in CONDITIONS:
+            if k in CONDITIONS or k in EXTRA_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
             elif k in PROBES:
