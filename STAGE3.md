@@ -111,9 +111,15 @@ decision run never sees this question.
 
 Every model, every item, both arms: asked immediately after the evidence arrives,
 the model states the weight is exactly zero — and then gives the item half its
-force. This closes off the reading that the latent rule was simply not retrieved
-when its trigger appeared. The rule is retrieved, correctly bound to the right
-item, and correctly reported; it does not control the decision.
+force.
+
+> **Qualified by Stage 3C.** This holds when the weight question is asked as its
+> own task. When the same statement is a *step inside the decision trajectory*
+> ("write ITEM DECISION WEIGHT, then FINAL DECISION"), retrieval is only partial
+> and is itself position-dependent: Qwen3-8B states exactly 0% on 33% of items in
+> the prospective arm against 74% in the retrospective arm. What survives is the
+> stronger test: teacher-forcing the correct `0%` into the generation still
+> leaves REI_pre at +0.434. See `STAGE3C.md` P0-3.
 
 ## F. A class predicate works prospectively where an item reference does not
 
@@ -127,6 +133,12 @@ item, and correctly reported; it does not control the decision.
 The class rule differs in one respect: its criterion travels *with* the evidence,
 as a tag on the block, so the routing decision is re-made locally at arrival
 rather than held as a reference to a named future object.
+
+> **Corrected by Stage 3C.** This reading was wrong. A clean 2x2 with a
+> semantically empty tag (`if an item's tag is Z9, assign it weight 0`, block
+> headed `[TAG=Z9]`) leaks just as badly as the identity predicate — REI +0.704
+> vs +0.717 on Qwen3-8B. What did the work in this table was the *meaning* of
+> "unauthorised", not the class/predicate structure. See `STAGE3C.md` P0-4.
 
 ## G. Task preview does not rescue it
 
