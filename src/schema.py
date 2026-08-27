@@ -13,6 +13,8 @@ import conditions_v2 as v2
 import conditions_v3 as v3
 import conditions_v4 as v4
 import routing_blocks as rt
+import conditions_v5 as v5
+import linear_blocks as lb
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
@@ -39,6 +41,12 @@ V4_CONDITIONS = v4.PP_CONDITIONS
 
 # Stage-3B: prospective selective routing over a stream of tagged evidence
 ROUTING_CONDITIONS = rt.ROUTING_CONDITIONS
+
+# Stage-3C adversarial tests
+V5_CONDITIONS = v5.ALL_V5
+
+# P0-2 verifiable linear weighting task (separate item file)
+LINEAR_CONDITIONS = lb.LINEAR_CONDITIONS
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
           "rule_probe_admit_post", "memory_probe_exclude_post",
           "wprobe_pre", "wprobe_post"]
@@ -103,6 +111,11 @@ def _blocks(item: Item, cond: str):
         # the excluded item is simply not in the record the decision is made from
         return [B, ("RECORD NOTE\nOne item of information was ruled inadmissible and has been "
                     "removed from this record. It is not available to you.")]
+    if cond in lb.LINEAR_CONDITIONS:
+        return lb.blocks(item, cond)
+    if cond in v5.ALL_V5:
+        ID_B = "BACKGROUND\n" + item.base_context + "\n" + v2.ID_PREAMBLE
+        return v5.blocks(item, cond, B, E, ID_B)
     if cond in rt.ROUTING_CONDITIONS:
         return rt.blocks(item, cond)
     if cond in v4.PP_CONDITIONS:
@@ -152,8 +165,12 @@ def rule_char_offset(item: Item, cond: str, mode: str = "reasoned"):
 def compile_prompt(item: Item, cond: str, mode: str = "reasoned") -> str:
     """Decision prompt. Contains ONLY the final judgment question."""
     blocks = _blocks(item, cond)
+    tail = ANSWER_FORMATS[mode]
+    if cond in v5.SC_CONDITIONS:
+        # the model must first write the policy state it will act on
+        tail = v5.SC_TWOLINE if not cond.startswith("sc_a") else ANSWER_FORMATS["reasoned"]
     return (_SEP.join(blocks) + _SEP + "TASK\n" + item.question + "\n" + item.output_spec
-            + "\n" + ANSWER_FORMATS[mode])
+            + "\n" + tail)
 
 
 def compile_probe(item: Item, probe: str) -> str:

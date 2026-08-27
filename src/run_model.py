@@ -15,8 +15,11 @@ decode with a strict numeric parse.  No LLM judge is used anywhere.
 """
 import argparse, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
+FORCED_LINE = "ITEM DECISION WEIGHT: 0%\nFINAL DECISION: "
+
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, ROUTING_CONDITIONS, PROBES, ANSWER_CUE,
+                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, PROBES,
+                    ANSWER_CUE,
                     rule_char_offset)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -117,13 +120,19 @@ def main():
 
     recs = []
     for it in items:
-        digit_scale = it.task_family not in ("numeric_aggregation", "selective_routing")
+        digit_scale = it.task_family not in ("numeric_aggregation", "selective_routing",
+                                             "linear_weighting")
         for k in kinds:
             if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS \
                     or k in V3_CONDITIONS or k in V4_CONDITIONS \
-                    or k in ROUTING_CONDITIONS:
+                    or k in ROUTING_CONDITIONS or k in V5_CONDITIONS \
+                    or k in LINEAR_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
+                if k.startswith("sc_b"):
+                    kind = "twoline_gen"       # model writes the weight, then decides
+                elif k.startswith("sc_c"):
+                    kind = "twoline_forced"    # weight is teacher-forced to 0%
             elif k in PROBES:
                 user = compile_probe(it, k)
                 kind = ("memory" if k.startswith("memory")
@@ -144,15 +153,34 @@ def main():
               enforce_eager=args.enforce_eager,
               **({"max_num_seqs": args.max_num_seqs} if args.max_num_seqs else {}))
 
-    dec_kinds = ("digit", "openreal")
+    dec_kinds = ("digit", "openreal", "twoline_gen", "twoline_forced")
     dec = [r for r in recs if r["kind"] in dec_kinds]
     if dec:
+        forced = [r for r in dec if r["kind"] == "twoline_forced"]
+        for r in forced:
+            r["reasoning"], r["reason_truncated"] = "", False
+            r["stated_weight"] = 0.0
+            r["ids2"] = r["ids"] + raw_ids(FORCED_LINE)
+
+        two = [r for r in dec if r["kind"] == "twoline_gen"]
+        if two:
+            outs = llm.generate([tp(r["ids"]) for r in two],
+                                SamplingParams(temperature=0.0, max_tokens=24,
+                                               stop=["FINAL DECISION:"]))
+            for r, o in zip(two, outs):
+                r["reasoning"] = o.outputs[0].text
+                r["reason_truncated"] = o.outputs[0].finish_reason != "stop"
+                r["stated_weight"] = parse_number(o.outputs[0].text)
+                r["ids2"] = r["ids"] + raw_ids(o.outputs[0].text.rstrip()
+                                               + "\nFINAL DECISION: ")
+
+        rest = [r for r in dec if r["kind"] in ("digit", "openreal")]
         if args.mode == "reasoned":
             # Stage 1: greedy rationale, stopped at the answer cue.
             sp1 = SamplingParams(temperature=0.0, max_tokens=args.reason_tokens,
                                  stop=[ANSWER_CUE])
-            outs = llm.generate([tp(r["ids"]) for r in dec], sp1)
-            for r, o in zip(dec, outs):
+            outs = llm.generate([tp(r["ids"]) for r in rest], sp1)
+            for r, o in zip(rest, outs):
                 r["reasoning"] = o.outputs[0].text
                 r["reason_truncated"] = o.outputs[0].finish_reason != "stop"
                 # trailing space: without it the next token is a bare space, not a digit
@@ -160,12 +188,12 @@ def main():
                 r["ids2"] = r["ids"] + raw_ids(cue)
         else:
             cue = raw_ids(ANSWER_CUE + " ") if args.mode == "cued" else []
-            for r in dec:
+            for r in rest:
                 r["reasoning"], r["reason_truncated"] = "", False
                 r["ids2"] = r["ids"] + cue
 
         # Stage 2: read the answer at a fixed position.
-        dig = [r for r in dec if r["kind"] == "digit"]
+        dig = [r for r in dec if r["kind"] in ("digit", "twoline_gen", "twoline_forced")]
         if dig:
             outs = llm.generate([tp(r["ids2"]) for r in dig],
                                 SamplingParams(temperature=0.0, max_tokens=1, logprobs=40))

@@ -6,118 +6,25 @@
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
-[1;36m(EngineCore_DP0 pid=2562701)[0;0m WARNING 08-27 20:50:16 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
-[1;36m(EngineCore_DP0 pid=2562701)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:13<00:54, 13.73s/it]
-[1;36m(EngineCore_DP0 pid=2562701)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:24<00:36, 12.21s/it]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:27<00:15,  7.90s/it]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:28<00:05,  5.11s/it]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:29<00:00,  3.54s/it]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:29<00:00,  5.85s/it]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m 
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708] EngineCore failed to start.
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708] Traceback (most recent call last):
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     engine_core = EngineCoreProc(*args, **kwargs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     super().__init__(vllm_config, executor_class, log_stats,
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     self._initialize_kv_caches(vllm_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 207, in _initialize_kv_caches
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     self.model_executor.initialize_from_config(kv_cache_configs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 73, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     self.collective_rpc("initialize_from_config",
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     return [run_method(self.driver_worker, method, args, kwargs)]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 3122, in run_method
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     return func(*args, **kwargs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]            ^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/worker/worker_base.py", line 254, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     self.worker.initialize_from_config(kv_cache_config)  # type: ignore
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 318, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     self.model_runner.initialize_kv_cache(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3987, in initialize_kv_cache
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     kv_caches = self.initialize_kv_cache_tensors(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3926, in initialize_kv_cache_tensors
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     kv_cache_raw_tensors = self._allocate_kv_cache_tensors(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3772, in _allocate_kv_cache_tensors
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]     tensor = torch.zeros(kv_cache_tensor.size,
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m ERROR 08-27 20:52:07 [core.py:708] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.36 GiB. GPU 0 has a total capacity of 79.14 GiB of which 2.14 GiB is free. Including non-PyTorch memory, this process has 38.04 GiB memory in use. Process 2562701 has 38.92 GiB memory in use. Of the allocated memory 37.51 GiB is allocated by PyTorch, and 14.91 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m Process EngineCore_DP0:
-[1;36m(EngineCore_DP0 pid=2562701)[0;0m Traceback (most recent call last):
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self.run()
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/multiprocessing/process.py", line 108, in run
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self._target(*self._args, **self._kwargs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 712, in run_engine_core
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     raise e
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     super().__init__(vllm_config, executor_class, log_stats,
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self._initialize_kv_caches(vllm_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 207, in _initialize_kv_caches
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self.model_executor.initialize_from_config(kv_cache_configs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 73, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self.collective_rpc("initialize_from_config",
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     return [run_method(self.driver_worker, method, args, kwargs)]
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 3122, in run_method
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     return func(*args, **kwargs)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/worker/worker_base.py", line 254, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self.worker.initialize_from_config(kv_cache_config)  # type: ignore
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 318, in initialize_from_config
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     self.model_runner.initialize_kv_cache(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3987, in initialize_kv_cache
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     kv_caches = self.initialize_kv_cache_tensors(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3926, in initialize_kv_cache_tensors
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     kv_cache_raw_tensors = self._allocate_kv_cache_tensors(kv_cache_config)
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3772, in _allocate_kv_cache_tensors
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m     tensor = torch.zeros(kv_cache_tensor.size,
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[1;36m(EngineCore_DP0 pid=2562704)[0;0m torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.36 GiB. GPU 0 has a total capacity of 79.14 GiB of which 2.14 GiB is free. Including non-PyTorch memory, this process has 38.04 GiB memory in use. Process 2562701 has 38.92 GiB memory in use. Of the allocated memory 37.51 GiB is allocated by PyTorch, and 14.91 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-Traceback (most recent call last):
-  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 233, in <module>
-    main()
-  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 141, in main
-    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
-    self.llm_engine = LLMEngine.from_engine_args(
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
-    return cls(vllm_config=vllm_config,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 114, in __init__
-    self.engine_core = EngineCoreClient.make_client(
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 80, in make_client
-    return SyncMPClient(vllm_config, executor_class, log_stats)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 602, in __init__
-    super().__init__(
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 448, in __init__
-    with launch_core_engines(vllm_config, executor_class,
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/contextlib.py", line 144, in __exit__
-    next(self.gen)
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 732, in launch_core_engines
-    wait_for_engine_startup(
-  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 785, in wait_for_engine_startup
-    raise RuntimeError("Engine core initialization failed. "
-RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
-FAILED: gemma3-12b
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m WARNING 08-27 21:08:18 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.46it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.37it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.34it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:03<00:00,  1.31it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.28it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.31it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m 
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:06, 10.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:05, 11.28it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:05, 11.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:05, 11.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:00<00:04, 11.49it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:01<00:04, 11.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:01<00:04, 11.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:01<00:04, 11.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:01<00:04, 12.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:01<00:03, 12.37it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:01<00:03, 12.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:02<00:03, 12.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:02<00:03, 12.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:02<00:03, 12.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:02<00:02, 13.01it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:02<00:02, 13.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:02<00:02, 13.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:02<00:02, 13.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:03<00:02, 13.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:03<00:01, 13.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:03<00:01, 13.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:03<00:01, 14.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:03<00:01, 14.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:03<00:01, 14.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:03<00:01, 14.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:03<00:01, 14.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:04<00:00, 14.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:04<00:00, 15.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:04<00:00, 15.21it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:04<00:00, 15.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:04<00:00, 15.57it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:04<00:00, 15.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:04<00:00, 15.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:04<00:00, 13.54it/s]
+[1;36m(EngineCore_DP0 pid=2564650)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 2/35 [00:00<00:02, 12.46it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:02, 12.62it/s]Capturing CUDA graphs (decode, FULL):  17%|█▋        | 6/35 [00:00<00:02, 12.86it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:02, 12.86it/s]Capturing CUDA graphs (decode, FULL):  29%|██▊       | 10/35 [00:00<00:01, 13.21it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:00<00:01, 13.38it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 14/35 [00:01<00:01, 13.62it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:01<00:01, 13.73it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:01<00:01, 14.21it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:01<00:01, 14.51it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 22/35 [00:01<00:00, 14.82it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:01<00:00, 15.06it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 26/35 [00:01<00:00, 15.43it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:01<00:00, 15.72it/s]Capturing CUDA graphs (decode, FULL):  86%|████████▌ | 30/35 [00:02<00:00, 16.24it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████▏| 32/35 [00:02<00:00, 16.58it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 34/35 [00:02<00:00, 16.92it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:02<00:00, 14.84it/s]
+Adding requests:   0%|          | 0/192 [00:00<?, ?it/s]Adding requests: 100%|██████████| 192/192 [00:00<00:00, 5450.65it/s]
+Processed prompts:   0%|          | 0/192 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   1%|          | 1/192 [00:04<13:52,  4.36s/it, est. speed input: 43.14 toks/s, output: 4.82 toks/s]Processed prompts:   1%|          | 2/192 [00:04<05:55,  1.87s/it, est. speed input: 124.67 toks/s, output: 9.35 toks/s]Processed prompts:   3%|▎         | 6/192 [00:04<01:29,  2.08it/s, est. speed input: 284.67 toks/s, output: 29.64 toks/s]Processed prompts:  12%|█▏        | 23/192 [00:04<00:15, 10.99it/s, est. speed input: 915.90 toks/s, output: 125.00 toks/s]Processed prompts:  16%|█▌        | 30/192 [00:05<00:10, 14.87it/s, est. speed input: 1094.56 toks/s, output: 163.09 toks/s]Processed prompts:  22%|██▏       | 42/192 [00:05<00:06, 23.85it/s, est. speed input: 1393.60 toks/s, output: 232.72 toks/s]Processed prompts:  31%|███▏      | 60/192 [00:05<00:03, 40.51it/s, est. speed input: 1870.88 toks/s, output: 341.04 toks/s]Processed prompts:  41%|████      | 78/192 [00:05<00:01, 58.99it/s, est. speed input: 2393.01 toks/s, output: 451.82 toks/s]Processed prompts:  47%|████▋     | 91/192 [00:05<00:01, 66.15it/s, est. speed input: 2774.90 toks/s, output: 528.81 toks/s]Processed prompts:  54%|█████▎    | 103/192 [00:05<00:01, 71.65it/s, est. speed input: 3171.97 toks/s, output: 601.24 toks/s]Processed prompts:  59%|█████▉    | 114/192 [00:05<00:01, 75.09it/s, est. speed input: 3453.95 toks/s, output: 671.94 toks/s]Processed prompts:  65%|██████▍   | 124/192 [00:05<00:00, 77.01it/s, est. speed input: 3692.67 toks/s, output: 736.90 toks/s]Processed prompts:  70%|██████▉   | 134/192 [00:06<00:00, 68.82it/s, est. speed input: 3949.72 toks/s, output: 796.40 toks/s]Processed prompts:  74%|███████▍  | 143/192 [00:06<00:00, 56.15it/s, est. speed input: 4178.32 toks/s, output: 846.08 toks/s]Processed prompts:  81%|████████▏ | 156/192 [00:06<00:00, 69.94it/s, est. speed input: 4644.04 toks/s, output: 956.02 toks/s]Processed prompts:  86%|████████▌ | 165/192 [00:06<00:00, 63.80it/s, est. speed input: 4882.71 toks/s, output: 1019.83 toks/s]Processed prompts:  91%|█████████ | 175/192 [00:06<00:00, 70.30it/s, est. speed input: 5166.21 toks/s, output: 1109.01 toks/s]Processed prompts:  96%|█████████▌| 184/192 [00:07<00:00, 50.02it/s, est. speed input: 5334.40 toks/s, output: 1160.91 toks/s]Processed prompts:  99%|█████████▉| 191/192 [00:07<00:00, 31.17it/s, est. speed input: 5287.76 toks/s, output: 1171.26 toks/s]Processed prompts: 100%|██████████| 192/192 [00:07<00:00, 31.17it/s, est. speed input: 5323.48 toks/s, output: 1185.84 toks/s]Processed prompts: 100%|██████████| 192/192 [00:07<00:00, 25.52it/s, est. speed input: 5323.48 toks/s, output: 1185.84 toks/s]
+Adding requests:   0%|          | 0/192 [00:00<?, ?it/s]Adding requests: 100%|██████████| 192/192 [00:00<00:00, 6327.29it/s]
+Processed prompts:   0%|          | 0/192 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   1%|          | 1/192 [00:00<01:42,  1.86it/s, est. speed input: 282.90 toks/s, output: 9.31 toks/s]Processed prompts:  68%|██████▊   | 130/192 [00:00<00:00, 267.65it/s, est. speed input: 48120.34 toks/s, output: 1006.52 toks/s]Processed prompts: 100%|██████████| 192/192 [00:00<00:00, 267.65it/s, est. speed input: 73904.38 toks/s, output: 1540.23 toks/s]Processed prompts: 100%|██████████| 192/192 [00:00<00:00, 288.42it/s, est. speed input: 73904.38 toks/s, output: 1540.23 toks/s]
+Adding requests:   0%|          | 0/96 [00:00<?, ?it/s]Adding requests: 100%|██████████| 96/96 [00:00<00:00, 4368.07it/s]
+Processed prompts:   0%|          | 0/96 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   1%|          | 1/96 [00:00<00:15,  6.28it/s, est. speed input: 1068.38 toks/s, output: 6.28 toks/s]Processed prompts:   2%|▏         | 2/96 [00:01<01:00,  1.56it/s, est. speed input: 299.56 toks/s, output: 1.76 toks/s] Processed prompts:  71%|███████   | 68/96 [00:01<00:00, 44.53it/s, est. speed input: 7161.78 toks/s, output: 36.12 toks/s]Processed prompts: 100%|██████████| 96/96 [00:01<00:00, 44.53it/s, est. speed input: 12004.05 toks/s, output: 50.96 toks/s]Processed prompts: 100%|██████████| 96/96 [00:01<00:00, 50.95it/s, est. speed input: 12004.05 toks/s, output: 50.96 toks/s]
+wrote 288 rows -> results/raw/gemma3-12b_routing.jsonl
+  decisions 192 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 3)
+  rule probes 96 (mean YES/NO mass 1.000)
 ROUTE gemma3-12b DONE
