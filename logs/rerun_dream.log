@@ -1,0 +1,13 @@
+=== dream-7b (shift 1) ===
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 101.55it/s]
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  20/123
+  40/123
+  60/123
+  80/123
+  100/123
+  120/123
+wrote 1476 -> results/raw/dream-7b_cued.jsonl
+  digit rows 1107, mean digit mass 0.292
+  rule rows 369, mean YES/NO mass 0.680
+DREAM DONE

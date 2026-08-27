@@ -58,10 +58,11 @@ def run(model, tok, prompt, dids, attn4d=None, want_attn=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--model", default="Qwen/Qwen3-8B")
     ap.add_argument("--out", default=os.path.join(ROOT, "results", "mech", "experiments.json"))
     args = ap.parse_args()
 
-    tok, model = load_model()
+    tok, model = load_model(args.model)
     dids = digit_ids(tok).to(model.device)
     layers = model.model.layers
     nL = len(layers)

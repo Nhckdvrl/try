@@ -1,0 +1,549 @@
+=== mistral main (retry) ===
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  10% Completed | 1/10 [07:49<1:10:26, 469.57s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  20% Completed | 2/10 [07:50<25:51, 193.94s/it]
+(EngineCore pid=3395011)   Loading safetensors checkpoint shards:  30% Completed | 3/10 [07:51<12:20, 105.86s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  40% Completed | 4/10 [07:52<06:26, 64.49s/it]
+(EngineCore pid=3395011)  Loading safetensors checkpoint shards:  50% Completed | 5/10 [07:53<03:28, 41.63s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  60% Completed | 6/10 [07:54<01:51, 27.84s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  70% Completed | 7/10 [07:55<00:57, 19.09s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  80% Completed | 8/10 [07:56<00:26, 13.35s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards:  90% Completed | 9/10 [07:58<00:09,  9.52s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards: 100% Completed | 10/10 [07:59<00:00,  6.89s/it]
+(EngineCore pid=3395011) Loading safetensors checkpoint shards: 100% Completed | 10/10 [07:59<00:00, 47.91s/it]
+(EngineCore pid=3395011) 
+(EngineCore pid=3395011) 2026-08-27 18:34:49,005 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=3395011) 2026-08-27 18:34:49,220 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     super().__init__(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 626, in compile_or_warm_up_model
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     kernel_warmup(self)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 74, in kernel_warmup
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     flashinfer_autotune(worker.model_runner)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 133, in flashinfer_autotune
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     runner._dummy_run(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     result = fn(self, *args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 539, in _dummy_run
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     self.execute_model(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1276, in execute_model
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     model_output = self.model(**model_inputs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self._call_impl(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return forward_call(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/llama.py", line 560, in forward
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     model_output = self.model(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                    ^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 520, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.aot_compiled_fn(self, *args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/aot_compile.py", line 224, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.fn(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/mistral.py", line 217, in forward
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     def forward(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/caching.py", line 217, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.optimized_call(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "<string>", line 225, in execution_fn
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py", line 254, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.runnable(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/piecewise_backend.py", line 380, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return range_entry.runnable(*args)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 122, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self._compiled_fn(*args)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return fn(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/aot_autograd.py", line 1200, in forward
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return compiled_fn(full_args)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 580, in runtime_wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     all_outs = call_func_at_runtime_with_args(
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     out = normalize_as_list(f(args))
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]                             ^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2298, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.compiled_fn(*args, **kwargs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return compiled_fn(runtime_args)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 1011, in inner_fn
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     outs = compiled_fn(args)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     return self.current_callable(inputs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     out = model(new_inputs)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]           ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]   File "/home/xiang/.cache/vllm/torch_compile_cache/torch_aot_compile/5453bea6d25967a698b6162152110e6863a0a67a30c85302bb3e934e499b5e6b/inductor_cache/fv/cfvp3xfdhd5uv6zmrfn7mlwydk4bz6mqvoi2fk7xifuen6g3sear.py", line 924, in call
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]     buf4 = empty_strided_cuda((s72, 32768), (32768, 1), torch.bfloat16)
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) ERROR 08-27 18:34:49 [core.py:1195] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 1.07 GiB is free. Process 25306 has 7.55 GiB memory in use. Including non-PyTorch memory, this process has 86.31 GiB memory in use. Of the allocated memory 84.88 GiB is allocated by PyTorch, and 745.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+(EngineCore pid=3395011) Process EngineCore:
+(EngineCore pid=3395011) Traceback (most recent call last):
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3395011)     self.run()
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3395011)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=3395011)     raise e
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3395011)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3395011)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3395011)     super().__init__(
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3395011)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3395011)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3395011)     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3395011)     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3395011)                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3395011)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3395011)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 626, in compile_or_warm_up_model
+(EngineCore pid=3395011)     kernel_warmup(self)
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 74, in kernel_warmup
+(EngineCore pid=3395011)     flashinfer_autotune(worker.model_runner)
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 133, in flashinfer_autotune
+(EngineCore pid=3395011)     runner._dummy_run(
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3395011)     result = fn(self, *args, **kwargs)
+(EngineCore pid=3395011)              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 539, in _dummy_run
+(EngineCore pid=3395011)     self.execute_model(
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3395011)     return func(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1276, in execute_model
+(EngineCore pid=3395011)     model_output = self.model(**model_inputs)
+(EngineCore pid=3395011)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+(EngineCore pid=3395011)     return self._call_impl(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+(EngineCore pid=3395011)     return forward_call(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/llama.py", line 560, in forward
+(EngineCore pid=3395011)     model_output = self.model(
+(EngineCore pid=3395011)                    ^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 520, in __call__
+(EngineCore pid=3395011)     return self.aot_compiled_fn(self, *args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/aot_compile.py", line 224, in __call__
+(EngineCore pid=3395011)     return self.fn(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/mistral.py", line 217, in forward
+(EngineCore pid=3395011)     def forward(
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/caching.py", line 217, in __call__
+(EngineCore pid=3395011)     return self.optimized_call(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "<string>", line 225, in execution_fn
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py", line 254, in __call__
+(EngineCore pid=3395011)     return self.runnable(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/piecewise_backend.py", line 380, in __call__
+(EngineCore pid=3395011)     return range_entry.runnable(*args)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 122, in __call__
+(EngineCore pid=3395011)     return self._compiled_fn(*args)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+(EngineCore pid=3395011)     return fn(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/aot_autograd.py", line 1200, in forward
+(EngineCore pid=3395011)     return compiled_fn(full_args)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 580, in runtime_wrapper
+(EngineCore pid=3395011)     all_outs = call_func_at_runtime_with_args(
+(EngineCore pid=3395011)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+(EngineCore pid=3395011)     out = normalize_as_list(f(args))
+(EngineCore pid=3395011)                             ^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2298, in __call__
+(EngineCore pid=3395011)     return self.compiled_fn(*args, **kwargs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+(EngineCore pid=3395011)     return compiled_fn(runtime_args)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 1011, in inner_fn
+(EngineCore pid=3395011)     outs = compiled_fn(args)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+(EngineCore pid=3395011)     return self.current_callable(inputs)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+(EngineCore pid=3395011)     out = model(new_inputs)
+(EngineCore pid=3395011)           ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011)   File "/home/xiang/.cache/vllm/torch_compile_cache/torch_aot_compile/5453bea6d25967a698b6162152110e6863a0a67a30c85302bb3e934e499b5e6b/inductor_cache/fv/cfvp3xfdhd5uv6zmrfn7mlwydk4bz6mqvoi2fk7xifuen6g3sear.py", line 924, in call
+(EngineCore pid=3395011)     buf4 = empty_strided_cuda((s72, 32768), (32768, 1), torch.bfloat16)
+(EngineCore pid=3395011)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3395011) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 1.07 GiB is free. Process 25306 has 7.55 GiB memory in use. Including non-PyTorch memory, this process has 86.31 GiB memory in use. Of the allocated memory 84.88 GiB is allocated by PyTorch, and 745.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 211, in <module>
+    
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 130, in main
+    kind=kind, ids=chat_ids(user)))
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: mistral main
+=== mistral cued (retry) ===
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:00<00:07,  1.14it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:01<00:07,  1.07it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:02<00:06,  1.07it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:03<00:05,  1.08it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:04<00:04,  1.11it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:05<00:03,  1.13it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:06<00:02,  1.12it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:07<00:01,  1.07it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:08<00:00,  1.02it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:09<00:00,  1.03it/s]
+(EngineCore pid=3423546) Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:09<00:00,  1.07it/s]
+(EngineCore pid=3423546) 
+(EngineCore pid=3423546) 2026-08-27 18:38:09,350 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=3423546) 2026-08-27 18:38:09,546 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     super().__init__(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 626, in compile_or_warm_up_model
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     kernel_warmup(self)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 74, in kernel_warmup
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     flashinfer_autotune(worker.model_runner)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 133, in flashinfer_autotune
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     runner._dummy_run(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     result = fn(self, *args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 539, in _dummy_run
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     self.execute_model(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1276, in execute_model
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     model_output = self.model(**model_inputs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self._call_impl(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return forward_call(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/llama.py", line 560, in forward
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     model_output = self.model(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                    ^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 520, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self.aot_compiled_fn(self, *args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/aot_compile.py", line 224, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self.fn(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/mistral.py", line 217, in forward
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     def forward(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/caching.py", line 217, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self.optimized_call(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "<string>", line 225, in execution_fn
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py", line 254, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self.runnable(*args, **kwargs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/piecewise_backend.py", line 380, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return range_entry.runnable(*args)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/compiler_interface.py", line 437, in compiled_graph_wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     graph_output = inductor_compiled_graph(*args)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 122, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self._compiled_fn(*args)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 236, in <lambda>
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return CacheCompiledArtifact(lambda *args: compiled_fn(list(args)), None)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                                                ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 580, in runtime_wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     all_outs = call_func_at_runtime_with_args(
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     out = normalize_as_list(f(args))
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]                             ^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return compiled_fn(runtime_args)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     return self.current_callable(inputs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     out = model(new_inputs)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]           ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]   File "/home/xiang/.cache/vllm/torch_compile_cache/torch_aot_compile/5453bea6d25967a698b6162152110e6863a0a67a30c85302bb3e934e499b5e6b/inductor_cache/fv/cfvp3xfdhd5uv6zmrfn7mlwydk4bz6mqvoi2fk7xifuen6g3sear.py", line 924, in call
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]     buf4 = empty_strided_cuda((s72, 32768), (32768, 1), torch.bfloat16)
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) ERROR 08-27 18:38:09 [core.py:1195] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 1.07 GiB is free. Process 25306 has 7.55 GiB memory in use. Including non-PyTorch memory, this process has 86.31 GiB memory in use. Of the allocated memory 84.88 GiB is allocated by PyTorch, and 745.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+(EngineCore pid=3423546) Process EngineCore:
+(EngineCore pid=3423546) Traceback (most recent call last):
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3423546)     self.run()
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3423546)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=3423546)     raise e
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3423546)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3423546)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3423546)     super().__init__(
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3423546)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3423546)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3423546)     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3423546)     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3423546)                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3423546)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3423546)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 626, in compile_or_warm_up_model
+(EngineCore pid=3423546)     kernel_warmup(self)
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 74, in kernel_warmup
+(EngineCore pid=3423546)     flashinfer_autotune(worker.model_runner)
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 133, in flashinfer_autotune
+(EngineCore pid=3423546)     runner._dummy_run(
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3423546)     result = fn(self, *args, **kwargs)
+(EngineCore pid=3423546)              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 539, in _dummy_run
+(EngineCore pid=3423546)     self.execute_model(
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3423546)     return func(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1276, in execute_model
+(EngineCore pid=3423546)     model_output = self.model(**model_inputs)
+(EngineCore pid=3423546)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+(EngineCore pid=3423546)     return self._call_impl(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+(EngineCore pid=3423546)     return forward_call(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/llama.py", line 560, in forward
+(EngineCore pid=3423546)     model_output = self.model(
+(EngineCore pid=3423546)                    ^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/decorators.py", line 520, in __call__
+(EngineCore pid=3423546)     return self.aot_compiled_fn(self, *args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_dynamo/aot_compile.py", line 224, in __call__
+(EngineCore pid=3423546)     return self.fn(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/model_executor/models/mistral.py", line 217, in forward
+(EngineCore pid=3423546)     def forward(
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/caching.py", line 217, in __call__
+(EngineCore pid=3423546)     return self.optimized_call(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "<string>", line 225, in execution_fn
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py", line 254, in __call__
+(EngineCore pid=3423546)     return self.runnable(*args, **kwargs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/piecewise_backend.py", line 380, in __call__
+(EngineCore pid=3423546)     return range_entry.runnable(*args)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/compilation/compiler_interface.py", line 437, in compiled_graph_wrapper
+(EngineCore pid=3423546)     graph_output = inductor_compiled_graph(*args)
+(EngineCore pid=3423546)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 122, in __call__
+(EngineCore pid=3423546)     return self._compiled_fn(*args)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/standalone_compile.py", line 236, in <lambda>
+(EngineCore pid=3423546)     return CacheCompiledArtifact(lambda *args: compiled_fn(list(args)), None)
+(EngineCore pid=3423546)                                                ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 580, in runtime_wrapper
+(EngineCore pid=3423546)     all_outs = call_func_at_runtime_with_args(
+(EngineCore pid=3423546)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+(EngineCore pid=3423546)     out = normalize_as_list(f(args))
+(EngineCore pid=3423546)                             ^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+(EngineCore pid=3423546)     return compiled_fn(runtime_args)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+(EngineCore pid=3423546)     return self.current_callable(inputs)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+(EngineCore pid=3423546)     out = model(new_inputs)
+(EngineCore pid=3423546)           ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546)   File "/home/xiang/.cache/vllm/torch_compile_cache/torch_aot_compile/5453bea6d25967a698b6162152110e6863a0a67a30c85302bb3e934e499b5e6b/inductor_cache/fv/cfvp3xfdhd5uv6zmrfn7mlwydk4bz6mqvoi2fk7xifuen6g3sear.py", line 924, in call
+(EngineCore pid=3423546)     buf4 = empty_strided_cuda((s72, 32768), (32768, 1), torch.bfloat16)
+(EngineCore pid=3423546)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3423546) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 1.07 GiB is free. Process 25306 has 7.55 GiB memory in use. Including non-PyTorch memory, this process has 86.31 GiB memory in use. Of the allocated memory 84.88 GiB is allocated by PyTorch, and 745.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 214, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 132, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: mistral cued
+MISTRAL DONE

@@ -96,6 +96,10 @@ ANSWER_FORMATS = {
     # answer and emit the opposite digit when forced to answer immediately, so this is
     # kept only for the mechanism experiments.
     "direct": "Output only the answer and nothing else.",
+    # Same fixed readout position as `direct`, but with the answer cue written into
+    # the prompt so that a causal LM and a masked diffusion LM can be read at the
+    # identical position.
+    "cued": "Reply with the answer only, in exactly this form:\nANSWER: <your answer>",
     # Primary readout: a short, greedily decoded rationale, then the answer is read off
     # the next-token distribution at a fixed position.
     "reasoned": ("Think in at most two short sentences. Then write a final line of exactly "

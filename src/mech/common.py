@@ -28,9 +28,12 @@ def load_model(model=MODEL, device="cuda"):
 def mech_prompt(tok, item, cond):
     """Decision prompt in `direct` mode, ending at a fixed answer cue."""
     user = compile_prompt(item, cond, mode="direct")
-    text = tok.apply_chat_template(
-        [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
-        tokenize=False, add_generation_prompt=True, enable_thinking=False)
+    msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
+    kw = dict(tokenize=False, add_generation_prompt=True)
+    try:
+        text = tok.apply_chat_template(msgs, enable_thinking=False, **kw)
+    except TypeError:
+        text = tok.apply_chat_template(msgs, **kw)
     return text + ANSWER_CUE + " "
 
 

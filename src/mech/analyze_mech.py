@@ -3,7 +3,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from analyze import boot_ci, boot_p, wins
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
-d = json.load(open(os.path.join(ROOT, "results", "mech", "experiments.json")))
+SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "results", "mech", "experiments.json")
+TAG = sys.argv[2] if len(sys.argv) > 2 else "Qwen3-8B"
+d = json.load(open(SRC))
 nL, recs = d["n_layers"], d["records"]
 
 use = []
@@ -18,7 +20,7 @@ for r in recs:
     r["rei"] = lambda v, r=r: r["s"] * (v - r["y"]["base"]) / abs(r["L"])
     use.append(r)
 
-out = ["# Mechanism — Qwen3-8B (legal_judgment + evidence_inference)", "",
+out = [f"# Mechanism — {TAG} (legal_judgment + evidence_inference)", "",
        f"{len(use)} of {len(recs)} items have usable leverage under the fixed-position readout.",
        "REI: 0 = as if the evidence had never been seen, 1 = used as if admitted.", ""]
 
@@ -100,4 +102,4 @@ out.append(f"  median layer at which patching first recovers >=50% of the gap: {
 
 txt = "\n".join(out)
 print(txt)
-open(os.path.join(ROOT, "results", "mech", "mechanism_report.md"), "w").write(txt + "\n")
+open(SRC.replace(".json", "_report.md"), "w").write(txt + "\n")

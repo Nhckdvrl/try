@@ -76,8 +76,13 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--tp", type=int, default=1)
     ap.add_argument("--gpu-frac", type=float, default=0.85)
+    # hybrid Mamba models allocate one recurrent-state block per decode sequence,
+    # so the default scheduler width can exceed what fits
+    ap.add_argument("--max-num-seqs", type=int, default=0)
+    ap.add_argument("--enforce-eager", action="store_true",
+                    help="skip CUDA graph capture (saves memory on large hybrid models)")
     ap.add_argument("--max-model-len", type=int, default=2048)
-    ap.add_argument("--mode", default="reasoned", choices=["reasoned", "direct"])
+    ap.add_argument("--mode", default="reasoned", choices=["reasoned", "direct", "cued"])
     ap.add_argument("--reason-tokens", type=int, default=110)
     args = ap.parse_args()
 
@@ -91,13 +96,23 @@ def main():
     from vllm import LLM, SamplingParams
     tok = AutoTokenizer.from_pretrained(args.model)
 
-    def chat(user):
-        kw = dict(tokenize=False, add_generation_prompt=True)
+    # Prompts are carried as token ids, not text: several chat templates emit their
+    # own BOS, and passing the rendered string to vLLM would add a second one.
+    def chat_ids(user):
+        kw = dict(tokenize=True, add_generation_prompt=True)
         msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
         try:
-            return tok.apply_chat_template(msgs, enable_thinking=False, **kw)
+            enc = tok.apply_chat_template(msgs, enable_thinking=False, **kw)
         except TypeError:
-            return tok.apply_chat_template(msgs, **kw)
+            enc = tok.apply_chat_template(msgs, **kw)
+        ids = enc["input_ids"] if hasattr(enc, "keys") else enc
+        return list(ids[0]) if ids and isinstance(ids[0], (list, tuple)) else list(ids)
+
+    def raw_ids(text):
+        return tok(text, add_special_tokens=False)["input_ids"]
+
+    def tp(ids):
+        return {"prompt_token_ids": list(ids)}
 
     recs = []
     for it in items:
@@ -112,11 +127,13 @@ def main():
             else:
                 raise SystemExit(f"unknown kind {k}")
             recs.append(dict(item_id=it.item_id, task_family=it.task_family, kind_name=k,
-                             kind=kind, prompt=chat(user)))
+                             kind=kind, ids=chat_ids(user)))
 
     llm = LLM(model=args.model, tensor_parallel_size=args.tp,
               gpu_memory_utilization=args.gpu_frac, max_model_len=args.max_model_len,
-              dtype="bfloat16", max_logprobs=40, disable_log_stats=True)
+              dtype="bfloat16", max_logprobs=40, disable_log_stats=True,
+              enforce_eager=args.enforce_eager,
+              **({"max_num_seqs": args.max_num_seqs} if args.max_num_seqs else {}))
 
     dec_kinds = ("digit", "openreal")
     dec = [r for r in recs if r["kind"] in dec_kinds]
@@ -125,22 +142,23 @@ def main():
             # Stage 1: greedy rationale, stopped at the answer cue.
             sp1 = SamplingParams(temperature=0.0, max_tokens=args.reason_tokens,
                                  stop=[ANSWER_CUE])
-            outs = llm.generate([r["prompt"] for r in dec], sp1)
+            outs = llm.generate([tp(r["ids"]) for r in dec], sp1)
             for r, o in zip(dec, outs):
                 r["reasoning"] = o.outputs[0].text
                 r["reason_truncated"] = o.outputs[0].finish_reason != "stop"
                 # trailing space: without it the next token is a bare space, not a digit
-                r["prompt2"] = (r["prompt"] + o.outputs[0].text.rstrip()
-                                + "\n" + ANSWER_CUE + " ")
+                cue = o.outputs[0].text.rstrip() + "\n" + ANSWER_CUE + " "
+                r["ids2"] = r["ids"] + raw_ids(cue)
         else:
+            cue = raw_ids(ANSWER_CUE + " ") if args.mode == "cued" else []
             for r in dec:
                 r["reasoning"], r["reason_truncated"] = "", False
-                r["prompt2"] = r["prompt"]
+                r["ids2"] = r["ids"] + cue
 
         # Stage 2: read the answer at a fixed position.
         dig = [r for r in dec if r["kind"] == "digit"]
         if dig:
-            outs = llm.generate([r["prompt2"] for r in dig],
+            outs = llm.generate([tp(r["ids2"]) for r in dig],
                                 SamplingParams(temperature=0.0, max_tokens=1, logprobs=40))
             for r, o in zip(dig, outs):
                 r["raw"] = o.outputs[0].text
@@ -148,7 +166,7 @@ def main():
                 r["readout"] = "digit_expectation_0_100"
         opn = [r for r in dec if r["kind"] == "openreal"]
         if opn:
-            outs = llm.generate([r["prompt2"] for r in opn],
+            outs = llm.generate([tp(r["ids2"]) for r in opn],
                                 SamplingParams(temperature=0.0, max_tokens=12))
             for r, o in zip(opn, outs):
                 r["raw"] = o.outputs[0].text
@@ -157,7 +175,7 @@ def main():
 
     rul = [r for r in recs if r["kind"] == "rule"]
     if rul:
-        outs = llm.generate([r["prompt"] for r in rul],
+        outs = llm.generate([tp(r["ids"]) for r in rul],
                             SamplingParams(temperature=0.0, max_tokens=1, logprobs=40))
         for r, o in zip(rul, outs):
             r["raw"] = o.outputs[0].text
@@ -167,7 +185,7 @@ def main():
 
     mem = [r for r in recs if r["kind"] == "memory"]
     if mem:
-        outs = llm.generate([r["prompt"] for r in mem],
+        outs = llm.generate([tp(r["ids"]) for r in mem],
                             SamplingParams(temperature=0.0, max_tokens=48))
         for r, o in zip(mem, outs):
             r["raw"] = o.outputs[0].text
@@ -176,7 +194,8 @@ def main():
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w") as f:
         for r in recs:
-            r.pop("prompt"); r.pop("prompt2", None)
+            r["n_prompt_tokens"] = len(r.pop("ids"))
+            r.pop("ids2", None)
             r["model_tag"] = args.tag
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
