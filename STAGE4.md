@@ -53,3 +53,74 @@ the natural way to express an information-flow constraint in an agent, and it is
 the form that fails. What works is either stating the content the policy is about
 — which requires knowing it in advance, defeating the purpose — or re-asserting
 the policy after the documents arrive.
+
+
+---
+
+# Stage 4A deconfounded
+
+The `proposition policy` condition puts the forbidden content in front of the
+model before the tool returns anything, so a raw REI on the retrieved document
+credits that policy for its own effect. Following Stage 3E, everything is
+re-measured in raw rating points against the policy's own baseline:
+
+```
+PolicyMentionEffect(P) = s [ Y(P, no document)  − Y(base) ]
+ToolMarginal(P)        = s [ Y(P, document)     − Y(P, no document) ]
+AgentExclusionEffect   = ToolMarginal(no policy) − ToolMarginal(P)
+```
+
+`ToolMarginal` is what the retrieved document actually adds, given the policy is
+already there.
+
+| model | no policy | ID-only policy | + gist | + full proposition | policy endorses D7 |
+|---|---|---|---|---|---|
+| Qwen3-8B | +24.6 | +24.9 (**AEE −0.3**, p=0.85) | +29.3 (−4.8) | +14.2 (**+10.3**, p<1e-4) | +27.2 |
+| Gemma-3-12B | +29.2 | +13.3 (**+15.8**, p<1e-4) | +24.2 (+4.9) | +11.8 (**+17.4**, p<1e-4) | +34.1 |
+| Phi-4-mini | +23.2 | +21.6 (+1.6, p=0.18) | +17.8 (+5.4) | +11.9 (**+11.3**, p<1e-4) | +23.4 |
+| Qwen3.5-27B | +39.1 | +17.2 (**+21.9**, p<1e-4) | +23.0 (+16.1) | +27.0 (+12.1) | +42.6 |
+
+The `PolicyMentionEffect` column (not shown) is small everywhere — at most +7.2
+points for Phi-4-mini's proposition policy — so the policy text is not doing the
+work by itself.
+
+Deconfounding sharpens rather than softens the headline. **A system-level policy
+that names only the document identifier removes essentially none of the
+document's influence in Qwen3-8B (−0.3) and Phi-4-mini (+1.6).** Gemma-3-12B and
+Qwen3.5-27B do act on it. Adding the proposition helps in three of four models;
+Qwen3.5-27B is the exception, where the identifier-only policy is its better one.
+
+## What the policy is addressed to
+
+`ToolMarginal` for each policy against each retrieved document:
+
+| model | policy | D7, its proposition | D7, paraphrased | D7, a **different** proposition | **D9**, its proposition |
+|---|---|---|---|---|---|
+| Qwen3-8B | ID-only | +24.9 | +25.8 | +23.5 | +23.9 |
+| | proposition | **+14.2** | +18.0 | +21.8 | **+12.3** |
+| Gemma-3-12B | ID-only | +13.3 | +10.6 | **+12.6** | +28.9 |
+| | proposition | **+11.8** | +9.9 | +13.2 | **+10.8** |
+| Phi-4-mini | ID-only | +21.6 | +14.0 | +21.7 | +23.2 |
+| | proposition | **+11.9** | +12.2 | +14.5 | **+11.8** |
+| Qwen3.5-27B | ID-only | +17.2 | +16.3 | +16.5 | +36.5 |
+| | proposition | +27.0 | +28.5 | +31.8 | +29.0 |
+
+Two readings, both uniform across all four models:
+
+* **An identifier-only policy gives no protection at all when the same content
+  arrives under a different label.** The `D9` column for ID-only policies is at
+  or above the no-policy baseline in every model: +23.9 vs +24.6, +28.9 vs +29.2,
+  +23.2 vs +23.2, +36.5 vs +39.1.
+* **A policy that states the proposition protects `D9` exactly as well as it
+  protects the document it names** (+12.3 vs +14.2; +10.8 vs +11.8; +11.8 vs
+  +11.9; +29.0 vs +27.0), even though `D9` is not the document the policy is
+  about.
+
+Gemma-3-12B is the informative special case: its identifier policy genuinely is
+identifier-addressed — it suppresses whatever carries the label `D7`, including a
+document with a completely different proposition (+12.6), and fails on `D9`
+(+28.9). The other three either ignore the identifier policy entirely or, with a
+proposition policy, track the content.
+
+This is the Stage-3D content-versus-identifier result reproduced in an agent, with
+the policy in the system message and the document arriving from a tool.

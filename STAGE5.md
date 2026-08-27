@@ -106,5 +106,33 @@ Gemma-3-12B and Phi-4-mini show the effect under the *reasoned* readout
 (Stage 3E: Gemma's matched-preview ExclusionEffect is +14.1 against +8.7 for an
 unrelated preview) but not under the fixed-position readout, so patching them
 would have nothing to localise. That is a readout limitation, not evidence that
-they lack the mechanism. Mistral-Small-24B does show it and is the replication
-target; that run is in progress.
+they lack the mechanism. Mistral-Small-24B does show it, and is the replication target.
+
+### Mistral-Small-24B replicates the localisation, and rescues where Qwen does not
+
+40 layers, 45 items, 36 with a gap ≥ 2 points. Behavioural gap +18.2
+[+10.0, +26.9]; interaction −20.0 [−28.4, −11.6] — both close to Qwen3-8B's.
+Rule-span transfer in sign-aligned rating points:
+
+| layer | relative depth | SUCCESS → FAILURE | FAILURE → SUCCESS |
+|---:|---:|---|---|
+| 8 | 0.20 | +1.1 [−1.6, +4.8] | +12.5 [+8.3, +16.8] |
+| 10 | 0.25 | −1.7 [−5.2, +2.4] | +15.8 [+11.1, +21.1] |
+| 12 | 0.30 | **−8.1 [−14.9, −2.6]** | **+18.3 [+12.6, +24.5]** |
+| 14 | 0.35 | **−16.1 [−24.2, −9.0]** | **+17.7 [+12.5, +23.1]** |
+| 16 | 0.40 | **−9.3 [−16.1, −3.9]** | +2.9 [+1.2, +4.9] |
+| 18 | 0.45 | −0.3 [−0.8, +0.2] | +0.2 [−0.2, +0.5] |
+| 20-38 | 0.50-0.95 | ≈ 0 | ≈ 0 |
+
+Three properties replicate exactly:
+
+* a rule-span causal effect confined to the **middle of the network** — depth
+  0.30–0.40 here against 0.39–0.50 for Qwen3-8B — and nothing at all above it;
+* it is present **before the evidence the decision reads has been processed**;
+* **breaking is complete**: +18.3 points against a behavioural gap of +18.2.
+
+One property does not. **Rescue is also nearly complete in Mistral** (−16.1
+against a gap of +18.2, roughly 88%) where in Qwen3-8B it was ~15%. So the
+asymmetry between destroying and creating the suppression state is a property of
+Qwen3-8B, not a general one. What generalises across the two architectures is the
+localisation and the necessity, not the insufficiency.

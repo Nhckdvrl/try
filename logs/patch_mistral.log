@@ -1,0 +1,13 @@
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading weights:   0%|          | 0/363 [00:00<?, ?it/s]Loading weights: 100%|██████████| 363/363 [00:00<00:00, 9352.97it/s]
+45 items, 40 layers, patching 20
+  5/45
+  10/45
+  15/45
+  20/45
+  25/45
+  30/45
+  35/45
+  40/45
+  45/45
+wrote 45 -> results/mech/patch_matched_mistral-small-24b.json
