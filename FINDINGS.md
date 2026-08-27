@@ -136,10 +136,112 @@ ones (`admit_pre` / `admit_post` REI = 1.011 / 0.989 for LLaDA and 1.022 / 0.978
 for Dream; digit mass 0.945 and 0.998; median |L| 29 and 21). Dream shows the
 *largest* asymmetry in the whole comparison.
 
-So the asymmetry is not a consequence of the causal mask. It is a learned prior
-that an instruction governs what follows it — one that survives the removal of
-the architectural constraint that would explain it. The attention correlate
-measured on Qwen3-8B below is a symptom of that prior, not its cause.
+**What this establishes, and what it does not.** The asymmetry persists under
+bidirectional prompt attention, which rules out causal masking as a *necessary*
+explanation: this is not an architectural irreversibility. That is the whole of
+the claim. It moves the explanation from architectural impossibility toward
+learned or representational properties of instruction binding and contextual
+control — but it does not identify which. Bidirectional attention still leaves
+text order, positional encodings, directional anaphora ("the preceding evidence"
+vs "the following evidence"), and instruction-tuning distribution intact. Three
+accounts remain live and this experiment separates none of them:
+
+* **H-A, decision proximity.** Instructions nearer the answer are weighted more.
+  The `exclude_pre_repeat` rescue is consistent with this. *(Tested below —
+  rejected.)*
+* **H-B, prospective binding.** A rule about evidence that does not yet exist has
+  to be held as a future constraint; a rule about evidence already present can
+  attach to a concrete span. The difficulty would be binding, not distance.
+* **H-C, scope prior from language.** "The preceding evidence is invalid" is a far
+  more common construction, with a far clearer referent, than a rule about
+  evidence the reader has not seen. *(Tested below — contributes, but does not
+  explain the effect.)*
+
+The attention correlate measured on Qwen3-8B below is consistent with all three;
+it is not evidence for any one of them. The next section separates them.
+
+## Separating the three accounts
+
+Three experiments on the same frozen items, four models (Qwen3-8B, Gemma-3-12B,
+Mistral-Small-24B, Qwen3.5-27B). Full tables in `results/stage2_tables.md`.
+
+### 1. Distance does not matter; Before/After is the whole effect
+
+Exclusion arm only, `REI ~ Distance + Before + Distance:Before`, cluster bootstrap over case skeletons. Distance is the measured token count from the RULING block to the answer position.
+
+| model | Distance (per 100 tok) | Before (rule precedes evidence) | Distance x Before |
+|---|---|---|---|
+| Qwen3-8B | -0.0030 [-0.0199, +0.0129] p=0.7520 | **+0.3788 [+0.2247, +0.5376] p=0.0000** | -0.0311 [-0.0616, -0.0038] p=0.0245 |
+| Gemma-3-12B | +0.0017 [-0.0093, +0.0137] p=0.7500 | **+0.3338 [+0.1934, +0.4687] p=0.0000** | -0.0129 [-0.0289, +0.0039] p=0.1315 |
+| Mistral-Small-24B | -0.0038 [-0.0232, +0.0139] p=0.6845 | **+0.2215 [+0.1218, +0.3282] p=0.0000** | -0.0107 [-0.0289, +0.0059] p=0.2110 |
+| Qwen3.5-27B | +0.0074 [-0.0066, +0.0215] p=0.3030 | **+0.3028 [+0.1541, +0.4580] p=0.0000** | -0.0323 [-0.0574, -0.0041] p=0.0240 |
+
+The cleanest single comparison, Qwen3-8B: a rule **587 tokens** from the answer
+but placed *after* the evidence gives REI +0.095, while a rule **156 tokens** from
+the answer — nearly four times closer — placed *before* the evidence gives +0.463.
+Within the Before arm, moving the rule further from the answer *reduces* leakage
+(+0.463 -> +0.350 -> +0.272), the opposite of what recency predicts.
+
+### 2. Removing directional anaphora shrinks the gap but does not close it
+
+One identical sentence in both orders — `Evidence E7 is excluded. It must have
+zero influence on your final judgment.` — with no *preceding* / *following* /
+*above* / *below*.
+
+| model | `id_exclude_pre` | `id_exclude_post` | pre - post | pre - pre_with_marker |
+|---|---|---|---|---|
+| Qwen3-8B | +0.213 [+0.107, +0.320] | -0.001 [-0.099, +0.094] | +0.214 [+0.133, +0.299] p=0.0000 | -0.111 [-0.204, -0.017] p=0.0250 |
+| Gemma-3-12B | +0.281 [+0.151, +0.402] | +0.120 [-0.007, +0.243] | +0.160 [+0.048, +0.272] p=0.0080 | -0.025 [-0.148, +0.076] p=0.7060 |
+| Mistral-Small-24B | +0.006 [-0.103, +0.109] | -0.008 [-0.116, +0.089] | +0.014 [-0.076, +0.100] p=0.7590 | +0.050 [-0.029, +0.116] p=0.1815 |
+| Qwen3.5-27B | -0.059 [-0.199, +0.073] | -0.205 [-0.329, -0.086] | +0.146 [+0.023, +0.283] p=0.0260 | -0.036 [-0.125, +0.053] p=0.4405 |
+
+The identifier framing lowers leakage a lot in absolute terms (Qwen3-8B +0.45 -> +0.21, Mistral +0.19 -> +0.01), so referential clarity matters. But the
+asymmetry survives it in three of four models. `id_exclude_pre_marker` — the rule
+before the evidence, plus the evidence block headed `EVIDENCE E7 — EXCLUDED` and
+no restatement of the rule — never helps, and hurts on Qwen3-8B (p=0.025). A
+binding cue at the moment the evidence arrives is not enough.
+
+### 3. The position effect exists only at zero requested weight
+
+Same items, rule replaced by a requested weight. `w = 1.00` is the leverage anchor.
+
+| requested w | Qwen3-8B | Gemma-3-12B | Mistral-Small-24B | Qwen3.5-27B |
+|---:|---|---|---|---|
+| 0.00 | +0.48 / -0.05 | +0.58 / +0.15 | +0.06 / -0.04 | -0.07 / -0.20 |
+| 0.25 | +0.57 / +0.47 | +0.58 / +0.67 | +0.48 / +0.40 | +0.33 / +0.22 |
+| 0.50 | +0.58 / +0.48 | +0.65 / +0.69 | +0.51 / +0.49 | +0.54 / +0.50 |
+| 0.75 | +0.84 / +0.82 | +0.83 / +0.86 | +0.72 / +0.67 | +0.68 / +0.72 |
+| 1.00 | +0.95 / +1.05 | +0.97 / +1.03 | +1.01 / +0.98 | +0.95 / +1.04 |
+
+Cells are *rule before evidence* / *rule after evidence*. Mean pre-post gap across
+the four models, by requested weight:
+
+| requested w | 0.00 | 0.25 | 0.50 | 0.75 | 1.00 |
+|---|---|---|---|---|---|
+| mean pre - post | **+0.298** | +0.050 | +0.028 | -0.001 | -0.050 |
+
+The asymmetry collapses to nothing the moment the requested weight is anything
+other than zero. This is not general position-dependent control precision: it is
+specific to complete suppression.
+
+A position-independent finding falls out of the same sweep: models barely
+distinguish 0.25 from 0.50 (Qwen3-8B: +0.57 vs +0.58; Mistral: +0.48 vs +0.51).
+Requested-weight following is poor in the middle of the range regardless of order.
+
+
+**Verdict.** H-A is rejected: distance to the answer has no main effect in any
+model, and within the Before arm more distance *helps*. H-C is not the
+explanation: stripping every directional referent shrinks the effect
+substantially but leaves it significant in three of four models. **H-B,
+prospective binding, is the account left standing** — what is hard is making a
+rule govern an object that does not exist yet, and only when the rule demands
+that the object's weight be exactly zero.
+
+Two results cut against the obvious follow-ups and are worth stating plainly.
+Tagging the evidence block as excluded at the moment it arrives does not rescue
+the Pre condition; it made Qwen3-8B worse. And the failure is not a general
+inability to follow positional instructions — at any non-zero requested weight,
+order stops mattering.
 
 Two implementation notes, since both models need care: Dream keeps the shifted
 convention of the autoregressive checkpoint it was initialised from (position i
@@ -231,8 +333,9 @@ invalidity (RuleAcc ≈ 1.0) and still routes the evidence into the answer.
 
 **A. Attention routing at the answer position.** Per-token attention from the
 answer position, rule span relative to evidence span (summed over all 36 layers,
-median over items). Read as a correlate of the learned positional prior, not as
-its cause — the diffusion results above rule out the architectural reading:
+median over items). This is a correlate of the asymmetry, not an explanation of
+it — the diffusion result rules out the architectural reading, and the remaining
+accounts (H-A/H-B/H-C above) all predict something like it:
 
 | condition | rule : evidence |
 |---|---|
@@ -283,7 +386,12 @@ mechanism and a working fix. Section 13's decision table maps this to
 "generality holds; timing claim inverted" — keep the main question, drop the
 human-analogy framing, and lead with the pre-commitment failure.
 
-Open items: five conditions on a naturalistic legal corpus rather than authored
+Open items, in the order they are worth doing: ruling paraphrases (a single
+wording is now the biggest exposure, given that the headline is about rule
+position); 20-30 independent legal skeletons, and either rewriting or dropping
+the `procedural_hearsay` arm; two small naturalistic human-materials sets as
+external validation; then the bidirectional patching below. Specifically: five
+conditions on a naturalistic legal corpus rather than authored
 vignettes; wording paraphrases of the ruling; whether the layer-21 gating locus
 moves with scale; the same attention and span-gate analysis inside LLaDA, which
 would show directly what a bidirectional model does with an early rule; and

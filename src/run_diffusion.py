@@ -12,7 +12,7 @@ import argparse, json, os, sys
 import torch
 sys.path.insert(0, os.path.dirname(__file__))
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, PROBES, ANSWER_CUE)
+                    EXTRA_CONDITIONS, V2_CONDITIONS, PROBES, ANSWER_CUE)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 
@@ -85,7 +85,7 @@ def main():
     with torch.no_grad():
         for n, it in enumerate(items):
             for k in kinds:
-                if k in CONDITIONS or k in EXTRA_CONDITIONS:
+                if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS:
                     user, kind = compile_prompt(it, k, mode="cued"), "digit"
                 elif k in PROBES and k.startswith("rule_probe"):
                     user, kind = compile_probe(it, k), "rule"

@@ -16,7 +16,7 @@ decode with a strict numeric parse.  No LLM judge is used anywhere.
 import argparse, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, PROBES, ANSWER_CUE)
+                    EXTRA_CONDITIONS, V2_CONDITIONS, PROBES, ANSWER_CUE, rule_char_offset)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ITEMS = os.path.join(ROOT, "data", "items", "items_v1.jsonl")
@@ -118,7 +118,7 @@ def main():
     for it in items:
         digit_scale = it.task_family != "numeric_aggregation"
         for k in kinds:
-            if k in CONDITIONS or k in EXTRA_CONDITIONS:
+            if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
             elif k in PROBES:
@@ -126,8 +126,13 @@ def main():
                 kind = "memory" if k.startswith("memory") else "rule"
             else:
                 raise SystemExit(f"unknown kind {k}")
-            recs.append(dict(item_id=it.item_id, task_family=it.task_family, kind_name=k,
-                             kind=kind, ids=chat_ids(user)))
+            rec = dict(item_id=it.item_id, task_family=it.task_family, kind_name=k,
+                       kind=kind, ids=chat_ids(user))
+            if kind in ("digit", "openreal"):
+                off = rule_char_offset(it, k, mode=args.mode)
+                # tokens from the start of the RULING block to the answer position
+                rec["rule_to_answer_tokens"] = None if off is None else len(raw_ids(user[off:]))
+            recs.append(rec)
 
     llm = LLM(model=args.model, tensor_parallel_size=args.tp,
               gpu_memory_utilization=args.gpu_frac, max_model_len=args.max_model_len,

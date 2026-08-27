@@ -9,6 +9,7 @@ ever re-written by an LLM.
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 import json
+import conditions_v2 as v2
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
@@ -21,6 +22,10 @@ EXTRA_CONDITIONS = [
     "sanitation",             # B only, with the excluded item removed from the record
     "ledger",                 # explicit [ADMISSIBLE] / [EXCLUDED] ledger
 ]
+
+# Stage-2 families (see conditions_v2): rule-position factorial, ID binding,
+# requested-weight sweep.
+V2_CONDITIONS = v2.ALL_V2
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
           "rule_probe_admit_post", "memory_probe_exclude_post"]
 
@@ -84,6 +89,12 @@ def _blocks(item: Item, cond: str):
         # the excluded item is simply not in the record the decision is made from
         return [B, ("RECORD NOTE\nOne item of information was ruled inadmissible and has been "
                     "removed from this record. It is not available to you.")]
+    if cond in v2.POSITION_CONDITIONS:
+        return v2.position_blocks(item, B, E, Radm, Rexc, cond)
+    if cond in v2.IDBIND_CONDITIONS:
+        return v2.idbind_blocks(item, cond)
+    if cond in v2.WEIGHT_CONDITIONS:
+        return v2.weight_blocks(item, B, E, cond)
     if cond == "ledger":
         return [("EVIDENCE LEDGER\n\n[ADMISSIBLE]\n" + item.base_context
                  + "\n\n[EXCLUDED — must not be used]\n" + item.critical_evidence
@@ -106,6 +117,14 @@ ANSWER_FORMATS = {
                  "this form:\nANSWER: <your answer>"),
 }
 ANSWER_CUE = "ANSWER:"
+
+
+def rule_char_offset(item: Item, cond: str, mode: str = "reasoned"):
+    """Character index at which the RULING block starts, so the runner can record
+    how far the rule sits from the answer in tokens."""
+    p = compile_prompt(item, cond, mode)
+    i = p.rfind("\nRULING\n")
+    return None if i < 0 else i + 1
 
 
 def compile_prompt(item: Item, cond: str, mode: str = "reasoned") -> str:
