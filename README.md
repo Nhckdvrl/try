@@ -1,5 +1,15 @@
 # Can LLMs Unring the Bell?
 
+> **Results are in.** The preregistered temporal hypothesis below came out
+> **inverted** on all 12 instruct models tested and on 2 masked diffusion LMs.
+> See **[FINDINGS.md](FINDINGS.md)** for the results,
+> **[PREREGISTRATION_G0.md](PREREGISTRATION_G0.md)** for what was frozen and when,
+> and **[REPRODUCE.md](REPRODUCE.md)** to re-run it.
+>
+> Short version: models do not fail to *unring* the bell. They fail to
+> *pre-commit not to ring it* — an exclusion rule placed before the evidence
+> leaks far more than the same rule placed after it.
+
 > **Working research plan — 2026-08-27**  
 > 核心问题：LLM 明明知道某条信息/证据“不得用于判断”，甚至能正确复述这条规则，但这条信息是否仍会对最终判断产生可测的因果影响？进一步，“事先知道不能用”与“看过以后才被告知不能用”是否存在系统性的时间不对称？
 

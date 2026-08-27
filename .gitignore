@@ -1,0 +1,5 @@
+# machine-local shim: symlinks into the HF cache, recreated by
+# scripts/make_mistral_shim.sh
+data/mistral_small_24b_hf/
+__pycache__/
+*.pyc
