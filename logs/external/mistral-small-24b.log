@@ -1,0 +1,181 @@
+=== EXT mistral-small-24b on fvcrc21 gpu 3 ===
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     super().__init__(
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     self._init_executor()
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     self.driver_worker.init_device()
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     self.worker.init_device()  # type: ignore
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 314, in init_device
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/utils.py", line 415, in request_memory
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195]     raise ValueError(
+(EngineCore pid=173001) ERROR 08-28 04:59:50 [core.py:1195] ValueError: Free memory on device cuda:0 (14.12/94.97 GiB) on startup is less than desired GPU memory utilization (0.7, 66.48 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+(EngineCore pid=173001) Process EngineCore:
+(EngineCore pid=173001) Traceback (most recent call last):
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=173001)     self.run()
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=173001)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=173001)     raise e
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=173001)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=173001)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001)     return func(*args, **kwargs)
+(EngineCore pid=173001)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=173001)     super().__init__(
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=173001)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=173001)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001)     return func(*args, **kwargs)
+(EngineCore pid=173001)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=173001)     self._init_executor()
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=173001)     self.driver_worker.init_device()
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=173001)     self.worker.init_device()  # type: ignore
+(EngineCore pid=173001)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=173001)     return func(*args, **kwargs)
+(EngineCore pid=173001)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 314, in init_device
+(EngineCore pid=173001)     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore pid=173001)                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=173001)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/utils.py", line 415, in request_memory
+(EngineCore pid=173001)     raise ValueError(
+(EngineCore pid=173001) ValueError: Free memory on device cuda:0 (14.12/94.97 GiB) on startup is less than desired GPU memory utilization (0.7, 66.48 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 307, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 173, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: mistral-small-24b ramsey
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+(EngineCore pid=182508) Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:03<00:31,  3.50s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:04<00:17,  2.15s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:05<00:11,  1.61s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:06<00:08,  1.35s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:07<00:06,  1.20s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:08<00:04,  1.14s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:09<00:03,  1.12s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:10<00:02,  1.10s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:11<00:01,  1.10s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:12<00:00,  1.05s/it]
+(EngineCore pid=182508) Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:12<00:00,  1.28s/it]
+(EngineCore pid=182508) 
+(EngineCore pid=182508) 2026-08-28 05:06:01,459 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=182508) 2026-08-28 05:06:01,612 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=182508) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 2/35 [00:00<00:02, 12.53it/s]Capturing CUDA graphs (PIECEWISE):  11%|█▏        | 4/35 [00:00<00:02, 12.97it/s]Capturing CUDA graphs (PIECEWISE):  17%|█▋        | 6/35 [00:00<00:02, 13.19it/s]Capturing CUDA graphs (PIECEWISE):  23%|██▎       | 8/35 [00:00<00:02, 13.32it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▊       | 10/35 [00:00<00:01, 13.37it/s]Capturing CUDA graphs (PIECEWISE):  34%|███▍      | 12/35 [00:00<00:01, 13.48it/s]Capturing CUDA graphs (PIECEWISE):  40%|████      | 14/35 [00:01<00:01, 13.54it/s]Capturing CUDA graphs (PIECEWISE):  46%|████▌     | 16/35 [00:01<00:01, 13.56it/s]Capturing CUDA graphs (PIECEWISE):  51%|█████▏    | 18/35 [00:01<00:01, 13.59it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 20/35 [00:01<00:01, 14.06it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 22/35 [00:01<00:00, 14.46it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 24/35 [00:01<00:00, 14.89it/s]Capturing CUDA graphs (PIECEWISE):  74%|███████▍  | 26/35 [00:01<00:00, 15.34it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 28/35 [00:01<00:00, 15.63it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▌ | 30/35 [00:02<00:00, 16.00it/s]Capturing CUDA graphs (PIECEWISE):  91%|█████████▏| 32/35 [00:02<00:00, 16.08it/s]Capturing CUDA graphs (PIECEWISE):  97%|█████████▋| 34/35 [00:02<00:00, 16.37it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 35/35 [00:02<00:00, 14.55it/s]
+(EngineCore pid=182508) Capturing CUDA graphs (FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):   5%|▌         | 1/19 [00:00<00:04,  4.06it/s]Capturing CUDA graphs (FULL):  16%|█▌        | 3/19 [00:00<00:01,  9.52it/s]Capturing CUDA graphs (FULL):  26%|██▋       | 5/19 [00:00<00:01, 12.58it/s]Capturing CUDA graphs (FULL):  37%|███▋      | 7/19 [00:00<00:00, 14.48it/s]Capturing CUDA graphs (FULL):  47%|████▋     | 9/19 [00:00<00:00, 15.88it/s]Capturing CUDA graphs (FULL):  58%|█████▊    | 11/19 [00:00<00:00, 16.96it/s]Capturing CUDA graphs (FULL):  68%|██████▊   | 13/19 [00:00<00:00, 17.70it/s]Capturing CUDA graphs (FULL):  84%|████████▍ | 16/19 [00:01<00:00, 18.65it/s]Capturing CUDA graphs (FULL): 100%|██████████| 19/19 [00:01<00:00, 19.23it/s]Capturing CUDA graphs (FULL): 100%|██████████| 19/19 [00:01<00:00, 16.01it/s]
+Rendering prompts:   0%|          | 0/20 [00:00<?, ?it/s]Rendering prompts:   5%|▌         | 1/20 [00:00<00:11,  1.66it/s]Rendering prompts: 100%|██████████| 20/20 [00:00<00:00, 32.71it/s]
+Processed prompts:   0%|          | 0/20 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   5%|▌         | 1/20 [00:01<00:29,  1.55s/it, est. speed input: 151.07 toks/s, output: 24.53 toks/s]Processed prompts:  35%|███▌      | 7/20 [00:01<00:02,  5.38it/s, est. speed input: 964.84 toks/s, output: 163.73 toks/s]Processed prompts:  55%|█████▌    | 11/20 [00:01<00:01,  7.96it/s, est. speed input: 1324.43 toks/s, output: 239.81 toks/s]Processed prompts:  80%|████████  | 16/20 [00:02<00:00, 12.04it/s, est. speed input: 1740.40 toks/s, output: 345.97 toks/s]Processed prompts:  95%|█████████▌| 19/20 [00:02<00:00, 12.08it/s, est. speed input: 1861.14 toks/s, output: 387.91 toks/s]Processed prompts: 100%|██████████| 20/20 [00:02<00:00, 12.08it/s, est. speed input: 1838.07 toks/s, output: 390.48 toks/s]Processed prompts: 100%|██████████| 20/20 [00:02<00:00,  8.02it/s, est. speed input: 1838.07 toks/s, output: 390.48 toks/s]
+Rendering prompts:   0%|          | 0/20 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 20/20 [00:00<00:00, 2390.05it/s]
+Processed prompts:   0%|          | 0/20 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=182508) WARNING 08-28 05:06:26 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Processed prompts:   5%|▌         | 1/20 [00:00<00:04,  4.06it/s, est. speed input: 1026.62 toks/s, output: 4.06 toks/s]Processed prompts: 100%|██████████| 20/20 [00:00<00:00,  4.06it/s, est. speed input: 22539.00 toks/s, output: 80.88 toks/s]Processed prompts: 100%|██████████| 20/20 [00:00<00:00, 80.79it/s, est. speed input: 22539.00 toks/s, output: 80.88 toks/s]
+Rendering prompts:   0%|          | 0/8 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 8/8 [00:00<00:00, 2236.22it/s]
+Processed prompts:   0%|          | 0/8 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  25%|██▌       | 2/8 [00:00<00:00, 17.59it/s, est. speed input: 3519.29 toks/s, output: 17.59 toks/s]Processed prompts: 100%|██████████| 8/8 [00:00<00:00, 17.59it/s, est. speed input: 14010.64 toks/s, output: 70.05 toks/s]Processed prompts: 100%|██████████| 8/8 [00:00<00:00, 69.89it/s, est. speed input: 14010.64 toks/s, output: 70.05 toks/s]
+wrote 28 rows -> results/raw/mistral-small-24b_extbh.jsonl
+  decisions 20 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 0)
+  rule probes 8 (mean YES/NO mass 0.997)
+EXT mistral-small-24b DONE
+re pid=163978)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=163978)     return func(*args, **kwargs)
+(EngineCore pid=163978)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=163978)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 314, in init_device
+(EngineCore pid=163978)     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore pid=163978)                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=163978)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/utils.py", line 415, in request_memory
+(EngineCore pid=163978)     raise ValueError(
+(EngineCore pid=163978) ValueError: Free memory on device cuda:0 (14.12/94.97 GiB) on startup is less than desired GPU memory utilization (0.7, 66.48 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 307, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 173, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: mistral-small-24b bh
+EXT mistral-small-24b DONE

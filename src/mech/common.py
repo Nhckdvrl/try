@@ -25,6 +25,22 @@ def load_model(model=MODEL, device="cuda"):
     return tok, m
 
 
+def decoder_layers(m):
+    """The list of decoder blocks. Multimodal wrappers (Gemma-3) nest the text
+    model one level deeper than a plain causal LM."""
+    for path in (("model", "layers"), ("model", "language_model", "layers"),
+                 ("language_model", "model", "layers"), ("model", "model", "layers")):
+        o = m
+        try:
+            for a in path:
+                o = getattr(o, a)
+            if hasattr(o, "__len__") and len(o) > 1:
+                return o
+        except AttributeError:
+            continue
+    raise RuntimeError("could not locate decoder layers")
+
+
 def mech_prompt(tok, item, cond):
     """Decision prompt in `direct` mode, ending at a fixed answer cue."""
     user = compile_prompt(item, cond, mode="direct")

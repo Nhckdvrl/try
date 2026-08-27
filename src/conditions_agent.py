@@ -40,6 +40,11 @@ TOOL_VARIANTS = {
 
 CONDITIONS = [
     "ag_base",                    # no critical document, no policy
+    # policy stated but the document never retrieved. Stage 3E showed that naming
+    # the content is itself an intervention on the judgment, so the marginal
+    # effect of the retrieved document has to be measured against this, not
+    # against ag_base.
+    "ag_pid_none", "ag_pgist_none", "ag_pprop_none", "ag_padmit_none",
     "ag_none_same_d7",            # document retrieved, no policy at all
     "ag_padmit_same_d7",          # leverage anchor
     "ag_pid_same_d7", "ag_pgist_same_d7", "ag_pprop_same_d7",

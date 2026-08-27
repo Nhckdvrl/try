@@ -18,6 +18,7 @@ import linear_blocks as lb
 import conditions_v6 as v6
 import conditions_v7 as v7
 import conditions_agent as ag
+import external_blocks as ext
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
@@ -59,6 +60,9 @@ V7_CONDITIONS = v7.ALL_V7
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
+
+# external held-out materials
+EXT_CONDITIONS = ext.EXT_RAMSEY_CONDITIONS
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
           "rule_probe_admit_post", "memory_probe_exclude_post",
           "wprobe_pre", "wprobe_post"]
@@ -123,6 +127,8 @@ def _blocks(item: Item, cond: str):
         # the excluded item is simply not in the record the decision is made from
         return [B, ("RECORD NOTE\nOne item of information was ruled inadmissible and has been "
                     "removed from this record. It is not available to you.")]
+    if cond in ext.EXT_RAMSEY_CONDITIONS and item.task_family == "ext_ramsey":
+        return ext.ramsey_blocks(item, cond)
     if cond in v7.ALL_V7:
         return v7.blocks(item, cond, B)
     if cond in v6.ALL_V6:

@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/1065 [00:00<?, ?it/s]Loading weights:  60%|██████    | 639/1065 [00:00<00:00, 6387.22it/s]Loading weights: 100%|██████████| 1065/1065 [00:00<00:00, 6659.87it/s]
+45 items, 48 layers, patching 16
+  5/45
+  10/45
+  15/45
+  20/45
+  25/45
+  30/45
+  35/45
+  40/45
+  45/45
+wrote 45 -> results/mech/patch_matched_gemma3-12b.json

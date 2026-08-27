@@ -21,7 +21,8 @@ yet, so anything transferred there is a state the rule itself established.
 import os, sys, json, argparse
 import torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (load_model, digit_ids, digit_expectation, frozen_items, span_indices, ROOT)
+from common import (load_model, digit_ids, digit_expectation, frozen_items, span_indices,
+                    decoder_layers, ROOT)
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 from schema import SYSTEM, ANSWER_CUE, ANSWER_FORMATS
 from conditions_v3 import uniform_weight_rule
@@ -87,7 +88,7 @@ def main():
 
     tok, model = load_model(args.model)
     dids = digit_ids(tok).to(model.device)
-    layers = model.model.layers
+    layers = decoder_layers(model)
     nL = len(layers)
     Ls = list(range(0, nL, args.layer_step))
     items = frozen_items(FAMILIES)[:args.limit]

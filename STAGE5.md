@@ -22,64 +22,89 @@ The interaction is the quantity of interest: a preview alone changes the answer,
 so what matters is that the matched preview enlarges the *exclude-minus-admit*
 difference, not that it lowers the rating.
 
-## Both directions localise to layers 12–20, at the rule
+## Correction: the first version of this section overstated the effect
 
-Recovery fraction: 1.0 means the patched run answers like the donor condition,
-0.0 like its own. Median over items.
+The numbers first reported here (54% rescue, 92% break) were medians of a
+*recovery fraction*, `(patched − own) / (donor − own)`. For a substantial share of
+items that denominator is only a few points, so the ratio explodes and its median
+swings with the item subset. This is the same instability that forced Stage 3E off
+REI and onto raw rating points; it was not applied to the mechanism analysis at
+the time. Pooling all 70 items now available and reporting the shift in **rating
+points**, with the fraction alongside on items whose gap is at least 5 points:
 
-| layer | preview end | rule end | **rule SPAN** | evidence end | answer |
-|---:|---|---|---|---|---|
-| | | *success → failure (does it rescue?)* | | | |
-| 10 | +0.01 | −0.03 | +0.02 | +0.07 | −0.02 |
-| 12 | +0.06 | +0.00 | +0.18 | +0.11 | −0.02 |
-| 14 | +0.00 | +0.14 | **+0.43** | +0.14 | +0.00 |
-| 16 | −0.09 | +0.18 | **+0.54** | +0.14 | +0.05 |
-| 18 | −0.05 | +0.24 | **+0.46** | +0.09 | +0.10 |
-| 20 | −0.01 | +0.22 | +0.19 | +0.07 | +0.33 |
-| 22 | −0.00 | +0.03 | +0.04 | +0.00 | +0.74 |
-| | | *failure → success (does it break it?)* | | | |
-| 10 | −0.01 | −0.02 | −0.08 | +0.03 | +0.02 |
-| 12 | −0.02 | +0.02 | +0.37 | +0.04 | +0.04 |
-| 14 | −0.04 | +0.16 | **+0.92** | +0.08 | +0.09 |
-| 16 | −0.11 | +0.26 | **+0.88** | +0.18 | +0.08 |
-| 18 | −0.08 | +0.25 | **+0.57** | +0.10 | +0.19 |
-| 20 | −0.02 | +0.10 | +0.12 | +0.04 | +0.45 |
-| 22 | −0.00 | −0.00 | +0.01 | −0.00 | +0.82 |
+### Rule-span transfer, whole span, one layer at a time
 
-Reading this:
+| layer | SUCCESS → FAILURE (rescue) | FAILURE → SUCCESS (break) | ADMIT arm, matched → unrelated |
+|---:|---|---|---|
+| 12 | −0.4 [−2.1, +1.4] | +0.8 [−3.7, +4.9] | −0.8 [−1.5, −0.1] |
+| 14 | **−3.6 [−5.9, −1.4]** | **+13.3 [+8.1, +18.9]** | −0.6 [−1.3, +0.1] |
+| 16 | **−3.3 [−5.6, −1.2]** | **+11.5 [+6.3, +17.1]** | **+2.5 [+1.9, +3.1]** |
+| 18 | **−3.9 [−6.1, −2.0]** | **+8.2 [+4.0, +12.9]** | **+1.9 [+1.4, +2.4]** |
+| 20 | −1.6 [−2.7, −0.6] | +2.4 [+0.3, +5.0] | +1.3 [+1.1, +1.6] |
 
-* **At the rule block, in layers 12–20, there is a state that differs between the
-  two runs and is causally responsible for the difference in suppression.**
-  Transplanting it from the successful run into the failing one recovers 54% of
-  the gap at layer 16; transplanting it the other way destroys 92% of the
-  successful suppression at layer 14.
-* **It exists before the evidence the decision reads has been processed.** The
-  rule block ends before the evidence block begins in both runs.
-* **It is not just the preview's content sitting in context.** Patching the
-  preview-end position transfers nothing at any layer (−0.11 to +0.06).
-* **It is not the readout.** The answer position shows the expected trivial
-  late-layer transfer (0.74–0.97 from layer 22), and the rule-span effect has
-  already collapsed to zero by then. The two are separate.
-* **Breaking is easier than creating** (0.92 against 0.54). A single-position
-  patch at the rule's last token transfers only about a quarter of the gap in
-  either direction, so the state is distributed across the rule block rather than
-  summarised at its end.
+n = 44 / 24 / 25. Sign-aligned points; negative means moved toward suppression.
+Median gap fractions: rescue 0.09–0.21, break 0.54–0.85.
+
+What survives and what does not:
+
+* **The localisation survives.** Layers 14–18 at the rule span, nothing at 12 or
+  22, in both directions, before the evidence has been read.
+* **Breaking survives at full strength.** Transplanting the failing run's rule
+  state into the succeeding one adds +13.3 points of leakage at layer 14 — about
+  85% of the behavioural gap. The earlier 92% was close to right for this
+  direction.
+* **Rescue does not.** The honest figure is −3.6 points, roughly **15%** of the
+  gap, not 54%. Installing a working suppression state is much harder than
+  destroying one.
+* **It is not purely proposition information.** The same transfer run inside the
+  Admit arm moves the answer +2.5 points at layer 16 — the *opposite* sign to the
+  −3.3 it produces in the Exclude arm. So the state is not simply "the preview's
+  content"; but both effects are small, so this is modest evidence of
+  exclusion-specificity rather than strong evidence.
+
+### A shared steering direction does not transfer
+
+`v_l = mean over training items of [(h_ME − h_MA) − (h_UE − h_UA)]`, estimated on
+35 items and applied to 35 disjoint held-out items at the rule span, at α from
+0.05 to 0.4 of the layer's mean activation magnitude. Adding it to the failing run
+should have increased suppression and subtracting it from the succeeding run
+should have reduced it. **Neither happened.** Both manipulations increase leakage
+at almost every layer (e.g. layer 6, α = 0.4: UE +8.1 points; layer 14: ME +7.7),
+which is what generic perturbation damage looks like, not a control knob.
+
+So the causal state found by patching is, on this evidence, **item-specific**. A
+single reusable direction for it was looked for and not found.
 
 ## What this licenses, and what it does not
 
 Licensed: by the time the exclusion rule has been read, the model has formed a
-state, distributed over the rule tokens and living in the middle layers, whose
-content depends on whether a proposition matching the rule's target was available
-— and that state is bidirectionally causal for whether the later evidence is
-suppressed.
+state, distributed over the rule tokens and living in layers 14–18, whose content
+depends on whether a proposition matching the rule's target was available. That
+state is causally sufficient to *destroy* later suppression (85% of the gap) and
+causally contributes to *creating* it (15%), and it behaves differently in the
+Admit arm, so it is not simply the preview's content.
 
-Not licensed: any claim about what that state *represents*. Patching shows it
-carries the difference; it does not show it is an "exclusion tag bound to a
-proposition" rather than, say, a general readiness state that happens to covary.
-Distinguishing those needs probing or a feature-level decomposition, which is not
-done here.
+Not licensed: any claim about what that state *represents*, and no claim that it
+is a reusable feature — the held-out steering test above failed. Patching shows
+the state carries the difference for that item; it does not show it is an
+"exclusion tag bound to a proposition" rather than a general readiness state that
+happens to covary, and the direction does not generalise across items.
 
-Single model (Qwen3-8B) and single readout position. The direct readout is
-validated against the behavioural one for these two families (r = 0.76 / 0.90),
-but the mechanism result should be replicated on at least one other family of
-model before it carries weight.
+### Replication on other models
+
+The fixed-position readout the patching requires must first reproduce the
+behavioural contrast, and it does not do so everywhere:
+
+| model | behavioural gap, failure − success | 2×2 interaction |
+|---|---|---|
+| Qwen3-8B | +13.2 [+8.6, +18.1] | −18.3 [−23.7, −12.9] |
+| Mistral-Small-24B | +18.5 [+9.3, +28.2] | −19.6 [−29.0, −10.9] |
+| Phi-4-mini | +4.8 [−0.1, +10.0] | −2.7 [−7.2, +1.7] |
+| Gemma-3-12B | −2.1 [−7.6, +3.5] | −4.3 [−9.0, +0.7] |
+
+Gemma-3-12B and Phi-4-mini show the effect under the *reasoned* readout
+(Stage 3E: Gemma's matched-preview ExclusionEffect is +14.1 against +8.7 for an
+unrelated preview) but not under the fixed-position readout, so patching them
+would have nothing to localise. That is a readout limitation, not evidence that
+they lack the mechanism. Mistral-Small-24B does show it and is the replication
+target; that run is in progress.

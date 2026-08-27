@@ -1,0 +1,116 @@
+=== EXT phi4-mini on fvcrc21 gpu 1 ===
+[transformers] This model config has set a `rope_parameters['original_max_position_embeddings']` field, to be used together with `max_position_embeddings` to determine a scaling factor. Please set the `factor` field of `rope_parameters`with this ratio instead -- we recommend the use of this field over `original_max_position_embeddings`, as it is compatible with most model architectures.
+(EngineCore pid=172954) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=172954) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:13<00:13, 13.03s/it]
+(EngineCore pid=172954) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:17<00:00,  8.15s/it]
+(EngineCore pid=172954) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:17<00:00,  8.88s/it]
+(EngineCore pid=172954) 
+(EngineCore pid=172954) 2026-08-28 05:01:02,024 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=172954) 2026-08-28 05:01:02,066 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=172954) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 16.98it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:01, 23.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:00<00:01, 25.57it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▎       | 12/51 [00:00<00:01, 27.86it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 16/51 [00:00<00:01, 29.08it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:00<00:01, 28.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:00<00:00, 30.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:00<00:00, 31.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:01<00:00, 32.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 32.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:01<00:00, 32.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:01<00:00, 33.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:01<00:00, 33.33it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 29.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 30.15it/s]
+(EngineCore pid=172954) Capturing CUDA graphs (decode, FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 3/51 [00:00<00:02, 22.56it/s]Capturing CUDA graphs (decode, FULL):  12%|█▏        | 6/51 [00:00<00:02, 17.72it/s]Capturing CUDA graphs (decode, FULL):  16%|█▌        | 8/51 [00:00<00:02, 16.92it/s]Capturing CUDA graphs (decode, FULL):  20%|█▉        | 10/51 [00:00<00:02, 16.99it/s]Capturing CUDA graphs (decode, FULL):  24%|██▎       | 12/51 [00:00<00:02, 17.22it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 14/51 [00:00<00:02, 17.56it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 17/51 [00:00<00:01, 20.41it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 21/51 [00:01<00:01, 24.30it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 25/51 [00:01<00:00, 28.08it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 29/51 [00:01<00:00, 30.77it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 34/51 [00:01<00:00, 34.10it/s]Capturing CUDA graphs (decode, FULL):  78%|███████▊  | 40/51 [00:01<00:00, 38.63it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 45/51 [00:01<00:00, 41.51it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:01<00:00, 45.35it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 51/51 [00:01<00:00, 29.97it/s]
+Rendering prompts:   0%|          | 0/384 [00:00<?, ?it/s]Rendering prompts:   0%|          | 1/384 [00:00<01:51,  3.43it/s](EngineCore pid=172954) WARNING 08-28 05:01:07 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _compute_slot_mapping_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Rendering prompts:  37%|███▋      | 141/384 [00:00<00:01, 221.07it/s]Rendering prompts: 100%|██████████| 384/384 [00:00<00:00, 508.71it/s]
+Processed prompts:   0%|          | 0/384 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/384 [00:03<19:23,  3.04s/it, est. speed input: 75.36 toks/s, output: 11.19 toks/s]Processed prompts:   1%|          | 2/384 [00:03<08:39,  1.36s/it, est. speed input: 142.04 toks/s, output: 22.64 toks/s]Processed prompts:   2%|▏         | 6/384 [00:03<02:06,  3.00it/s, est. speed input: 434.99 toks/s, output: 70.75 toks/s]Processed prompts:   3%|▎         | 11/384 [00:03<00:57,  6.53it/s, est. speed input: 783.16 toks/s, output: 131.40 toks/s]Processed prompts:   5%|▍         | 18/384 [00:03<00:29, 12.60it/s, est. speed input: 1249.95 toks/s, output: 214.23 toks/s]Processed prompts:   6%|▋         | 24/384 [00:03<00:19, 18.13it/s, est. speed input: 1623.34 toks/s, output: 288.01 toks/s]Processed prompts:   8%|▊         | 30/384 [00:03<00:15, 22.84it/s, est. speed input: 1923.40 toks/s, output: 357.84 toks/s]Processed prompts:  15%|█▍        | 56/384 [00:03<00:05, 60.98it/s, est. speed input: 3497.71 toks/s, output: 721.18 toks/s]Processed prompts:  40%|████      | 154/384 [00:04<00:00, 233.10it/s, est. speed input: 9586.69 toks/s, output: 2111.81 toks/s]Processed prompts:  52%|█████▏    | 198/384 [00:04<00:00, 274.27it/s, est. speed input: 12036.12 toks/s, output: 2691.36 toks/s]Processed prompts:  62%|██████▏   | 237/384 [00:04<00:00, 247.89it/s, est. speed input: 13739.44 toks/s, output: 3137.77 toks/s]Processed prompts:  71%|███████   | 271/384 [00:04<00:00, 205.06it/s, est. speed input: 14839.86 toks/s, output: 3479.68 toks/s]Processed prompts:  78%|███████▊  | 299/384 [00:04<00:00, 193.88it/s, est. speed input: 15766.60 toks/s, output: 3799.57 toks/s]Processed prompts:  84%|████████▍ | 324/384 [00:04<00:00, 190.96it/s, est. speed input: 16570.85 toks/s, output: 4101.54 toks/s]Processed prompts:  91%|█████████ | 350/384 [00:04<00:00, 203.72it/s, est. speed input: 17522.59 toks/s, output: 4467.12 toks/s]Processed prompts:  97%|█████████▋| 374/384 [00:05<00:00, 201.71it/s, est. speed input: 18257.17 toks/s, output: 4798.50 toks/s]Processed prompts: 100%|██████████| 384/384 [00:05<00:00, 201.71it/s, est. speed input: 18424.02 toks/s, output: 4925.85 toks/s]Processed prompts: 100%|██████████| 384/384 [00:05<00:00, 74.21it/s, est. speed input: 18424.02 toks/s, output: 4925.85 toks/s] 
+Rendering prompts:   0%|          | 0/384 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 384/384 [00:00<00:00, 8084.31it/s]
+Processed prompts:   0%|          | 0/384 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/384 [00:00<01:45,  3.64it/s, est. speed input: 1101.53 toks/s, output: 7.27 toks/s]Processed prompts: 100%|██████████| 384/384 [00:00<00:00,  3.64it/s, est. speed input: 404693.51 toks/s, output: 2658.03 toks/s]Processed prompts: 100%|██████████| 384/384 [00:00<00:00, 1281.50it/s, est. speed input: 404693.51 toks/s, output: 2658.03 toks/s]
+Rendering prompts:   0%|          | 0/96 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 96/96 [00:00<00:00, 6667.33it/s]
+Processed prompts:   0%|          | 0/96 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   1%|          | 1/96 [00:07<12:29,  7.88s/it, est. speed input: 21.69 toks/s, output: 0.13 toks/s]Processed prompts:  19%|█▉        | 18/96 [00:08<00:24,  3.13it/s, est. speed input: 383.46 toks/s, output: 2.24 toks/s]Processed prompts: 100%|██████████| 96/96 [00:08<00:00,  3.13it/s, est. speed input: 2044.90 toks/s, output: 11.96 toks/s]Processed prompts: 100%|██████████| 96/96 [00:08<00:00, 11.96it/s, est. speed input: 2044.90 toks/s, output: 11.96 toks/s]
+wrote 480 rows -> results/raw/phi4-mini_extramsey.jsonl
+  decisions 384 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 1)
+  rule probes 96 (mean YES/NO mass 1.000)
+[transformers] This model config has set a `rope_parameters['original_max_position_embeddings']` field, to be used together with `max_position_embeddings` to determine a scaling factor. Please set the `factor` field of `rope_parameters`with this ratio instead -- we recommend the use of this field over `original_max_position_embeddings`, as it is compatible with most model architectures.
+(EngineCore pid=190209) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=190209) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:00<00:00,  1.25it/s]
+(EngineCore pid=190209) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.74s/it]
+(EngineCore pid=190209) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.60s/it]
+(EngineCore pid=190209) 
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     super().__init__(
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 268, in _initialize_kv_caches
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2052, in get_kv_cache_configs
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     _check_enough_kv_cache_memory(
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 720, in _check_enough_kv_cache_memory
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195]     raise ValueError(
+(EngineCore pid=190209) ERROR 08-28 05:10:19 [core.py:1195] ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine (this flag also controls CPU memory reservation on the CPU backend, despite its name). See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=190209) Process EngineCore:
+(EngineCore pid=190209) Traceback (most recent call last):
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=190209)     self.run()
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=190209)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=190209)     raise e
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=190209)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=190209)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=190209)     return func(*args, **kwargs)
+(EngineCore pid=190209)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=190209)     super().__init__(
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=190209)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=190209)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=190209)     return func(*args, **kwargs)
+(EngineCore pid=190209)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 268, in _initialize_kv_caches
+(EngineCore pid=190209)     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=190209)                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2052, in get_kv_cache_configs
+(EngineCore pid=190209)     _check_enough_kv_cache_memory(
+(EngineCore pid=190209)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 720, in _check_enough_kv_cache_memory
+(EngineCore pid=190209)     raise ValueError(
+(EngineCore pid=190209) ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine (this flag also controls CPU memory reservation on the CPU backend, despite its name). See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 307, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 173, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: phi4-mini bh
+EXT phi4-mini DONE
