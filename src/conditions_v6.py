@@ -96,7 +96,7 @@ INF_SAMEDIR = ("A further observation, made independently of the test, also favo
 INF_TOPIC = ("The job sheet for this case was updated with the current date and refiled.")
 
 RUNGS = ["none", "exact", "para", "summ", "samedir", "lexoverlap", "topic", "unrelated"]
-SEM_CONDITIONS = [f"sem_{r}" for r in RUNGS] + ["sem_base", "sem_full"]
+SEM_CONDITIONS = [f"sem_{r}" for r in RUNGS] + ["sem_base", "sem_full_pre", "sem_full_post"]
 
 # content x identity 2x2, each with a matched full-weight anchor
 SWAP_CONDITIONS = [f"swap_{c}_{i}_{w}" for c in ("same", "diff")
@@ -104,8 +104,21 @@ SWAP_CONDITIONS = [f"swap_{c}_{i}_{w}" for c in ("same", "diff")
 
 ALL_V6 = SEM_CONDITIONS + SWAP_CONDITIONS
 V6_FAMILIES = ("legal_judgment", "evidence_inference")
-RULE_0 = "RULING\nEvidence E7 has decision weight 0."
-RULE_1 = "RULING\nEvidence E7 has decision weight 1."
+# The ladder must be built on the rule form that actually produces the phenomenon.
+# A first attempt used the bare identity form ("Evidence E7 has decision weight 0"),
+# which P0-4 had already shown to be a weak instruction: REI with no preview was
+# +0.86, i.e. almost no suppression to rescue, and previews only added salience.
+# These are the assertive forms used in P1-8, which give +0.49 pre / +0.18 post.
+from conditions_v3 import uniform_weight_rule as _uw
+
+
+def rule_sem(item, w):
+    return _uw(item, w)
+
+
+def rule_ident(item, w, label="E7"):
+    return ("RULING\nThe causal weight assigned to the item labelled " + label +
+            f" is exactly {w * 100:g}% of its normal evidential weight.")
 
 
 def _fields(item):
@@ -172,15 +185,17 @@ def other_evidence(item):
 
 
 def blocks(item, cond, B):
-    E7 = "EVIDENCE E7\n" + item.critical_evidence
+    E = "ADDITIONAL INFORMATION\n" + item.critical_evidence
     if cond == "sem_base":
         return [B]
-    if cond == "sem_full":
-        return [B, E7, RULE_1]
+    if cond == "sem_full_pre":
+        return [B, rule_sem(item, 1.0), E]
+    if cond == "sem_full_post":
+        return [B, E, rule_sem(item, 1.0)]
     if cond.startswith("sem_"):
         p = preview_text(item, cond[4:])
         pre = ["PRELIMINARY NOTE\n" + p] if p else []
-        return [B] + pre + [RULE_0, E7]
+        return [B] + pre + [rule_sem(item, 0.0), E]
     if cond == "swap_base":
         return [B]
     if cond.startswith("swap_"):
@@ -188,9 +203,9 @@ def blocks(item, cond, B):
         other = other_evidence(item)
         actual = item.critical_evidence if content == "same" else (other or item.critical_evidence)
         label = "E7" if ident == "e7" else "E9"
-        R = RULE_0 if w == "z" else RULE_1
+        R = rule_ident(item, 0.0 if w == "z" else 1.0)
         return [B, "PRELIMINARY NOTE\n" + item.critical_evidence, R,
-                f"EVIDENCE {label}\n" + actual]
+                f"ITEM {label}\n" + actual]
     raise ValueError(cond)
 
 

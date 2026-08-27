@@ -1,4 +1,4 @@
-=== S6 mistral-small-24b on fvcrc10 gpu 3 env verl-clean ===
+=== OP mistral-small-24b on fvcrc10 gpu 2 ===
 The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
 `torch_dtype` is deprecated! Use `dtype` instead!
 The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
@@ -8,7 +8,7 @@ The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
-[1;36m(EngineCore_DP0 pid=2591468)[0;0m WARNING 08-28 02:33:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
-[1;36m(EngineCore_DP0 pid=2591468)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
-[1;36m(EngineCore_DP0 pid=2591468)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [05:23<48:27, 323.08s/it]
-[1;36m(EngineCore_DP0 pid=2591468)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [09:10<35:33, 266.65s/it]
+[1;36m(EngineCore_DP0 pid=2591469)[0;0m WARNING 08-28 02:33:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2591469)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2591469)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [05:23<48:27, 323.08s/it]
+[1;36m(EngineCore_DP0 pid=2591469)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [09:10<35:33, 266.65s/it]
