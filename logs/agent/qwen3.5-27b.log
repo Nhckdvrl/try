@@ -1,0 +1,113 @@
+=== S6 qwen3.5-27b on fvcrc21 gpu 1 env fgvd ===
+WARNING 08-28 03:30:03 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 08-28 03:30:03 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+WARNING 08-28 03:30:21 [system_utils.py:157] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+(EngineCore pid=36980) [transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     super().__init__(
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     self._init_executor()
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     self.driver_worker.init_device()
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     self.worker.init_device()  # type: ignore
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 314, in init_device
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/utils.py", line 415, in request_memory
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195]     raise ValueError(
+(EngineCore pid=36980) ERROR 08-28 03:31:49 [core.py:1195] ValueError: Free memory on device cuda:0 (26.42/94.97 GiB) on startup is less than desired GPU memory utilization (0.7, 66.48 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+(EngineCore pid=36980) Process EngineCore:
+(EngineCore pid=36980) Traceback (most recent call last):
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=36980)     self.run()
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=36980)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=36980)     raise e
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=36980)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=36980)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980)     return func(*args, **kwargs)
+(EngineCore pid=36980)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=36980)     super().__init__(
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=36980)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=36980)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980)     return func(*args, **kwargs)
+(EngineCore pid=36980)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=36980)     self._init_executor()
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=36980)     self.driver_worker.init_device()
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=36980)     self.worker.init_device()  # type: ignore
+(EngineCore pid=36980)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=36980)     return func(*args, **kwargs)
+(EngineCore pid=36980)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 314, in init_device
+(EngineCore pid=36980)     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore pid=36980)                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=36980)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/utils.py", line 415, in request_memory
+(EngineCore pid=36980)     raise ValueError(
+(EngineCore pid=36980) ValueError: Free memory on device cuda:0 (26.42/94.97 GiB) on startup is less than desired GPU memory utilization (0.7, 66.48 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+[rank0]:[W828 03:31:49.591272945 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 307, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 173, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: qwen3.5-27b agent
+S6 qwen3.5-27b DONE

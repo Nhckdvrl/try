@@ -17,6 +17,7 @@ import conditions_v5 as v5
 import linear_blocks as lb
 import conditions_v6 as v6
 import conditions_v7 as v7
+import conditions_agent as ag
 
 CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
@@ -55,6 +56,9 @@ V6_CONDITIONS = v6.ALL_V6
 
 # Stage 3E duplicate control + proposition relation matrix
 V7_CONDITIONS = v7.ALL_V7
+
+# Stage 4A agentic system -> tool -> answer
+AGENT_CONDITIONS = ag.CONDITIONS
 PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
           "rule_probe_admit_post", "memory_probe_exclude_post",
           "wprobe_pre", "wprobe_post"]
@@ -183,6 +187,14 @@ def compile_prompt(item: Item, cond: str, mode: str = "reasoned") -> str:
         tail = v5.SC_TWOLINE if not cond.startswith("sc_a") else ANSWER_FORMATS["reasoned"]
     return (_SEP.join(blocks) + _SEP + "TASK\n" + item.question + "\n" + item.output_spec
             + "\n" + tail)
+
+
+def compile_messages(item: Item, cond: str, mode: str = "reasoned"):
+    """Multi-role message list for the agent conditions. The answer format is
+    appended to the last user-side turn so the readout position is unchanged."""
+    msgs = ag.messages(item, cond, SYSTEM)
+    msgs[1]["content"] += "\n" + ANSWER_FORMATS[mode]
+    return msgs
 
 
 def compile_probe(item: Item, probe: str) -> str:

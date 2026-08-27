@@ -18,7 +18,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 FORCED_LINE = "ITEM DECISION WEIGHT: 0%\nFINAL DECISION: "
 
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, V6_CONDITIONS, V7_CONDITIONS, PROBES,
+                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, V6_CONDITIONS, V7_CONDITIONS, AGENT_CONDITIONS, PROBES,
+                    compile_messages,
                     ANSWER_CUE,
                     rule_char_offset)
 
@@ -104,13 +105,23 @@ def main():
 
     # Prompts are carried as token ids, not text: several chat templates emit their
     # own BOS, and passing the rendered string to vLLM would add a second one.
-    def chat_ids(user):
+    def chat_ids(user, msgs=None):
         kw = dict(tokenize=True, add_generation_prompt=True)
-        msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
+        if msgs is None:
+            msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
         try:
             enc = tok.apply_chat_template(msgs, enable_thinking=False, **kw)
         except TypeError:
             enc = tok.apply_chat_template(msgs, **kw)
+        except Exception:
+            # some templates reject a `tool` role; fold it into a user turn
+            flat = []
+            for m in msgs:
+                if m["role"] == "tool":
+                    flat.append({"role": "user", "content": "TOOL OUTPUT\n" + m["content"]})
+                else:
+                    flat.append(m)
+            enc = tok.apply_chat_template(flat, **kw)
         ids = enc["input_ids"] if hasattr(enc, "keys") else enc
         return list(ids[0]) if ids and isinstance(ids[0], (list, tuple)) else list(ids)
 
@@ -125,6 +136,13 @@ def main():
         digit_scale = it.task_family not in ("numeric_aggregation", "selective_routing",
                                              "linear_weighting")
         for k in kinds:
+            if k in AGENT_CONDITIONS:
+                kind = "digit" if digit_scale else "openreal"
+                rec = dict(item_id=it.item_id, task_family=it.task_family, kind_name=k,
+                           kind=kind,
+                           ids=chat_ids(None, compile_messages(it, k, mode=args.mode)))
+                recs.append(rec)
+                continue
             if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS \
                     or k in V3_CONDITIONS or k in V4_CONDITIONS \
                     or k in ROUTING_CONDITIONS or k in V5_CONDITIONS \
