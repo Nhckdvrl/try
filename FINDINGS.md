@@ -232,10 +232,11 @@ Requested-weight following is poor in the middle of the range regardless of orde
 **Verdict.** H-A is rejected: distance to the answer has no main effect in any
 model, and within the Before arm more distance *helps*. H-C is not the
 explanation: stripping every directional referent shrinks the effect
-substantially but leaves it significant in three of four models. **H-B,
-prospective binding, is the account left standing** — what is hard is making a
-rule govern an object that does not exist yet, and only when the rule demands
-that the object's weight be exactly zero.
+substantially but leaves it significant in three of four models. What remains is
+prospective binding — but *generic* prospective binding is too broad an account,
+and Stage 3A below narrows it. A model that applies w=0.25 to future evidence is
+already binding a rule to an object that does not exist yet; what it cannot do is
+drive that object's contribution to zero.
 
 Two results cut against the obvious follow-ups and are worth stating plainly.
 Tagging the evidence block as excluded at the moment it arrives does not rescue
@@ -311,6 +312,182 @@ Two things survive post-exclusion where nothing else does:
 
 Scale helps but does not finish the job: 32B is near zero almost everywhere, yet
 still shows +0.21 Pre residue and a −0.36 UTB.
+
+## Stage 3A — what the failure actually is
+
+Six models, the same frozen 144 items. Full tables in `results/stage3_tables.md`.
+
+### The declarative policy is perfect; the decision ignores it
+
+A separate call, same context, asks what weight the evidence should get. The
+decision run never sees this question.
+
+| model | says weight (mean) | says exactly 0 | REI, rule BEFORE | REI, rule AFTER |
+|---|---:|---:|---|---|
+| Qwen3-8B | 0.00% | 100.0% | +0.511 [+0.417, +0.605] | +0.181 [+0.080, +0.276] |
+| Gemma-3-12B | 0.00% | 100.0% | +0.419 [+0.289, +0.539] | +0.076 [-0.115, +0.258] |
+| Mistral-24B | 0.00% | 100.0% | +0.085 [-0.040, +0.204] | +0.003 [-0.121, +0.121] |
+| Qwen3.5-27B | 0.00% | 100.0% | -0.021 [-0.187, +0.135] | -0.301 [-0.471, -0.147] |
+| Qwen3-32B | 0.00% | 100.0% | +0.237 [+0.137, +0.338] | -0.083 [-0.183, +0.017] |
+| Phi-4-mini | 0.00% | 100.0% | +0.644 [+0.510, +0.777] | +0.387 [+0.233, +0.545] |
+
+Every model, in both arms, states the required weight as exactly 0 on 100% of
+items — and then, with the rule stated first, gives that evidence up to 0.64 of
+its normal causal weight. **This is not a retrieval failure.** The rule is
+recalled and correctly bound at the declarative level in the prospective
+condition just as well as in the retrospective one, and the decision still reads
+the evidence. It separates this from prospective-memory benchmarks, which ask
+whether the model remembers to act at all.
+
+### Zero behaves differently from any small weight
+
+One identical sentence, `The causal weight assigned to X is exactly W% of its
+normal evidential weight`; only the number changes, so prohibition and
+attenuation are worded the same. Cells are the pre-post gap.
+
+| model | w=0 | w=0.01 | w=0.025 | w=0.05 | w=0.1 | w=0.25 | w=0.5 | w=0.75 | w=1 | gap(0) - mean gap(w>0) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen3-8B | **+0.33** | +0.01 | +0.01 | +0.02 | -0.03 | -0.03 | -0.05 | -0.05 | -0.14 | **+0.362** |
+| Gemma-3-12B | **+0.34** | +0.04 | -0.05 | -0.02 | -0.08 | -0.07 | +0.13 | +0.03 | -0.06 | **+0.354** |
+| Mistral-24B | **+0.08** | +0.04 | +0.04 | +0.12 | +0.04 | +0.06 | +0.02 | -0.02 | +0.01 | **+0.045** |
+| Qwen3.5-27B | **+0.28** | +0.05 | +0.10 | +0.12 | +0.07 | +0.18 | +0.09 | +0.07 | -0.03 | **+0.197** |
+| Qwen3-32B | **+0.32** | +0.19 | +0.12 | +0.07 | +0.12 | +0.06 | +0.08 | -0.01 | +0.09 | **+0.229** |
+| Phi-4-mini | **+0.26** | +0.05 | +0.13 | +0.25 | -0.06 | +0.06 | +0.10 | +0.05 | +0.15 | **+0.165** |
+
+The gap is largest at exactly zero in all six models, and the excess over the
+non-zero levels is large in five of six (Mistral-24B is near its floor
+throughout). On Qwen3-8B the ratio is `gap(0)/gap(1%) = +0.331 / +0.009`, a
+factor of 38.
+
+The sharpest reading is within a column rather than across: **retrospectively a
+model treats "exactly 0" as categorical** (Qwen3-8B REI +0.181 at w=0 versus
++0.422 at w=1%), **while prospectively it does not** (+0.511 versus +0.430 —
+almost the same). Zero registers as special only once the object exists.
+
+A caveat worth stating: fitting `REI ~ w + Before + w:Before + I[w=0]:Before`,
+the extra kink term `I[w=0] x Before` is clearly positive on Qwen3-8B (+0.105,
+p=0.016) and Qwen3.5-27B (+0.207, p=0.006), not identified on Gemma-3-12B,
+Qwen3-32B and Phi-4-mini, and negative on Mistral-24B (-0.118, p=0.019). The
+descriptive pattern is uniform; the formal discontinuity term is not.
+
+A second, position-independent result falls out: between w=1% and w=50% the
+effective weight barely moves at all (Qwen3-8B: +0.43, +0.45, +0.47, +0.47,
++0.46, +0.48). Models do not implement fractional evidence weights; they land
+near one half whatever is asked.
+
+### It is not prospective-memory decay
+
+Stage 2 varied rule-to-answer distance. This varies rule-to-**evidence**
+distance — how long the rule must be held before its target appears. Cells are
+the pre-post gap.
+
+| model | 0 tok | ~100 tok | ~300 tok | ~1000 tok |
+|---|---|---|---|---|
+| Qwen3-8B | +0.342 | +0.331 | +0.275 | +0.303 |
+| Gemma-3-12B | +0.351 | +0.016 | -0.032 | -0.062 |
+| Mistral-24B | +0.108 | +0.102 | +0.129 | +0.023 |
+| Qwen3.5-27B | +0.258 | +0.280 | +0.205 | +0.217 |
+| Qwen3-32B | +0.318 | +0.280 | +0.113 | +0.222 |
+| Phi-4-mini | +0.245 | +0.233 | +0.155 | +0.126 |
+
+Four of six models keep the gap essentially intact out to a thousand tokens of
+delay between the rule and the evidence it governs. Gemma-3-12B is the clear
+exception — its gap collapses from +0.35 to -0.06 — so a maintenance component
+exists for some models and cannot be dismissed in general. But for most, the
+failure is already at full strength when the rule sits immediately before its
+target, which is not what decay predicts.
+
+### Announcing the object in advance makes it worse
+
+Identical rule (`Evidence E7 has decision weight 0.`) at every level; what
+changes is how much of E7 exists when the rule is stated.
+
+| model | L0 never mentioned | L1 'you will receive E7' | L2 [content pending] | L3 + type | L4 + type & direction | L5 full content first |
+|---|---|---|---|---|---|---|
+| Qwen3-8B | +0.561 | +0.754 | +0.848 | +0.804 | +0.754 | +0.329 |
+| Gemma-3-12B | +0.836 | +0.921 | +0.923 | +0.918 | +0.912 | +0.596 |
+| Mistral-24B | -0.046 | +0.327 | +0.906 | +0.829 | +0.757 | +0.041 |
+| Qwen3.5-27B | +0.041 | +0.043 | +0.473 | +0.480 | +0.346 | -0.206 |
+| Qwen3-32B | +0.481 | +0.701 | +0.844 | +0.865 | +0.797 | -0.007 |
+| Phi-4-mini | +0.778 | +0.948 | +0.995 | +0.855 | +0.864 | +0.184 |
+
+This is uniform across all six models and it inverts the obvious prediction.
+Giving the rule a named placeholder to attach to does not help; it makes
+suppression *worse* than never mentioning the object at all, and adding the item
+type or even its direction does not recover. Only L5 — the content actually
+present before the rule — is reliably good. Whatever the model needs in order to
+route evidence to zero, a referent is not enough; it appears to need the content.
+
+### A class policy carried on the evidence itself does work
+
+| model | specific `E7 has weight 0` (pre / post) | class `any unauthorised item has weight 0` (pre / post) |
+|---|---|---|
+| Qwen3-8B | +0.561 / +0.329 | **+0.100** / +0.145 |
+| Gemma-3-12B | +0.836 / +0.596 | **+0.532** / +0.328 |
+| Mistral-24B | -0.046 / +0.041 | **-0.077** / -0.108 |
+| Qwen3.5-27B | +0.041 / -0.206 | **-0.262** / -0.297 |
+| Qwen3-32B | +0.481 / -0.007 | **+0.113** / -0.153 |
+| Phi-4-mini | +0.778 / +0.184 | **+0.557** / +0.240 |
+
+The class-wide policy applies to a tag printed on the evidence block itself, so
+it can be resolved where the evidence is rather than held as a pending intention
+about an identifier. It beats the item-specific rule prospectively in five of six
+models, and on Qwen3-8B it also removes the position effect (+0.100 pre versus
++0.145 post). This is the same shape as the ledger result and points the fix in
+the same direction.
+
+Task preview does not help: telling the model the final question before the rule
+makes Qwen3-8B *worse* (+0.642 with preview versus +0.511 without, p=0.007). The
+missing binding target is not the objective.
+
+### It is not one sentence
+
+Eight hand-written ruling wordings, frozen before running, each with a matched
+admit form so the leverage anchor sits in the same register. Mean pre-post gap
+across five models:
+
+| wording | construction | mean gap | models with gap > 0 |
+|---|---|---|---|
+| `pp1` | legal formal | +0.262 | 5/5 |
+| `pp2` | plain | +0.401 | 5/5 |
+| `pp3` | causal | +0.393 | 5/5 |
+| `pp4` | counterfactual | +0.536 | 5/5 |
+| `pp5` | weighting | +0.422 | 5/5 |
+| `pp6` | policy | +0.340 | 5/5 |
+| `pp7` | relevance | +0.411 | 5/5 |
+| `pp8` | procedural | +0.282 | 5/5 |
+
+Every construction type, in every model: 40 of 40 model x wording cells have a
+positive gap. The counterfactual phrasing (`decide exactly as you would if X had
+never appeared`) is the *worst* prospectively, not the best.
+
+## Stage 3B — a tagged evidence stream is routed correctly
+
+48 new numeric items with 2/4/8/16 reports, half tagged `[verified]` and half
+`[unverified]`, and a routing policy stated either before or after the stream.
+Ground truth is exact, so the answer can be regressed on both group means:
+`Y ~ a + b*mean_admitted + c*mean_excluded`, where `c` is leakage.
+
+| model | naive (no policy) | policy BEFORE the stream | policy AFTER |
+|---|---|---|---|
+| qwen3-8b | +0.480 | -0.174 | +0.004 |
+| gemma3-12b | +0.475 | -0.014 | -0.019 |
+| mistral-small-24b | +0.536 | +0.001 | +0.001 |
+| phi4-mini | +0.496 | +0.016 | +0.003 |
+| qwen3.5-9b | +0.406 | -0.000 | -0.001 |
+
+With no policy the models average the whole stream, leaking about 0.48 of the
+excluded mean. With the policy, leakage goes to roughly zero **in both arms**.
+A policy that is resolved against a tag travelling with each report is executed
+prospectively; a rule about a named future object is not. This is the same
+dissociation as the class-policy result above, and it is what makes the fix
+practical: the agent case (policy fixed before retrieval) is the *solvable* one,
+provided the policy attaches to provenance rather than to an identifier.
+
+One caveat: Qwen3-8B is unstable prospectively at the longest streams (N=16,
+mean absolute error 7.6 against 0.3 retrospectively), so stream length is worth
+pushing further than 16.
+
 
 ## Mechanism (Qwen3-8B, 75 items)
 
