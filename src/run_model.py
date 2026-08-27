@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 FORCED_LINE = "ITEM DECISION WEIGHT: 0%\nFINAL DECISION: "
 
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, PROBES,
+                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, V6_CONDITIONS, PROBES,
                     ANSWER_CUE,
                     rule_char_offset)
 
@@ -88,6 +88,8 @@ def main():
     ap.add_argument("--max-model-len", type=int, default=2048)
     ap.add_argument("--mode", default="reasoned", choices=["reasoned", "direct", "cued"])
     ap.add_argument("--reason-tokens", type=int, default=110)
+    ap.add_argument("--samples", type=int, default=16)
+    ap.add_argument("--temperature", type=float, default=0.8)
     args = ap.parse_args()
 
     items = load_items(args.items)
@@ -126,13 +128,15 @@ def main():
             if k in CONDITIONS or k in EXTRA_CONDITIONS or k in V2_CONDITIONS \
                     or k in V3_CONDITIONS or k in V4_CONDITIONS \
                     or k in ROUTING_CONDITIONS or k in V5_CONDITIONS \
-                    or k in LINEAR_CONDITIONS:
+                    or k in LINEAR_CONDITIONS or k in V6_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
                 if k.startswith("sc_b"):
                     kind = "twoline_gen"       # model writes the weight, then decides
                 elif k.startswith("sc_c"):
                     kind = "twoline_forced"    # weight is teacher-forced to 0%
+                elif k.startswith("op_"):
+                    kind = "onpolicy"          # sampled; condition on what it says
             elif k in PROBES:
                 user = compile_probe(it, k)
                 kind = ("memory" if k.startswith("memory")
@@ -153,7 +157,7 @@ def main():
               enforce_eager=args.enforce_eager,
               **({"max_num_seqs": args.max_num_seqs} if args.max_num_seqs else {}))
 
-    dec_kinds = ("digit", "openreal", "twoline_gen", "twoline_forced")
+    dec_kinds = ("digit", "openreal", "twoline_gen", "twoline_forced", "onpolicy")
     dec = [r for r in recs if r["kind"] in dec_kinds]
     if dec:
         forced = [r for r in dec if r["kind"] == "twoline_forced"]
@@ -173,6 +177,29 @@ def main():
                 r["stated_weight"] = parse_number(o.outputs[0].text)
                 r["ids2"] = r["ids"] + raw_ids(o.outputs[0].text.rstrip()
                                                + "\nFINAL DECISION: ")
+
+        op = [r for r in dec if r["kind"] == "onpolicy"]
+        if op:
+            outs = llm.generate([tp(r["ids"]) for r in op],
+                                SamplingParams(n=args.samples, temperature=args.temperature,
+                                               top_p=0.95, seed=0, max_tokens=24,
+                                               stop=["FINAL DECISION:"]))
+            flat = []
+            for r, o in zip(op, outs):
+                r["samples"] = []
+                for c in o.outputs:
+                    rec = dict(stated_weight=parse_number(c.text), text=c.text)
+                    r["samples"].append(rec)
+                    flat.append((r, rec, r["ids"] + raw_ids(c.text.rstrip()
+                                                            + "\nFINAL DECISION: ")))
+            outs2 = llm.generate([tp(i) for _, _, i in flat],
+                                 SamplingParams(temperature=0.0, max_tokens=1, logprobs=40))
+            for (r, rec, _), o in zip(flat, outs2):
+                rec["value"], rec["mass"] = digit_expectation(o)
+            for r in op:
+                r["readout"] = "onpolicy_samples"
+                r["value"] = None
+                r["ids2"] = r["ids"]
 
         rest = [r for r in dec if r["kind"] in ("digit", "openreal")]
         if args.mode == "reasoned":

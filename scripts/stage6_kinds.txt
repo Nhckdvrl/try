@@ -1,0 +1,1 @@
+sem_none,sem_exact,sem_para,sem_summ,sem_samedir,sem_lexoverlap,sem_topic,sem_unrelated,sem_base,sem_full,swap_same_e7_z,swap_same_e7_f,swap_same_e9_z,swap_same_e9_f,swap_diff_e7_z,swap_diff_e7_f,swap_diff_e9_z,swap_diff_e9_f,swap_base

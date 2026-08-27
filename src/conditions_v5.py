@@ -40,6 +40,11 @@ INC_CONDITIONS = [f"inc_{v}_{s}" for v in PRESENTATION for s in ("base", "full",
 # P0-3 state externalisation (handled with a two-line answer format)
 # --------------------------------------------------------------------------
 SC_CONDITIONS = ["sc_a_pre", "sc_a_post", "sc_b_pre", "sc_b_post", "sc_c_pre", "sc_c_post"]
+# on-policy version: the model is sampled, and we condition on the trajectories in
+# which it states the correct zero weight of its own accord. Teacher-forcing a
+# reasoning step can push a model off-policy, so a forced-state result should not
+# be read as a natural-runtime causal claim on its own.
+OP_CONDITIONS = ["op_pre", "op_post"]
 SC_TWOLINE = ("Reply with exactly two lines, in this order:\n"
               "ITEM DECISION WEIGHT: <percentage>\nFINAL DECISION: <your answer>")
 SC_FORCED = "ITEM DECISION WEIGHT: 0%"
@@ -64,7 +69,8 @@ SAL_CONDITIONS = ["sal_L0", "sal_L1", "sal_L2", "sal_L3", "sal_L4"]
 # --------------------------------------------------------------------------
 OCC_CONDITIONS = ["occ_prevx"]
 
-ALL_V5 = INC_CONDITIONS + SC_CONDITIONS + PRED_CONDITIONS + SAL_CONDITIONS + OCC_CONDITIONS
+ALL_V5 = (INC_CONDITIONS + SC_CONDITIONS + OP_CONDITIONS + PRED_CONDITIONS
+          + SAL_CONDITIONS + OCC_CONDITIONS)
 V5_ANCHORS = ["base"]
 
 
@@ -82,8 +88,8 @@ def blocks(item, cond, B, E, ID_B):
         return pre + ([B, R, E] if slot == "pre" else [B, E, R])
 
     # ---- P0-3 ----
-    if cond in SC_CONDITIONS:
-        arm = cond.split("_")[2]
+    if cond in SC_CONDITIONS + OP_CONDITIONS:
+        arm = cond.split("_")[-1]
         R = uniform_weight_rule(item, 0.0)
         return [B, R, E] if arm == "pre" else [B, E, R]
 
