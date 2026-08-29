@@ -1,13 +1,13 @@
 # BTF-3 temporal pilot — completed human review v0.1
 
-> **Do not run this v0.1 artifact.** Review was completed without model outputs. The full original 56 KB source-text packet remains at `btf3_temporal_pilot_v0.1.md`; the four-cell JSONL remains unchanged. This sheet records the completed per-item decisions and the transformation-level blocker.
+> **Do not run this v0.1 artifact.** Review was completed without model outputs. The original generated 56 KB source-text packet is preserved at commit `413b1ae461d8f636273a12978412e0aecd24c3c1` (blob `d795df186bc5e7fb825402ea10fb596721df2f16`); the four-cell JSONL remains unchanged. This sheet records the completed per-item decisions and the transformation-level blocker.
 
 ## Review summary
 
 - Source units: **7 ACCEPT / 1 REJECT / 0 UNSURE**.
 - Rejected unit: Cameron Young / PGA Tour (`b6fc94e7-a0b9-56b6-87a1-ba94f29781e9`).
 - All eight backgrounds were judged free of material facts after their intended source information window.
-- The v0.1 transformation is nevertheless **BLOCKED** because its ex-ante prompt can read `date_cutoff_end` as one extra available calendar day. The source card defines the window as the UTC day containing `present_date`; the adapter must use that semantics.
+- The v0.1 transformation is nevertheless **BLOCKED** because its ex-ante prompt can read `date_cutoff_end` as one extra available calendar day. The BTF-3 source card defines the information window as ending at the end of the UTC day containing `present_date`; the adapter must preserve that semantics rather than treating the calendar date stored in `date_cutoff_end` as an additional available day.
 - Regenerate v0.2 with the corrected adapter and replace the rejected NO unit to restore 4 YES / 4 NO balance.
 
 ## 1. `b6fc94e7-a0b9-56b6-87a1-ba94f29781e9` — realized NO
