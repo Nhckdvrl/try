@@ -5,7 +5,10 @@ from dataclasses import asdict, dataclass
 from math import isfinite
 from typing import Iterable
 
-from .metrics_policy_nonuse import paired_cluster_bootstrap_mean
+try:
+    from .metrics_policy_nonuse import paired_cluster_bootstrap_mean
+except ImportError:  # direct script execution
+    from metrics_policy_nonuse import paired_cluster_bootstrap_mean
 
 
 @dataclass(frozen=True)
