@@ -69,7 +69,7 @@ Before a broad freeze, shared content across different `part_id` values must sti
 - conversation, belief question, both belief candidates, fact question, fact answer, and boundary probe are copied from FANToM;
 - section labels, target-information-set framing, counterfactual post-conversation briefing, probability readout, and deterministic option order are authored by this project;
 - the resulting task is a source-anchored causal transformation, not an untouched reproduction of the original FANToM score;
-- the official repository is MIT, but its README says samples should be used for evaluation. Generated full-text review artifacts remain machine-local until redistribution coverage is resolved.
+- the official repository is MIT and its README says samples should be used for evaluation. The committed transformed artifacts are explicitly evaluation-only, retain source attribution, and must not be represented as an original FANToM score reproduction.
 
 ## Human rejection rules
 

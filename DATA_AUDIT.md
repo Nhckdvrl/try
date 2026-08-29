@@ -29,10 +29,10 @@ No new experiment environment is required.
 
 Candidate v0.1 now keeps one first-order inaccessible belief question fixed and
 uses the same exact fact packet in a 2 × 2 evaluator-only versus explicitly
-briefed-target intervention. Full-text artifacts remain local because the
-official README restricts intended use to evaluation and redistribution
-coverage still needs resolution. Eight deterministic `part_id`-clustered items
-await human causal-alignment review.
+briefed-target intervention. The official repository is MIT and specifies
+evaluation use; committed transformed artifacts retain attribution and are
+marked evaluation-only. Eight deterministic `part_id`-clustered items await
+human causal-alignment review.
 
 Status: transformation review pending; no model run authorized.
 

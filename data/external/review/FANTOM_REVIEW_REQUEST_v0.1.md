@@ -1,11 +1,11 @@
 # FANToM perspective v0.1 — human review request
 
-**Do not run models.** The full source text and four-cell JSONL are machine-local because redistribution coverage remains unresolved. Review them at:
+**Do not run models.** The full source text and four-cell JSONL are committed evaluation artifacts. Review them at:
 
-- `data/external/local_review/fantom_perspective_pilot_v0.1.md`
-- `data/external/local_review/fantom_perspective_pilot_v0.1.jsonl`
+- `data/external/review/fantom_perspective_pilot_v0.1.md`
+- `data/external/review/fantom_perspective_pilot_v0.1.jsonl`
 
-This tracked file records decisions without redistributing the conversations.
+Source attribution: Kim et al., *FANToM: A Benchmark for Stress-testing Machine Theory of Mind in Interactions* (EMNLP 2023), official repository revision `1cae6fa30f5ba04ca0fff5f5716b5ba7055e2e85` under MIT. These prompts are a project-authored evaluation transformation, not an original FANToM score reproduction.
 
 ## Decision A — transformation contract
 
@@ -88,8 +88,8 @@ For every row, check that the target did not already learn the exact packet, the
 - local tests: `29 passed`;
 - official archive SHA-256: `1d08dfa0ea474c7f83b9bc7e3a7b466eab25194043489dd618b4c5223e1253a4`;
 - extracted official JSON SHA-256: `6a898e95df9fa48608232e45a8eb8f531e4d633aaf1a023a2b910991a6bc7c6e`;
-- local full-text review Markdown SHA-256: `5f413ebe800c03f60df96fbc95a1b08f9bb608004ec8eea696b00da05a1b991e`;
-- local serialized four-cell JSONL SHA-256: `9af1e00115f3ab021e4e669a0fbf8d7990a29bf0cf69c25cf9d5be9beeff7273`;
+- committed full-text review Markdown SHA-256: `d7860a60aac74e18116e41ed0443786f1c4bf4dda187657cab29fadef0e6b82e`;
+- committed serialized four-cell JSONL SHA-256: `9af1e00115f3ab021e4e669a0fbf8d7990a29bf0cf69c25cf9d5be9beeff7273`;
 - 8 distinct provisional independent `part_id` units;
 - pinned source eligibility audit: 636 eligible rows across 335 provisional `part_id` units;
 - one eligible first-order inaccessible QA per selected source row;
@@ -98,4 +98,4 @@ For every row, check that the target did not already learn the exact packet, the
 - exact fact packet occurs once in each `WITH` and never in `WITHOUT`;
 - model outputs inspected: none.
 
-Automatic checks do not resolve dialogue inconsistencies, answer/packet semantic alignment, the legitimacy of the allowed briefing manipulation, or redistribution scope. Those remain human gates.
+Automatic checks do not resolve dialogue inconsistencies, answer/packet semantic alignment, or the legitimacy of the allowed briefing manipulation. Those remain human gates.

@@ -19,9 +19,10 @@ from information_set_schema import file_sha256, load_jsonl, validate_collection 
 
 def render_review(items, rows) -> str:
     out = [
-        "# FANToM perspective candidate v0.1 — local full-text review",
+        "# FANToM perspective candidate v0.1 — full-text review",
         "",
-        "> Do not run models. Do not commit this full-text artifact until redistribution coverage is resolved.",
+        "> Do not run models before human review and the repository-wide preregistration freeze.",
+        "> Source: Kim et al., FANToM (EMNLP 2023), official MIT-licensed repository; this is an evaluation-only transformed review artifact, not an original FANToM score reproduction.",
         "",
     ]
     for index, (item, row) in enumerate(zip(items, rows, strict=True), 1):
@@ -73,7 +74,7 @@ def main() -> int:
     parser.add_argument("--source", default="data/external/raw/fantom/fantom_v1.json")
     parser.add_argument("--n", type=int, default=8)
     parser.add_argument("--seed", type=int, default=20260829)
-    parser.add_argument("--output-dir", default="data/external/local_review")
+    parser.add_argument("--output-dir", default="data/external/review")
     args = parser.parse_args()
 
     rows = json.loads(Path(args.source).read_text(encoding="utf-8"))
@@ -96,9 +97,9 @@ def main() -> int:
         validate_candidate_against_source(
             item, source_by_set[item.provenance["source_record_id"]]
         )
-    print(f"wrote {len(items)} local-only review candidates to {jsonl} and {markdown}")
+    print(f"wrote {len(items)} review candidates to {jsonl} and {markdown}")
     print(f"serialized JSONL SHA-256: {file_sha256(jsonl)}")
-    print("human review and redistribution verification remain required")
+    print("human review remains required before any model run")
     return 0
 
 

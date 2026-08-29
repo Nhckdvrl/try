@@ -86,7 +86,7 @@ or shared behavioral contract with fragmented implementations.
 ## Immediate next task
 
 BTF-3 v0.2r2 has passed source and transformation review. Review the FANToM
-perspective counterfactual without conflating fact QA with belief QA, resolve
-full-text redistribution coverage, then freeze the two-family pilot's models,
+perspective counterfactual without conflating fact QA with belief QA, then
+freeze the two-family pilot's models,
 parsing, probes, thresholds, estimands, and smallest effects before the first
 target-model OOB output.
