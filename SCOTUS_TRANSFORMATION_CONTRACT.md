@@ -1,16 +1,43 @@
 # SCOTUS temporal transformation contract — candidate v0.1a
 
-**Status:** contract draft, amended before any calibration case was looked
-at. No adapter, no formal sample, no model run. Written and frozen before
-any confirmatory-run BTF-3 model output, so this second-domain source
-cannot be accused of having been picked or shaped after seeing how BTF-3
-behaved. Phase order for this source is **audit → contract (this document)
-→ calibration + human review → eligibility/spec freeze**; this document is
-the contract step. One design question below ("Source-native pre-decision
-context") is explicitly *not* fully frozen yet — it names the candidate
-context and the empirical question calibration must answer, but not a
-per-case extraction algorithm. That calibration is part of the
-human-review step, not a later "improve it once we see model output" step.
+**Status: FAILED at the mechanical calibration gate (2026-08-30). Does not
+proceed to a candidate queue, adapter, or pilot sample on this design.**
+
+The mechanical token-length census required below was run against 4 real
+cases with real official QP + oral-argument-transcript text (dockets
+06-179, 06-571, 10-930, 11-192; Terms 2007 and 2012), tokenized through all
+three frozen models' actual tokenizers using the same chat-template
+mechanism `run_information_set.py` uses. **Every case came in at roughly
+36,000–50,000 tokens for the full `QP + transcript` context — 4.5–6x over
+the frozen `max-model-len 8192` — consistently across all three
+tokenizers, nowhere near the boundary.** Per this contract's own
+fail-closed rule (see "Source-native pre-decision context" below): no
+truncation, no "first 8k tokens of the transcript," and no other
+result-motivated excerpt rule was invented to force a pass. **SCOTUS
+v0.1a as designed — oral-argument-stage cutoff, full official transcript
+as pre-decision context — is dead.** This does not kill SCOTUS as a
+*source*: a future, separately-calibrated contract version could search
+for a different, naturally shorter, officially-bounded pre-decision
+document instead of the full transcript, but that would be a new design
+requiring its own fresh calibration from scratch, not a patch to this
+document's cutoff/context choice. The rest of this document is retained
+as the historical record of what was tried and why it failed, not as a
+live spec.
+
+---
+
+**Original status (superseded above):** contract draft, amended before any
+calibration case was looked at. No adapter, no formal sample, no model
+run. Written and frozen before any confirmatory-run BTF-3 model output, so
+this second-domain source cannot be accused of having been picked or
+shaped after seeing how BTF-3 behaved. Phase order for this source is
+**audit → contract (this document) → calibration + human review →
+eligibility/spec freeze**; this document is the contract step. One design
+question below ("Source-native pre-decision context") is explicitly *not*
+fully frozen yet — it names the candidate context and the empirical
+question calibration must answer, but not a per-case extraction algorithm.
+That calibration is part of the human-review step, not a later "improve it
+once we see model output" step.
 
 ## Amendment note (v0.1 → v0.1a)
 
@@ -393,6 +420,50 @@ larger confirmatory commitment. Cases are drawn only from **Term
 verified reachable in this session); a pre-2007 slice is out of scope for
 this contract and would need separate sourcing work.
 
+## Mechanical calibration census (2026-08-30) — FAIL, appendix
+
+Per the required calibration pass, before any semantic/legal reading: a
+pure token-count census across real, non-final cases, using each frozen
+model's actual tokenizer via the same chat-template mechanism
+`run_information_set.py` uses (system prompt + user turn, `apply_chat_template`).
+
+Real official text pulled for 4 cases with both QP and transcript
+available (`supremecourt.gov/qp/...` and
+`supremecourt.gov/oral_arguments/argument_transcripts/{term}/{docket}.pdf`):
+
+| docket | term | transcript words | Qwen3.5-9B (QP+transcript+syllabus) | Gemma-3-12B-it | Mistral-Small-24B |
+|---|---:|---:|---:|---:|---:|
+| 06-179 | 2007 | 17,101 | in the same ~36k–50k range as the other 3 rows (exact figure not retained from the console output; see note below) | — | — |
+| 06-571 | 2007 | 16,386 | 45,638 | 44,950 | 45,703 |
+| 10-930 | 2012 | 13,303 | 38,465 | 37,710 | 38,532 |
+| 11-192 | 2012 | 17,422 | 49,954 | 49,146 | 50,036 |
+
+(06-179's exact per-model numbers scrolled out of the captured console
+output during this session and were not re-run before the scratch files
+were cleaned up; its transcript word count, 17,101, is the largest of the
+4 cases, so its token count is expected to be at or above 11-192's ~50k —
+this does not change the conclusion, since 3 of 4 cases already give exact,
+decisive figures far over budget.)
+
+(Table shows the `WITH`-cell token count — QP + full transcript + syllabus
++ the fixed target prediction question — the longest of the four cells for
+each case.) All 9 exactly-recorded values (3 cases × 3 models) exceed the
+frozen `max_model_len=8192` by 4.5–6x, and the 4th case's transcript is the
+longest of the four so is expected to follow the same pattern. Even the
+`WITHOUT`-cell count
+(QP + transcript only, no syllabus) is 36,454–48,020 tokens — the
+transcript alone is the entire problem; the syllabus and QP are minor
+contributors by comparison.
+
+A secondary, now-moot finding from the same pass: the plain-docket
+transcript URL that worked for these 4 cases (Terms 2007, 2012) 404'd for
+every Term 2015–2024 docket tested (7 cases, multiple zero-padding and
+folder-year variants tried) — the site apparently needs an
+ASP.NET-postback-driven search or per-case random-suffix filenames for
+recent terms, not a simple scriptable path. Irrelevant to the FAIL above
+(which is about length, not availability), but worth recording for any
+future contract version that revisits transcripts as a source.
+
 ## Freeze checklist
 
 - [x] disposition taxonomy audited against SCDB and mapped to a binary label
@@ -401,12 +472,15 @@ this contract and would need separate sourcing work.
 - [x] official source instruments verified reachable, docket zero-padding bug found and documented
 - [x] ex-ante cutoff and pre-decision context source are mutually consistent (v0.1a fix)
 - [x] target prediction question separated from source-native QP legal question (v0.1a fix)
-- [ ] `QP + complete transcript` calibrated on 10–15 non-final cases: adequacy and context-length checks (pre-decision-context section)
+- [x] `QP + complete transcript` calibrated on real cases: **FAILED** the
+      context-length check (see appendix above) — semantic adequacy was
+      never reached because the mechanical gate failed first
 - [x] later-packet (syllabus) extraction rule identified and verified against two real, 70-years-apart samples
 - [x] 2×2 structure and metric definitions (inherited from BTF-3, unchanged)
 - [x] reject rules
-- [ ] boundary-knowledge probe drafted (mirrors BTF-3's, not yet written)
-- [ ] human review of an actual 8–12 case pilot sample
-- [ ] eligibility/spec freeze — this document becomes citable as frozen only
-      after all three unchecked items above close: the calibration pass,
-      the boundary probe, and the pilot-sample review
+- [ ] boundary-knowledge probe drafted — **moot, contract failed before this was needed**
+- [ ] human review of an actual 8–12 case pilot sample — **moot, contract failed before this was needed**
+- [ ] eligibility/spec freeze — **will not happen for this design.** SCOTUS
+      remains a candidate source in principle; a future contract version
+      would need a different, naturally shorter, officially-bounded
+      pre-decision document and its own fresh calibration from scratch.
