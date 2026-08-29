@@ -32,11 +32,11 @@ The pilot-level pattern replicates cleanly on a fresh, independently-drawn,
 perfect boundary-probe accuracy, strong responsiveness, perfect or
 near-perfect aligned `ALLOWED_WITH` score), and the same two models that
 showed intrusion in the pilot (Qwen, Gemma) show it again here, with
-much tighter confidence intervals (as expected at n=64 vs n=8) and, if
-anything, larger point estimates (Gemma's intrusion mean roughly
-doubled: 27.2 vs the pilot's 26.25 — similar magnitude; Qwen's actually
-came down slightly, 12.75 vs 16.25, but the CI lower bound is still
-comfortably clear of the 5-point SESOI). Mistral again qualifies but does
+much tighter confidence intervals (as expected at n=64 vs n=8) and
+comparable point estimates (Gemma's intrusion mean is essentially
+unchanged: 27.2 vs the pilot's 26.25, similar magnitude; Qwen's came down
+somewhat, 12.75 vs 16.25, but its CI lower bound is still comfortably
+clear of the 5-point SESOI). Mistral again qualifies but does
 not show intrusion (CI crosses zero, same as the pilot's [-7.5, 10.0]).
 
 Per `PREREGISTRATION_G1.md`'s confirmatory stop/go rule: **BTF-3 temporal
@@ -49,12 +49,14 @@ finding itself is not a pilot-scale artifact.
 ## What this does and doesn't authorize next
 
 Per the frozen mechanism gate in `PREREGISTRATION_G1.md`, external causal
-patching still requires validated intrusion in **at least two families**,
-which remains unmet (only one family/source — BTF-3 — has confirmed
-intrusion; FANToM failed and no second temporal source survived
-calibration). The appropriate next steps, per the decision framework
-already agreed for this phase, are: temporal-specific controlled
-factorization to understand the mechanism within BTF-3, and/or a renewed,
-freshly-calibrated search for a second temporal-boundary source now that
-the underlying effect itself is confirmed at 64-unit scale — not a jump
-straight to cross-family mechanism work.
+patching still requires the same model to show validated intrusion in **at
+least two families** (boundary types — temporal, perspective, procedural
+— not sources/datasets within one family), which remains unmet: only the
+temporal family has confirmed intrusion, and the project is deliberately
+not narrowing back to perspective/procedural to chase that old gate. A
+second independent temporal-boundary **source** (e.g. a future FOMC
+replication) would not unlock this gate either way — it would instead
+answer a different, more immediate question: whether the confirmed
+intrusion is specific to BTF-3's forecasting-question construct or
+generalizes to a genuinely different kind of temporal decision. That
+question, not mechanism work, is the deliberate next priority.
