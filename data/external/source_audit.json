@@ -1,0 +1,79 @@
+{
+  "aiyer": {
+    "export_status": "BLOCKED_PENDING_ALLOWED_RESPONSIVENESS_CONTRACT",
+    "factor_cells": [
+      "patient_failure",
+      "patient_success",
+      "physician_failure",
+      "physician_success"
+    ],
+    "independent_unit_candidate": "medical bypass vignette (four between-subject cells are one semantic unit)",
+    "n_native_scenarios": 4,
+    "source": "aiyer_2023_outcome_bias",
+    "warning": "one semantic vignette cannot support item-level generalization by itself"
+  },
+  "btf3": {
+    "binary_resolution_missing": 0,
+    "export_status": "BLOCKED_PENDING_FUTURE_INFORMATION_INTERVENTION_AUDIT",
+    "independent_unit_candidate": "question_id",
+    "n_binary": 1515,
+    "n_cross_track_id_overlap": 0,
+    "n_numeric": 392,
+    "n_total": 1907,
+    "numeric_resolution_missing": 0,
+    "source": "btf3"
+  },
+  "fantom": {
+    "belief_accessibility": {
+      "accessible": 547,
+      "inaccessible": 993
+    },
+    "belief_tom_types": {
+      "first-order": 870,
+      "second-order:accessible": 286,
+      "second-order:acyclic": 191,
+      "second-order:cyclic": 193
+    },
+    "export_status": "BLOCKED_PENDING_TRANSFORMATION_CONTRACT",
+    "independent_unit_candidate": "part_id (multiple conversation/context renderings share a part)",
+    "n_belief_questions": 1540,
+    "n_conversations": 253,
+    "n_part_ids": 368,
+    "n_rows": 870,
+    "n_set_ids": 870,
+    "source": "fantom_v1"
+  },
+  "forecastbench": {
+    "export_status": "BLOCKED_PENDING_KEYED_JOIN_AND_CUTOFF_CONTRACT",
+    "forecast_due_date": "2025-03-02",
+    "n_combination_question_rows": 496,
+    "n_direct_id_matches": 1628,
+    "n_question_templates": 997,
+    "n_resolution_rows": 7836,
+    "question_set": "2025-03-02-llm.json",
+    "question_sources": {
+      "acled": 126,
+      "dbnomics": 104,
+      "fred": 126,
+      "infer": 13,
+      "manifold": 126,
+      "metaculus": 126,
+      "polymarket": 126,
+      "wikipedia": 125,
+      "yfinance": 125
+    },
+    "resolution_sources": {
+      "acled": 1575,
+      "dbnomics": 1090,
+      "fred": 1562,
+      "infer": 8,
+      "manifold": 314,
+      "metaculus": 310,
+      "polymarket": 302,
+      "wikipedia": 1145,
+      "yfinance": 1530
+    },
+    "source": "forecastbench",
+    "warning": "dataset questions are templates with multiple resolution_dates; never positional-join files"
+  }
+}

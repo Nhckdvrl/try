@@ -1,5 +1,19 @@
 # Related-work and novelty boundary — 2026-08-29
 
+> **Information-set scope reset.** The paper-level object is whether models
+> construct the licensed information set for a target decision across temporal,
+> perspective, procedural, role/access, and decision-scope boundaries.
+> Policy-conditioned causal non-use is one mechanistic subcase, not the mother
+> contribution.
+
+Claims explicitly unavailable as novelty include selective contextual forgetting
+(ICF-Bench), ex-ante use of future information (ExAnte), multi-party information
+asymmetry (FANToM), the invariant-to-forbidden/responsive-to-licensed causal
+contract (Resist and Update), and conditional-rule update failure
+(MedPIC-Bench). Novelty is conditional on source-native cross-boundary evidence,
+held-out transfer, and the resulting shared-capability versus fragmented-
+heuristics test.
+
 This note exists to prevent the project from drifting into a claim that adjacent work has already occupied.
 
 ## 1. The core distinction

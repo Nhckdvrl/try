@@ -3,3 +3,9 @@
 data/mistral_small_24b_hf/
 __pycache__/
 *.pyc
+
+# Source-native external datasets are fetched by scripts/fetch_external_sources.py.
+# They are intentionally not committed: some sources are large, dynamically
+# updated, share-alike/non-commercial, or have redistribution terms that still
+# require verification.  Reproducibility is provided by pinned URLs + hashes.
+data/external/raw/

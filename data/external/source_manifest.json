@@ -1,97 +1,139 @@
 {
-  "manifest_version": "0.1-design",
+  "manifest_version": "0.2-information-set",
   "created": "2026-08-29",
-  "warning": "No source below is an EVS-v1 item yet. Verify reuse terms, download original materials, record exact file hashes, and freeze transformations before any DENY run.",
+  "raw_cache_policy": "data/external/raw is ignored; pinned retrieval URLs and SHA-256 values are reproducibility records, not permission claims",
+  "warning": "No source is a frozen G1 item yet. READY_TO_AUDIT means only that official files can be inspected locally.",
   "sources": [
     {
-      "source_id": "engel_2026_inadmissible",
-      "priority": "primary",
-      "family": "legal_inadmissible_evidence",
-      "citation": "Engel, Golder & Rahal (2026), Who Is Afraid of the Pink Elephant? Evidence on (Not) Ignoring Inadmissible Evidence and Debiasing Interventions",
-      "canonical_url": "https://doi.org/10.1002/bdm.70064",
-      "materials_url": null,
-      "reuse_status": "VERIFY_BEFORE_IMPORT",
-      "desired_role": "true-but-forbidden legal anchor; preserve character-evidence vs wiretap heterogeneity",
-      "independent_unit": "original vignette/manipulation unit from author materials",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": null,
-      "status": "candidate"
+      "source_id": "fantom_v1",
+      "boundary_type": "perspective",
+      "canonical_url": "https://github.com/skywalker023/fantom",
+      "source_revision": "1cae6fa30f5ba04ca0fff5f5716b5ba7055e2e85",
+      "license_or_terms": "Official repository MIT; verify that this covers redistributed dataset artifacts before committing derived text",
+      "reuse_status": "LOCAL_AUDIT_OK_REDISTRIBUTION_VERIFY",
+      "independent_unit_rule": "part_id provisionally; validate shared latent conversations before freeze",
+      "files": [{"path": "fantom/fantom.tar.gz", "sha256": "1d08dfa0ea474c7f83b9bc7e3a7b466eab25194043489dd618b4c5223e1253a4"}],
+      "adapter": "src/adapters/fantom.py",
+      "status": "READY_TO_AUDIT"
+    },
+    {
+      "source_id": "forecastbench_2025_03_02",
+      "boundary_type": "temporal",
+      "canonical_url": "https://github.com/forecastingresearch/forecastbench-datasets",
+      "source_revision": "d4834ccc58310539400974fc4664923db7b71417",
+      "license_or_terms": "CC BY-SA 4.0",
+      "reuse_status": "LOCAL_AUDIT_AND_REDISTRIBUTION_WITH_ATTRIBUTION_SHAREALIKE",
+      "independent_unit_rule": "source question template/id plus resolution_date; combination questions require explicit composite key",
+      "files": [
+        {"path": "forecastbench/2025-03-02-llm.json", "sha256": "0ff5ecc9a77890c6b2499ba3a9914d30fad2e30306d2e61d703ad9182d924eab"},
+        {"path": "forecastbench/2025-03-02_resolution_set.json", "sha256": "8259019c962b58b8179d3550c9577ec882efd13924d939add62f1ea19fe62ac0"}
+      ],
+      "adapter": "src/adapters/forecastbench.py",
+      "status": "READY_TO_AUDIT"
+    },
+    {
+      "source_id": "btf3",
+      "boundary_type": "temporal",
+      "canonical_url": "https://huggingface.co/datasets/BTF-2/BTF-3",
+      "source_revision": "4b426627e19cd86202de69a40bc9dadb7f5ccd59",
+      "license_or_terms": "CC BY-NC 4.0",
+      "reuse_status": "LOCAL_NONCOMMERCIAL_RESEARCH_AUDIT",
+      "independent_unit_rule": "question_id",
+      "files": [
+        {"path": "btf3/btf3_binary_questions_and_forecasts.parquet", "sha256": "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a"},
+        {"path": "btf3/btf3_numeric_questions_and_forecasts.parquet", "sha256": "1bee10210dabcfcc41d052e7d6458d3674f87b40e1a8f07ab1796fc040ca0747"}
+      ],
+      "adapter": "src/adapters/btf3.py",
+      "status": "READY_TO_AUDIT"
     },
     {
       "source_id": "aiyer_2023_outcome_bias",
-      "priority": "primary",
-      "family": "ex_ante_outcome_evaluation",
-      "citation": "Aiyer et al. (2023), Outcomes Affect Evaluations of Decision Quality: Replication and Extensions of Baron and Hershey's (1988) Outcome Bias Experiment 1",
-      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12372742/",
-      "materials_url": "https://osf.io/knjhu/",
-      "reuse_status": "ARTICLE_CC_BY_4_0; VERIFY_OSF_FILE_TERMS_BEFORE_REDISTRIBUTION",
-      "desired_role": "true-but-temporally-out-of-bounds outcome information",
-      "independent_unit": "original decision vignette; framing/outcome cells are repeated conditions within unit",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": null,
-      "status": "candidate"
+      "boundary_type": "temporal",
+      "canonical_url": "https://osf.io/knjhu/",
+      "source_revision": "OSF node modified 2024-04-03T14:43:41.131951",
+      "license_or_terms": "Article CC BY 4.0; OSF node reports no project license",
+      "reuse_status": "LOCAL_AUDIT_ONLY_UNTIL_OSF_MATERIAL_TERMS_CONFIRMED",
+      "independent_unit_rule": "one medical vignette; four between-subject cells are repeated conditions, not four independent items",
+      "files": [
+        {"path": "aiyer/outcome_bias.qsf", "sha256": "6a7ae91c9e6a583f22a9152228a2492eb34eb7c2691c0c22e501509073e638c4"},
+        {"path": "aiyer/20189_replication.csv", "sha256": "d238fddea76a2aa64af11c9dbc1bde26c2eab8db0b4c366ceebaa9801f00936d"},
+        {"path": "aiyer/codebook.xlsx", "sha256": "eee40c419b8e63d97435e1d04926c9a22ed8f6df0078361a9ecb5fcddad43bca"}
+      ],
+      "adapter": "src/adapters/aiyer.py",
+      "status": "READY_TO_AUDIT"
+    },
+    {
+      "source_id": "engel_2026_inadmissible",
+      "boundary_type": "procedural",
+      "canonical_url": "https://doi.org/10.1002/bdm.70064",
+      "license_or_terms": "VERIFY_AUTHOR_MATERIALS",
+      "reuse_status": "DO_NOT_IMPORT_YET",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "dutch_hiring",
+      "boundary_type": "decision_scope",
+      "canonical_url": "UNRESOLVED_FROM_CURRENT_AUDIT",
+      "license_or_terms": "VERIFY",
+      "reuse_status": "DO_NOT_IMPORT_YET",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "nature_tom_materials",
+      "boundary_type": "perspective",
+      "canonical_url": "UNRESOLVED_OSF_MATERIALS_LINK",
+      "license_or_terms": "VERIFY",
+      "reuse_status": "DO_NOT_IMPORT_YET",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "exante_2026",
+      "boundary_type": "temporal",
+      "canonical_url": "https://aclanthology.org/2026.eacl-long.72/",
+      "license_or_terms": "VERIFY_DATASET_TERMS",
+      "reuse_status": "RELATED_WORK_OR_CONTRAST_UNTIL_VERIFIED",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "privaci_bench",
+      "boundary_type": "role_access",
+      "canonical_url": "UNRESOLVED_FROM_CURRENT_AUDIT",
+      "license_or_terms": "VERIFY",
+      "reuse_status": "DEPLOYMENT_GENERALIZATION_CANDIDATE",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "ci_work",
+      "boundary_type": "role_access",
+      "canonical_url": "UNRESOLVED_FROM_CURRENT_AUDIT",
+      "license_or_terms": "VERIFY",
+      "reuse_status": "DEPLOYMENT_GENERALIZATION_CANDIDATE",
+      "status": "CANDIDATE"
+    },
+    {
+      "source_id": "medpic_bench",
+      "boundary_type": "decision_scope",
+      "canonical_url": "https://arxiv.org/abs/2608.03028",
+      "license_or_terms": "VERIFY_DATASET_TERMS",
+      "reuse_status": "RELATED_WORK_OR_CONTRAST_UNTIL_VERIFIED",
+      "status": "CANDIDATE"
     },
     {
       "source_id": "curse_knowledge_2022_trivia",
-      "priority": "primary",
-      "family": "privileged_state_perspective",
-      "citation": "The 'curse of knowledge' when predicting others' knowledge (2022)",
-      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9794110/",
-      "materials_url": "https://osf.io/2ngbq/",
-      "reuse_status": "VERIFY_OSF_FILE_TERMS_BEFORE_REDISTRIBUTION",
-      "desired_role": "40 independently grounded trivia items with novice-knowledge targets; non-legal perspective boundary",
-      "independent_unit": "trivia question",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": null,
-      "status": "candidate"
-    },
-    {
-      "source_id": "buczel_2024_cie_timing",
-      "priority": "contrast",
-      "family": "misinformation_retraction",
-      "citation": "Buczel et al. (2024), How do forewarnings and post-warnings affect misinformation reliance?",
-      "canonical_url": "https://doi.org/10.3758/s13421-024-01520-z",
-      "materials_url": null,
-      "reuse_status": "VERIFY_BEFORE_IMPORT",
-      "desired_role": "false/retracted-information contrast and independent timing boundary condition",
-      "independent_unit": "original narrative/event item",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": null,
-      "status": "candidate"
-    },
-    {
-      "source_id": "oien_goernert_2003_employee_selection",
-      "priority": "acquire_if_permitted",
-      "family": "employee_forbidden_information",
-      "citation": "Oien & Goernert (2003), The Role of Intentional Forgetting in Employee Selection",
-      "canonical_url": "https://doi.org/10.1080/00221300309601278",
-      "materials_url": null,
-      "reuse_status": "NOT_CONFIRMED_OPEN; DO_NOT_RECONSTRUCT_OR_REDISTRIBUTE WITHOUT PERMISSION",
-      "desired_role": "natural prospective forbidden-information selection paradigm",
-      "independent_unit": "applicant profile / experiment-defined target unit",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": null,
-      "status": "candidate"
+      "boundary_type": "perspective",
+      "canonical_url": "https://osf.io/2ngbq/",
+      "license_or_terms": "VERIFY_OSF_FILE_TERMS",
+      "reuse_status": "DO_NOT_IMPORT_YET",
+      "status": "CANDIDATE"
     },
     {
       "source_id": "ramsey_2024_invalid_information",
-      "priority": "boundary_existing",
-      "family": "invalid_numeric_information",
-      "citation": "Ramsey, Liu & Trueblood (2024), Can Invalid Information Be Ignored When It Is Detected?",
-      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/38483515/",
-      "materials_url": "https://osf.io/9ybnx/",
-      "reuse_status": "VERIFY_OSF_FILE_TERMS",
-      "desired_role": "negative/boundary external paradigm already partially adapted in repository",
-      "independent_unit": "source experiment report sequence; current generated offset sweep must not be described as verbatim source data",
-      "local_raw_files": [],
-      "sha256": [],
-      "transform_script": "src/gen_external.py",
-      "status": "existing_adaptation_needs_reclassification"
+      "boundary_type": "invalidity_contrast",
+      "canonical_url": "https://osf.io/9ybnx/",
+      "license_or_terms": "VERIFY_OSF_FILE_TERMS",
+      "reuse_status": "EXISTING_REPOSITORY_DATA_ARE_ADAPTATIONS_NOT_SOURCE_STIMULI",
+      "adapter": "src/gen_external.py",
+      "status": "EXISTING_CONTRAST_NEEDS_RECLASSIFICATION"
     }
   ]
 }

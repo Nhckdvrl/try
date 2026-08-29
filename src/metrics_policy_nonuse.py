@@ -96,11 +96,15 @@ def paired_cluster_bootstrap_mean(
     seed: int = 0,
     alpha: float = 0.05,
 ) -> dict:
-    """Cluster bootstrap a mean without pretending rendered variants are IID.
+    """Estimate an equally weighted mean over independent semantic clusters.
 
-    All observations belonging to a sampled cluster are carried together.  If a
-    cluster is sampled twice, all of its observations are duplicated twice.
-    Returns the observed mean and percentile interval.
+    Observations are first averaged *within* cluster.  The estimand is then the
+    unweighted mean of those cluster means, and bootstrap draws resample cluster
+    means.  Consequently, duplicating a rendered variant inside one semantic
+    unit cannot increase that unit's weight.
+
+    This is intentionally different from the frozen G0 item-level analysis in
+    :mod:`analyze`; it is the inference rule for new external benchmarks.
     """
     vals = [float(v) for v in values]
     cls = [str(c) for c in clusters]
@@ -117,25 +121,29 @@ def paired_cluster_bootstrap_mean(
 
     by_cluster: dict[str, list[float]] = {}
     for v, c in zip(vals, cls):
+        if not c:
+            raise ValueError("cluster identifiers must be non-empty")
         by_cluster.setdefault(c, []).append(v)
 
     cluster_ids = sorted(by_cluster)
+    cluster_means = [st.mean(by_cluster[c]) for c in cluster_ids]
     rng = random.Random(seed)
     boot = []
     for _ in range(n_resamples):
-        sampled = [rng.choice(cluster_ids) for _ in cluster_ids]
-        draw = [v for c in sampled for v in by_cluster[c]]
+        draw = [rng.choice(cluster_means) for _ in cluster_means]
         boot.append(st.mean(draw))
 
     boot.sort()
     lo_i = max(0, int((alpha / 2) * n_resamples))
     hi_i = min(n_resamples - 1, int((1 - alpha / 2) * n_resamples) - 1)
     return {
-        "mean": st.mean(vals),
+        "mean": st.mean(cluster_means),
         "ci_low": boot[lo_i],
         "ci_high": boot[hi_i],
         "n_observations": len(vals),
         "n_clusters": len(cluster_ids),
+        "cluster_size_min": min(len(by_cluster[c]) for c in cluster_ids),
+        "cluster_size_max": max(len(by_cluster[c]) for c in cluster_ids),
         "n_resamples": n_resamples,
         "alpha": alpha,
     }

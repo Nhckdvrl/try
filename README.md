@@ -1,17 +1,24 @@
-# Known, but Out of Bounds
+# Reasoning Within Bounds
 
-## Can LLMs know information without using it in a decision?
+## Do LLMs reason using the information set that actually defines the task?
 
-> **Scope reset — 2026-08-29.**  
-> This project began from the human **Unring the Bell** problem: after a decision maker has seen inadmissible evidence, can an instruction really remove that evidence from the final decision? The first preregistered LLM experiment did **not** reproduce the expected human temporal pattern. It inverted it. A large controlled follow-up then uncovered a sharper prospective-nullification failure and a causal signature inside open models.
+> **Scope reset v2 — 2026-08-29.**
+> The paper-level object is now **Information-Set Reasoning**, not selective
+> forgetting, forbidden-evidence leakage, or prospective nullification. The
+> existing policy-conditioned causal non-use result remains a controlled
+> mechanistic discovery, but it is not the mother question or dataset identity.
 >
-> The controlled result is real and reproducible. **What is not yet established is that it is a broad, natural LLM decision-making failure.** The present 144-item suite is heavily constructed and reuses a small number of latent templates. One independently sourced invalid-information paradigm is handled almost perfectly by the tested models; the existing natural outcome-bias anchor is only one scenario. Therefore the next phase is a **dataset/external-validity rebuild before any further broad mechanism claim**.
+> The next phase is source engineering and a small natural-task pilot. No large
+> model panel or new patching begins until at least two distinct natural boundary
+> families pass the preregistered behavioral gate.
 
 Start here:
 
-- **[DATASET_REDESIGN.md](DATASET_REDESIGN.md)** — why the current data are insufficient as primary evidence and exactly how EVS-v1 will replace that role.
-- **[PREREGISTRATION_G1.md](PREREGISTRATION_G1.md)** — freeze protocol for the new external validation phase.
-- **[RELATED_WORK_2026.md](RELATED_WORK_2026.md)** — updated novelty boundary, including ICF-Bench, curse-of-knowledge work, continued-influence research, AgentSecBench/Fides/CoPriva/NeuroTaint.
+- **[RESEARCH_PLAN.md](RESEARCH_PLAN.md)** — paper-level question, staged gates, cross-boundary generalization, and mechanism plan.
+- **[DATA_AUDIT.md](DATA_AUDIT.md)** — exact first-wave source, schema, hash, license, and independent-unit findings.
+- **[DATASET_REDESIGN.md](DATASET_REDESIGN.md)** — source-native architecture and transformation contracts.
+- **[PREREGISTRATION_G1.md](PREREGISTRATION_G1.md)** — freeze protocol for the information-set benchmark and pilot.
+- **[RELATED_WORK_2026.md](RELATED_WORK_2026.md)** — novelty boundaries; none of selective forgetting, future-information use, ToM, or the causal contract alone is claimed as new.
 - **[FINDINGS.md](FINDINGS.md)** — full controlled-suite results and mechanism history.
 - **[PREREGISTRATION_G0.md](PREREGISTRATION_G0.md)** — what was frozen before the first exclusion experiment.
 - **[REPRODUCE.md](REPRODUCE.md)** — reproduction instructions for the existing experiments.
@@ -20,43 +27,36 @@ Start here:
 
 # 1. Mother question
 
-The core distinction is:
+A target decision defines an information set: facts, observations, roles, and
+time slices that are licensed to affect the answer. A model may possess more
+information than that set. The capability under test is whether it can construct
+and reason within the correct set.
 
-> **Information retention can remain; decision influence must disappear.**
-
-Suppose a model has already learned some information `E`. A later policy says that `E` is outside the information set permitted for a particular decision `Y`.
-
-A successful model does **not** need to forget `E`. It may still be able to quote it, recognize it, or answer a memory probe about it. What it must do is make the specified decision as though changes in `E` no longer causally matter.
-
-We call the target property **policy-conditioned causal non-use**.
-
-This is the clean conceptual separation from literal forgetting:
+The contract is bidirectional:
 
 ```text
-memory(E) may remain high
-policy_knowledge(E is forbidden for Y) should be high
-causal_effect(E -> Y | deny policy) should be ~0
+Responsiveness:         ΔY_allowed != 0
+Out-of-set invariance:  ΔY_outside ≈ 0
 ```
+
+Failure is **out-of-set intrusion**. This abstraction covers temporal,
+perspective, procedural, role/access, and decision-scope boundaries without
+claiming that they necessarily share one internal mechanism.
 
 ---
 
-# 2. Why this is not just ICF / “please forget”
+# 2. Claim boundary
 
-Qian et al., **Do LLMs Forget What They Should? Evaluating In-Context Forgetting in Large Language Models** (ICLR 2026), introduce ICF-Bench with 2,000 multi-turn dialogues and study whether models can selectively forget interfering contextual information.
+ICF-Bench already studies selective contextual forgetting; ExAnte studies use of
+post-cutoff information; FANToM studies multi-party information asymmetry;
+Resist and Update states the invariant-to-forbidden/responsive-to-licensed causal
+contract; MedPIC-Bench studies conditional-rule updating. None of those pieces
+alone is our novelty.
 
-That makes the naive version of this project unavailable as a contribution:
-
-```text
-Tom likes blue
--> please forget Tom's favorite color
--> what color does Tom like?
-```
-
-If our paper were only “the model was told to forget/ignore something but later still used or recalled it,” it would be too close to ICF and neighboring correction/retraction work.
-
-Our intended target state is different. In a legal case, a confidential evaluation, an ex-ante decision review, or a perspective-taking task, the information can remain **true and known** while being **out of bounds for this decision**.
-
-The paper only becomes distinct if we measure the retention/non-use dissociation directly.
+The proposed contribution is conditional on evidence: a source-native,
+cross-boundary evaluation of whether information-set reasoning behaves as a
+general competence or fragmented family-specific heuristics, followed by
+cross-boundary transfer and gated mechanistic tests.
 
 ---
 
@@ -249,126 +249,72 @@ These two facts are why the next phase changes.
 
 ---
 
-# 8. New data strategy: natural first, controlled second
+# 8. Source-native data strategy
 
-The existing dataset is now named:
+CDS-v1 remains the Controlled Discovery Suite. New primary evidence is built
+from independent sources without passing them through `src/schema.py`.
 
-> **CDS-v1 — Controlled Discovery Suite**
+The first wave is FANToM (perspective), BTF-3 and ForecastBench (temporal), and
+Aiyer (outcome/ex-ante evaluation). Procedural and decision-scope families are
+added only after materials and reuse terms are verified. The exact audit is in
+[DATA_AUDIT.md](DATA_AUDIT.md); pinned sources are in the
+[manifest](data/external/source_manifest.json).
 
-Its job is to isolate variables and support causal mechanism work.
-
-The main behavioral evidence must come from:
-
-> **EVS-v1 — External Validation Suite**
-
-built from independently authored experimental materials and natural source texts.
-
-Highest-priority sources currently identified:
-
-1. **Engel, Golder & Rahal (2026)** — inadmissible character/wiretap evidence in 1,432 human participants.
-2. **Aiyer et al. (2023) / Baron & Hershey** — outcome bias, open materials/data/code, `N=692` replication.
-3. **The “curse of knowledge” when predicting others’ knowledge (2022)** — 40 trivia items with independently measured novice difficulty and open OSF data/code.
-4. **Open continued-influence/retraction materials** — a false/invalid-information contrast family, not the conceptual center.
-5. **Oien & Goernert (2003) forbidden-information employee selection** — excellent conceptual fit if the original stimuli can be legally obtained/reused.
-
-See [DATASET_REDESIGN.md](DATASET_REDESIGN.md) and the provenance-first [source manifest](data/external/source_manifest.json).
-
-We will not fix this problem by writing more synthetic court cases.
+Each source keeps its native task and receives its own adapter and transformation
+contract. `READY_TO_AUDIT` does not mean ready to run.
 
 ---
 
-# 9. New primary metric: counterfactual forbidden sensitivity
-
-For a natural item with two critical-information values `E+` and `E-`, the preferred G1 design is:
+# 9. Primary behavioral contract and inference
 
 ```text
-ALLOW(E+)   ALLOW(E-)
-DENY(E+)    DENY(E-)
+Responsiveness        = Y(allowed E+) - Y(allowed E-)
+OutOfSetIntrusion     = Y(outside E+) - Y(outside E-)
+BoundarySelectivity   = Responsiveness - OutOfSetIntrusion
 ```
 
-Then measure in raw output units:
-
-```text
-AllowedSensitivity   = Y[ALLOW(E+)] - Y[ALLOW(E-)]
-ForbiddenSensitivity = Y[DENY(E+)]  - Y[DENY(E-)]
-PolicySuppression    = AllowedSensitivity - ForbiddenSensitivity
-```
-
-A correct policy-conditioned decision should show:
-
-```text
-AllowedSensitivity != 0
-ForbiddenSensitivity ~= 0
-```
-
-The normalized leakage fraction is secondary and is only defined when the allowed contrast is large enough. The implementation is in [`src/metrics_policy_nonuse.py`](src/metrics_policy_nonuse.py).
-
-This avoids making a fragile Base-anchored ratio the primary result and directly tests causal invariance to forbidden content.
+Implementations are in `src/information_set_metrics.py`; legacy G1 names remain
+in `src/metrics_policy_nonuse.py` for compatibility. New external inference
+first averages within each independent semantic unit, then bootstraps equally
+weighted cluster means. G0 analysis is unchanged.
 
 ---
 
-# 10. Updated novelty boundary
+# 10. G1 and transfer gates
 
-The following claims are **not** available as novelty:
+The broad project continues only if at least two distinct natural families show
+normal utility, correct boundary knowledge, retained/available information, and
+non-zero out-of-set intrusion in a 2–3 open-model pilot.
 
-- “models fail to forget contextual information” — ICF-Bench is directly adjacent;
-- “auxiliary knowledge biases LLM judgments” — ComplexEval and other curse-of-knowledge work already show this;
-- “models can violate information boundaries” — agent privacy/security work already studies this;
-- “noninterference is a useful formal view” — Fides and AgentSecBench explicitly use information-flow/noninterference ideas;
-- “semantic influence should be tracked in agents” — NeuroTaint explicitly includes causal influence in its notion of flow;
-- “structured labels/projections are better than prompt-only policy” — security work already motivates enforced information-flow controls.
-
-The possible contribution, **if EVS-v1 succeeds**, is narrower:
-
-> LLM decisions can remain causally sensitive to information that is still known but explicitly out of bounds for that decision; this can be separated from policy knowledge and memory, quantified by counterfactual semantic sensitivity, and traced inside the model's decision computation.
-
-The full map is in [RELATED_WORK_2026.md](RELATED_WORK_2026.md).
+If that gate passes, the main capability experiment trains on temporal +
+procedural + perspective and holds decision-scope out completely. Transfer
+supports a shared learnable competence; no transfer supports fragmented
+heuristics. Both outcomes precede external mechanism work.
 
 ---
 
-# 11. G1 stop/go logic
-
-The project should now be willing to die cleanly.
-
-### A. Two or more independent true-but-disallowed external families leak
-
-Proceed with the broad paper. Replicate mechanism on external items before generalizing the CDS-v1 internal story.
-
-### B. Only one natural family leaks
-
-Narrow the paper to that family (for example outcome bias or privileged-state contamination).
-
-### C. Only the controlled future-target failure survives
-
-Retitle the object to the **prospective nullification gap** and validate it in realistic agent/tool policies over independently sourced documents. Do not call it generic evidence gating.
-
-### D. External families are clean
-
-Stop the broad interpretability story. Preserve CDS-v1 as a controlled diagnostic result rather than explaining a natural phenomenon that is not there.
-
-This gate is preregistered in [PREREGISTRATION_G1.md](PREREGISTRATION_G1.md).
-
----
-
-# 12. Repository map
+# 11. Repository map
 
 ```text
 README.md                       current scientific status
-DATASET_REDESIGN.md             external-validity redesign
+RESEARCH_PLAN.md                phased paper and experiment plan
+DATA_AUDIT.md                   exact first-wave source audit
+DATASET_REDESIGN.md             source-native benchmark architecture
 RELATED_WORK_2026.md            novelty boundary
 PREREGISTRATION_G0.md           frozen original test
-PREREGISTRATION_G1.md           next external-validation freeze protocol
+PREREGISTRATION_G1.md           information-set freeze protocol
 FINDINGS.md                     full controlled-suite findings
 STAGE3*.md / STAGE4.md / STAGE5.md
                                 exploratory/mechanistic history
 REPRODUCE.md                    existing reproduction guide
 
 data/items/                     CDS-v1 and controlled derivative items
-data/external/source_manifest.json
-                                provenance plan for EVS-v1
+data/external/                  raw-cache instructions and source manifest
 src/gen_*.py                    controlled/current generators
 src/conditions_*.py             condition compilers
-src/metrics_policy_nonuse.py    G1 raw causal-sensitivity metrics
+src/information_set_schema.py   external source-native schema
+src/information_set_metrics.py  responsiveness/intrusion metrics
+src/adapters/                   source-specific native readers
 src/mech/                       controlled mechanism code
 results/                        existing result tables/raw outputs
 logs/                           execution logs
@@ -378,21 +324,14 @@ Old findings are intentionally not rewritten away. The research history matters 
 
 ---
 
-# 13. Immediate next work
+# 12. Immediate next work
 
 The priority order is now:
 
-1. acquire original external materials and verify reuse terms;
-2. record hashes/provenance before transformations;
-3. build source-specific importers with minimal policy injection;
-4. audit semantic units and cluster structure by hand;
-5. finalize and freeze G1 before any `DENY` run;
-6. run behavior only on a small multi-family model panel;
-7. decide Gate A/B/C/D;
-8. **only then** return to activation patching, attention analysis, training, or mitigation.
-
-The key methodological correction is:
-
-> **Natural data establish whether the phenomenon exists. Controlled synthetic data explain it after it exists.**
-
-That is the research program from this point forward.
+1. review and freeze a BTF-3 temporal transformation contract;
+2. construct a small human-readable paired audit sample;
+3. design the FANToM matched intervention without changing the target question;
+4. resolve Aiyer material terms and the allowed-responsiveness condition;
+5. freeze G1 before any target-model OOB run;
+6. run only the small behavioral gate;
+7. add families, cross-boundary tuning, and mechanism only if the gate passes.
