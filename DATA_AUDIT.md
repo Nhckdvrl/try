@@ -53,7 +53,8 @@ Status: source readable; keyed join/cutoff transformation blocked.
   source. The causal injection/removal of post-cutoff information still needs a
   transformation audit.
 
-Status: source readable; temporal intervention blocked pending audit.
+Status: source readable; candidate 2 × 2 temporal contract and eight-item review
+packet prepared; benchmark export remains blocked pending human review.
 
 ## Aiyer outcome-bias replication
 

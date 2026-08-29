@@ -44,7 +44,10 @@
         {"path": "btf3/btf3_numeric_questions_and_forecasts.parquet", "sha256": "1bee10210dabcfcc41d052e7d6458d3674f87b40e1a8f07ab1796fc040ca0747"}
       ],
       "adapter": "src/adapters/btf3.py",
-      "status": "READY_TO_AUDIT"
+      "candidate_transform": "src/adapters/btf3_temporal.py",
+      "transformation_contract": "BTF3_TRANSFORMATION_CONTRACT.md",
+      "review_packet": "data/external/review/btf3_temporal_pilot_v0.1.md",
+      "status": "TRANSFORMATION_REVIEW_PENDING"
     },
     {
       "source_id": "aiyer_2023_outcome_bias",

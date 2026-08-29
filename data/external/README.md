@@ -17,6 +17,18 @@ PYTHONPATH=src /home/xiang/miniconda3/envs/fgvd/bin/python src/audit_external_so
 and verifies SHA-256 for every file. The 737MB BTF-3 scraped-pages auxiliary
 file is not downloaded because the first schema audit does not need it.
 
+## Current human review
+
+The BTF-3 candidate contract is in `BTF3_TRANSFORMATION_CONTRACT.md`. Rebuild
+the balanced eight-item review packet with:
+
+```bash
+/home/xiang/miniconda3/envs/fgvd/bin/python scripts/build_btf3_review.py
+```
+
+Reviewers edit `review/btf3_temporal_pilot_v0.1.md`. The companion JSONL stores
+the exact four prompts and is a review artifact, not a frozen benchmark.
+
 ## Status meanings
 
 - `READY_TO_AUDIT`: official files are pinned and locally readable. It does not
