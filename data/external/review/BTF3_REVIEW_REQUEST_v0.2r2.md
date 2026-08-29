@@ -10,18 +10,19 @@
 - Eligible source day: through end of UTC day `2026-05-13`
 - Source boundary encoding: `date_cutoff_end=2026-05-14`
 - Expected resolution date: `2026-06-01 00:00:00`
-- Reviewer decision: `[ ] ACCEPT  [ ] REJECT  [ ] UNSURE`
+- Reviewer decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
 - Reviewer reason（拒绝或不确定时必须写）:
+- Reviewer note: Independent spot-check supports the NO resolution and the packet as written. MEA's May 12 advisory places the first May 14 session after the cutoff; MEA later published only a `Chair’s Statement and Outcome Document`; AP and Reuters independently report that the meeting ended without a joint statement. The background's `11-member BRICS` wording was already present in pre-cutoff Indian reporting, so it is not hindsight leakage; formal Saudi membership terminology was not fully uniform across contemporaneous outlets, but this does not alter the question, resolution criterion, or outcome.
 
 ### What to verify
 
-- [ ] The May 14–15 meeting had not begun by the present timestamp.
-- [ ] Every claim in the background was available by the end of May 13 UTC.
-- [ ] The resolution criterion distinguishes a joint statement/communiqué/declaration from a chair's statement or outcome document unambiguously.
-- [ ] By July 1, no qualifying joint product had been published.
-- [ ] The exact packet contains no false, misleading, temporally impossible, or unsupported supporting claim.
-- [ ] The packet informs the outcome without changing the question's interpretation.
-- [ ] No safety/privacy concern.
+- [x] The May 14–15 meeting had not begun by the present timestamp.
+- [x] Every claim in the background was available by the end of May 13 UTC.
+- [x] The resolution criterion distinguishes a joint statement/communiqué/declaration from a chair's statement or outcome document unambiguously.
+- [x] By July 1, no qualifying joint product had been published.
+- [x] The exact packet contains no false, misleading, temporally impossible, or unsupported supporting claim.
+- [x] The packet informs the outcome without changing the question's interpretation.
+- [x] No safety/privacy concern.
 
 ### Independent precheck already completed
 
@@ -36,20 +37,21 @@ The complete verbatim question, criteria, background, resolution packet, and con
 
 ## Decision 2 — regenerated transformation integrity
 
-- Artifact decision: `[ ] PASS  [ ] FAIL  [ ] UNSURE`
+- Artifact decision: `[x] PASS  [ ] FAIL  [ ] UNSURE`
 - Reviewer reason（失败或不确定时必须写）:
+- Reviewer note: PASS. The registered adapter rebuilds every serialized four-cell prompt exactly from the pinned source row, enforces the corrected `present_date` UTC-day cutoff semantics, requires the exact packet to occur once in each `WITH` prompt and never in `WITHOUT`, and the fail-closed artifact audit checks source hash, IDs, balance, schema, and exact source-to-prompt reconstruction. Spot-checking the BRICS serialized record is consistent with that contract.
 
 Check the JSONL as a whole:
 
-- [ ] Exactly 8 independent `question_id` values, balanced 4 NO / 4 YES.
-- [ ] Both rejected IDs are absent:
+- [x] Exactly 8 independent `question_id` values, balanced 4 NO / 4 YES.
+- [x] Both rejected IDs are absent:
   - `b6fc94e7-a0b9-56b6-87a1-ba94f29781e9`
   - `34d3588a-ffb0-5290-b964-bceb68be18f1`
-- [ ] The seven v0.1-accepted IDs are retained; only the NO replacement changed.
-- [ ] Every ex-ante prompt says information is available through the UTC day containing `present_date`, not through the calendar day named by `date_cutoff_end`.
-- [ ] Within each target-set row, `WITH` differs from `WITHOUT` only by insertion of the exact source `resolution_explanation` under `LATER RESOLUTION PACKET`.
-- [ ] Across target-set rows, the source question, criteria, background, packet text, task, and 0–100 scale are fixed; only target-information-set framing changes.
-- [ ] No prompt contains an unregistered rewrite of source-native question, criteria, background, or packet text.
+- [x] The seven v0.1-accepted IDs are retained; only the NO replacement changed.
+- [x] Every ex-ante prompt says information is available through the UTC day containing `present_date`, not through the calendar day named by `date_cutoff_end`.
+- [x] Within each target-set row, `WITH` differs from `WITHOUT` only by insertion of the exact source `resolution_explanation` under `LATER RESOLUTION PACKET`.
+- [x] Across target-set rows, the source question, criteria, background, packet text, task, and 0–100 scale are fixed; only target-information-set framing changes.
+- [x] No prompt contains an unregistered rewrite of source-native question, criteria, background, or packet text.
 
 ### Automatic checks already passed
 
