@@ -100,6 +100,28 @@ reported; it does not authorize substituting a favorable model.
 
 ## Frozen execution and parse policy
 
+### Pre-output infrastructure amendment (2026-08-30)
+
+The first frozen launch produced no model outputs. Qwen and Gemma remained at
+checkpoint shard 0 while reading snapshots from the `/home` NFS mount, and
+Mistral failed during vLLM initialization because the installed
+`mistral_common` tokenizer wrapper lacks the `is_fast` attribute expected by
+the installed vLLM version. Before any target-model output existed, the launch
+was stopped and the following infrastructure-only amendment was frozen:
+
+- exact revision snapshots may be staged byte-for-byte on local NVMe and passed
+  through model-path environment variables;
+- Mistral uses vLLM `tokenizer_mode=hf`, backed by the same snapshot
+  `tokenizer.json` that the runner uses to construct the frozen prompt token
+  IDs;
+- Qwen and Gemma retain vLLM `tokenizer_mode=auto`.
+
+This amendment does not change artifacts, item inclusion, prompts, prompt token
+IDs, models or revisions, decoding, parsing, thresholds, inference, or the
+stop/go rule. The original freeze tag is retained as an audit record of the
+zero-output failed launch; a new freeze tag identifies the executable amended
+state.
+
 - runner: `src/run_information_set.py`;
 - each model loads from the exact local snapshot matching the revision above;
 - chat template with thinking disabled where supported;

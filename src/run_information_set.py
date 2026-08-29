@@ -85,6 +85,12 @@ def main() -> int:
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--max-num-seqs", type=int, default=0)
     parser.add_argument("--enforce-eager", action="store_true")
+    parser.add_argument(
+        "--tokenizer-mode",
+        choices=("auto", "hf", "slow", "mistral"),
+        default="auto",
+        help="vLLM tokenizer backend; prompt tokenization still uses AutoTokenizer",
+    )
     args = parser.parse_args()
 
     from transformers import AutoTokenizer
@@ -140,6 +146,7 @@ def main() -> int:
         dtype="bfloat16",
         disable_log_stats=True,
         enforce_eager=args.enforce_eager,
+        tokenizer_mode=args.tokenizer_mode,
         **({"max_num_seqs": args.max_num_seqs} if args.max_num_seqs else {}),
     )
     outputs = llm.generate(
@@ -159,6 +166,7 @@ def main() -> int:
         "temperature": 0.0,
         "max_tokens": 8,
         "max_model_len": args.max_model_len,
+        "vllm_tokenizer_mode": args.tokenizer_mode,
         "longest_prompt_tokens": longest,
         "readout": "strict_greedy_probability_0_100_and_yes_no",
     }

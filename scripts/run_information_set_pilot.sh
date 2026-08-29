@@ -9,6 +9,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 BTF=data/external/review/btf3_temporal_pilot_v0.2r2.jsonl
 FANTOM=data/external/review/fantom_perspective_pilot_v0.1r4.jsonl
+QWEN_MODEL_PATH=${ISR_QWEN_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a}
+GEMMA_MODEL_PATH=${ISR_GEMMA_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80}
+MISTRAL_MODEL_PATH=${ISR_MISTRAL_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724}
 
 run_family() {
   local gpu=$1
@@ -32,19 +35,19 @@ run_family() {
 
 mkdir -p logs results/raw
 run_family 0 \
-  /home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a \
+  "$QWEN_MODEL_PATH" \
   Qwen/Qwen3.5-9B c202236235762e1c871ad0ccb60c8ee5ba337b9a qwen35-9b \
   --enforce-eager >logs/isr_qwen35-9b.log 2>&1 &
 pid_qwen=$!
 run_family 1 \
-  /home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80 \
+  "$GEMMA_MODEL_PATH" \
   google/gemma-3-12b-it 96b6f1eccf38110c56df3a15bffe176da04bfd80 gemma3-12b \
   "" >logs/isr_gemma3-12b.log 2>&1 &
 pid_gemma=$!
 run_family 2 \
-  /home/xiang/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724 \
+  "$MISTRAL_MODEL_PATH" \
   mistralai/Mistral-Small-24B-Instruct-2501 9527884be6e5616bdd54de542f9ae13384489724 mistral-small-24b \
-  "" >logs/isr_mistral-small-24b.log 2>&1 &
+  "--tokenizer-mode hf" >logs/isr_mistral-small-24b.log 2>&1 &
 pid_mistral=$!
 
 wait "$pid_qwen"
