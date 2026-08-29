@@ -38,3 +38,18 @@ def test_multiple_ticks_on_one_decision_is_rejected():
     markdown = CANDIDATE_BLOCK.format(accept="x", reject="x", unsure=" ", reason="")
     with pytest.raises(ValueError, match="exactly one of"):
         parse_decisions(markdown)
+
+
+SHORT_REASON_BLOCK = """### NO-1. `qid-3`
+- Decision: `[ ] ACCEPT  [x] REJECT  [ ] UNSURE`
+- Reason: packet timeline is internally inconsistent
+
+### NO-2. `qid-4`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+"""
+
+
+def test_short_reason_label_is_also_accepted():
+    decisions = parse_decisions(SHORT_REASON_BLOCK)
+    assert decisions["qid-3"] == ("REJECT", "packet timeline is internally inconsistent")
+    assert decisions["qid-4"] == ("ACCEPT", "")

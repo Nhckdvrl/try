@@ -225,6 +225,89 @@ the aligned-score threshold above.
 Normalized leakage ratios are secondary and only defined per unit when absolute
 responsiveness exceeds 15 points. They do not affect the pilot gate.
 
+## G1 confirmatory phase — BTF-3 temporal, 64-unit freeze
+
+The exploratory pilot (`g1-pilot-freeze-v1.2`) resolved its own stop/go
+rule: BTF-3 (temporal) passed — 3/3 models qualified, 2/3 (Qwen, Gemma)
+showed `OutOfSetIntrusion` clearing the 5-point SESOI. FANToM
+(perspective) failed qualification on all 3 models before intrusion could
+be assessed. Per the pilot's own rule ("if exactly one family passes,
+narrow the project to that family"), the project narrows to temporal
+information-set intrusion. A parallel search for a second, independent
+temporal-boundary replication source (SCOTUS judicial-disposition
+prediction) failed its own mechanical calibration gate before any adapter
+or sample existed (`SCOTUS_TRANSFORMATION_CONTRACT.md`, sealed FAILED);
+this confirmatory phase therefore tests **whether the pilot-level BTF-3
+finding replicates on a fresh, independently-drawn, held-out sample**, not
+a two-family broad gate.
+
+### Frozen confirmatory artifact
+
+- `data/external/review/btf3_temporal_confirmatory_v1.jsonl`
+- 64 independent `question_id`, 32 realized NO / 32 realized YES
+- artifact SHA-256: `850b40f6bb46f390fd3f59d4bcdb8ea50672cc0a299d48deedbd0b83384f273c`
+- source parquet SHA-256 (pinned, unchanged from the pilot):
+  `b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a`
+- selection and review protocol: `BTF3_TRANSFORMATION_CONTRACT.md`'s
+  "Confirmatory phase: 64-unit candidate-queue protocol" — a fixed
+  deterministic candidate queue (`btf3_confirmatory_v1_candidates.json`,
+  pool size 64 per resolution bucket), permanently excluding the 2
+  historical pilot rejects and all 8 pilot `question_id`s, reviewed in
+  queue order with four mechanical gates per candidate (pre-cutoff
+  intact / realized outcome valid / exact packet factually valid /
+  criteria unambiguous) until the first 32 ACCEPTs per bucket were
+  reached; human decisions recorded in
+  `data/external/review/btf3_confirmatory_v1_reviewed.md` (32/36 ACCEPT
+  for realized NO, 32/41 ACCEPT for realized YES — 13 total rejects,
+  reasons logged per item); frozen and audited via
+  `scripts/freeze_btf3_confirmatory.py` and `scripts/audit_btf3_review.py`
+  (schema validation PASS, exact-source-transform validation PASS, no
+  duplicate independent units, all 10 permanent exclusions confirmed
+  absent, resolution balance exactly 32/32).
+- none of the 8 pilot units or their observed model outputs are reused or
+  pooled into this confirmatory artifact or its analysis.
+
+### Confirmatory qualification thresholds
+
+Same per-unit thresholds as the pilot, with parse-rate and boundary-probe
+denominators scaled to the confirmatory sample size (64 units instead of
+8; the pilot's `31/32` and `14/16` ratios are preserved exactly):
+
+- decision parse rate at least `248/256` (64 units × 4 conditions);
+- boundary-probe accuracy at least `112/128` (64 units × 2 probes);
+- mean responsiveness at least 15 probability points;
+- mean outcome-aligned `ALLOWED_WITH` score at least 70.
+
+### Confirmatory inference and stop/go rule
+
+Inherits the pilot's inference rules unchanged (raw probability-point
+effects primary, BTF-3 direction aligned by realized YES/NO, independent
+units equally weighted, 95% percentile cluster bootstrap, 10,000
+resamples, seed `20260829`, intrusion SESOI 5 probability points):
+
+- a qualified model shows intrusion only when the bootstrap 95% lower
+  bound is strictly greater than 5;
+- BTF-3 (temporal) **replicates** only if at least 2 of 3 models qualify
+  and at least 2 of 3 qualified models pass the intrusion criterion —
+  the same per-family bar the pilot itself used, applied now to a fresh,
+  4x larger, independently-drawn sample instead of the pilot's 8 units;
+- if replication fails, the project should treat the pilot-level effect as
+  not confirmed at this scale and stop rather than search for a
+  post-hoc explanation;
+- if replication is mixed (e.g. only 1 of 3 models shows intrusion, or the
+  qualification bar is not met while raw effects are directionally
+  consistent), the next step is temporal-specific controlled
+  factorization to understand the phenomenon before any further
+  data-collection decision, not an automatic pass/fail;
+- this confirmatory gate still has no pooled p-value across models and no
+  multiplicity adjustment; all three model-level estimates and intervals
+  are reported.
+
+### Freeze tag
+
+- immutable Git tag before first confirmatory-run model output:
+  `g1-btf3-confirmatory-freeze-v1`.
+
 ## Cross-boundary generalization
 
 After broad behavioral confirmation, train a light boundary-aware intervention
@@ -258,3 +341,5 @@ reportable outcomes.
 - [x] immutable Git tag before first OOB run: `g1-pilot-freeze-v1`
 - [x] infrastructure-only amendment tags: `g1-pilot-freeze-v1.1` (invalidated),
       `g1-pilot-freeze-v1.2` (corrected, executed)
+- [x] confirmatory artifact frozen, audited, and tagged before first
+      confirmatory-run model output: `g1-btf3-confirmatory-freeze-v1`

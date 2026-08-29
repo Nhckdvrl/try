@@ -28,7 +28,9 @@ from information_set_schema import validate_collection  # noqa: E402
 _DECISION = re.compile(
     r"^\s*-\s*Decision:\s*`\[([ xX])\]\s*ACCEPT\s*\[([ xX])\]\s*REJECT\s*\[([ xX])\]\s*UNSURE`\s*$"
 )
-_REASON = re.compile(r"^\s*-\s*Reason \(required for REJECT/UNSURE, one line\):\s*(.*)$")
+_REASON = re.compile(
+    r"^\s*-\s*Reason(?:\s*\(required for REJECT/UNSURE, one line\))?:\s*(.*)$"
+)
 _HEADING = re.compile(r"^### (?:YES|NO)-\d+\. `([^`]+)`\s*$")
 
 
