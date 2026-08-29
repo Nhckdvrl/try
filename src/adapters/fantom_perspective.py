@@ -201,17 +201,25 @@ def validate_candidate_against_source(item: InformationSetItem, row: dict[str, A
 
 
 def deterministic_review_sample(
-    rows: list[dict[str, Any]], *, n: int = 8, seed: int = 20260829
+    rows: list[dict[str, Any]],
+    *,
+    n: int = 8,
+    seed: int = 20260829,
+    exclude_part_ids: tuple[str, ...] | list[str] = (),
 ) -> list[dict[str, Any]]:
     if n <= 0:
         raise ValueError("n must be positive")
+    excluded = {str(part_id) for part_id in exclude_part_ids}
     by_part: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
         try:
             validate_source_row(row)
         except ValueError:
             continue
-        by_part.setdefault(str(row["part_id"]), []).append(row)
+        part_id = str(row["part_id"])
+        if part_id in excluded:
+            continue
+        by_part.setdefault(part_id, []).append(row)
     representatives = []
     for part_id, candidates in by_part.items():
         selected = min(

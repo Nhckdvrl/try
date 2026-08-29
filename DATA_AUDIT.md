@@ -31,10 +31,11 @@ Candidate v0.1 now keeps one first-order inaccessible belief question fixed and
 uses the same exact fact packet in a 2 × 2 evaluator-only versus explicitly
 briefed-target intervention. The official repository is MIT and specifies
 evaluation use; committed transformed artifacts retain attribution and are
-marked evaluation-only. Eight deterministic `part_id`-clustered items await
-human causal-alignment review.
+marked evaluation-only. After rejecting four materially ambiguous or
+misaligned source units across deterministic replacement rounds, the final
+v0.1r4 set contains eight accepted `part_id`-clustered items.
 
-Status: transformation review pending; no model run authorized.
+Status: human-review passed and pilot-ready, but not yet a frozen G1 benchmark.
 
 ## ForecastBench
 

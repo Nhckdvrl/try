@@ -65,6 +65,20 @@ def test_selection_is_deterministic_and_one_per_part():
 
 
 @pytest.mark.skipif(not RAW.exists(), reason="raw FANToM cache absent")
+def test_rejected_parts_are_replaced_without_changing_sample_size():
+    rows = source_rows()
+    initial = deterministic_review_sample(rows, n=8)
+    rejected = [initial[1]["part_id"], initial[4]["part_id"]]
+    replacement = deterministic_review_sample(
+        rows, n=8, exclude_part_ids=rejected
+    )
+    replacement_parts = {row["part_id"] for row in replacement}
+    assert not set(rejected) & replacement_parts
+    assert len(replacement_parts) == 8
+    assert len({row["part_id"] for row in initial} & replacement_parts) == 6
+
+
+@pytest.mark.skipif(not RAW.exists(), reason="raw FANToM cache absent")
 def test_accessible_or_second_order_rows_are_ineligible():
     row = deterministic_review_sample(source_rows(), n=1)[0]
     bad = copy.deepcopy(row)

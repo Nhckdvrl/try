@@ -1,6 +1,6 @@
 # FANToM perspective transformation contract — candidate v0.1
 
-**Status:** transformation and source-unit human review required. No model run is authorized.
+**Status:** transformation PASS and final v0.1r4 source set accepted. Pilot-ready after repository-wide preregistration freeze.
 
 ## Scientific target
 
@@ -85,3 +85,12 @@ Reject a row if:
 - unsafe/private content appears.
 
 Reviewer decisions are made without model outputs. A failure in the causal alignment blocks the item even when the original FANToM question itself is valid.
+
+## Review outcome
+
+- v0.1 transformation: PASS
+- original v0.1 units: 6 ACCEPT / 2 REJECT
+- replacement-only reviews rejected Jamie and Kasey, accepted Camryn and Phoebe
+- final v0.1r4 artifact: 8 accepted `part_id` units
+- final JSONL: `data/external/review/fantom_perspective_pilot_v0.1r4.jsonl`
+- target-model outputs inspected before freeze: none

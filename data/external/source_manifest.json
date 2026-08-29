@@ -22,7 +22,23 @@
       "review_request_v0_1": "data/external/review/FANTOM_REVIEW_REQUEST_v0.1.md",
       "full_text_review_v0_1": "data/external/review/fantom_perspective_pilot_v0.1.md",
       "review_jsonl_v0_1": "data/external/review/fantom_perspective_pilot_v0.1.jsonl",
-      "status": "TRANSFORMATION_REVIEW_PENDING"
+      "human_review_v0_1": {
+        "transformation_integrity": "PASS",
+        "accepted": 6,
+        "rejected": 2,
+        "unsure": 0,
+        "rejected_part_ids": ["244-0", "252-0"],
+        "model_outputs_seen": false
+      },
+      "replacement_verdicts": [
+        "data/external/review/FANTOM_REVIEW_VERDICT_v0.1r2.md",
+        "data/external/review/FANTOM_REVIEW_VERDICT_v0.1r3.md",
+        "data/external/review/FANTOM_REVIEW_VERDICT_v0.1r4.md"
+      ],
+      "all_rejected_part_ids": ["244-0", "252-0", "14-0", "111-0"],
+      "pilot_artifact": "data/external/review/fantom_perspective_pilot_v0.1r4.jsonl",
+      "pilot_artifact_sha256": "dd5a5eb7c87996360aa65a31d3dbcd13f4a40acbe26ed52222549cf345512dd1",
+      "status": "HUMAN_REVIEW_PASSED_PILOT_READY"
     },
     {
       "source_id": "forecastbench_2025_03_02",
