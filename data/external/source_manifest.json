@@ -1,5 +1,5 @@
 {
-  "manifest_version": "0.2-information-set",
+  "manifest_version": "0.3-information-set",
   "created": "2026-08-29",
   "raw_cache_policy": "data/external/raw is ignored; pinned retrieval URLs and SHA-256 values are reproducibility records, not permission claims",
   "warning": "No source is a frozen G1 item yet. READY_TO_AUDIT means only that official files can be inspected locally.",
@@ -46,8 +46,20 @@
       "adapter": "src/adapters/btf3.py",
       "candidate_transform": "src/adapters/btf3_temporal.py",
       "transformation_contract": "BTF3_TRANSFORMATION_CONTRACT.md",
-      "review_packet": "data/external/review/btf3_temporal_pilot_v0.1.md",
-      "status": "TRANSFORMATION_REVIEW_PENDING"
+      "review_packet_v0_1": "data/external/review/btf3_temporal_pilot_v0.1.md",
+      "review_jsonl_v0_1": "data/external/review/btf3_temporal_pilot_v0.1.jsonl",
+      "review_verdict_v0_1": "data/external/review/BTF3_REVIEW_VERDICT_v0.1.md",
+      "human_review_v0_1": {
+        "accepted": 7,
+        "rejected": 1,
+        "unsure": 0,
+        "rejected_question_ids": ["b6fc94e7-a0b9-56b6-87a1-ba94f29781e9"],
+        "model_outputs_seen": false
+      },
+      "blocking_issue": "v0.1 ex-ante prompt ambiguously treated date_cutoff_end as a calendar day rather than the source boundary encoding for the UTC day containing present_date; regenerate with v0.2 adapter and a replacement NO unit",
+      "next_review_packet": "data/external/review/btf3_temporal_pilot_v0.2.md",
+      "next_review_jsonl": "data/external/review/btf3_temporal_pilot_v0.2.jsonl",
+      "status": "TRANSFORMATION_REGENERATION_REQUIRED"
     },
     {
       "source_id": "aiyer_2023_outcome_bias",
