@@ -4,6 +4,7 @@ import pytest
 from src.adapters.btf3_temporal import (
     build_candidate,
     deterministic_review_sample,
+    validate_candidate_against_source,
     validate_source_row,
 )
 
@@ -36,6 +37,15 @@ def test_four_cells_hold_source_text_and_packet_fixed():
     ):
         assert row()["question"] in prompt
         assert "Return only one number from 0 to 100" in prompt
+    validate_candidate_against_source(item, row())
+
+
+def test_four_cell_contract_rejects_serialized_prompt_drift():
+    source = row()
+    item = build_candidate(source)
+    item.oob_variant["with_information_prompt"] += "\nUNREGISTERED"
+    with pytest.raises(ValueError, match="unregistered prompt drift"):
+        validate_candidate_against_source(item, source)
 
 
 def test_ex_ante_prompt_uses_present_utc_day_not_cutoff_calendar_day():
@@ -80,5 +90,20 @@ def test_rejected_question_can_be_excluded_without_losing_balance():
         exclude_question_ids=[rejected_no],
     )
     assert rejected_no not in {x["question_id"] for x in replacement}
+    assert [int(x["resolution"]) for x in replacement].count(0) == 2
+    assert [int(x["resolution"]) for x in replacement].count(1) == 2
+
+
+def test_multiple_rejected_questions_can_be_excluded_without_losing_balance():
+    frame = pd.DataFrame([row(f"yes-{i}", 1.0) for i in range(6)] + [row(f"no-{i}", 0.0) for i in range(6)])
+    initial = deterministic_review_sample(frame, n_per_resolution=2, seed=9)
+    rejected = [x["question_id"] for x in initial if int(x["resolution"]) == 0]
+    replacement = deterministic_review_sample(
+        frame,
+        n_per_resolution=2,
+        seed=9,
+        exclude_question_ids=rejected,
+    )
+    assert not set(rejected) & {x["question_id"] for x in replacement}
     assert [int(x["resolution"]) for x in replacement].count(0) == 2
     assert [int(x["resolution"]) for x in replacement].count(1) == 2

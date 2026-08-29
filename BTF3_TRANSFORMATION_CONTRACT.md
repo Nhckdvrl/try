@@ -1,6 +1,6 @@
 # BTF-3 temporal transformation contract — candidate v0.2
 
-**Status:** regeneration required after human review. No model run is authorized by this document.
+**Status:** second replacement review required. No model run is authorized by this document.
 
 ## Audit correction from v0.1
 
@@ -9,7 +9,9 @@ Human review of the eight-unit v0.1 packet found two blockers before any model o
 1. one source `resolution_explanation` contains a non-material but real factual error (the 2026 Travelers Championship is described as concluding June 28; official PGA TOUR reporting shows a weather-delayed playoff on Monday June 29), so that source unit is rejected rather than silently repaired;
 2. the v0.1 adapter described `date_cutoff_end` as the **close of that named UTC day**. BTF-3 documents the field as the source encoding for the end of the UTC day containing `present_date`; in rows where `present_date` is May 12 and `date_cutoff_end` is May 13, the intended information window is the May 12 UTC day, not all of May 13. The old wording could therefore grant one extra day.
 
-The committed v0.1 JSONL is retained unchanged as an audit artifact. It is **not model-ready**. A v0.2 artifact must be regenerated after the adapter fix, with a replacement NO unit so the pilot remains 4 YES / 4 NO, and the replacement must receive human review before any run.
+The committed v0.1 JSONL is retained unchanged as an audit artifact. It is **not model-ready**. The corrected adapter produced v0.2 with a replacement NO unit, but human review found a second exact-packet error: the Argentine Senate packet says a congressional recess running through late July "precludes" a late-June committee report. A recess beginning in July cannot preclude committee action in late June. The outcome itself appears correct, but the source-native packet is rejected under the same no-silent-repair rule. The v0.2 artifact is also retained unchanged.
+
+The next artifact is named v0.2r2: it uses the unchanged v0.2 transformation semantics, excludes both rejected source units, and draws another deterministic NO replacement while retaining 4 YES / 4 NO balance. Only that new source unit and the regenerated transformation integrity require new human review; the seven previously accepted source units retain their source-validity decisions.
 
 ## Source task
 
@@ -93,3 +95,13 @@ Reviewer decisions must be made without model outputs and recorded as `accept / 
 - model runs authorized: **none**
 
 See `data/external/review/BTF3_REVIEW_VERDICT_v0.1.md` and the completed review packet.
+
+## v0.2 replacement-review outcome
+
+- 7 previously accepted source units: retained
+- 1 replacement source unit: REJECT (`34d3588a-ffb0-5290-b964-bceb68be18f1`)
+- reason: exact resolution packet contains a temporally impossible supporting claim
+- v0.2 transformation semantics: pass automatic checks; artifact blocked by source packet
+- model runs authorized: **none**
+
+See `data/external/review/BTF3_REVIEW_VERDICT_v0.2.md`.

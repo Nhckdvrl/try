@@ -11,4 +11,9 @@
 
 Human review found 7 accepted source units and 1 rejected source unit. The artifact as a whole is blocked because the v0.1 ex-ante wording can grant an extra UTC calendar day by misreading `date_cutoff_end`.
 
-Next step is to run `scripts/build_btf3_review.py` against the pinned local BTF-3 parquet. It now generates `v0.2`, excludes the rejected Cameron Young question by default, restores a deterministic 4 NO / 4 YES sample, and uses the corrected source-window wording. **The newly selected replacement and all v0.2 prompts still require human review before model execution.**
+- `btf3_temporal_pilot_v0.2.jsonl` and `.md` — immutable first regeneration round. The corrected cutoff wording passed automatic checks, but its Argentine Senate replacement packet failed human factual-integrity review. **Do not modify or run.**
+- `BTF3_REVIEW_VERDICT_v0.2.md` — rejection ledger for that replacement.
+- `btf3_temporal_pilot_v0.2r2.jsonl` and `.md` — second deterministic replacement round using the same v0.2 transformation and excluding both rejected IDs.
+- `BTF3_REVIEW_REQUEST_v0.2r2.md` — minimal handoff: review the one new BRICS source unit and the regenerated four-cell integrity; the seven retained units do not need their source facts re-audited.
+
+No model run is authorized until the v0.2r2 review request is completed and the manifest is advanced explicitly.

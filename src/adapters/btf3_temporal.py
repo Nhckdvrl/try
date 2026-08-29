@@ -146,6 +146,50 @@ def build_candidate(row: dict[str, Any]) -> InformationSetItem:
     return InformationSetItem.from_dict(item.to_dict())
 
 
+def validate_candidate_against_source(item: InformationSetItem, row: dict[str, Any]) -> None:
+    """Prove that a serialized candidate is the registered four-cell transform.
+
+    This is intentionally independent of schema validation: it checks every
+    full prompt against the pinned source row and prevents an unregistered text
+    change from entering a regenerated review artifact.
+    """
+    validate_source_row(row)
+    qid = str(row["question_id"])
+    if item.independent_unit_id != qid:
+        raise ValueError(f"candidate/source ID mismatch: {item.independent_unit_id} != {qid}")
+    expected = {
+        ("oob_variant", "without_information_prompt"): _task(
+            row, ex_ante=True, include_packet=False
+        ),
+        ("oob_variant", "with_information_prompt"): _task(
+            row, ex_ante=True, include_packet=True
+        ),
+        ("admissible_variant", "without_information_prompt"): _task(
+            row, ex_ante=False, include_packet=False
+        ),
+        ("admissible_variant", "with_information_prompt"): _task(
+            row, ex_ante=False, include_packet=True
+        ),
+    }
+    variants = {
+        "oob_variant": item.oob_variant,
+        "admissible_variant": item.admissible_variant,
+    }
+    for (variant_name, prompt_name), expected_prompt in expected.items():
+        actual = variants[variant_name][prompt_name]
+        if actual != expected_prompt:
+            raise ValueError(
+                f"unregistered prompt drift for {qid} {variant_name}.{prompt_name}"
+            )
+
+    packet = str(row["resolution_explanation"])
+    for variant in variants.values():
+        if packet in variant["without_information_prompt"]:
+            raise ValueError(f"later packet leaked into WITHOUT prompt for {qid}")
+        if variant["with_information_prompt"].count(packet) != 1:
+            raise ValueError(f"later packet is not present exactly once in WITH prompt for {qid}")
+
+
 def deterministic_review_sample(
     frame: Any,
     *,
@@ -178,10 +222,15 @@ def deterministic_review_sample(
     return selected
 
 
-def render_review(items: list[InformationSetItem], rows: list[dict[str, Any]]) -> str:
+def render_review(
+    items: list[InformationSetItem],
+    rows: list[dict[str, Any]],
+    *,
+    artifact_label: str = "v0.2",
+) -> str:
     by_id = {str(row["question_id"]): row for row in rows}
     out = [
-        "# BTF-3 temporal pilot — human review packet v0.2",
+        f"# BTF-3 temporal pilot — human review packet {artifact_label}",
         "",
         "> 现在不要跑模型。请只审查 source validity 和 transformation integrity。",
         "",

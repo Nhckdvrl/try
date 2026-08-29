@@ -56,10 +56,25 @@
         "rejected_question_ids": ["b6fc94e7-a0b9-56b6-87a1-ba94f29781e9"],
         "model_outputs_seen": false
       },
-      "blocking_issue": "v0.1 ex-ante prompt ambiguously treated date_cutoff_end as a calendar day rather than the source boundary encoding for the UTC day containing present_date; regenerate with v0.2 adapter and a replacement NO unit",
-      "next_review_packet": "data/external/review/btf3_temporal_pilot_v0.2.md",
-      "next_review_jsonl": "data/external/review/btf3_temporal_pilot_v0.2.jsonl",
-      "status": "TRANSFORMATION_REGENERATION_REQUIRED"
+      "review_packet_v0_2": "data/external/review/btf3_temporal_pilot_v0.2.md",
+      "review_jsonl_v0_2": "data/external/review/btf3_temporal_pilot_v0.2.jsonl",
+      "review_verdict_v0_2": "data/external/review/BTF3_REVIEW_VERDICT_v0.2.md",
+      "human_review_v0_2": {
+        "retained_prior_accepts": 7,
+        "replacement_accepted": 0,
+        "replacement_rejected": 1,
+        "replacement_unsure": 0,
+        "rejected_question_ids": ["34d3588a-ffb0-5290-b964-bceb68be18f1"],
+        "model_outputs_seen": false
+      },
+      "all_rejected_question_ids": [
+        "b6fc94e7-a0b9-56b6-87a1-ba94f29781e9",
+        "34d3588a-ffb0-5290-b964-bceb68be18f1"
+      ],
+      "blocking_issue": "v0.1 had a cutoff-wording bug and one bad source packet; corrected v0.2 then selected an Argentine Senate packet containing a temporally impossible recess claim. Both artifacts remain blocked and immutable; review the second replacement generated as v0.2r2.",
+      "next_review_packet": "data/external/review/BTF3_REVIEW_REQUEST_v0.2r2.md",
+      "next_review_jsonl": "data/external/review/btf3_temporal_pilot_v0.2r2.jsonl",
+      "status": "SECOND_REPLACEMENT_REVIEW_PENDING"
     },
     {
       "source_id": "aiyer_2023_outcome_bias",
