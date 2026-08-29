@@ -1,0 +1,166 @@
+{
+  "btf3_temporal_replicates": true,
+  "intrusion_pass_models": 2,
+  "observed_models": [
+    "gemma3-12b",
+    "mistral-small-24b",
+    "qwen35-9b"
+  ],
+  "panel_complete": true,
+  "qualified_models": 3,
+  "results": [
+    {
+      "artifact_sha256": "850b40f6bb46f390fd3f59d4bcdb8ea50672cc0a299d48deedbd0b83384f273c",
+      "boundary_accuracy": 1.0,
+      "complete_units": 64,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": true,
+      "mean_allowed_with_alignment": 100.0,
+      "metrics": {
+        "boundary_selectivity": {
+          "alpha": 0.05,
+          "ci_high": 37.71875,
+          "ci_low": 25.484375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 31.625,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "out_of_set_intrusion": {
+          "alpha": 0.05,
+          "ci_high": 16.984375,
+          "ci_low": 8.5,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 12.75,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "responsiveness": {
+          "alpha": 0.05,
+          "ci_high": 49.140625,
+          "ci_low": 39.53125,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 44.375,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        }
+      },
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "model_tag": "qwen35-9b",
+      "path": "results/raw/isr_qwen35-9b_btf3_confirmatory_v1.jsonl",
+      "qualified": true
+    },
+    {
+      "artifact_sha256": "850b40f6bb46f390fd3f59d4bcdb8ea50672cc0a299d48deedbd0b83384f273c",
+      "boundary_accuracy": 1.0,
+      "complete_units": 64,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": true,
+      "mean_allowed_with_alignment": 100.0,
+      "metrics": {
+        "boundary_selectivity": {
+          "alpha": 0.05,
+          "ci_high": 27.640625,
+          "ci_low": 16.671875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 21.984375,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "out_of_set_intrusion": {
+          "alpha": 0.05,
+          "ci_high": 32.34375,
+          "ci_low": 22.0,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 27.203125,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "responsiveness": {
+          "alpha": 0.05,
+          "ci_high": 53.75,
+          "ci_low": 44.625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 49.1875,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        }
+      },
+      "model_id": "google/gemma-3-12b-it",
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "model_tag": "gemma3-12b",
+      "path": "results/raw/isr_gemma3-12b_btf3_confirmatory_v1.jsonl",
+      "qualified": true
+    },
+    {
+      "artifact_sha256": "850b40f6bb46f390fd3f59d4bcdb8ea50672cc0a299d48deedbd0b83384f273c",
+      "boundary_accuracy": 1.0,
+      "complete_units": 64,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": false,
+      "mean_allowed_with_alignment": 92.109375,
+      "metrics": {
+        "boundary_selectivity": {
+          "alpha": 0.05,
+          "ci_high": 44.296875,
+          "ci_low": 27.109375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 35.625,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "out_of_set_intrusion": {
+          "alpha": 0.05,
+          "ci_high": 7.578125,
+          "ci_low": -1.171875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 3.28125,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        },
+        "responsiveness": {
+          "alpha": 0.05,
+          "ci_high": 45.625,
+          "ci_low": 31.875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 38.90625,
+          "n_clusters": 64,
+          "n_observations": 64,
+          "n_resamples": 10000
+        }
+      },
+      "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "model_revision": "9527884be6e5616bdd54de542f9ae13384489724",
+      "model_tag": "mistral-small-24b",
+      "path": "results/raw/isr_mistral-small-24b_btf3_confirmatory_v1.jsonl",
+      "qualified": true
+    }
+  ],
+  "thresholds": {
+    "intrusion_sesoi_points": 5.0,
+    "minimum_allowed_with_alignment_points": 70.0,
+    "minimum_boundary_accuracy": 0.875,
+    "minimum_decision_parse_rate": 0.96875,
+    "minimum_intrusion_models": 2,
+    "minimum_mean_responsiveness_points": 15.0,
+    "minimum_qualified_models": 2
+  }
+}
