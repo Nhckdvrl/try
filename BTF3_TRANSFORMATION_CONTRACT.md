@@ -117,3 +117,57 @@ See `data/external/review/BTF3_REVIEW_VERDICT_v0.2.md`.
 The reviewer independently verified that the BRICS meeting began after the source cutoff, that the official outcome was a chair's statement rather than a joint statement/communiqué/declaration, and that contemporaneous pre-cutoff reporting already used the 11-member wording. The latter had some contemporaneous terminology variation around Saudi membership but does not affect the question or outcome.
 
 This closes the BTF-3-specific human gate. Model execution remains blocked only by the cross-source G1 freeze requirements in `PREREGISTRATION_G1.md`.
+
+## Confirmatory phase: 64-unit candidate-queue protocol
+
+The exploratory pilot (`btf3_temporal_pilot_v0.2r2.jsonl`, 8 units) passed the
+G1 stop/go rule in `g1-pilot-freeze-v1.2`: 3/3 models qualified, 2/3 showed
+`OutOfSetIntrusion` clearing the 5-point SESOI. This authorizes a
+confirmatory expansion of BTF-3 specifically (not a repeat of the pilot
+count): **64 fresh independent `question_id`s, 32 realized-YES / 32
+realized-NO, drawn from source units never shown to any target model.**
+
+The pilot's own review already caught two source units with a correct
+outcome but a factually/temporally broken exact resolution packet
+(`b6fc94e7-...`, `34d3588a-...`). Because BTF-3's `resolution_explanation`
+is machine-generated and only partially spot-checked, that packet-factual
+gate cannot be relaxed at 64 units just because it is 8x the pilot volume.
+What changes is the review's *shape*, not its presence:
+
+- **Candidate queue, not one-shot sample.** `scripts/build_btf3_confirmatory_candidates.py`
+  draws a deterministic per-resolution order (`deterministic_candidate_queue`
+  in `src/adapters/btf3_temporal.py`) of `--pool-size` candidates per bucket
+  (default 64, i.e. double the 32 quota, since the pilot rejected roughly 1
+  in 4 candidate units), permanently excluding: the two historical rejected
+  IDs above, and all 8 pilot IDs from `btf3_temporal_pilot_v0.2r2.jsonl`
+  (they already had target-model output observed against them in
+  `g1-pilot-freeze-v1.2` and can never re-enter primary confirmatory
+  selection). This queue order is written to a `*_candidates.json` manifest
+  before any human review begins and never changes afterward.
+- **Four mechanical gates per candidate**, all required to ACCEPT: pre-cutoff
+  intact, realized outcome valid, exact packet factually valid, criteria
+  unambiguous. A REJECT or UNSURE requires exactly one line of reason and
+  permanently consumes that queue slot — it is never re-reviewed, and the
+  unit is never hand-repaired into an acceptable one.
+- **Quota, not sample size.** `scripts/freeze_btf3_confirmatory.py` walks each
+  bucket's queue in the frozen order and takes the **first 32 ACCEPTs**. The
+  final 64-item artifact is whichever 64 question_ids happen to survive
+  review in queue order — not the first 64 drawn. If a bucket runs out of
+  ACCEPTs before reaching 32, the fix is to re-run the candidate-queue
+  builder with a larger `--pool-size` and review only the newly appended
+  tail; already-reviewed candidates are never reconsidered or reordered.
+- **No resampling, no reordering, no post-hoc replacement** once review of a
+  candidate starts, mirroring the pilot's replacement-round discipline
+  (`v0.1` → `v0.2` → `v0.2r2`) but without per-unit narrative memos.
+- Model panel is unchanged: the same three frozen checkpoints
+  (`Qwen/Qwen3.5-9B`, `google/gemma-3-12b-it`,
+  `mistralai/Mistral-Small-24B-Instruct-2501`) — no post-pilot substitution.
+- Primary confirmatory inference uses only the 64 frozen units. The original
+  8 pilot units remain a pilot-replication / descriptive appendix and are
+  never pooled into primary confirmatory estimates.
+- All selection and review happens strictly before any confirmatory-run
+  model output, exactly as for the pilot.
+
+`scripts/audit_btf3_review.py` (unchanged) is the fail-closed check for the
+resulting artifact: `--expected-count 64 --expected-per-resolution 32`, plus
+`--exclude-question-id` for the 2 historical rejects and all 8 pilot IDs.

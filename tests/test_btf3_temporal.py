@@ -3,7 +3,9 @@ import pytest
 
 from src.adapters.btf3_temporal import (
     build_candidate,
+    deterministic_candidate_queue,
     deterministic_review_sample,
+    render_confirmatory_queue,
     validate_candidate_against_source,
     validate_source_row,
 )
@@ -92,6 +94,37 @@ def test_rejected_question_can_be_excluded_without_losing_balance():
     assert rejected_no not in {x["question_id"] for x in replacement}
     assert [int(x["resolution"]) for x in replacement].count(0) == 2
     assert [int(x["resolution"]) for x in replacement].count(1) == 2
+
+
+def test_candidate_queue_is_deterministic_and_excludes_pilot_ids():
+    frame = pd.DataFrame([row(f"yes-{i}", 1.0) for i in range(10)] + [row(f"no-{i}", 0.0) for i in range(10)])
+    excluded = ["yes-0", "no-0"]
+    a = deterministic_candidate_queue(frame, pool_size=6, seed=9, exclude_question_ids=excluded)
+    b = deterministic_candidate_queue(frame, pool_size=6, seed=9, exclude_question_ids=excluded)
+    assert [r["question_id"] for r in a[0]] == [r["question_id"] for r in b[0]]
+    assert [r["question_id"] for r in a[1]] == [r["question_id"] for r in b[1]]
+    assert len(a[0]) == 6 and len(a[1]) == 6
+    assert "yes-0" not in {r["question_id"] for r in a[1]}
+    assert "no-0" not in {r["question_id"] for r in a[0]}
+
+
+def test_candidate_queue_prefix_is_stable_when_pool_size_grows():
+    frame = pd.DataFrame([row(f"yes-{i}", 1.0) for i in range(10)] + [row(f"no-{i}", 0.0) for i in range(10)])
+    small = deterministic_candidate_queue(frame, pool_size=3, seed=9)
+    large = deterministic_candidate_queue(frame, pool_size=6, seed=9)
+    assert [r["question_id"] for r in small[0]] == [r["question_id"] for r in large[0]][:3]
+    assert [r["question_id"] for r in small[1]] == [r["question_id"] for r in large[1]][:3]
+
+
+def test_confirmatory_queue_renders_four_gates_per_candidate():
+    frame = pd.DataFrame([row("yes-1", 1.0), row("no-1", 0.0)])
+    queue = deterministic_candidate_queue(frame, pool_size=1, seed=9)
+    text = render_confirmatory_queue(queue, artifact_label="t", quota_per_resolution=1)
+    assert "pre-cutoff intact" in text
+    assert "realized outcome valid" in text
+    assert "exact packet factually valid" in text
+    assert "criteria unambiguous" in text
+    assert "`yes-1`" in text and "`no-1`" in text
 
 
 def test_multiple_rejected_questions_can_be_excluded_without_losing_balance():

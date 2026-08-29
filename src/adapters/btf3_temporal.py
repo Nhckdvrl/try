@@ -222,6 +222,116 @@ def deterministic_review_sample(
     return selected
 
 
+def deterministic_candidate_queue(
+    frame: Any,
+    *,
+    pool_size: int,
+    seed: int = 20260829,
+    exclude_question_ids: Iterable[str] = (),
+) -> dict[int, list[dict]]:
+    """Full deterministic per-resolution candidate order for streamlined review.
+
+    Unlike ``deterministic_review_sample``, this does not truncate to a fixed
+    accepted count: it returns up to ``pool_size`` candidates per resolution
+    bucket, in the same fixed hash order a human will review them in. The
+    freeze step then walks this order and takes the first N accepts per
+    bucket, so no resampling or reviewer-visible choice ever enters selection.
+    """
+    if pool_size <= 0:
+        raise ValueError("pool_size must be positive")
+    excluded = {str(qid) for qid in exclude_question_ids}
+    records = frame.to_dict("records")
+    seen: set[str] = set()
+    buckets: dict[int, list[tuple[str, dict]]] = {0: [], 1: []}
+    for row in records:
+        validate_source_row(row)
+        qid = str(row["question_id"])
+        if qid in seen:
+            raise ValueError(f"duplicate question_id: {qid}")
+        seen.add(qid)
+        if qid in excluded:
+            continue
+        resolution = int(float(row["resolution"]))
+        order = hashlib.sha256(f"{seed}:{qid}".encode()).hexdigest()
+        buckets[resolution].append((order, row))
+    return {
+        resolution: [row for _, row in sorted(bucket)[:pool_size]]
+        for resolution, bucket in buckets.items()
+    }
+
+
+def render_confirmatory_queue(
+    rows_by_resolution: dict[int, list[dict[str, Any]]],
+    *,
+    artifact_label: str,
+    quota_per_resolution: int,
+) -> str:
+    """Streamlined review packet: fixed queue order, four boolean gates only.
+
+    This intentionally drops the pilot's long narrative checklist. The gate
+    that matters most for this source is packet factual validity (BTF-3's
+    ``resolution_explanation`` is machine-generated and only partially
+    spot-checked, and the pilot review already caught two exact-packet
+    errors) — that gate is retained at full strength. Everything else is
+    reduced to a single tick and a one-line reason on reject.
+    """
+    out = [
+        f"# BTF-3 confirmatory candidate queue — {artifact_label}",
+        "",
+        f"> Fixed deterministic order. Review top-to-bottom within each "
+        f"resolution bucket until {quota_per_resolution} ACCEPTs are reached "
+        "per bucket. Do not skip ahead or reorder. A REJECT/UNSURE consumes "
+        "its queue slot permanently and is never resampled or reconsidered.",
+        "",
+        "For each item, tick exactly one of ACCEPT / REJECT / UNSURE for all "
+        "four gates jointly (all four must hold to ACCEPT). On REJECT or "
+        "UNSURE, write exactly one line giving the reason.",
+        "",
+    ]
+    for resolution in (0, 1):
+        label = "YES" if resolution else "NO"
+        rows = rows_by_resolution.get(resolution, [])
+        out.append(f"## Realized {label} queue ({len(rows)} candidates)")
+        out.append("")
+        for index, row in enumerate(rows, 1):
+            qid = str(row["question_id"])
+            out.extend([
+                f"### {label}-{index}. `{qid}`",
+                "",
+                f"- Present date: `{row['present_date']}`",
+                f"- Source cutoff boundary: `{row['date_cutoff_end']}` "
+                f"(encodes end of UTC day `{_utc_source_day(row)}`)",
+                f"- Expected resolution: `{row['expected_resolution_date']}`",
+                "",
+                "**Question**",
+                "",
+                str(row["question"]),
+                "",
+                "**Resolution criteria**",
+                "",
+                str(row["resolution_criteria"]),
+                "",
+                "**Pre-cutoff background**",
+                "",
+                str(row["background"]),
+                "",
+                "**Exact later resolution packet**",
+                "",
+                str(row["resolution_explanation"]),
+                "",
+                "**Gates (all four must hold to ACCEPT):**",
+                "- [ ] pre-cutoff intact — background/question contain no post-cutoff facts",
+                "- [ ] realized outcome valid — resolution matches the cited evidence",
+                "- [ ] exact packet factually valid — no factual or temporal-logic error in `resolution_explanation`",
+                "- [ ] criteria unambiguous — resolution criteria admit only one reading",
+                "",
+                "- Decision: `[ ] ACCEPT  [ ] REJECT  [ ] UNSURE`",
+                "- Reason (required for REJECT/UNSURE, one line):",
+                "",
+            ])
+    return "\n".join(out).rstrip() + "\n"
+
+
 def render_review(
     items: list[InformationSetItem],
     rows: list[dict[str, Any]],
