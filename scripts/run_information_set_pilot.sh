@@ -9,9 +9,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 BTF=data/external/review/btf3_temporal_pilot_v0.2r2.jsonl
 FANTOM=data/external/review/fantom_perspective_pilot_v0.1r4.jsonl
-QWEN_MODEL_PATH=${ISR_QWEN_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a}
-GEMMA_MODEL_PATH=${ISR_GEMMA_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80}
-MISTRAL_MODEL_PATH=${ISR_MISTRAL_MODEL_PATH:-/home/xiang/.cache/huggingface/hub/models--mistralai--Mistral-Small-24B-Instruct-2501/snapshots/9527884be6e5616bdd54de542f9ae13384489724}
+QWEN_MODEL_PATH=${ISR_QWEN_MODEL_PATH:-/var/tmp/xiang-isr-models/qwen35-9b}
+GEMMA_MODEL_PATH=${ISR_GEMMA_MODEL_PATH:-/var/tmp/xiang-isr-models/gemma3-12b}
+MISTRAL_MODEL_PATH=${ISR_MISTRAL_MODEL_PATH:-/var/tmp/xiang-isr-models/mistral-small-24b}
 
 run_family() {
   local gpu=$1
@@ -47,7 +47,7 @@ pid_gemma=$!
 run_family 2 \
   "$MISTRAL_MODEL_PATH" \
   mistralai/Mistral-Small-24B-Instruct-2501 9527884be6e5616bdd54de542f9ae13384489724 mistral-small-24b \
-  "--tokenizer-mode hf" >logs/isr_mistral-small-24b.log 2>&1 &
+  "--tokenizer-mode mistral" >logs/isr_mistral-small-24b.log 2>&1 &
 pid_mistral=$!
 
 wait "$pid_qwen"

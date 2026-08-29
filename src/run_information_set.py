@@ -96,6 +96,14 @@ def main() -> int:
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
 
+    try:
+        from transformers.tokenization_mistral_common import MistralCommonBackend
+
+        if not hasattr(MistralCommonBackend, "is_fast"):
+            MistralCommonBackend.is_fast = False
+    except ImportError:
+        pass
+
     items = load_jsonl(args.artifact)
     tokenizer = AutoTokenizer.from_pretrained(args.model, local_files_only=True)
     records = []

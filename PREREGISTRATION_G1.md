@@ -3,7 +3,11 @@
 **Created:** 2026-08-29  
 **Status:** FROZEN for the two-family exploratory pilot. The immutable Git tag
 `g1-pilot-freeze-v1` identifies the exact code, artifacts, and analysis policy
-before the first target-model OOB run.
+before the first target-model OOB run. `g1-pilot-freeze-v1.1` is an
+infrastructure-only amendment that is itself invalidated (see below) after
+producing one incidental Qwen BTF-3 output and no usable Mistral/Gemma output;
+`g1-pilot-freeze-v1.2` is the corrected executable state and the one all
+six model-family runs are generated under.
 
 ## Research question
 
@@ -122,6 +126,49 @@ stop/go rule. The original freeze tag is retained as an audit record of the
 zero-output failed launch; a new freeze tag identifies the executable amended
 state.
 
+### v1.1 run invalidated; second infrastructure-only amendment (2026-08-30)
+
+Tag `g1-pilot-freeze-v1.1` launched with the amendment above. Qwen completed
+BTF-3 (48 rows, 0 decision/probe parse failures) before the launcher process
+was killed with the terminal session that started it, leaving Gemma with no
+output and Mistral still failing. `vllm tokenizer_mode=hf` for Mistral, as
+frozen in v1.1, does **not** work: the installed vLLM (`0.23.0`) wraps the
+Transformers (`5.12.1`) `MistralCommonBackend` in a caching subclass that goes
+through `PreTrainedTokenizerBase.__getattr__` for any attribute the wrapper
+does not already have, and `MistralCommonBackend` implements neither
+`is_fast` nor the `get_added_vocab` that vLLM's incremental detokenizer calls
+on every decode step. A one-line `is_fast` shim clears initialization but
+still crashes at first-token detokenization on `get_added_vocab`. Because a
+real Qwen BTF-3 output already existed once this failure was confirmed, the
+entire v1.1 run is invalidated, not repaired in place: that output is
+isolated under `results/raw/_archive_v1.1_incomplete/` and excluded from all
+analysis, and Gemma/Mistral are not back-filled against it.
+
+The actual fix does not touch `tokenizer_mode=hf` at all: it runs Mistral
+under vLLM's native `tokenizer_mode=mistral`, which uses `mistral_common`
+directly against the snapshot's `tekken.json` and never instantiates the
+broken `MistralCommonBackend` wrapper. This was verified by an isolated
+initialization + generation smoke test on a neutral prompt
+(`"The capital of France is"` → `" Paris. It is known for its iconic"`)
+before either benchmark artifact was touched, and again by tokenizing a
+neutral chat-template prompt through the same `AutoTokenizer` path
+`src/run_information_set.py` uses for the frozen prompt token IDs and passing
+those `prompt_token_ids` through the `tokenizer_mode=mistral` engine. Prompt
+construction is unaffected: prompt token IDs are still produced by
+`AutoTokenizer.from_pretrained` reading the snapshot's `tokenizer.json`
+exactly as before; only vLLM's internal detokenizer backend for Mistral
+changes. Qwen and Gemma remain `tokenizer_mode=auto`, unchanged. All three
+models load from the local NVMe snapshots under `/var/tmp/xiang-isr-models/`
+(unchanged from the first amendment).
+
+This second amendment does not change artifacts, item inclusion, prompts,
+prompt token IDs, models or revisions, decoding, parsing, thresholds,
+inference, or the stop/go rule. `g1-pilot-freeze-v1.1` is retained as an
+audit record of the invalidated run (one incidental Qwen output, no Gemma
+output, Mistral still broken); `g1-pilot-freeze-v1.2` identifies the
+corrected executable state that all six model-family files are generated
+under, with no reuse of any v1.1 output.
+
 - runner: `src/run_information_set.py`;
 - each model loads from the exact local snapshot matching the revision above;
 - chat template with thinking disabled where supported;
@@ -209,3 +256,5 @@ reportable outcomes.
 - [x] multiplicity and pooled-analysis policy
 - [ ] cross-boundary split and tuning controls
 - [x] immutable Git tag before first OOB run: `g1-pilot-freeze-v1`
+- [x] infrastructure-only amendment tags: `g1-pilot-freeze-v1.1` (invalidated),
+      `g1-pilot-freeze-v1.2` (corrected, executed)
