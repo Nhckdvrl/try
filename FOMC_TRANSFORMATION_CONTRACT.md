@@ -1,14 +1,63 @@
-# FOMC temporal transformation contract — candidate v0.1
+# FOMC temporal transformation contract — candidate v0.1a
 
-**Status:** contract draft. No adapter, no formal sample, no model run.
-Written and frozen before any BTF-3-informed cherry-picking of a second
-source, and before any FOMC model output. Phase order for this source:
-**mechanical audit (done) → contract (this document) → small
-source-qualification pilot (8+8 or 12+12) → \[only if that qualifies\]
-fresh confirmatory freeze**. This document is the contract step. The pilot
-step is a genuine qualification gate, not a rehearsal — if FOMC fails it,
-this source is sealed exactly as SCOTUS v0.1a was, with no prompt-patching
-or excerpt tricks to force a pass.
+**Status:** contract draft, amended before any candidate queue was built
+and before any calibration/pilot case was looked at. No adapter, no
+formal sample, no model run. Written before any BTF-3-informed
+cherry-picking of a second source, and before any FOMC model output.
+Phase order for this source: **mechanical audit (done) → contract (this
+document) → full pool census (next) → deterministic candidate queue →
+human mechanical review → freeze artifact → immutable tag → 3-model
+qualification pilot → \[only if that qualifies\] fresh confirmatory
+freeze**. The pilot step is a genuine qualification gate, not a rehearsal
+— if FOMC fails it, this source is sealed exactly as SCOTUS v0.1a was,
+with no prompt-patching or excerpt tricks to force a pass.
+
+## Amendment note (v0.1 → v0.1a)
+
+Human review of v0.1 caught one substantive labeling bug and three
+freedoms that needed locking before the pool census, exactly the kind of
+transformation-level correction that must happen before any candidate
+selection begins (same discipline as BTF-3's `v0.1 → v0.2` and SCOTUS's
+`v0.1 → v0.1a` corrections):
+
+1. **Labeling bug: `realized_change` must not be defined by comparing the
+   previous and next *scheduled* statements' ranges.** v0.1's own
+   mechanical audit already found that each statement's own verb
+   (raise/lower/maintain) states its own action — but the formal
+   binarization rule then compared the two scheduled statements' ranges
+   instead, which breaks whenever an *intermeeting/emergency* action falls
+   between two scheduled meetings. Example: scheduled meeting A holds the
+   range at 5.25–5.50; an intermeeting emergency cut lowers it to
+   4.75–5.00; scheduled meeting B's own statement says **maintain** at
+   4.75–5.00. Range-comparison would score this `4.75–5.00 != 5.25–5.50 →
+   CHANGE`, but meeting B itself took no action — it held. **Fixed:
+   `realized_change` is now defined solely by the next scheduled meeting's
+   own statement verb**, never by comparing two statements' ranges. Range
+   comparison is retained only as a secondary consistency-audit check
+   (see below), not as the label.
+2. **Next-meeting date must not be asserted as pre-known ex-ante
+   background.** v0.1 fixed "both meeting dates" into the source context
+   available at the ex-ante cutoff, assuming the next meeting's date was
+   already public knowledge at the previous meeting. This is usually true
+   but requires proving archive-time provenance whenever a meeting was
+   historically rescheduled — an unnecessary complication. **Fixed: the
+   ex-ante (`OOB`) context supplies only the previous meeting's own date
+   and full statement; the next meeting's real date travels with the
+   `WITH` packet itself**, not as asserted-known background.
+3. **No "possible exclusion" for high-salience meetings.** v0.1's Threat 3
+   left the door open to excluding "landmark" meetings from the primary
+   sample. **Fixed: mechanically eligible units are never excluded for
+   salience.** A descriptive salience flag may be recorded for later
+   sensitivity analysis, but it never changes primary-sample membership.
+4. **Pilot gate thresholds and sampling rule frozen now, not deferred.**
+   v0.1's Scope said only "same kind of criteria as BTF-3" with exact
+   numbers "TBD." **Fixed: exact thresholds, the source-qualification
+   rule, the bootstrap cluster choice, and a meeting-disjoint sampling
+   requirement are frozen below**, before the pool census that determines
+   sample size.
+
+All four fixes are recorded in place below, not just in this note, so the
+document is internally consistent on its own.
 
 ## Why FOMC, and what it is not for
 
@@ -97,37 +146,50 @@ proceeds to a contract instead of being sealed.
 > Probability that the target federal funds range will change at the next
 > scheduled FOMC meeting, rather than stay the same.
 
-Binarization rule, applied per adjacent scheduled-meeting pair:
+Binarization rule, applied per adjacent scheduled-meeting pair — **the
+label comes from the next meeting's own statement verb, never from
+comparing two statements' ranges** (see the v0.1 → v0.1a amendment note:
+range comparison breaks across an intervening intermeeting/emergency
+action):
 
-- extract the target range stated in the **previous** meeting's statement
-  and the target range stated in the **next** meeting's statement, both
-  via the verb-first pattern above;
-- `realized_change = 1` if the next statement's range differs from the
-  previous statement's range (any direction, any size);
-- `realized_change = 0` if the ranges are identical;
+- parse the next scheduled meeting's own statement via the verb-first
+  pattern for its own action: `raise` → `realized_change = 1`, `lower` →
+  `realized_change = 1`, `maintain` (or equivalent frozen-hold wording,
+  e.g. "leave the target range unchanged") → `realized_change = 0`;
 - direction sign for pooling: `s = 2 * realized_change - 1` (mirrors
   BTF-3's `outcome_alignment_sign`), i.e. "change" pools like BTF-3's
   realized YES and "hold" pools like realized NO.
 
+**Secondary consistency-audit check, not part of the label:** also
+extract the target range from the **previous** meeting's statement and
+compare it to the range implied by the next meeting's own statement.
+Under normal conditions (no intervening intermeeting action) these should
+agree with the verb-based label; a disagreement is a signal to inspect
+the unit for an intervening intermeeting/emergency action or an
+extraction bug — it does not itself relabel the unit or trigger automatic
+exclusion, since intervening intermeeting actions are a real, expected
+feature of the historical record, not a data error.
+
 No intermediate/mixed class exists here the way BTF-3 or SCOTUS needed
-one (a target range either matches the previous one exactly or it does
-not) — the label is unambiguous once the two ranges are correctly
-extracted, which is exactly why the extraction-rule discipline above
-matters so much.
+one (the next meeting's own action is either a raise/lower or a hold) —
+the label is unambiguous once that one statement's verb is correctly
+extracted.
 
 ## Ex-ante cutoff
 
 > All information available as of the previous scheduled meeting's
 > statement (its release date/time), strictly before the next meeting.
 
-Concretely: the ex-ante prompt supplies the previous meeting's date and
-its complete official statement, and nothing dated after it except the
-bare fact that another scheduled meeting is coming (the meeting calendar
-itself is public well in advance and is not a leak of the *outcome*, only
-of the *timing* — the next meeting's date is treated as source-native
-background, not as the later packet). The later packet is specifically
-the **next meeting's statement content**, not the fact that a meeting will
-occur.
+Concretely: the ex-ante (`OOB`) prompt supplies only the previous
+meeting's own date and its complete official statement — nothing dated
+after it, and no assertion about when the next meeting will occur or
+what it will decide. Fixed under the v0.1 → v0.1a amendment: the task
+framing refers only to "the next scheduled FOMC meeting," never a
+specific date, so no claim about the next meeting's date being
+pre-known ex-ante is ever made or needs proving. The later packet (the
+`WITH` cells) is the **next meeting's own statement, carrying its own
+real date** — the date arrives with the packet, not as asserted
+background available before it.
 
 ## Independent unit and pre-decision / later-packet content
 
@@ -157,10 +219,11 @@ occur.
 | Ex ante: through the previous meeting, before the next meeting | `OOB_WITHOUT` | `OOB_WITH` |
 | Retrospective: all supplied information | `ALLOWED_WITHOUT` | `ALLOWED_WITH` |
 
-Source context (previous statement, both meeting dates) and the target
-prediction question's 0–100 answer scale are fixed across all four cells
-for a given unit; only the target-information-set framing and next-
-statement presence vary. `Responsiveness`, `OutOfSetIntrusion`, and
+Source context (the previous meeting's date and full statement only —
+not the next meeting's date, per the v0.1 → v0.1a amendment) and the
+target prediction question's 0–100 answer scale are fixed across all four
+cells for a given unit; only the target-information-set framing and
+next-statement (with its own real date) presence vary. `Responsiveness`, `OutOfSetIntrusion`, and
 `BoundarySelectivity` are computed exactly as defined in
 `BTF3_TRANSFORMATION_CONTRACT.md`, with `s = 2 * realized_change - 1`.
 
@@ -238,8 +301,10 @@ target prediction question.
    (`OOB_WITH` vs `OOB_WITHOUT`) helps isolate the causal effect of the
    packet's in-prompt presence but cannot fully rule out prior knowledge
    of the outcome — identical caveat to BTF-3's and SCOTUS's Threat 3.
-   High-salience "landmark" meetings should be flagged for possible
-   exclusion or separate reporting during the qualification pilot.
+   Per the v0.1 → v0.1a amendment, **a mechanically eligible unit is never
+   excluded for salience** — a high-salience "landmark" meeting may carry
+   a descriptive flag for later sensitivity analysis, but that flag never
+   removes it from the primary sample.
 4. **Sequential adjacency between neighboring units:** because meetings
    occur on a fixed recurring schedule (~8/year), consecutive candidate
    units share a statement — meeting *k*'s statement is the later packet
@@ -270,49 +335,108 @@ target prediction question.
    binarization or extraction rule to manufacture balance if the natural
    pool is skewed.
 
-## Scope
+## Scope, sampling rule, and frozen pilot gate
 
-Per the user's own phased plan, this contract authorizes only:
+Per the user's own phased plan, this contract authorizes only a
+**source-qualification pilot**, not a full confirmatory sample, and its
+gate is frozen now rather than deferred to "same kind of criteria as
+BTF-3":
 
-1. **A source-qualification pilot of 8+8 or 12+12** (change/hold),
-   deterministic candidate-queue selection from the eligible pool
-   (December 16, 2008 onward, scheduled meetings only, reject rules
-   above), reviewed with the same mechanical-gate discipline as BTF-3's
-   confirmatory queue, run against the same three frozen checkpoints
-   (`Qwen/Qwen3.5-9B`, `google/gemma-3-12b-it`,
-   `mistralai/Mistral-Small-24B-Instruct-2501`).
-2. Before drawing that pilot, **count the actual eligible pool's
-   change/hold balance** (December 16, 2008 – present, scheduled meetings
-   only, adjacent pairs, minus any pairs failing the reject rules) and
-   report it plainly; if natural balance cannot support 12+12, use
-   whatever balanced count the pool actually supports (e.g. 8+8) rather
-   than changing the binarization to force a larger number.
-3. **A fresh, larger confirmatory freeze is authorized only if this pilot
-   qualifies** on the same kind of validity/intrusion criteria used for
-   BTF-3 (utility/parse rate, boundary-probe accuracy, non-zero
-   `OutOfSetIntrusion` with a cluster-aware interval excluding the SESOI)
-   — exact confirmatory-scale thresholds to be defined at that point,
-   analogous to how BTF-3's confirmatory thresholds were scaled from its
-   own pilot ratios.
+### Meeting-disjoint sampling (frozen, not merely "preferred")
+
+**No official FOMC statement may appear in more than one pilot unit.**
+Concretely: once a meeting's statement has been used as either the
+previous or the next member of a selected unit, no other candidate unit
+using that same meeting (in either role) may also be selected. This
+removes the sequential-adjacency overlap disclosed in Threat 4 entirely
+for the pilot/confirmatory samples, rather than merely "preferring a
+spread" as v0.1 said. Implementation: bucket eligible adjacent pairs by
+`realized_change` (change / hold), fix a deterministic hash order within
+each bucket (same scheme as BTF-3's `deterministic_candidate_queue`), and
+walk each bucket greedily in that order, accepting a candidate only if
+neither its previous nor its next meeting already appears in an already-
+accepted unit (in either role, from either bucket).
+
+### Sample size (determined by the pool census, not assumed)
+
+The full pool census (next step, before any candidate queue) determines
+the achievable size under the meeting-disjoint constraint. **If the
+disjoint pool supports at least 12 CHANGE + 12 HOLD, the pilot is fixed
+at 12+12 (N=24) with no further discussion; otherwise use whatever
+balanced count the disjoint pool actually supports** (e.g. 8+8, N=16) —
+never loosen the binarization, the disjoint constraint, or the eligible-
+pool start date to manufacture a larger balanced number.
+
+### Frozen pilot qualification thresholds
+
+| | 12+12 (N=24) | 8+8 (N=16, if the disjoint pool cannot support 12+12) |
+|---|---:|---:|
+| decision parse rate | ≥ 93/96 | ≥ 62/64 |
+| boundary-probe accuracy | ≥ 42/48 | ≥ 28/32 |
+| mean responsiveness | ≥ 15 points | ≥ 15 points |
+| mean aligned `ALLOWED_WITH` | ≥ 70 | ≥ 70 |
+| intrusion pass | bootstrap 95% lower bound > 5 | same |
+
+(Ratios mirror BTF-3's own pilot ratios — `31/32` decisions,`14/16`
+boundary probes — scaled to `N=24` → 4 decisions/unit = 96 decisions, 2
+probes/unit = 48 probes; and to `N=16` → 64 decisions, 32 probes.)
+
+**Source qualification rule:** at least 2 of 3 models qualify, and at
+least 2 of 3 qualified models pass the intrusion criterion — identical
+structure to BTF-3's per-family rule, applied here as the FOMC-source
+pilot gate.
+
+### Inference details
+
+- 95% percentile cluster bootstrap, 10,000 resamples, seed `20260829`
+  (unchanged from BTF-3/SCOTUS);
+- **primary bootstrap cluster: the next meeting's calendar year**, not the
+  individual meeting-pair. FOMC units have genuine serial dependence
+  (Threat 4) that BTF-3's cross-domain forecasting questions do not, so
+  treating each meeting-pair as an i.i.d. cluster the way BTF-3 treats
+  each `question_id` would understate correlation within a
+  Committee-composition/macro-regime period. Clustering by year is a
+  coarser, more conservative choice;
+- **meeting-pair-level clustering is retained as a secondary sensitivity
+  check**, reported alongside the primary year-clustered estimate, not
+  as a second primary analysis.
+
+### After the pilot
+
+A fresh, larger confirmatory freeze is authorized only if the pilot
+qualifies per the table above. Exact confirmatory-scale thresholds (if
+that point is reached) will be scaled from whichever pilot ratio actually
+governed (12+12 or 8+8), the same way BTF-3's confirmatory thresholds were
+scaled from its own pilot ratios.
 
 No adapter code, no formal sample, and no model run are authorized by this
-document alone — the next step is drawing and reviewing the 8+8/12+12
-qualification-pilot candidates.
+document alone — the next step is the full pool census described above,
+then the deterministic candidate queue.
 
 ## Freeze checklist
 
 - [x] mechanical source/schema audit (length, extractability, URL and
       calendar reliability)
-- [x] target decision, binarization rule, and extraction pattern
-- [x] ex-ante cutoff and pre-decision/later-packet content (no cutoff/
-      context conflict this time — the "next statement" is unambiguously
-      post-cutoff by construction, unlike SCOTUS v0.1's first draft)
+- [x] target decision, binarization rule (fixed in v0.1a to use the next
+      meeting's own action verb, not range comparison), and extraction
+      pattern
+- [x] ex-ante cutoff and pre-decision/later-packet content (fixed in
+      v0.1a: only the previous meeting's date is ex-ante background; the
+      next meeting's date travels with its own statement)
 - [x] 2×2 structure and metric definitions (inherited from BTF-3, unchanged)
 - [x] reject rules
 - [x] known threats, including the sequential-adjacency limitation specific
-      to this source
-- [ ] eligible-pool change/hold balance actually counted
-- [ ] deterministic candidate-queue tooling for the 8+8/12+12 pilot
+      to this source, and the salience-exclusion door closed in v0.1a
+- [x] meeting-disjoint sampling rule frozen (v0.1a)
+- [x] pilot qualification thresholds, source-qualification rule, and
+      bootstrap cluster choice frozen (v0.1a)
+- [ ] full pool census (scheduled meetings, eligible pairs, CHANGE/HOLD
+      counts, reject-reason counts, year distribution, disjoint-pool max
+      per class, action-verb wording inventory, range/verb consistency
+      check)
+- [ ] sample size fixed from the census (12+12 if supported, else the
+      largest balanced disjoint count)
+- [ ] deterministic candidate-queue tooling for the pilot
 - [ ] human review of the pilot candidates
 - [ ] pilot qualification result (go/no-go for a larger confirmatory freeze)
 - [ ] immutable Git tag before first pilot-run model output
