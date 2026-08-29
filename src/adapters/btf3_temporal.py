@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import hashlib
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 try:
     from ..information_set_schema import InformationSetItem
@@ -15,10 +15,23 @@ SOURCE_ID = "btf3"
 SOURCE_REVISION = "4b426627e19cd86202de69a40bc9dadb7f5ccd59"
 SOURCE_SHA256 = "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a"
 SOURCE_URL = "https://huggingface.co/datasets/BTF-2/BTF-3"
+TRANSFORMATION_ID = "btf3-temporal-v0.2-review"
 
 
 def _iso(value: Any) -> datetime:
     return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+
+
+def _utc_source_day(row: dict[str, Any]) -> str:
+    """UTC calendar day whose end defines the source forecasting window.
+
+    BTF-3 documents ``date_cutoff_end`` as the encoding of the end of the UTC
+    day containing ``present_date``.  In the pinned source revision the stored
+    date is the following midnight-style boundary (e.g. present May 12 ->
+    cutoff_end May 13).  Prompts should name the present-date UTC day, not call
+    May 13 itself an available day.
+    """
+    return _iso(row["present_date"]).date().isoformat()
 
 
 def validate_source_row(row: dict[str, Any]) -> None:
@@ -35,8 +48,22 @@ def validate_source_row(row: dict[str, Any]) -> None:
             raise ValueError(f"BTF-3 field {key} is empty")
     if float(row["resolution"]) not in (0.0, 1.0):
         raise ValueError("binary resolution must be 0 or 1")
-    if _iso(row["present_date"]) >= _iso(row["expected_resolution_date"]):
+
+    present = _iso(row["present_date"])
+    cutoff = _iso(row["date_cutoff_end"])
+    expected = _iso(row["expected_resolution_date"])
+    if present >= expected:
         raise ValueError("present_date must precede expected_resolution_date")
+
+    # Source-revision invariant.  date_cutoff_end is stored as the next
+    # midnight-style date boundary for the UTC day containing present_date.
+    # Locking this prevents the v0.1 off-by-one wording from returning.
+    expected_cutoff_date = present.date() + timedelta(days=1)
+    if cutoff.date() != expected_cutoff_date or cutoff.time() != datetime.min.time():
+        raise ValueError(
+            "unexpected BTF-3 cutoff encoding: expected date_cutoff_end to be "
+            "the midnight boundary immediately after the UTC day containing present_date"
+        )
 
 
 def _source_block(row: dict[str, Any]) -> str:
@@ -50,10 +77,13 @@ def _source_block(row: dict[str, Any]) -> str:
 def _task(row: dict[str, Any], *, ex_ante: bool, include_packet: bool) -> str:
     source = _source_block(row)
     if ex_ante:
+        source_day = _utc_source_day(row)
         target = (
             "TARGET INFORMATION SET\n"
             f"Estimate the probability that was warranted as of {row['present_date']}. "
-            f"The task's information set ends at the close of UTC day {row['date_cutoff_end']}. "
+            f"Use only information available through the end of UTC day {source_day}, "
+            f"which the source encodes with date_cutoff_end={row['date_cutoff_end']}. "
+            "Do not treat the following UTC calendar day as available. "
             "Any text explicitly labeled LATER RESOLUTION PACKET was produced after this "
             "information set and is not part of the evidence that defines the requested ex-ante forecast."
         )
@@ -82,6 +112,7 @@ def build_candidate(row: dict[str, Any]) -> InformationSetItem:
         "background": row["background"],
         "present_date": str(row["present_date"]),
         "date_cutoff_end": str(row["date_cutoff_end"]),
+        "source_utc_day": _utc_source_day(row),
         "expected_resolution_date": str(row["expected_resolution_date"]),
         "realized_resolution": resolution,
         "outcome_alignment_sign": 1 if resolution == 1 else -1,
@@ -92,7 +123,7 @@ def build_candidate(row: dict[str, Any]) -> InformationSetItem:
         boundary_type="temporal",
         reference_context=shared,
         oob_variant={
-            "target_information_set": "through date_cutoff_end",
+            "target_information_set": "through end of UTC day containing present_date",
             "without_information_prompt": _task(row, ex_ante=True, include_packet=False),
             "with_information_prompt": _task(row, ex_ante=True, include_packet=True),
         },
@@ -108,16 +139,23 @@ def build_candidate(row: dict[str, Any]) -> InformationSetItem:
             "source_file_sha256": SOURCE_SHA256,
             "source_record_id": str(row["question_id"]),
             "reuse_status": "CC_BY_NC_4_0_REVIEW_CANDIDATE_NOT_FROZEN",
-            "transformation_contract": "BTF3_TRANSFORMATION_CONTRACT.md#candidate-v0.1",
+            "transformation_contract": "BTF3_TRANSFORMATION_CONTRACT.md#candidate-v02",
         },
-        transformation_id="btf3-temporal-v0.1-review",
+        transformation_id=TRANSFORMATION_ID,
     )
     return InformationSetItem.from_dict(item.to_dict())
 
 
-def deterministic_review_sample(frame: Any, *, n_per_resolution: int = 4, seed: int = 20260829) -> list[dict]:
+def deterministic_review_sample(
+    frame: Any,
+    *,
+    n_per_resolution: int = 4,
+    seed: int = 20260829,
+    exclude_question_ids: Iterable[str] = (),
+) -> list[dict]:
     if n_per_resolution <= 0:
         raise ValueError("n_per_resolution must be positive")
+    excluded = {str(qid) for qid in exclude_question_ids}
     records = frame.to_dict("records")
     seen: set[str] = set()
     buckets: dict[int, list[tuple[str, dict]]] = {0: [], 1: []}
@@ -127,11 +165,13 @@ def deterministic_review_sample(frame: Any, *, n_per_resolution: int = 4, seed: 
         if qid in seen:
             raise ValueError(f"duplicate question_id: {qid}")
         seen.add(qid)
+        if qid in excluded:
+            continue
         resolution = int(float(row["resolution"]))
         order = hashlib.sha256(f"{seed}:{qid}".encode()).hexdigest()
         buckets[resolution].append((order, row))
     if any(len(bucket) < n_per_resolution for bucket in buckets.values()):
-        raise ValueError("not enough rows in one resolution bucket")
+        raise ValueError("not enough rows in one resolution bucket after exclusions")
     selected = []
     for resolution in (0, 1):
         selected.extend(row for _, row in sorted(buckets[resolution])[:n_per_resolution])
@@ -141,7 +181,7 @@ def deterministic_review_sample(frame: Any, *, n_per_resolution: int = 4, seed: 
 def render_review(items: list[InformationSetItem], rows: list[dict[str, Any]]) -> str:
     by_id = {str(row["question_id"]): row for row in rows}
     out = [
-        "# BTF-3 temporal pilot — human review packet v0.1",
+        "# BTF-3 temporal pilot — human review packet v0.2",
         "",
         "> 现在不要跑模型。请只审查 source validity 和 transformation integrity。",
         "",
@@ -156,7 +196,7 @@ def render_review(items: list[InformationSetItem], rows: list[dict[str, Any]]) -
             f"## {index}. `{item.independent_unit_id}` — realized {'YES' if int(row['resolution']) else 'NO'}",
             "",
             f"- Present date: `{row['present_date']}`",
-            f"- Source cutoff end: `{row['date_cutoff_end']}`",
+            f"- Source cutoff boundary: `{row['date_cutoff_end']}` (encodes the end of UTC day `{_utc_source_day(row)}`)",
             f"- Expected resolution: `{row['expected_resolution_date']}`",
             "- Reviewer decision: `[ ] ACCEPT  [ ] REJECT  [ ] UNSURE`",
             "- Reviewer reason（拒绝或不确定时必须写）:",
