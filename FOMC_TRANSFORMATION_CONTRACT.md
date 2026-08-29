@@ -413,6 +413,66 @@ No adapter code, no formal sample, and no model run are authorized by this
 document alone — the next step is the full pool census described above,
 then the deterministic candidate queue.
 
+## Full pool census (2026-08-30, `scripts/fomc_pool_census.py`, `results/fomc_pool_census.json`)
+
+Read-only; no candidate queue was built from this. Enumerated official
+scheduled-meeting minutes links across `federalreserve.gov/monetarypolicy/
+fomchistorical{2008..2020}.htm` (per-year historical archive) and
+`fomccalendars.htm` (2021–present), fetched every corresponding statement,
+and applied the frozen reject rules above.
+
+- **148 candidate meetings** found via minutes links. **1 excluded as a
+  confirmed emergency/special meeting**: `2020-03-15`, a Sunday
+  videoconference session — distinguished mechanically from every one of
+  the other 147 by its own minutes page, which is the only one to mention
+  "Sunday"/"Saturday" or "special meeting"/"intermeeting"/"emergency" in
+  its opening description (every regular meeting's minutes describe a
+  weekday session with no such wording). **147 confirmed scheduled
+  meetings.**
+- **141 meetings fall in the eligible pool** (`2008-12-16` onward, the
+  target-range era).
+- **140 raw adjacent pairs**; **1 excluded for non-adjacency**: the pair
+  spanning the excluded `2020-03-15` session (`2020-01-29` →
+  `2020-04-29`) — the regularly scheduled mid-March 2020 meeting's
+  business was absorbed into the excluded emergency session, so these two
+  scheduled meetings are not genuinely calendar-adjacent even though nothing
+  else sits between them in a plain sorted list. **139 eligible labeled
+  units** remain (`2008-12-16` itself is excluded from ever being a "next"
+  meeting by construction, since it establishes the range rather than
+  raising/lowering/maintaining one — this never actually triggered, since
+  no pair ever needed it as "next").
+- **Action-verb wording inventory**: `raise` (20), `lower` (9), `maintain`
+  (78), `keep` (33), `establish` (1, pool-start only). Six distinct
+  *extraction methods* were needed to catch every real statement's
+  phrasing (`decided to raise/lower/maintain/keep the target range...`
+  directly: 106; `will maintain/keep the target range...`: 18; `reaffirmed
+  its expectation/view that the current target range...`: 11 combined;
+  `maintain the current X percent target range...`: 5; `establish`: 1) —
+  concretely confirming the reject rule's own premise that a single fixed
+  regex is not safe to assume without a documented inventory of the
+  wording actually used across eras.
+- **`CHANGE = 29`, `HOLD = 110`** — confirms the anticipated class
+  imbalance (Threat 6): 2009–2014 (ZIRP) and 2020–2021 are entirely
+  `HOLD`; `CHANGE` concentrates in 2015–2019 (gradual normalization) and
+  2022–2025 (the hiking/cutting cycle), often in consecutive runs.
+- **Secondary consistency audit: zero mismatches** across all 139 units —
+  every pair's previous/next announced range agrees exactly with the
+  verb-based label once the one confirmed non-adjacent gap is excluded.
+  This independently validates both the extraction regexes and the
+  single non-adjacency exclusion (no other hidden intermeeting
+  contamination exists in the eligible pool).
+- **Meeting-disjoint maximum (scarcer class — `CHANGE` — processed
+  first): 21 disjoint `CHANGE` units, and 41 disjoint `HOLD` units
+  remain available after `CHANGE`'s meetings are reserved.** Because
+  `CHANGE` events cluster in consecutive runs (e.g. 7 hikes in a row
+  during 2022), many raw `CHANGE` candidates share an endpoint meeting
+  with their neighbor and cannot both survive the disjoint constraint —
+  21 of 29 raw `CHANGE` candidates survive, comfortably more than needed.
+
+**Result: the disjoint pool supports 21 CHANGE + 21+ HOLD — well above the
+12+12 threshold.** Per the Scope section above, **the pilot is fixed at
+12+12 (N=24), no further discussion of 8+8.**
+
 ## Freeze checklist
 
 - [x] mechanical source/schema audit (length, extractability, URL and
@@ -430,12 +490,12 @@ then the deterministic candidate queue.
 - [x] meeting-disjoint sampling rule frozen (v0.1a)
 - [x] pilot qualification thresholds, source-qualification rule, and
       bootstrap cluster choice frozen (v0.1a)
-- [ ] full pool census (scheduled meetings, eligible pairs, CHANGE/HOLD
+- [x] full pool census (scheduled meetings, eligible pairs, CHANGE/HOLD
       counts, reject-reason counts, year distribution, disjoint-pool max
       per class, action-verb wording inventory, range/verb consistency
-      check)
-- [ ] sample size fixed from the census (12+12 if supported, else the
-      largest balanced disjoint count)
+      check) — `results/fomc_pool_census.json`
+- [x] sample size fixed from the census: **12+12 (N=24)**, confirmed
+      supportable (disjoint pool: 21 CHANGE, 41 HOLD available)
 - [ ] deterministic candidate-queue tooling for the pilot
 - [ ] human review of the pilot candidates
 - [ ] pilot qualification result (go/no-go for a larger confirmatory freeze)

@@ -1,0 +1,110 @@
+{
+  "action_verb_inventory": {
+    "establish": 1,
+    "keep": 33,
+    "lower": 9,
+    "maintain": 78,
+    "raise": 20
+  },
+  "change_count": 29,
+  "consistency_mismatches": [],
+  "disjoint_balanced_count": 21,
+  "disjoint_max_change": 21,
+  "disjoint_max_hold_after_change_reserved": 41,
+  "eligible_meetings_pool_start_onward": 141,
+  "emergency_or_special_meetings_excluded": [
+    "20200315"
+  ],
+  "extraction_method_inventory": {
+    "establish": 1,
+    "maintain-current": 5,
+    "reaffirm-current": 9,
+    "reaffirm-of": 2,
+    "verb": 106,
+    "will-maintain": 18
+  },
+  "hold_count": 110,
+  "labeled_eligible_units": 139,
+  "raw_adjacent_pairs": 140,
+  "reject_reasons": {
+    "extraction_failed": 0,
+    "next_is_pool_start_establish": 0,
+    "non_adjacent_gap": 1
+  },
+  "scheduled_meetings_confirmed": 147,
+  "scheduled_meetings_total_all_time": 148,
+  "year_distribution": {
+    "2009": {
+      "change": 0,
+      "hold": 8
+    },
+    "2010": {
+      "change": 0,
+      "hold": 8
+    },
+    "2011": {
+      "change": 0,
+      "hold": 8
+    },
+    "2012": {
+      "change": 0,
+      "hold": 8
+    },
+    "2013": {
+      "change": 0,
+      "hold": 8
+    },
+    "2014": {
+      "change": 0,
+      "hold": 8
+    },
+    "2015": {
+      "change": 1,
+      "hold": 7
+    },
+    "2016": {
+      "change": 1,
+      "hold": 7
+    },
+    "2017": {
+      "change": 3,
+      "hold": 5
+    },
+    "2018": {
+      "change": 4,
+      "hold": 4
+    },
+    "2019": {
+      "change": 3,
+      "hold": 5
+    },
+    "2020": {
+      "change": 0,
+      "hold": 6
+    },
+    "2021": {
+      "change": 0,
+      "hold": 8
+    },
+    "2022": {
+      "change": 7,
+      "hold": 1
+    },
+    "2023": {
+      "change": 4,
+      "hold": 4
+    },
+    "2024": {
+      "change": 3,
+      "hold": 5
+    },
+    "2025": {
+      "change": 3,
+      "hold": 5
+    },
+    "2026": {
+      "change": 0,
+      "hold": 5
+    }
+  }
+}
