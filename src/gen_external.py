@@ -1,20 +1,26 @@
-"""External held-out validation on independently authored human-experiment materials.
+"""Source-grounded external adaptations used before the G1 redesign.
 
-Nothing here was written by us, and none of it took part in dataset construction,
-screening, or hypothesis discovery. Two sources, both public:
+IMPORTANT PROVENANCE NOTE (2026-08-29)
+--------------------------------------
+These are *not* fully untouched external datasets, and they must not be described
+as though every item/condition was independently authored by the source papers.
+They predate EVS-v1 and are retained as useful boundary checks.
 
 A. Ramsey, Liu & Trueblood (2024), "Can Invalid Information Be Ignored?",
-   OSF 9ybnx. The medication-report paradigm: a stream of reports about a
-   medication, some flagged as fabricated and to be ignored. Instruction wording
-   below is verbatim from their experiment code
-   (`Belief_Updating_Experiment5.js`). Their design flags a report *as it
-   appears*, which is our retrospective arm; the prospective arm announces which
-   report will be fabricated before the stream, and is our addition.
+   OSF 9ybnx.  The medication-report task and the invalid-report instruction are
+   grounded in the authors' experiment.  However, this repository generates new
+   report values and sweeps fabricated-report offsets because the original very
+   large outliers have little Admit leverage on the tested LLMs.  The prospective
+   "announce the future fabricated report" condition is also our addition.
 
 B. Aiyer et al. (2023) replication of Baron & Hershey (1988) Experiment 1,
-   OSF knjhu. The bypass-surgery vignette, verbatim from their Qualtrics survey
-   file, in all four framings actually administered (physician/patient decided x
-   operation succeeded/failed).
+   OSF knjhu.  The bypass-surgery stem/decision/outcome text below is taken from
+   the source Qualtrics material.  The explicit ALLOW/DENY policy sentences used
+   to map that vignette into our five-condition framework are our additions.
+
+Accordingly, these materials are now classified as source-grounded adaptations,
+not as the primary independently authored EVS-v1 confirmation tier.  See
+DATASET_REDESIGN.md and data/external/source_manifest.json.
 """
 import random
 from schema import Item
@@ -38,8 +44,8 @@ RAMSEY_OUT = "Give your answer as a single number between 0 and 100."
 # pulled by them anyway; these models discard such an obvious outlier
 # spontaneously, so the admit condition has almost no leverage and there is
 # nothing left for an exclusion instruction to do. The offset is therefore swept,
-# keeping the authors' instruction wording and task intact, so that the
-# phenomenon can be looked for where the evidence actually has leverage.
+# keeping the authors' instruction wording and task structure while generating
+# new numeric instances. This is an adaptation, not verbatim source data.
 RAMSEY_OFFSETS = [8, 14, 22, 38]
 
 
@@ -78,7 +84,7 @@ def build_ramsey(n=96, seed=173):
     return items
 
 
-# ------------------------------------------------- B. Baron & Hershey verbatim
+# ------------------------------------------------- B. Baron & Hershey source text
 BH_STEM = (
     "A 55-year-old man had a heart condition. He had to stop working because of chest pain. "
     "He enjoyed his work and did not want to stop. His pain also interfered with other things, "
@@ -88,6 +94,10 @@ BH_STEM = (
 BH_DECIDER = {"Ph": "His physician decided to go ahead with the operation .",
               "Pt": "The patient decided to go ahead with the operation ."}
 BH_OUTCOME = {"S": "The operation succeeded .", "F": "The operation failed ."}
+
+# These two policy sentences are OUR mapping of the source vignette into the
+# controlled framework. They are not claimed to be verbatim Baron-Hershey/Aiyer
+# experimental instructions.
 BH_RULE_EXC = ("The outcome became known only after the decision was taken. You must not "
                "let it play any role in your rating.")
 BH_RULE_ADM = ("The outcome counts as evidence about the decision. You must take it into "
