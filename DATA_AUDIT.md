@@ -27,7 +27,14 @@ No new experiment environment is required.
 - A fact QA and a belief QA cannot be treated as a clean allowed/out-of-set pair
   without proof: they change the target question as well as the information set.
 
-Status: source readable; transformation blocked.
+Candidate v0.1 now keeps one first-order inaccessible belief question fixed and
+uses the same exact fact packet in a 2 × 2 evaluator-only versus explicitly
+briefed-target intervention. Full-text artifacts remain local because the
+official README restricts intended use to evaluation and redistribution
+coverage still needs resolution. Eight deterministic `part_id`-clustered items
+await human causal-alignment review.
+
+Status: transformation review pending; no model run authorized.
 
 ## ForecastBench
 
@@ -53,8 +60,12 @@ Status: source readable; keyed join/cutoff transformation blocked.
   source. The causal injection/removal of post-cutoff information still needs a
   transformation audit.
 
-Status: source readable; candidate 2 × 2 temporal contract and eight-item review
-packet prepared; benchmark export remains blocked pending human review.
+After two rejected source packets and one corrected cutoff regeneration, the
+v0.2r2 eight-item artifact passed human source-validity and transformation
+review: 8 accepted units, 4 NO / 4 YES, corrected UTC-day semantics, no model
+outputs inspected.
+
+Status: human-review passed and pilot-ready, but not yet a frozen G1 benchmark.
 
 ## Aiyer outcome-bias replication
 

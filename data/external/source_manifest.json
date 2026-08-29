@@ -12,9 +12,17 @@
       "license_or_terms": "Official repository MIT; verify that this covers redistributed dataset artifacts before committing derived text",
       "reuse_status": "LOCAL_AUDIT_OK_REDISTRIBUTION_VERIFY",
       "independent_unit_rule": "part_id provisionally; validate shared latent conversations before freeze",
-      "files": [{"path": "fantom/fantom.tar.gz", "sha256": "1d08dfa0ea474c7f83b9bc7e3a7b466eab25194043489dd618b4c5223e1253a4"}],
+      "files": [
+        {"path": "fantom/fantom.tar.gz", "sha256": "1d08dfa0ea474c7f83b9bc7e3a7b466eab25194043489dd618b4c5223e1253a4"},
+        {"path": "fantom/fantom_v1.json", "sha256": "6a898e95df9fa48608232e45a8eb8f531e4d633aaf1a023a2b910991a6bc7c6e", "derived_from_archive": true}
+      ],
       "adapter": "src/adapters/fantom.py",
-      "status": "READY_TO_AUDIT"
+      "candidate_transform": "src/adapters/fantom_perspective.py",
+      "transformation_contract": "FANTOM_TRANSFORMATION_CONTRACT.md",
+      "review_request_v0_1": "data/external/review/FANTOM_REVIEW_REQUEST_v0.1.md",
+      "local_full_text_review_v0_1": "data/external/local_review/fantom_perspective_pilot_v0.1.md",
+      "local_review_jsonl_v0_1": "data/external/local_review/fantom_perspective_pilot_v0.1.jsonl",
+      "status": "TRANSFORMATION_REVIEW_PENDING"
     },
     {
       "source_id": "forecastbench_2025_03_02",
@@ -71,10 +79,21 @@
         "b6fc94e7-a0b9-56b6-87a1-ba94f29781e9",
         "34d3588a-ffb0-5290-b964-bceb68be18f1"
       ],
-      "blocking_issue": "v0.1 had a cutoff-wording bug and one bad source packet; corrected v0.2 then selected an Argentine Senate packet containing a temporally impossible recess claim. Both artifacts remain blocked and immutable; review the second replacement generated as v0.2r2.",
-      "next_review_packet": "data/external/review/BTF3_REVIEW_REQUEST_v0.2r2.md",
-      "next_review_jsonl": "data/external/review/btf3_temporal_pilot_v0.2r2.jsonl",
-      "status": "SECOND_REPLACEMENT_REVIEW_PENDING"
+      "review_request_v0_2r2": "data/external/review/BTF3_REVIEW_REQUEST_v0.2r2.md",
+      "review_packet_v0_2r2": "data/external/review/btf3_temporal_pilot_v0.2r2.md",
+      "review_jsonl_v0_2r2": "data/external/review/btf3_temporal_pilot_v0.2r2.jsonl",
+      "human_review_v0_2r2": {
+        "retained_prior_accepts": 7,
+        "replacement_accepted": 1,
+        "replacement_rejected": 0,
+        "replacement_unsure": 0,
+        "transformation_integrity": "PASS",
+        "accepted_replacement_question_id": "b92bacb5-8086-5dd2-a64f-9ec00c427248",
+        "model_outputs_seen": false
+      },
+      "audit_history": "v0.1 cutoff wording and one source packet failed; v0.2 replacement packet failed; v0.2r2 passed source and transformation human review without model outputs.",
+      "pilot_artifact": "data/external/review/btf3_temporal_pilot_v0.2r2.jsonl",
+      "status": "HUMAN_REVIEW_PASSED_PILOT_READY"
     },
     {
       "source_id": "aiyer_2023_outcome_bias",

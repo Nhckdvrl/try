@@ -16,4 +16,4 @@ Human review found 7 accepted source units and 1 rejected source unit. The artif
 - `btf3_temporal_pilot_v0.2r2.jsonl` and `.md` — second deterministic replacement round using the same v0.2 transformation and excluding both rejected IDs.
 - `BTF3_REVIEW_REQUEST_v0.2r2.md` — minimal handoff: review the one new BRICS source unit and the regenerated four-cell integrity; the seven retained units do not need their source facts re-audited.
 
-No model run is authorized until the v0.2r2 review request is completed and the manifest is advanced explicitly.
+The v0.2r2 review request is now complete: the BRICS replacement is ACCEPT and transformation integrity is PASS. The manifest records `HUMAN_REVIEW_PASSED_PILOT_READY`. This closes the BTF-3-specific gate, but no model run is authorized until the multi-family requirements and preregistration-wide freeze are completed.

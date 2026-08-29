@@ -85,6 +85,8 @@ or shared behavioral contract with fragmented implementations.
 
 ## Immediate next task
 
-Design and review the BTF-3 temporal transformation contract, then construct a
-small human-readable audit sample. Do not run models until a reviewer can verify
-that only the availability/eligibility of post-cutoff information changes.
+BTF-3 v0.2r2 has passed source and transformation review. Review the FANToM
+perspective counterfactual without conflating fact QA with belief QA, resolve
+full-text redistribution coverage, then freeze the two-family pilot's models,
+parsing, probes, thresholds, estimands, and smallest effects before the first
+target-model OOB output.

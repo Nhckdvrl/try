@@ -9,3 +9,8 @@ __pycache__/
 # updated, share-alike/non-commercial, or have redistribution terms that still
 # require verification.  Reproducibility is provided by pinned URLs + hashes.
 data/external/raw/
+
+# FANToM's repository is MIT but its README limits intended use to evaluation;
+# keep full-text transformed review packets local until redistribution coverage
+# is resolved. Commit only source IDs, hashes, contracts, and reviewer ledgers.
+data/external/local_review/

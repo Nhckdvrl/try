@@ -1,6 +1,6 @@
 # BTF-3 temporal transformation contract — candidate v0.2
 
-**Status:** second replacement review required. No model run is authorized by this document.
+**Status:** v0.2r2 source and transformation review passed. Pilot-ready after the repository-wide G1 preregistration is frozen; this document alone does not authorize a run.
 
 ## Audit correction from v0.1
 
@@ -105,3 +105,15 @@ See `data/external/review/BTF3_REVIEW_VERDICT_v0.1.md` and the completed review 
 - model runs authorized: **none**
 
 See `data/external/review/BTF3_REVIEW_VERDICT_v0.2.md`.
+
+## v0.2r2 final review outcome
+
+- 7 previously accepted source units: retained byte-equivalently
+- BRICS replacement (`b92bacb5-8086-5dd2-a64f-9ec00c427248`): ACCEPT
+- regenerated transformation integrity: PASS
+- final pilot artifact: 8 accepted units, balanced 4 NO / 4 YES
+- model outputs inspected during selection/review: none
+
+The reviewer independently verified that the BRICS meeting began after the source cutoff, that the official outcome was a chair's statement rather than a joint statement/communiqué/declaration, and that contemporaneous pre-cutoff reporting already used the 11-member wording. The latter had some contemporaneous terminology variation around Saudi membership but does not affect the question or outcome.
+
+This closes the BTF-3-specific human gate. Model execution remains blocked only by the cross-source G1 freeze requirements in `PREREGISTRATION_G1.md`.
