@@ -324,3 +324,52 @@ correction is recorded inline on that entry.
 ### NO-90. `5cdc8c75-bf10-53ff-96fc-f49682d368ba`
 - Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
 
+### NO-91. `bc47e02a-e496-5031-9149-0baf0084a2db`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-92. `b7d5e885-04c6-543a-ab87-65ab3ae7885e`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-93. `b5bbd8cf-fce9-5d15-8c2d-b62df1e9f7f1`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-94. `010a7e76-7d92-50a7-926e-2732f299c585`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-95. `2d86237a-cccc-5df6-9d54-5af3e37a7de8`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-96. `317e8d9e-7f48-555a-a979-e49b07c2cde4`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-97. `d2c5fcaa-b273-5787-9846-32c25c11f11b`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-98. `49907cf8-ca9f-505f-9a20-e0471c9b2493`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-99. `a52206db-3c2f-5e6e-a7c8-9c995b9e0b93`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-100. `7a1ef715-5b39-5429-b0e8-5adf684581dd`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-101. `752483bd-c61e-58a0-9fd5-6033eceea25f`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-102. `fef6f75e-bd18-5994-b56f-99b3925acf4b`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+## Handoff point
+
+Assistant-conducted review stops after **NO-102**. Everything from **NO-103**
+onward in the realized-NO queue, and the entire realized-YES queue from
+**YES-1**, is reviewed by the project author, appended below in the same format
+and the same frozen queue order. NO-103, NO-104 and NO-105 were rendered on
+screen during the assistant's session but no decision was recorded for them;
+they are undecided and are the author's to judge.
+
+Running totals at the handoff: 102 realized-NO candidates reviewed, **97
+ACCEPT / 5 REJECT / 0 UNSURE** (rejects: NO-4, NO-17, NO-24, NO-62, NO-69).
+31 more ACCEPTs are needed to reach the 128 quota in this bucket.
+
