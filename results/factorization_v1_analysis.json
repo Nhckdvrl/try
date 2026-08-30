@@ -1,0 +1,202 @@
+{
+  "at_least_one_manipulation_validated": true,
+  "manipulation_verdicts": {
+    "m1": {
+      "models_with_meaningful_reduction": 2,
+      "of_models_tested": 3,
+      "validated_partial_mechanism": true
+    },
+    "m2": {
+      "models_with_meaningful_reduction": 0,
+      "of_models_tested": 3,
+      "validated_partial_mechanism": false
+    },
+    "m3": {
+      "models_with_meaningful_reduction": 1,
+      "of_models_tested": 3,
+      "validated_partial_mechanism": false
+    }
+  },
+  "results": [
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 6.609375,
+        "ci_low": 1.015625,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 3.75,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m1",
+      "meaningfully_reduces_intrusion": true,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_tag": "qwen35-9b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 0.96875,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 18.671875,
+        "ci_low": 9.5625,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 13.96875,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m1",
+      "meaningfully_reduces_intrusion": true,
+      "model_id": "google/gemma-3-12b-it",
+      "model_tag": "gemma3-12b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 92.109375,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 1.40625,
+        "ci_low": -2.5,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": -0.46875,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m1",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "model_tag": "mistral-small-24b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 0.5,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 4.09375,
+        "ci_low": -12.578125,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": -4.453125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_tag": "qwen35-9b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 0.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 11.936507936507937,
+        "ci_low": -1.2857142857142858,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 5.222222222222222,
+        "n_clusters": 63,
+        "n_observations": 63,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "google/gemma-3-12b-it",
+      "model_tag": "gemma3-12b",
+      "n_paired_units": 63
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 92.109375,
+      "boundary_probe_accuracy": 0.296875,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 12.365079365079366,
+        "ci_low": 2.3968253968253967,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 7.325396825396825,
+        "n_clusters": 63,
+        "n_observations": 63,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "model_tag": "mistral-small-24b",
+      "n_paired_units": 63
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 16.984375,
+        "ci_low": 8.5,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 12.75,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m3",
+      "meaningfully_reduces_intrusion": true,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_tag": "qwen35-9b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 0.8125,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 32.34375,
+        "ci_low": 22.0,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 27.203125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m3",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "google/gemma-3-12b-it",
+      "model_tag": "gemma3-12b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 92.109375,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 7.578125,
+        "ci_low": -1.171875,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 3.28125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m3",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "model_tag": "mistral-small-24b",
+      "n_paired_units": 64
+    }
+  ]
+}

@@ -282,5 +282,21 @@ selective exclusion).
 - [x] inference method and cluster choice (unit-level, matching BTF-3)
 - [x] stop/go rule for the phase as a whole
 - [x] known threats
-- [ ] manipulation adapter tooling (not yet built)
-- [ ] immutable Git tag before first manipulation-condition model output
+- [x] manipulation adapter tooling —
+      `src/adapters/btf3_factorization.py`, `src/run_factorization.py`,
+      `src/analyze_factorization.py`
+- [x] immutable Git tag before first manipulation-condition model output:
+      `g1-factorization-v1`
+- [x] v1 run complete: **M1 validated** (2/3 models meaningfully reduce
+      intrusion, selective and boundary-probe-intact — instruction-
+      salience/overwriting account supported); **M2 and M3 inconclusive**,
+      both due to disclosed post-hoc-discovered implementation defects
+      (M2: missing evaluation-point framing paragraph, boundary-probe
+      accuracy collapsed to 0.0–0.5; M3: task instruction invited verbatim
+      copying of the stated prior value, making every unit's manipulated
+      response identical to the model's own baseline `OOB_WITHOUT`) —
+      neither redesigned or re-run within this document, per the frozen
+      "no redesign after seeing results" rule. Full results:
+      `results/factorization_v1_results.md`.
+- [ ] M2-v2 / M3-v2 (corrected prompts) — would require its own fresh
+      preregistration, not yet started
