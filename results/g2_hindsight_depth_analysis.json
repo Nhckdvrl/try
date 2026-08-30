@@ -1,0 +1,561 @@
+{
+  "expected_artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+  "experiment_a_allowed_equivalent_models": 2,
+  "experiment_a_positional_models": 1,
+  "experiment_a_replicates": false,
+  "experiment_b_changed_subset_models": 2,
+  "experiment_b_contamination_survives_redaction": true,
+  "experiment_b_models": 2,
+  "experiment_b_survival_headline_permitted": true,
+  "observed_models": [
+    "gemma3-12b",
+    "mistral-small-24b",
+    "qwen35-9b"
+  ],
+  "panel_complete": true,
+  "preregistration": "PREREGISTRATION_G2_HINDSIGHT_DEPTH.md",
+  "qualified_models": 2,
+  "redacted_subset_units": 237,
+  "results": [
+    {
+      "condition_quality": {
+        "evr_allowed": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "evr_oob": {
+          "boundary_accuracy": 0.99609375,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_after": {
+          "boundary_accuracy": 0.9609375,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_before": {
+          "boundary_accuracy": 0.9765625,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_oob_after": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 0.99609375,
+          "passes": true
+        },
+        "pos_oob_before": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        }
+      },
+      "experiment_a": {
+        "allowed_control_equivalent": true,
+        "intrusion_repeat_after": {
+          "alpha": 0.05,
+          "ci_high": 18.266666666666666,
+          "ci_low": 13.819607843137256,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 16.007843137254902,
+          "n_clusters": 255,
+          "n_observations": 255,
+          "n_resamples": 10000,
+          "units": 255
+        },
+        "intrusion_repeat_before": {
+          "alpha": 0.05,
+          "ci_high": 24.0859375,
+          "ci_low": 19.41015625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 21.7109375,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_allowed": {
+          "alpha": 0.05,
+          "ci_high": 0.0,
+          "ci_low": -0.02734375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": -0.01171875,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_exclude": {
+          "alpha": 0.05,
+          "ci_high": 7.203921568627451,
+          "ci_low": 4.423529411764706,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 5.749019607843137,
+          "n_clusters": 255,
+          "n_observations": 255,
+          "n_resamples": 10000,
+          "units": 255
+        },
+        "positional_replicates": true
+      },
+      "experiment_b": {
+        "amplification_direct_minus_redacted": {
+          "ci_high": -5.247058823529412,
+          "ci_low": -8.678431372549019,
+          "mean": -6.909803921568628,
+          "n_clusters": 255,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "contamination_survives_on_changed_subset": true,
+        "contamination_survives_redaction": true,
+        "hindsight_contamination_direct": {
+          "alpha": 0.05,
+          "ci_high": 30.388235294117646,
+          "ci_low": 25.145098039215686,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 27.733333333333334,
+          "n_clusters": 255,
+          "n_observations": 255,
+          "n_resamples": 10000,
+          "units": 255
+        },
+        "hindsight_contamination_redacted": {
+          "alpha": 0.05,
+          "ci_high": 37.06640625,
+          "ci_low": 31.96484375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 34.546875,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "leverage_gate_passed": true,
+        "redacted_subset_only": {
+          "hc_red": {
+            "alpha": 0.05,
+            "ci_high": 38.57805907172996,
+            "ci_low": 33.270042194092824,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 35.91561181434599,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          },
+          "n_units_declared": 237,
+          "r_red": {
+            "alpha": 0.05,
+            "ci_high": 49.75949367088607,
+            "ci_low": 45.06751054852321,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 47.42194092827004,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          }
+        },
+        "responsiveness_direct": {
+          "alpha": 0.05,
+          "ci_high": 49.13671875,
+          "ci_low": 44.609375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 46.87890625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "responsiveness_redacted": {
+          "alpha": 0.05,
+          "ci_high": 49.109375,
+          "ci_low": 44.5859375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 46.8515625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        }
+      },
+      "mean_allowed_with_alignment": 99.95703125,
+      "model_tag": "gemma3-12b",
+      "qualified": true
+    },
+    {
+      "condition_quality": {
+        "evr_allowed": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "evr_oob": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_after": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_before": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_oob_after": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_oob_before": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        }
+      },
+      "experiment_a": {
+        "allowed_control_equivalent": false,
+        "intrusion_repeat_after": {
+          "alpha": 0.05,
+          "ci_high": 7.09375,
+          "ci_low": 4.2109765625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 5.6367578125,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "intrusion_repeat_before": {
+          "alpha": 0.05,
+          "ci_high": 8.4571875,
+          "ci_low": 4.65234375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 6.5410546875,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_allowed": {
+          "alpha": 0.05,
+          "ci_high": 6.5859375,
+          "ci_low": 2.09765625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 4.234375,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_exclude": {
+          "alpha": 0.05,
+          "ci_high": 1.982421875,
+          "ci_low": -0.193359375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 0.904296875,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_replicates": false
+      },
+      "experiment_b": {
+        "amplification_direct_minus_redacted": {
+          "ci_high": -1.25,
+          "ci_low": -4.1640625,
+          "mean": -2.716796875,
+          "n_clusters": 256,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "contamination_survives_on_changed_subset": true,
+        "contamination_survives_redaction": true,
+        "hindsight_contamination_direct": {
+          "alpha": 0.05,
+          "ci_high": 9.568359375,
+          "ci_low": 5.4082421875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 7.4590234375,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "hindsight_contamination_redacted": {
+          "alpha": 0.05,
+          "ci_high": 12.9961328125,
+          "ci_low": 7.4336328125,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 10.1758203125,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "leverage_gate_passed": true,
+        "redacted_subset_only": {
+          "hc_red": {
+            "alpha": 0.05,
+            "ci_high": 13.337637130801689,
+            "ci_low": 7.459957805907173,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 10.400886075949368,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          },
+          "n_units_declared": 237,
+          "r_red": {
+            "alpha": 0.05,
+            "ci_high": 48.08438818565401,
+            "ci_low": 41.59704641350211,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 44.833333333333336,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          }
+        },
+        "responsiveness_direct": {
+          "alpha": 0.05,
+          "ci_high": 42.6328125,
+          "ci_low": 35.91796875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 39.314453125,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "responsiveness_redacted": {
+          "alpha": 0.05,
+          "ci_high": 48.23046875,
+          "ci_low": 42.265625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 45.271484375,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        }
+      },
+      "mean_allowed_with_alignment": 93.12109375,
+      "model_tag": "mistral-small-24b",
+      "qualified": true
+    },
+    {
+      "condition_quality": {
+        "evr_allowed": {
+          "boundary_accuracy": 0.86328125,
+          "parse_rate": 1.0,
+          "passes": false
+        },
+        "evr_oob": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_after": {
+          "boundary_accuracy": 0.98828125,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_allowed_before": {
+          "boundary_accuracy": 0.9921875,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_oob_after": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        },
+        "pos_oob_before": {
+          "boundary_accuracy": 1.0,
+          "parse_rate": 1.0,
+          "passes": true
+        }
+      },
+      "experiment_a": {
+        "allowed_control_equivalent": true,
+        "intrusion_repeat_after": {
+          "alpha": 0.05,
+          "ci_high": 11.94140625,
+          "ci_low": 8.95703125,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 10.42578125,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "intrusion_repeat_before": {
+          "alpha": 0.05,
+          "ci_high": 19.53515625,
+          "ci_low": 15.71484375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 17.58984375,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_allowed": {
+          "alpha": 0.05,
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 0.0,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_effect_exclude": {
+          "alpha": 0.05,
+          "ci_high": 8.54296875,
+          "ci_low": 5.89453125,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 7.1640625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "positional_replicates": false
+      },
+      "experiment_b": {
+        "amplification_direct_minus_redacted": {
+          "ci_high": -5.8203125,
+          "ci_low": -8.875,
+          "mean": -7.33203125,
+          "n_clusters": 256,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "contamination_survives_on_changed_subset": false,
+        "contamination_survives_redaction": false,
+        "hindsight_contamination_direct": {
+          "alpha": 0.05,
+          "ci_high": 17.890625,
+          "ci_low": 14.18359375,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 16.015625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "hindsight_contamination_redacted": {
+          "alpha": 0.05,
+          "ci_high": 25.7265625,
+          "ci_low": 20.9921875,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 23.34765625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "leverage_gate_passed": true,
+        "redacted_subset_only": {
+          "hc_red": {
+            "alpha": 0.05,
+            "ci_high": 26.303797468354432,
+            "ci_low": 21.383966244725737,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 23.869198312236286,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          },
+          "n_units_declared": 237,
+          "r_red": {
+            "alpha": 0.05,
+            "ci_high": 49.962025316455694,
+            "ci_low": 45.08438818565401,
+            "cluster_size_max": 1,
+            "cluster_size_min": 1,
+            "mean": 47.48945147679325,
+            "n_clusters": 237,
+            "n_observations": 237,
+            "n_resamples": 10000,
+            "units": 237
+          }
+        },
+        "responsiveness_direct": {
+          "alpha": 0.05,
+          "ci_high": 49.48046875,
+          "ci_low": 45.0390625,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 47.265625,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        },
+        "responsiveness_redacted": {
+          "alpha": 0.05,
+          "ci_high": 49.39453125,
+          "ci_low": 44.953125,
+          "cluster_size_max": 1,
+          "cluster_size_min": 1,
+          "mean": 47.16796875,
+          "n_clusters": 256,
+          "n_observations": 256,
+          "n_resamples": 10000,
+          "units": 256
+        }
+      },
+      "mean_allowed_with_alignment": 99.9609375,
+      "model_tag": "qwen35-9b",
+      "qualified": false
+    }
+  ],
+  "thresholds": {
+    "boundary_accuracy_floor": 0.875,
+    "equivalence_margin_points": 5.0,
+    "intrusion_sesoi_points": 5.0,
+    "minimum_mean_allowed_with_alignment": 70.0,
+    "minimum_mean_responsiveness_points": 15.0,
+    "minimum_models": 2,
+    "parse_rate_floor": 0.96875
+  }
+}
