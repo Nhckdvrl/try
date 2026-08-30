@@ -198,5 +198,7 @@ generated.** Tag: `g1-factorization-v2`.
 - [x] tests — `tests/test_btf3_factorization.py`,
       `tests/test_analyze_positional_control.py`
 - [x] commit
-- [ ] immutable Git tag (`g1-factorization-v2`), confirmed to exist,
-      before any new model output
+- [x] immutable Git tag (`g1-factorization-v2`), confirmed to exist
+      (local and remote `git ls-remote --tags`) and to point at the
+      commit containing this document and the tooling above, before any
+      new model output
