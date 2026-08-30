@@ -558,4 +558,4 @@ sequence — no separate non-adjacency exception is needed.
       transform + meeting-disjoint validated —
       `data/external/review/fomc_temporal_pilot_v1.jsonl`
 - [ ] pilot qualification result (go/no-go for a larger confirmatory freeze)
-- [ ] immutable Git tag before first pilot-run model output
+- [x] immutable Git tag before first pilot-run model output: `g1-fomc-pilot-freeze-v1`
