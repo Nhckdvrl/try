@@ -1,0 +1,2989 @@
+{
+  "artifact": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+  "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+  "assertive_verdict_residuals": 0,
+  "clause_preserved_units": [
+    "4e1869f7-70cc-5b9c-9cb5-e6d6fbfc77a5",
+    "aa7f75d8-920e-5854-9a33-03e9c4c39cfa",
+    "dab08b7f-71f1-5bc2-bfbe-6fcc9bf104d3",
+    "70297794-e5ee-5a40-9314-bc7086064088",
+    "b5577074-7a36-5fe1-be5f-e27a6b69ab5c",
+    "c3e01c3f-e0a8-5be2-88c6-d160793cba8d",
+    "1059ecce-7633-59cc-9bab-df341bfe35b6",
+    "0bcf7af9-981a-5207-8be0-4b8d54c62a52",
+    "e2c55fd1-b9c6-58bc-8fab-d85a2d4cecbc",
+    "a0968428-9c0e-54e0-872c-32d96e222aaa",
+    "83077271-dd90-5017-8107-0d3fba6b8872",
+    "a3478df7-22b6-5473-a74a-00a0cd521090",
+    "17e0010e-2915-5ccc-8f2e-370b5620a78f",
+    "786d93d1-0fe1-5295-931c-5016ba7b7a4e",
+    "559e0736-ec8f-51b2-88cc-9991be4c568c",
+    "d2c5fcaa-b273-5787-9846-32c25c11f11b",
+    "9f134ccc-d404-5b35-826c-20fc95341106",
+    "467952fd-881f-5403-ad3f-a9d6c89e07ee",
+    "1f4fcd81-59ce-5b8f-a614-453f9d871d80",
+    "67bc3f9e-9e8d-509f-8c6b-3d6cfce483bb",
+    "769d43d1-f7c7-5f51-bb05-562a4222c358",
+    "a605b42c-6c3a-5d87-bae3-7b8b37a42bc8",
+    "b221e989-edf3-5fa2-b5c4-8475fb734649",
+    "d31341a8-aa9e-557d-9e20-17a706dc1904",
+    "49b762aa-df15-56f0-8884-4ca7f5769565",
+    "19c51624-fb6a-5f03-b5b0-0362c9202cd1",
+    "66bb32a9-f09d-5c2e-80e8-73da6d84ac4c",
+    "e6bf3057-e9c0-58b7-b18d-b737760937a9",
+    "04bdc911-bceb-558d-9332-272a2687bda2",
+    "e24fc009-8a42-5cab-b6aa-21d38b5bec34",
+    "5c0765ed-cbd1-5af5-bce0-adbfebd4e0f6",
+    "56552737-e7f5-5c74-93af-d71bba888c59",
+    "8b63881a-0edd-5ead-b3da-376fc18e2ddf",
+    "a7698b19-7df7-5ddf-8366-756fd5db4df3",
+    "4c864e5d-4bb5-5d1b-805b-79af67f9cebf",
+    "a0321afa-c75a-51e9-abed-473012f40eba",
+    "485c3100-532f-57ee-ac85-37b010b3b5eb",
+    "827eb0fa-d233-5346-be4a-29d03e90dcbd"
+  ],
+  "conditional_residual_sentences": 77,
+  "no_op_units": [
+    "d49e58a9-5b58-54a1-a971-1d7227483f8c",
+    "3c29a467-1406-55a9-8808-e1b3616c145e",
+    "c4c1517d-6568-553b-ab8b-0295ab652ad4",
+    "9bad90f8-e1dd-50b2-8f05-4c54ca424c84",
+    "ee0672d3-0838-5516-9ace-cb54cf371c21",
+    "82f810af-002d-5361-bec4-2546bb30b9df",
+    "555d2be7-6581-5345-9052-655b8c898df0",
+    "a906fb0c-c6ae-52c2-8dfc-77d59967c7c7",
+    "59be9f45-abb0-5270-8c80-566385621c0c",
+    "d9973659-b764-5704-90ae-24d551e89a33",
+    "98ffa340-0e9c-5eeb-9055-0ff082c51933",
+    "bbd97208-92b3-52ec-ba73-a904586add20",
+    "602df88b-b1c5-52a8-ae5e-25f02886988a",
+    "4a1e4fb7-aaeb-52f1-873d-ab20125c9951",
+    "9444f0a3-e659-545b-9140-ad18973f6d83",
+    "8c1f48ad-6eab-5d12-bb1d-498e7ba1d4bc",
+    "d3a6d847-a02f-5d73-9933-26c7587b5ab2",
+    "513056b4-1fab-57a0-817f-480e1d55b703",
+    "741b4bed-7502-5cd2-9cbe-949fbc70f857"
+  ],
+  "per_item": [
+    {
+      "clauses_preserved": 0,
+      "question_id": "ee5e37c7-f82f-5d49-95b2-86ad466c9d50",
+      "redacted_chars": 1835,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9668071654373024,
+      "source_chars": 1898,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c6c6f543-0d08-5e88-a85f-bb106cb74263",
+      "redacted_chars": 2345,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9766763848396501,
+      "source_chars": 2401,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "4e1869f7-70cc-5b9c-9cb5-e6d6fbfc77a5",
+      "redacted_chars": 2591,
+      "removed_sentences": [
+        "The question resolves NO because no credible source confirms SAF military control over the town center of Kurmuk as of June 1, 2026, 23:59 UTC.",
+        "Therefore the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9725975975975976,
+      "source_chars": 2664,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "88ed1cd7-f3d5-5320-ae05-5f5aafe3cf9a",
+      "redacted_chars": 3146,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.983739837398374,
+      "source_chars": 3198,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9b7a20e1-e3de-5c0c-bd03-993cad053b72",
+      "redacted_chars": 3075,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9821143404663047,
+      "source_chars": 3131,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d3d630d3-ef28-5e29-b290-885c2a9dbcac",
+      "redacted_chars": 2304,
+      "removed_sentences": [
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.987146529562982,
+      "source_chars": 2334,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "6ea80da1-bcbd-5d3d-ba24-5b48c681ca16",
+      "redacted_chars": 2183,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "Hence the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9762969588550984,
+      "source_chars": 2236,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "47cc7236-9764-5aa9-b180-2806b827d4dd",
+      "redacted_chars": 1879,
+      "removed_sentences": [
+        "The question resolves NO: no approved source reports an actual police work stoppage (a deliberate cessation of police duties lasting \u22651 hour) between May 13, 2026 and June 30, 2026."
+      ],
+      "retained_char_ratio": 0.911251212415131,
+      "source_chars": 2062,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4402e54f-60b1-59e6-a3de-d596b5319933",
+      "redacted_chars": 1962,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9869215291750503,
+      "source_chars": 1988,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e1798612-8370-5d8c-9f6f-0053f800090d",
+      "redacted_chars": 4721,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9891053844542217,
+      "source_chars": 4773,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "6265737e-5024-5011-9af0-711be49976f8",
+      "redacted_chars": 3455,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9840501281686129,
+      "source_chars": 3511,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "65802f66-e893-52c9-a10a-8fd12374a93b",
+      "redacted_chars": 2514,
+      "removed_sentences": [
+        "The answer is NO \u2014 he was not.",
+        "Resolution: NO (0)."
+      ],
+      "retained_char_ratio": 0.9797349961028838,
+      "source_chars": 2566,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "488722fe-1ce5-5cac-8b87-ff4cd8fba0b8",
+      "redacted_chars": 2388,
+      "removed_sentences": [
+        "The question resolves NO (0).",
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9766871165644172,
+      "source_chars": 2445,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "0a5a5a39-e2e8-5361-bf66-e7868c1f293e",
+      "redacted_chars": 1496,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9639175257731959,
+      "source_chars": 1552,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2058d309-9cef-5fa3-b643-a1fce9f8ed92",
+      "redacted_chars": 3274,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9918206604059376,
+      "source_chars": 3301,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c7af6cd2-33ce-5896-b390-ca06202a7129",
+      "redacted_chars": 3826,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9840534979423868,
+      "source_chars": 3888,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ca85ca1e-7405-5af3-8e40-656a508b9a40",
+      "redacted_chars": 1233,
+      "removed_sentences": [
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9770206022187005,
+      "source_chars": 1262,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1d1d4a2b-b89a-5008-85e4-4fd4c53176c0",
+      "redacted_chars": 3036,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9799870884441575,
+      "source_chars": 3098,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "dc811e76-fe74-53b5-90ec-b2c88c20dc67",
+      "redacted_chars": 2670,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9808963997060984,
+      "source_chars": 2722,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "17f370f7-3250-5cf8-bc16-d8c931876975",
+      "redacted_chars": 1007,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9464285714285714,
+      "source_chars": 1064,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c0f5bb94-9b70-5dfc-a10c-cf370cd53cea",
+      "redacted_chars": 4122,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9877785765636233,
+      "source_chars": 4173,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8652505a-de8f-568a-9506-3db07316451c",
+      "redacted_chars": 2137,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9762448606669712,
+      "source_chars": 2189,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f4e752d2-cbc1-5cc4-b1ed-306106fa8b12",
+      "redacted_chars": 3144,
+      "removed_sentences": [
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9908603844941696,
+      "source_chars": 3173,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "188a20b2-d582-5f07-8279-4ed1926e4635",
+      "redacted_chars": 2642,
+      "removed_sentences": [
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9902548725637181,
+      "source_chars": 2668,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "470e6be8-2f05-56ac-b19c-fa9a23937985",
+      "redacted_chars": 1884,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9706336939721792,
+      "source_chars": 1941,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2117e428-00b0-5612-995d-2b1640f2eb56",
+      "redacted_chars": 3158,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9807453416149068,
+      "source_chars": 3220,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "fc6adee8-aed5-5cbd-97d3-7cdb5cbee281",
+      "redacted_chars": 3040,
+      "removed_sentences": [
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9915198956294846,
+      "source_chars": 3066,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "aa7f75d8-920e-5854-9a33-03e9c4c39cfa",
+      "redacted_chars": 2362,
+      "removed_sentences": [
+        "The question resolves NO because no qualifying announcement was found between May 1, 2026 and June 1, 2026.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9756299049979348,
+      "source_chars": 2421,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8758751a-d682-598a-bd20-6b94b89ace13",
+      "redacted_chars": 2944,
+      "removed_sentences": [
+        "RESOLUTION: NO (0)",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9846153846153847,
+      "source_chars": 2990,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1179a6da-9199-516e-90a7-d881fb0f3a26",
+      "redacted_chars": 2867,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "The question therefore resolves NO."
+      ],
+      "retained_char_ratio": 0.9788323659952202,
+      "source_chars": 2929,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1ed76e90-dfbe-5bd5-b06b-bf0e9f967cad",
+      "redacted_chars": 2003,
+      "removed_sentences": [
+        "The answer is NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9765967820575329,
+      "source_chars": 2051,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "60f7e95d-8c28-5a32-8c34-0561f5fec83c",
+      "redacted_chars": 4394,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9903087671850349,
+      "source_chars": 4437,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "dab08b7f-71f1-5bc2-bfbe-6fcc9bf104d3",
+      "redacted_chars": 2212,
+      "removed_sentences": [
+        "The question resolves NO because the Indonesian government did not officially announce a specific nickel export tax rate (a numerical percentage or fixed monetary value per unit) during the resolution window (April 30, 2026 \u2013 June 1, 2026).",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9697501096010521,
+      "source_chars": 2281,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ec27a645-8361-5543-a733-f69babdb45cb",
+      "redacted_chars": 2607,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "Therefore the question resolves NO.",
+        "Hence the resolution is NO."
+      ],
+      "retained_char_ratio": 0.9684249628528975,
+      "source_chars": 2692,
+      "verdict_sentences_removed": 3
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "7c1af7e2-2451-5e22-b3a1-ef809bbb2331",
+      "redacted_chars": 3081,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9916317991631799,
+      "source_chars": 3107,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4eb17908-c440-599b-ae0f-516c6d773f9f",
+      "redacted_chars": 3406,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9849624060150376,
+      "source_chars": 3458,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f9563ff5-0a53-5e56-9496-c35d44a3a20b",
+      "redacted_chars": 3723,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9851812648848902,
+      "source_chars": 3779,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "70297794-e5ee-5a40-9314-bc7086064088",
+      "redacted_chars": 1664,
+      "removed_sentences": [
+        "The question resolves NO because no S-4 (or S-4/A) registration statement related to the TAE Technologies\u2013Trump Media & Technology Group (TMTG) merger was filed with the SEC between May 1, 2026, 12:00 AM ET and June 1, 2026, 11:59 PM ET."
+      ],
+      "retained_char_ratio": 0.9805539186800236,
+      "source_chars": 1697,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "72756beb-1bb9-55ae-a234-0db387e40c56",
+      "redacted_chars": 3058,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9807568954457986,
+      "source_chars": 3118,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f0011a23-22b3-550c-adc4-b233fd79a574",
+      "redacted_chars": 1358,
+      "removed_sentences": [
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9734767025089606,
+      "source_chars": 1395,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "5b13d31d-7672-5d4e-838b-264df5817a7a",
+      "redacted_chars": 1261,
+      "removed_sentences": [
+        "Therefore the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9685099846390169,
+      "source_chars": 1302,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "0e804a1b-4785-5fce-8f74-048fe941ac52",
+      "redacted_chars": 3569,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9870022123893806,
+      "source_chars": 3616,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "43502e3a-7715-5a68-acc8-2a7f4cf3006f",
+      "redacted_chars": 1258,
+      "removed_sentences": [
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9721792890262752,
+      "source_chars": 1294,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a983bf40-5c05-5b94-b9d2-65ac640809e3",
+      "redacted_chars": 2086,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Resolves NO."
+      ],
+      "retained_char_ratio": 0.9816470588235294,
+      "source_chars": 2125,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a0fb8e02-15ac-5a1d-aa1d-ada77a5268e4",
+      "redacted_chars": 1145,
+      "removed_sentences": [
+        "The question resolves NO because, by 23:59 UTC on June 1, 2026, there was no credible public confirmation that the sale of Gazprom Neft's and JSC Intelligence's combined 56.15% stake in NIS to a non-Russian entity had been finalized (defined as either a signed binding SPA with share-transfer registration initiated/completed, or a registered share transfer with the Serbian Central Securities Depository).",
+        "The question therefore resolves NO."
+      ],
+      "retained_char_ratio": 0.7205789804908748,
+      "source_chars": 1589,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "0f63f1fc-815c-508c-86a8-b453230dadbb",
+      "redacted_chars": 2597,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9897103658536586,
+      "source_chars": 2624,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "7ca74fd1-4826-50f4-8864-7487b115cb5e",
+      "redacted_chars": 1513,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9636942675159236,
+      "source_chars": 1570,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f7391cde-9b66-52b0-9561-a9e12d5fbc60",
+      "redacted_chars": 2082,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9756326148078726,
+      "source_chars": 2134,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1aae92e0-bdac-565e-bfed-2ed0be71c16d",
+      "redacted_chars": 1845,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9725882973115445,
+      "source_chars": 1897,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d49e58a9-5b58-54a1-a971-1d7227483f8c",
+      "redacted_chars": 1515,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1515,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "b5577074-7a36-5fe1-be5f-e27a6b69ab5c",
+      "redacted_chars": 1962,
+      "removed_sentences": [
+        "The question resolves NO because no formal Phase 2 (dredging of deep and outer basins) solicitation appeared on SAM.gov, and no Phase 2 contract award was announced on the USACE Alaska District news page, between April 29, 2026 and June 1, 2026 (11:59 PM UTC).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9708065314200891,
+      "source_chars": 2021,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "75a9b157-4271-5ef6-a7d8-789e69325b07",
+      "redacted_chars": 2362,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9780538302277433,
+      "source_chars": 2415,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "c3e01c3f-e0a8-5be2-88c6-d160793cba8d",
+      "redacted_chars": 2012,
+      "removed_sentences": [
+        "The question resolves NO because no credible source confirms that FAA test pilots began \"for credit\" TIA flight testing of a Joby FAA-conforming aircraft during the resolution window (May 1, 2026 00:00 UTC \u2013 June 1, 2026 23:59 UTC).",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9696385542168675,
+      "source_chars": 2075,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "1059ecce-7633-59cc-9bab-df341bfe35b6",
+      "redacted_chars": 1761,
+      "removed_sentences": [
+        "The question resolves NO because none of the six 2026 FIFA World Cup Group J matches (Argentina, Algeria, Austria, Jordan) ended in a 0-0 draw."
+      ],
+      "retained_char_ratio": 0.9816053511705686,
+      "source_chars": 1794,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "65ab10c3-bb24-5e73-873f-da584796c42e",
+      "redacted_chars": 3277,
+      "removed_sentences": [
+        "The question resolves **NO (0)**.",
+        "the question resolves **NO (0)**."
+      ],
+      "retained_char_ratio": 0.9793783622235505,
+      "source_chars": 3346,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "93c5cdba-1ced-53ca-895d-4b748609c8dc",
+      "redacted_chars": 1407,
+      "removed_sentences": [
+        "The question resolves NO (0).",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9545454545454546,
+      "source_chars": 1474,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "0bcf7af9-981a-5207-8be0-4b8d54c62a52",
+      "redacted_chars": 2291,
+      "removed_sentences": [
+        "The question resolves NO because no signed order granting final approval of the Bartz v.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9732370433305013,
+      "source_chars": 2354,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2366975e-e87b-5f7c-8483-d27184f9efe4",
+      "redacted_chars": 1652,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9694835680751174,
+      "source_chars": 1704,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "6c9e6111-3b05-5c07-ab7c-4ef8b079d788",
+      "redacted_chars": 2799,
+      "removed_sentences": [
+        "The question resolves **NO**.",
+        "the question resolves **NO (0)**."
+      ],
+      "retained_char_ratio": 0.977645826056584,
+      "source_chars": 2863,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "cf5c503c-6607-5653-ac22-a85f845c9baf",
+      "redacted_chars": 2296,
+      "removed_sentences": [
+        "The question resolves NO (0).",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9741196436147646,
+      "source_chars": 2357,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "e2c55fd1-b9c6-58bc-8fab-d85a2d4cecbc",
+      "redacted_chars": 2791,
+      "removed_sentences": [
+        "The question resolves NO because the ASCO 2026 oral presentation of KEYNOTE-942 5-year data (Abstract #9500) did NOT report a statistically significant improvement in overall survival (OS); instead, OS was an exploratory endpoint that showed only a \"trend.\"",
+        "Therefore the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.974851554313657,
+      "source_chars": 2863,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f0c57160-d1d9-552b-9d20-41ea4b4902d0",
+      "redacted_chars": 2772,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9815864022662889,
+      "source_chars": 2824,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "97cec3a5-eaeb-5fb0-9ef4-20df60713baa",
+      "redacted_chars": 5029,
+      "removed_sentences": [
+        "The question resolves NO: there is no evidence that Prime Minister Edi Rama physically appeared and testified as a witness before the GJKKO in the Sali Berisha \"Partizani\" trial between May 12, 2026 (00:00 CEST) and July 1, 2026 (23:59 CEST).",
+        "Therefore the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9465462074157727,
+      "source_chars": 5313,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bfb0572f-9cfc-5cb0-beaf-d5fbcf4fc46d",
+      "redacted_chars": 1359,
+      "removed_sentences": [
+        "The question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.978401727861771,
+      "source_chars": 1389,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8d8a890a-dec3-51a4-afe2-bb5a8d58c88d",
+      "redacted_chars": 5942,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9914900717503754,
+      "source_chars": 5993,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f2d5546e-d35e-59de-a8d4-dd5de3effa61",
+      "redacted_chars": 2175,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9748991483639623,
+      "source_chars": 2231,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "a0968428-9c0e-54e0-872c-32d96e222aaa",
+      "redacted_chars": 3518,
+      "removed_sentences": [
+        "The question resolves NO because no qualifying formal announcement of export restrictions on solar manufacturing equipment was made by the Chinese government between April 30, 2026, 00:00 UTC and June 1, 2026, 23:59 UTC.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9835057310595471,
+      "source_chars": 3577,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "01a607b2-d68c-5e0d-9bd8-efe79748b96e",
+      "redacted_chars": 2015,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9872611464968153,
+      "source_chars": 2041,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "83077271-dd90-5017-8107-0d3fba6b8872",
+      "redacted_chars": 1813,
+      "removed_sentences": [
+        "The question resolves NO because the Federal Reserve Board did not publish (or vote to approve) a Notice of Proposed Rulemaking implementing the GENIUS Act of 2025 between May 1, 2026 (00:00 UTC) and June 1, 2026 (23:59 UTC).",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9664179104477612,
+      "source_chars": 1876,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "a3478df7-22b6-5473-a74a-00a0cd521090",
+      "redacted_chars": 3192,
+      "removed_sentences": [
+        "The question resolves NO because no new strain of wiper malware specifically targeting ICS/OT environments was publicly identified by a qualifying major cybersecurity outlet between 00:00 UTC May 1, 2026 and 23:59 UTC June 1, 2026.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9818517379267917,
+      "source_chars": 3251,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "009885f8-406c-570a-adbd-e63606108fea",
+      "redacted_chars": 2927,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9911953945140535,
+      "source_chars": 2953,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "759e8c52-ee97-5e2b-a4eb-190fbd22775f",
+      "redacted_chars": 2315,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.976381273724167,
+      "source_chars": 2371,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c25aff37-8182-557f-8968-564b01f226a2",
+      "redacted_chars": 1833,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9724137931034482,
+      "source_chars": 1885,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "5c6c82e6-d614-5f2b-915a-b62348cb4cda",
+      "redacted_chars": 2920,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9811827956989247,
+      "source_chars": 2976,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "17e0010e-2915-5ccc-8f2e-370b5620a78f",
+      "redacted_chars": 2636,
+      "removed_sentences": [
+        "The question resolves NO because no U.S.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9781076066790353,
+      "source_chars": 2695,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d95064ce-6216-5e03-8b91-7d74a9e7b723",
+      "redacted_chars": 3414,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.986420109794857,
+      "source_chars": 3461,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "786d93d1-0fe1-5295-931c-5016ba7b7a4e",
+      "redacted_chars": 1524,
+      "removed_sentences": [
+        "The question resolves NO because Amazon did not publish an official announcement specifying the exact calendar dates of Prime Day 2026 on aboutamazon.com/news/ during the resolution window (May 1, 2026 through 11:59 PM UTC May 31, 2026).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9627289955780164,
+      "source_chars": 1583,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "354884fe-183d-5a76-b6b3-bc013a60ce41",
+      "redacted_chars": 2069,
+      "removed_sentences": [
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9875894988066826,
+      "source_chars": 2095,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "3c29a467-1406-55a9-8808-e1b3616c145e",
+      "redacted_chars": 1897,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1897,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2baf84ab-2795-5ade-a60f-0187fdeef939",
+      "redacted_chars": 3392,
+      "removed_sentences": [
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9923932124049152,
+      "source_chars": 3418,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "559e0736-ec8f-51b2-88cc-9991be4c568c",
+      "redacted_chars": 3131,
+      "removed_sentences": [
+        "The question resolves NO because the FCC did not formally adopt a final Report and Order prohibiting the use of Covered List entity equipment in submarine cable systems during the resolution window of May 1, 2026 (12:00 AM ET) to June 1, 2026 (11:59 PM ET)."
+      ],
+      "retained_char_ratio": 0.9895701643489254,
+      "source_chars": 3164,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "48ff1ce4-a365-5a5b-8824-c1cd5d2d4f80",
+      "redacted_chars": 2524,
+      "removed_sentences": [
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9859375,
+      "source_chars": 2560,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b37ed4ff-8c07-5ba3-a337-fb226eda2710",
+      "redacted_chars": 1761,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.965990126165661,
+      "source_chars": 1823,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "78050dfe-7991-5192-b1f3-8404b08c9253",
+      "redacted_chars": 2505,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.978515625,
+      "source_chars": 2560,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "5cdc8c75-bf10-53ff-96fc-f49682d368ba",
+      "redacted_chars": 3507,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9856661045531198,
+      "source_chars": 3558,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bc47e02a-e496-5031-9149-0baf0084a2db",
+      "redacted_chars": 2712,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9797687861271677,
+      "source_chars": 2768,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b7d5e885-04c6-543a-ab87-65ab3ae7885e",
+      "redacted_chars": 3427,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the resolution is NO (0)."
+      ],
+      "retained_char_ratio": 0.9822298652909143,
+      "source_chars": 3489,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b5bbd8cf-fce9-5d15-8c2d-b62df1e9f7f1",
+      "redacted_chars": 3394,
+      "removed_sentences": [
+        "RESOLUTION: NO (0)",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9866279069767442,
+      "source_chars": 3440,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "010a7e76-7d92-50a7-926e-2732f299c585",
+      "redacted_chars": 2059,
+      "removed_sentences": [
+        "The question resolves NO (0).",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9712264150943396,
+      "source_chars": 2120,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2d86237a-cccc-5df6-9d54-5af3e37a7de8",
+      "redacted_chars": 1124,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.95578231292517,
+      "source_chars": 1176,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "317e8d9e-7f48-555a-a979-e49b07c2cde4",
+      "redacted_chars": 3911,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9933959867919736,
+      "source_chars": 3937,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "d2c5fcaa-b273-5787-9846-32c25c11f11b",
+      "redacted_chars": 1650,
+      "removed_sentences": [
+        "The question resolves NO because no Presidential Proclamation or official Commerce/White House announcement of a final determination on the Section 232 polysilicon investigation was made between May 1, 2026 (00:00 UTC) and June 1, 2026 (23:59 UTC).",
+        "government source, the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9526558891454965,
+      "source_chars": 1732,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "49907cf8-ca9f-505f-9a20-e0471c9b2493",
+      "redacted_chars": 2283,
+      "removed_sentences": [
+        "The question resolves NO because, by the June 1, 2026 (23:59 UTC) deadline, no official SBC publication confirmed that a proposed constitutional amendment restricting the office of pastor/elder to men was formally included in the 2026 SBC Annual Meeting Order of Business.",
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.883855981416957,
+      "source_chars": 2583,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a52206db-3c2f-5e6e-a7c8-9c995b9e0b93",
+      "redacted_chars": 2593,
+      "removed_sentences": [
+        "The resolution is NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9818250662627792,
+      "source_chars": 2641,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "7a1ef715-5b39-5429-b0e8-5adf684581dd",
+      "redacted_chars": 3738,
+      "removed_sentences": [
+        "The question resolves **NO**."
+      ],
+      "retained_char_ratio": 0.9920382165605095,
+      "source_chars": 3768,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "752483bd-c61e-58a0-9fd5-6033eceea25f",
+      "redacted_chars": 1378,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9616189811584089,
+      "source_chars": 1433,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "fef6f75e-bd18-5994-b56f-99b3925acf4b",
+      "redacted_chars": 3251,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9857489387507581,
+      "source_chars": 3298,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f49fa93e-49b7-5f11-9136-ab28b9160e33",
+      "redacted_chars": 3535,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9868788386376326,
+      "source_chars": 3582,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "fbf697ca-8cc1-5da1-9d74-34cd3eeaba91",
+      "redacted_chars": 3340,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9922756981580511,
+      "source_chars": 3366,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "27bc0270-92bb-582a-b072-4d726c2d3bdb",
+      "redacted_chars": 2325,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.974025974025974,
+      "source_chars": 2387,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "9f134ccc-d404-5b35-826c-20fc95341106",
+      "redacted_chars": 1633,
+      "removed_sentences": [
+        "The question resolves NO because Harvard University and HGSU-UAW did NOT reach a tentative contract agreement between April 30, 2026 and June 1, 2026 (11:59 PM UTC).",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9594594594594594,
+      "source_chars": 1702,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1fb9b683-64a4-5c17-8ab3-ff891d17af08",
+      "redacted_chars": 1709,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.985014409221902,
+      "source_chars": 1735,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a51291e6-e7a6-551f-ae98-84c0fd9ba7ca",
+      "redacted_chars": 2586,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9788039364118092,
+      "source_chars": 2642,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c4c1517d-6568-553b-ab8b-0295ab652ad4",
+      "redacted_chars": 754,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 754,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "14b34551-7149-50ad-8da2-8dc59ca988fc",
+      "redacted_chars": 2818,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9764379764379765,
+      "source_chars": 2886,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "08b12512-265a-5ac4-8344-b0f7b4d9fdc7",
+      "redacted_chars": 2735,
+      "removed_sentences": [
+        "The question resolves NO (0).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9799355069867431,
+      "source_chars": 2791,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "258540c7-f3d4-51f9-a22b-39f6d7b9f7d2",
+      "redacted_chars": 2150,
+      "removed_sentences": [
+        "The question resolves **NO (0)**."
+      ],
+      "retained_char_ratio": 0.9839816933638444,
+      "source_chars": 2185,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "6d2d0507-66ca-5db4-b3a6-b46578bce91d",
+      "redacted_chars": 2187,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9754683318465656,
+      "source_chars": 2242,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "826dafc3-01da-575f-97af-e3c07a999d0f",
+      "redacted_chars": 2360,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "The question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9768211920529801,
+      "source_chars": 2416,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "467952fd-881f-5403-ad3f-a9d6c89e07ee",
+      "redacted_chars": 2357,
+      "removed_sentences": [
+        "The question resolves NO (0) because the Wisconsin Supreme Court did NOT issue any ruling in Wisconsin Voter Alliance v."
+      ],
+      "retained_char_ratio": 0.9845446950710108,
+      "source_chars": 2394,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bc18b8dc-6ab4-5cc2-98a1-8c73306d10a3",
+      "redacted_chars": 9748,
+      "removed_sentences": [
+        "RESOLUTION: NO (0)",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9948969177383139,
+      "source_chars": 9798,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1aaaf310-8d62-578b-bf36-36af15d1bc76",
+      "redacted_chars": 1748,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9853438556933484,
+      "source_chars": 1774,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "44ca8582-5f12-5404-ba92-25ba1147a5e6",
+      "redacted_chars": 2434,
+      "removed_sentences": [
+        "RESOLUTION: NO (0)",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9798711755233495,
+      "source_chars": 2484,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "32b35b20-8a83-5d2a-8b2e-a8d81190dc73",
+      "redacted_chars": 2609,
+      "removed_sentences": [
+        "RESOLUTION: NO (0).",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9823042168674698,
+      "source_chars": 2656,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "82a5ef9e-4c98-5f0e-b972-dd99c657be88",
+      "redacted_chars": 2699,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.977544367982615,
+      "source_chars": 2761,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a60885bc-7464-5844-abe0-7a49c0c4d6c4",
+      "redacted_chars": 3126,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9836375078665828,
+      "source_chars": 3178,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "987d2afa-d57c-55fd-aba5-1121bac875c0",
+      "redacted_chars": 4398,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9880925634688834,
+      "source_chars": 4451,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1e8bebfc-0bcb-5419-a625-2cb21bc7c345",
+      "redacted_chars": 1682,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9700115340253749,
+      "source_chars": 1734,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e0385127-5ec1-592f-8846-2c8b36ffe68f",
+      "redacted_chars": 2985,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO (0)."
+      ],
+      "retained_char_ratio": 0.9802955665024631,
+      "source_chars": 3045,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c291b187-a2de-5dfc-af3b-6d61a5c703f8",
+      "redacted_chars": 1414,
+      "removed_sentences": [
+        "The question resolves NO."
+      ],
+      "retained_char_ratio": 0.9819444444444444,
+      "source_chars": 1440,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "51ed7fc0-4e65-5768-9722-e934d6d67122",
+      "redacted_chars": 1872,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.972972972972973,
+      "source_chars": 1924,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ad67b848-c8e3-5e1d-8d73-4a844c69026e",
+      "redacted_chars": 2427,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question therefore resolves NO."
+      ],
+      "retained_char_ratio": 0.9750903977501004,
+      "source_chars": 2489,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "443a70f1-50f3-5a66-886d-75f040616085",
+      "redacted_chars": 2205,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "so the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9756637168141593,
+      "source_chars": 2260,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "1f4fcd81-59ce-5b8f-a614-453f9d871d80",
+      "redacted_chars": 1457,
+      "removed_sentences": [
+        "The question resolves NO (0) because no written opinion was issued by the Second Circuit in United States v."
+      ],
+      "retained_char_ratio": 0.9752342704149933,
+      "source_chars": 1494,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "5ab08383-f013-50d1-934e-d66f41489c8c",
+      "redacted_chars": 3999,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9871636632930141,
+      "source_chars": 4051,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f96455a1-a3a2-5180-a110-d9c931bd3934",
+      "redacted_chars": 2647,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Resolution: NO (0)."
+      ],
+      "retained_char_ratio": 0.9829186780542146,
+      "source_chars": 2693,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2fe00425-ecf9-5969-b063-8e7f02b0d6a6",
+      "redacted_chars": 2732,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "and the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9799139167862266,
+      "source_chars": 2788,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "77eaf3ec-051d-517d-a7e9-13775913b49d",
+      "redacted_chars": 2741,
+      "removed_sentences": [
+        "The question resolves NO.",
+        "Therefore the question resolves NO."
+      ],
+      "retained_char_ratio": 0.9778808419550482,
+      "source_chars": 2803,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "67bc3f9e-9e8d-509f-8c6b-3d6cfce483bb",
+      "redacted_chars": 1406,
+      "removed_sentences": [
+        "The question resolves YES because a ceasefire/cessation of hostilities between Israel and Lebanon was still in effect as of June 1, 2026, 23:59 UTC."
+      ],
+      "retained_char_ratio": 0.9763888888888889,
+      "source_chars": 1440,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b68d6dee-5a6b-59e6-9e65-4490ce1e3347",
+      "redacted_chars": 2233,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9880530973451327,
+      "source_chars": 2260,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9bad90f8-e1dd-50b2-8f05-4c54ca424c84",
+      "redacted_chars": 3203,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 3203,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ce975c54-f33a-55c6-a098-cc572538baf7",
+      "redacted_chars": 2691,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "and the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9785454545454545,
+      "source_chars": 2750,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1a212384-33d7-5ab4-abf4-559c00ef7562",
+      "redacted_chars": 1591,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9827053736874614,
+      "source_chars": 1619,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "30c33338-f7cd-56af-a904-85fa7b9d4ec3",
+      "redacted_chars": 3250,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9917607567897467,
+      "source_chars": 3277,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ee51ff77-017d-5b54-8523-09a424b7bee0",
+      "redacted_chars": 4632,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9952728835410399,
+      "source_chars": 4654,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "769d43d1-f7c7-5f51-bb05-562a4222c358",
+      "redacted_chars": 1436,
+      "removed_sentences": [
+        "The question resolves YES because Fitch Ratings upgraded the long-term foreign-currency sovereign credit rating of Argentina\u2014a G20 member\u2014within the resolution window (00:00 UTC May 1, 2026 to 23:59 UTC June 1, 2026)."
+      ],
+      "retained_char_ratio": 0.9768707482993197,
+      "source_chars": 1470,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "188b4bac-c174-5f53-ac02-2f431f9c72d4",
+      "redacted_chars": 2318,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9884861407249467,
+      "source_chars": 2345,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ee0672d3-0838-5516-9ace-cb54cf371c21",
+      "redacted_chars": 1372,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1372,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "a605b42c-6c3a-5d87-bae3-7b8b37a42bc8",
+      "redacted_chars": 1479,
+      "removed_sentences": [
+        "The question resolves YES because the House Committee on Small Business voted to report favorably (i.e., ordered to be reported) an AI-specific bill within the resolution window of April 29, 2026 through June 1, 2026."
+      ],
+      "retained_char_ratio": 0.9775280898876404,
+      "source_chars": 1513,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "614badaa-58d1-51b1-a5a1-9faa933aa46d",
+      "redacted_chars": 3311,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "The question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9824925816023738,
+      "source_chars": 3370,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8927330f-7ff8-5eb2-bf0d-1cfcb782f96a",
+      "redacted_chars": 2729,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9898440333696047,
+      "source_chars": 2757,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4867b39d-d365-54e1-b4b9-f0ee4f7ecb82",
+      "redacted_chars": 2316,
+      "removed_sentences": [
+        "The question resolves **YES**."
+      ],
+      "retained_char_ratio": 0.9867916489135066,
+      "source_chars": 2347,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "82f810af-002d-5361-bec4-2546bb30b9df",
+      "redacted_chars": 1085,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1085,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a260075d-f882-537e-8f6a-b2ca6d18f97c",
+      "redacted_chars": 1593,
+      "removed_sentences": [
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9749082007343941,
+      "source_chars": 1634,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "35b53909-8dfe-5194-b1bb-cece83ae2e51",
+      "redacted_chars": 1633,
+      "removed_sentences": [
+        "The question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9807807807807808,
+      "source_chars": 1665,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d8d1e6cc-35f1-5c58-9056-7eaad25ddc20",
+      "redacted_chars": 4529,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the resolution is YES (1)."
+      ],
+      "retained_char_ratio": 0.9860657522316568,
+      "source_chars": 4593,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "954bb27f-4c31-57a9-bac6-1b4d9af76f68",
+      "redacted_chars": 2791,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9900673997871585,
+      "source_chars": 2819,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c642ff10-a88a-561a-a137-b1398888abde",
+      "redacted_chars": 2022,
+      "removed_sentences": [
+        "The question resolves YES: Todd Blanche was still serving as \"Acting Attorney General\" as of 11:59 PM UTC on July 1, 2026.",
+        "Resolution: YES (1)."
+      ],
+      "retained_char_ratio": 0.9330872173511767,
+      "source_chars": 2167,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "7d4620a7-e855-5c4a-86af-3856e7176d02",
+      "redacted_chars": 3234,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9917203311867525,
+      "source_chars": 3261,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "12949926-6a31-58fb-835a-5f9580d4fc45",
+      "redacted_chars": 1936,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9862455425369333,
+      "source_chars": 1963,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "3f5d8fa9-7140-5215-b8b9-b71c501c738d",
+      "redacted_chars": 1196,
+      "removed_sentences": [
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9779231398201145,
+      "source_chars": 1223,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9972c169-284b-52ad-8df3-1458684b4d4a",
+      "redacted_chars": 1744,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Resolution: YES (1)."
+      ],
+      "retained_char_ratio": 0.9726715002788623,
+      "source_chars": 1793,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "555d2be7-6581-5345-9052-655b8c898df0",
+      "redacted_chars": 1458,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1458,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a1ec0332-9728-5b5b-9120-43f5f7c13a43",
+      "redacted_chars": 2187,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9878048780487805,
+      "source_chars": 2214,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a906fb0c-c6ae-52c2-8dfc-77d59967c7c7",
+      "redacted_chars": 1081,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1081,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "22f09a7e-ea1c-5fba-83c5-171df87540de",
+      "redacted_chars": 4178,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)"
+      ],
+      "retained_char_ratio": 0.9949988092402953,
+      "source_chars": 4199,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bc1ffedf-cfa2-5d5d-a8b8-ec9eddb09483",
+      "redacted_chars": 2347,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9758835758835759,
+      "source_chars": 2405,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9f25adad-9403-5b8f-866c-4cd0739b6173",
+      "redacted_chars": 2785,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9900462140063989,
+      "source_chars": 2813,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "50189e8b-1bfb-5abe-8309-ecfc8090e56b",
+      "redacted_chars": 1619,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9865935405240707,
+      "source_chars": 1641,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "b221e989-edf3-5fa2-b5c4-8475fb734649",
+      "redacted_chars": 2544,
+      "removed_sentences": [
+        "The question resolves YES because Kash Patel was still serving as FBI Director (not Acting Director) at 11:59 PM UTC on June 1, 2026."
+      ],
+      "retained_char_ratio": 0.9868114817688131,
+      "source_chars": 2578,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c4687ce5-2ff1-5788-8bfd-2289d7669ed4",
+      "redacted_chars": 1343,
+      "removed_sentences": [
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9696750902527076,
+      "source_chars": 1385,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "59be9f45-abb0-5270-8c80-566385621c0c",
+      "redacted_chars": 2381,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 2381,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d9973659-b764-5704-90ae-24d551e89a33",
+      "redacted_chars": 714,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 714,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ac8fbd78-aafd-573c-bddb-0b5f251d9fb4",
+      "redacted_chars": 2872,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Resolution: YES (1)."
+      ],
+      "retained_char_ratio": 0.983224922971585,
+      "source_chars": 2921,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bd90f010-d501-5c54-a6a0-f4ed25ba1757",
+      "redacted_chars": 5762,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "and the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9898642844872015,
+      "source_chars": 5821,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "12db019b-70a3-57ef-a0b8-aa8a2396cedd",
+      "redacted_chars": 1677,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9835777126099706,
+      "source_chars": 1705,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "98ffa340-0e9c-5eeb-9055-0ff082c51933",
+      "redacted_chars": 2082,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 2082,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "68380f5c-6283-5398-a26a-08d73fadedcf",
+      "redacted_chars": 1590,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Resolves YES."
+      ],
+      "retained_char_ratio": 0.9742647058823529,
+      "source_chars": 1632,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "bbd97208-92b3-52ec-ba73-a904586add20",
+      "redacted_chars": 1070,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1070,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e35b83e5-edc5-5778-9c3a-7ac64e877a6f",
+      "redacted_chars": 2318,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9880647911338448,
+      "source_chars": 2346,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "602df88b-b1c5-52a8-ae5e-25f02886988a",
+      "redacted_chars": 490,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 490,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "d31341a8-aa9e-557d-9e20-17a706dc1904",
+      "redacted_chars": 2258,
+      "removed_sentences": [
+        "The question resolves YES because multiple credible news organizations reported an incident of Israeli settlers crossing into Syrian-controlled territory (east of the Alpha Line) within the resolution window of April 30, 2026, 00:00 UTC to June 1, 2026, 23:59 UTC."
+      ],
+      "retained_char_ratio": 0.9851657940663177,
+      "source_chars": 2292,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8af5a841-315b-529f-b47a-70d4efa66238",
+      "redacted_chars": 2667,
+      "removed_sentences": [
+        "The question resolves YES: Michael Pintard held the title of Leader of the Free National Movement (FNM) throughout the resolution window (May 12, 2026, 00:00 UTC \u2013 June 30, 2026, 23:59 UTC), and never resigned, was removed, or otherwise vacated the position.",
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9028436018957346,
+      "source_chars": 2954,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "501ff822-d537-55b7-956b-60ed0a6435cc",
+      "redacted_chars": 919,
+      "removed_sentences": [
+        "so the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9683877766069547,
+      "source_chars": 949,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "78660adc-2473-50fb-b817-5a1b7b1a74b1",
+      "redacted_chars": 1756,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.984304932735426,
+      "source_chars": 1784,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c8a9c650-c3b9-5b07-ad24-38e7f03e1f31",
+      "redacted_chars": 3200,
+      "removed_sentences": [
+        "RESOLUTION: YES (resolves 1).",
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9821976672805403,
+      "source_chars": 3258,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d22bd1f1-7ea7-54ff-90fc-be0f01aee972",
+      "redacted_chars": 2242,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9876651982378855,
+      "source_chars": 2270,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "642ce768-5920-5773-aee8-ba40784dcf3b",
+      "redacted_chars": 3626,
+      "removed_sentences": [
+        "The question resolves YES: Serbian President Aleksandar Vu\u010di\u0107 physically attended the EU-Western Balkans Summit in Tivat, Montenegro on June 5, 2026, in his capacity as President of Serbia."
+      ],
+      "retained_char_ratio": 0.9499607021220854,
+      "source_chars": 3817,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "5e0b29a5-8ee9-5e46-b208-444af77252c6",
+      "redacted_chars": 3416,
+      "removed_sentences": [
+        "RESOLUTION: YES (1).",
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9858585858585859,
+      "source_chars": 3465,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f843833c-b0dd-515a-954d-2d466abcf0ab",
+      "redacted_chars": 2047,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9869816779170685,
+      "source_chars": 2074,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "49b762aa-df15-56f0-8884-4ca7f5769565",
+      "redacted_chars": 1945,
+      "removed_sentences": [
+        "The question resolves YES because the U.S."
+      ],
+      "retained_char_ratio": 0.9828196058615463,
+      "source_chars": 1979,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "19c51624-fb6a-5f03-b5b0-0362c9202cd1",
+      "redacted_chars": 2174,
+      "removed_sentences": [
+        "The question resolves YES because a jury in the Iskander v.",
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9683741648106904,
+      "source_chars": 2245,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d345aa2e-74af-55d1-9b2e-e62e78291dd4",
+      "redacted_chars": 4452,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9939718687206965,
+      "source_chars": 4479,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "66bb32a9-f09d-5c2e-80e8-73da6d84ac4c",
+      "redacted_chars": 2448,
+      "removed_sentences": [
+        "The question resolves YES via Condition 2 (Cabinet-level resignation), because Latvian Prime Minister Evika Sili\u0146a resigned on May 14, 2026 \u2014 squarely within the resolution window (May 12, 2026 00:00 UTC to July 1, 2026 23:59 UTC) \u2014 and her departure was explicitly tied to the government's handling of the May 2026 Ukrainian drone incursion incidents.",
+        "the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9569976544175137,
+      "source_chars": 2558,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b3c0c024-61af-58c4-8856-fe7dacb9f180",
+      "redacted_chars": 4200,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9861469828598263,
+      "source_chars": 4259,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "e6bf3057-e9c0-58b7-b18d-b737760937a9",
+      "redacted_chars": 2731,
+      "removed_sentences": [
+        "The question resolves YES because credible reporting from a qualifying source (Bloomberg's Mark Gurman) revealed specific NEW product details about dedicated AI/ML hardware products during the May 1\u2013June 1, 2026 window, satisfying the \"credible leak\" branch of the resolution criteria.",
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9746609564596717,
+      "source_chars": 2802,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a3d2afee-a683-5b3e-92d6-f78d192173d5",
+      "redacted_chars": 2883,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "so the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9789473684210527,
+      "source_chars": 2945,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4f2199de-01e2-52f1-b368-5c4765bd8c17",
+      "redacted_chars": 1633,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9831426851294401,
+      "source_chars": 1661,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "04bdc911-bceb-558d-9332-272a2687bda2",
+      "redacted_chars": 2956,
+      "removed_sentences": [
+        "The question resolves YES because Oklahoma \u2014 a state other than California, Ohio, or Utah \u2014 enacted qualifying legislation within the resolution window.",
+        "Therefore the resolution is YES (1)."
+      ],
+      "retained_char_ratio": 0.9762219286657859,
+      "source_chars": 3028,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ec471fcf-d34d-5284-939d-d94961d6436d",
+      "redacted_chars": 2567,
+      "removed_sentences": [
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9895913646877409,
+      "source_chars": 2594,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b41eb641-c931-50da-97bb-4711c8dd6c65",
+      "redacted_chars": 2811,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9901373723141952,
+      "source_chars": 2839,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "54b20761-0b2d-50b0-b7d6-7242e6c9cbda",
+      "redacted_chars": 2028,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9675572519083969,
+      "source_chars": 2096,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4a1e4fb7-aaeb-52f1-873d-ab20125c9951",
+      "redacted_chars": 2951,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 2951,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2ac281ec-eec7-582a-998d-fc353801e484",
+      "redacted_chars": 2327,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9885301614273577,
+      "source_chars": 2354,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "88b874ff-e31d-5bf7-a836-ccb1cd5f9338",
+      "redacted_chars": 2501,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9893196202531646,
+      "source_chars": 2528,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "fe39b56b-8133-5518-918a-09f312b235df",
+      "redacted_chars": 1212,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9782082324455206,
+      "source_chars": 1239,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4d01045b-3518-52b2-be59-875b24046d9d",
+      "redacted_chars": 1401,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9810924369747899,
+      "source_chars": 1428,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "ee1a438a-563a-55e3-a7de-6faf60495f1d",
+      "redacted_chars": 1938,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9857578840284842,
+      "source_chars": 1966,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "e24fc009-8a42-5cab-b6aa-21d38b5bec34",
+      "redacted_chars": 1532,
+      "removed_sentences": [
+        "The question resolves YES because SpaceX's Starship Flight 12 \u2014 the first flight of the V3 architecture using Ship 39 and Booster 19 \u2014 lifted off and cleared the launch tower at Starbase, Texas, on May 22, 2026, well within the required window (May 1, 2026 00:00 UTC to June 1, 2026 23:59 UTC)."
+      ],
+      "retained_char_ratio": 0.9782886334610472,
+      "source_chars": 1566,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b5f4ddc4-6c75-57c4-a46b-224a6ae80e67",
+      "redacted_chars": 2617,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9897881996974282,
+      "source_chars": 2644,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "5c0765ed-cbd1-5af5-bce0-adbfebd4e0f6",
+      "redacted_chars": 1671,
+      "removed_sentences": [
+        "The question resolves YES because Apple announced visionOS 27 \u2014 a new major version succeeding visionOS 26 \u2014 at WWDC 2026 on June 8, 2026, which falls within the resolution window (May 6, 2026 to June 12, 2026, 23:59 UTC).",
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9592422502870264,
+      "source_chars": 1742,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "96632c8c-1bdd-5deb-9f65-deab719ac39b",
+      "redacted_chars": 5421,
+      "removed_sentences": [
+        "The question resolves **YES**."
+      ],
+      "retained_char_ratio": 0.9943140132061629,
+      "source_chars": 5452,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4b901b95-42aa-5956-b877-f7d93ecc9faf",
+      "redacted_chars": 1442,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9549668874172186,
+      "source_chars": 1510,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e9efc313-b658-5f08-9131-d6ebdeba1e68",
+      "redacted_chars": 1325,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9800295857988166,
+      "source_chars": 1352,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "2142164e-3686-5db9-bb27-9342b1e0ac58",
+      "redacted_chars": 2449,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9890953150242326,
+      "source_chars": 2476,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1cf01a42-0810-5a33-8697-d491d3a2b7b9",
+      "redacted_chars": 1691,
+      "removed_sentences": [
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9785879629629629,
+      "source_chars": 1728,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "56552737-e7f5-5c74-93af-d71bba888c59",
+      "redacted_chars": 2361,
+      "removed_sentences": [
+        "The question resolves YES because all three required conditions are satisfied:"
+      ],
+      "retained_char_ratio": 0.98580375782881,
+      "source_chars": 2395,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "b5a5f3eb-c6ff-53b8-af90-165b7a6edd91",
+      "redacted_chars": 2425,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9885854056257644,
+      "source_chars": 2453,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "95af7649-c12e-5421-bfc5-b4602e9140db",
+      "redacted_chars": 2047,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9869816779170685,
+      "source_chars": 2074,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "1a7c4056-3f4d-5ee7-a546-20cf0603b946",
+      "redacted_chars": 2086,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9867549668874173,
+      "source_chars": 2114,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "cf59bea6-ac3a-5950-9e4f-bdde52ce15df",
+      "redacted_chars": 1228,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9784860557768924,
+      "source_chars": 1255,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "84e716ac-125c-5b58-b2ab-ee7ebc630885",
+      "redacted_chars": 913,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9712765957446808,
+      "source_chars": 940,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a653ccb0-0617-5d42-b6c1-5d05e8b8fbb9",
+      "redacted_chars": 2159,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9871970736168267,
+      "source_chars": 2187,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "4a605b39-ee84-5cc4-a585-ddef7a9d139f",
+      "redacted_chars": 1722,
+      "removed_sentences": [
+        "Resolution: YES (1)."
+      ],
+      "retained_char_ratio": 0.9879518072289156,
+      "source_chars": 1743,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d6b23695-9cd2-5e95-9716-3a51e5d73e8b",
+      "redacted_chars": 3151,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "so the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9807033924680983,
+      "source_chars": 3213,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "75e58d45-3a3a-5c36-8777-9665b2b891f6",
+      "redacted_chars": 3440,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9936452917388793,
+      "source_chars": 3462,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8042e84d-abd1-5dd7-ae5f-c794cb342f5b",
+      "redacted_chars": 3844,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9943093636833937,
+      "source_chars": 3866,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "6eb48c32-a4a6-5b5d-aa5d-3b42a1901d38",
+      "redacted_chars": 804,
+      "removed_sentences": [
+        "so the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9640287769784173,
+      "source_chars": 834,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "de2d60ab-051f-5a69-8dfb-29a3fca92a6f",
+      "redacted_chars": 2106,
+      "removed_sentences": [
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9873417721518988,
+      "source_chars": 2133,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "8b63881a-0edd-5ead-b3da-376fc18e2ddf",
+      "redacted_chars": 2030,
+      "removed_sentences": [
+        "The question resolves YES because Iran remained an active participating team in the 2026 FIFA World Cup through the resolution date of June 1, 2026, with no notation of withdrawal, disqualification, or replacement."
+      ],
+      "retained_char_ratio": 0.9835271317829457,
+      "source_chars": 2064,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "a7698b19-7df7-5ddf-8366-756fd5db4df3",
+      "redacted_chars": 3187,
+      "removed_sentences": [
+        "The question resolves YES because Keiko Fujimori obtained the most valid votes in the 2026 Peruvian presidential runoff.",
+        "the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9800123001230012,
+      "source_chars": 3252,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "24fd6da5-881c-52a4-8ba1-072443ea34a3",
+      "redacted_chars": 1963,
+      "removed_sentences": [
+        "RESOLUTION: YES."
+      ],
+      "retained_char_ratio": 0.9909136799596163,
+      "source_chars": 1981,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9444f0a3-e659-545b-9140-ad18973f6d83",
+      "redacted_chars": 1821,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1821,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a840a31b-b264-593d-bf08-d63125496da7",
+      "redacted_chars": 1694,
+      "removed_sentences": [
+        "The question resolves YES (1).",
+        "the question resolves YES."
+      ],
+      "retained_char_ratio": 0.966343411294923,
+      "source_chars": 1753,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "74d19d30-d036-5a2b-9b5a-ea56cd98d324",
+      "redacted_chars": 1975,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9865134865134865,
+      "source_chars": 2002,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "54843f56-28cd-5268-ac2a-a572144b2c03",
+      "redacted_chars": 2754,
+      "removed_sentences": [
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9867431028305267,
+      "source_chars": 2791,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "630b345d-eb03-534c-a3e5-5de067aaed7b",
+      "redacted_chars": 3487,
+      "removed_sentences": [
+        "RESOLUTION: YES (1).",
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9833615341229555,
+      "source_chars": 3546,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "8c1f48ad-6eab-5d12-bb1d-498e7ba1d4bc",
+      "redacted_chars": 1713,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 1713,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "26ddb28f-3a4f-557e-9a35-dbbe6058f71f",
+      "redacted_chars": 4086,
+      "removed_sentences": [
+        "RESOLUTION: YES (1).",
+        "Resolves YES."
+      ],
+      "retained_char_ratio": 0.9912663755458515,
+      "source_chars": 4122,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e5493956-07d2-5dc5-8278-30bd6555c1a2",
+      "redacted_chars": 2291,
+      "removed_sentences": [
+        "Therefore the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9841065292096219,
+      "source_chars": 2328,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "4c864e5d-4bb5-5d1b-805b-79af67f9cebf",
+      "redacted_chars": 1761,
+      "removed_sentences": [
+        "The question resolves YES because the jury returned a verdict in the liability phase of Musk v.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9591503267973857,
+      "source_chars": 1836,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "c72d9a92-4f4f-5a7d-a743-ba16f38cf7c9",
+      "redacted_chars": 1940,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9661354581673307,
+      "source_chars": 2008,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "abd86c65-1733-557c-98c3-0b141a39781b",
+      "redacted_chars": 2496,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "and the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9772905246671887,
+      "source_chars": 2554,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d3a6d847-a02f-5d73-9933-26c7587b5ab2",
+      "redacted_chars": 2518,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 2518,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "a0321afa-c75a-51e9-abed-473012f40eba",
+      "redacted_chars": 1669,
+      "removed_sentences": [
+        "The question resolves YES because Lamine Yamal was named in Spain's final 26-man squad for the 2026 FIFA World Cup."
+      ],
+      "retained_char_ratio": 0.9800352319436288,
+      "source_chars": 1703,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "cc65c42b-a42c-5592-9f73-795582542f79",
+      "redacted_chars": 3098,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.992948717948718,
+      "source_chars": 3120,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d2fd04b8-f6d3-589d-bf27-12ad2ad89b68",
+      "redacted_chars": 6366,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9965560425798372,
+      "source_chars": 6388,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f3d67bd2-328e-5071-bbb7-9488766b1c0b",
+      "redacted_chars": 4347,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)."
+      ],
+      "retained_char_ratio": 0.9949645227740902,
+      "source_chars": 4369,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e69889d5-1620-5024-8a0c-9bc3bfc047fd",
+      "redacted_chars": 1034,
+      "removed_sentences": [
+        "The question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9708920187793427,
+      "source_chars": 1065,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "81d4c81e-bbd1-5da2-bd1a-d4f7677ea272",
+      "redacted_chars": 2223,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9694723070213694,
+      "source_chars": 2293,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "513056b4-1fab-57a0-817f-480e1d55b703",
+      "redacted_chars": 593,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 593,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "a0022abe-c384-5c95-bb3d-dc53e212aee1",
+      "redacted_chars": 4203,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "and the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9861567339277335,
+      "source_chars": 4262,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f1ed32cb-26da-54da-86fb-220ffdbc5b0c",
+      "redacted_chars": 1762,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9843575418994414,
+      "source_chars": 1790,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "08bb3a55-c266-546d-bdd5-3a706d12ed8c",
+      "redacted_chars": 2285,
+      "removed_sentences": [
+        "The question resolves **YES**."
+      ],
+      "retained_char_ratio": 0.9861890375485541,
+      "source_chars": 2317,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "828cf239-a556-5ff3-9467-44bf1325dfa5",
+      "redacted_chars": 2418,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "so the question resolves YES."
+      ],
+      "retained_char_ratio": 0.9769696969696969,
+      "source_chars": 2475,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "17dee13a-3f4c-5bdd-88fa-8ddff8403454",
+      "redacted_chars": 2337,
+      "removed_sentences": [
+        "The question resolves YES: Brooke Pinto finished in the top two (second place) in the June 16, 2026 Democratic primary for D.C."
+      ],
+      "retained_char_ratio": 0.9480730223123732,
+      "source_chars": 2465,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "d41b3f25-a551-57fd-a6f6-4a0c91bd91f7",
+      "redacted_chars": 4357,
+      "removed_sentences": [
+        "RESOLUTION: YES (1)"
+      ],
+      "retained_char_ratio": 0.9952032891731384,
+      "source_chars": 4378,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "485c3100-532f-57ee-ac85-37b010b3b5eb",
+      "redacted_chars": 1792,
+      "removed_sentences": [
+        "The question resolves YES because Assimi Go\u00efta remained Mali's head of state (President of the Transition) as of June 1, 2026, 23:59 UTC.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9598286020353508,
+      "source_chars": 1867,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "044eca74-078c-5b13-97a8-643d48941987",
+      "redacted_chars": 1753,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "Therefore the question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9616017553483269,
+      "source_chars": 1823,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "9e807f3f-c7c7-515d-895a-a18fbb170141",
+      "redacted_chars": 4530,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9938569548047389,
+      "source_chars": 4558,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "741b4bed-7502-5cd2-9cbe-949fbc70f857",
+      "redacted_chars": 2946,
+      "removed_sentences": [],
+      "retained_char_ratio": 1.0,
+      "source_chars": 2946,
+      "verdict_sentences_removed": 0
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "7279494c-a775-5a57-a5f2-ac22252fb286",
+      "redacted_chars": 1512,
+      "removed_sentences": [
+        "The question resolves YES (1)."
+      ],
+      "retained_char_ratio": 0.9792746113989638,
+      "source_chars": 1544,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "72178d56-46a3-5048-a419-1a9d38fdba05",
+      "redacted_chars": 2738,
+      "removed_sentences": [
+        "RESOLUTION: YES (1) \u2014 Adrian Newey held the title of Team Principal at Aston Martin Aramco F1 Team as of 23:59 UTC on June 1, 2026.",
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9447895100069013,
+      "source_chars": 2898,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "e5104a3c-9010-506f-8e58-83e40c658ed9",
+      "redacted_chars": 2542,
+      "removed_sentences": [
+        "The question resolves YES.",
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9788217173661917,
+      "source_chars": 2597,
+      "verdict_sentences_removed": 2
+    },
+    {
+      "clauses_preserved": 0,
+      "question_id": "f8b8e64a-1462-56e8-8e51-2378eaca309f",
+      "redacted_chars": 1916,
+      "removed_sentences": [
+        "The question resolves YES."
+      ],
+      "retained_char_ratio": 0.9861039629439012,
+      "source_chars": 1943,
+      "verdict_sentences_removed": 1
+    },
+    {
+      "clauses_preserved": 1,
+      "question_id": "827eb0fa-d233-5346-be4a-29d03e90dcbd",
+      "redacted_chars": 2688,
+      "removed_sentences": [
+        "The question resolves YES because all conditions for a \"controlled splashdown\" on Starship Flight 12 were met."
+      ],
+      "retained_char_ratio": 0.9875091844232182,
+      "source_chars": 2722,
+      "verdict_sentences_removed": 1
+    }
+  ],
+  "retained_char_ratio": {
+    "mean": 0.9792515090224555,
+    "min": 0.7205789804908748
+  },
+  "units": 256,
+  "verdict_sentences_removed": {
+    "items_with_none_removed": 19,
+    "max": 3,
+    "mean": 1.4375,
+    "total": 368
+  }
+}
