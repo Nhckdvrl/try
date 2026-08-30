@@ -168,6 +168,69 @@ This is an excellent natural prospective paradigm, but the source is not obvious
 
 ---
 
+## 7b. Temporal legal reasoning: the closest published neighbour (2026)
+
+### *When Do LLMs Apply the Wrong Law? Diagnosing LLM Failures in Temporal Legal Reasoning* (arXiv 2608.14610)
+
+This is now the nearest published work to our headline framing, and it must be
+treated as such rather than discovered by a reviewer. It reports that models
+are strongly biased toward the most recent version of a statute; that the same
+models can state the temporal-applicability rule correctly and demonstrate
+knowledge of the older statute; and that they nevertheless apply the wrong
+(newer) law when deciding a concrete case.
+
+That is structurally the same shape as our recognition–enforcement gap, on a
+different substrate.
+
+### Consequence for our claims — binding
+
+We must **stop writing** any version of:
+
+> We are the first to show that models understand a temporal boundary yet fail
+> to obey it.
+
+That sentence is no longer defensible. The surviving distinction is about the
+*object of measurement*, not about who noticed the phenomenon first:
+
+- their failure is **version selection**: among several candidate legal texts,
+  the model retrieves and applies the wrong-vintage one;
+- ours is a **causal manipulation of one fixed piece of evidence**: the same
+  judgment, the same question, the same packet, present or absent, admissible
+  or inadmissible, with the effect measured as a continuous probability shift
+  on hundreds of independently sampled natural questions.
+
+The locked formulation is:
+
+> **We causally manipulate the presence and admissibility of the same explicit
+> in-context future evidence, measuring how much that later evidence shifts an
+> otherwise identical reconstructed historical judgment.**
+
+Two further separations survive and should be stated positively rather than as
+priority claims: our boundary recognition is measured per item and is at
+ceiling (99.2–100%), so the gap is quantified rather than inferred; and the
+positional and verdict-redaction experiments ask *why* the gap exists and
+whether it reduces to answer copying, which version-selection work does not
+address.
+
+### Boundary
+
+Adjacent and partially overlapping in phenomenon. Different in domain,
+different in manipulation, different in estimand. Cite prominently, concede the
+overlap in the introduction, and do not compete on novelty of the observation.
+
+## 7c. Self-anchoring on one's own prior answer (2026)
+
+*Competing Biases underlie Overconfidence and Underconfidence in LLMs* (Nature
+Machine Intelligence, 2026; doi:10.1038/s42256-026-01217-9) reports that
+exposing a model to its own prior answer induces choice-supportive anchoring
+that makes it hold that answer more firmly.
+
+This is why the M3 "restate your prior assessment" manipulation is dropped
+rather than redesigned: any reduction in intrusion under such a design is
+confounded between the intended temporal-state persistence and plain
+self-anchoring, and a non-numeric variant does not remove the confound. The
+decision is recorded in `PREREGISTRATION_G2_HINDSIGHT_DEPTH.md`.
+
 ## 8. Agent security and information-flow control: noninterference is already occupied
 
 ### Fides / Microsoft Research (2025)
@@ -263,3 +326,32 @@ A defensible target is:
 > **We study whether LLM decisions are causally invariant to information that remains known but is explicitly out of bounds for that decision. Across independently authored true-but-disallowed paradigms, we separate policy knowledge and memory from causal use, measure counterfactual forbidden-information sensitivity, and trace when a model's internal decision computation violates that policy.**
 
 That is narrower than “forgetting,” narrower than generic “irrelevant context,” and different in object from security-oriented leakage/action noninterference.
+
+---
+
+## 12. Locked novelty sentence (supersedes §11 for the temporal paper)
+
+§11 was written while the project still targeted several boundary families.
+The pilot narrowed it to temporal, and §7b now constrains what may be claimed.
+The sentence the paper actually defends is:
+
+> **Language models identify with near-ceiling accuracy that a piece of
+> evidence postdates the historical moment they are asked to reason from, and
+> are nevertheless causally moved by it: supplying that same evidence shifts
+> their reconstructed ex-ante judgment by a large, replicable margin across
+> hundreds of independently sampled natural forecasting questions.**
+
+What this claims, and what it does not:
+
+- **claimed:** a quantified recognition–enforcement gap under a within-item
+  causal manipulation (packet present/absent × admissible/inadmissible), with
+  per-item recognition measured rather than assumed;
+- **claimed:** that the gap is position-sensitive, and — pending Experiment B —
+  that it does not reduce to copying an explicitly revealed verdict;
+- **not claimed:** priority over the observation that models can state a
+  temporal rule and still violate it (see §7b);
+- **not claimed:** any statement about internal representations being
+  overwritten; no such evidence is collected;
+- **not claimed:** generality beyond the temporal family. FANToM failed
+  qualification, the FOMC external attempt failed its preregistered gate, and
+  both are reported as such.

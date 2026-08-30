@@ -1,6 +1,16 @@
 # BTF-3 confirmatory v1 — human review ledger
 
 **Review date:** 2026-08-30  
+**Reviewer of record:** Claude Opus 5, working under the project author's
+direction inside Claude Code, reading each candidate packet in the frozen queue
+order without external lookup. This attribution was added on 2026-08-31, after
+the round had run: the original ledger recorded the review date and the
+absence of model outputs but never named its reviewer. Recording it late is
+itself disclosed here rather than presented as if it had always been stated.
+The same disclosure applies to `btf3_large_replication_v1_reviewed.md`, whose
+header carried it from the start, and the packet-factual gate applied by that
+reviewer is separately audited against real citations under
+`PROTOCOL_BTF3_PACKET_FACTUALITY_AUDIT.md`.  
 **Model outputs inspected during this review:** none.  
 **Candidate source:** `data/external/review/btf3_confirmatory_v1_candidates.md`  
 **Protocol:** walk each frozen realized-outcome queue in order and stop when the first 32 ACCEPTs are reached. ACCEPT means all four registered gates pass: pre-cutoff integrity, realized-outcome validity, exact-packet factual validity, and unambiguous resolution criteria. REJECT/UNSURE permanently consumes that queue slot; no source text or later packet is repaired by hand.
