@@ -1,0 +1,89 @@
+{
+  "exclusions": {
+    "category_counts": {
+      "confirmatory_v1_candidate_queue": 128,
+      "confirmatory_v1_frozen": 64,
+      "confirmatory_v1_review_reject_or_unsure": 13,
+      "historical_pilot_rejects": 2,
+      "pilot_v0_2r2": 8
+    },
+    "sources": {
+      "confirmatory_jsonl": {
+        "path": "data/external/review/btf3_temporal_confirmatory_v1.jsonl",
+        "sha256": "850b40f6bb46f390fd3f59d4bcdb8ea50672cc0a299d48deedbd0b83384f273c"
+      },
+      "pilot_jsonl": {
+        "path": "data/external/review/btf3_temporal_pilot_v0.2r2.jsonl",
+        "sha256": "113e3b0dfa553f4bb5f3b4db0d94ed673f2590ec707c5b490413bce9b902dd8c"
+      },
+      "prior_candidates_json": {
+        "path": "data/external/review/btf3_confirmatory_v1_candidates.json",
+        "sha256": "eed9cb3531bf9890c32b78cfe2084cf9243bb4d39c512601a7e4b9556e4c7ca9"
+      },
+      "prior_reviewed_md": {
+        "path": "data/external/review/btf3_confirmatory_v1_reviewed.md",
+        "sha256": "1d49029163c501a7add33231b1f8266e08af3b4a193ba6fd6c7e7567df36888a"
+      }
+    },
+    "union_count": 138
+  },
+  "final_eligible": {
+    "dropped_duplicate_against_prior_rounds": 0,
+    "dropped_duplicate_within_round": 3,
+    "realized_no": 943,
+    "realized_yes": 431,
+    "total": 1374
+  },
+  "funnel": [
+    {
+      "remaining": 1515,
+      "step": "automatic_eligibility"
+    },
+    {
+      "remaining": 1507,
+      "step": "minus_pilot_v0_2r2"
+    },
+    {
+      "remaining": 1443,
+      "step": "minus_confirmatory_v1_frozen"
+    },
+    {
+      "remaining": 1379,
+      "step": "minus_confirmatory_v1_candidate_queue"
+    },
+    {
+      "remaining": 1379,
+      "step": "minus_confirmatory_v1_review_reject_or_unsure"
+    },
+    {
+      "remaining": 1377,
+      "step": "minus_historical_pilot_rejects"
+    },
+    {
+      "remaining": 1374,
+      "step": "minus_hard_duplicate_questions"
+    }
+  ],
+  "hard_gate": {
+    "passed": true,
+    "realized_no_ok": true,
+    "realized_yes_ok": true,
+    "requirement": "at least quota_per_resolution eligible candidates in EACH realized-outcome bucket"
+  },
+  "quota_per_resolution": 128,
+  "raw_pool": {
+    "automatic_eligibility_failures": 0,
+    "eligible_realized_no": 1014,
+    "eligible_realized_yes": 501,
+    "eligible_total": 1515,
+    "exact_normalized_question_duplicate_groups": 2,
+    "exact_normalized_question_duplicate_rows": 5,
+    "total_rows": 1515
+  },
+  "round_id": "btf3_large_replication_v1",
+  "seed": 20260831,
+  "source": {
+    "path": "data/external/raw/btf3/btf3_binary_questions_and_forecasts.parquet",
+    "sha256": "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a"
+  }
+}

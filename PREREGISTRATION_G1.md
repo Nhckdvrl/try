@@ -308,6 +308,28 @@ resamples, seed `20260829`, intrusion SESOI 5 probability points):
 - immutable Git tag before first confirmatory-run model output:
   `g1-btf3-confirmatory-freeze-v1`.
 
+## G1 large-replication phase — BTF-3 temporal, 256-unit fresh round
+
+The confirmatory round above replicated the pilot effect on 64 fresh units
+(3/3 qualified, 2/3 intrusion-pass). Every later BTF-3 experiment (M1,
+positional control, M2-v2) is a paired causal manipulation of those same 64
+units and adds causal depth, not independent natural units, so the headline
+phenomenon currently rests on 64 independent questions from one draw.
+
+`PREREGISTRATION_BTF3_LARGE_REPLICATION.md` preregisters a third evidence
+layer: **256 entirely fresh `question_id`s (128 realized YES / 128 realized
+NO)**, drawn under strict freshness that also discards the entire prior
+confirmatory candidate queue, reviewed under the same four unrelaxed human
+gates, and run on the same three frozen checkpoints with byte-identical
+prompts and runtime. Its qualification thresholds are the confirmatory ratios
+scaled mechanically (`992/1024`, `448/512`), its inference rules are unchanged,
+and the replication verdict is decided by those 256 units alone — a pooled
+320-unit analysis is secondary and can never rescue a failed replication.
+Factorization deliberately stays on the frozen 64.
+
+Design tag: `g1-btf3-large-replication-design-v1`. Data freeze tag before the
+first model output of that round: `g1-btf3-large-replication-freeze-v1`.
+
 ## Cross-boundary generalization
 
 After broad behavioral confirmation, train a light boundary-aware intervention
