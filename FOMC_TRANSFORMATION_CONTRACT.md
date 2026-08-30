@@ -1,16 +1,61 @@
 # FOMC temporal transformation contract — candidate v0.1a
 
-**Status:** contract draft, amended before any candidate queue was built
-and before any calibration/pilot case was looked at. No adapter, no
-formal sample, no model run. Written before any BTF-3-informed
-cherry-picking of a second source, and before any FOMC model output.
-Phase order for this source: **mechanical audit (done) → contract (this
-document) → full pool census (next) → deterministic candidate queue →
-human mechanical review → freeze artifact → immutable tag → 3-model
-qualification pilot → \[only if that qualifies\] fresh confirmatory
-freeze**. The pilot step is a genuine qualification gate, not a rehearsal
-— if FOMC fails it, this source is sealed exactly as SCOTUS v0.1a was,
-with no prompt-patching or excerpt tricks to force a pass.
+**Status: SEALED — pilot ran, did not clear its own preregistered gate
+(2026-08-30). No further FOMC work (no prompt changes, no sample
+expansion, no re-analysis with different clustering as the primary
+metric) is authorized under this document.**
+
+This was written as a genuine qualification gate *before* any FOMC model
+output existed, precisely so that a failure could not be argued away
+after the fact: "if FOMC fails [the pilot], this source is sealed exactly
+as SCOTUS v0.1a was, with no prompt-patching or excerpt tricks to force a
+pass" (original text below, retained). The pilot ran under
+`g1-fomc-pilot-freeze-v1`: `qualified_models=2/3` (Qwen, Mistral; Gemma
+missed only on responsiveness, 11.7 vs the 15-point floor),
+`intrusion_pass_models=0/3` under the frozen primary year-clustered
+bootstrap, `fomc_temporal_pilot_qualifies=false`. Full results:
+`results/fomc_pilot_v1_results.md`.
+
+**The correct scientific reading of this result is `inconclusive /
+not validated`, not `effect absent`.** All three models' intrusion point
+estimates were positive and of a similar order of magnitude to BTF-3's
+confirmed effect (7–11 points here vs. 12.75–27.2 in the BTF-3
+confirmatory run); the primary year-clustered analysis — deliberately
+the more conservative choice this contract froze to account for FOMC's
+real serial dependence — simply did not have enough power at N=24 across
+14 distinct years to clear the pre-registered >5-point lower-CI bar. That
+the frozen gate was not met is exactly why FOMC is sealed regardless: the
+whole point of a preregistered qualification gate is that "the numbers
+look promising but didn't quite clear the bar" is not a licensed reason
+to keep going. Retroactively expanding to the 21 disjoint CHANGE / 41
+disjoint HOLD the census showed were available would spend exactly the
+credibility this preregistration process exists to protect.
+
+**Consequence for the paper**: the "confirmed across two natural
+sources" contribution is not available. `PREREGISTRATION_G1.md`'s BTF-3
+confirmatory result stands on its own (3/3 validity, 100% boundary probe,
+fresh 64-unit held-out replication of the pilot's own model pattern) and
+remains the project's confirmed empirical core; FOMC is not usable to
+broaden it further. The project's next phase
+(`PREREGISTRATION_G1_FACTORIZATION.md`) pivots from breadth (more natural
+sources) to depth (characterizing and partially mitigating the confirmed
+BTF-3 effect itself) rather than attempting a third natural-source
+search.
+
+---
+
+**Original status (superseded above):** contract draft, amended before
+any candidate queue was built and before any calibration/pilot case was
+looked at. No adapter, no formal sample, no model run. Written before any
+BTF-3-informed cherry-picking of a second source, and before any FOMC
+model output. Phase order for this source: **mechanical audit (done) →
+contract (this document) → full pool census (next) → deterministic
+candidate queue → human mechanical review → freeze artifact → immutable
+tag → 3-model qualification pilot → \[only if that qualifies\] fresh
+confirmatory freeze**. The pilot step is a genuine qualification gate,
+not a rehearsal — if FOMC fails it, this source is sealed exactly as
+SCOTUS v0.1a was, with no prompt-patching or excerpt tricks to force a
+pass.
 
 ## Amendment note (v0.1 → v0.1a)
 
@@ -557,5 +602,7 @@ sequence — no separate non-adjacency exception is needed.
 - [x] frozen 24-unit artifact (12 CHANGE / 12 HOLD), schema + exact-
       transform + meeting-disjoint validated —
       `data/external/review/fomc_temporal_pilot_v1.jsonl`
-- [ ] pilot qualification result (go/no-go for a larger confirmatory freeze)
+- [x] pilot qualification result: **FAIL** (2/3 qualified, 0/3 intrusion
+      pass) — no larger confirmatory freeze authorized; SEALED, not
+      reopenable under this document — `results/fomc_pilot_v1_results.md`
 - [x] immutable Git tag before first pilot-run model output: `g1-fomc-pilot-freeze-v1`
