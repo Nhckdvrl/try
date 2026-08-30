@@ -1,15 +1,29 @@
 #!/usr/bin/env python3
 """Full FOMC eligible-pool census (read-only; does not build a candidate queue).
 
-Reproduces the pool census run for FOMC_TRANSFORMATION_CONTRACT.md's
-"Full pool census" step: enumerates scheduled FOMC meetings from official
-federalreserve.gov materials, applies the frozen reject rules, labels each
-eligible adjacent-meeting pair by the next meeting's own action verb, runs
-the range-comparison consistency audit, and computes the meeting-disjoint
-maximum achievable balanced sample.
+v2: derives the scheduled-meeting universe and every statement URL
+structurally from federalreserve.gov's own official archive pages --
+`fomchistorical{year}.htm` (2008-2020, each meeting/conference-call/
+notation-vote gets its own labeled panel with an explicit "Statement"
+link) and `fomccalendars.htm` (2021-present, each scheduled meeting gets
+an explicit "Statement:" link in its own row). No statement URL is ever
+guessed (no a/b/c suffix probing), no meeting's scheduled/emergency status
+is inferred from statement or minutes wording, and no exception is
+hardcoded: a panel is scheduled if and only if its own official heading
+says "... Meeting - {year}" with no parenthetical qualifier (which
+authoritatively excludes "(unscheduled) Meeting", "(cancelled) Meeting",
+"(notation vote)", and "Conference Call" entries, all confirmed present
+verbatim in the official archive). Adjacency is defined purely by
+position in this officially-derived scheduled-only sequence.
 
-This script only reports counts. It does not select, freeze, or write any
-candidate queue -- that is a deliberately separate next step.
+Also writes a pinned source manifest (date, statement URL, statement-text
+SHA-256, action, range, and the exact archive page URL the link came
+from) so the 24-unit prompt set can be exactly reconstructed later even
+if federalreserve.gov's pages change.
+
+This script only reports counts and the manifest. It does not select,
+freeze, or write any candidate queue -- that is a deliberately separate
+next step.
 """
 from __future__ import annotations
 
@@ -18,25 +32,13 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import sys
 import time
 import urllib.request
 
 POOL_START = "20081216"  # target-range era start; excluded from ever being a "next" meeting
 USER_AGENT = "Mozilla/5.0 (research)"
-
-# The one confirmed non-scheduled meeting found in this census: a special
-# Sunday videoconference session, distinguishable from every regular meeting
-# (which is always held on a weekday and never described with "Saturday"/
-# "Sunday"/"special meeting"/"intermeeting"/"emergency" in its own minutes).
-KNOWN_EMERGENCY_DATES = {"20200315"}
-
-# The one confirmed calendar gap found in this census: the regularly
-# scheduled mid-March 2020 meeting's business was absorbed into the excluded
-# emergency session above, so the surrounding scheduled meetings are not
-# genuinely calendar-adjacent even though they are adjacent in a plain
-# sorted list of remaining dates.
-KNOWN_NON_ADJACENT_PAIRS = {("20200129", "20200429")}
+HISTORICAL_YEARS = range(2008, 2021)  # fomchistorical{year}.htm covers these
+CALENDAR_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 
 VERB_RE = re.compile(
     r"decided(?: today)? to (raise|lower|maintain|keep)(?:\s+its|\s+the)?\s*target range for the federal funds rate"
@@ -63,9 +65,14 @@ MAINTAIN_CURRENT_RE = re.compile(
     r"maintain the current\s+([^,.\n]+?)\s*percent target range for the federal funds rate",
     re.I,
 )
-RANGE_ONLY_RE = re.compile(
-    r"target range for the federal funds rate\s*(?:to|at|of)\s*([^,.\n]+?)\s*percent", re.I
-)
+
+# A panel/row is a genuinely scheduled meeting iff its own official heading
+# says "... Meeting - {year}" with nothing else in parentheses. This single
+# rule is what the Fed's own archive uses to separate "March 15-16 Meeting"
+# from "March 15 (unscheduled) Meeting", "March 17-18 (cancelled) Meeting",
+# "March 19 (notation vote)", and "January 9 Conference Call" -- confirmed
+# by direct inspection of fomchistorical2008.htm and fomchistorical2020.htm.
+SCHEDULED_HEADING_RE = re.compile(r"^(?!.*\().*\bMeeting\s*-\s*\d{4}\s*$")
 
 
 def fetch(url: str, cache: Path) -> str:
@@ -76,7 +83,7 @@ def fetch(url: str, cache: Path) -> str:
         text = response.read().decode("utf-8", errors="ignore")
     cache.parent.mkdir(parents=True, exist_ok=True)
     cache.write_text(text, encoding="utf-8")
-    time.sleep(0.2)
+    time.sleep(0.15)
     return text
 
 
@@ -86,17 +93,53 @@ def strip_html(html: str) -> str:
     return re.sub(r"\s+", " ", text)
 
 
-def is_emergency_meeting(minutes_html: str) -> bool:
-    text = strip_html(minutes_html)
-    m = re.search(r"Minutes of the Federal Open Market Committee\s*(.{0,400})", text)
-    snippet = m.group(1) if m else ""
-    weekend = bool(re.search(r"\b(Saturday|Sunday)\b", snippet))
-    special = bool(re.search(r"\bspecial meeting|intermeeting|emergency\b", snippet, re.I))
-    return weekend or special
+def parse_historical_year(html: str, source_url: str) -> list[dict]:
+    """Split fomchistorical{year}.htm into panels; keep scheduled Meeting panels."""
+    panels = re.split(r'(?=<h5[^>]*>)', html)
+    out = []
+    for panel in panels:
+        heading_match = re.search(r"<h5[^>]*>([^<]*)</h5>", panel)
+        if not heading_match:
+            continue
+        heading = heading_match.group(1).strip()
+        if not SCHEDULED_HEADING_RE.match(heading):
+            continue
+        statement_match = re.search(r'<a href="([^"]*)">Statement</a>', panel)
+        if not statement_match:
+            continue  # meeting panel with no statement published yet
+        href = statement_match.group(1)
+        date_match = re.search(r"monetary/?(\d{8})[a-z]?\.htm", href)
+        if not date_match:
+            continue
+        date = date_match.group(1)
+        url = "https://www.federalreserve.gov" + href if href.startswith("/") else href
+        out.append({"date": date, "statement_url": url, "heading": heading, "source_index_url": source_url})
+    return out
 
 
-def extract_action(statement_html: str) -> dict:
-    text = strip_html(statement_html)
+def parse_calendar_page(html: str, source_url: str) -> list[dict]:
+    """Split fomccalendars.htm into per-meeting rows; keep rows with a Statement link."""
+    rows = re.split(r'(?=<div class="(?:fomc-meeting--shaded )?row fomc-meeting")', html)
+    out = []
+    for row in rows:
+        statement_match = re.search(
+            r"<strong>Statement:</strong>.*?<a href=\"([^\"]*pressreleases[^\"]*)\">HTML</a>",
+            row,
+            re.S,
+        )
+        if not statement_match:
+            continue
+        href = statement_match.group(1)
+        date_match = re.search(r"monetary/?(\d{8})[a-z]?\.htm", href)
+        if not date_match:
+            continue
+        date = date_match.group(1)
+        url = "https://www.federalreserve.gov" + href if href.startswith("/") else href
+        out.append({"date": date, "statement_url": url, "heading": "(fomccalendars row)", "source_index_url": source_url})
+    return out
+
+
+def extract_action(statement_text: str) -> dict:
     for regex, verb_fixed, group_idx, method in (
         (VERB_RE, None, None, "verb"),
         (WILL_MAINTAIN_RE, None, None, "will-maintain"),
@@ -105,7 +148,7 @@ def extract_action(statement_html: str) -> dict:
         (REAFFIRM_CURRENT_RE, "maintain", 1, "reaffirm-current"),
         (MAINTAIN_CURRENT_RE, "maintain", 1, "maintain-current"),
     ):
-        match = regex.search(text)
+        match = regex.search(statement_text)
         if match:
             if verb_fixed:
                 return {"verb": verb_fixed, "range": match.group(group_idx).strip(), "method": method}
@@ -121,83 +164,58 @@ def normalize_range(value: str | None) -> str | None:
     return value.replace("‑", "-").replace("–", "-")
 
 
-def resolve_statement_url(date: str, cache_dir: Path) -> tuple[str, str]:
-    """Return (html, resolved_suffix), trying 'a' then escalating on title mismatch."""
-    for suffix in ("a", "b", "c"):
-        url = f"https://www.federalreserve.gov/newsevents/pressreleases/monetary{date}{suffix}.htm"
-        cache = cache_dir / f"{date}{suffix}.html"
-        html = fetch(url, cache)
-        title_match = re.search(r"<title>(.*?)</title>", html, re.S)
-        title = title_match.group(1) if title_match else ""
-        if "FOMC statement" in title:
-            return html, suffix
-    raise ValueError(f"could not resolve a genuine FOMC statement for {date}")
-
-
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--cache-dir", type=Path, default=Path("/tmp/fomc_census_cache"))
+    parser.add_argument("--cache-dir", type=Path, default=Path("/tmp/fomc_census_cache_v2"))
     parser.add_argument("--out", type=Path, default=Path("results/fomc_pool_census.json"))
-    parser.add_argument(
-        "--minutes-year-range",
-        nargs=2,
-        type=int,
-        default=(2008, 2020),
-        help="years to pull from per-year fomchistorical{year}.htm pages",
-    )
+    parser.add_argument("--manifest-out", type=Path, default=Path("data/external/fomc_source_manifest_v1.json"))
     args = parser.parse_args()
 
-    minutes_dir = args.cache_dir / "minutes"
-    hist_dir = args.cache_dir / "hist"
-    statements_dir = args.cache_dir / "statements"
+    meetings: dict[str, dict] = {}
+    for year in HISTORICAL_YEARS:
+        source_url = f"https://www.federalreserve.gov/monetarypolicy/fomchistorical{year}.htm"
+        html = fetch(source_url, args.cache_dir / "index" / f"hist{year}.html")
+        for entry in parse_historical_year(html, source_url):
+            meetings.setdefault(entry["date"], entry)
 
-    all_minutes_dates: set[str] = set()
-    y0, y1 = args.minutes_year_range
-    for year in range(y0, y1 + 1):
-        html = fetch(
-            f"https://www.federalreserve.gov/monetarypolicy/fomchistorical{year}.htm",
-            hist_dir / f"{year}.html",
-        )
-        all_minutes_dates.update(re.findall(r"fomcminutes(\d{8})\.htm", html))
+    cal_html = fetch(CALENDAR_URL, args.cache_dir / "index" / "fomccalendars.html")
+    for entry in parse_calendar_page(cal_html, CALENDAR_URL):
+        meetings.setdefault(entry["date"], entry)
 
-    # current-era years (recent, not yet moved to the fomchistorical archive)
-    cal_html = fetch(
-        "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        args.cache_dir / "fomccalendars.html",
-    )
-    all_minutes_dates.update(re.findall(r"fomcminutes(\d{8})\.htm", cal_html))
+    scheduled_all_time = sorted(meetings)
+    eligible = [d for d in scheduled_all_time if d >= POOL_START]
 
-    scheduled = []
-    emergency_found = []
-    for date in sorted(all_minutes_dates):
-        if date in KNOWN_EMERGENCY_DATES:
-            emergency_found.append(date)
-            continue
-        html = fetch(
-            f"https://www.federalreserve.gov/monetarypolicy/fomcminutes{date}.htm",
-            minutes_dir / f"{date}.html",
-        )
-        if is_emergency_meeting(html):
-            emergency_found.append(date)
-            continue
-        scheduled.append(date)
-
-    eligible = sorted(d for d in scheduled if d >= POOL_START)
-
-    extraction: dict[str, dict] = {}
+    manifest: dict[str, dict] = {}
     for date in eligible:
-        html, suffix = resolve_statement_url(date, statements_dir)
-        extraction[date] = extract_action(html)
-        extraction[date]["resolved_suffix"] = suffix
+        entry = meetings[date]
+        cache_path = args.cache_dir / "statements" / f"{date}.html"
+        html = fetch(entry["statement_url"], cache_path)
+        text = strip_html(html)
+        title_match = re.search(r"<title>(.*?)</title>", html, re.S)
+        title = title_match.group(1) if title_match else ""
+        if "FOMC statement" not in title:
+            raise ValueError(
+                f"structurally-derived statement URL for {date} ({entry['statement_url']}) "
+                f"does not resolve to an FOMC statement (title: {title!r}) -- treat as extraction failure, "
+                "do not fall back to guessing another suffix"
+            )
+        action = extract_action(text)
+        manifest[date] = {
+            "date": date,
+            "statement_url": entry["statement_url"],
+            "source_index_url": entry["source_index_url"],
+            "official_heading": entry["heading"],
+            "statement_text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "action_verb": action["verb"],
+            "action_range": action["range"],
+            "extraction_method": action["method"],
+        }
 
     raw_pairs = list(zip(eligible, eligible[1:]))
-    reject_reasons = {"non_adjacent_gap": 0, "next_is_pool_start_establish": 0, "extraction_failed": 0}
+    reject_reasons = {"next_is_pool_start_establish": 0, "extraction_failed": 0}
     labeled = []
     for prev, nxt in raw_pairs:
-        if (prev, nxt) in KNOWN_NON_ADJACENT_PAIRS:
-            reject_reasons["non_adjacent_gap"] += 1
-            continue
-        verb = extraction[nxt]["verb"]
+        verb = manifest[nxt]["action_verb"]
         if verb is None:
             reject_reasons["extraction_failed"] += 1
             continue
@@ -206,16 +224,14 @@ def main() -> int:
             continue
         labeled.append({"previous": prev, "next": nxt, "verb": verb, "change": int(verb in ("raise", "lower"))})
 
-    # secondary consistency audit: previous vs next announced range
     consistency_mismatches = []
     for unit in labeled:
-        prev_range = normalize_range(extraction[unit["previous"]]["range"])
-        next_range = normalize_range(extraction[unit["next"]]["range"])
+        prev_range = normalize_range(manifest[unit["previous"]]["action_range"])
+        next_range = normalize_range(manifest[unit["next"]]["action_range"])
         expected_same = unit["change"] == 0
         if (prev_range == next_range) != expected_same:
             consistency_mismatches.append({**unit, "prev_range": prev_range, "next_range": next_range})
 
-    # meeting-disjoint maximum: scarcer class first
     def hash_order(units):
         return sorted(units, key=lambda u: hashlib.sha256(f"20260829:{u['next']}".encode()).hexdigest())
 
@@ -239,14 +255,12 @@ def main() -> int:
 
     method_inventory: dict[str, int] = {}
     verb_inventory: dict[str, int] = {}
-    for record in extraction.values():
-        method_inventory[record["method"]] = method_inventory.get(record["method"], 0) + 1
-        verb_inventory[str(record["verb"])] = verb_inventory.get(str(record["verb"]), 0) + 1
+    for record in manifest.values():
+        method_inventory[record["extraction_method"]] = method_inventory.get(record["extraction_method"], 0) + 1
+        verb_inventory[str(record["action_verb"])] = verb_inventory.get(str(record["action_verb"]), 0) + 1
 
     report = {
-        "scheduled_meetings_total_all_time": len(scheduled) + len(emergency_found),
-        "emergency_or_special_meetings_excluded": sorted(emergency_found),
-        "scheduled_meetings_confirmed": len(scheduled),
+        "scheduled_meetings_confirmed_all_time": len(scheduled_all_time),
         "eligible_meetings_pool_start_onward": len(eligible),
         "raw_adjacent_pairs": len(raw_pairs),
         "reject_reasons": reject_reasons,
@@ -260,10 +274,21 @@ def main() -> int:
         "year_distribution": year_counts,
         "action_verb_inventory": verb_inventory,
         "extraction_method_inventory": method_inventory,
+        "derivation_method": "structural: scheduled iff official archive heading is 'Meeting - {year}' "
+                              "with no parenthetical; statement URL taken verbatim from that panel's own "
+                              "'Statement' link, never guessed",
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    args.manifest_out.parent.mkdir(parents=True, exist_ok=True)
+    args.manifest_out.write_text(
+        json.dumps({"manifest_version": 1, "pool_start": POOL_START, "meetings": manifest}, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
     print(json.dumps(report, indent=2, sort_keys=True))
+    print(f"\nwrote pinned source manifest ({len(manifest)} meetings) to {args.manifest_out}")
     return 0
 
 

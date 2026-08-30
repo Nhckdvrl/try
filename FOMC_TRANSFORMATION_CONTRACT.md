@@ -352,10 +352,22 @@ removes the sequential-adjacency overlap disclosed in Threat 4 entirely
 for the pilot/confirmatory samples, rather than merely "preferring a
 spread" as v0.1 said. Implementation: bucket eligible adjacent pairs by
 `realized_change` (change / hold), fix a deterministic hash order within
-each bucket (same scheme as BTF-3's `deterministic_candidate_queue`), and
-walk each bucket greedily in that order, accepting a candidate only if
-neither its previous nor its next meeting already appears in an already-
-accepted unit (in either role, from either bucket).
+each bucket (same scheme as BTF-3's `deterministic_candidate_queue`).
+
+**Bucket processing order is frozen as CHANGE-first, not left as a free
+choice at queue-build time.** The `CHANGE` bucket is walked to completion
+first, reserving its selected units' meeting endpoints; only then is the
+`HOLD` bucket walked, skipping any candidate whose previous or next
+meeting is already reserved (by either bucket). This is not a new rule —
+it is the same scarcer-class-first order the pool census itself used to
+compute the achievable disjoint maximum — but it must be named explicitly
+here as the queue-construction rule too, since `CHANGE` is the scarce
+class (29 raw candidates vs. `HOLD`'s 111) and processing `HOLD` first
+would silently shrink the achievable disjoint `CHANGE` count below what
+the census actually measured. Reject-then-continue during human review
+never changes this order: a `CHANGE` candidate that is rejected is simply
+skipped in `CHANGE`'s own hash order, never causing a reshuffle into or
+out of `HOLD`'s processing.
 
 ### Sample size (determined by the pool census, not assumed)
 
@@ -415,63 +427,92 @@ then the deterministic candidate queue.
 
 ## Full pool census (2026-08-30, `scripts/fomc_pool_census.py`, `results/fomc_pool_census.json`)
 
-Read-only; no candidate queue was built from this. Enumerated official
-scheduled-meeting minutes links across `federalreserve.gov/monetarypolicy/
-fomchistorical{2008..2020}.htm` (per-year historical archive) and
-`fomccalendars.htm` (2021–present), fetched every corresponding statement,
-and applied the frozen reject rules above.
+Read-only; no candidate queue was built from this. **v2 methodology,
+replacing an initial v1 run that violated this contract's own rules on
+two points** (found by the user's own review of the code before any
+candidate queue was built, corrected the same day):
 
-- **148 candidate meetings** found via minutes links. **1 excluded as a
-  confirmed emergency/special meeting**: `2020-03-15`, a Sunday
-  videoconference session — distinguished mechanically from every one of
-  the other 147 by its own minutes page, which is the only one to mention
-  "Sunday"/"Saturday" or "special meeting"/"intermeeting"/"emergency" in
-  its opening description (every regular meeting's minutes describe a
-  weekday session with no such wording). **147 confirmed scheduled
-  meetings.**
-- **141 meetings fall in the eligible pool** (`2008-12-16` onward, the
-  target-range era).
-- **140 raw adjacent pairs**; **1 excluded for non-adjacency**: the pair
-  spanning the excluded `2020-03-15` session (`2020-01-29` →
-  `2020-04-29`) — the regularly scheduled mid-March 2020 meeting's
-  business was absorbed into the excluded emergency session, so these two
-  scheduled meetings are not genuinely calendar-adjacent even though nothing
-  else sits between them in a plain sorted list. **139 eligible labeled
-  units** remain (`2008-12-16` itself is excluded from ever being a "next"
-  meeting by construction, since it establishes the range rather than
-  raising/lowering/maintaining one — this never actually triggered, since
-  no pair ever needed it as "next").
+- v1 resolved statement URLs by trying suffix `a`, then `b`, then `c`,
+  verifying by `<title>` — this is exactly the "guessed suffix" pattern
+  the contract explicitly prohibits, even though it happened to find the
+  same right answer as v2 below (`monetary20081216b.htm`).
+- v1 inferred emergency-meeting status from a text heuristic on each
+  minutes page's opening wording, plus two hardcoded exception constants
+  (`KNOWN_EMERGENCY_DATES`, `KNOWN_NON_ADJACENT_PAIRS`) — not the
+  "derive from the official calendar" rule the contract actually
+  requires.
+
+**v2 derives everything structurally from the Fed's own archive page
+markup, with no guessing and no hardcoded exceptions.** Direct inspection
+of `fomchistorical2008.htm` and `fomchistorical2020.htm` found that each
+meeting/action gets its own labeled panel, and the Fed's own heading text
+already distinguishes the type: `"January 27-28 Meeting - 2009"` (a
+genuine scheduled meeting) vs. `"January 16 Conference Call - 2009"`,
+`"March 15 (unscheduled) Meeting - 2020"`, `"March 17-18 (cancelled)
+Meeting - 2020"`, `"March 19 (notation vote) - 2020"` — none of which
+contain the bare pattern `"... Meeting - {year}"` with nothing else in
+parentheses. **A panel is scheduled if and only if its own official
+heading matches that bare pattern** — this single structural rule
+correctly separates all 4 non-scheduled action types without reading any
+statement or minutes text. Each scheduled panel also carries its own
+explicit `"Statement"` link (`fomccalendars.htm`, 2021–present, uses an
+equivalent `"Statement:"`-labeled row instead) — that link's `href` is
+used verbatim as the statement URL, never guessed. Fetching it also
+incidentally found the March 2020 cancellation's mechanism directly:
+because the panel is officially labeled `"(cancelled)"`, it is excluded
+from the scheduled sequence by the same one rule, and `2020-01-29` and
+`2020-04-29` become genuinely adjacent in the resulting scheduled-only
+sequence — no separate non-adjacency exception is needed.
+
+- **148 scheduled meetings, all time** — the same total v1 found, now via
+  structural derivation instead of a minutes-link heuristic plus a
+  hardcoded exclusion. `2020-03-15` never enters this list at all (its
+  panel heading says `"(unscheduled) Meeting - 2020"`).
+- **141 meetings in the eligible pool** (`2008-12-16` onward).
+- **140 raw adjacent pairs** — one more than v1's 139, because
+  `2020-01-29 → 2020-04-29` is correctly *not* excluded this time (see
+  above): under the contract's own "adjacency on the official scheduled
+  sequence" definition, it is adjacent. **140 labeled eligible units.**
+  `2008-12-16` itself never serves as a "next" meeting (it establishes
+  the range rather than raising/lowering/maintaining one), consistent
+  with v1.
+- **A real, honestly-flagged consequence of including that pair**: its
+  secondary consistency check disagrees (previous statement's own range,
+  1-1/2 to 1-3/4 percent, vs. the level implied by the next statement's
+  own "maintain" action, 0 to 1/4 percent) — because two large
+  intermeeting emergency cuts happened between them. Per the frozen rule,
+  this is flagged for review, not relabeled and not excluded: the next
+  meeting's own statement genuinely says "maintain," so `HOLD` is the
+  correct label for what that meeting itself did, independent of how the
+  broader context changed around it.
 - **Action-verb wording inventory**: `raise` (20), `lower` (9), `maintain`
-  (78), `keep` (33), `establish` (1, pool-start only). Six distinct
-  *extraction methods* were needed to catch every real statement's
-  phrasing (`decided to raise/lower/maintain/keep the target range...`
-  directly: 106; `will maintain/keep the target range...`: 18; `reaffirmed
-  its expectation/view that the current target range...`: 11 combined;
-  `maintain the current X percent target range...`: 5; `establish`: 1) —
-  concretely confirming the reject rule's own premise that a single fixed
-  regex is not safe to assume without a documented inventory of the
-  wording actually used across eras.
-- **`CHANGE = 29`, `HOLD = 110`** — confirms the anticipated class
-  imbalance (Threat 6): 2009–2014 (ZIRP) and 2020–2021 are entirely
-  `HOLD`; `CHANGE` concentrates in 2015–2019 (gradual normalization) and
-  2022–2025 (the hiking/cutting cycle), often in consecutive runs.
-- **Secondary consistency audit: zero mismatches** across all 139 units —
-  every pair's previous/next announced range agrees exactly with the
-  verb-based label once the one confirmed non-adjacent gap is excluded.
-  This independently validates both the extraction regexes and the
-  single non-adjacency exclusion (no other hidden intermeeting
-  contamination exists in the eligible pool).
-- **Meeting-disjoint maximum (scarcer class — `CHANGE` — processed
-  first): 21 disjoint `CHANGE` units, and 41 disjoint `HOLD` units
-  remain available after `CHANGE`'s meetings are reserved.** Because
-  `CHANGE` events cluster in consecutive runs (e.g. 7 hikes in a row
-  during 2022), many raw `CHANGE` candidates share an endpoint meeting
-  with their neighbor and cannot both survive the disjoint constraint —
-  21 of 29 raw `CHANGE` candidates survive, comfortably more than needed.
+  (78), `keep` (33), `establish` (1, pool-start only) — six extraction
+  methods needed (direct `decided to raise/lower/maintain/keep...`: 106;
+  `will maintain/keep...`: 18; `reaffirmed its expectation/view that the
+  current...`: 11 combined; `maintain the current X percent...`: 5;
+  `establish`: 1) — confirming the reject rule's own premise that a
+  single fixed regex is not safe to assume across eras.
+- **`CHANGE = 29`, `HOLD = 111`** — confirms the anticipated class
+  imbalance (Threat 6): 2009–2014 (ZIRP) and 2021 are entirely `HOLD`;
+  `CHANGE` concentrates in 2015–2019 and 2022–2025, often in consecutive
+  runs.
+- **Secondary consistency audit: 1 flagged mismatch out of 140 units**
+  (described above — the 2020 intermeeting-cuts pair), zero unexplained
+  mismatches.
+- **Meeting-disjoint maximum (`CHANGE` processed first, per the now-explicit
+  CHANGE-first rule below): 21 disjoint `CHANGE` units; 41 disjoint `HOLD`
+  units remain available afterward.** Identical to v1's figure — the one
+  extra `HOLD` unit did not change the achievable disjoint maximum.
+- **Pinned source manifest written to `data/external/fomc_source_manifest_v1.json`**
+  (141 meetings): date, exact statement URL (verbatim from its official
+  archive link), the specific archive page URL that link came from,
+  statement-text SHA-256, and the extracted action/range/method — so the
+  eventual 24-unit prompt set can be exactly reconstructed even if
+  federalreserve.gov's pages change later.
 
-**Result: the disjoint pool supports 21 CHANGE + 21+ HOLD — well above the
-12+12 threshold.** Per the Scope section above, **the pilot is fixed at
-12+12 (N=24), no further discussion of 8+8.**
+**Result unchanged in substance: the disjoint pool supports 21 CHANGE +
+41 HOLD — well above the 12+12 threshold.** Per the Scope section above,
+**the pilot is fixed at 12+12 (N=24), no further discussion of 8+8.**
 
 ## Freeze checklist
 
@@ -487,13 +528,16 @@ and applied the frozen reject rules above.
 - [x] reject rules
 - [x] known threats, including the sequential-adjacency limitation specific
       to this source, and the salience-exclusion door closed in v0.1a
-- [x] meeting-disjoint sampling rule frozen (v0.1a)
+- [x] meeting-disjoint sampling rule frozen (v0.1a), CHANGE-first bucket
+      order made explicit (v0.1a census-fix pass)
 - [x] pilot qualification thresholds, source-qualification rule, and
       bootstrap cluster choice frozen (v0.1a)
-- [x] full pool census (scheduled meetings, eligible pairs, CHANGE/HOLD
-      counts, reject-reason counts, year distribution, disjoint-pool max
-      per class, action-verb wording inventory, range/verb consistency
-      check) — `results/fomc_pool_census.json`
+- [x] full pool census derived structurally from official archive markup,
+      no guessed suffixes, no hardcoded exceptions (v2, superseding an
+      initial v1 run that violated both rules) — `results/fomc_pool_census.json`
+- [x] pinned source manifest (date, exact statement URL, source archive
+      page, statement-text SHA-256, extracted action/range/method) for
+      all 141 eligible meetings — `data/external/fomc_source_manifest_v1.json`
 - [x] sample size fixed from the census: **12+12 (N=24)**, confirmed
       supportable (disjoint pool: 21 CHANGE, 41 HOLD available)
 - [ ] deterministic candidate-queue tooling for the pilot

@@ -7,14 +7,21 @@
     "raise": 20
   },
   "change_count": 29,
-  "consistency_mismatches": [],
+  "consistency_mismatches": [
+    {
+      "change": 0,
+      "next": "20200429",
+      "next_range": "0 to 1/4",
+      "prev_range": "1-1/2 to 1-3/4",
+      "previous": "20200129",
+      "verb": "maintain"
+    }
+  ],
+  "derivation_method": "structural: scheduled iff official archive heading is 'Meeting - {year}' with no parenthetical; statement URL taken verbatim from that panel's own 'Statement' link, never guessed",
   "disjoint_balanced_count": 21,
   "disjoint_max_change": 21,
   "disjoint_max_hold_after_change_reserved": 41,
   "eligible_meetings_pool_start_onward": 141,
-  "emergency_or_special_meetings_excluded": [
-    "20200315"
-  ],
   "extraction_method_inventory": {
     "establish": 1,
     "maintain-current": 5,
@@ -23,16 +30,14 @@
     "verb": 106,
     "will-maintain": 18
   },
-  "hold_count": 110,
-  "labeled_eligible_units": 139,
+  "hold_count": 111,
+  "labeled_eligible_units": 140,
   "raw_adjacent_pairs": 140,
   "reject_reasons": {
     "extraction_failed": 0,
-    "next_is_pool_start_establish": 0,
-    "non_adjacent_gap": 1
+    "next_is_pool_start_establish": 0
   },
-  "scheduled_meetings_confirmed": 147,
-  "scheduled_meetings_total_all_time": 148,
+  "scheduled_meetings_confirmed_all_time": 148,
   "year_distribution": {
     "2009": {
       "change": 0,
@@ -80,7 +85,7 @@
     },
     "2020": {
       "change": 0,
-      "hold": 6
+      "hold": 7
     },
     "2021": {
       "change": 0,
