@@ -1,0 +1,341 @@
+{
+  "audit_id": "btf3-factual-audit-v1",
+  "changes_primary_membership": false,
+  "per_bucket": 32,
+  "primary_artifact": {
+    "path": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+    "sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+    "units": 256
+  },
+  "sample": {
+    "NO": [
+      {
+        "audit_key": "00d489c7501d2ba6c7e8d5f280f102a9e077492c864e1fdc01a94c081c56abc6",
+        "position": 1,
+        "question_id": "d2c5fcaa-b273-5787-9846-32c25c11f11b"
+      },
+      {
+        "audit_key": "016613fc5412fbdbc459e5155301071b9413a9527c959b0896c24f86e7d3633f",
+        "position": 2,
+        "question_id": "987d2afa-d57c-55fd-aba5-1121bac875c0"
+      },
+      {
+        "audit_key": "020e3b1fc03de8d7466fa063973b76c2c0aee6ae4d16346d737371cefaaacccd",
+        "position": 3,
+        "question_id": "1059ecce-7633-59cc-9bab-df341bfe35b6"
+      },
+      {
+        "audit_key": "02cff74e70b56317f7f5388483179495a47dbde08a2bfb57e5b5a585825d6437",
+        "position": 4,
+        "question_id": "752483bd-c61e-58a0-9fd5-6033eceea25f"
+      },
+      {
+        "audit_key": "040eaf976d114e0648cdf9a7974bf55411c2929a20e1917a132f32ed4284c7c3",
+        "position": 5,
+        "question_id": "2d86237a-cccc-5df6-9d54-5af3e37a7de8"
+      },
+      {
+        "audit_key": "04208daa9d8068439e70766fe37e56cf5231d1b0a8e6e27789f8bb22dee0169b",
+        "position": 6,
+        "question_id": "82a5ef9e-4c98-5f0e-b972-dd99c657be88"
+      },
+      {
+        "audit_key": "05cafd9a41f8e771f680ddd911836f183133e7b7ca81ed61885b26f5e7f7dbeb",
+        "position": 7,
+        "question_id": "1fb9b683-64a4-5c17-8ab3-ff891d17af08"
+      },
+      {
+        "audit_key": "08e668957848ad5a9734e26a01337441d1c2b7942a06d0dbb8d8e41f16f8c6de",
+        "position": 8,
+        "question_id": "a60885bc-7464-5844-abe0-7a49c0c4d6c4"
+      },
+      {
+        "audit_key": "0ae42053c19682d97207f7377d4d1cb65c37858e0e8db1388a5c689d833f2eae",
+        "position": 9,
+        "question_id": "1aae92e0-bdac-565e-bfed-2ed0be71c16d"
+      },
+      {
+        "audit_key": "0d7a8c8ebaadc7150d5845c340db019049db5035bf14fbd3632fc6e0cb2c41f8",
+        "position": 10,
+        "question_id": "97cec3a5-eaeb-5fb0-9ef4-20df60713baa"
+      },
+      {
+        "audit_key": "10f9e67beb1630dbdb9aae6d2b48769b713c4adf0b24b25a80b7accc92d41d2b",
+        "position": 11,
+        "question_id": "4402e54f-60b1-59e6-a3de-d596b5319933"
+      },
+      {
+        "audit_key": "16d11d6a7e07ddcb104d6b8673e620bba0cae45b2f79e34a6b3342157b69c407",
+        "position": 12,
+        "question_id": "c291b187-a2de-5dfc-af3b-6d61a5c703f8"
+      },
+      {
+        "audit_key": "17410a5a682d63190a13379e6984cc20112bd014d5505d45a7afe555899d28e7",
+        "position": 13,
+        "question_id": "2366975e-e87b-5f7c-8483-d27184f9efe4"
+      },
+      {
+        "audit_key": "189c8bf0d12649a2c56fd7e05d822667b5457f71c4a82b6ae46d9bf80de6f415",
+        "position": 14,
+        "question_id": "a0fb8e02-15ac-5a1d-aa1d-ada77a5268e4"
+      },
+      {
+        "audit_key": "1bb0fd2823e972ac9ea93e7b658988600798d62d4b7aa59d23e1a40bc8ed0c87",
+        "position": 15,
+        "question_id": "bc18b8dc-6ab4-5cc2-98a1-8c73306d10a3"
+      },
+      {
+        "audit_key": "1e01de414b6ebfb5e28df85966e1caf71f9f3158f3a86a9ec39eb8fb939c8b1d",
+        "position": 16,
+        "question_id": "5b13d31d-7672-5d4e-838b-264df5817a7a"
+      },
+      {
+        "audit_key": "1e544161faf0526d9ebf3dd1ddc054994e3e505f58331b3e9af3c4ce3c1b8840",
+        "position": 17,
+        "question_id": "f0c57160-d1d9-552b-9d20-41ea4b4902d0"
+      },
+      {
+        "audit_key": "2181b6d03751788e292c3a5f31aac73931a6e8171d084b3afdf584d43ff0d331",
+        "position": 18,
+        "question_id": "b37ed4ff-8c07-5ba3-a337-fb226eda2710"
+      },
+      {
+        "audit_key": "21f5e5c031ef54d0ccc98faa587a59bee610d5960b79521437443d71375914f8",
+        "position": 19,
+        "question_id": "17e0010e-2915-5ccc-8f2e-370b5620a78f"
+      },
+      {
+        "audit_key": "24552a9cd256c9bf7619d4183d084e1be5ac78bb7bab0d7459cab744bd5dfb49",
+        "position": 20,
+        "question_id": "83077271-dd90-5017-8107-0d3fba6b8872"
+      },
+      {
+        "audit_key": "27837f8ccbd63d1f762e5e8b9b4a09c5ffcab88b02e6616257e7f1208387b9e9",
+        "position": 21,
+        "question_id": "0e804a1b-4785-5fce-8f74-048fe941ac52"
+      },
+      {
+        "audit_key": "2817ebc0b18b4df071a87760933f00f1de618f5c70e4922228e11539dee61e06",
+        "position": 22,
+        "question_id": "ee5e37c7-f82f-5d49-95b2-86ad466c9d50"
+      },
+      {
+        "audit_key": "2b790272fd2215de0a830753c928259885dd93c0bd382d423728e016dae480d8",
+        "position": 23,
+        "question_id": "467952fd-881f-5403-ad3f-a9d6c89e07ee"
+      },
+      {
+        "audit_key": "2f3bd95053a762d0938a36b8a0b7928ec5d469b8d4646708d48c1a47d3ba0e21",
+        "position": 24,
+        "question_id": "6c9e6111-3b05-5c07-ab7c-4ef8b079d788"
+      },
+      {
+        "audit_key": "2f6939721be680102b9823555ac3b246ef45d618b4bc086a550092a62435f730",
+        "position": 25,
+        "question_id": "49907cf8-ca9f-505f-9a20-e0471c9b2493"
+      },
+      {
+        "audit_key": "34b4a2cce54701b55545649bd594f06d1e467c4df898206be2187fbcc0274386",
+        "position": 26,
+        "question_id": "1d1d4a2b-b89a-5008-85e4-4fd4c53176c0"
+      },
+      {
+        "audit_key": "353454a3f8e68de42efcc51e2ffc58b4f5b049ae02ee141b33cafbefe37e8eb3",
+        "position": 27,
+        "question_id": "e0385127-5ec1-592f-8846-2c8b36ffe68f"
+      },
+      {
+        "audit_key": "3a10978064c3651e123e2ea764d4abaada823f59dff75fb5d4a56e90704343e2",
+        "position": 28,
+        "question_id": "f96455a1-a3a2-5180-a110-d9c931bd3934"
+      },
+      {
+        "audit_key": "415da309bfb0c9870a970113a767b4061d6e6c0df177ebd3b1c7ac7c72ad215d",
+        "position": 29,
+        "question_id": "1f4fcd81-59ce-5b8f-a614-453f9d871d80"
+      },
+      {
+        "audit_key": "419a8c927e203bb40679421562312789c808cc70aaa052d4134f477d236fd3c8",
+        "position": 30,
+        "question_id": "65ab10c3-bb24-5e73-873f-da584796c42e"
+      },
+      {
+        "audit_key": "465205534e7ca37cabd8f7a0f0c11aafa395b5998ec65397ea6cc9e42be7ae4c",
+        "position": 31,
+        "question_id": "a51291e6-e7a6-551f-ae98-84c0fd9ba7ca"
+      },
+      {
+        "audit_key": "470778b00f390208d5c8c3fcd80f6332891c9b71237af5ab8a40a4680f49a40e",
+        "position": 32,
+        "question_id": "826dafc3-01da-575f-97af-e3c07a999d0f"
+      }
+    ],
+    "YES": [
+      {
+        "audit_key": "04198b4c3f14e76cf49d77ddd008019b1e4e8fc1aed1b3f3b4a06a91bd8ee566",
+        "position": 1,
+        "question_id": "513056b4-1fab-57a0-817f-480e1d55b703"
+      },
+      {
+        "audit_key": "09b1fca1834b575cb960cbf90d6c84cda3ba5ffd5eda4187545034a18f2bf657",
+        "position": 2,
+        "question_id": "24fd6da5-881c-52a4-8ba1-072443ea34a3"
+      },
+      {
+        "audit_key": "0c1243d914d466a5901bec2055e191eb607303f72f00795a026d419b4d695cbd",
+        "position": 3,
+        "question_id": "7d4620a7-e855-5c4a-86af-3856e7176d02"
+      },
+      {
+        "audit_key": "0d59c92012d4f036992781adef7a72e0628c59f97720d0c937961ef80583cbd1",
+        "position": 4,
+        "question_id": "741b4bed-7502-5cd2-9cbe-949fbc70f857"
+      },
+      {
+        "audit_key": "0ffca5c8f3bd77ae07ec01e79b10451d89da8e5ac2f85cba73fcfc072308008c",
+        "position": 5,
+        "question_id": "66bb32a9-f09d-5c2e-80e8-73da6d84ac4c"
+      },
+      {
+        "audit_key": "1051c2a654f9002e9b99ffe77274e29aa31c6d0f0f0654cf7490032e0068cb31",
+        "position": 6,
+        "question_id": "ec471fcf-d34d-5284-939d-d94961d6436d"
+      },
+      {
+        "audit_key": "123bf8dcbc40c4fdf85b59c445eb4a711f2308efc34cebd6f53424d1003140bc",
+        "position": 7,
+        "question_id": "e6bf3057-e9c0-58b7-b18d-b737760937a9"
+      },
+      {
+        "audit_key": "1339a38bc9defd34a36a4dd23c48327404db3ce48418f005ec305019440b5929",
+        "position": 8,
+        "question_id": "54b20761-0b2d-50b0-b7d6-7242e6c9cbda"
+      },
+      {
+        "audit_key": "1cd107e18f0fbd969cf20a46444081ff90eb3752826162490c88469612bbc9a7",
+        "position": 9,
+        "question_id": "ce975c54-f33a-55c6-a098-cc572538baf7"
+      },
+      {
+        "audit_key": "1d046283b85e8e7dd9f7494488fd832a326d489c136931c0d6297572e9a334a8",
+        "position": 10,
+        "question_id": "d345aa2e-74af-55d1-9b2e-e62e78291dd4"
+      },
+      {
+        "audit_key": "1e28449548f2a8a49f9bce8d6c6c109b14c803fb1522bf2362aa0f34c80d2b03",
+        "position": 11,
+        "question_id": "a605b42c-6c3a-5d87-bae3-7b8b37a42bc8"
+      },
+      {
+        "audit_key": "218cce7bfbc6bba506a959a900f5d0f0106ab7e7f38bc1a040c66c8c3a96a1c8",
+        "position": 12,
+        "question_id": "82f810af-002d-5361-bec4-2546bb30b9df"
+      },
+      {
+        "audit_key": "2398b87b903b70d0ff4d430cd16c43e2d328f8009caef2e56300fd0d85780857",
+        "position": 13,
+        "question_id": "ee51ff77-017d-5b54-8523-09a424b7bee0"
+      },
+      {
+        "audit_key": "240d4df9ce26e81645c23ef0521a327281ca14a3ed12a9bf10b4045224b9c8c0",
+        "position": 14,
+        "question_id": "ac8fbd78-aafd-573c-bddb-0b5f251d9fb4"
+      },
+      {
+        "audit_key": "24d0c9393e7b5d4d9411effd3d39cdb4946e04eecf1c5997ad08ecabc8914577",
+        "position": 15,
+        "question_id": "630b345d-eb03-534c-a3e5-5de067aaed7b"
+      },
+      {
+        "audit_key": "2599172b0880e7cce6929c8ed5a98d1e81ab4daf6085d5ac1eff4dd1c277756f",
+        "position": 16,
+        "question_id": "e9efc313-b658-5f08-9131-d6ebdeba1e68"
+      },
+      {
+        "audit_key": "25f580127c12d519327e6748d25627a88d57ea0f2e48652924c1e41d7dc2d604",
+        "position": 17,
+        "question_id": "f8b8e64a-1462-56e8-8e51-2378eaca309f"
+      },
+      {
+        "audit_key": "264f8b182a763ec5f19c142e4c24bb53ad3fa30562f60868d4f9498765ccf246",
+        "position": 18,
+        "question_id": "769d43d1-f7c7-5f51-bb05-562a4222c358"
+      },
+      {
+        "audit_key": "287f83eb082022ad23175408c30e463f1bda99f4ae6bb0bf1d6e83765bada9d1",
+        "position": 19,
+        "question_id": "9e807f3f-c7c7-515d-895a-a18fbb170141"
+      },
+      {
+        "audit_key": "2a4753a13d1197c9ba0c019d564d0cd4f56176acbb06acf7333962550e79d2b9",
+        "position": 20,
+        "question_id": "e35b83e5-edc5-5778-9c3a-7ac64e877a6f"
+      },
+      {
+        "audit_key": "2aa8dfcada042a9d634700e9105a0af17253bb4116eca68308de4e8f3b7795c9",
+        "position": 21,
+        "question_id": "fe39b56b-8133-5518-918a-09f312b235df"
+      },
+      {
+        "audit_key": "2c777c2c74386a7a8e17e2914020476cc760b20ba5c81ba7e4e20406d22722e6",
+        "position": 22,
+        "question_id": "96632c8c-1bdd-5deb-9f65-deab719ac39b"
+      },
+      {
+        "audit_key": "2d2e7a369e3f405868350e61e378ee7bdba2aa97e00f1faeb83633b3ce90bf6b",
+        "position": 23,
+        "question_id": "3f5d8fa9-7140-5215-b8b9-b71c501c738d"
+      },
+      {
+        "audit_key": "3034312084659e2bb780cdc5155a6dd834b4122c070f904e88580c561a98552a",
+        "position": 24,
+        "question_id": "72178d56-46a3-5048-a419-1a9d38fdba05"
+      },
+      {
+        "audit_key": "30d5f0fd749f861ec71d096dbad5e196cebcedb6a5da146b6842f8d03efbe330",
+        "position": 25,
+        "question_id": "614badaa-58d1-51b1-a5a1-9faa933aa46d"
+      },
+      {
+        "audit_key": "3252e905c19bb24a6005c21091b53bdee155202e2098943ab9e7f47cda9e38ab",
+        "position": 26,
+        "question_id": "b5a5f3eb-c6ff-53b8-af90-165b7a6edd91"
+      },
+      {
+        "audit_key": "32e9af6f189fb2efcf2b01b427b924396f570c0f77d9605ff402a9a735b4272d",
+        "position": 27,
+        "question_id": "d41b3f25-a551-57fd-a6f6-4a0c91bd91f7"
+      },
+      {
+        "audit_key": "32f1eb8e1328669b74a1c1defc247ad6b9fc73b3909f6223e0e430cf895508bc",
+        "position": 28,
+        "question_id": "a1ec0332-9728-5b5b-9120-43f5f7c13a43"
+      },
+      {
+        "audit_key": "355d47923efbc0265570fe75edd4ec224fe3d985b10250cf5e201a6a2567ebe9",
+        "position": 29,
+        "question_id": "a653ccb0-0617-5d42-b6c1-5d05e8b8fbb9"
+      },
+      {
+        "audit_key": "365475488ce24d1e7b8c1f109d3cffbb67c85093e8465cd547e9cd8661e1b0c1",
+        "position": 30,
+        "question_id": "81d4c81e-bbd1-5da2-bd1a-d4f7677ea272"
+      },
+      {
+        "audit_key": "37eb3ce60c7481dc3fb3d1ae6f8214ab5198f598dc329eabe34db6a8a20a1aca",
+        "position": 31,
+        "question_id": "bd90f010-d501-5c54-a6a0-f4ed25ba1757"
+      },
+      {
+        "audit_key": "386d0a03a2f2b4a53e9754c1356b24c3f9caef5f8e6dce3145fe1079e4ee0a01",
+        "position": 32,
+        "question_id": "555d2be7-6581-5345-9052-655b8c898df0"
+      }
+    ]
+  },
+  "selection_rule": "SHA256(\"btf3-factual-audit-v1:\" + question_id) ascending, first N per realized-outcome bucket",
+  "source": {
+    "path": "data/external/raw/btf3/btf3_binary_questions_and_forecasts.parquet",
+    "sha256": "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a"
+  }
+}
