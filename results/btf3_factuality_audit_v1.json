@@ -1,0 +1,106 @@
+{
+  "counts": {
+    "MATERIAL_ERROR": 1,
+    "PASS": 63,
+    "UNVERIFIABLE": 0
+  },
+  "decision_rule_action": "acceptable: report the audited rate; no further audit",
+  "flagged_items": [
+    {
+      "question_id": "bd90f010-d501-5c54-a6a0-f4ed25ba1757",
+      "reason": "The packet's sole qualifying release was 20 May 2026, but the question asks for a release between 5 and 19 June; the criteria silently move the start to 12 May, so the YES depends on an outcome-changing question/criteria date conflict.",
+      "verdict": "MATERIAL_ERROR"
+    }
+  ],
+  "intrusion_sesoi_points": 5.0,
+  "material_error_rate": 0.015625,
+  "material_error_rate_95_exact_ci": [
+    0.00039551251405066395,
+    0.08401032643435369
+  ],
+  "protocol": "PROTOCOL_BTF3_PACKET_FACTUALITY_AUDIT.md",
+  "reviewed": 64,
+  "sample_size": 64,
+  "sensitivity": [
+    {
+      "excluding_flagged_units": {
+        "alpha": 0.05,
+        "ci_high": 17.8,
+        "ci_low": 14.015686274509804,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 15.92156862745098,
+        "n_clusters": 255,
+        "n_observations": 255,
+        "n_resamples": 10000
+      },
+      "model_tag": "qwen35-9b",
+      "n_excluded": 1,
+      "primary_all_units": {
+        "alpha": 0.05,
+        "ci_high": 17.890625,
+        "ci_low": 14.18359375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 16.015625,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      }
+    },
+    {
+      "excluding_flagged_units": {
+        "alpha": 0.05,
+        "ci_high": 30.26771653543307,
+        "ci_low": 25.03937007874016,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 27.64566929133858,
+        "n_clusters": 254,
+        "n_observations": 254,
+        "n_resamples": 10000
+      },
+      "model_tag": "gemma3-12b",
+      "n_excluded": 1,
+      "primary_all_units": {
+        "alpha": 0.05,
+        "ci_high": 30.388235294117646,
+        "ci_low": 25.145098039215686,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 27.733333333333334,
+        "n_clusters": 255,
+        "n_observations": 255,
+        "n_resamples": 10000
+      }
+    },
+    {
+      "excluding_flagged_units": {
+        "alpha": 0.05,
+        "ci_high": 9.67850980392157,
+        "ci_low": 5.54321568627451,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 7.5863137254901964,
+        "n_clusters": 255,
+        "n_observations": 255,
+        "n_resamples": 10000
+      },
+      "model_tag": "mistral-small-24b",
+      "n_excluded": 1,
+      "primary_all_units": {
+        "alpha": 0.05,
+        "ci_high": 9.568359375,
+        "ci_low": 5.4082421875,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 7.4590234375,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      }
+    }
+  ],
+  "status": "SECONDARY \u2014 descriptive robustness; the preregistered primary estimate stands",
+  "unreviewed": []
+}

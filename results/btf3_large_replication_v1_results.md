@@ -64,10 +64,14 @@ The pooled column excludes the 8 discovery-pilot units and is descriptive only
 ## Standing caveats
 
 - The 256-unit human review was LLM-assisted and conducted without external
-  lookup, which its ledger states. The packet-factual gate is therefore audited
-  separately against real citations on a hash-fixed 64-item subsample
-  (`PROTOCOL_BTF3_PACKET_FACTUALITY_AUDIT.md`); that audit cannot and will not
-  change this sample's membership.
+  lookup, which its ledger states. That gap is now closed by a completed
+  audit against real citations on a hash-fixed 64-item subsample
+  (`results/btf3_factuality_audit_v1_results.md`): 63 PASS, 1 material error,
+  0 unverifiable (1/64, exact 95% CI [0.04%, 8.40%]), below the preregistered
+  expanded-review trigger. The single error is a question/criteria window
+  contradiction, not a fabricated event, and excluding that unit moves no
+  model's estimate materially (e.g. Qwen 16.02 → 15.92). Sample membership is
+  unchanged, as the protocol requires.
 - Most packets state the outcome explicitly, so this round on its own cannot
   distinguish evidence integration from reading a revealed label. That is what
   the verdict-redaction experiment in `PREREGISTRATION_G2_HINDSIGHT_DEPTH.md`
