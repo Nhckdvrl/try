@@ -80,6 +80,14 @@ a **dissociation** — recognition already saturated at the small end while
 enforcement keeps moving — because two capacities with different trajectories
 is direct evidence that recognition and enforcement are not the same capacity.
 
+## Naming, fixed now
+
+With 2B unavailable the experiment is named **"within-family size analysis
+across the available dense Qwen3.5 checkpoints (4B, 9B, 27B)"**, and every
+figure, table, and caption says so. It is never labelled a "Qwen3.5 2B–27B
+scaling study" or a "scaling law". The sentence *"2B was preregistered but
+unavailable in the frozen offline environment"* accompanies the first mention.
+
 ## Analysis discipline, fixed now
 
 With four size points (three if 2B is unavailable) we will **not** fit a

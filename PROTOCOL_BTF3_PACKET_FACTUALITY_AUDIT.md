@@ -94,6 +94,18 @@ defined by a post-output audit, and can never replace or override the
 preregistered primary estimate. It is reported as "excluding the `k` items
 flagged in the factuality audit, the estimate moves from X to Y."
 
+## How the result is worded (fixed now)
+
+`E ≤ 2` is an **operational gate**, not a quality certificate. Two material
+errors in 64 has an exact binomial 95% upper bound near 10.8%, so the audit can
+never establish that packets are factually sound — only that expanded review
+was not triggered.
+
+Permitted: *"The preregistered audit did not trigger expanded review (E/64
+material errors, exact binomial 95% CI [·, ·])."* Forbidden: *"factual validity
+was established"*, or any phrasing implying the audited rate bounds the true
+rate tightly. The raw counts are always printed, including a clean 0/64.
+
 ## What gets reported in the paper
 
 One short paragraph, regardless of outcome: how the 64 were drawn, who audited

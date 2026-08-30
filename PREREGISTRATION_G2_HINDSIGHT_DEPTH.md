@@ -249,3 +249,73 @@ runner still fails closed per condition before generation.
 - [x] interpretation limits written down before results exist
 - [ ] transformation freeze tag `g2-hindsight-depth-freeze-v1`
 - [ ] model runs
+
+---
+
+## Interpretation amendment — 2026-08-31, mid-generation, before any effect was computed
+
+**Timing, stated exactly.** This amendment was written while the six G2
+conditions were still generating. At the time of writing, the only G2 output
+inspected was the per-condition decision-parse rate and boundary-probe accuracy
+of the first completed condition (`pos_oob_before`: 256/256 and 256/256 for all
+three models) — quality counts, not probabilities. **No probability value, no
+per-unit effect, and no estimate of `PE_exclude`, `PE_allowed`, `HC_red`, or
+`R_red` had been computed or seen.** Every change below *narrows* what may be
+concluded; none touches a condition, an estimand, a threshold, or a gate.
+
+### A1. The licensed-frame control sits near ceiling
+
+Outcome-aligned `ALLOWED_WITH` in the large-replication round is ≈99.96
+(Gemma), ≈99.96 (Qwen), ≈93.12 (Mistral). Two of three models have almost no
+headroom in the licensed frame, so a small `PE_allowed` is partly guaranteed by
+the measurement, not only by the absence of positional sensitivity.
+
+Therefore, if `CI(PE_allowed) ⊂ [-5, +5]`, the permitted sentence is:
+
+> The matched allowed-frame control showed little positional sensitivity,
+> although interpretation is limited by near-ceiling licensed-evidence
+> performance.
+
+and **not** "position has no effect on licensed evidence integration". The
+exclusion-frame replication is the primary evidence; the allowed control is a
+supportive specificity check and is never presented as mechanism proof.
+
+### A2. EVR removes an explicit label, not the answer's inferability
+
+Even with every assertive verdict sentence gone, surviving evidence often
+entails the outcome ("Trump and Xi held a formal bilateral meeting on May 15").
+EVR therefore excludes **literal verdict copying**, not all answer disclosure.
+
+Permitted, if the leverage gate holds and `CI_lower(HC_red) > 5`:
+
+> Hindsight contamination persists after explicit YES/NO resolution verdicts
+> are removed — the effect is not reducible to copying an explicit resolution
+> label.
+
+Forbidden: any claim that models are contaminated "even when the future
+evidence does not reveal the answer". This experiment does not test that.
+
+### A3. The 237-unit subset can veto the headline
+
+The primary EVR analysis stays the full 256 (it asks what a verdict-redacted
+representation does across the natural sample). The pre-frozen 237-unit subset
+— the units where redaction actually changed something — is decisive for the
+wording:
+
+| 256 | 237 | permitted headline |
+|---|---|---|
+| significant | significant | "persists after explicit verdict removal" |
+| significant | not significant | **no such headline**; report both and say the effect is carried by units the intervention did not change |
+| not significant | — | explicit disclosure is the boundary condition, reported as such |
+
+### A4. Claims that remain unwritable until these runs are analyzed
+
+- "The position-sensitive mechanism independently replicates" — pending A.
+- "Contamination survives explicit verdict removal" — pending B *and* its
+  leverage gate *and* the 237-unit subset.
+- "The failure persists with scale" — pending the size sweep.
+
+Already established without any G2 result, and not contingent on it: the
+recognition–enforcement gap itself (3/3 models, 256 fresh units, boundary
+recognition 99.2–100%), and its independent replication across the
+pilot → confirmatory → large-replication chain.
