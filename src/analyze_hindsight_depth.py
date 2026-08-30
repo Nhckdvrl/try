@@ -193,6 +193,14 @@ def analyze_model(
 
     evr_leverage_ok = bool(r_red and r_red["mean"] >= MIN_RESPONSIVENESS)
     evr_contamination = bool(qualified and evr_leverage_ok and hc_red and hc_red["ci_low"] > INTRUSION_SESOI)
+    # Amendment A3: the pre-frozen changed-unit subset governs whether the
+    # survival headline may be written at all.
+    subset_contamination = bool(
+        evr_contamination
+        and redacted_only
+        and redacted_only["hc_red"]
+        and redacted_only["hc_red"]["ci_low"] > INTRUSION_SESOI
+    )
 
     return {
         "model_tag": model_tag,
@@ -216,6 +224,7 @@ def analyze_model(
             "redacted_subset_only": redacted_only,
             "leverage_gate_passed": evr_leverage_ok,
             "contamination_survives_redaction": evr_contamination,
+            "contamination_survives_on_changed_subset": subset_contamination,
         },
     }
 
@@ -271,6 +280,7 @@ def main() -> int:
     positional_models = sum(row["experiment_a"]["positional_replicates"] for row in results)
     allowed_equivalent_models = sum(row["experiment_a"]["allowed_control_equivalent"] for row in results)
     evr_models = sum(row["experiment_b"]["contamination_survives_redaction"] for row in results)
+    evr_subset_models = sum(row["experiment_b"]["contamination_survives_on_changed_subset"] for row in results)
 
     report = {
         "preregistration": "PREREGISTRATION_G2_HINDSIGHT_DEPTH.md",
@@ -292,7 +302,11 @@ def main() -> int:
         "experiment_a_allowed_equivalent_models": allowed_equivalent_models,
         "experiment_a_replicates": bool(panel_complete and positional_models >= MIN_MODELS),
         "experiment_b_models": evr_models,
+        "experiment_b_changed_subset_models": evr_subset_models,
         "experiment_b_contamination_survives_redaction": bool(panel_complete and evr_models >= MIN_MODELS),
+        "experiment_b_survival_headline_permitted": bool(
+            panel_complete and evr_models >= MIN_MODELS and evr_subset_models >= MIN_MODELS
+        ),
         "redacted_subset_units": len(redaction_subset) if redaction_subset else None,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -306,7 +320,9 @@ def main() -> int:
             "experiment_a_allowed_equivalent_models",
             "experiment_a_replicates",
             "experiment_b_models",
+            "experiment_b_changed_subset_models",
             "experiment_b_contamination_survives_redaction",
+            "experiment_b_survival_headline_permitted",
         )
     }, indent=2))
     return 0

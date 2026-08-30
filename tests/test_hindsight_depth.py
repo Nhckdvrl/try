@@ -175,3 +175,11 @@ def test_paired_effect_can_restrict_to_a_declared_subset():
     right = {"a": 50.0, "b": 50.0}
     directions = {"a": 1, "b": 1}
     assert g2.paired_effect(left, right, directions, units=["a"])["mean"] == pytest.approx(20.0)
+
+
+def test_analyzer_encodes_the_changed_subset_veto():
+    source = (ROOT / "src" / "analyze_hindsight_depth.py").read_text(encoding="utf-8")
+    assert "contamination_survives_on_changed_subset" in source
+    assert "experiment_b_survival_headline_permitted" in source
+    # the headline requires the panel gate on BOTH the full sample and the subset
+    assert "evr_models >= MIN_MODELS and evr_subset_models >= MIN_MODELS" in source
