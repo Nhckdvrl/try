@@ -8,7 +8,7 @@
       "extraction_method": "establish",
       "official_heading": "December 15-16 Meeting - 2008",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm",
-      "statement_text_sha256": "d89d1c211071d349a55e3bc5afff8e0f964eff8cce0d8862bc5a959a4b294ce1",
+      "statement_text_sha256": "822f7b6799621effe036feef33c6874ca9a284c4837332da007e259f14cadf7b",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20081216b.htm"
     },
     "20090128": {
@@ -18,7 +18,7 @@
       "extraction_method": "verb",
       "official_heading": "January 27-28 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "31551bbee4a74974ae11cecfd0b8bfe07d98fdf946dd8316d15ae3495a7235bb",
+      "statement_text_sha256": "a5ab9065201a54c5c3a3b145740a2b64d89df102a4d6fa710a20a7cc2e191cca",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090128a.htm"
     },
     "20090318": {
@@ -28,7 +28,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "March 17-18 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "f7ba6ee4d5b0caf2031fb527bbdaa234b0ea8b350a7494fb403a176d559f4abb",
+      "statement_text_sha256": "67c65bf8b79db174ab320f25118fe2f01d6877d98e6af26544d9dad01e7326cc",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090318a.htm"
     },
     "20090429": {
@@ -38,7 +38,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "April 28-29 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "4898f9cba5d752dfe9eb820479ea3ab49d7be75a0a2b5514c86a44536b41e5df",
+      "statement_text_sha256": "118f2f654ad6bb39df5bd10343d6795d8ce9d0995d338a3053698e26d5b512f4",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090429a.htm"
     },
     "20090624": {
@@ -48,7 +48,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "June 23-24 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "91515dc982f5671155fa2b0b8bdd6b052b7b19a7c4db2b937b2679f6eea5bfaf",
+      "statement_text_sha256": "e3329c71c5939b241319ca7b0895c5bce033c02a69606f473c6252236a3db1ac",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090624a.htm"
     },
     "20090812": {
@@ -58,7 +58,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "August 11-12 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "af34c9ca9c527c2ff0475edc723faf7f623b71386a8053e93b8bffeff06c601b",
+      "statement_text_sha256": "fa8bc659b9fb1550da93098890ebd22d8fd03d35ed8bdc7d1d1893df39ac09a0",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090812a.htm"
     },
     "20090923": {
@@ -68,7 +68,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "September 22-23 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "86a97f7844419e04dbcdddfe081e7e8d90bedb8a5ef5081512eead656ae199b7",
+      "statement_text_sha256": "12bf7126f177f5b246480763b7401bf69bd02cc20c3a3f667d7041cc130190c4",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20090923a.htm"
     },
     "20091104": {
@@ -78,7 +78,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "November 3-4 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "35703ca0cd5822092e7df071c33273a99e36d046555b985a8c5665979b022a41",
+      "statement_text_sha256": "d37d4686f9a0014d096e8dea663a6f0f155772da725fea66acaddc8caf52a4f8",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20091104a.htm"
     },
     "20091216": {
@@ -88,7 +88,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "December 15-16 Meeting - 2009",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm",
-      "statement_text_sha256": "206cb88f209fc36e809f4438bd8816eb91320a5babca42c8c5416ee5df1bd66b",
+      "statement_text_sha256": "0a7e218ecf9f8cefe81d084d1514bc970f52b6a4da222379a88c78ccaa8aca5d",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20091216a.htm"
     },
     "20100127": {
@@ -98,7 +98,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "January 26-27 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "3fa88b77f51a41c35e6df895beac74920afc97789f00f304192866b82a0d580c",
+      "statement_text_sha256": "b19ebd1cc58ffbf549827b29e729cd5c306a17107685ef312e3d5cc9f48d3159",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100127a.htm"
     },
     "20100316": {
@@ -108,7 +108,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "March 16 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "b87c475577234fa4d1a70f3f6ae65b4333d529b3023e5726cd9a36ce4afec500",
+      "statement_text_sha256": "0da4a4128ff3771adb0728712833a1b5f6bdd9d775a179836d037ad84209116a",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100316a.htm"
     },
     "20100428": {
@@ -118,7 +118,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "April 27-28 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "a3a076230076e06e27a988f44eb26ea87a70db3d1542e4f070c2bab26df6c850",
+      "statement_text_sha256": "81ac0d8b98921581a94500da4900839d65d79776a8d967835438de5f90ff98bf",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100428a.htm"
     },
     "20100623": {
@@ -128,7 +128,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "June 22-23 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "0ccf14d7aa7c9dd94117deb9e842609695d196d46f044013c696e66bcd452aab",
+      "statement_text_sha256": "fc19b88fa89dca3deb0b1cec2c4b3ade2145dd484b46761c162d0eae48cbb51c",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100623a.htm"
     },
     "20100810": {
@@ -138,7 +138,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "August 10 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "ba1264a6050ad09ec7e13928841c7b0a4bff401538baf614feeaff7b8ac23833",
+      "statement_text_sha256": "5ed5ef3073ecea349089ceee681348527a93c310f7721106c693732a075381a3",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100810a.htm"
     },
     "20100921": {
@@ -148,7 +148,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "September 21 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "c4f0a70e02f8e3f775476d2c75308e25fc7705ba188d92c37ea96837920a8898",
+      "statement_text_sha256": "5b5b7c69bd7ea7805f399ad9a763289d84e53cc8e6e278493df767b44bf7d5f2",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20100921a.htm"
     },
     "20101103": {
@@ -158,7 +158,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "November 2-3 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "a0faf54a5de4bea9fe01cf18ec7daa0822f51268232555d9401059e8cb8e0318",
+      "statement_text_sha256": "3ada7f54149518fb72d203ce7a4f6af2dda38f76279d5c164928d35ba0171079",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20101103a.htm"
     },
     "20101214": {
@@ -168,7 +168,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "December 14 Meeting - 2010",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm",
-      "statement_text_sha256": "bd1c4122ec8e8e34685bd9cad619a0a8bd1afee7b499e8436cc215f2e2b8b12f",
+      "statement_text_sha256": "42f3a647abd8d385927f341f3cc1209fa4110fff3c699491174447c8eb8fa187",
       "statement_url": "https://www.federalreserve.gov/newsevents/press/monetary/20101214a.htm"
     },
     "20110126": {
@@ -178,7 +178,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "January 25-26 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "faac8b8bfe99660a536ef89df06c45cb74e8d852a751b01c3684ecc054d6e8b1",
+      "statement_text_sha256": "7323a806b7b8b45ba2bc5211b53cab57f0457f30073d62bf7d0e0ec5c43a1ef2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110126a.htm"
     },
     "20110315": {
@@ -188,7 +188,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "March 15 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "7de520e70088f19a916827699d7c30c49c76d5d494e41e007de9c5426feaa38b",
+      "statement_text_sha256": "a18823a0adb280744bdc24624a914b2a1c373d8931d045506b89bd52d5b72bf2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110315a.htm"
     },
     "20110427": {
@@ -198,7 +198,7 @@
       "extraction_method": "will-maintain",
       "official_heading": "April 26-27 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "53f93c914570cc26cef91885c51280e11828cca186f8d3361fcee71fee4ec1d7",
+      "statement_text_sha256": "c31f191ced5ef13e7dc1d1e96ce4e008286ac96b70331f5764d26d1f807b3e44",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110427a.htm"
     },
     "20110622": {
@@ -208,7 +208,7 @@
       "extraction_method": "verb",
       "official_heading": "June 21-22 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "6979d12ada0a64e3d514c285a02d03c6369e483850e7e0c1a26cf7ae50c0759f",
+      "statement_text_sha256": "5a026f69ef40a8426e99c6c09e693cc8c4aaa115a12f2fa9a5b0b82fa84c5d11",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110622a.htm"
     },
     "20110809": {
@@ -218,7 +218,7 @@
       "extraction_method": "verb",
       "official_heading": "August 9 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "94a8ae043380af8a50073d1efd0d7e693867f94eddc720cd8e7511868bc59d12",
+      "statement_text_sha256": "57b3e2f1ca25b14c914c28cd9f9e7045113774ea4e96aa0bb77db288302c832c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110809a.htm"
     },
     "20110921": {
@@ -228,7 +228,7 @@
       "extraction_method": "verb",
       "official_heading": "September 20-21 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "fd6d8d57ef1fdef327a59c34d8c5e92456339281be1168996a0b7091ebc0f1f1",
+      "statement_text_sha256": "6fd4e7a97a650c5c03a24791969615ed6db17bfe81f21d12af7be0bdbd7fbebf",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110921a.htm"
     },
     "20111102": {
@@ -238,7 +238,7 @@
       "extraction_method": "verb",
       "official_heading": "November 1-2 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "c87e4669d24aad448af4e38543239bbeb5a7d368bef330b37e244fe0f21d2c44",
+      "statement_text_sha256": "4be11775d8ee621595c2422ab6d4fa6d5cfc097a62b731ce9bbf48dfe10f5513",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20111102a.htm"
     },
     "20111213": {
@@ -248,7 +248,7 @@
       "extraction_method": "verb",
       "official_heading": "December 13 Meeting - 2011",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm",
-      "statement_text_sha256": "11b196b82c4a8d253eb7931545861b30d04580aad713a38e0666aa4050c039bf",
+      "statement_text_sha256": "4209185c6dadd0bfa5fe5e8b6b902c9c20730345484d0da87de460f6da35c2a3",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20111213a.htm"
     },
     "20120125": {
@@ -258,7 +258,7 @@
       "extraction_method": "verb",
       "official_heading": "January 24-25 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "be29a33c71b14993f9f564ea98082dd979b9458a109b3959c00e40107c074141",
+      "statement_text_sha256": "c08878a2371938e6eb40c02d609efe256efa056fe01c5135412b18f821126fbc",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120125a.htm"
     },
     "20120313": {
@@ -268,7 +268,7 @@
       "extraction_method": "verb",
       "official_heading": "March 13 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "fdabb6524792bb2b691e418d0d9b6877ed96dc2b09e3648244332ff75a6c0ec5",
+      "statement_text_sha256": "42eb16d7987e40a1879fe0b692075c51973a23cf933288d8fbd431727187145a",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120313a.htm"
     },
     "20120425": {
@@ -278,7 +278,7 @@
       "extraction_method": "verb",
       "official_heading": "April 24-25 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "8d86dfc605f58371fa4c9dabf4285a2cb6c2b3ec1d3464e67596ffb608f8443d",
+      "statement_text_sha256": "b4b837731172e84b36bcfccbc85d9d26bba09114b0dba75e4ba6571a764dcf00",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120425a.htm"
     },
     "20120620": {
@@ -288,7 +288,7 @@
       "extraction_method": "verb",
       "official_heading": "June 19-20 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "9642527437a4dd927d444b2399579aba0a32c8b9098e58ab334e502f35e0a385",
+      "statement_text_sha256": "8ee45c7664f988160c491be6733feda2446a426cb58d37890a47ef7c44205725",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120620a.htm"
     },
     "20120801": {
@@ -298,7 +298,7 @@
       "extraction_method": "verb",
       "official_heading": "July 31-August 1  Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "e0ccecbb3be8d10516ec156867b93f4267fc3103de039c80a914ad84c3d2cd56",
+      "statement_text_sha256": "0dec33215a49b3e510569e3a291a776b18d28181cf8ffecc982b776f0ce04b68",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120801a.htm"
     },
     "20120913": {
@@ -308,7 +308,7 @@
       "extraction_method": "verb",
       "official_heading": "September 12-13 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "baf9ac61fe45d61f8005f761f48b11c2db80705408ea14fd2fbb2b6b9f12658c",
+      "statement_text_sha256": "67c213f7cef686b060e7453cc5700780f4078b5b9c216c17b0ca63f5a68de6a4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120913a.htm"
     },
     "20121024": {
@@ -318,7 +318,7 @@
       "extraction_method": "verb",
       "official_heading": "October 23-24 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "b4e8080f503af4ad29414480b11eb14e9ef81f81a40f3a2d398ce7738d884d18",
+      "statement_text_sha256": "6f3fcc35f56e1db8a8e2d076b6ba6d5300f5d276972750925e192629cad76ab1",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20121024a.htm"
     },
     "20121212": {
@@ -328,7 +328,7 @@
       "extraction_method": "verb",
       "official_heading": "December 11-12 Meeting - 2012",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm",
-      "statement_text_sha256": "9cf50797a85c1f82d6849a8a2bcef657f52347b558b99f2833c310bf6f72f495",
+      "statement_text_sha256": "341feb26fdaf3e930874edbb498ca13bfd5d610eeb3130d0d5a40419da3aa561",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20121212a.htm"
     },
     "20130130": {
@@ -338,7 +338,7 @@
       "extraction_method": "verb",
       "official_heading": "January 29-30 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "6c6ddeda03c382bd56b65b2aaf5877fb36563d7b646431cccddd04b788f1538a",
+      "statement_text_sha256": "0fbbb5b9ad926dd741ed388e42d2221f4c7e3f292d3581b1f4b7f8a6efe11fce",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130130a.htm"
     },
     "20130320": {
@@ -348,7 +348,7 @@
       "extraction_method": "verb",
       "official_heading": "March 19-20 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "91b9531bd38fe924d715b74d7695e73d25061162d4f83817ae17e8523b2c1de8",
+      "statement_text_sha256": "57045d7da7581fb5dbff87d5da34126d14f49e61dc3f2d096809507625f1bff4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130320a.htm"
     },
     "20130501": {
@@ -358,7 +358,7 @@
       "extraction_method": "verb",
       "official_heading": "April/May 30-1 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "0d2396749251005251730b31be6a29591d51a5f9b8fb42e9f56be81ac80eaebe",
+      "statement_text_sha256": "422dbaeeca733f8c4de72cddcb042377a2b54f34aa58397d650e6e447e8eafb6",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130501a.htm"
     },
     "20130619": {
@@ -368,7 +368,7 @@
       "extraction_method": "verb",
       "official_heading": "June 18-19 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "2d2ca2a2c860b1c143fab8fe321820c2a79bcd91e5d052ddd8da06862405f772",
+      "statement_text_sha256": "e09eb6e6de87d8eebeaa71be2b7ddbdb0a246665aa8047ba3c82923726b66d29",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130619a.htm"
     },
     "20130731": {
@@ -378,7 +378,7 @@
       "extraction_method": "verb",
       "official_heading": "July 30-31 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "b5f4eb9bee5a3d0098e841de653c584d5833b0f35c27d488211dfeb66db61989",
+      "statement_text_sha256": "217c5b461b2a8c2da0b464017b0c654e08caa857f440d72d182524901fc8ddb4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130731a.htm"
     },
     "20130918": {
@@ -388,7 +388,7 @@
       "extraction_method": "verb",
       "official_heading": "September 17-18 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "352c2f42458353e990eba0424c11a8b9a1dd8213c3830e7b0d17fabd7e658d56",
+      "statement_text_sha256": "5e2bda3132146ed4a668f431764f131feb5cdcc1e4810bc10e3b827a0606ef43",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130918a.htm"
     },
     "20131030": {
@@ -398,7 +398,7 @@
       "extraction_method": "verb",
       "official_heading": "October 29-30 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "bbb7f0396a145e30e105013d0dd5389077a5365e9d8ee8da950d1091dd437d44",
+      "statement_text_sha256": "2aedd3965db8975350bbe83ac093c37c09dd44b91c043349440b6b68046a00f7",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20131030a.htm"
     },
     "20131218": {
@@ -408,7 +408,7 @@
       "extraction_method": "reaffirm-of",
       "official_heading": "December 17-18 Meeting - 2013",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm",
-      "statement_text_sha256": "c90aa22e5a3c1f0d14f288650bab6ee8fdb6fedff9725d56d853389d45054f27",
+      "statement_text_sha256": "1ca9e219e45cd2eae1877e86eaa54dc6941ccbae42f1c6a2aaabe1de03bffc8f",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20131218a.htm"
     },
     "20140129": {
@@ -418,7 +418,7 @@
       "extraction_method": "reaffirm-of",
       "official_heading": "January 28-29 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "1a87307d55827f956211ee09a54cb60543bfe2aff8873f41d8c364463a6ca8aa",
+      "statement_text_sha256": "693f1c3d951cb33e210ecf7dd7e011843801ce614f45afa4caba9ba7824fb164",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140129a.htm"
     },
     "20140319": {
@@ -428,7 +428,7 @@
       "extraction_method": "maintain-current",
       "official_heading": "March 18-19 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "6df295de9eab2ce993656c9a7e5a0bc90b8f6c942311e43d9ca6710f69b43092",
+      "statement_text_sha256": "92d0ecfed5533785c904115be57de5a3c3f67c73932085433173c7bdcefd9480",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140319a.htm"
     },
     "20140430": {
@@ -438,7 +438,7 @@
       "extraction_method": "maintain-current",
       "official_heading": "April 29-30 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "10384964bb5f33d984213f3ec9fabfc9d62b6cbbbd3e0e3a0b230f092eef1c33",
+      "statement_text_sha256": "64fb61e70d6731fdc636973f1c6a57ee069e8bc05cfe19b55b0dacfaec834bd0",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140430a.htm"
     },
     "20140618": {
@@ -448,7 +448,7 @@
       "extraction_method": "maintain-current",
       "official_heading": "June 17-18 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "9cb45518ed55908dfa8ddfd6a87ca55b9a511d409dc79a25f3d805eee625a378",
+      "statement_text_sha256": "b8e80135a6259f48a293707025e8a6d3b2f8f7d5e2c801fae392ba1c66de0e61",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140618a.htm"
     },
     "20140730": {
@@ -458,7 +458,7 @@
       "extraction_method": "maintain-current",
       "official_heading": "July 29-30 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "9c865df989f5f3c51f943d02e364f25925a3c290af9f3a9eaba8e6357ae9ced9",
+      "statement_text_sha256": "a56526d0daf54bd3e999418c2eac7593479834ab12bc1011e8f0364800be1c67",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140730a.htm"
     },
     "20140917": {
@@ -468,7 +468,7 @@
       "extraction_method": "maintain-current",
       "official_heading": "September 16-17 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "d97fbdf6b7f5a6c6fd8abb469403c1779579a3ecdae58873cc7150433dad3479",
+      "statement_text_sha256": "511ca4bf78b9ba68f42fb6c75ce947d859884d61e706409e3c7077d23f9736c4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140917a.htm"
     },
     "20141029": {
@@ -478,7 +478,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "October 28-29 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "d2e95036d1a5b389aedfc4359d922937af90866b7b764263f747c7779b32ace1",
+      "statement_text_sha256": "89f72763eecff0d68209e8887da504b01f45ef46b5b7002d5537d673dffbe37b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20141029a.htm"
     },
     "20141217": {
@@ -488,7 +488,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "December 16-17 Meeting - 2014",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm",
-      "statement_text_sha256": "886d6bb64053bca163ea0df76341d9ddae85c76dda831a59c2e4fc10851a8a8b",
+      "statement_text_sha256": "17354cabf9101c4247191feb8d3096a7eaa3ccc079719457b3ed634923fcd9eb",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20141217a.htm"
     },
     "20150128": {
@@ -498,7 +498,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "January 27-28 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "c468f1d3b39fb07e2024d4b57584a236c8b078f98ca7237c12ba3172bf55bce4",
+      "statement_text_sha256": "4ea465f6f5200c2a5fa5cd54c3e5d77b4c4e8f67d0d593eedf7f59e010a65a32",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150128a.htm"
     },
     "20150318": {
@@ -508,7 +508,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "March 17-18 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "d918ad04cf597f4afa50895ff76357e86a7d5ee1e842132726d4034b055dc432",
+      "statement_text_sha256": "5dafe41e99b56313721e528cb75af0c8aca443ba64aabda43ae4624b8adb8be9",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150318a.htm"
     },
     "20150429": {
@@ -518,7 +518,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "April 28-29 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "b84a7daaea1469fa61096e106f6a9058cf7fedd46ec2fe80d75f96e377976448",
+      "statement_text_sha256": "f04ecbdef31c329924fd28233b13b7a8ac10bb5b946f3321bd07ab57ee46992a",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150429a.htm"
     },
     "20150617": {
@@ -528,7 +528,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "June 16-17 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "3b3e7d9969e246bd02a80639a7445a593c675c55692e78bbd9d4e38683d2fbc4",
+      "statement_text_sha256": "9dc68f1b61efa76692865cd2ca44617711f8ce69a91976fbb7d25029348bcbba",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150617a.htm"
     },
     "20150729": {
@@ -538,7 +538,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "July 28-29 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "f34bb809af88d62a7ccbd5910d09f66b83768895dacfaddb268924e99d9ae73d",
+      "statement_text_sha256": "8c975096f430eeeca51190deebe331ab8b21abd81cb130c8b1f7795b6a3beb98",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150729a.htm"
     },
     "20150917": {
@@ -548,7 +548,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "September 16-17 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "d493c8adaabacd1548ade47c712af4b471456d5ad6309986f16d8f7a58ee9fd7",
+      "statement_text_sha256": "030957e7f9fceca535180eb882ffbcb5bb9378060cee1bd38cb927393913e2b7",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150917a.htm"
     },
     "20151028": {
@@ -558,7 +558,7 @@
       "extraction_method": "reaffirm-current",
       "official_heading": "October 27-28 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "2ba95c7bfcb6860f9099596c4f678950071cbc364449463f0715a5f603e4660c",
+      "statement_text_sha256": "051005ecbdc753dba81cb99c9b35278b85187e5832fe7403600dc133851340f2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151028a.htm"
     },
     "20151216": {
@@ -568,7 +568,7 @@
       "extraction_method": "verb",
       "official_heading": "December 15-16 Meeting - 2015",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm",
-      "statement_text_sha256": "55c6698714f74d0d2b0fe7cbb98fdc1ad5ca2d027bbe09a2ca731470d2540a51",
+      "statement_text_sha256": "639729589733f3603e19986704362f3516b21a2721e9bf74df3e085f79965882",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151216a.htm"
     },
     "20160127": {
@@ -578,7 +578,7 @@
       "extraction_method": "verb",
       "official_heading": "January 26-27 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "4871878ef466bac1e3e9bf9aa2ea10dd5e85855a1d256e78837a2c1ae93ba14c",
+      "statement_text_sha256": "1bfe17453dc9dedd78d4f94b861d78f60736d3cddfff36d50ffde9963ff15af2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160127a.htm"
     },
     "20160316": {
@@ -588,7 +588,7 @@
       "extraction_method": "verb",
       "official_heading": "March 15-16 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "0a98e8d7ae4ec3b896b9ad3ab8f282d2a68e98c493051faf51e87223eaefaad8",
+      "statement_text_sha256": "01263c12cf78086fd5b98a251e92b5a852832ee0a6cb973493d93456708aa427",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160316a.htm"
     },
     "20160427": {
@@ -598,7 +598,7 @@
       "extraction_method": "verb",
       "official_heading": "April 26-27 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "d64532fe2720f790660c05646b8a06f4e3653f15c850675f58ae5198f42b8c63",
+      "statement_text_sha256": "3b8e69eb3d635ba66c7c41d8d605e98ff14aeec43df5a3f0c1cf942bb9ab3f83",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160427a.htm"
     },
     "20160615": {
@@ -608,7 +608,7 @@
       "extraction_method": "verb",
       "official_heading": "June 14-15 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "22c960e59bb7347910573b471405885e0c5d0d7d88b9662f79ce956f1301023e",
+      "statement_text_sha256": "1350f25351209ba9be0ef5b5f2233350be38162565a05125d7a72c36a856a660",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160615a.htm"
     },
     "20160727": {
@@ -618,7 +618,7 @@
       "extraction_method": "verb",
       "official_heading": "July 26-27 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "b3a027ef83fd6568f7fa4763ad738c44d62f8c69e0324c8feb5c8040585cfbf5",
+      "statement_text_sha256": "4dc45370e7a9b7c148e163724f14ae4c8cbe4796dadc5f43714aab63acf87564",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160727a.htm"
     },
     "20160921": {
@@ -628,7 +628,7 @@
       "extraction_method": "verb",
       "official_heading": "September 20-21 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "90368a82acebbbf33ae51f01f17a72f97159e82d8f916a68f48186496d4d3c7d",
+      "statement_text_sha256": "fb7713d8cd0c8bdca1d71ad9b6624f04f4817badcad9c0eb57f15f3a86741d64",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160921a.htm"
     },
     "20161102": {
@@ -638,7 +638,7 @@
       "extraction_method": "verb",
       "official_heading": "November 1-2 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "0737afb2432abead71f8c058b9f5359372d22a695e3992592bd055c98633461f",
+      "statement_text_sha256": "6f8a167d618451ed073aa1d710c1d0f10ab676ef4bbf486c6ef00e3c3ded938b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161102a.htm"
     },
     "20161214": {
@@ -648,7 +648,7 @@
       "extraction_method": "verb",
       "official_heading": "December 13-14 Meeting - 2016",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm",
-      "statement_text_sha256": "ad85b44fdcc0a0542102fa4f787b0bba1f5c85822699701df84766843581427f",
+      "statement_text_sha256": "2c20137b6687c3eae0819cf6071715ceb5d4bf17db4981f62c6939e8f976f817",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161214a.htm"
     },
     "20170201": {
@@ -658,7 +658,7 @@
       "extraction_method": "verb",
       "official_heading": "Jan/Feb 31-1 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "e9604d69f69f68b5af1e0c02e6cd7012fc28d363a195597e6b548dae41b7b076",
+      "statement_text_sha256": "e89d076f076b955aec403deaeae1676b5851507d5fcdf14dee35953170ec8151",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170201a.htm"
     },
     "20170315": {
@@ -668,7 +668,7 @@
       "extraction_method": "verb",
       "official_heading": "March 14-15 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "3af46cded9a0e1058848b477c9221fa607c08f6516de043eb09e03b02f81dd28",
+      "statement_text_sha256": "2286e8661cf6ca4b061166ad49a4a2e027b7b87c98263ff38b48111fd0dcf21e",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170315a.htm"
     },
     "20170503": {
@@ -678,7 +678,7 @@
       "extraction_method": "verb",
       "official_heading": "May 2-3 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "b94b3a006862df31f6da55873815f544d35ad48db34f14e7e8e485820f5fe550",
+      "statement_text_sha256": "3a8b295945b418bf105db71dbc6f0a323619969bdd242c006b9337bbbfb3ff62",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170503a.htm"
     },
     "20170614": {
@@ -688,7 +688,7 @@
       "extraction_method": "verb",
       "official_heading": "June 13-14 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "e45a1a644dbd44c3720bdeff7b9625b0a38562122c955523f3c4232e8639dc11",
+      "statement_text_sha256": "a769b065dca8eb7e913f78ee02b153d7aef80f23bf7346a372662b1143dbdfc3",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170614a.htm"
     },
     "20170726": {
@@ -698,7 +698,7 @@
       "extraction_method": "verb",
       "official_heading": "July 25-26 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "b1fb7483f96e9f278139cd02a0ac6f8d324d91d22181b47b627784f69a8f3320",
+      "statement_text_sha256": "dcf672065edadc2606cf4644c1d2b800b0db8557763fb31caf66db98d19b801a",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170726a.htm"
     },
     "20170920": {
@@ -708,7 +708,7 @@
       "extraction_method": "verb",
       "official_heading": "September 19-20 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "31b0ab381a1a5d54e45784d8c735deaf610a735d5297041d676e2a5d1cfa3f90",
+      "statement_text_sha256": "76fce19d12f75324ccb46ddafc1d80b95d774ffe30e9d2787b48e6aade4afe01",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170920a.htm"
     },
     "20171101": {
@@ -718,7 +718,7 @@
       "extraction_method": "verb",
       "official_heading": "Oct/Nov 31-1 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "537c8318fe4731a62a34168b9816502488b00cb2661e4c4a469f79fa477e05da",
+      "statement_text_sha256": "51b5caf25c6c4ff9813a58a8609cc159718e3f802f67df10e8ca2432925f7e83",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171101a.htm"
     },
     "20171213": {
@@ -728,7 +728,7 @@
       "extraction_method": "verb",
       "official_heading": "December 12-13 Meeting - 2017",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm",
-      "statement_text_sha256": "c81a2311295572f8bc3ba148937cfd0779475f3e8845fb9befb6c4446c58320b",
+      "statement_text_sha256": "4a50b813d08cbda7adfc9ae021a461e76f0545fc2c9ed201ddf3426aba8c33be",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171213a.htm"
     },
     "20180131": {
@@ -738,7 +738,7 @@
       "extraction_method": "verb",
       "official_heading": "January 30-31 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "bea0b6dec64a427dc9ef131baded081fbcf6c5c931de9074d7772a2f65607215",
+      "statement_text_sha256": "e9a5fcbbe8ebae1b5ca9be93c33036c2b403210b78fbfbbb63db629d1c7a6a38",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180131a.htm"
     },
     "20180321": {
@@ -748,7 +748,7 @@
       "extraction_method": "verb",
       "official_heading": "March 20-21 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "f1168a967e7e1885da4a329ba2ce2b91f3b6b96175665d28d4fd3687a864b500",
+      "statement_text_sha256": "f59976dda226b3ded39824f2263cbc3edd4cda8a830d1615bca63144589f904f",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180321a.htm"
     },
     "20180502": {
@@ -758,7 +758,7 @@
       "extraction_method": "verb",
       "official_heading": "May 1-2 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "324ae0867abfa608999306b1d73a247983d351539ca54eb9c8f72950f67714f2",
+      "statement_text_sha256": "9bd776569518dddeded9d0f5ca4210da547ba00b6b1b93842beaeacf0e1bb045",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180502a.htm"
     },
     "20180613": {
@@ -768,7 +768,7 @@
       "extraction_method": "verb",
       "official_heading": "June 12-13 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "a28a79009d077cf019d61925e18e2e761d5016cb02ff5efb8b9d1917abd62b0d",
+      "statement_text_sha256": "afe219ea7149c5d37ea659c87a66624b5cf2730cc2190d679d841d062b31ba22",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180613a.htm"
     },
     "20180801": {
@@ -778,7 +778,7 @@
       "extraction_method": "verb",
       "official_heading": "Jul/Aug 31-1 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "d0663ea58193305a26413ee573efee41a5d37f284d869e2d6757e2c8b15544fc",
+      "statement_text_sha256": "e3f70dc0c396f0752d39ed603324ee7f83edda5bd3e505a9ca2b2159cfb442f9",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180801a.htm"
     },
     "20180926": {
@@ -788,7 +788,7 @@
       "extraction_method": "verb",
       "official_heading": "September 25-26 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "2345cb870d08340b86a062955a501c65230298034d1c1589b6ae65b32dbe8237",
+      "statement_text_sha256": "af362b4f072727f3d4afbf64445df06c5b9366ddfb918167c2eb282369c2dad4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180926a.htm"
     },
     "20181108": {
@@ -798,7 +798,7 @@
       "extraction_method": "verb",
       "official_heading": "November 7-8 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "c1dc7e90badcc356b1f988a6b9d75e8363b945098eb188bde608bc4e14d1180f",
+      "statement_text_sha256": "b7285ccc4a010f7c93774eb41680ba14c0be7223cab91e426b1a5b74918eca5c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181108a.htm"
     },
     "20181219": {
@@ -808,7 +808,7 @@
       "extraction_method": "verb",
       "official_heading": "December 18-19 Meeting - 2018",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm",
-      "statement_text_sha256": "3b6f68a647b14f9e3fc44e1b32ab9830bd092fe86e2fecac33c1ebeb806ff2c2",
+      "statement_text_sha256": "e7ebe302078abf08c70681490bc01407afe4c7e874eb0875c6abd46fa98b2ee6",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm"
     },
     "20190130": {
@@ -818,7 +818,7 @@
       "extraction_method": "verb",
       "official_heading": "January 29-30 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "2aa53cf7497d1a502d18d824ffff4e87df3b6036a93a899f130522102b5b79b3",
+      "statement_text_sha256": "f9caed1e443a1488e9bc7e5a8aa9ab121695e2a68abf71ee3963d9cfc3ed225b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190130a.htm"
     },
     "20190320": {
@@ -828,7 +828,7 @@
       "extraction_method": "verb",
       "official_heading": "March 19-20 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "c03d0cb903e99434c33572b3aded7879f5afbdc11a76f0064ac7112a5afc1faa",
+      "statement_text_sha256": "186cb96852bcb72fc968d31ee05349dd4c984540ef767931b0ceb2679b1af6a7",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190320a.htm"
     },
     "20190501": {
@@ -838,7 +838,7 @@
       "extraction_method": "verb",
       "official_heading": "April/May 30-1 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "aad1e2acd228adc197efc945d3e294d530b524fb88f837f28c90a96aefdd4c36",
+      "statement_text_sha256": "658c0e8785bee64abd980b8bf3cdd595d13a13ea1153de70e36152e3f9bcd25d",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190501a.htm"
     },
     "20190619": {
@@ -848,7 +848,7 @@
       "extraction_method": "verb",
       "official_heading": "June 18-19 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "f9c899c825451b07f3ed3e8dc03d82df5f67b265ffccba6d95f1a308e401876a",
+      "statement_text_sha256": "e7213c142339490eaf8016c36cea47b36a26a119460d3b8f9bd812f83806b498",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190619a.htm"
     },
     "20190731": {
@@ -858,7 +858,7 @@
       "extraction_method": "verb",
       "official_heading": "July 30-31 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "15cb9a9e041053be728de4d02c448acee49f06d32cac92bb6c2b407348f61cba",
+      "statement_text_sha256": "087a75e36145dcc32ca1eb24d2f3f8b5d58b88ef4461f93e505ec09832768468",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190731a.htm"
     },
     "20190918": {
@@ -868,7 +868,7 @@
       "extraction_method": "verb",
       "official_heading": "September 17-18 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "9d0733950bd696ce37867ce93926f0004fb915737c31fc098f8d0e18abb6983c",
+      "statement_text_sha256": "261bce8ca3f07c1d713c8af2696e474ae0ba3ff94f75ec4bc4176b61ea613670",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190918a.htm"
     },
     "20191030": {
@@ -878,7 +878,7 @@
       "extraction_method": "verb",
       "official_heading": "October 29-30 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "6e6e86bcd82528fc9198d2db67a9789c35316c0837ec8c8769ee14848f67f825",
+      "statement_text_sha256": "ee37f9fcf28607e6fe3b742646dadcabd1956b7c7a07b2f87c411bab36becaea",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191030a.htm"
     },
     "20191211": {
@@ -888,7 +888,7 @@
       "extraction_method": "verb",
       "official_heading": "December 10-11 Meeting - 2019",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm",
-      "statement_text_sha256": "e52cb162f37756914a7c2ac9658f8972d6363eabb675dba851797509e61e41b6",
+      "statement_text_sha256": "243b6952b8b4c45d4dc382fa613335f8c6392b88879ec7f491292d144863d282",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191211a.htm"
     },
     "20200129": {
@@ -898,7 +898,7 @@
       "extraction_method": "verb",
       "official_heading": "January 28-29 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "179b4e11e743de0cca5a64b6d9a944e87e5b731d3083a6a909f892d9f568e6fc",
+      "statement_text_sha256": "db99d98d7d00380f39a2feb96066535a0f88ce3e831d04467fce956a2ef62292",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200129a.htm"
     },
     "20200429": {
@@ -908,7 +908,7 @@
       "extraction_method": "verb",
       "official_heading": "April 28-29 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "6258f7277612b024b968b7dec09378796b14519b6e5ffa23657714d8ab863327",
+      "statement_text_sha256": "27053053526de8330e1e04bffa45b44b554fc1c093eae842bee9cccb9d320708",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200429a.htm"
     },
     "20200610": {
@@ -918,7 +918,7 @@
       "extraction_method": "verb",
       "official_heading": "June 9-10 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "b3050848cb9e5da9a0cdf810627f46c0448a5a1a29f95df30e120ff07932126b",
+      "statement_text_sha256": "f2b88155e705cc2ae005faf3b4afdb2c13510735fd793d818144f7d345f4870b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200610a.htm"
     },
     "20200729": {
@@ -928,7 +928,7 @@
       "extraction_method": "verb",
       "official_heading": "July 28-29 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "304c5a16001cd92c7d9d51baf6ab6052ddbac971611a514f7bf9cc445780e9cd",
+      "statement_text_sha256": "0391d603a5644b308a27173a40e539b2b385f05cc622857cc5d5cf053023851a",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200729a.htm"
     },
     "20200916": {
@@ -938,7 +938,7 @@
       "extraction_method": "verb",
       "official_heading": "September 15-16 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "ca8d3a767ecc3a8af2c9de4042b816226ebecb16e6b0de5f7649822d5f755c39",
+      "statement_text_sha256": "2af9e2e7be8ce799bd4b8482503ef0ed1b3ea958ec3841b951cef06b46323898",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200916a.htm"
     },
     "20201105": {
@@ -948,7 +948,7 @@
       "extraction_method": "verb",
       "official_heading": "November 4-5 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "cbb2d50f95612d3cc782d8c7bde030c65d0820d838efe4dd9bda6957497c558a",
+      "statement_text_sha256": "554da55b09153c4bf0705621139f288a3b17e07f7bd4cf806a23b64a0bbe3eba",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201105a.htm"
     },
     "20201216": {
@@ -958,7 +958,7 @@
       "extraction_method": "verb",
       "official_heading": "December 15-16 Meeting - 2020",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm",
-      "statement_text_sha256": "562125f0ea7ac0755452d175a847d08a8fd22d61557a5a0e0648ae0cef259bb3",
+      "statement_text_sha256": "9be9df94c80a5008bec2cc01727f73679e8849e26751f9fe0bea484d918dcfc2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201216a.htm"
     },
     "20210127": {
@@ -968,7 +968,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "cb4c85d81aac20dd5934efc6ede298c61098eba25ab52392ea9e9ed21d64f924",
+      "statement_text_sha256": "d51e9beb76c6ba2ad93bc10e73e928ae712d9dc84c5f6520b1d91aa4bf32610f",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210127a.htm"
     },
     "20210317": {
@@ -978,7 +978,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "6b8a1eb538d21b64e6968242f1ad8426d53f3583cab76c2ea2fa62b7a5ba0057",
+      "statement_text_sha256": "3c6d197b336b0f9463d58557d5f2437d979dfab081caf2dda09b43341cf29235",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210317a.htm"
     },
     "20210428": {
@@ -988,7 +988,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "8537a123c85470d8e76e15c25b56eb92bde86579091590501c88548e7d081116",
+      "statement_text_sha256": "e4473c10cd19d66dc78b06855a73844b31f54e5472abdca65c0b0820ce901a48",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210428a.htm"
     },
     "20210616": {
@@ -998,7 +998,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "07eaf85ae4c2a6f17620d4863729c28d8a2e05418f25ae624141d22a60065629",
+      "statement_text_sha256": "3056a4ba4fe2961f3bfcb17b53388bf9645e352b51bfb179a9f278ae41cedb11",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210616a.htm"
     },
     "20210728": {
@@ -1008,7 +1008,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "bce4c9e8aa74035f502db8db878706007406bd025baeb9e34bf5eb743200d796",
+      "statement_text_sha256": "66f0c1c9c9a1e2d120cba696c683b85c77b6c4a6311cc1e4a8ed6ad421a4d014",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210728a.htm"
     },
     "20210922": {
@@ -1018,7 +1018,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "99334d2642bc1465a6ca43dace3e8b04a69c6863578b7afe09229298d2921ef3",
+      "statement_text_sha256": "13f2884751b55e791220feef7dd65b1f491833c2730d2eed99b6d65be70173d4",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210922a.htm"
     },
     "20211103": {
@@ -1028,7 +1028,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "edaef3c756fe246f07f2899747190237a3ba5e3ff32c4e7d292b14b20a3bb068",
+      "statement_text_sha256": "936a0793b8ee66a16083455747c28ee097fea9ec2b8a13bf915c98ed2b3fb0e7",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211103a.htm"
     },
     "20211215": {
@@ -1038,7 +1038,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "5aa2726faea0048a3a81be80fca76fee2fc0920213bfc9d8458e5616f4a89df0",
+      "statement_text_sha256": "33faca803de62bec9114be46ff24300a33e84c3c9eb04a3432c048f7a4e990b2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211215a.htm"
     },
     "20220126": {
@@ -1048,7 +1048,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "15f96e5087f3dc65d293ab8e3e24dfdcc767b4251faec62d87e18208991ea89e",
+      "statement_text_sha256": "606a27d9a318875cec833c47c78e7d576c30e9cc10b405f561471df31666e2d8",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220126a.htm"
     },
     "20220316": {
@@ -1058,7 +1058,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "20cb1e43ceaf61c466274abac2078c66e02cb34bb66ff73bd50be16de175ddb1",
+      "statement_text_sha256": "9ab15e990fdcdc31b8ca7af06ef9bd15e29937c789e575a1c58d95f43e43403c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220316a.htm"
     },
     "20220504": {
@@ -1068,7 +1068,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "4afd85f0e57e6d03d5f62dc5fb62b3e79e231cbab5c8cf045a35cbd451e54edd",
+      "statement_text_sha256": "fc40506e1e896674d9ef97cd180d8b675179318b9c0d1598bf0bc8e3957c8d25",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220504a.htm"
     },
     "20220615": {
@@ -1078,7 +1078,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "d4e357ef3f8d4543e1a1a212579cfaf659c0387cc82e49b58563d07ef615386e",
+      "statement_text_sha256": "0290785119572e7e8f66997c74a3c3f1257ca914dce7ae8db9ae351df2c2ec52",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220615a.htm"
     },
     "20220727": {
@@ -1088,7 +1088,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "05897d77abf3f35ae35857d34fcd98671b2fca32287bf73a148f2f546d0a521e",
+      "statement_text_sha256": "91e79307c10026bf9095af2c962c254a61eac51243395fd9e2e26d79eecaaccc",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220727a.htm"
     },
     "20220921": {
@@ -1098,7 +1098,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "3a1f51415aac5ca1be99f0933c185fe1bd881ab003fc16395a4f4a935f8beef1",
+      "statement_text_sha256": "944df1fd9c8eea3ff43726d3707e346eabbe7519e1b0173ccf08e8fefda8e488",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220921a.htm"
     },
     "20221102": {
@@ -1108,7 +1108,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "b67d3243ad599a8b47e2171496cb79ef9d0131f98d0b3a933b2c84f5141451da",
+      "statement_text_sha256": "dd3dd20951dc2adaedfbd2e14caddc73af86320a5e2586a284f3e32b90d22d7d",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221102a.htm"
     },
     "20221214": {
@@ -1118,7 +1118,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "47a931ac3a2b764af2185e92ba58716d0eb2655d03d1ecf6db919e7b0965c2ff",
+      "statement_text_sha256": "3ec6ec16f769c3b200c22781cd746bd339f27a9ea0207f1fad76d1801cb18eb9",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221214a.htm"
     },
     "20230201": {
@@ -1128,7 +1128,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "5492721e99faf5e62e89cd9e520ebffbe4e21f72db4f753812392a278909b8ce",
+      "statement_text_sha256": "8faa3ad7f99d48112a0c1e49205c5df9486d274ec3f99ed2ffb32c0e2687e9b5",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm"
     },
     "20230322": {
@@ -1138,7 +1138,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "f58bb51d9c8cf9c91e2ddb4ba2778c77e1d25b74f8c662af9b5569f45db422be",
+      "statement_text_sha256": "e53ab2902ef0fe8a6c635be93daff56362aa5ef11906821ca22062328a2d486c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm"
     },
     "20230503": {
@@ -1148,7 +1148,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "f9d07cfbd492942040a78db6b7beb21e61e614d7b0f9e46d9a5130c751598d41",
+      "statement_text_sha256": "63ca1aa7fd343b477617141bc4555dec77ad3f6da07d13ae69d698d18b8814a5",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230503a.htm"
     },
     "20230614": {
@@ -1158,7 +1158,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "f55f32f00cdef28e84f1f626188297d187c71f55966ce8c9f1319b901f00361e",
+      "statement_text_sha256": "09106afb6d90dabb297545e3ca8d46c8818908c8ea0fbf0ee54715918a899308",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230614a.htm"
     },
     "20230726": {
@@ -1168,7 +1168,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "ef82f3546b4559b6054776708f44e3064de1d4d275a5f0f6c473231fbac24caf",
+      "statement_text_sha256": "aae263315a0d320ba6545a4f8c46cad3c5b747dc5577da2b2a4c6590b5d2628d",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm"
     },
     "20230920": {
@@ -1178,7 +1178,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "a4e2155c5b1093de5bd26ea20c12b925cd03205753cf793de8583d571b7b5bb4",
+      "statement_text_sha256": "112f7689b242c9a1694785b00c4421b4eed4ced44b1d03b04aa8de6c063fb296",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230920a.htm"
     },
     "20231101": {
@@ -1188,7 +1188,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "360c2b93dd822d70b157a532c293d24be2f4e3ee634e0e80c766361596875473",
+      "statement_text_sha256": "29fe8005c004117d1aaf6875ae6f9795874033f0f4e08ed2edbcfdc566d932ff",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231101a.htm"
     },
     "20231213": {
@@ -1198,7 +1198,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "fe648877e665d004a818e31c2bc115ebdfb1ab11b4e11a4205efeccec7e0c4a5",
+      "statement_text_sha256": "40c68afb9cf936b29a00f077468a814328299c566093eaed9578fee4fa2a9de8",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231213a.htm"
     },
     "20240131": {
@@ -1208,7 +1208,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "507150ffae81931f08190c32524087972e949e622fe3d4223d60f714aeaf6823",
+      "statement_text_sha256": "b97ad7e3cc65d78f42dd7c459a176adafb038143177ce544d640296c36cdea73",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240131a.htm"
     },
     "20240320": {
@@ -1218,7 +1218,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "aa4b0742abde28ed4927caa12c5192b38b77ea7b3120b22309e4c6c04ede8d8a",
+      "statement_text_sha256": "3142be71341a9a7fbfb14722d29350f67efe34e56ea8252782de37990596078d",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240320a.htm"
     },
     "20240501": {
@@ -1228,7 +1228,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "c46ea5d4d3bfbcfa52d4ed2aaf0e624420a7ac7774379edce1ca19dda237f924",
+      "statement_text_sha256": "6b522e3c9e37b7c75dcd45cc6f8fad5a7e3d0e4fbfa5b7593ea3a5043fe360ea",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240501a.htm"
     },
     "20240612": {
@@ -1238,7 +1238,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "00e4496a4bb4b5803cb288ed64ce0ea03e7758a87a0b22fadc3aa1d1b3e4f6c3",
+      "statement_text_sha256": "a17f967f9a071e0e53d2d77bba3dde3c9ec5ecd0a76d822092242ca1a2c463bb",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240612a.htm"
     },
     "20240731": {
@@ -1248,7 +1248,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "42c07b0558313b21dfb62159e0c81979600008e901461509ad26e96e85436142",
+      "statement_text_sha256": "c69c3e663104f53b53ae6070636a5e5504a3d03f3ea43ea2e40704ebadbe4ff8",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240731a.htm"
     },
     "20240918": {
@@ -1258,7 +1258,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "ef7930f527feede4c06dedd57ccd4dd0342b37af43aaed358d4dddfa63c9fa4b",
+      "statement_text_sha256": "125d47cb5570f96d76ddaaea679e55726c9d42785a3bbb568f828188e1aef005",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm"
     },
     "20241107": {
@@ -1268,7 +1268,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "63acbf6491c249d4849580fdd86ef4ca804c37a5b39f3539520cf684bed5868b",
+      "statement_text_sha256": "b8d26df574fe8e0b1fd468b7c37b43ece74fed9b95aecb2e89232d9340d0c207",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241107a.htm"
     },
     "20241218": {
@@ -1278,7 +1278,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "b04f1ab5c6351c7bde3189253ed05f6d63cc42bb77c3eb867f5def794e6e0cc7",
+      "statement_text_sha256": "3ac7a14d4e5b5527abbec5d4e54122875a93561af19b36bb293077c2cbe40e3b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm"
     },
     "20250129": {
@@ -1288,7 +1288,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "7e5574e56bcae81c9ba79d9a7422f9ca59167bc71f3f49f11553e5b90229174c",
+      "statement_text_sha256": "83ad3a2880375cd1c2323bb63e5c50cd5fc0a1413cdb156ff7102ee296f14cbb",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250129a.htm"
     },
     "20250319": {
@@ -1298,7 +1298,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "907418ef746e63993c459650407dc79144d99ce52be01cd3ff32c9bf18ac6446",
+      "statement_text_sha256": "ac1009bcbddd9b0204e72dc755ed31e950ab835af4017fffde473e204c069449",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm"
     },
     "20250507": {
@@ -1308,7 +1308,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "c3364a8e9670b9599c56fd2679ac017f06c1a4d90a5bceebdd7b82cc26c6cb64",
+      "statement_text_sha256": "8ca36d7e2c9a4be34d05acbea9e0c98962135b54a8cc47e03f52aba16030d0c8",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250507a.htm"
     },
     "20250618": {
@@ -1318,7 +1318,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "a259846c650bbad6a2ed6e577ec1de98bf17fcc6ce0981da24bde69750e51209",
+      "statement_text_sha256": "e73c87f3823e89ab1dbfe570b746976cbc848d19569d352f82af8b1499424ef2",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm"
     },
     "20250730": {
@@ -1328,7 +1328,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "ad5ebb0b19e8dea78b82bce641ee0a2a0976d6657f31aaf478b4b128422d263d",
+      "statement_text_sha256": "25a1a8510b05673bed5694cf4bd932ec65cb2de53dbc84339fbce8e3240b6fdb",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm"
     },
     "20250917": {
@@ -1338,7 +1338,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "a7a28b6444fb5435e5323e6faa872846f05cf6e12ac665e7df19279c272c6805",
+      "statement_text_sha256": "a0509ab17f8a64fd4e5574d9d7f62587c06eca627b1c26a319597ce38a9fd2af",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm"
     },
     "20251029": {
@@ -1348,7 +1348,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "625b1ecb2aa6f3a9e0a247df29c3b197b4f32f1d814975c014ab34461f46eac5",
+      "statement_text_sha256": "392110ee5037e236d21a423ce1c6541bbb2d0369a615a0bdab11169a0bfac71c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm"
     },
     "20251210": {
@@ -1358,7 +1358,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "f18078336ceaf0d0dd7b6fe157d4309fdf0188267123633b3afb34dd9f49e8a7",
+      "statement_text_sha256": "84812f39f054b5c91821b9e7456aeb5e2ab39f017d6c05cbcb68ee67108dc56d",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm"
     },
     "20260128": {
@@ -1368,7 +1368,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "ac8a26da8800f178b5b37bd89b41be820107e526a00b56a767d8d31979fecb19",
+      "statement_text_sha256": "66c435534bba6ddc23d0f8e08d4b46b83cb1c04c6c4b7633a23ff3a536a3065b",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260128a.htm"
     },
     "20260318": {
@@ -1378,7 +1378,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "5ef9c41ba5a66ff1e729fcd01c330ae21bc2216cb5aad82e71d6143b57afd8ee",
+      "statement_text_sha256": "0ea052ab58eb8f1de7af0b13c32f21c3f154a1cc62a8bc9be13c7afcef9aef2f",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm"
     },
     "20260429": {
@@ -1388,7 +1388,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "70eb067f0271ae5ecee6c0f259a6c85ce7133e5dc904cb806e70851d7df145b4",
+      "statement_text_sha256": "1a8ef9880b02291ccbe111c812464d82acb058b1855c4fdb24e677d1d635da92",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm"
     },
     "20260617": {
@@ -1398,7 +1398,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "67e904e39a57c79ec56a302789473d94aa2352ee70481cba46f0d4aa0c84ad91",
+      "statement_text_sha256": "7553281bc0fa426f88b8971fa5c7df2cb101fabe5ffa872aa84eebc4d15c62f8",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
     },
     "20260729": {
@@ -1408,7 +1408,7 @@
       "extraction_method": "verb",
       "official_heading": "(fomccalendars row)",
       "source_index_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "statement_text_sha256": "870fd5e30276bafbfd51aff14dfbe09cdf1bb511580d0aad094f8ae91166b411",
+      "statement_text_sha256": "73cdb5ff3a34e2370025572560d2593f24e05290189baea69a3724ef7e6a581c",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"
     }
   },

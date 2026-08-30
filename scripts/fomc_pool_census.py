@@ -32,8 +32,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 import time
 import urllib.request
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from adapters.fomc_temporal import extract_statement_body  # noqa: E402
 
 POOL_START = "20081216"  # target-range era start; excluded from ever being a "next" meeting
 USER_AGENT = "Mozilla/5.0 (research)"
@@ -200,12 +204,13 @@ def main() -> int:
                 "do not fall back to guessing another suffix"
             )
         action = extract_action(text)
+        body = extract_statement_body(text)
         manifest[date] = {
             "date": date,
             "statement_url": entry["statement_url"],
             "source_index_url": entry["source_index_url"],
             "official_heading": entry["heading"],
-            "statement_text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "statement_text_sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
             "action_verb": action["verb"],
             "action_range": action["range"],
             "extraction_method": action["method"],

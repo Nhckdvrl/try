@@ -1,0 +1,176 @@
+[
+  {
+    "previous": "20220615",
+    "next": "20220727",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20230614",
+    "next": "20230726",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20170201",
+    "next": "20170315",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20180801",
+    "next": "20180926",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20230322",
+    "next": "20230503",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20171101",
+    "next": "20171213",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20220504",
+    "next": "20220615",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20241107",
+    "next": "20241218",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20251029",
+    "next": "20251210",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20220126",
+    "next": "20220316",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20240918",
+    "next": "20241107",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20151028",
+    "next": "20151216",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20250730",
+    "next": "20250917",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20240731",
+    "next": "20240918",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20190619",
+    "next": "20190731",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20221214",
+    "next": "20230201",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20161102",
+    "next": "20161214",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20230201",
+    "next": "20230322",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20220727",
+    "next": "20220921",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20221102",
+    "next": "20221214",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20220316",
+    "next": "20220504",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20190918",
+    "next": "20191030",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20250917",
+    "next": "20251029",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20180131",
+    "next": "20180321",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20190731",
+    "next": "20190918",
+    "verb": "lower",
+    "change": 1
+  },
+  {
+    "previous": "20170503",
+    "next": "20170614",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20181108",
+    "next": "20181219",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20220921",
+    "next": "20221102",
+    "verb": "raise",
+    "change": 1
+  },
+  {
+    "previous": "20180502",
+    "next": "20180613",
+    "verb": "raise",
+    "change": 1
+  }
+]
