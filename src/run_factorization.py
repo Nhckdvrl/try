@@ -16,7 +16,13 @@ import subprocess
 
 try:
     from .information_set_schema import file_sha256, load_jsonl
-    from .adapters.btf3_factorization import build_m1, build_m2, build_m3
+    from .adapters.btf3_factorization import (
+        build_m1,
+        build_m1_repeat_before,
+        build_m2,
+        build_m2_v2,
+        build_m3,
+    )
     from .run_information_set import (
         SYSTEM_PROMPT,
         _chat_ids,
@@ -26,7 +32,13 @@ try:
     )
 except ImportError:  # direct script execution
     from information_set_schema import file_sha256, load_jsonl
-    from adapters.btf3_factorization import build_m1, build_m2, build_m3
+    from adapters.btf3_factorization import (
+        build_m1,
+        build_m1_repeat_before,
+        build_m2,
+        build_m2_v2,
+        build_m3,
+    )
     from run_information_set import (
         SYSTEM_PROMPT,
         _chat_ids,
@@ -55,7 +67,10 @@ def _load_baseline_oob_without(path: Path) -> dict[str, float]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifact", required=True, type=Path)
-    parser.add_argument("--manipulation", required=True, choices=("m1", "m2", "m3"))
+    parser.add_argument(
+        "--manipulation", required=True,
+        choices=("m1", "m2", "m3", "m1_before", "m2v2"),
+    )
     parser.add_argument("--baseline", type=Path, help="required for m3: this model's own confirmatory raw results")
     parser.add_argument("--model", required=True)
     parser.add_argument("--model-id", required=True)
@@ -101,8 +116,14 @@ def main() -> int:
         if args.manipulation == "m1":
             decision_prompt = build_m1(item)
             probe_prompt = boundary_probe(decision_prompt, expected="NO")
+        elif args.manipulation == "m1_before":
+            decision_prompt = build_m1_repeat_before(item)
+            probe_prompt = boundary_probe(decision_prompt, expected="NO")
         elif args.manipulation == "m2":
             decision_prompt, probe_prompt = build_m2(item)
+        elif args.manipulation == "m2v2":
+            decision_prompt = build_m2_v2(item)
+            probe_prompt = boundary_probe(decision_prompt, expected="NO")
         else:  # m3
             if unit not in baseline_oob_without:
                 skipped_m3_ineligible.append(unit)
