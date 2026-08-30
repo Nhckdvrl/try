@@ -35,7 +35,7 @@ data/external/review/btf3_large_replication_v1_yes_review_001-064.md   (…throu
 To read a slice without scrolling a 450 KB file:
 
 ```bash
-python scripts/show_btf3_candidates.py data/external/review/btf3_large_replication_v1_no_review_103-128.md --from 103 --to 105
+python scripts/show_btf3_candidates.py data/external/review/btf3_large_replication_v1_no_review_065-128.md --from 103 --to 105
 ```
 
 (The chunk file whose range contains the index; `--from/--to` are queue
