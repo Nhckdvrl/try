@@ -214,3 +214,113 @@ correction is recorded inline on that entry.
 ### NO-54. `b5577074-7a36-5fe1-be5f-e27a6b69ab5c`
 - Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
 
+### NO-55. `75a9b157-4271-5ef6-a7d8-789e69325b07`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-56. `c3e01c3f-e0a8-5be2-88c6-d160793cba8d`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-57. `1059ecce-7633-59cc-9bab-df341bfe35b6`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-58. `65ab10c3-bb24-5e73-873f-da584796c42e`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-59. `93c5cdba-1ced-53ca-895d-4b748609c8dc`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-60. `0bcf7af9-981a-5207-8be0-4b8d54c62a52`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-61. `2366975e-e87b-5f7c-8483-d27184f9efe4`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-62. `e32addcd-ec31-5bb1-9ba9-4965c5e32803`
+- Decision: `[ ] ACCEPT  [x] REJECT  [ ] UNSURE`
+- Reason: The final rule set the regulatory effective date to July 20, 2026 with July 1 only as optional early implementation, which reads equally well as a deferral of the default effective date past July 1 (YES) or as preservation of July 1 disbursements (NO), so the criteria admit two materially different readings.
+
+### NO-63. `6c9e6111-3b05-5c07-ab7c-4ef8b079d788`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-64. `cf5c503c-6607-5653-ac22-a85f845c9baf`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-65. `e2c55fd1-b9c6-58bc-8fab-d85a2d4cecbc`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-66. `f0c57160-d1d9-552b-9d20-41ea4b4902d0`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-67. `97cec3a5-eaeb-5fb0-9ef4-20df60713baa`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-68. `bfb0572f-9cfc-5cb0-beaf-d5fbcf4fc46d`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-69. `c5099a67-5abb-548a-b92a-dd50c8e65064`
+- Decision: `[ ] ACCEPT  [x] REJECT  [ ] UNSURE`
+- Reason: The packet itself concedes that the nationwide Sudanese airspace suspension of roughly May 4–8 could have closed Port Sudan to commercial flights for more than 48 hours, so the outcome rests on an acknowledged alternative reading rather than a single one.
+
+### NO-70. `8d8a890a-dec3-51a4-afe2-bb5a8d58c88d`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-71. `f2d5546e-d35e-59de-a8d4-dd5de3effa61`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-72. `a0968428-9c0e-54e0-872c-32d96e222aaa`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-73. `01a607b2-d68c-5e0d-9bd8-efe79748b96e`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-74. `83077271-dd90-5017-8107-0d3fba6b8872`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-75. `a3478df7-22b6-5473-a74a-00a0cd521090`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-76. `009885f8-406c-570a-adbd-e63606108fea`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-77. `759e8c52-ee97-5e2b-a4eb-190fbd22775f`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-78. `c25aff37-8182-557f-8968-564b01f226a2`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-79. `5c6c82e6-d614-5f2b-915a-b62348cb4cda`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-80. `17e0010e-2915-5ccc-8f2e-370b5620a78f`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-81. `d95064ce-6216-5e03-8b91-7d74a9e7b723`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-82. `786d93d1-0fe1-5295-931c-5016ba7b7a4e`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-83. `354884fe-183d-5a76-b6b3-bc013a60ce41`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-84. `3c29a467-1406-55a9-8808-e1b3616c145e`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-85. `2baf84ab-2795-5ade-a60f-0187fdeef939`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-86. `559e0736-ec8f-51b2-88cc-9991be4c568c`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-87. `48ff1ce4-a365-5a5b-8824-c1cd5d2d4f80`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-88. `b37ed4ff-8c07-5ba3-a337-fb226eda2710`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-89. `78050dfe-7991-5192-b1f3-8404b08c9253`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
+### NO-90. `5cdc8c75-bf10-53ff-96fc-f49682d368ba`
+- Decision: `[x] ACCEPT  [ ] REJECT  [ ] UNSURE`
+
