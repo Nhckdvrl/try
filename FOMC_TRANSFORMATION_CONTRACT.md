@@ -540,7 +540,22 @@ sequence — no separate non-adjacency exception is needed.
       all 141 eligible meetings — `data/external/fomc_source_manifest_v1.json`
 - [x] sample size fixed from the census: **12+12 (N=24)**, confirmed
       supportable (disjoint pool: 21 CHANGE, 41 HOLD available)
-- [ ] deterministic candidate-queue tooling for the pilot
-- [ ] human review of the pilot candidates
+- [x] deterministic candidate-queue tooling for the pilot —
+      `scripts/fomc_candidate_queue.py` (build-change/freeze-change/
+      build-hold/freeze-hold), `src/adapters/fomc_temporal.py`
+- [x] boundary-knowledge probe — no separate probe needed: the adapter's
+      prompts end with the same `"\n\nTASK\n"` marker BTF-3/SCOTUS use, so
+      `run_information_set.py`'s existing generic boundary-probe mechanism
+      applies unmodified (packet block is labeled `LATER RESOLUTION
+      PACKET` to match its wording)
+- [x] human review of the pilot candidates — CHANGE reviewed to 12
+      disjoint ACCEPT (quota reached at CHANGE-14, 2 valid ACCEPTs
+      mechanically collision-skipped as predicted by the reviewer);
+      HOLD reviewed to exactly 12 disjoint ACCEPT (HOLD-1 through
+      HOLD-12, no collisions) — `data/external/review/
+      fomc_pilot_v1_{change,hold}_reviewed.md`
+- [x] frozen 24-unit artifact (12 CHANGE / 12 HOLD), schema + exact-
+      transform + meeting-disjoint validated —
+      `data/external/review/fomc_temporal_pilot_v1.jsonl`
 - [ ] pilot qualification result (go/no-go for a larger confirmatory freeze)
 - [ ] immutable Git tag before first pilot-run model output
