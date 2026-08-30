@@ -1,0 +1,40 @@
+{
+  "artifact": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+  "max_model_len": 8192,
+  "max_tokens": 8,
+  "models": {
+    "gemma3-12b": {
+      "longest_prompt_condition": "boundary_oob_with",
+      "longest_prompt_tokens": 4817,
+      "longest_prompt_unit": "bc18b8dc-6ab4-5cc2-98a1-8c73306d10a3",
+      "mean_prompt_tokens": 1664.25,
+      "model_path": "/var/tmp/xiang-isr-models/gemma3-12b",
+      "n_prompts": 1536,
+      "over_budget_prompts": [],
+      "passed": true
+    },
+    "mistral-small-24b": {
+      "longest_prompt_condition": "boundary_oob_with",
+      "longest_prompt_tokens": 4450,
+      "longest_prompt_unit": "bc18b8dc-6ab4-5cc2-98a1-8c73306d10a3",
+      "mean_prompt_tokens": 1639.1705729166667,
+      "model_path": "/var/tmp/xiang-isr-models/mistral-small-24b",
+      "n_prompts": 1536,
+      "over_budget_prompts": [],
+      "passed": true
+    },
+    "qwen35-9b": {
+      "longest_prompt_condition": "boundary_oob_with",
+      "longest_prompt_tokens": 4445,
+      "longest_prompt_unit": "bc18b8dc-6ab4-5cc2-98a1-8c73306d10a3",
+      "mean_prompt_tokens": 1612.4596354166667,
+      "model_path": "/var/tmp/xiang-isr-models/qwen35-9b",
+      "n_prompts": 1536,
+      "over_budget_prompts": [],
+      "passed": true
+    }
+  },
+  "n_prompts_per_model": 1536,
+  "n_units": 256,
+  "passed": true
+}
