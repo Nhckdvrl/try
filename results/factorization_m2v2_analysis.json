@@ -1,0 +1,72 @@
+{
+  "at_least_one_manipulation_validated": false,
+  "manipulation_verdicts": {
+    "m2v2": {
+      "models_with_meaningful_reduction": 1,
+      "of_models_tested": 3,
+      "validated_partial_mechanism": false
+    }
+  },
+  "results": [
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 0.828125,
+        "ci_low": -4.84375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": -1.875,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2v2",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_tag": "qwen35-9b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 10.65625,
+        "ci_low": 2.921875,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 6.71875,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2v2",
+      "meaningfully_reduces_intrusion": true,
+      "model_id": "google/gemma-3-12b-it",
+      "model_tag": "gemma3-12b",
+      "n_paired_units": 64
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 92.109375,
+      "boundary_probe_accuracy": 1.0,
+      "delta_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 1.484375,
+        "ci_low": -2.1875,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": -0.3125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "manipulation": "m2v2",
+      "meaningfully_reduces_intrusion": false,
+      "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "model_tag": "mistral-small-24b",
+      "n_paired_units": 64
+    }
+  ]
+}

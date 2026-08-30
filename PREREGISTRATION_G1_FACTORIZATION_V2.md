@@ -202,3 +202,14 @@ generated.** Tag: `g1-factorization-v2`.
       (local and remote `git ls-remote --tags`) and to point at the
       commit containing this document and the tooling above, before any
       new model output
+- [x] v2 run complete: **outcome combination 3** —
+      `PositionalEffect` validated (Qwen 5.31 [2.73, 8.00], Gemma 9.72
+      [6.03, 13.75], Mistral -0.70 [-2.11, 0.63] correctly null; 2/3);
+      `M2-v2` not validated at the 2-of-3 bar (Gemma 6.72 [2.92, 10.66]
+      meaningfully reduces, Qwen and Mistral do not; 1/3), though its
+      boundary-probe accuracy is now 1.000 for all three models
+      (confirming the v1 root-cause diagnosis was correct). Per the
+      frozen stop/go rule: the positional/overwriting mechanism account
+      is strengthened as the paper's primary depth finding; partitioning
+      is reported as a partial (Gemma-only), not general, mitigation.
+      Full results: `results/factorization_v2_results.md`.

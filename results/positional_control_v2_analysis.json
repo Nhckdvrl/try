@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "model_tag": "qwen35-9b",
+      "n_paired_units": 64,
+      "position_matters": true,
+      "positional_effect_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 8.0,
+        "ci_low": 2.734375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 5.3125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "repeat_after_boundary_accuracy": 1.0,
+      "repeat_before_boundary_accuracy": 1.0
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 100.0,
+      "model_tag": "gemma3-12b",
+      "n_paired_units": 64,
+      "position_matters": true,
+      "positional_effect_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 13.75,
+        "ci_low": 6.03125,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 9.71875,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "repeat_after_boundary_accuracy": 0.96875,
+      "repeat_before_boundary_accuracy": 1.0
+    },
+    {
+      "baseline_mean_allowed_with_alignment": 92.109375,
+      "model_tag": "mistral-small-24b",
+      "n_paired_units": 64,
+      "position_matters": false,
+      "positional_effect_bootstrap": {
+        "alpha": 0.05,
+        "ci_high": 0.625,
+        "ci_low": -2.109375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": -0.703125,
+        "n_clusters": 64,
+        "n_observations": 64,
+        "n_resamples": 10000
+      },
+      "repeat_after_boundary_accuracy": 1.0,
+      "repeat_before_boundary_accuracy": 1.0
+    }
+  ],
+  "verdict": {
+    "models_with_position_effect": 2,
+    "of_models_tested": 3,
+    "positional_effect_validated": true
+  }
+}
