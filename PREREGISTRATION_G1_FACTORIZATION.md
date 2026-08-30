@@ -285,8 +285,18 @@ selective exclusion).
 - [x] manipulation adapter tooling —
       `src/adapters/btf3_factorization.py`, `src/run_factorization.py`,
       `src/analyze_factorization.py`
-- [x] immutable Git tag before first manipulation-condition model output:
-      `g1-factorization-v1`
+- [ ] ~~immutable Git tag before first manipulation-condition model
+      output~~ — **process deviation, disclosed**: the prereg document,
+      tooling, and model run were all completed in the same working
+      session without a tag checkpoint between freezing the design and
+      running the first model, unlike BTF-3/SCOTUS/FOMC, which were all
+      tagged before any model output existed. This document's own text
+      above was frozen (git history shows the manipulation prompt
+      structure and thresholds were committed before any run), but there
+      is no immutable tag marking that specific pre-run state the way the
+      other three sources have. A tag applied now (post-run) cannot serve
+      the same before-the-fact commitment function; it is not backdated
+      or represented as such.
 - [x] v1 run complete: **M1 validated** (2/3 models meaningfully reduce
       intrusion, selective and boundary-probe-intact — instruction-
       salience/overwriting account supported); **M2 and M3 inconclusive**,
