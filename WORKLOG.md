@@ -352,3 +352,49 @@ Two things already visible, both worth the final write-up:
 Spearman(recognition, intrusion) over qualified checkpoints is −0.21,
 permutation p = 0.74 — consistent with the prediction recorded before the round
 that the two do not track each other.
+
+### 17. Frozen: G9 — the same question in a second task type
+
+`PREREGISTRATION_G9_NUMERIC.md`, tags `g9-numeric-design-v1` and
+`g9-numeric-freeze-v1`.
+
+Every number in the project comes from one task type — a binary forecasting
+question answered as `P(YES)`. The effect could be following the readout rather
+than the scientific object, and BTF-3's **numeric track** (392 quantity
+questions, same pastcasting protocol, same provenance) answers that.
+
+Each numeric question becomes a threshold question by a frozen rule using **the
+source's own middle cutpoint**: *"Will the resolved value be strictly less than
+`cutpoint_3` `units`?"* The source question is carried verbatim under a
+`QUANTITY BEING MEASURED` header and the criteria verbatim under the usual one,
+so the threshold sentence is the only text the transform adds. Everything
+downstream is inherited byte-identically — including the **analyzer**, which is
+reused verbatim rather than reimplemented, and the runner, which is unmodified.
+
+Frozen artifact: **128 units, 64 below / 64 above the cutpoint**, SHA-256
+`cb0c925a…`, no overlap with any binary round. 347 of 392 source rows pass
+validation; the one substantive exclusion is **45 knife-edge rows** whose value
+sits exactly on the cutpoint, dropped rather than resolved by convention. All
+347 candidates regenerate byte-identically from their pinned source rows.
+
+A bonus the binary track could not give: `sota_forecast_cdf_3` is *by
+construction* the SOTA forecaster's `P(value < cutpoint_3)` — the exact quantity
+the model is asked for. The G7 anchor analysis re-runs here unmodified, and the
+prediction recorded for it is **the one G7 actually produced**, not the one G7
+was designed to produce.
+
+Review provenance is weaker than the primary round and the preregistration says
+so in a section of its own: automated validation on all candidates plus a
+32-item spot audit, not per-item human review. Reported as a replication with
+lighter provenance, never as a reviewed benchmark.
+
+15 tests pass, including that no numeric unit overlaps the binary rounds and
+that every unit carries the same out-of-set sentence every previous round used.
+
+### 18. Local GPU queue
+
+Replaced the ad-hoc chains with `scripts/queue_local.sh`: G5 → G8 (+analysis) →
+G9 (+analysis) → G6 validation, sequential on GPUs 0–2, with GPU 3 running the
+breadth lane independently. Each stage waits for the previous one's processes
+rather than a timer, so a slow stage delays the queue instead of colliding with
+it.
