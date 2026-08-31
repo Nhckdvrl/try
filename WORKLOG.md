@@ -101,3 +101,73 @@ GPUs 0–2.
 
 Home and the HF cache are shared NFS, so remote nodes read the same weights and
 the same frozen artifact.
+
+### 6. Calibrating against the reference papers' actual volume
+
+Read the ACL 2025 Outstanding paper's full text to size the workload honestly
+rather than by impression. *Llama See, Llama Do*: **5 models** (Llama-3.1-8B,
+Llama-3.1-8B-Instruct, Llama-2-7B, Llama-2-13B, GPT-2 XL), 15 LRE relations, 4
+context conditions (related / irrelevant / random / counterfactual), roughly
+**11,000–15,000 queries**, plus differentiable-mask head discovery over 1,024
+heads, ablation, and downstream-capability retention checks.
+
+Where this project stands against that:
+
+| round | generations |
+|---|---:|
+| large replication (3 models × 256 units × 4 conditions + probes) | 4,608 |
+| G2 hindsight depth (3 × 6 conditions) | 9,216 |
+| Qwen3.5 size analysis (2 new sizes) | 3,072 |
+| **G3 exclusion reason** (3 × 6 conditions) | 6,912 |
+| **G4 breadth** (12 new checkpoints × 4 conditions + probes) | 18,432 |
+| **G5 deliberation** (3 × 8 conditions, 640 tokens each) | 9,216 |
+
+The volume gap is not the real gap — the totals already exceed the reference
+paper's. The gap was structural, and G3/G5/G6 are what close it.
+
+### 7. Frozen and launched: G4 breadth panel
+
+`PREREGISTRATION_G4_MODEL_BREADTH.md` + `data/model_panel_g4.json`. 17
+checkpoints, 8 families, 3.8B–35B, one MoE. Estimands, thresholds, and the
+`intrusion_pass` rule are read out of the existing large-replication analyzer
+rather than restated, so the panel cannot be graded on a different scale than
+the published three. Prediction recorded before running: **no reliable
+recognition–intrusion correlation across the panel** (Spearman with a
+permutation interval).
+
+Tagged `g4-model-breadth-design-v1`, then dispatched 12 checkpoints across five
+GPUs — four lanes on `fvcrc20`, one lane locally.
+
+### 8. Frozen: G5 deliberation and the ex-ante state scaffold
+
+`PREREGISTRATION_G5_DELIBERATION.md`. Replaces only the `TASK` block, which is
+byte-identical across all 1,024 frozen prompts and sits at the end of each one.
+
+- `cot` — free-form "reason step by step, then answer";
+- `state` — a fixed three-step scaffold: list what was available at the
+  evaluation point, name what lies outside it, then answer from step 1 only.
+
+The deciding contrast is **`state` vs `cot`**, not either against the direct
+baseline — otherwise a reduction is just "deliberation helps" and says nothing
+about state construction. It separates H-absent from H-truth, and doubles as
+the paper's first mitigation baseline so any later inference-time method has a
+measured number to beat.
+
+A **utility guard** is preregistered as a veto: an arm that lowers intrusion
+while dropping licensed responsiveness below 15 points or below 70% of the
+direct arm's is reported as damaging the task, not enforcing the boundary.
+
+Parser hardening found by test: `ANSWER: 240` was being read as 24 by a regex
+that matched a valid prefix. The number is now captured whole and range-checked,
+so an out-of-range answer is an unparsed record. Tagged
+`g5-deliberation-design-v1`.
+
+### 9. Built: mechanism capture harness (tooling only, no experiment yet)
+
+`src/mech/capture_hindsight.py` — HF-hooks capture of, per item and condition,
+the residual stream at the final prompt position for every layer (fp16) and a
+logit-lens readout restricted to the ten digit tokens. This is the instrument
+the G6 override-vs-absence test will consume. It is deliberately **not** an
+experiment: per `PAPER_FRAME.md` §8, the mechanism design is not frozen until
+G3 and G5 have resolved, because which internal question is worth asking
+depends on whether enforcement turns out to be truth-keyed.

@@ -66,8 +66,8 @@ remaining experiment is fixed by which pair it separates.
 | **H-scale** | small models; capability closes the gap | G2 size analysis — **ruled out within one family** |
 | **H-truth** | the model has no machinery for making information it believes *true* causally inert; the temporal label is one instance | G3, `procedural` vs `unreliable` arms |
 | **H-temporal** | licensing is enforceable in general; reconstructing a *past* state is the specific hard operation | G3, same contrast |
-| **H-override** | the ex-ante belief state *is* constructed internally and then overridden by the packet-driven answer | G4 (deferred; see §8) |
-| **H-absent** | no ex-ante belief state is ever constructed; recognition is a labeling computation running beside, not upstream of, the answer | G4 |
+| **H-override** | the ex-ante belief state *is* constructed internally and then overridden by the packet-driven answer | G6 (deferred; see §8) |
+| **H-absent** | no ex-ante belief state is ever constructed; recognition is a labeling computation running beside, not upstream of, the answer | G5 (behaviorally), G6 (internally) |
 
 H-override and H-absent are the pair that mechanistic interpretability is
 *required* for. Neither is decidable from outputs, which is the only condition
@@ -119,7 +119,9 @@ because it is derived downward from §1:
 | within-family size | is it a capability deficit that scale closes? |
 | position of the constraint | does *when* the constraint is stated change enforcement? |
 | **reason for exclusion (G3)** | which kind of boundary can the model enforce at all? |
-| **layerwise readout (G4)** | is the ex-ante judgment built and overridden, or never built? |
+| **model breadth (G4)** | is this a property of three checkpoints or of the class? |
+| **deliberation and the state scaffold (G5)** | does forcing explicit reconstruction of the ex-ante state recover the judgment? |
+| **layerwise readout and intervention (G6)** | is the ex-ante judgment built and overridden, or never built — and can it be restored at inference time? |
 
 ## 7. Robustness of the title to failure
 
@@ -133,7 +135,7 @@ head is found.
 
 This paper is in the second class. The title-level object is *whether a model
 can reconstruct a past judgment after learning the outcome*, and the answer to
-that is already measured. If G3 returns H-inert instead of H-truth, if G4 finds
+that is already measured. If G3 returns H-inert instead of H-truth, if G6 finds
 no ex-ante state anywhere, if the positional effect never replicates — the
 title stands and only the explanation section changes. Nothing downstream can
 retroactively unmake the 256-unit recognition–enforcement dissociation.
@@ -149,8 +151,8 @@ the paper look mechanistic. The rule, taken from the reference papers:
 That is true of exactly one remaining pair: **H-override vs H-absent** (§4).
 Both predict the same contaminated output; they differ in whether an ex-ante
 estimate exists in the residual stream and is discarded, or was never computed.
-G4 is therefore permitted, and is deliberately **not** preregistered until G3
-resolves, because which mechanism question is worth asking depends on whether
+G6 is therefore permitted, and is deliberately **not** preregistered until G3
+and G5 resolve, because which mechanism question is worth asking depends on whether
 enforcement turns out to be truth-keyed.
 
 Any patching, probing, or head-ablation proposal that does not adjudicate a
@@ -170,7 +172,7 @@ named pair from §4 is refused.
 6. **Experiment coherence** — §6's table. Every experiment is a sub-question of
    §1 and can be written as one.
 7. **Hypothesis robustness** — §7. The title survives every possible outcome of
-   G3 and G4.
+   G3, G4, G5 and G6.
 8. **Mechanism necessity** — §8. Mechanism is gated on a behaviorally
    undecidable pair, and refused otherwise.
 
