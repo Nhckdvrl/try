@@ -29,6 +29,10 @@ python src/analyze_exante_anchor.py \
   --out results/g9_numeric_anchor_analysis.json > results/g9_numeric_anchor_console.txt 2>&1 \
   || echo "[queue] G9 anchor analysis skipped (expected: needs the numeric-track loader)"
 
+echo "[queue] G10 few-shot  $(date +%H:%M:%S)"
+bash scripts/run_fewshot.sh 0 qwen35-9b 1 gemma3-12b 2 mistral-small-24b
+python src/analyze_fewshot.py > results/g10_fewshot_console.txt 2>&1 || echo "[queue] G10 analysis failed"
+
 echo "[queue] G6 validation sweep, 4 units  $(date +%H:%M:%S)"
 bash scripts/run_span_sweep.sh --limit 4 0 qwen35-9b
 
