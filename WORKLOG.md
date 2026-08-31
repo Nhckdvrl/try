@@ -262,3 +262,58 @@ about it. Masking leaves the text in context — the boundary probe still works 
 while removing its causal path into the decision. That is precisely the
 contract the project measures: `memory(E)` retained, `causal_effect(E → decision)`
 removed.
+
+### 14. Frozen: G6 mechanism — the layer-window masking sweep, and the method
+
+`PREREGISTRATION_G6_MECHANISM.md`, tagged `g6-mechanism-design-v1`.
+
+G3's `H-inert` is what makes mechanism legitimate here. Exactly one pair
+survives it and no output can separate the two:
+
+- **H-override** — an ex-ante judgment is computed and overwritten late;
+- **H-absent** — none is ever computed; recognition runs beside the answer.
+
+**The primary test is causal, not a probe.** Masking the packet's tokens from
+the answer positions in a suffix window `[fL, L)` and sweeping `f` asks *how
+late the intervention can be and still restore the no-packet answer*. Late-only
+restoration means an uncontaminated trajectory existed and was overwritten;
+restoration only at full depth means the packet was in the estimate from the
+start. Opposite predictions, one number per window, `f*` read off a frozen rule.
+
+Probing is deliberately demoted to secondary, with its limit written into the
+document rather than left for a reviewer: decodability shows the answer is
+*available* in the activations, not that the model *computes* it.
+
+Two instrument checks are part of the design, not afterthoughts: full-depth
+masking must restore the no-packet answer (or nothing else in the round is
+usable), and the HF-vs-vLLM disagreement rate is *measured*, with the analysis
+using the HF unmasked run as its own reference so a framework difference cannot
+masquerade as an effect.
+
+**The method** is enforcement by masking, with the honesty requirement frozen
+alongside it: the `delete` reference sits in the same table, and what is claimed
+is selective, reversible enforcement *with the evidence still in context and
+still answerable*. The baseline it must beat is prompting — and G3 showed
+prompting does nothing at all, including a prompt that undercuts the packet's
+truth. A `wrong-span` control of identical token length is what separates
+enforcement from damage.
+
+17 tests, including that the masking path tokenizes byte-identically to the
+path every previous round used.
+
+### 15. Compute reality check
+
+`fvcrc20` turned out **not** to be idle: four other users' processes at
+320–430% CPU for 5–7 hours, load average 22–25, and the vLLM engine cores
+sitting in uninterruptible-sleep — blocked on NFS, not on GPU. Two 30–60GB
+checkpoints spent an hour past weight-loading with zero generation.
+
+Response: stopped the lane that had not begun loading to free NFS bandwidth,
+kept the two that had, and moved the remaining small checkpoints to local NVMe
+staging on this node instead. The breadth panel is descriptive; the core rounds
+(G5, G8, G6) run on locally staged weights and are not exposed to that
+contention.
+
+Breadth so far: 8 of 17 checkpoints have output — `gemma3-4b`, `gemma3-12b`,
+`llama31-8b`, `mistral-small-24b`, `qwen25-14b`, `qwen35-4b`, `qwen35-9b`,
+`qwen35-27b`.
