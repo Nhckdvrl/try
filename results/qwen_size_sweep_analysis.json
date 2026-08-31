@@ -1,0 +1,181 @@
+{
+  "adjacent_and_extreme_contrasts": [
+    {
+      "boundary_accuracy_delta": -0.00390625,
+      "contrast": "qwen35-9b - qwen35-4b",
+      "intrusion_delta": {
+        "ci_high": -12.58203125,
+        "ci_low": -19.390625,
+        "mean": -15.98046875,
+        "n_resamples": 10000,
+        "n_shared_units": 256,
+        "seed": 20260829
+      }
+    },
+    {
+      "boundary_accuracy_delta": 0.0078125,
+      "contrast": "qwen35-27b - qwen35-9b",
+      "intrusion_delta": {
+        "ci_high": 24.05859375,
+        "ci_low": 17.41015625,
+        "mean": 20.734375,
+        "n_resamples": 10000,
+        "n_shared_units": 256,
+        "seed": 20260829
+      }
+    },
+    {
+      "boundary_accuracy_delta": 0.00390625,
+      "contrast": "qwen35-27b - qwen35-4b (extremes)",
+      "intrusion_delta": {
+        "ci_high": 8.7109375,
+        "ci_low": 0.73046875,
+        "mean": 4.75390625,
+        "n_resamples": 10000,
+        "n_shared_units": 256,
+        "seed": 20260829
+      }
+    }
+  ],
+  "expected_artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+  "family": "Qwen3.5 dense",
+  "per_size": [
+    {
+      "boundary_accuracy": 0.99609375,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": true,
+      "log10_parameters": 9.602059991327963,
+      "mean_allowed_with_alignment": 100.0,
+      "model_id": "Qwen/Qwen3.5-4B",
+      "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "model_tag": "qwen35-4b",
+      "n_units": 256,
+      "out_of_set_intrusion": {
+        "alpha": 0.05,
+        "ci_high": 35.65234375,
+        "ci_low": 28.3984375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 31.99609375,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      },
+      "parameters_billions": 4.0,
+      "qualified": true,
+      "responsiveness": {
+        "alpha": 0.05,
+        "ci_high": 46.15234375,
+        "ci_low": 36.765625,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 41.5,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      }
+    },
+    {
+      "boundary_accuracy": 0.9921875,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": true,
+      "log10_parameters": 9.954242509439325,
+      "mean_allowed_with_alignment": 99.9609375,
+      "model_id": "Qwen/Qwen3.5-9B",
+      "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "model_tag": "qwen35-9b",
+      "n_units": 256,
+      "out_of_set_intrusion": {
+        "alpha": 0.05,
+        "ci_high": 17.890625,
+        "ci_low": 14.18359375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 16.015625,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      },
+      "parameters_billions": 9.0,
+      "qualified": true,
+      "responsiveness": {
+        "alpha": 0.05,
+        "ci_high": 49.48046875,
+        "ci_low": 45.0390625,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 47.265625,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      }
+    },
+    {
+      "boundary_accuracy": 1.0,
+      "decision_parse_rate": 1.0,
+      "intrusion_pass": true,
+      "log10_parameters": 10.431363764158988,
+      "mean_allowed_with_alignment": 100.0,
+      "model_id": "Qwen/Qwen3.5-27B",
+      "model_revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+      "model_tag": "qwen35-27b",
+      "n_units": 256,
+      "out_of_set_intrusion": {
+        "alpha": 0.05,
+        "ci_high": 39.92578125,
+        "ci_low": 33.49609375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 36.75,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      },
+      "parameters_billions": 27.0,
+      "qualified": true,
+      "responsiveness": {
+        "alpha": 0.05,
+        "ci_high": 44.6015625,
+        "ci_low": 37.43359375,
+        "cluster_size_max": 1,
+        "cluster_size_min": 1,
+        "mean": 41.0078125,
+        "n_clusters": 256,
+        "n_observations": 256,
+        "n_resamples": 10000
+      }
+    }
+  ],
+  "preregistration": "PREREGISTRATION_G2_QWEN_SIZE_SWEEP.md",
+  "thresholds": {
+    "intrusion_sesoi_points": 5.0,
+    "minimum_allowed_with_alignment_points": 70.0,
+    "minimum_boundary_accuracy": 0.875,
+    "minimum_decision_parse_rate": 0.96875,
+    "minimum_intrusion_models": 2,
+    "minimum_mean_responsiveness_points": 15.0,
+    "minimum_qualified_models": 2
+  },
+  "trend": {
+    "boundary_accuracies": [
+      0.99609375,
+      0.9921875,
+      1.0
+    ],
+    "boundary_accuracy_min": 0.9921875,
+    "intrusion_means": [
+      31.99609375,
+      16.015625,
+      36.75
+    ],
+    "intrusion_monotone_decreasing": false,
+    "intrusion_monotone_increasing": false,
+    "note": "descriptive within-family trend over few size points; no scaling law is fitted and no correlation test is reported",
+    "sizes_billions": [
+      4.0,
+      9.0,
+      27.0
+    ],
+    "sizes_with_intrusion_pass": 3
+  }
+}
