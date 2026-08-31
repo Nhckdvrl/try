@@ -317,3 +317,38 @@ contention.
 Breadth so far: 8 of 17 checkpoints have output — `gemma3-4b`, `gemma3-12b`,
 `llama31-8b`, `mistral-small-24b`, `qwen25-14b`, `qwen35-4b`, `qwen35-9b`,
 `qwen35-27b`.
+
+### 16. Interim look at the breadth panel (disclosed)
+
+Ran the fully-specified, descriptive G4 analyzer on the 9 checkpoints that had
+output, writing to `results/g4_model_breadth_interim.json` — a progress check,
+not the round's result. No decision depends on it and the final report is the
+single run over the complete panel. Disclosed here because it happened.
+
+| checkpoint | probe | responsiveness | intrusion | qualified |
+|---|---:|---:|---|---|
+| Qwen2.5-14B | 1.0000 | 44.68 | 14.84 [12.79, 17.00] | yes |
+| Qwen3.5-4B | 0.9961 | 41.50 | 32.00 [28.40, 35.65] | yes |
+| Qwen3.5-9B | 0.9922 | 47.27 | 16.02 [14.18, 17.89] | yes |
+| Qwen3.5-27B | 1.0000 | 41.01 | 36.75 [33.50, 39.93] | yes |
+| Gemma-3-12B | 0.9980 | 46.89 | 27.73 [25.15, 30.39] | yes |
+| Mistral-24B | 1.0000 | 39.31 | 7.46 [5.41, 9.57] | yes |
+| Llama-3.1-8B | **0.7363** | 45.99 | 28.23 [24.53, 31.85] | **no** |
+| Gemma-3-4B | **0.5605** | 46.12 | 44.75 [41.60, 47.92] | **no** |
+| Phi-4-mini | **0.6133** | 46.58 | 44.83 [40.22, 49.37] | **no** |
+
+Two things already visible, both worth the final write-up:
+
+1. **6/6 qualified checkpoints pass the intrusion gate**, across four families
+   — Qwen2.5, Qwen3.5, Gemma-3, Mistral.
+2. **The three unqualified ones fail on recognition, not on responsiveness.**
+   All three use the licensed evidence perfectly well (46 points) but cannot
+   reliably say the packet is out of set (56–74%), and all three are among the
+   most contaminated (28–45 points). The panel therefore separates two failures
+   that the paper has so far only ever seen together: models that do not
+   recognise the boundary, and models that recognise it at ceiling and are
+   moved by it anyway. Only the second group is the dissociation.
+
+Spearman(recognition, intrusion) over qualified checkpoints is −0.21,
+permutation p = 0.74 — consistent with the prediction recorded before the round
+that the two do not track each other.
