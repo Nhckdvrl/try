@@ -398,3 +398,41 @@ G9 (+analysis) → G6 validation, sequential on GPUs 0–2, with GPU 3 running t
 breadth lane independently. Each stage waits for the previous one's processes
 rather than a timer, so a slow stage delays the queue instead of colliding with
 it.
+
+
+### 19. Course correction: dropped a defensive experiment
+
+A length control for G3's Gemma amplification was drafted and **dropped before
+running**. Its own preregistration said the round "can only weaken an existing
+informal reading or leave it alone" — that is a defensive experiment, and it had
+4,608 generations allocated to a side observation.
+
+Replaced with **G10 — what actually fixes it** (`PREREGISTRATION_G10_FEWSHOT.md`,
+tag `g10-fewshot-design-v1`). G3 showed no *stated reason* works; the strongest
+prompt-level intervention left is showing the model what the behaviour looks
+like. Three held-out BTF-3 questions, answered with the dataset's own SOTA
+ex-ante forecast, are prepended as worked examples.
+
+The demonstrations are selected to be **instructive**: ranked by how far the
+ex-ante forecast sits from the realized outcome, so the model sees
+*packet-says-NO / answer-93* and *packet-says-YES / answer-3* rather than cases
+where following the packet would have been right anyway. Prefix `e44dfbde…`,
+925 tokens, longest prompt 5,428 against the 8,192 budget.
+
+Both outcomes are worth having. Demonstrations working is a cheap deployable fix
+and the concrete finding "stating the rule does nothing, showing it works".
+Demonstrations failing makes *nothing that can be said to the model works*
+airtight and leaves the G6 inference-time method as the only thing that does.
+
+A copying guard is reported alongside so a reduction bought by reproducing the
+demonstrated numbers is not counted as reasoning.
+
+### 20. Framing correction found by self-review
+
+The ratio table added in §16-adjacent work first described the licensed frame as
+"the same judgment with the licence flipped". It is not: the licensed cells also
+ask a different target question (*retrospective judgment using everything* vs
+*the probability warranted as of DATE*). Corrected in all three places it
+appeared. The ratio is a **normalizer** — the evidence's leakage into the
+ex-ante judgment as a fraction of its full measurable influence — not a minimal
+pair for the licence.
