@@ -98,6 +98,30 @@ def plan_span(tokenizer, prompt: str, *, query_from: str = "task") -> SpanPlan:
     return SpanPlan(input_ids=ids, packet_tokens=packet_tokens, query_from=first_query, text=text)
 
 
+def plan_wrong_span(tokenizer, prompt: str) -> SpanPlan:
+    """Control plan: block the same number of tokens, taken from before the packet.
+
+    The control span is the run of tokens immediately preceding the packet
+    header, matched in length to the packet's token count. It is background
+    text the model is licensed to use, so blocking it is a test of whether the
+    method is selective: enforcement should need the packet span specifically,
+    not merely the removal of some equally long region.
+    """
+    real = plan_span(tokenizer, prompt)
+    first_packet = real.packet_tokens[0]
+    n = len(real.packet_tokens)
+    start = max(0, first_packet - n)
+    control = list(range(start, first_packet))
+    if not control:
+        raise ValueError("no control span available before the packet")
+    return SpanPlan(
+        input_ids=real.input_ids,
+        packet_tokens=control,
+        query_from=real.query_from,
+        text=real.text,
+    )
+
+
 def build_mask(plan: SpanPlan, *, n_new: int, dtype, device) -> torch.Tensor:
     """Causal mask of shape (1, 1, T, T) with the packet columns blocked.
 
@@ -215,6 +239,7 @@ __all__ = [
     "build_mask",
     "generate_masked",
     "plan_span",
+    "plan_wrong_span",
     "read_probability",
     "templated_text",
 ]
