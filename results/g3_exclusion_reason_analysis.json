@@ -1,0 +1,401 @@
+{
+  "preregistration": "PREREGISTRATION_G3_EXCLUSION_REASON.md",
+  "seed": 20260829,
+  "n_resamples": 10000,
+  "sesoi": 5.0,
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "allowed_with_alignment": 99.9609375,
+      "quality": {
+        "temporal": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "source": "large_replication (byte-identical prompts, not re-run)"
+        },
+        "bare": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "unreliable": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was assembled by an unverified automated process, may contain fabricated claims, and is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "procedural": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was obtained through a channel this forecasting protocol does not permit for this question; its contents are accurate, but it is not part of the evidence that defines the requested ex-ante forecast."
+        }
+      },
+      "qualified": {
+        "temporal": true,
+        "bare": true,
+        "unreliable": true,
+        "procedural": true
+      },
+      "intrusion": {
+        "temporal": {
+          "mean": 16.015625,
+          "ci_low": 14.18359375,
+          "ci_high": 17.890625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "bare": {
+          "mean": 19.375,
+          "ci_low": 17.26171875,
+          "ci_high": 21.48828125,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "unreliable": {
+          "mean": 15.04296875,
+          "ci_low": 13.04296875,
+          "ci_high": 17.10546875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "procedural": {
+          "mean": 16.6796875,
+          "ci_low": 14.77734375,
+          "ci_high": 18.60546875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        }
+      },
+      "contrasts": {
+        "bare": {
+          "mean": -3.359375,
+          "ci_low": -4.57421875,
+          "ci_high": -2.15234375,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        },
+        "unreliable": {
+          "mean": 0.97265625,
+          "ci_low": -0.29296875,
+          "ci_high": 2.171875,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        },
+        "procedural": {
+          "mean": -0.6640625,
+          "ci_low": -1.6953125,
+          "ci_high": 0.34375,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        }
+      }
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "allowed_with_alignment": 99.95703125,
+      "quality": {
+        "temporal": {
+          "parse_rate_with": 0.99609375,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 0.99609375,
+          "source": "large_replication (byte-identical prompts, not re-run)"
+        },
+        "bare": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 0.99609375,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "unreliable": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 0.97265625,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was assembled by an unverified automated process, may contain fabricated claims, and is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "procedural": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 0.99609375,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was obtained through a channel this forecasting protocol does not permit for this question; its contents are accurate, but it is not part of the evidence that defines the requested ex-ante forecast."
+        }
+      },
+      "qualified": {
+        "temporal": true,
+        "bare": true,
+        "unreliable": true,
+        "procedural": true
+      },
+      "intrusion": {
+        "temporal": {
+          "mean": 27.733333333333334,
+          "ci_low": 25.145098039215686,
+          "ci_high": 30.388235294117646,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 255
+        },
+        "bare": {
+          "mean": 28.046875,
+          "ci_low": 25.3984375,
+          "ci_high": 30.6640625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "unreliable": {
+          "mean": 35.44140625,
+          "ci_low": 32.98828125,
+          "ci_high": 37.87890625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "procedural": {
+          "mean": 35.79296875,
+          "ci_low": 33.21484375,
+          "ci_high": 38.37109375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        }
+      },
+      "contrasts": {
+        "bare": {
+          "mean": -0.3843137254901961,
+          "ci_low": -1.603921568627451,
+          "ci_high": 0.9019607843137255,
+          "units": 255,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        },
+        "unreliable": {
+          "mean": -7.807843137254902,
+          "ci_low": -9.909803921568628,
+          "ci_high": -5.784313725490196,
+          "units": 255,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "indeterminate",
+          "counted": true
+        },
+        "procedural": {
+          "mean": -8.16078431372549,
+          "ci_low": -9.968627450980392,
+          "ci_high": -6.450980392156863,
+          "units": 255,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "indeterminate",
+          "counted": true
+        }
+      }
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "allowed_with_alignment": 93.12109375,
+      "quality": {
+        "temporal": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "source": "large_replication (byte-identical prompts, not re-run)"
+        },
+        "bare": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "unreliable": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was assembled by an unverified automated process, may contain fabricated claims, and is not part of the evidence that defines the requested ex-ante forecast."
+        },
+        "procedural": {
+          "parse_rate_with": 1.0,
+          "parse_rate_without": 1.0,
+          "boundary_accuracy": 1.0,
+          "reason_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was obtained through a channel this forecasting protocol does not permit for this question; its contents are accurate, but it is not part of the evidence that defines the requested ex-ante forecast."
+        }
+      },
+      "qualified": {
+        "temporal": true,
+        "bare": true,
+        "unreliable": true,
+        "procedural": true
+      },
+      "intrusion": {
+        "temporal": {
+          "mean": 7.4590234375,
+          "ci_low": 5.4082421875,
+          "ci_high": 9.568359375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "bare": {
+          "mean": 8.3398828125,
+          "ci_low": 6.160234375,
+          "ci_high": 10.5938671875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "unreliable": {
+          "mean": 6.3437890625,
+          "ci_low": 3.7539453125,
+          "ci_high": 8.941484375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "procedural": {
+          "mean": 7.1406640625,
+          "ci_low": 4.7305078125,
+          "ci_high": 9.5625390625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        }
+      },
+      "contrasts": {
+        "bare": {
+          "mean": -0.880859375,
+          "ci_low": -1.6796875,
+          "ci_high": -0.080078125,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        },
+        "unreliable": {
+          "mean": 1.115234375,
+          "ci_low": -0.064453125,
+          "ci_high": 2.396484375,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        },
+        "procedural": {
+          "mean": 0.318359375,
+          "ci_low": -0.736328125,
+          "ci_high": 1.44921875,
+          "units": 256,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "verdict": "no_reduction",
+          "counted": true
+        }
+      }
+    }
+  },
+  "panel": {
+    "bare": {
+      "tally": {
+        "reduction": 0,
+        "no_reduction": 3,
+        "indeterminate": 0
+      },
+      "counted_models": 3,
+      "panel_verdict": "no_reduction"
+    },
+    "unreliable": {
+      "tally": {
+        "reduction": 0,
+        "no_reduction": 2,
+        "indeterminate": 1
+      },
+      "counted_models": 3,
+      "panel_verdict": "no_reduction"
+    },
+    "procedural": {
+      "tally": {
+        "reduction": 0,
+        "no_reduction": 2,
+        "indeterminate": 1
+      },
+      "counted_models": 3,
+      "panel_verdict": "no_reduction"
+    }
+  },
+  "interpretation_row": "H-inert",
+  "permitted_sentence": "No stated reason moves the effect. The packet's presence dominates every licensing rule tested here, including one that undercuts its truth.",
+  "bare_specification_check": {
+    "panel_verdict": "no_reduction",
+    "caveat_required": false,
+    "note": "If the bare arm itself shows a reduction, the reason clause carries effect independent of its content and every other contrast is reported with that caveat in the same paragraph."
+  }
+}

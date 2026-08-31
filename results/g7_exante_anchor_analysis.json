@@ -1,0 +1,219 @@
+{
+  "preregistration": "PREREGISTRATION_G7_EXANTE_ANCHOR.md",
+  "anchor_column": "sota_forecast_probability",
+  "source_sha256_expected": "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a",
+  "displacement_sesoi": 3.0,
+  "validity_floor": 0.3,
+  "per_model": {
+    "qwen35-9b": {
+      "source_file": "results/raw/isr_qwen35-9b_btf3_large_replication_v1.jsonl",
+      "oob": {
+        "units": 239,
+        "rho_without": 0.28092616029123685,
+        "rho_with": 0.6592373206264212,
+        "mad_without": 26.556485355648537,
+        "mad_with": 19.715481171548117,
+        "delta_dev": {
+          "mean": -6.841004184100418,
+          "ci_low": -9.179916317991632,
+          "ci_high": -4.548117154811716,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.2363723849372385,
+        "brier_with": 0.11872175732217573,
+        "delta_brier": {
+          "mean": -0.11765062761506277,
+          "ci_low": -0.13442510460251048,
+          "ci_high": -0.10123849372384938,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 13.841004184100418,
+        "confidence_with": 22.564853556485357,
+        "signed_gap_without": -19.217573221757323,
+        "signed_gap_with": -3.506276150627615,
+        "anchor_mean": 39.88702928870293,
+        "displacement_verdict": "indeterminate"
+      },
+      "allowed": {
+        "units": 239,
+        "rho_without": 0.24393370146136872,
+        "rho_with": 0.7136143499710311,
+        "mad_without": 28.753138075313807,
+        "mad_with": 27.06694560669456,
+        "delta_dev": {
+          "mean": -1.6861924686192469,
+          "ci_low": -6.338912133891213,
+          "ci_high": 2.8535564853556483,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.25958117154811716,
+        "brier_with": 2.0920502092050245e-05,
+        "delta_brier": {
+          "mean": -0.2595602510460251,
+          "ci_low": -0.28396694560669455,
+          "ci_high": -0.23637280334728034,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 16.548117154811717,
+        "confidence_with": 49.9581589958159,
+        "signed_gap_without": -20.317991631799163,
+        "signed_gap_with": 27.06694560669456,
+        "anchor_mean": 39.88702928870293
+      },
+      "validity_pass": false
+    },
+    "gemma3-12b": {
+      "source_file": "results/raw/isr_gemma3-12b_btf3_large_replication_v1.jsonl",
+      "oob": {
+        "units": 238,
+        "rho_without": 0.29300837226568494,
+        "rho_with": 0.707947593960537,
+        "mad_without": 27.529411764705884,
+        "mad_with": 18.256302521008404,
+        "delta_dev": {
+          "mean": -9.27310924369748,
+          "ci_low": -12.605042016806722,
+          "ci_high": -5.810924369747899,
+          "n": 238,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.23925168067226893,
+        "brier_with": 0.07323781512605042,
+        "delta_brier": {
+          "mean": -0.1660138655462185,
+          "ci_low": -0.18791470588235296,
+          "ci_high": -0.14474873949579833,
+          "n": 238,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 13.752100840336135,
+        "confidence_with": 33.1764705882353,
+        "signed_gap_without": -19.369747899159663,
+        "signed_gap_with": 7.69327731092437,
+        "anchor_mean": 39.80252100840336,
+        "displacement_verdict": "indeterminate"
+      },
+      "allowed": {
+        "units": 239,
+        "rho_without": 0.2505217315847709,
+        "rho_with": 0.7280557938095296,
+        "mad_without": 28.569037656903767,
+        "mad_with": 27.06276150627615,
+        "delta_dev": {
+          "mean": -1.506276150627615,
+          "ci_low": -6.083682008368201,
+          "ci_high": 2.9665271966527196,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.2533075313807531,
+        "brier_with": 4.225941422594143e-05,
+        "delta_brier": {
+          "mean": -0.2532652719665272,
+          "ci_low": -0.27699497907949794,
+          "ci_high": -0.23043891213389123,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 16.506276150627617,
+        "confidence_with": 49.95397489539749,
+        "signed_gap_without": -19.824267782426777,
+        "signed_gap_with": 27.06276150627615,
+        "anchor_mean": 39.88702928870293
+      },
+      "validity_pass": false
+    },
+    "mistral-small-24b": {
+      "source_file": "results/raw/isr_mistral-small-24b_btf3_large_replication_v1.jsonl",
+      "oob": {
+        "units": 239,
+        "rho_without": 0.32903398211176865,
+        "rho_with": 0.6018653044304135,
+        "mad_without": 25.041799163179917,
+        "mad_with": 20.42887029288703,
+        "delta_dev": {
+          "mean": -4.612928870292887,
+          "ci_low": -6.510376569037657,
+          "ci_high": -2.7698744769874475,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.2587129707531381,
+        "brier_with": 0.2265766736401674,
+        "delta_brier": {
+          "mean": -0.03213629711297071,
+          "ci_low": -0.05201924690376569,
+          "ci_high": -0.013048849414225941,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 18.35142259414226,
+        "confidence_with": 25.968619246861923,
+        "signed_gap_without": -18.949832635983263,
+        "signed_gap_with": -11.608786610878662,
+        "anchor_mean": 39.88702928870293,
+        "displacement_verdict": "indeterminate"
+      },
+      "allowed": {
+        "units": 239,
+        "rho_without": 0.2602554400244658,
+        "rho_with": 0.6596202919708504,
+        "mad_without": 26.671548117154813,
+        "mad_with": 25.514644351464437,
+        "delta_dev": {
+          "mean": -1.1569037656903767,
+          "ci_low": -5.2175732217573225,
+          "ci_high": 2.8891213389121337,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "brier_without": 0.27858211297071134,
+        "brier_with": 0.053134309623430964,
+        "delta_brier": {
+          "mean": -0.22544780334728035,
+          "ci_low": -0.2583878661087866,
+          "ci_high": -0.1936069037656904,
+          "n": 239,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "confidence_without": 19.939330543933053,
+        "confidence_with": 46.99163179916318,
+        "signed_gap_without": -19.52510460251046,
+        "signed_gap_with": 19.782426778242677,
+        "anchor_mean": 39.88702928870293
+      },
+      "validity_pass": true
+    }
+  },
+  "panel": {
+    "headline_models": [
+      "qwen35-9b",
+      "gemma3-12b",
+      "mistral-small-24b"
+    ],
+    "tally": {
+      "displacement": 0,
+      "no_displacement": 0,
+      "indeterminate": 3
+    },
+    "panel_verdict": "indeterminate"
+  },
+  "interpretation_row": "indeterminate",
+  "permitted_sentence": "The interval is reported; nothing is concluded."
+}
