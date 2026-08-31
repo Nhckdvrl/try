@@ -1,0 +1,33 @@
+
+=== qwen35-9b (n=256, probe=1.0000, qualified=True)
+  I_own      +0.05 [ -2.84,  +3.01]
+  I_donor    +4.97 [ +2.11,  +7.81]
+  I_real    +16.02 [+14.18, +17.89]
+  S_swap    +16.50 [+14.46, +18.68]
+  S_real    +16.48 [+14.71, +18.31]
+  S_swap / S_real = 1.001   pairing {'same_direction': 132, 'opposite_direction': 124}
+  I_own null=True  I_donor positive=False  S substantial=True
+
+=== gemma3-12b (n=255, probe=1.0000, qualified=True)
+  I_own      -0.45 [ -3.49,  +2.61]
+  I_donor   +12.26 [ +9.64, +14.93]
+  I_real    +27.73 [+25.15, +30.39]
+  S_swap    +16.61 [+14.39, +18.95]
+  S_real    +28.60 [+26.16, +31.12]
+  S_swap / S_real = 0.581   pairing {'same_direction': 132, 'opposite_direction': 123}
+  I_own null=True  I_donor positive=True  S substantial=True
+
+=== mistral-small-24b (n=256, probe=1.0000, qualified=True)
+  I_own      +0.52 [ -0.82,  +1.78]
+  I_donor    +2.93 [ +1.71,  +4.22]
+  I_real     +7.46 [ +5.41,  +9.57]
+  S_swap     +6.01 [ +4.97,  +7.14]
+  S_real    +11.85 [+10.17, +13.64]
+  S_swap / S_real = 0.507   pairing {'same_direction': 132, 'opposite_direction': 124}
+  I_own null=True  I_donor positive=False  S substantial=True
+
+pairing validity ok: True
+row: H-presence-weak
+A foreign packet moves the answer without pointing anywhere. Presence of a confident post-cutoff block perturbs the judgment even when its content cannot bear on the question.
+
+wrote results/g8_packet_swap_analysis.json

@@ -1,0 +1,209 @@
+{
+  "preregistration": "PREREGISTRATION_G8_RELEVANCE.md",
+  "sesoi": 5.0,
+  "substantial_fraction": 0.5,
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "pairing_sha256": "a51b80c76ca46f1205e4ab4a59716019960204e363022e21aca315ab68cec1c2",
+      "units": 256,
+      "parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_own": {
+        "mean": 0.0546875,
+        "ci_low": -2.8359375,
+        "ci_high": 3.01171875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_donor": {
+        "mean": 4.96875,
+        "ci_low": 2.109375,
+        "ci_high": 7.8125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_real": {
+        "mean": 16.015625,
+        "ci_low": 14.18359375,
+        "ci_high": 17.890625,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_swap": {
+        "mean": 16.5,
+        "ci_low": 14.4609375,
+        "ci_high": 18.68359375,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_real": {
+        "mean": 16.484375,
+        "ci_low": 14.70703125,
+        "ci_high": 18.3125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_ratio": 1.000947867298578,
+      "pairing_direction_crosstab": {
+        "same_direction": 132,
+        "opposite_direction": 124
+      },
+      "I_donor_opposite_only": {
+        "mean": 5.07258064516129,
+        "ci_low": 1.0806451612903225,
+        "ci_high": 9.112903225806452,
+        "n": 124,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_own_null": true,
+      "I_donor_positive": false,
+      "S_substantial": true
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "pairing_sha256": "a51b80c76ca46f1205e4ab4a59716019960204e363022e21aca315ab68cec1c2",
+      "units": 255,
+      "parse_rate": 0.99609375,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_own": {
+        "mean": -0.4470588235294118,
+        "ci_low": -3.4862745098039216,
+        "ci_high": 2.607843137254902,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_donor": {
+        "mean": 12.258823529411766,
+        "ci_low": 9.635294117647058,
+        "ci_high": 14.929411764705883,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_real": {
+        "mean": 27.733333333333334,
+        "ci_low": 25.145098039215686,
+        "ci_high": 30.388235294117646,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_swap": {
+        "mean": 16.611764705882354,
+        "ci_low": 14.392156862745098,
+        "ci_high": 18.95294117647059,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_real": {
+        "mean": 28.603921568627452,
+        "ci_low": 26.16470588235294,
+        "ci_high": 31.11764705882353,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_ratio": 0.580751302440362,
+      "pairing_direction_crosstab": {
+        "same_direction": 132,
+        "opposite_direction": 123
+      },
+      "I_donor_opposite_only": {
+        "mean": 13.170731707317072,
+        "ci_low": 9.211382113821138,
+        "ci_high": 17.170731707317074,
+        "n": 123,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_own_null": true,
+      "I_donor_positive": true,
+      "S_substantial": true
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "pairing_sha256": "a51b80c76ca46f1205e4ab4a59716019960204e363022e21aca315ab68cec1c2",
+      "units": 256,
+      "parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_own": {
+        "mean": 0.5176171875,
+        "ci_low": -0.8203125,
+        "ci_high": 1.779296875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_donor": {
+        "mean": 2.9316796875,
+        "ci_low": 1.70703125,
+        "ci_high": 4.2246484375,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_real": {
+        "mean": 7.4590234375,
+        "ci_low": 5.4082421875,
+        "ci_high": 9.568359375,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_swap": {
+        "mean": 6.0058984375,
+        "ci_low": 4.9707421875,
+        "ci_high": 7.14453125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_real": {
+        "mean": 11.8535546875,
+        "ci_low": 10.166015625,
+        "ci_high": 13.640625,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_ratio": 0.5066748832595707,
+      "pairing_direction_crosstab": {
+        "same_direction": 132,
+        "opposite_direction": 124
+      },
+      "I_donor_opposite_only": {
+        "mean": 2.4919354838709675,
+        "ci_low": 0.5161290322580645,
+        "ci_high": 4.588709677419355,
+        "n": 124,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "I_own_null": true,
+      "I_donor_positive": false,
+      "S_substantial": true
+    }
+  },
+  "panel": {
+    "qualified_models": 3,
+    "I_own_null_models": 3,
+    "I_donor_positive_models": 1,
+    "S_substantial_models": 3,
+    "pairing_validity_ok": true
+  },
+  "interpretation_row": "H-presence-weak",
+  "permitted_sentence": "A foreign packet moves the answer without pointing anywhere. Presence of a confident post-cutoff block perturbs the judgment even when its content cannot bear on the question.",
+  "validity_note": "I_own must be null: a foreign packet carries no information about this unit's outcome. If it is not null the pairing leaked outcome information and the round is invalid regardless of the other numbers."
+}

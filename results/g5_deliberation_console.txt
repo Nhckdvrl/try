@@ -1,0 +1,29 @@
+
+=== qwen35-9b ===
+  direct  I=  16.02 [ 14.18, 17.89]  R= 47.27 (retain 1.00, guard ok)  parse=1.0000 probe=1.0000 qualified=True
+  cot     I=  10.23 [  4.97, 15.80]  R= 41.61 (retain 0.88, guard ok)  parse=0.1523 probe=1.0000 qualified=False
+  state   I=   2.08 [ -3.03,  6.95]  R= 13.84 (retain 0.29, guard FAIL)  parse=0.1719 probe=1.0000 qualified=False
+  D = I_cot - I_state = 13.25 [5.62, 21.38] -> state_specific_benefit
+  M_cot   =    3.77 [ -0.27,  8.00] mitigation=False
+  M_state =   13.53 [  8.15, 19.18] mitigation=False
+
+=== gemma3-12b ===
+  direct  I=  27.73 [ 25.15, 30.39]  R= 46.88 (retain 1.00, guard ok)  parse=0.9961 probe=0.9961 qualified=True
+  cot     I=  22.98 [ 20.25, 25.80]  R= 46.35 (retain 0.99, guard ok)  parse=0.8555 probe=0.9961 qualified=False
+  state   I=  11.11 [  8.97, 13.25]  R=  9.60 (retain 0.20, guard FAIL)  parse=0.9805 probe=0.9961 qualified=True
+  D = I_cot - I_state = 10.98 [8.22, 13.84] -> state_specific_benefit
+  M_cot   =    4.66 [  2.17,  7.18] mitigation=False
+  M_state =   16.53 [ 13.96, 19.21] mitigation=False
+
+=== mistral-small-24b ===
+  direct  I=   7.46 [  5.41,  9.57]  R= 39.31 (retain 1.00, guard ok)  parse=1.0000 probe=1.0000 qualified=True
+  cot     I=  15.04 [ 12.92, 17.18]  R= 37.76 (retain 0.96, guard ok)  parse=0.9648 probe=1.0000 qualified=False
+  state   I=   6.88 [  5.40,  8.44]  R=  4.25 (retain 0.11, guard FAIL)  parse=0.9961 probe=1.0000 qualified=True
+  D = I_cot - I_state = 8.22 [6.07, 10.37] -> state_specific_benefit
+  M_cot   =   -7.69 [-10.02, -5.28] mitigation=False
+  M_state =    0.62 [ -1.38,  2.59] mitigation=False
+
+panel: indeterminate
+No row of the frozen table applies; the interval is reported and nothing is concluded.
+
+wrote results/g5_deliberation_analysis.json

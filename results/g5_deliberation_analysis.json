@@ -1,0 +1,491 @@
+{
+  "preregistration": "PREREGISTRATION_G5_DELIBERATION.md",
+  "sesoi": 5.0,
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "quality": {
+        "direct": {
+          "parse_rate": 1.0,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 0.984375,
+          "source": "large_replication (frozen TASK block, not re-run)"
+        },
+        "cot": {
+          "parse_rate": 0.15234375,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 0.984375,
+          "truncated": 580,
+          "mean_completion_tokens": 528.0205078125
+        },
+        "state": {
+          "parse_rate": 0.171875,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 0.984375,
+          "truncated": 629,
+          "mean_completion_tokens": 607.0390625
+        }
+      },
+      "qualified": {
+        "direct": true,
+        "cot": false,
+        "state": false
+      },
+      "utility_guard": {
+        "direct": {
+          "responsiveness": 47.265625,
+          "retention_vs_direct": 1.0,
+          "guard_pass": true
+        },
+        "cot": {
+          "responsiveness": 41.61290322580645,
+          "retention_vs_direct": 0.8804052252732604,
+          "guard_pass": true
+        },
+        "state": {
+          "responsiveness": 13.838709677419354,
+          "retention_vs_direct": 0.2927859237536657,
+          "guard_pass": false
+        }
+      },
+      "intrusion": {
+        "direct": {
+          "mean": 16.015625,
+          "ci_low": 14.18359375,
+          "ci_high": 17.890625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "cot": {
+          "mean": 10.233333333333333,
+          "ci_low": 4.966666666666667,
+          "ci_high": 15.8,
+          "n_observations": 30,
+          "n_clusters": 30,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 30
+        },
+        "state": {
+          "mean": 2.0757575757575757,
+          "ci_low": -3.0303030303030303,
+          "ci_high": 6.954545454545454,
+          "n_observations": 33,
+          "n_clusters": 33,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 33
+        }
+      },
+      "responsiveness": {
+        "direct": {
+          "mean": 47.265625,
+          "ci_low": 45.0390625,
+          "ci_high": 49.48046875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "cot": {
+          "mean": 41.61290322580645,
+          "ci_low": 33.46774193548387,
+          "ci_high": 49.693548387096776,
+          "n_observations": 62,
+          "n_clusters": 62,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 62
+        },
+        "state": {
+          "mean": 13.838709677419354,
+          "ci_low": 7.741935483870968,
+          "ci_high": 20.580645161290324,
+          "n_observations": 62,
+          "n_clusters": 62,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 62
+        }
+      },
+      "primary_contrast_cot_minus_state": {
+        "mean": 13.25,
+        "ci_low": 5.625,
+        "ci_high": 21.375,
+        "units": 8,
+        "n_resamples": 10000,
+        "seed": 20260829,
+        "verdict": "state_specific_benefit",
+        "counted": false
+      },
+      "mitigation_vs_direct": {
+        "cot": {
+          "mean": 3.7666666666666666,
+          "ci_low": -0.26666666666666666,
+          "ci_high": 8.0,
+          "units": 30,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": false,
+          "counts_as_mitigation": false
+        },
+        "state": {
+          "mean": 13.530303030303031,
+          "ci_low": 8.151515151515152,
+          "ci_high": 19.181818181818183,
+          "units": 33,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": true,
+          "counts_as_mitigation": false
+        }
+      }
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "quality": {
+        "direct": {
+          "parse_rate": 0.99609375,
+          "boundary_accuracy_oob": 0.99609375,
+          "boundary_accuracy_allowed": 1.0,
+          "source": "large_replication (frozen TASK block, not re-run)"
+        },
+        "cot": {
+          "parse_rate": 0.85546875,
+          "boundary_accuracy_oob": 0.99609375,
+          "boundary_accuracy_allowed": 1.0,
+          "truncated": 90,
+          "mean_completion_tokens": 488.35546875
+        },
+        "state": {
+          "parse_rate": 0.98046875,
+          "boundary_accuracy_oob": 0.99609375,
+          "boundary_accuracy_allowed": 1.0,
+          "truncated": 12,
+          "mean_completion_tokens": 464.466796875
+        }
+      },
+      "qualified": {
+        "direct": true,
+        "cot": false,
+        "state": true
+      },
+      "utility_guard": {
+        "direct": {
+          "responsiveness": 46.87890625,
+          "retention_vs_direct": 1.0,
+          "guard_pass": true
+        },
+        "cot": {
+          "responsiveness": 46.354838709677416,
+          "retention_vs_direct": 0.9888208240711123,
+          "guard_pass": true
+        },
+        "state": {
+          "responsiveness": 9.59920634920635,
+          "retention_vs_direct": 0.204766004949323,
+          "guard_pass": false
+        }
+      },
+      "intrusion": {
+        "direct": {
+          "mean": 27.733333333333334,
+          "ci_low": 25.145098039215686,
+          "ci_high": 30.388235294117646,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 255
+        },
+        "cot": {
+          "mean": 22.98095238095238,
+          "ci_low": 20.247619047619047,
+          "ci_high": 25.795238095238094,
+          "n_observations": 210,
+          "n_clusters": 210,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 210
+        },
+        "state": {
+          "mean": 11.112903225806452,
+          "ci_low": 8.96774193548387,
+          "ci_high": 13.245967741935484,
+          "n_observations": 248,
+          "n_clusters": 248,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 248
+        }
+      },
+      "responsiveness": {
+        "direct": {
+          "mean": 46.87890625,
+          "ci_low": 44.609375,
+          "ci_high": 49.13671875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "cot": {
+          "mean": 46.354838709677416,
+          "ci_low": 43.8479262672811,
+          "ci_high": 48.86175115207373,
+          "n_observations": 217,
+          "n_clusters": 217,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 217
+        },
+        "state": {
+          "mean": 9.59920634920635,
+          "ci_low": 7.384920634920635,
+          "ci_high": 11.873015873015873,
+          "n_observations": 252,
+          "n_clusters": 252,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 252
+        }
+      },
+      "primary_contrast_cot_minus_state": {
+        "mean": 10.975609756097562,
+        "ci_low": 8.21951219512195,
+        "ci_high": 13.84390243902439,
+        "units": 205,
+        "n_resamples": 10000,
+        "seed": 20260829,
+        "verdict": "state_specific_benefit",
+        "counted": false
+      },
+      "mitigation_vs_direct": {
+        "cot": {
+          "mean": 4.655502392344498,
+          "ci_low": 2.1674641148325358,
+          "ci_high": 7.177033492822966,
+          "units": 209,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": false,
+          "counts_as_mitigation": false
+        },
+        "state": {
+          "mean": 16.526315789473685,
+          "ci_low": 13.963562753036438,
+          "ci_high": 19.210526315789473,
+          "units": 247,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": true,
+          "counts_as_mitigation": false
+        }
+      }
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "quality": {
+        "direct": {
+          "parse_rate": 1.0,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 1.0,
+          "source": "large_replication (frozen TASK block, not re-run)"
+        },
+        "cot": {
+          "parse_rate": 0.96484375,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 1.0,
+          "truncated": 18,
+          "mean_completion_tokens": 460.0625
+        },
+        "state": {
+          "parse_rate": 0.99609375,
+          "boundary_accuracy_oob": 1.0,
+          "boundary_accuracy_allowed": 1.0,
+          "truncated": 1,
+          "mean_completion_tokens": 418.6494140625
+        }
+      },
+      "qualified": {
+        "direct": true,
+        "cot": false,
+        "state": true
+      },
+      "utility_guard": {
+        "direct": {
+          "responsiveness": 39.314453125,
+          "retention_vs_direct": 1.0,
+          "guard_pass": true
+        },
+        "cot": {
+          "responsiveness": 37.762723577235775,
+          "retention_vs_direct": 0.9605303031220983,
+          "guard_pass": true
+        },
+        "state": {
+          "responsiveness": 4.2512890625,
+          "retention_vs_direct": 0.10813552585821451,
+          "guard_pass": false
+        }
+      },
+      "intrusion": {
+        "direct": {
+          "mean": 7.4590234375,
+          "ci_low": 5.4082421875,
+          "ci_high": 9.568359375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "cot": {
+          "mean": 15.04417670682731,
+          "ci_low": 12.91566265060241,
+          "ci_high": 17.184738955823292,
+          "n_observations": 249,
+          "n_clusters": 249,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 249
+        },
+        "state": {
+          "mean": 6.883647058823529,
+          "ci_low": 5.399333333333334,
+          "ci_high": 8.435921568627451,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 255
+        }
+      },
+      "responsiveness": {
+        "direct": {
+          "mean": 39.314453125,
+          "ci_low": 35.91796875,
+          "ci_high": 42.6328125,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        },
+        "cot": {
+          "mean": 37.762723577235775,
+          "ci_low": 34.7159756097561,
+          "ci_high": 40.72357723577236,
+          "n_observations": 246,
+          "n_clusters": 246,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 246
+        },
+        "state": {
+          "mean": 4.2512890625,
+          "ci_low": 2.8984375,
+          "ci_high": 5.61328125,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05,
+          "units": 256
+        }
+      },
+      "primary_contrast_cot_minus_state": {
+        "mean": 8.218427419354839,
+        "ci_low": 6.069959677419355,
+        "ci_high": 10.37233870967742,
+        "units": 248,
+        "n_resamples": 10000,
+        "seed": 20260829,
+        "verdict": "state_specific_benefit",
+        "counted": false
+      },
+      "mitigation_vs_direct": {
+        "cot": {
+          "mean": -7.686746987951807,
+          "ci_low": -10.016064257028113,
+          "ci_high": -5.281124497991968,
+          "units": 249,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": false,
+          "counts_as_mitigation": false
+        },
+        "state": {
+          "mean": 0.6242352941176471,
+          "ci_low": -1.381607843137255,
+          "ci_high": 2.586313725490196,
+          "units": 255,
+          "n_resamples": 10000,
+          "seed": 20260829,
+          "reduces": false,
+          "counts_as_mitigation": false
+        }
+      }
+    }
+  },
+  "panel": {
+    "tally": {
+      "state_specific_benefit": 0,
+      "no_state_specific_benefit": 0,
+      "indeterminate": 0
+    },
+    "counted_models": 0,
+    "panel_verdict": "indeterminate"
+  },
+  "permitted_sentence": "No row of the frozen table applies; the interval is reported and nothing is concluded.",
+  "mitigation_panel": {
+    "cot": {
+      "n_counts_as_mitigation": 0,
+      "n_models": 3
+    },
+    "state": {
+      "n_counts_as_mitigation": 0,
+      "n_models": 3
+    }
+  }
+}
