@@ -41,10 +41,10 @@ All three survive every outcome of G5, G6 and G8 — the gate in
 > for exclusion and nothing else: a non-temporal licensing reason with the
 > evidence's accuracy affirmed, a reason that undercuts the evidence's truth,
 > and no reason at all. **None of them reduces the effect**, while recognition
-> stays at ceiling in every arm. Measured against each model's own use of the
-> same evidence when it *is* licensed, the exclusion instruction buys a partial
-> discount — 41% to 81% of the evidence's effect is removed — whose size is a
-> property of the model rather than of the justification it was given. The
+> stays at ceiling in every arm. Against the same evidence's full measurable
+> influence — its effect on a licensed retrospective judgment — 41% to 81% is
+> absent from the ex-ante judgment, so the instruction is not simply ignored;
+> what varies is the model, not the justification it was given. The
 > failure is therefore not that models ignore exclusion, and not that it is
 > about time, about belief in the evidence, or about the reason being left
 > unstated. [G8 sentence.] [G6 mechanism sentence.] [Method sentence.]
@@ -90,10 +90,12 @@ the second is the dissociation, and the paper says so.
 
 ### 5. Which boundary can be enforced? (G3 — the core section)
 
-The section leads with the ratio, not the raw points: the same evidence moves
-the judgment 39–47 points when licensed and 7.5–27.7 when not, so the
-instruction is doing something — and what G3 shows is that *how much* it does
-is insensitive to why. Gemma is the stated exception, in the same arms as its
+The section leads with the normalized effect, not the raw points: the evidence
+moves a licensed retrospective judgment 39–47 points and an ex-ante judgment
+7.5–27.7, so the instruction is doing something — and what G3 shows is that how
+much it does is insensitive to why. The section states in the same paragraph
+that the licensed frame also changes the target question and is a normalizer,
+not a minimal pair. Gemma is the stated exception, in the same arms as its
 amplification.
 
 The licensing/reason factorization, the byte-identity audit, and the result:

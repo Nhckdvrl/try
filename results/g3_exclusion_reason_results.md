@@ -95,11 +95,22 @@ descriptively (`results/leak_ratio_descriptive.json`).
 | Qwen3.5-9B | 47.27 | 16.02 | 33.9% | **66.1%** |
 | Gemma-3-12B-it | 46.89 | 27.73 | 59.2% | **40.8%** |
 
-The models are **not** inert to the instruction. The same evidence moves the
-judgment by 39–47 points when licensed and by 7.5–27.7 when not: between 41% and
-81% of its effect is removed. What G3 shows is not that exclusion does nothing,
-but that **the amount removed does not depend on the reason given for removing
-it**:
+**What the denominator is, stated exactly.** The licensed frame does not differ
+from the out-of-set frame by a licensing clause alone: it also asks a different
+target question — *"make a retrospective probability-of-resolution judgment
+using all information supplied"* rather than *"estimate the probability that was
+warranted as of DATE"*. That is by design; the licensed cells exist to show the
+evidence is usable at all, and they are not a minimal pair for the license. The
+ratio should therefore be read as **the evidence's leakage into the ex-ante
+judgment as a fraction of its full measurable influence**, which is the same
+normalization the controlled suite used, and not as "the same judgment with the
+licence flipped".
+
+Read that way: the models are **not** inert to the instruction. The evidence
+moves a retrospective judgment by 39–47 points, and 41–81% of that influence is
+absent from the ex-ante judgment. What G3 shows is not that exclusion does
+nothing, but that **the amount that survives does not depend on the reason given
+for excluding it**:
 
 | model | `temporal` | `bare` | `unreliable` | `procedural` | spread |
 |---|---:|---:|---:|---:|---:|
