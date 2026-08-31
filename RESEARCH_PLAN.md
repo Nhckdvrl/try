@@ -1,92 +1,195 @@
-# Research plan: Reasoning Within Bounds
+# Current paper plan: hindsight contamination in LLM historical reasoning
 
-## Mother question
+This document replaces the older cross-boundary *Information-Set Reasoning*
+roadmap. That broader program was narrowed after the perspective-family pilot
+failed qualification and the FOMC source did not pass its preregistered
+qualification gate.
 
-> Do language models reason using the information set that actually defines the
-> target task?
+The current paper is temporal and asks:
 
-The behavioral contract has two directions:
+> **After a model has seen what happened later, can it still reconstruct the
+> judgment that should have been made using only what was knowable at the time?**
 
-```text
-Responsiveness:         ΔY_allowed != 0
-Out-of-set invariance:  ΔY_outside ≈ 0
-```
+## 1. Primary claim
 
-The failure is **out-of-set intrusion**: information that the model sees or
-knows changes a decision that is not licensed to depend on it.
+The paper's central claim is a **recognition–enforcement gap**:
 
-## Scope
+> Language models can correctly identify that future evidence lies outside the
+> target historical information set while nevertheless allowing that same
+> evidence to causally shift their reconstructed ex-ante judgment.
 
-The planned paper asks whether information-set reasoning is a cross-boundary
-capability across temporal, perspective, procedural, role/access, and
-decision-scope tasks. It does not claim that this behavioral contract or any one
-ignore failure is new. Novelty must come from source-native cross-boundary
-evidence and tests of generalization.
+The causal estimand is `OutOfSetIntrusion`, measured by supplying or withholding
+one fixed future packet while keeping the question and historical context
+unchanged.
 
-CDS-v1 remains a Controlled Discovery Suite. Its prospective-nullification gap
-and causal mechanism are retained as a later mechanistic section, not the
-paper's dataset identity or title-level contribution.
+The paper does **not** claim priority over the general observation that models can
+state a temporal rule correctly and still violate it. The novelty is the
+within-item causal manipulation and continuous effect measurement on hundreds of
+independently sampled natural forecasting questions.
 
-## Phase 1 — source engineering (current)
+## 2. Evidence hierarchy
 
-1. Pin official files, revisions, hashes, and reuse status.
-2. Audit the actual native schema and define the independent semantic unit.
-3. Write one adapter and transformation contract per source.
-4. Reject transformations that alter task target, normative boundary, and
-   critical information simultaneously.
-5. Validate JSONL with `src/information_set_schema.py`; run all unit tests.
+### P0 — large-scale replication of the main phenomenon
 
-No target-model DENY/OOB output may be used to select items.
+This is the paper's strongest result.
 
-## Phase 2 — exploratory behavioral gate
+- discovery pilot: 8 BTF-3 units;
+- preregistered confirmation: 64 fresh units;
+- preregistered large replication: 256 additional fresh units, balanced 128 YES
+  / 128 NO;
+- 256-unit round: 3/3 models qualify and 3/3 clear the 5-point intrusion SESOI;
+- boundary recognition remains 99.2–100% while intrusion ranges from 7.46 to
+  27.73 probability points.
 
-Use only 2–3 open models. For each family separately require:
+Primary paper reporting should lead with the 256-unit replication. The 64-unit
+round establishes prospective confirmation and cross-round stability; the 8-item
+pilot is discovery history, not primary evidence.
 
-- task utility above a frozen threshold;
-- boundary/policy knowledge above a frozen threshold;
-- memory/availability of the out-of-set fact where applicable;
-- non-zero raw out-of-set intrusion on independent source units.
+### P1 — explicit-verdict redaction
 
-Proceed only if at least two materially different natural families pass. If not,
-shrink the paper rather than adding synthetic variants to rescue the narrative.
+The strongest depth result is that contamination survives removal of explicit
+YES/NO verdict sentences from the future packet while the remaining evidence
+retains strong allowed-frame leverage.
 
-## Phase 3 — broaden and freeze G1
+Permitted claim:
 
-Add procedural (Engel) and decision-scope (hiring) only after licenses and
-source materials are verified. Freeze prompts, parsing, models, exclusions,
-cluster rules, family-level tests, and stop/go thresholds before broad runs.
+> **The effect is not reducible to copying an explicit resolution label.**
 
-## Phase 4 — cross-boundary generalization
+The increase in contamination after redaction was unanticipated and should be
+reported without a mechanism claim.
 
-Primary capability test:
+### P2 — within-family size analysis
 
-```text
-train: temporal + procedural + perspective
-test:  decision-scope (fully held out)
-```
+Qwen3.5 4B / 9B / 27B all show near-ceiling boundary recognition and all clear
+the intrusion SESOI on the same 256 items. Intrusion is non-monotone
+(32.00 → 16.02 → 36.75).
 
-Use a light LoRA or comparably controlled intervention. Compare against:
+Permitted claim:
 
-- equal-sized single-family tuning;
-- surface-format matched tuning;
-- generic instruction-following tuning;
-- no-tuning baseline.
+> **There is no evidence that scale alone removes hindsight contamination within
+> the available dense Qwen3.5 checkpoints.**
 
-Positive transfer supports a shared learnable competence. No transfer supports
-a fragmented-heuristics account. Either result is informative if the held-out
-family and hyperparameter policy are frozen.
+Do not fit a scaling law, slope, or cross-family conclusion to three size points.
 
-## Phase 5 — external mechanism
+### Secondary — positional reminder effect
 
-Only after the behavioral gate, select one open model with failures in at least
-two families. Test whether CDS rule/content states causally transfer across
-temporal, perspective, and procedural tasks. Report either shared state transfer
-or shared behavioral contract with fragmented implementations.
+The 64-unit factorization round found that an identical exclusion reminder is
+more effective after future evidence than before it for Qwen and Gemma. The raw
+pattern appears again on 256 items, but the preregistered G2 panel gate fails
+because Qwen is formally disqualified by a probe failure in another G2 condition,
+and the licensed-frame specificity control is not supportive.
 
-## Immediate next task
+Therefore this result is **descriptive / hypothesis-generating**, not a headline
+replicated mechanism.
 
-BTF-3 v0.2r2 has passed source and transformation review. Review the FANToM
-perspective counterfactual without conflating fact QA with belief QA, then
-freeze the two-family pilot's models,
-parsing, probes, thresholds, estimands, and smallest effects before the first
-target-model OOB output.
+## 3. Boundaries that must remain visible
+
+### FOMC
+
+The FOMC v0.1a pilot is sealed as `inconclusive / not validated`. Positive point
+estimates do not override the failed preregistered source-qualification gate.
+The paper may report it as a failed external-source replication attempt, but not
+as cross-source support.
+
+### FANToM
+
+The perspective pilot failed qualification. It is historical evidence against a
+broad multi-family claim and should not be revived merely to widen the paper.
+
+### Packet factuality
+
+A preregistered, hash-fixed 64-item external factuality audit found 63 PASS, 1
+material source/specification error, and 0 unverifiable items. The error does not
+materially affect any primary estimate, but the audit cannot certify the full
+256-item source as factually perfect.
+
+### Closest temporal neighbour
+
+Recent temporal-legal reasoning work already shows that models can know the
+applicable temporal rule yet apply the wrong statute vintage. We therefore do not
+claim to be first to observe recognition without obedience. Our distinction is
+the same-evidence causal manipulation and measured probability shift.
+
+## 4. Paper claim set
+
+The main text should be organized around three claims only:
+
+1. **Recognition–Enforcement Gap.** Near-perfect temporal-boundary recognition
+   coexists with substantial causal hindsight contamination.
+2. **Not explicit-label copying.** The effect survives removal of explicit
+   resolution-verdict sentences while remaining evidence stays useful.
+3. **Not solved by scale.** Within Qwen3.5, larger checkpoints do not
+   monotonically reduce contamination despite saturated recognition.
+
+The following are explicitly **not** paper claims:
+
+- universal failure across LLMs or tasks;
+- cross-source replication;
+- a general information-set reasoning capability/failure;
+- a neural mechanism or representation-overwriting story;
+- a replicated exclusion-specific positional mechanism;
+- a scaling law;
+- complete factual validation of all BTF-3 packets.
+
+## 5. Planned paper structure
+
+### Introduction
+
+Motivate historical reconstruction: auditing past decisions, evaluating prior
+forecasts, and asking what was reasonable to believe at an earlier time. State
+the core difficulty: the model currently possesses information that should not
+belong to the reconstructed historical information state.
+
+Introduce the causal design before naming datasets. The conceptual punchline is:
+
+> **recognition of a temporal boundary is not sufficient for behavioral
+> enforcement of that boundary.**
+
+### Method
+
+- BTF-3 source and transformation contract;
+- 2×2 packet-presence × admissibility design;
+- boundary probes;
+- `Responsiveness`, `OutOfSetIntrusion`, and paired bootstrap inference;
+- prospective sampling, freeze tags, and qualification rules.
+
+### Results
+
+1. 64-unit confirmation and 256-unit large replication;
+2. recognition vs enforcement dissociation;
+3. verdict-redaction depth test;
+4. Qwen3.5 size analysis;
+5. clearly labelled non-headline results / failed external attempt.
+
+### Related work
+
+Lead with ExAnte / temporal leakage and the recent temporal-legal neighbour.
+Then distinguish in-context forgetting, hindsight/outcome bias, irrelevant
+context, and security information-flow work.
+
+### Limitations
+
+- primary positive evidence is one natural source;
+- FOMC failed its preregistered gate;
+- source-native resolution packets may contain defects;
+- redacted evidence can still entail the outcome;
+- only open checkpoints are tested;
+- no internal-mechanism claim.
+
+## 6. Remaining work
+
+The experimental program is effectively complete for the current submission.
+Remaining work is primarily consolidation:
+
+1. freeze the paper-level claim table and terminology;
+2. build Figure 1 around the 2×2 design + recognition/enforcement result;
+3. build Figure 2 for 64→256 replication and cross-model effects;
+4. build Figure 3 / table for verdict redaction and the Qwen size analysis;
+5. draft Introduction and Related Work around the locked novelty boundary;
+6. move exploratory controlled-suite history and failed source engineering to
+   the appendix / repository rather than the main narrative;
+7. run a final adversarial ACL/EMNLP reviewer simulation before deciding whether
+   any new experiment is actually necessary.
+
+No new manipulation, source, or mechanism experiment should be added merely to
+make the paper look larger.
