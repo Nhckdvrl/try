@@ -82,6 +82,43 @@ observations, neither tested here:
   about attention, not a result; it is exactly the kind of claim that requires
   the mechanism phase, and it is not asserted here.
 
+## The size of the effect against the model's own licensed use
+
+`OutOfSetIntrusion` and `Responsiveness` are both preregistered quantities. Their
+ratio is not a new test and carries no new threshold, but it is the comparison
+that says what the exclusion instruction actually does, and it is reported here
+descriptively (`results/leak_ratio_descriptive.json`).
+
+| model | responsiveness (licensed) | intrusion (unlicensed) | leak | suppressed |
+|---|---:|---:|---:|---:|
+| Mistral-Small-24B | 39.31 | 7.46 | 19.0% | **81.0%** |
+| Qwen3.5-9B | 47.27 | 16.02 | 33.9% | **66.1%** |
+| Gemma-3-12B-it | 46.89 | 27.73 | 59.2% | **40.8%** |
+
+The models are **not** inert to the instruction. The same evidence moves the
+judgment by 39–47 points when licensed and by 7.5–27.7 when not: between 41% and
+81% of its effect is removed. What G3 shows is not that exclusion does nothing,
+but that **the amount removed does not depend on the reason given for removing
+it**:
+
+| model | `temporal` | `bare` | `unreliable` | `procedural` | spread |
+|---|---:|---:|---:|---:|---:|
+| Mistral-Small-24B | 19.0% | 21.2% | 16.1% | 18.2% | 5.1 pp |
+| Qwen3.5-9B | 33.9% | 41.0% | 31.8% | 35.3% | 9.2 pp |
+| Gemma-3-12B-it | 59.2% | 59.8% | 75.6% | 76.3% | **17.2 pp** |
+
+Two of three models hold a characteristic discount rate almost fixed across
+every reason tested. **Gemma does not**, and its spread comes entirely from the
+same two arms as the amplification observation above — so the "fixed discount"
+description holds for two models and is contradicted by the third, in the same
+place and in the same direction as everything else unexpected about Gemma. It is
+reported that way and not generalised.
+
+The permitted framing is therefore narrower than "models ignore exclusion
+instructions" and stronger than "models fail to obey": the instruction buys a
+partial discount whose size is a property of the model rather than of the
+justification it was given.
+
 ## What this does not license
 
 - No claim that the models *cannot* discount evidence they believe false in

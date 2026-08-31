@@ -1,0 +1,58 @@
+{
+  "note": "Descriptive re-presentation of two preregistered quantities (Responsiveness and OutOfSetIntrusion). No new test, no new threshold.",
+  "definition": "leak = OutOfSetIntrusion / Responsiveness; suppressed = 1 - leak",
+  "per_model": {
+    "gemma3-12b": {
+      "responsiveness": 46.88627450980392,
+      "intrusion": 27.733333333333334,
+      "leak": 0.591502174640348,
+      "suppressed": 0.40849782535965196,
+      "leak_by_g3_arm": {
+        "temporal": 0.591502174640348,
+        "bare": 0.5981894550853128,
+        "unreliable": 0.7559015217254935,
+        "procedural": 0.7633997182377049
+      },
+      "leak_range_across_arms": [
+        0.591502174640348,
+        0.7633997182377049
+      ],
+      "leak_spread_across_arms": 0.17189754359735687
+    },
+    "mistral-small-24b": {
+      "responsiveness": 39.314453125,
+      "intrusion": 7.4590234375,
+      "leak": 0.18972725917829997,
+      "suppressed": 0.8102727408217001,
+      "leak_by_g3_arm": {
+        "temporal": 0.18972725917829997,
+        "bare": 0.21213274380247407,
+        "unreliable": 0.1613602265388246,
+        "procedural": 0.18162948979084903
+      },
+      "leak_range_across_arms": [
+        0.1613602265388246,
+        0.21213274380247407
+      ],
+      "leak_spread_across_arms": 0.05077251726364948
+    },
+    "qwen35-9b": {
+      "responsiveness": 47.265625,
+      "intrusion": 16.015625,
+      "leak": 0.33884297520661155,
+      "suppressed": 0.6611570247933884,
+      "leak_by_g3_arm": {
+        "temporal": 0.33884297520661155,
+        "bare": 0.4099173553719008,
+        "unreliable": 0.3182644628099174,
+        "procedural": 0.3528925619834711
+      },
+      "leak_range_across_arms": [
+        0.3182644628099174,
+        0.4099173553719008
+      ],
+      "leak_spread_across_arms": 0.09165289256198345
+    }
+  },
+  "max_leak_spread_across_arms": 0.17189754359735687
+}
