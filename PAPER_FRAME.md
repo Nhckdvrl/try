@@ -38,7 +38,7 @@ This is a cognition/reasoning object of the same kind as *contextualization*
 structure* (EMNLP 2025 Outstanding), and *distraction* (ACL 2025 Outstanding).
 It existed before BTF-3 and would survive BTF-3's deletion.
 
-## 3. What the observation layer already establishes
+## 3. What is established
 
 On 256 fresh, independently sampled natural forecasting questions, three
 open checkpoints:
@@ -49,10 +49,24 @@ open checkpoints:
 - remain moved after the explicit resolution verdict is mechanically removed
   (10.2–34.6 points, *larger* without it);
 - remain moved at every available model size in one family (16.0–36.8 points at
-  4B/9B/27B, largest checkpoint most contaminated).
+  4B/9B/27B, largest checkpoint most contaminated);
+- **remain moved under every stated reason for exclusion** (G3): a non-temporal
+  licensing reason with the packet's accuracy affirmed, a reason that undercuts
+  the packet's truth, and no reason at all all leave the effect intact, while
+  per-item recognition stays at 97–100%.
 
-That is the phenomenon, and it is not in doubt. It is also, on its own, only an
-observation.
+G3 is what turned the phenomenon into a claim. The failure is not about time,
+not about whether the model believes the evidence, and not about the reason
+being unstated. Two manipulations that changed how much the prompt *talks about*
+the packet — removing the verdict sentence (G2-B), adding clauses about it
+(G3) — both made the effect **larger**.
+
+One preregistered test has failed and is kept: G7 predicted the packet moves
+the model away from BTF-3's independent ex-ante forecast, and it moves it
+closer. The uncontaminated cell correlates only 0.28–0.33 with that forecast.
+The paper therefore may not claim infidelity to an external ex-ante reference,
+states that these models are weak pastcasters as a limitation, and keeps the
+within-item causal estimand, which nothing in G7 touches.
 
 ## 4. The competing explanations
 
@@ -64,8 +78,9 @@ remaining experiment is fixed by which pair it separates.
 |---|---|---|
 | **H-copy** | the model reads the revealed answer | G2 Experiment B — **ruled out** |
 | **H-scale** | small models; capability closes the gap | G2 size analysis — **ruled out within one family** |
-| **H-truth** | the model has no machinery for making information it believes *true* causally inert; the temporal label is one instance | G3, `procedural` vs `unreliable` arms |
-| **H-temporal** | licensing is enforceable in general; reconstructing a *past* state is the specific hard operation | G3, same contrast |
+| **H-truth** | the model has no machinery for making information it believes *true* causally inert; the temporal label is one instance | G3 — **ruled out**: undercutting the packet's truth does not reduce the effect either |
+| **H-temporal** | licensing is enforceable in general; reconstructing a *past* state is the specific hard operation | G3 — **ruled out**: a non-temporal licensing reason is enforced no better |
+| **H-inert** | no stated reason is enforced; the packet's presence dominates every licensing rule | G3 — **realized**. G8 asks whether the packet must even be *about* this question |
 | **H-override** | the ex-ante belief state *is* constructed internally and then overridden by the packet-driven answer | G6 (deferred; see §8) |
 | **H-absent** | no ex-ante belief state is ever constructed; recognition is a labeling computation running beside, not upstream of, the answer | G5 (behaviorally), G6 (internally) |
 
@@ -80,10 +95,16 @@ papers make: replace a coarse observed variable with a sharper latent one.
 
 ```text
 observed:  "the model violates a temporal boundary it can state correctly"
-latent:    the reason a boundary is stated determines whether it is enforced;
-           enforcement is keyed to what the model believes is TRUE, not to
-           what it has been told is LICENSED
+latent:    the boundary's *reason* is not what fails -- no stated reason is
+           enforced at all, temporal or otherwise, including one that undercuts
+           the evidence's truth. What the model lacks is any route from a
+           licensing statement it can restate to the computation that produces
+           the judgment.
 ```
+
+The factorization was designed to ask *which* reason is enforceable. The answer
+came back **none**, which is a stronger and simpler claim than the one the
+design was built to support, and it is what the paper now argues.
 
 The nearest published neighbour (*When Do LLMs Apply the Wrong Law?*, arXiv
 2608.14610) already owns the observed layer: models state a temporal rule and
@@ -133,12 +154,15 @@ failed, that title dies. It is a high-risk hypothesis-driven paper. Llama See,
 Llama Do passes it — contextual entrainment survives even if no entrainment
 head is found.
 
-This paper is in the second class. The title-level object is *whether a model
-can reconstruct a past judgment after learning the outcome*, and the answer to
-that is already measured. If G3 returns H-inert instead of H-truth, if G6 finds
-no ex-ante state anywhere, if the positional effect never replicates — the
-title stands and only the explanation section changes. Nothing downstream can
-retroactively unmake the 256-unit recognition–enforcement dissociation.
+This paper is in the second class, and the claim has now been tested rather
+than asserted. The title-level object is *whether a model can reconstruct a past
+judgment after learning the outcome*, and the answer to that is already
+measured. G3 returned H-inert rather than the H-truth row the design leaned
+toward; G7's primary test failed outright and in the opposite direction. The
+title did not move in either case — only the explanation section did. Nothing
+downstream can retroactively unmake the 256-unit recognition–enforcement
+dissociation, and if G6 finds no ex-ante state anywhere, that is a result about
+*how* the failure happens, not about whether it does.
 
 ## 8. When mechanism is allowed
 
