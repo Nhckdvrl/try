@@ -2,13 +2,9 @@
   "preregistration": "PREREGISTRATION_G4_MODEL_BREADTH.md",
   "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
   "panel_size": 17,
-  "analyzed": 9,
+  "analyzed": 13,
   "missing_output": [
-    "qwen25-7b",
     "qwen25-32b",
-    "qwen3-4b",
-    "qwen3-8b",
-    "qwen3-14b",
     "qwen3-32b",
     "qwen35-35b-a3b",
     "qwen38-27b"
@@ -18,6 +14,8 @@
     "gemma3-12b",
     "mistral-small-24b",
     "qwen25-14b",
+    "qwen25-7b",
+    "qwen3-14b",
     "qwen35-27b",
     "qwen35-4b",
     "qwen35-9b"
@@ -25,26 +23,30 @@
   "unqualified": [
     "gemma3-4b",
     "llama31-8b",
-    "phi4-mini"
+    "phi4-mini",
+    "qwen3-4b",
+    "qwen3-8b"
   ],
   "prevalence": {
-    "n_qualified": 6,
-    "n_intrusion_pass": 6,
+    "n_qualified": 8,
+    "n_intrusion_pass": 8,
     "tags": [
       "gemma3-12b",
       "mistral-small-24b",
       "qwen25-14b",
+      "qwen25-7b",
+      "qwen3-14b",
       "qwen35-27b",
       "qwen35-4b",
       "qwen35-9b"
     ]
   },
   "dissociation_recognition_vs_intrusion": {
-    "spearman_rho": -0.2125118592516207,
-    "permutation_p_two_sided": 0.7369263073692631,
-    "null_ci_low": -0.8804062740424285,
-    "null_ci_high": 0.819688599970537,
-    "n_checkpoints": 6,
+    "spearman_rho": 0.08183170883849714,
+    "permutation_p_two_sided": 0.8717128287171283,
+    "null_ci_low": -0.7364853795464742,
+    "null_ci_high": 0.7637626158259733,
+    "n_checkpoints": 8,
     "n_permutations": 10000,
     "seed": 20260829
   },
@@ -54,7 +56,7 @@
   ],
   "intrusion_range": [
     7.4590234375,
-    36.75
+    40.8828125
   ],
   "by_family": {
     "Gemma-3": {
@@ -70,10 +72,16 @@
       "mean": 7.4590234375
     },
     "Qwen2.5": {
-      "n": 1,
+      "n": 2,
       "min": 14.8359375,
-      "max": 14.8359375,
-      "mean": 14.8359375
+      "max": 31.74609375,
+      "mean": 23.291015625
+    },
+    "Qwen3": {
+      "n": 1,
+      "min": 40.8828125,
+      "max": 40.8828125,
+      "mean": 40.8828125
     },
     "Qwen3.5": {
       "n": 3,
@@ -83,6 +91,62 @@
     }
   },
   "per_model": {
+    "qwen25-7b": {
+      "tag": "qwen25-7b",
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "family": "Qwen2.5",
+      "params_b": 7.6,
+      "status": "new",
+      "source_file": "results/raw/isr_qwen25-7b_btf3_large_replication_v1.jsonl",
+      "path": "results/raw/isr_qwen25-7b_btf3_large_replication_v1.jsonl",
+      "model_tag": "qwen25-7b",
+      "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "n_decisions": 1024,
+      "n_probes": 512,
+      "decision_parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "complete_units": 256,
+      "mean_allowed_with_alignment": 99.19921875,
+      "metrics": {
+        "responsiveness": {
+          "mean": 48.47265625,
+          "ci_low": 45.75390625,
+          "ci_high": 51.2109375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "out_of_set_intrusion": {
+          "mean": 31.74609375,
+          "ci_low": 27.796875,
+          "ci_high": 35.63671875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "boundary_selectivity": {
+          "mean": 16.7265625,
+          "ci_low": 13.4375,
+          "ci_high": 20.16015625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        }
+      },
+      "qualified": true,
+      "intrusion_pass": true
+    },
     "qwen25-14b": {
       "tag": "qwen25-14b",
       "model_id": "Qwen/Qwen2.5-14B-Instruct",
@@ -128,6 +192,174 @@
           "mean": 29.83984375,
           "ci_low": 27.24609375,
           "ci_high": 32.33984375,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        }
+      },
+      "qualified": true,
+      "intrusion_pass": true
+    },
+    "qwen3-4b": {
+      "tag": "qwen3-4b",
+      "model_id": "Qwen/Qwen3-4B",
+      "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "family": "Qwen3",
+      "params_b": 4.0,
+      "status": "new",
+      "source_file": "results/raw/isr_qwen3-4b_btf3_large_replication_v1.jsonl",
+      "path": "results/raw/isr_qwen3-4b_btf3_large_replication_v1.jsonl",
+      "model_tag": "qwen3-4b",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "n_decisions": 1024,
+      "n_probes": 512,
+      "decision_parse_rate": 1.0,
+      "boundary_accuracy": 0.72265625,
+      "complete_units": 256,
+      "mean_allowed_with_alignment": 79.1810546875,
+      "metrics": {
+        "responsiveness": {
+          "mean": 27.6849609375,
+          "ci_low": 25.127890625,
+          "ci_high": 30.3488671875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "out_of_set_intrusion": {
+          "mean": 18.548671875,
+          "ci_low": 16.009609375,
+          "ci_high": 21.076015625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "boundary_selectivity": {
+          "mean": 9.1362890625,
+          "ci_low": 5.7651953125,
+          "ci_high": 12.592890625,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        }
+      },
+      "qualified": false,
+      "intrusion_pass": false
+    },
+    "qwen3-8b": {
+      "tag": "qwen3-8b",
+      "model_id": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "family": "Qwen3",
+      "params_b": 8.2,
+      "status": "new",
+      "source_file": "results/raw/isr_qwen3-8b_btf3_large_replication_v1.jsonl",
+      "path": "results/raw/isr_qwen3-8b_btf3_large_replication_v1.jsonl",
+      "model_tag": "qwen3-8b",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "n_decisions": 1024,
+      "n_probes": 512,
+      "decision_parse_rate": 0.9990234375,
+      "boundary_accuracy": 0.75390625,
+      "complete_units": 255,
+      "mean_allowed_with_alignment": 83.41662745098039,
+      "metrics": {
+        "responsiveness": {
+          "mean": 30.60878431372549,
+          "ci_low": 25.60486274509804,
+          "ci_high": 35.590117647058825,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "out_of_set_intrusion": {
+          "mean": 11.772509803921569,
+          "ci_low": 8.068509803921568,
+          "ci_high": 15.61078431372549,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "boundary_selectivity": {
+          "mean": 18.83627450980392,
+          "ci_low": 13.768627450980393,
+          "ci_high": 24.119607843137256,
+          "n_observations": 255,
+          "n_clusters": 255,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        }
+      },
+      "qualified": false,
+      "intrusion_pass": false
+    },
+    "qwen3-14b": {
+      "tag": "qwen3-14b",
+      "model_id": "Qwen/Qwen3-14B",
+      "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "family": "Qwen3",
+      "params_b": 14.8,
+      "status": "new",
+      "source_file": "results/raw/isr_qwen3-14b_btf3_large_replication_v1.jsonl",
+      "path": "results/raw/isr_qwen3-14b_btf3_large_replication_v1.jsonl",
+      "model_tag": "qwen3-14b",
+      "model_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+      "n_decisions": 1024,
+      "n_probes": 512,
+      "decision_parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "complete_units": 256,
+      "mean_allowed_with_alignment": 99.8828125,
+      "metrics": {
+        "responsiveness": {
+          "mean": 46.8359375,
+          "ci_low": 44.8125,
+          "ci_high": 48.79296875,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "out_of_set_intrusion": {
+          "mean": 40.8828125,
+          "ci_low": 38.59375,
+          "ci_high": 43.11328125,
+          "n_observations": 256,
+          "n_clusters": 256,
+          "cluster_size_min": 1,
+          "cluster_size_max": 1,
+          "n_resamples": 10000,
+          "alpha": 0.05
+        },
+        "boundary_selectivity": {
+          "mean": 5.953125,
+          "ci_low": 3.8515625,
+          "ci_high": 8.17578125,
           "n_observations": 256,
           "n_clusters": 256,
           "cluster_size_min": 1,

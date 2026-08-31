@@ -436,3 +436,35 @@ ask a different target question (*retrospective judgment using everything* vs
 appeared. The ratio is a **normalizer** — the evidence's leakage into the
 ex-ante judgment as a fraction of its full measurable influence — not a minimal
 pair for the licence.
+
+
+### 21. Breadth panel at 13 of 17: **8/8 qualified checkpoints pass**
+
+| checkpoint | probe | responsiveness | intrusion | qualified |
+|---|---:|---:|---|---|
+| Qwen2.5-7B | 1.0000 | 48.47 | 31.75 [27.80, 35.64] | yes |
+| Qwen2.5-14B | 1.0000 | 44.68 | 14.84 [12.79, 17.00] | yes |
+| Qwen3-14B | 1.0000 | 46.84 | **40.88 [38.59, 43.11]** | yes |
+| Qwen3.5-4B | 0.9961 | 41.50 | 32.00 [28.40, 35.65] | yes |
+| Qwen3.5-9B | 0.9922 | 47.27 | 16.02 [14.18, 17.89] | yes |
+| Qwen3.5-27B | 1.0000 | 41.01 | 36.75 [33.50, 39.93] | yes |
+| Gemma-3-12B | 0.9980 | 46.89 | 27.73 [25.15, 30.39] | yes |
+| Mistral-24B | 1.0000 | 39.31 | 7.46 [5.41, 9.57] | yes |
+| Qwen3-4B | 0.7227 | 27.68 | 18.55 | no |
+| Qwen3-8B | 0.7539 | 30.61 | 11.77 | no |
+| Llama-3.1-8B | 0.7363 | 45.99 | 28.23 | no |
+| Gemma-3-4B | 0.5605 | 46.12 | 44.75 | no |
+| Phi-4-mini | 0.6133 | 46.58 | 44.83 | no |
+
+**8/8 qualified checkpoints pass the intrusion gate**, across five
+families/generations, with intrusion spanning 7.5 to 40.9 points.
+
+Spearman(recognition, intrusion) over the qualified set = **0.08**, permutation
+p = 0.87 — the prediction recorded before the round holds: recognition sits at
+99–100% everywhere while intrusion moves across a 33-point range, and the two do
+not track each other.
+
+The five unqualified checkpoints fail on **recognition** (56–75%), not on
+responsiveness — four of them use the licensed evidence at 46 points, as well as
+any qualified model. They are a different failure and the paper reports them
+separately.
