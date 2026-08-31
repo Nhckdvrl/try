@@ -53,7 +53,11 @@ open checkpoints:
 - **remain moved under every stated reason for exclusion** (G3): a non-temporal
   licensing reason with the packet's accuracy affirmed, a reason that undercuts
   the packet's truth, and no reason at all all leave the effect intact, while
-  per-item recognition stays at 97–100%.
+  per-item recognition stays at 97–100%;
+- do so **against their own licensed use of the same evidence**: 39–47 points
+  when licensed versus 7.5–27.7 when not. The instruction removes 41–81% of the
+  effect, so models are not inert to it — the *size* of the discount is a
+  property of the model rather than of the reason it was given.
 
 G3 is what turned the phenomenon into a claim. The failure is not about time,
 not about whether the model believes the evidence, and not about the reason
