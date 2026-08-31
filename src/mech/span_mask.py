@@ -172,9 +172,11 @@ class LayerWindowMask:
         def hook(module, args, kwargs):
             if "attention_mask" in kwargs and kwargs["attention_mask"] is not None:
                 current = kwargs["attention_mask"]
-                kwargs["attention_mask"] = mask[..., : current.shape[-2], : current.shape[-1]].to(
-                    current.dtype
-                )
+                q, kv = current.shape[-2], current.shape[-1]
+                # With a KV cache the layer sees only the last q query rows of a
+                # kv-long prefix, so the rows to substitute are [kv - q, kv) --
+                # which reduces to [0, kv) when there is no cache.
+                kwargs["attention_mask"] = mask[..., kv - q : kv, :kv].to(current.dtype)
             return args, kwargs
 
         return hook
@@ -199,28 +201,45 @@ def generate_masked(
     window: tuple[int, int] | None = None,
     apply_mask: bool = True,
 ) -> str:
-    """Greedy decode under the span mask (or without it, when apply_mask=False)."""
+    """Greedy decode under the span mask (or without it, when apply_mask=False).
+
+    Uses a KV cache: the prompt is processed once and each further token is a
+    one-row query against the cached prefix. The mask slice handed to the model
+    is the row block ``[kv - q, kv)``, which is the whole causal mask on the
+    first step and the single new row afterwards.
+    """
     device = next(model.parameters()).device
     dtype = next(model.parameters()).dtype
     ids = torch.tensor([plan.input_ids], device=device)
     mask = build_mask(plan, n_new=max_new_tokens, dtype=dtype, device=device) if apply_mask else None
 
     produced: list[int] = []
+    cache = None
+    step_input = ids
+    seen = 0
     for _ in range(max_new_tokens):
-        current = torch.cat([ids, torch.tensor([produced], device=device, dtype=ids.dtype)], dim=1) if produced else ids
-        length = current.shape[1]
-        if mask is None:
-            out = model(current, use_cache=False)
-        else:
-            sliced = mask[:, :, :length, :length]
+        q = step_input.shape[1]
+        kv = seen + q
+        kwargs = {"use_cache": True}
+        if cache is not None:
+            kwargs["past_key_values"] = cache
+        if mask is not None:
+            sliced = mask[:, :, kv - q : kv, :kv]
             if window is None:
-                out = model(current, attention_mask=sliced, use_cache=False)
+                kwargs["attention_mask"] = sliced
+                out = model(step_input, **kwargs)
             else:
                 with LayerWindowMask(model, mask, window):
-                    out = model(current, use_cache=False)
-        produced.append(out.logits[0, -1, :].argmax().item())
-        if tokenizer.eos_token_id is not None and produced[-1] == tokenizer.eos_token_id:
+                    out = model(step_input, **kwargs)
+        else:
+            out = model(step_input, **kwargs)
+        cache = out.past_key_values
+        seen = kv
+        token = out.logits[0, -1, :].argmax().item()
+        produced.append(token)
+        if tokenizer.eos_token_id is not None and token == tokenizer.eos_token_id:
             break
+        step_input = torch.tensor([[token]], device=device)
     return tokenizer.decode(produced, skip_special_tokens=True)
 
 

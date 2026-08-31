@@ -25,6 +25,7 @@ from mech.span_mask import (  # noqa: E402
     LayerWindowMask,
     SpanPlan,
     build_mask,
+    generate_masked,
     plan_span,
     plan_wrong_span,
     read_probability,
@@ -32,12 +33,25 @@ from mech.span_mask import (  # noqa: E402
 )
 from run_information_set import _chat_ids  # noqa: E402
 
-TOKENIZER_DIR = next(
-    Path("/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots").iterdir(),
-    None,
-)
+def _small_model_dir() -> Path | None:
+    """A small model to exercise the real tokenizer and decoder paths.
+
+    Prefers a node-local copy: the shared cache lives on an NFS mount that is
+    heavily contended, and a test that blocks for minutes on it is a test that
+    gets skipped in practice.
+    """
+    local = Path("/var/tmp/xiang-isr-models/qwen25-0.5b")
+    if (local / "config.json").exists():
+        return local
+    shared = Path(
+        "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots"
+    )
+    return next(shared.iterdir(), None) if shared.exists() else None
+
+
+TOKENIZER_DIR = _small_model_dir()
 ARTIFACT = ROOT / "data/external/review/btf3_temporal_large_replication_v1.jsonl"
-needs_tokenizer = pytest.mark.skipif(TOKENIZER_DIR is None, reason="tokenizer not cached")
+needs_tokenizer = pytest.mark.skipif(TOKENIZER_DIR is None, reason="small model not available locally")
 
 
 @pytest.fixture(scope="module")
