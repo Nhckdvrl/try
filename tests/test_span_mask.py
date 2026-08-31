@@ -201,3 +201,53 @@ def test_intermediate_row_otherwise():
 def test_every_row_has_a_permitted_sentence():
     for row in ("H-override", "H-absent", "intermediate"):
         assert row in PERMITTED and PERMITTED[row].strip()
+
+
+# --- cached decoding must equal full recomputation --------------------------
+
+
+@needs_tokenizer
+def test_cached_masked_decode_equals_full_recomputation(tokenizer):
+    """The KV-cache path must produce exactly what recomputing every step does.
+
+    Run on a short synthetic prompt with the real headers so the whole span
+    machinery is exercised, but cheaply enough for CPU.
+    """
+    from transformers import AutoModelForCausalLM
+    from mech.span_mask import LayerWindowMask, build_mask
+
+    model = AutoModelForCausalLM.from_pretrained(
+        str(TOKENIZER_DIR), local_files_only=True, dtype=torch.float32,
+        attn_implementation="eager",
+    ).eval()
+
+    prompt = (
+        "FORECASTING QUESTION\nWill it rain tomorrow?"
+        + PACKET_HEADER
+        + "The question resolves NO. It did not rain."
+        + TASK_HEADER
+        + "What probability should be assigned to this question resolving YES? "
+        "Return only one number from 0 to 100."
+    )
+    plan = plan_span(tokenizer, prompt)
+    assert plan.packet_tokens and plan.query_from > plan.packet_tokens[-1]
+
+    for window in (None, (0, 6)):
+        cached = generate_masked(model, tokenizer, plan, max_new_tokens=3, window=window)
+
+        # full recomputation, no cache
+        mask = build_mask(plan, n_new=3, dtype=torch.float32, device="cpu")
+        produced = []
+        with torch.no_grad():
+            for _ in range(3):
+                ids = torch.tensor([plan.input_ids + produced])
+                length = ids.shape[1]
+                sliced = mask[:, :, :length, :length]
+                if window is None:
+                    out = model(ids, attention_mask=sliced, use_cache=False)
+                else:
+                    with LayerWindowMask(model, mask, window):
+                        out = model(ids, use_cache=False)
+                produced.append(out.logits[0, -1, :].argmax().item())
+        recomputed = tokenizer.decode(produced, skip_special_tokens=True)
+        assert cached == recomputed, (window, cached, recomputed)
