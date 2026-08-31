@@ -1,95 +1,207 @@
-# Dataset redesign: source-native Information-Set Reasoning
+# Current data design: BTF-3 temporal hindsight reconstruction
 
-## Hard constraint
+This file replaces the older multi-source *Information-Set Reasoning* redesign
+note. The current paper no longer targets a cross-boundary benchmark. Its
+positive natural-task evidence is temporal and source-native, with BTF-3 as the
+primary dataset.
 
-CDS-v1 cannot be the dataset identity of an ACL/EMNLP/NAACL main-paper claim.
-Its 144 items share a limited number of latent templates and a common compiler:
+## 1. Scientific object
 
-```text
-BACKGROUND -> RULING -> ADDITIONAL INFORMATION -> TASK
-```
+The task is to reconstruct an ex-ante probability judgment from a historical
+information state **after later evidence is available in context**.
 
-That is useful experimental control and weak evidence for cross-domain breadth.
-CDS-v1 is therefore retained as a Controlled Discovery Suite and mechanism
-instrument only.
-
-## Scientific object
-
-An Information-Set Reasoning task defines a target decision and the information
-licensed to influence it. Every family must measure both:
+The key distinction is between:
 
 ```text
-Responsiveness        = Y(allowed E+) - Y(allowed E-)
-OutOfSetIntrusion     = Y(outside E+) - Y(outside E-)
-BoundarySelectivity   = Responsiveness - OutOfSetIntrusion
+information available to the model now
+vs.
+information licensed to affect the historical judgment
 ```
 
-Raw contrasts are primary. Ratios are secondary and only defined above a frozen
-responsiveness floor.
-
-## Source-native architecture
-
-External items use `src/information_set_schema.py`:
+The desired behavior has two directions:
 
 ```text
-source_id / independent_unit_id / boundary_type / reference_context /
-oob_variant / admissible_variant / provenance / transformation_id
+Responsiveness:        use the future packet when it is licensed
+Out-of-set invariance: do not use the same packet when reasoning ex ante
 ```
 
-There is no universal admit/exclude rule and no universal compiler. FANToM must
-remain a perspective-taking task, BTF-3 a pastcasting task, ForecastBench a
-forecast, and Aiyer an ex-ante decision-quality judgment.
+The failure quantity is `OutOfSetIntrusion`.
 
-## Transformation contract
+## 2. Source-native BTF-3 transformation
 
-Before an adapter exports items, its contract must identify:
+For every eligible BTF-3 binary forecasting question, retain verbatim:
 
-- the target decision and scoring rule;
-- the independent source unit;
-- the critical information intervention;
-- fields held identical between paired variants;
-- source fields changed and why;
-- whether text is verbatim, deterministically edited, or newly authored;
-- which condition supplies allowed responsiveness;
-- source-specific utility and boundary-knowledge checks.
+- question;
+- resolution criteria;
+- historical background;
+- source time fields;
+- realized binary outcome;
+- exact source-native resolution explanation.
 
-The adapter is rejected if the intervention silently changes the target agent,
-question semantics, answer space, or base difficulty.
+The adapter adds only section labels, target-time framing, and a parseable
+0–100 probability instruction.
 
-## First-wave sources
+The same future packet is used in a 2×2 design:
 
-| Boundary | Source | Current role | Main unresolved issue |
-|---|---|---|---|
-| Perspective | FANToM | primary candidate | clean matched allowed/OOB intervention without changing the question |
-| Temporal | BTF-3 | primary candidate | deterministic post-cutoff information intervention |
-| Temporal | ForecastBench | robustness | composite IDs and multi-date resolution join |
-| Temporal evaluation | Aiyer | natural anchor | one semantic vignette; no native allowed task |
-| Procedural | Engel et al. | phase 2 | material access/license and character/wiretap heterogeneity |
-| Decision scope | Dutch hiring | held-out transfer | exact source and normative claim must be resolved |
-| Role/access | PrivaCI-Bench, CI-Work | deployment extension | must not claim privacy/IFC novelty |
-| Invalidity | Ramsey/CIE | contrast | distinguish false/invalid from true-but-out-of-set information |
+| target information set | packet absent | packet present |
+|---|---|---|
+| historical / ex ante | `OOB_WITHOUT` | `OOB_WITH` |
+| retrospective / all supplied information licensed | `ALLOWED_WITHOUT` | `ALLOWED_WITH` |
 
-## Independent-source-unit inference
+Only the packet presence and target admissibility framing vary. The question and
+historical context stay fixed.
 
-The estimand equally weights original semantic units:
+For realized outcome `r`, with `s = 2r - 1`:
 
-1. average all renderings/conditions contributing the same per-unit effect;
-2. compute the mean of cluster means;
-3. bootstrap cluster means.
+```text
+Responsiveness      = s * (p_allowed_with - p_allowed_without)
+OutOfSetIntrusion   = s * (p_oob_with - p_oob_without)
+BoundarySelectivity = Responsiveness - OutOfSetIntrusion
+```
 
-Duplicating a rendering cannot change the estimate. Historical G0 item-level
-bootstrap remains frozen and unchanged.
+Raw probability-point contrasts are primary.
 
-## Data and model gates
+## 3. Independent sampling rounds
 
-No model pilot begins until:
+The paper keeps discovery and replication rounds separate.
 
-- official files and revisions are pinned;
-- reuse status is honest;
-- transformation contracts pass human audit;
-- validators and unit tests pass;
-- independent-unit rules are frozen.
+### Discovery pilot
 
-The exploratory gate passes only if at least two different natural boundary
-families show utility, boundary knowledge, and non-zero intrusion. Otherwise the
-project narrows.
+- 8 accepted BTF-3 units;
+- balanced 4 YES / 4 NO;
+- used only as discovery evidence.
+
+### Confirmatory round
+
+- 64 fresh independent `question_id`s;
+- 32 YES / 32 NO;
+- none reused from the pilot;
+- primary inference performed only on those 64 units.
+
+### Large replication
+
+- 256 additional fresh independent `question_id`s;
+- 128 YES / 128 NO;
+- none reused from the pilot, the 64-item confirmatory sample, or even the prior
+  confirmatory candidate queue;
+- preregistered replication gate evaluated on the 256 units alone.
+
+The 64 + 256 pooled view is descriptive only and never rescues a failed
+large-replication gate.
+
+## 4. Candidate selection and review
+
+Selection is deterministic and prospective.
+
+- outcome buckets are ordered by a frozen deterministic queue;
+- review proceeds in queue order;
+- the first quota-satisfying ACCEPTs are frozen;
+- rejected / unsure items are never hand-repaired back into the sample;
+- previously used or permanently rejected IDs are excluded mechanically;
+- target-model outputs are not used for selection or review.
+
+Human review uses four source-level gates:
+
+1. **pre-cutoff intact** — the question was unresolved at the target time and
+   historical background contains no material post-cutoff information;
+2. **realized outcome valid** — the source resolution is supported;
+3. **exact packet factually valid** — the source-native resolution packet does
+   not contain a material factual error that would require silent repair;
+4. **criteria unambiguous** — the outcome follows the source's own resolution
+   criteria without a genuine alternative interpretation.
+
+Full details remain in [`BTF3_TRANSFORMATION_CONTRACT.md`](BTF3_TRANSFORMATION_CONTRACT.md)
+and the large-replication preregistration.
+
+## 5. Boundary probes and qualification
+
+Every unit also receives boundary probes that ask whether the supplied future
+packet belongs to the target information set.
+
+This is essential to the paper's main dissociation:
+
+```text
+boundary recognition ≈ ceiling
+while
+causal influence of out-of-set evidence > 0
+```
+
+The large-replication thresholds, parsers, model revisions, decoding, bootstrap
+rules, and 5-point SESOI were frozen before model output under
+[`PREREGISTRATION_BTF3_LARGE_REPLICATION.md`](PREREGISTRATION_BTF3_LARGE_REPLICATION.md).
+
+## 6. Data-quality audit
+
+The 256-unit large-replication artifact passed fail-closed checks for:
+
+- exact count and 128/128 outcome balance;
+- unique IDs;
+- zero overlap with prior rounds and excluded queues;
+- schema validity;
+- transformation integrity;
+- packet placement;
+- full prompt token census under all three frozen chat templates.
+
+Because the original review did not use external web lookup, a later protocol
+froze a 64-item hash-selected audit sample **before citations were opened**.
+That audit returned 63 PASS, 1 MATERIAL_ERROR, and 0 UNVERIFIABLE. The one error
+is a question/criteria date-window contradiction; excluding it has negligible
+impact on all primary model estimates.
+
+This audit is a robustness check, not proof that every packet in the 256-unit
+artifact is factually perfect.
+
+## 7. Depth transformations on the frozen 256 units
+
+Two later analyses reuse the same 256-item membership rather than collecting a
+new sample.
+
+### Explicit-verdict redaction
+
+A subtractive transformation removes explicit YES/NO resolution-verdict
+sentences while retaining the remaining post-cutoff evidence. A fail-closed
+audit verifies that assertive verdict sentences are removed and records no-op
+cases separately.
+
+Purpose:
+
+> test whether hindsight contamination reduces to copying an explicit outcome
+> label.
+
+It does not: contamination survives the redaction manipulation.
+
+### Qwen3.5 size analysis
+
+The same 256 questions and unchanged baseline prompts are evaluated on available
+dense Qwen3.5 checkpoints (4B, 9B, 27B). This is a within-family size analysis,
+not a new dataset and not a scaling-law study.
+
+## 8. External-source attempts are not part of the positive dataset
+
+Several source directions were explored while the project was broader:
+
+- FANToM perspective tasks failed qualification;
+- ForecastBench was rejected at source-audit time for the intended
+  source-native future-packet design;
+- SCOTUS failed mechanical context-length calibration;
+- FOMC passed source engineering but failed its preregistered 24-unit
+  qualification gate.
+
+These attempts are retained in the repository for auditability. They do **not**
+contribute positive examples to the current paper and should not be presented as
+part of a multi-source benchmark.
+
+## 9. Current dataset claim
+
+The paper may say:
+
+> The headline effect is confirmed on 64 prospectively selected BTF-3 questions
+> and independently replicated on a further 256 unseen questions, balanced
+> across realized outcomes, using an unchanged source-native causal design.
+
+It may **not** say:
+
+- the effect has been replicated across natural sources;
+- BTF-3 establishes a general temporal reasoning benchmark;
+- all resolution packets are externally certified as correct;
+- the redacted packets contain no outcome-entailing evidence.
