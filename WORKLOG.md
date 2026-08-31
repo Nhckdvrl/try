@@ -171,3 +171,94 @@ the G6 override-vs-absence test will consume. It is deliberately **not** an
 experiment: per `PAPER_FRAME.md` §8, the mechanism design is not frozen until
 G3 and G5 have resolved, because which internal question is worth asking
 depends on whether enforcement turns out to be truth-keyed.
+
+---
+
+## 2026-09-01 — First results
+
+### 10. G3 result: **H-inert**. This is the round that changed the paper.
+
+6,912 generations. All twelve conditions of all three models qualified;
+boundary-probe accuracy 97.3–100% in every arm, so nothing below is the model
+losing track of what the packet is.
+
+| model | `temporal` | `bare` | `unreliable` | `procedural` |
+|---|---|---|---|---|
+| Qwen3.5-9B | 16.02 | 19.38 | 15.04 | 16.68 |
+| Gemma-3-12B-it | 27.73 | 28.05 | **35.44** | **35.79** |
+| Mistral-Small-24B | 7.46 | 8.34 | 6.34 | 7.14 |
+
+**No arm reduces intrusion in any model.** The frozen table's `H-inert` row is
+realized, 3/3 and 2/3 and 2/3.
+
+Three things follow, and together they are a much larger claim than the paper
+had before:
+
+1. **It is not about time.** A non-temporal licensing reason — wrong channel,
+   contents affirmed accurate — is enforced no better than the temporal one.
+2. **It is not about belief.** Telling the model the packet "may contain
+   fabricated claims" does not reduce its influence anywhere, and *raises* it
+   in Gemma. The discounting an ordinary inference would do is not reached
+   through this slot.
+3. **It is not about the reason being unstated.** The `bare` arm behaves like
+   the temporal arm; in Qwen, stating any reason is 3.4 points better than
+   stating none, which is the only sense in which reasons help at all.
+
+Unanticipated, reported as such: in Gemma, both arms that add a clause about
+the packet raise intrusion by ~8 points. That lines up with G2-B, where
+*removing* the verdict sentence also raised it. A salience reading is available
+and is explicitly **not** claimed — it is a hypothesis about attention, which
+is what the mechanism phase is for.
+
+Written up in `results/g3_exclusion_reason_results.md`.
+
+### 11. G7 result: the preregistered test **failed, in the opposite direction**
+
+No new generations — a re-analysis against BTF-3's own
+`sota_forecast_probability`, an independent ex-ante forecast, on the 239 units
+that carry it.
+
+Predicted: the packet moves the model *away* from a competent ex-ante judgment.
+Found: `Δ_dev` = **−6.84 / −9.27 / −4.61** — it moves them *closer*. Panel
+verdict indeterminate; by the frozen rule nothing is concluded.
+
+The validity check says why, and is the more useful number: `rho_without` =
+**0.28 / 0.29 / 0.33**. The uncontaminated cell is a weak ex-ante forecast —
+hedged toward 50 (`|p − 50|` ≈ 14) and under-committed against the anchor by
+about 19 points. Brier improves with the packet in all three models, as
+predicted, because moving toward the outcome is what the packet does.
+
+Consequences, both recorded:
+
+- **The paper loses a sentence it wanted.** It may not claim infidelity to an
+  independent ex-ante reference.
+- **The paper gains a limitation it now states itself**: these models are not
+  strong pastcasters on BTF-3, and a reader is entitled to know the judgment
+  being contaminated is a weak one. Better found here than by a reviewer.
+- **The primary estimand is untouched.** `OutOfSetIntrusion` is a within-item
+  causal contrast and nothing in G7 bears on it.
+
+Written up in `results/g7_exante_anchor_results.md`.
+
+### 12. Running
+
+- **G4 breadth**: 2 of 12 checkpoints done (`qwen25-14b`, `llama31-8b`). The
+  large ones are bottlenecked on NFS — four 30–70GB checkpoints loading over
+  one mount. Staged the next models to node-local NVMe on both nodes so the
+  second model in each lane loads from disk.
+- **G5 deliberation**: launched on all three models as soon as G3 freed the
+  GPUs; first condition landing.
+
+### 13. Built: `src/mech/span_mask.py`
+
+Attention-span masking on the frozen prompts — char span → token span under the
+model's own chat template (cross-checked against the untouched tokenizer path),
+an additive mask blocking answer positions from attending to the packet, and
+forward pre-hooks to apply it in a layer window only.
+
+The method framing matters and is deliberate: **masking, not deleting.**
+Deleting the packet changes the prompt so the model can no longer be asked
+about it. Masking leaves the text in context — the boundary probe still works —
+while removing its causal path into the decision. That is precisely the
+contract the project measures: `memory(E)` retained, `causal_effect(E → decision)`
+removed.
