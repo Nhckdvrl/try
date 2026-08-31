@@ -1,27 +1,60 @@
 # Reasoning Within Bounds
 
-## Do LLMs reason using the information set that actually defines the task?
+## After a model has learned how something turned out, can it still say what it was reasonable to believe before?
 
-> **Scope reset v2 — 2026-08-29.**
-> The paper-level object is now **Information-Set Reasoning**, not selective
-> forgetting, forbidden-evidence leakage, or prospective nullification. The
-> existing policy-conditioned causal non-use result remains a controlled
-> mechanistic discovery, but it is not the mother question or dataset identity.
+> **Status — 2026-09-01.** The paper-level object is **reconstruction of a past
+> epistemic state under hindsight**. The phenomenon is settled and has been
+> replicated on 256 fresh natural questions; the current work is explanatory,
+> not further prevalence measurement.
 >
-> The next phase is source engineering and a small natural-task pilot. No large
-> model panel or new patching begins until at least two distinct natural boundary
-> families pass the preregistered behavioral gate.
+> **`PAPER_FRAME.md` is the authoritative register** — what the paper claims,
+> which competing accounts are live, and which experiments are allowed to
+> exist. This README records where the repository has been; the frame records
+> where it is going. `WORKLOG.md` is the running record of the current campaign.
 
 Start here:
 
-- **[RESEARCH_PLAN.md](RESEARCH_PLAN.md)** — paper-level question, staged gates, cross-boundary generalization, and mechanism plan.
-- **[DATA_AUDIT.md](DATA_AUDIT.md)** — exact first-wave source, schema, hash, license, and independent-unit findings.
-- **[DATASET_REDESIGN.md](DATASET_REDESIGN.md)** — source-native architecture and transformation contracts.
-- **[PREREGISTRATION_G1.md](PREREGISTRATION_G1.md)** — freeze protocol for the information-set benchmark and pilot.
-- **[RELATED_WORK_2026.md](RELATED_WORK_2026.md)** — novelty boundaries; none of selective forgetting, future-information use, ToM, or the causal contract alone is claimed as new.
+- **[PAPER_FRAME.md](PAPER_FRAME.md)** — the natural question, the scientific
+  object, the six competing accounts and which are eliminated, and the standing
+  rule that an experiment must be writable as a sub-question of the headline.
+- **[PAPER_OUTLINE.md](PAPER_OUTLINE.md)** — title, abstract, section plan, and
+  the list of sentences the paper must not write.
+- **[WORKLOG.md](WORKLOG.md)** — what has been run, why, and what came out.
+- **[RELATED_WORK_2026.md](RELATED_WORK_2026.md)** — novelty boundary and the
+  locked novelty sentence; the nearest published neighbour is conceded by name.
+
+### What is established
+
+On 256 fresh, independently sampled natural forecasting questions, with the
+same evidence manipulated present/absent × licensed/unlicensed within item:
+
+| round | result |
+|---|---|
+| large replication | recognition 99.2–100% per item; intrusion 7.5–27.7 points; gate passed 3/3 |
+| G2-B verdict redaction | effect survives removal of the explicit YES/NO verdict, and grows (10.2–34.6) |
+| Qwen3.5 size analysis | 4B/9B/27B: 32.0 / 16.0 / 36.8 — scale does not remove it; largest is most contaminated |
+| **G3 exclusion reason** | **no stated reason is enforced** — not temporal, not a non-temporal licensing reason, not one that undercuts the evidence's truth |
+| G7 ex-ante anchor | the preregistered displacement test **failed in the opposite direction**; kept, with the limitation it exposes |
+
+### Preregistrations, in order
+
+`PREREGISTRATION_G0` → `_G1` → `_G1_FACTORIZATION(_V2)` →
+`_BTF3_LARGE_REPLICATION` → `_G2_HINDSIGHT_DEPTH` → `_G2_QWEN_SIZE_SWEEP` →
+`_G3_EXCLUSION_REASON` → `_G4_MODEL_BREADTH` → `_G5_DELIBERATION` →
+`_G6_MECHANISM` → `_G7_EXANTE_ANCHOR` → `_G8_RELEVANCE`.
+
+Every one was frozen and tagged before the first generation of its round, and
+each names in advance what it may and may not conclude.
+
+### Earlier documents
+
+- **[DATA_AUDIT.md](DATA_AUDIT.md)** — first-wave source, schema, hash, license.
+- **[DATASET_REDESIGN.md](DATASET_REDESIGN.md)** — source-native architecture.
 - **[FINDINGS.md](FINDINGS.md)** — full controlled-suite results and mechanism history.
-- **[PREREGISTRATION_G0.md](PREREGISTRATION_G0.md)** — what was frozen before the first exclusion experiment.
-- **[REPRODUCE.md](REPRODUCE.md)** — reproduction instructions for the existing experiments.
+- **[REPRODUCE.md](REPRODUCE.md)** — reproduction instructions.
+
+The sections below are the earlier scope-reset narrative and are kept because
+several attractive explanations in them were falsified by later controls.
 
 ---
 
