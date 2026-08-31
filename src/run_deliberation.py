@@ -68,6 +68,13 @@ def main() -> int:
     parser.add_argument("--enforce-eager", action="store_true")
     parser.add_argument("--tokenizer-mode", choices=("auto", "hf", "slow", "mistral"), default="auto")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--keep-full-raw",
+        action="store_true",
+        help="store the whole completion instead of its last 600 characters. "
+             "Storage only: values are parsed from the full text either way, so "
+             "no estimand changes.",
+    )
     args = parser.parse_args()
 
     arm, frame, cell = CONDITIONS[args.condition]
@@ -188,6 +195,7 @@ def main() -> int:
         "vllm_tokenizer_mode": args.tokenizer_mode,
         "longest_prompt_tokens": longest,
         "readout": "last_ANSWER_line_0_100_and_yes_no",
+        "stored_raw": "full" if args.keep_full_raw else "last_600_chars",
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", encoding="utf-8") as handle:
@@ -199,7 +207,7 @@ def main() -> int:
             result["n_completion_tokens"] = len(output.outputs[0].token_ids)
             result["finish_reason"] = output.outputs[0].finish_reason
             if record["record_type"] == "decision":
-                result["raw"] = raw[-600:]  # keep the answer region; full text is regenerable
+                result["raw"] = raw if args.keep_full_raw else raw[-600:]
                 result["value"] = parse_answer_line(raw)
             else:
                 result["raw"] = raw
