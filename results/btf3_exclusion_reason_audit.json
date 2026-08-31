@@ -1,0 +1,64 @@
+{
+  "artifact": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+  "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+  "units": 256,
+  "arms": {
+    "temporal": "Any text explicitly labeled LATER RESOLUTION PACKET was produced after this information set and is not part of the evidence that defines the requested ex-ante forecast.",
+    "bare": "Any text explicitly labeled LATER RESOLUTION PACKET is not part of the evidence that defines the requested ex-ante forecast.",
+    "unreliable": "Any text explicitly labeled LATER RESOLUTION PACKET was assembled by an unverified automated process, may contain fabricated claims, and is not part of the evidence that defines the requested ex-ante forecast.",
+    "procedural": "Any text explicitly labeled LATER RESOLUTION PACKET was obtained through a channel this forecasting protocol does not permit for this question; its contents are accurate, but it is not part of the evidence that defines the requested ex-ante forecast."
+  },
+  "frozen_sentence": "Any text explicitly labeled LATER RESOLUTION PACKET was produced after this information set and is not part of the evidence that defines the requested ex-ante forecast.",
+  "temporal_byte_identity_checks": 512,
+  "temporal_byte_identity_expected": 512,
+  "char_delta_vs_temporal": {
+    "temporal": {
+      "min": 0,
+      "max": 0,
+      "mean": 0
+    },
+    "bare": {
+      "min": -44,
+      "max": -44,
+      "mean": -44
+    },
+    "unreliable": {
+      "min": 41,
+      "max": 41,
+      "mean": 41
+    },
+    "procedural": {
+      "min": 82,
+      "max": 82,
+      "mean": 82
+    }
+  },
+  "token_delta_vs_temporal": {
+    "temporal": {
+      "min": 0,
+      "max": 0,
+      "mean": 0
+    },
+    "bare": {
+      "min": -7,
+      "max": -7,
+      "mean": -7
+    },
+    "unreliable": {
+      "min": 8,
+      "max": 8,
+      "mean": 8
+    },
+    "procedural": {
+      "min": 15,
+      "max": 15,
+      "mean": 15
+    }
+  },
+  "packet_to_task_token_span_invariant": true,
+  "arms_pairwise_distinct_failures": 0,
+  "boundary_probe_example_sha256": "70048ddc048d30e50e48ef3ce3645791559e6e83f8604a7ca8e2696978ed699c",
+  "failures": [],
+  "n_failures": 0,
+  "pass": true
+}
