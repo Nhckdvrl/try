@@ -1,0 +1,24 @@
+{
+  "_comment": "Frozen G4 breadth panel. Revisions are the HF snapshot digests present in the shared cache at freeze time. Five checkpoints were already run in earlier preregistered rounds and are reused, not re-run; the twelve marked new are what G4 adds.",
+  "artifact": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+  "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+  "checkpoints": [
+    {"tag": "qwen25-7b", "model_id": "Qwen/Qwen2.5-7B-Instruct", "revision": "a09a35458c702b33eeacc393d103063234e8bc28", "family": "Qwen2.5", "params_b": 7.6, "status": "new"},
+    {"tag": "qwen25-14b", "model_id": "Qwen/Qwen2.5-14B-Instruct", "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8", "family": "Qwen2.5", "params_b": 14.8, "status": "new"},
+    {"tag": "qwen25-32b", "model_id": "Qwen/Qwen2.5-32B-Instruct", "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd", "family": "Qwen2.5", "params_b": 32.8, "status": "new"},
+    {"tag": "qwen3-4b", "model_id": "Qwen/Qwen3-4B", "revision": "1cfa9a7208912126459214e8b04321603b3df60c", "family": "Qwen3", "params_b": 4.0, "status": "new"},
+    {"tag": "qwen3-8b", "model_id": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218", "family": "Qwen3", "params_b": 8.2, "status": "new"},
+    {"tag": "qwen3-14b", "model_id": "Qwen/Qwen3-14B", "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18", "family": "Qwen3", "params_b": 14.8, "status": "new"},
+    {"tag": "qwen3-32b", "model_id": "Qwen/Qwen3-32B", "revision": "9216db5781bf21249d130ec9da846c4624c16137", "family": "Qwen3", "params_b": 32.8, "status": "new"},
+    {"tag": "qwen35-4b", "model_id": "Qwen/Qwen3.5-4B", "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a", "family": "Qwen3.5", "params_b": 4.0, "status": "reused_size_sweep"},
+    {"tag": "qwen35-9b", "model_id": "Qwen/Qwen3.5-9B", "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a", "family": "Qwen3.5", "params_b": 9.0, "status": "reused_large_replication"},
+    {"tag": "qwen35-27b", "model_id": "Qwen/Qwen3.5-27B", "revision": "fc05daec18b0a78c049392ed2e771dde82bdf654", "family": "Qwen3.5", "params_b": 27.0, "status": "reused_size_sweep"},
+    {"tag": "qwen35-35b-a3b", "model_id": "Qwen/Qwen3.5-35B-A3B", "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754", "family": "Qwen3.5-MoE", "params_b": 35.0, "status": "new"},
+    {"tag": "qwen38-27b", "model_id": "Qwen/Qwen3.8-27B", "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0", "family": "Qwen3.8", "params_b": 27.0, "status": "new"},
+    {"tag": "llama31-8b", "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct", "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77", "family": "Llama-3.1", "params_b": 8.0, "status": "new"},
+    {"tag": "gemma3-4b", "model_id": "google/gemma-3-4b-it", "revision": "093f9f388b31de276ce2de164bdc2081324b9767", "family": "Gemma-3", "params_b": 4.3, "status": "new"},
+    {"tag": "gemma3-12b", "model_id": "google/gemma-3-12b-it", "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80", "family": "Gemma-3", "params_b": 12.2, "status": "reused_large_replication"},
+    {"tag": "phi4-mini", "model_id": "microsoft/Phi-4-mini-instruct", "revision": "cfbefacb99257ffa30c83adab238a50856ac3083", "family": "Phi-4", "params_b": 3.8, "status": "new"},
+    {"tag": "mistral-small-24b", "model_id": "mistralai/Mistral-Small-24B-Instruct-2501", "revision": "9527884be6e5616bdd54de542f9ae13384489724", "family": "Mistral", "params_b": 23.6, "status": "reused_large_replication"}
+  ]
+}
