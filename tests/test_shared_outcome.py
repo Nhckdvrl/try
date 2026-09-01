@@ -5,11 +5,12 @@ import sys
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT/"src"))
-from adapters.btf3_donor_outcome import build_donor_pairs
+from adapters.btf3_donor_outcome import assignment_digest,build_donor_pairs
 from information_set_schema import load_jsonl
 from mech.shared_outcome import balanced_accuracy,frozen_split,learn_axis,orthogonal_axis,split_digest
 from mech.analyze_shared_outcome import analyze
 from mech.run_decision_outcome import generate_answer_patch
+from mech.run_decision_confirmation import PAIRING_SEED
 
 
 def test_frozen_split_is_exact_and_donor_disjoint():
@@ -56,3 +57,11 @@ def test_g14_reuses_exact_g13_test_baseline():
     assert sum(r["outcome"]=="yes" for r in rows)==64
     assert sum(r["outcome"]=="no" for r in rows)==64
     assert len({r["unit"] for r in rows})==64
+
+
+def test_g15_fresh_assignment_and_split_are_frozen():
+    items=load_jsonl(ROOT/"data/external/review/btf3_temporal_large_replication_v1.jsonl")
+    pairs=build_donor_pairs(items,seed=PAIRING_SEED); split=frozen_split(pairs)
+    assert assignment_digest(pairs)=="3040ff14a931a7a1020e24b6d96b666c2e531e1a4a1c3d5a3ecc8d3c850e498f"
+    assert {k:len(v) for k,v in split.items()}=={"train":190,"test":64,"buffer":2}
+    assert split_digest(pairs,split)=="36e52bf1f65f20b1751d3f59addbc6a74597be899d23c2a84447487d18632309"
