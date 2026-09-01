@@ -114,6 +114,76 @@ def fig_exclusion_reason(results: Path, out: Path) -> str | None:
     return str(path)
 
 
+def fig_outcome_entrainment(results: Path, out: Path) -> str | None:
+    """G8 → G11 explanatory sequence: irrelevant packets and verdict redaction."""
+    swap = load(results / "g8_packet_swap_analysis.json")
+    red = load(results / "g11_redacted_swap_analysis.json")
+    if not swap or not red:
+        return None
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.2, 3.25), gridspec_kw={"width_ratios": [1.15, 1]})
+    colours = ("#333333", "#3977a8", "#d9782d")
+    width = 0.22
+
+    # Panel A: the direction changes with the source of the packet. The real
+    # packet is scored toward the recipient outcome; foreign packets are scored
+    # toward the donor outcome.
+    directional = (
+        ("real packet\n(recipient outcome)", lambda s, r: s["I_real"]),
+        ("foreign packet\n(donor outcome)", lambda s, r: s["I_donor"]),
+        ("redacted foreign\n(donor outcome)", lambda s, r: r["donor_pull_redacted"]),
+    )
+    ax = axes[0]
+    for j, (label, getter) in enumerate(directional):
+        xs, means, lo, hi = [], [], [], []
+        for i, tag in enumerate(PANEL):
+            e = getter(swap["per_model"][tag], red["per_model"][tag])
+            xs.append(i + (j - 1) * width)
+            means.append(e["mean"])
+            lo.append(e["mean"] - e["ci_low"])
+            hi.append(e["ci_high"] - e["mean"])
+        ax.bar(xs, means, width * 0.92, color=colours[j], label=label)
+        ax.errorbar(xs, means, yerr=[lo, hi], fmt="none", ecolor="black", capsize=2, lw=0.7)
+    ax.axhline(0, color="black", lw=0.7)
+    ax.set_xticks(range(len(PANEL)))
+    ax.set_xticklabels([LABEL[t] for t in PANEL], fontsize=7.5)
+    ax.set_ylabel("Outcome-directed pull (points)")
+    ax.set_title("A  Irrelevant future evidence pulls toward its own outcome", loc="left", fontsize=8.5)
+    ax.legend(frameon=False, fontsize=6.7, ncol=1, loc="upper right")
+
+    # Panel B: absolute movement shows that foreign text perturbs the judgment
+    # substantially even when its donor pull is below the frozen 5-point SESOI.
+    movement = (
+        ("real", lambda s, r: s["S_real"]),
+        ("foreign", lambda s, r: s["S_swap"]),
+        ("redacted foreign", lambda s, r: r["S_redacted"]),
+    )
+    ax = axes[1]
+    for j, (label, getter) in enumerate(movement):
+        xs, means, lo, hi = [], [], [], []
+        for i, tag in enumerate(PANEL):
+            e = getter(swap["per_model"][tag], red["per_model"][tag])
+            xs.append(i + (j - 1) * width)
+            means.append(e["mean"])
+            lo.append(e["mean"] - e["ci_low"])
+            hi.append(e["ci_high"] - e["mean"])
+        ax.bar(xs, means, width * 0.92, color=colours[j], label=label)
+        ax.errorbar(xs, means, yerr=[lo, hi], fmt="none", ecolor="black", capsize=2, lw=0.7)
+    ax.set_xticks(range(len(PANEL)))
+    ax.set_xticklabels([LABEL[t] for t in PANEL], fontsize=7.5)
+    ax.set_ylabel("Absolute movement (points)")
+    ax.set_title("B  Foreign packets retain substantial causal influence", loc="left", fontsize=8.5)
+    ax.legend(frameon=False, fontsize=6.7)
+
+    fig.suptitle("Retrospective outcome entrainment survives relevance and verdict removal",
+                 x=0.06, ha="left", fontsize=9.5, fontweight="bold")
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    path = out / "fig2_outcome_entrainment.png"
+    fig.savefig(path)
+    plt.close(fig)
+    return str(path)
+
+
 def fig_restoration(results: Path, out: Path) -> str | None:
     """G6 restoration curve, if the sweep has run."""
     data = load(results / "g6_span_sweep_analysis.json")
@@ -216,7 +286,8 @@ def main() -> int:
 
     for name, fn in (
         ("dissociation", fig_dissociation),
-        ("exclusion reason", fig_exclusion_reason),
+        ("outcome entrainment", fig_outcome_entrainment),
+        ("appendix: exclusion", fig_exclusion_reason),
         ("restoration curve", fig_restoration),
         ("mitigation ladder", fig_mitigation),
     ):
