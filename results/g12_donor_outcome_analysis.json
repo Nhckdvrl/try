@@ -1,0 +1,135 @@
+{
+  "preregistration": "PREREGISTRATION_G12_DONOR_OUTCOME.md",
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "assignment_sha256": "19ce7ce190ab88b11ece52fe332934d64555a8f71133196e1b223d657e51a6c1",
+      "units": 256,
+      "parse_rate": {
+        "YES": 1.0,
+        "NO": 1.0
+      },
+      "boundary_accuracy": {
+        "YES": 1.0,
+        "NO": 1.0
+      },
+      "qualified": true,
+      "causal_contrast": {
+        "mean": 4.40625,
+        "ci_low": 1.2734375,
+        "ci_high": 7.55078125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "absolute_pair_difference": {
+        "mean": 17.2109375,
+        "ci_low": 14.9296875,
+        "ci_high": 19.58203125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "recipient_aligned_validity": {
+        "mean": 1.984375,
+        "ci_low": -1.17578125,
+        "ci_high": 5.16015625,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "validity_ok": false,
+      "verdict": "indeterminate"
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "assignment_sha256": "19ce7ce190ab88b11ece52fe332934d64555a8f71133196e1b223d657e51a6c1",
+      "units": 255,
+      "parse_rate": {
+        "YES": 0.99609375,
+        "NO": 1.0
+      },
+      "boundary_accuracy": {
+        "YES": 1.0,
+        "NO": 1.0
+      },
+      "qualified": true,
+      "causal_contrast": {
+        "mean": 17.501960784313727,
+        "ci_low": 14.764705882352942,
+        "ci_high": 20.32941176470588,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "absolute_pair_difference": {
+        "mean": 19.305882352941175,
+        "ci_low": 16.788235294117648,
+        "ci_high": 21.91372549019608,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "recipient_aligned_validity": {
+        "mean": 0.4980392156862745,
+        "ci_low": -3.145098039215686,
+        "ci_high": 4.023529411764706,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "validity_ok": true,
+      "verdict": "causal-outcome-entrainment"
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "assignment_sha256": "19ce7ce190ab88b11ece52fe332934d64555a8f71133196e1b223d657e51a6c1",
+      "units": 256,
+      "parse_rate": {
+        "YES": 1.0,
+        "NO": 1.0
+      },
+      "boundary_accuracy": {
+        "YES": 1.0,
+        "NO": 1.0
+      },
+      "qualified": true,
+      "causal_contrast": {
+        "mean": 1.552734375,
+        "ci_low": 0.546875,
+        "ci_high": 2.548828125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "absolute_pair_difference": {
+        "mean": 4.056640625,
+        "ci_low": 3.1953125,
+        "ci_high": 4.96875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "recipient_aligned_validity": {
+        "mean": 0.224609375,
+        "ci_low": -0.8203125,
+        "ci_high": 1.25,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "validity_ok": true,
+      "verdict": "practically-null"
+    }
+  },
+  "panel": {
+    "tally": {
+      "causal-outcome-entrainment": 1,
+      "practically-null": 1,
+      "indeterminate": 0
+    },
+    "qualified_models": 2,
+    "verdict": "indeterminate"
+  },
+  "permitted_sentence": "The paired donor-outcome intervention is indeterminate."
+}

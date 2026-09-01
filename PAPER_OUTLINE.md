@@ -120,14 +120,25 @@ The conceptual result is positive: outcome-shaped future context entrains a
 reconstructed past judgment even when the outcome belongs to a different
 question and is expressed as evidence rather than an explicit verdict.
 
-### 7. Boundaries and failed interventions
+### 7. Donor outcome as a within-question causal variable (G12)
+
+For the identical recipient history, G12 replaces a verdict-redacted foreign
+packet supporting NO with one supporting YES. The paired shift is positive in
+all three models: +4.41pp Qwen, +17.50pp Gemma, and +1.55pp Mistral, with every
+95% interval above zero. The preregistered 5pp panel gate is indeterminate
+(Gemma causal, Mistral practically null, Qwen below the magnitude threshold),
+so the paper reports both facts: donor outcome controls direction across the
+panel, whereas effect magnitude is model-dependent. This supplies the causal
+behavioral variable for the shared-outcome-computation experiment.
+
+### 8. Boundaries and failed interventions
 
 G5 is an instrument failure, G9 does not qualify as a second-task replication,
 and G10 is heterogeneous. G7 shows weak uncontaminated pastcasting. These are
 reported transparently but do not create main sections or motivate more
 defensive experiments.
 
-### 8. Mechanism boundary
+### 9. Mechanism boundary
 
 No neural mechanism section is promised. The frozen G6 mask can localize direct
 packet access but cannot determine whether an ex-ante state was constructed and

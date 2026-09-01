@@ -103,7 +103,7 @@ remaining experiment is fixed by which pair it separates.
 | **H-reason-inert** | changing the stated justification does not improve enforcement | G3 — **realized at panel level**; no reason reduces the effect, while two added clauses increase Gemma's effect |
 | **H-own-diagnostic** | contamination is integration of evidence diagnostic of this question | G8 — **insufficient**: unrelated packets cause large movement and donor-directed pull |
 | **H-explicit-label** | foreign outcome import is explicit YES/NO copying | G11 — **insufficient at panel level**: redacted donor pull survives in 2/3 models; Mistral is the stated exception |
-| **H-outcome-context** | outcome-shaped later context enters the judgment even when it concerns another question | G8 + G11 — **supported behaviorally** |
+| **H-outcome-context** | outcome-shaped later context enters the judgment even when it concerns another question | G8 + G11 — **supported behaviorally**; G12 directly changes donor outcome within recipient, with positive paired intervals in all three models and strongly heterogeneous magnitude |
 | **H-override / H-absent** | an ex-ante estimate is built then overridden / never built | unresolved. The current G6 suffix mask localizes packet-to-answer access but does not establish either internal-state claim |
 
 H-override and H-absent remain a legitimate mechanistic pair, but the existing

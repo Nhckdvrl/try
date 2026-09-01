@@ -513,3 +513,19 @@ scientific reason independent of the environment: suffix masking localizes
 packet access but does not distinguish an overwritten ex-ante state from one
 never constructed, because packet information may first move into other token
 residuals. It will not run merely to add a mechanism section.
+
+### 25. G12: donor outcome becomes a direct within-recipient intervention
+
+Frozen under tag `g12-donor-outcome-design-v1`, then run sequentially on the
+otherwise idle fvcrc21 GPU 1. Every model process exited before the next began,
+and the GPU returned to 21 MiB after each run. Across the same 256 recipient
+questions, a verdict-redacted YES-supporting donor versus a verdict-redacted
+NO-supporting donor increased the reconstructed probability by +4.41pp
+[1.27, 7.55] for Qwen3.5-9B, +17.50pp [14.76, 20.33] for Gemma-3-12B, and
++1.55pp [0.55, 2.55] for Mistral-Small-24B. The categorical panel gate is
+indeterminate under the frozen 5pp SESOI, but direction is positive in all
+three and magnitude is sharply heterogeneous. This is an explanatory upgrade,
+not a robustness condition: donor outcome is now manipulated within the exact
+same historical question. Gemma supplies the strong-effect model for a single
+next mechanism question—whether a donor-general outcome variable is causally
+transferable across packets.
