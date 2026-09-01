@@ -1,8 +1,8 @@
 # Paper outline — draft against results in hand
 
-**Created:** 2026-09-01. Updated after G5 and G8–G11. The paper now follows one
-forward explanatory tree; defensive rounds are compressed or moved to the
-appendix.
+**Created:** 2026-09-01. Updated through the fresh-assignment mechanism
+confirmation. The paper follows one forward explanatory tree; discovery paths,
+failed instruments, and gate bookkeeping are compressed into the appendix.
 
 ---
 
@@ -38,12 +38,19 @@ phenomenon; it names no dataset, metric, or method.
 > future packet with the resolution packet of a different question still causes
 > 50.7–100.1% as much absolute movement as the real packet and pulls judgments
 > toward the donor question's outcome. Removing explicit verdict sentences
-> preserves 67–74% of this donor pull in two of three models, yielding a
-> preregistered panel result. We call this **retrospective outcome
-> entrainment**: outcome-shaped later context enters reconstruction even when it
-> is irrelevant to the judgment being reconstructed. The finding shifts the
-> explanation from failure to state a temporal rule to failure to keep an
-> irrelevant future outcome causally outside the reconstructed past.
+> preserves 67–74% of this donor pull in two of three models. In a stricter
+> paired intervention, changing only whether the irrelevant packet supports YES
+> or NO shifts the same historical judgment in that direction in all three
+> models, with strongly model-dependent magnitude. We call this
+> **retrospective outcome entrainment**. Mechanistically, donor outcome is
+> decodable in packet states but exchanging that packet-local code does not
+> transfer behavior. Instead, a recipient-conditioned outcome coordinate
+> emerges at the answer position: on a fresh donor assignment, it orders
+> 80–98% of held-out YES/NO pairs in late layers, and one-dimensional causal
+> interchange at layers 29–47 transfers 35–48% of the behavioral effect while
+> an orthogonal axis does not. Future evidence therefore contaminates the past
+> through a late decision state, not merely through failure to recognize a
+> temporal rule.
 
 ## Sections
 
@@ -84,27 +91,7 @@ together: checkpoints that cannot reliably recognise the boundary (probe
 56–74%) and checkpoints that recognise it at ceiling and are moved anyway. Only
 the second is the dissociation, and the paper says so.
 
-### 5. Stated reasons do not control the surviving influence (G3)
-
-The section leads with the normalized effect, not the raw points: the evidence
-moves a licensed retrospective judgment 39–47 points and an ex-ante judgment
-7.5–27.7, so the instruction is doing something — and what G3 shows is that how
-much it does is insensitive to why. The section states in the same paragraph
-that the licensed frame also changes the target question and is a normalizer,
-not a minimal pair. Gemma is the stated exception, in the same arms as its
-amplification.
-
-The licensing/reason factorization, the byte-identity audit, and the result:
-**no stated reason is enforced**. The `unreliable` arm is the section's hinge —
-a model that discounts evidence it is told may be fabricated would show it
-here, and none does. The Gemma amplification is reported as unanticipated and
-tied to the same direction as G2-B.
-
-This is characterization, not the core explanation. No reason reduces
-intrusion at panel level; Gemma's added clauses increase it. The section avoids
-claiming the model believed an `unreliable` packet false.
-
-### 6. Retrospective outcome entrainment (G8 + G11 — the core section)
+### 5. Retrospective outcome entrainment (G8 + G11)
 
 G8 first orthogonalizes relevance and donor outcome. A foreign packet causes
 50.7–100.1% as much absolute movement as a real packet. Donor pull is positive
@@ -120,7 +107,7 @@ The conceptual result is positive: outcome-shaped future context entrains a
 reconstructed past judgment even when the outcome belongs to a different
 question and is expressed as evidence rather than an explicit verdict.
 
-### 7. Donor outcome as a within-question causal variable (G12)
+### 6. Donor outcome as a within-question causal variable (G12)
 
 For the identical recipient history, G12 replaces a verdict-redacted foreign
 packet supporting NO with one supporting YES. The paired shift is positive in
@@ -129,7 +116,33 @@ all three models: +4.41pp Qwen, +17.50pp Gemma, and +1.55pp Mistral, with every
 (Gemma causal, Mistral practically null, Qwen below the magnitude threshold),
 so the paper reports both facts: donor outcome controls direction across the
 panel, whereas effect magnitude is model-dependent. This supplies the causal
-behavioral variable for the shared-outcome-computation experiment.
+behavioral variable for the mechanism experiment.
+
+### 7. From packet evidence to a late decision state (G13–G15)
+
+Lead with the competing algorithms, not the experiment chronology:
+
+- **packet-local transport:** different packets compress to a shared outcome
+  scalar that is carried to the answer;
+- **contextual decision-state construction:** packet semantics are integrated
+  with the recipient question and only then become a causal outcome coordinate.
+
+A donor-disjoint axis can decode outcome from packet states, but packet-span
+interchange has no causal window. At the answer position, the same form of
+interchange produces a late window. The paper's confirmatory evidence is G15,
+which rebuilds every donor pairing before any activation or output: the fresh
+behavioral contrast is +18.84pp [12.94, 24.97]; held-out within-recipient
+ordering reaches 98.4% at layer 23 and remains 79.7–90.6% at layers 29–47;
+causal transfer is negligible through layer 17, then +1.28pp at layer 23 and
++6.52 / +9.04 / +7.73 / +8.34pp at layers 29 / 35 / 41 / 47. The layer-35
+intervention recovers 48% of the behavioral effect; the orthogonal axis is
++0.16pp and outcome-axis specificity is +8.88pp [5.39, 12.81]. Both directions
+move correctly.
+
+G13 and G14 are not narrated as successive failures. G13 supplies the
+packet-site comparison; G14 is discovery for the answer-site hypothesis and
+its inherited gate miss is reported in the appendix. G15 is the prospectively
+frozen confirmatory result.
 
 ### 8. Boundaries and failed interventions
 
@@ -138,15 +151,7 @@ and G10 is heterogeneous. G7 shows weak uncontaminated pastcasting. These are
 reported transparently but do not create main sections or motivate more
 defensive experiments.
 
-### 9. Mechanism boundary
-
-No neural mechanism section is promised. The frozen G6 mask can localize direct
-packet access but cannot determine whether an ex-ante state was constructed and
-overridden or never constructed, because packet information can first move into
-other token residuals. It is deferred until a causally identified internal
-variable would advance the headline explanation.
-
-### 10. Limitations
+### 9. Limitations
 
 Written from the record, not composed at the end:
 
@@ -174,8 +179,10 @@ Written from the record, not composed at the end:
    foreign packet, with own- and donor-direction estimands separated.
 3. Per-model donor pull and retention under redaction, keeping Mistral's
    verdict-dependent exception visible.
-4. Compact appendix tables: cross-round stability, breadth, size, G3, and failed
-   interventions.
+4. Fresh-confirmation layer trajectory: paired representation, outcome-axis
+   transfer, and orthogonal-axis control.
+5. Compact appendix tables: cross-round stability, breadth, size, G3, G13/G14
+   development history, and failed interventions.
 
 ## What the paper must not say
 
@@ -188,4 +195,5 @@ Carried verbatim from `RELATED_WORK_2026.md` §12 and the round write-ups:
 - not any claim that models cannot discount evidence they believe false *in
   general* — G3 shows only that this prompt slot does not reach that machinery;
 - not any statement that an ex-ante representation is absent or overwritten;
-  the current G6 intervention does not identify that contrast.
+  the confirmed mechanism identifies a late contaminated decision coordinate,
+  not the prior existence of a clean ex-ante state.

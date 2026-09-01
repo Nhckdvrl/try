@@ -560,3 +560,17 @@ exceeded NO in 82.8--89.1% from layers 23--47, with positive paired-gap
 intervals. This motivates one confirmatory experiment with a fresh donor
 assignment and a preregistered paired representation estimand. GPU1 returned to
 21 MiB after all 2,048 patched generations.
+
+### 28. G15: fresh-assignment confirmation closes the mechanism chain
+
+Frozen under `g15-decision-confirm-design-v1`. Every donor pair was rebuilt
+with seed 20260902; the 190/64/2 split and 65 test donors are new. The fresh
+behavioral contrast is +18.84pp [12.94, 24.97]. Paired held-out outcome
+ordering is 98.4% at layer 23 and 79.7–90.6% at layers 29–47. Causal transfer
+is negligible at layers 5–17, +1.28pp at 23, then +6.52, +9.04, +7.73, and
++8.34pp at layers 29/35/41/47. Peak layer 35 recovers 48%; the orthogonal axis
+is +0.16pp and specificity is +8.88pp [5.39, 12.81]. Both directions pass.
+Every frozen gate returns `confirmed-recipient-conditioned-decision-state`.
+GPU1 returned to 21 MiB. The experimental program closes here: G13 is a compact
+packet-site comparison, G14 is discovery/appendix provenance, and G15 is the
+single confirmatory mechanism result in the main narrative.

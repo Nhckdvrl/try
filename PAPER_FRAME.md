@@ -71,6 +71,17 @@ open checkpoints:
   sentences are removed. G11 retains 73.9% of donor pull in Qwen and 67.1% in
   Gemma, while Mistral retains 35.0%; the preregistered panel verdict is
   `survives` (2/3).
+- move in the direction set by donor outcome under a direct within-recipient
+  intervention: YES-supporting versus NO-supporting redacted foreign packets
+  shift the same judgment by +4.41pp (Qwen), +17.50pp (Gemma), and +1.55pp
+  (Mistral), with all intervals above zero and strongly heterogeneous magnitude;
+- in Gemma, reproduce the paired behavior on a completely fresh donor
+  assignment (+18.84pp [12.94, 24.97]) and reveal a late
+  recipient-conditioned decision coordinate. Held-out paired ordering is
+  79.7–98.4% from layers 23–47; causal interchange is negligible in early
+  layers but transfers +6.52 to +9.04pp at layers 29–47, recovers up to 48% of
+  the behavioral contrast, works in both directions, and vanishes on a matched
+  orthogonal axis.
 
 G3 establishes that changing the stated reason does not reduce the effect at
 panel level. It does **not** establish that the model actually comes to believe
@@ -90,9 +101,9 @@ within-item causal estimand, which nothing in G7 touches.
 
 ## 4. The competing explanations
 
-A paper at this level does not report a phenomenon; it adjudicates between the
-accounts that could produce it. Four are live, and the design of every
-remaining experiment is fixed by which pair it separates.
+A paper at this level does not merely report a phenomenon; it adjudicates
+between accounts that could produce it. The completed experiment tree records
+which accounts were separated and which remain outside the claim.
 
 | tag | account | separated by |
 |---|---|---|
@@ -105,13 +116,12 @@ remaining experiment is fixed by which pair it separates.
 | **H-explicit-label** | foreign outcome import is explicit YES/NO copying | G11 — **insufficient at panel level**: redacted donor pull survives in 2/3 models; Mistral is the stated exception |
 | **H-outcome-context** | outcome-shaped later context enters the judgment even when it concerns another question | G8 + G11 — **supported behaviorally**; G12 directly changes donor outcome within recipient, with positive paired intervals in all three models and strongly heterogeneous magnitude |
 | **H-packet-scalar** | unrelated outcome evidence is carried to the answer through one shared packet-local scalar | G13 — **not established**: held-out donor outcome is decodable (peak BA 0.758), but one-dimensional packet-span interchange has no ≥3pp causal window |
-| **H-decision-state** | outcome evidence is contextualized into a recipient-conditioned variable at the answer position | G14 — strong provisional evidence: layers 29--47 form a bidirectional, axis-specific causal window (peak +5.39pp, 32% recovery), but the inherited global-classification gate misses by 0.008; fresh-assignment paired confirmation required |
+| **H-decision-state** | outcome evidence is contextualized into a recipient-conditioned variable at the answer position | G15 — **confirmed on a fresh donor assignment**: paired representation and a bidirectional, axis-specific causal window at layers 29–47; peak +9.04pp, 48% recovery |
 | **H-override / H-absent** | an ex-ante estimate is built then overridden / never built | unresolved. The current G6 suffix mask localizes packet-to-answer access but does not establish either internal-state claim |
 
-H-override and H-absent remain a legitimate mechanistic pair, but the existing
-G6 intervention does not distinguish them. Opening the model is permitted only
-after a causal variable and intervention make the two accounts predict
-different outcomes.
+H-override and H-absent remain a legitimate pair, but the existing G6
+intervention does not distinguish them and G15 does not claim to. They are a
+stated boundary, not a reason to extend the experimental program.
 
 ## 5. The novel explanatory step
 
@@ -126,13 +136,27 @@ latent:    retrospective outcome entrainment -- outcome-shaped later context
            verdict sentence
 ```
 
-This is the paper's forward explanatory step. G8 orthogonalizes relevance from
+This is the paper's first forward explanatory step. G8 orthogonalizes relevance from
 outcome direction: the donor packet is irrelevant to the recipient question,
 yet produces large movement and donor-directed pull. G11 orthogonalizes
 explicit verdict visibility from the remaining outcome evidence: the pull
 survives at panel level. Together they identify a lower-level regularity beneath
 generic hindsight contamination, analogous to contextual entrainment beneath
 generic distraction.
+
+The algorithmic step then distinguishes **where decodability becomes causal**:
+
+```text
+packet states: donor outcome is decodable, but its shared scalar is not a
+               causal bottleneck
+answer state:  after recipient contextualization, a late outcome coordinate
+               causally controls the reconstructed probability
+```
+
+This is not “we patched some layers.” It adjudicates packet-local transport
+against contextual decision-state construction. G15 rebuilds the donor
+assignment and confirms the predicted late, bidirectional, axis-specific
+transfer before the result is admitted to the main claim.
 
 The nearest published neighbour (*When Do LLMs Apply the Wrong Law?*, arXiv
 2608.14610) already owns the observed layer: models state a temporal rule and
@@ -173,10 +197,13 @@ because it is derived downward from §1:
 | **deliberation and the state scaffold (G5)** | does forcing explicit reconstruction of the ex-ante state recover the judgment? |
 | **foreign packet (G8)** | does outcome-shaped future context pull the judgment when it is causally irrelevant to this question? |
 | **redacted foreign packet (G11)** | is that donor-directed pull an explicit-verdict artifact or an evidential effect? |
+| **paired donor outcome (G12)** | does outcome direction itself causally control the same historical judgment? |
+| **packet vs answer-site interchange (G13/G15)** | is outcome carried as a packet-local scalar, or constructed as a recipient-conditioned decision variable? |
 
-Only the first, G8, and G11 belong to the main explanatory tree. G2/G3/G4 are
-compact characterization or alternative-account checks; G5/G7/G9/G10 are
-reported failures or boundaries and belong outside the headline sequence.
+Only the first, G8/G11, G12, and the confirmed G15 mechanism belong to the main
+explanatory tree. G2/G3/G4 are compact characterization or alternative-account
+checks; G5/G7/G9/G10 are reported failures or boundaries and belong outside the
+headline sequence.
 
 ## 7. Robustness of the title to failure
 
@@ -192,13 +219,13 @@ This paper is in the second class, and the claim has now been tested rather
 than asserted. The title-level object is *whether a model can reconstruct a past
 judgment after learning the outcome*, and the answer to that is already
 measured. G3 did not support its favoured reason-sensitive account; G7's primary
-test failed outright and in the opposite direction. The title did not move in
-either case — only the explanation section did. G8 and G11 then strengthened
-the paper by isolating retrospective outcome entrainment. Even if a future
-neural account fails, the causal phenomenon and its donor-directed structure
-remain.
+test failed outright and in the opposite direction; G13 rejected a packet-local
+causal bottleneck. The title did not move — only the explanation section did.
+G8/G11/G12 isolate retrospective outcome entrainment, while G15 supplies the
+stronger internal account. The causal phenomenon and donor-directed structure
+do not depend on that account.
 
-## 8. When mechanism is allowed
+## 8. Why mechanism is necessary here
 
 Mechanistic interpretability is not a credential and will not be added to make
 the paper look mechanistic. The rule, taken from the reference papers:
@@ -206,14 +233,18 @@ the paper look mechanistic. The rule, taken from the reference papers:
 > Open the model only when two competing explanations make the same behavioral
 > prediction and differ only internally.
 
-The frozen G6 implementation does not meet this bar. Its suffix attention mask
-can show when direct access from answer positions to packet tokens remains
-causally effective. Late masking failure can equally arise because packet
-information was copied into other token residuals early; late masking success
-does not establish that an ex-ante estimate was previously constructed. The
-curve is therefore a timing/localization instrument, not an adjudication of
-`H-override` versus `H-absent`. Full G6 is deferred until a stronger causal
-variable and intervention are specified.
+Outputs alone cannot distinguish a packet-local shared code from a
+recipient-conditioned decision variable: both predict donor-directed movement.
+G13/G15 therefore learn the same form of donor-general outcome direction on
+held-out donor identities and change only the causal site. Packet-span
+interchange is ineffective; answer-position interchange forms a late window and
+replicates under fresh donor assignment. Mechanism is contributing the
+algorithmic explanation, not serving as a credential.
+
+The older G6 mask remains excluded from the main story because it does not
+adjudicate `H-override` versus `H-absent`. G15 likewise does not claim that a
+clean ex-ante state was previously constructed; it identifies the late state
+through which future outcome influence reaches the answer.
 
 Any patching, probing, or head-ablation proposal that does not adjudicate a
 named pair from §4 is refused.
@@ -224,8 +255,9 @@ named pair from §4 is refused.
 2. **Scientific object** — §2. Reconstruction of a past epistemic state; a
    cognition object that precedes the dataset.
 3. **Competing explanations** — §4. The main sequence distinguishes
-   own-question diagnostic integration, explicit-verdict copying, and
-   outcome-context entrainment; internal-state accounts remain unresolved.
+   own-question diagnostic integration, explicit-verdict copying,
+   outcome-context entrainment, packet-local transport, and contextual
+   decision-state construction.
 4. **Novel explanatory step** — §5. Generic hindsight contamination becomes
    donor-directed retrospective outcome entrainment. The nearest neighbour is
    conceded by name.
@@ -235,8 +267,8 @@ named pair from §4 is refused.
    §1 and can be written as one.
 7. **Hypothesis robustness** — §7. The natural question and replicated effect
    survive failure of any favoured explanation.
-8. **Mechanism necessity** — §8. The current mechanism design is deferred
-   because it does not identify its named internal contrast.
+8. **Mechanism necessity** — §8. The confirmed site interchange separates two
+   algorithms with the same behavioral prediction.
 
 ## 10. Standing rule for new experiments
 
@@ -248,4 +280,5 @@ sentence:
 > ___.*
 
 If the blanks cannot be filled with two named accounts from §4, the experiment
-is another condition, not another answer, and it does not get run.
+is another condition, not another answer, and it does not get run. The present
+experimental program is closed after G15; remaining work is paper consolidation.

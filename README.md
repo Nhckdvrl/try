@@ -44,6 +44,10 @@ before its first generation:
 | **G9** numeric track | same question, different task type | **instrument did not qualify**; no replication verdict |
 | **G10** worked examples | what actually fixes it? | **indeterminate** — one improves, one worsens, one is indeterminate |
 | **G11** redacted foreign packets | is foreign outcome import only explicit YES/NO copying? | **survives, 2/3** — redacted donor pull retains 67–74% in Qwen/Gemma; Mistral is verdict-dependent |
+| **G12** paired donor outcome | does changing only the irrelevant donor's supported outcome control the same judgment? | **positive direction in 3/3, heterogeneous magnitude** — +1.55 to +17.50pp; frozen 5pp panel gate indeterminate |
+| **G13** packet-site axis | is a shared packet-local outcome scalar the causal bottleneck? | **no** — held-out decodability without a causal interchange window; compact site control, not a headline failure |
+| **G14** answer-site discovery | does the variable become causal after recipient contextualization? | **late causal window discovered**, composite gate misses its inherited global classifier by 0.008 |
+| **G15** fresh confirmation | does the late decision state replicate under new donor assignments? | **confirmed** — fresh behavior, paired representation, layers 29–47 causal window, bidirectionality, and orthogonal specificity all pass |
 
 ---
 
@@ -173,6 +177,23 @@ headline tree.
 
 See [`results/g11_redacted_swap_results.md`](results/g11_redacted_swap_results.md).
 
+## 2.5 A late recipient-conditioned decision state
+
+G12 directly changes donor outcome within the same recipient question. Every
+model moves in the predicted direction, though magnitude varies sharply. In
+Gemma, the mechanism analysis then distinguishes two algorithms that outputs
+alone cannot: carrying a shared outcome scalar from packet tokens versus
+constructing a contextualized decision variable at the answer position.
+
+Packet outcome is donor-general decodable but packet-span interchange does not
+transfer behavior. At the answer position, a fresh donor assignment confirms a
+late causal window: transfer is near zero through layer 17, then +6.52, +9.04,
++7.73, and +8.34pp at layers 29, 35, 41, and 47. The layer-35 intervention
+recovers 48% of the fresh +18.84pp behavioral contrast; its orthogonal control
+is +0.16pp, and both transfer directions move correctly.
+
+See [`results/mech/g15_decision_confirmation_analysis.json`](results/mech/g15_decision_confirmation_analysis.json).
+
 ---
 
 # 3. What did not become a headline result
@@ -256,7 +277,9 @@ Claims we explicitly do **not** make:
 - universal failure across all LLMs or all tasks;
 - cross-source replication;
 - generality across perspective / procedural / role boundaries;
-- a neural or representation-level mechanism;
+- absence or overwriting of a clean ex-ante representation (the confirmed
+  mechanism identifies a late contaminated decision state, not its clean
+  predecessor);
 - a scaling law;
 - that verdict redaction removes all answer-revealing evidence;
 - that the factuality audit establishes complete source validity.

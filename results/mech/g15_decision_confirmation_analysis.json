@@ -1,0 +1,493 @@
+{
+  "preregistration": "PREREGISTRATION_G15_DECISION_CONFIRMATION.md",
+  "bridge": {
+    "parse_counts": {
+      "yes": 64,
+      "no": 64
+    },
+    "contrast": {
+      "mean": 18.84375,
+      "ci_low": 12.9375,
+      "ci_high": 24.96875,
+      "n": 64,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "passes": true
+  },
+  "representation": {
+    "per_layer": {
+      "5": {
+        "ordering_accuracy": 0.515625,
+        "projection_gap": {
+          "mean": 0.9996231459081173,
+          "ci_low": -0.518166296184063,
+          "ci_high": 2.5386826870962977,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": false
+      },
+      "11": {
+        "ordering_accuracy": 0.53125,
+        "projection_gap": {
+          "mean": -3.347936698468402,
+          "ci_low": -27.03426753729582,
+          "ci_high": 20.102272272109985,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": false
+      },
+      "17": {
+        "ordering_accuracy": 0.546875,
+        "projection_gap": {
+          "mean": 59.51532428711653,
+          "ci_low": -33.03159502148628,
+          "ci_high": 156.94268976897,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": false
+      },
+      "23": {
+        "ordering_accuracy": 0.984375,
+        "projection_gap": {
+          "mean": 290.1257023066282,
+          "ci_low": 252.3523492217064,
+          "ci_high": 326.9626156538725,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": true
+      },
+      "29": {
+        "ordering_accuracy": 0.90625,
+        "projection_gap": {
+          "mean": 1532.9123386144638,
+          "ci_low": 1244.5952733755112,
+          "ci_high": 1820.7821595072746,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": true
+      },
+      "35": {
+        "ordering_accuracy": 0.84375,
+        "projection_gap": {
+          "mean": 3298.5803022384644,
+          "ci_low": 2572.7491500377655,
+          "ci_high": 4022.1331074237823,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": true
+      },
+      "41": {
+        "ordering_accuracy": 0.84375,
+        "projection_gap": {
+          "mean": 5582.460431098938,
+          "ci_low": 4276.61804485321,
+          "ci_high": 6895.02202129364,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": true
+      },
+      "47": {
+        "ordering_accuracy": 0.796875,
+        "projection_gap": {
+          "mean": 8471.896080970764,
+          "ci_low": 6160.701252937317,
+          "ci_high": 10827.464510917664,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "passes": true
+      }
+    },
+    "passes": true
+  },
+  "causal": {
+    "per_layer": {
+      "5": {
+        "outcome_axis": {
+          "mean": 0.078125,
+          "ci_low": -0.390625,
+          "ci_high": 0.546875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.15625,
+          "ci_low": -0.3515625,
+          "ci_high": 0.625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": -0.078125,
+          "ci_low": -0.2734375,
+          "ci_high": 0.078125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 0.0,
+          "ci_low": -0.9375,
+          "ci_high": 0.78125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 0.15625,
+          "ci_low": 0.0,
+          "ci_high": 0.46875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.0041459369817578775
+      },
+      "11": {
+        "outcome_axis": {
+          "mean": 0.15625,
+          "ci_low": -0.15625,
+          "ci_high": 0.5078125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.0390625,
+          "ci_low": -0.546875,
+          "ci_high": 0.4296875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 0.1953125,
+          "ci_low": -0.15625,
+          "ci_high": 0.625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 0.234375,
+          "ci_low": -0.390625,
+          "ci_high": 0.9375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 0.078125,
+          "ci_low": -0.390625,
+          "ci_high": 0.546875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.008291873963515755
+      },
+      "17": {
+        "outcome_axis": {
+          "mean": -0.1875,
+          "ci_low": -0.8828125,
+          "ci_high": 0.40625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.3125,
+          "ci_low": -0.1171875,
+          "ci_high": 0.7421875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": -0.5,
+          "ci_low": -1.1328125,
+          "ci_high": 0.015625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": -0.453125,
+          "ci_low": -1.5625,
+          "ci_high": 0.484375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 0.078125,
+          "ci_low": -0.78125,
+          "ci_high": 0.78125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": -0.009950248756218905
+      },
+      "23": {
+        "outcome_axis": {
+          "mean": 1.28125,
+          "ci_low": 0.5859375,
+          "ci_high": 2.1328125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.1171875,
+          "ci_low": -0.2734375,
+          "ci_high": 0.5078125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 1.1640625,
+          "ci_low": 0.546875,
+          "ci_high": 1.9609375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 1.3125,
+          "ci_low": 0.453125,
+          "ci_high": 2.328125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 1.25,
+          "ci_low": 0.3125,
+          "ci_high": 2.5,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.06799336650082918
+      },
+      "29": {
+        "outcome_axis": {
+          "mean": 6.5234375,
+          "ci_low": 4.53125,
+          "ci_high": 8.59375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.3125,
+          "ci_low": -0.0390625,
+          "ci_high": 0.703125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 6.2109375,
+          "ci_low": 4.21875,
+          "ci_high": 8.3203125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 5.46875,
+          "ci_low": 3.203125,
+          "ci_high": 8.046875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 7.578125,
+          "ci_low": 4.53125,
+          "ci_high": 10.9375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.34618573797678276
+      },
+      "35": {
+        "outcome_axis": {
+          "mean": 9.0390625,
+          "ci_low": 5.5859375,
+          "ci_high": 12.9453125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.15625,
+          "ci_low": -0.3515625,
+          "ci_high": 0.625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 8.8828125,
+          "ci_low": 5.390625,
+          "ci_high": 12.8125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 10.03125,
+          "ci_low": 5.453125,
+          "ci_high": 15.40625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 8.046875,
+          "ci_low": 4.609375,
+          "ci_high": 11.71875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.4796849087893864
+      },
+      "41": {
+        "outcome_axis": {
+          "mean": 7.734375,
+          "ci_low": 4.890625,
+          "ci_high": 10.71875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.3515625,
+          "ci_low": 0.0,
+          "ci_high": 0.7421875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 7.3828125,
+          "ci_low": 4.5078125,
+          "ci_high": 10.421875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 8.671875,
+          "ci_low": 5.0625,
+          "ci_high": 12.640625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 6.796875,
+          "ci_low": 3.515625,
+          "ci_high": 10.234375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.41044776119402987
+      },
+      "47": {
+        "outcome_axis": {
+          "mean": 8.34375,
+          "ci_low": 5.234375,
+          "ci_high": 11.6640625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.0390625,
+          "ci_low": -0.4296875,
+          "ci_high": 0.46875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 8.3046875,
+          "ci_low": 5.21875,
+          "ci_high": 11.578125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 10.671875,
+          "ci_low": 6.640625,
+          "ci_high": 14.984375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 6.015625,
+          "ci_low": 2.734375,
+          "ci_high": 9.53125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.4427860696517413
+      }
+    },
+    "meaningful_layers": [
+      29,
+      35,
+      41,
+      47
+    ],
+    "adjacent_windows": [
+      [
+        29,
+        35
+      ],
+      [
+        35,
+        41
+      ],
+      [
+        41,
+        47
+      ]
+    ],
+    "peak_layer": 35,
+    "window_passes": true,
+    "specificity_passes": true,
+    "late_window_overlap": true
+  },
+  "verdict": "confirmed-recipient-conditioned-decision-state",
+  "permitted_sentence": "Across a fresh assignment of unrelated future evidence, outcome information is converted into a recipient-conditioned late decision coordinate whose causal interchange bidirectionally transfers its influence on reconstructed past judgments."
+}

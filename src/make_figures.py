@@ -217,6 +217,56 @@ def fig_restoration(results: Path, out: Path) -> str | None:
     return str(path)
 
 
+def fig_decision_state(results: Path, out: Path) -> str | None:
+    """G12 causal factorization and G15 fresh-confirmed mechanism trajectory."""
+    paired = load(results / "g12_donor_outcome_analysis.json")
+    mech = load(results / "mech" / "g15_decision_confirmation_analysis.json")
+    if not paired or not mech:
+        return None
+    fig, axes = plt.subplots(1, 3, figsize=(10.2, 3.25),
+                             gridspec_kw={"width_ratios": [0.9, 1.05, 1.25]})
+
+    ax = axes[0]
+    means=[]; lo=[]; hi=[]
+    for tag in PANEL:
+        e=paired["per_model"][tag]["causal_contrast"]
+        means.append(e["mean"]);lo.append(e["mean"]-e["ci_low"]);hi.append(e["ci_high"]-e["mean"])
+    xs=list(range(len(PANEL)))
+    ax.bar(xs,means,color=("#3977a8","#d9782d","#6b8e23"),width=.68)
+    ax.errorbar(xs,means,yerr=[lo,hi],fmt="none",ecolor="black",capsize=2,lw=.8)
+    ax.axhline(0,color="black",lw=.7);ax.axhline(5,color="#b6423c",ls="--",lw=.7)
+    ax.set_xticks(xs);ax.set_xticklabels([LABEL[t].replace("-","\n",1) for t in PANEL],fontsize=6.8)
+    ax.set_ylabel("YES donor − NO donor (points)")
+    ax.set_title("A  Donor outcome controls direction",loc="left",fontsize=8.3)
+
+    layers=[int(x) for x in mech["representation"]["per_layer"]]
+    layers.sort()
+    ax=axes[1]
+    ordering=[100*mech["representation"]["per_layer"][str(l)]["ordering_accuracy"] for l in layers]
+    ax.plot(layers,ordering,"o-",color="#6a4c93",ms=3,lw=1.2)
+    ax.axhline(75,color="#b6423c",ls="--",lw=.7,label="frozen gate")
+    ax.set_ylim(45,102);ax.set_xlabel("decoder layer");ax.set_ylabel("Held-out paired ordering (%)")
+    ax.set_title("B  Decision coordinate emerges late",loc="left",fontsize=8.3)
+    ax.legend(frameon=False,fontsize=6.5,loc="lower right")
+
+    ax=axes[2]
+    for key,label,colour in (("outcome_axis","outcome coordinate","#d9782d"),
+                             ("orthogonal_axis","orthogonal control","#777777")):
+        es=[mech["causal"]["per_layer"][str(l)][key] for l in layers]
+        means=[e["mean"] for e in es]
+        ax.plot(layers,means,"o-",color=colour,ms=3,lw=1.2,label=label)
+        ax.fill_between(layers,[e["ci_low"] for e in es],[e["ci_high"] for e in es],color=colour,alpha=.14,lw=0)
+    ax.axhline(0,color="black",lw=.7);ax.axhline(3,color="#b6423c",ls="--",lw=.7)
+    ax.set_xlabel("decoder layer");ax.set_ylabel("Bidirectional causal transfer (points)")
+    ax.set_title("C  Only the late decision coordinate is causal",loc="left",fontsize=8.3)
+    ax.legend(frameon=False,fontsize=6.5,loc="upper left")
+
+    fig.suptitle("Future outcome is contextualized into a late causal decision state",
+                 x=.04,ha="left",fontsize=9.5,fontweight="bold")
+    fig.tight_layout(rect=(0,0,1,.93))
+    path=out/"fig3_decision_state.png";fig.savefig(path);plt.close(fig);return str(path)
+
+
 def fig_mitigation(results: Path, out: Path) -> str | None:
     """Every intervention tried, on one axis, against the direct baseline."""
     baseline = load(results / "g3_exclusion_reason_analysis.json")
@@ -287,6 +337,7 @@ def main() -> int:
     for name, fn in (
         ("dissociation", fig_dissociation),
         ("outcome entrainment", fig_outcome_entrainment),
+        ("decision state", fig_decision_state),
         ("appendix: exclusion", fig_exclusion_reason),
         ("restoration curve", fig_restoration),
         ("mitigation ladder", fig_mitigation),

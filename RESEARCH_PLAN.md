@@ -74,7 +74,26 @@ Permitted headline claim:
 > judgment toward that question's outcome; explicit verdict copying is
 > insufficient to explain the effect.**
 
-### P2 — own-packet explicit-verdict redaction
+### P2 — donor outcome is a within-question causal variable (G12)
+
+Holding the recipient history and all non-packet tokens fixed, replace a
+verdict-redacted packet supporting NO with one supporting YES. The same
+judgment rises by +4.41pp in Qwen, +17.50pp in Gemma, and +1.55pp in Mistral;
+all intervals exclude zero, while the frozen 5pp panel gate is indeterminate.
+The paper reports both: direction is controlled across models, magnitude is
+model-dependent.
+
+### P3 — recipient-conditioned late decision state (G15)
+
+On a fresh donor assignment, Gemma reproduces the behavioral contrast
+(+18.84pp [12.94, 24.97]). A donor-general answer-position outcome coordinate
+orders 79.7–98.4% of held-out pairs from layers 23–47. Causal interchange is
+near zero in early layers and transfers +6.52 to +9.04pp at layers 29–47,
+recovering up to 48% of the behavior; bidirectionality and orthogonal-axis
+specificity both pass. This supports contextual decision-state construction
+over packet-local scalar transport.
+
+### Supporting — own-packet explicit-verdict redaction
 
 The strongest depth result is that contamination survives removal of explicit
 YES/NO verdict sentences from the future packet while the remaining evidence
@@ -141,14 +160,18 @@ the same-evidence causal manipulation and measured probability shift.
 
 ## 4. Paper claim set
 
-The main text should be organized around one phenomenon and one explanatory
-advance:
+The main text should be organized around one phenomenon, its causal
+factorization, and one algorithmic explanation:
 
 1. **Recognition–Enforcement Gap.** Near-perfect temporal-boundary recognition
    coexists with substantial causal hindsight contamination.
 2. **Retrospective Outcome Entrainment.** Outcome-shaped future context causes
    donor-directed influence even when it belongs to another question; in two
    of three models the influence survives explicit-verdict redaction.
+3. **Late Contextual Decision State.** In the strong-effect model, future
+   outcome information is not causally transported as a packet-local scalar;
+   after integration with the recipient question it forms a late decision
+   coordinate whose interchange transfers the judgment on a fresh assignment.
 
 Verdict redaction on own packets, size, breadth, and exclusion reasons are
 supporting characterization. They are not equal-weight headline claims.
@@ -158,7 +181,7 @@ The following are explicitly **not** paper claims:
 - universal failure across LLMs or tasks;
 - cross-source replication;
 - a general information-set reasoning capability/failure;
-- a neural mechanism or representation-overwriting story;
+- absence or overwriting of a clean ex-ante representation;
 - a replicated exclusion-specific positional mechanism;
 - a scaling law;
 - complete factual validation of all BTF-3 packets.
@@ -191,7 +214,9 @@ Introduce the causal design before naming datasets. The conceptual punchline is:
 2. recognition vs enforcement dissociation;
 3. G8 relevance × donor-outcome intervention;
 4. G11 explicit-verdict decomposition of donor pull;
-5. compact characterization and transparent boundaries.
+5. G12 paired causal manipulation of donor outcome;
+6. G15 fresh-confirmed late decision-state mechanism;
+7. compact characterization and transparent boundaries.
 
 ### Related work
 
@@ -206,24 +231,26 @@ context, and security information-flow work.
 - source-native resolution packets may contain defects;
 - redacted evidence can still entail the outcome;
 - only open checkpoints are tested;
-- no internal-mechanism claim.
+- mechanism is established in Gemma only and does not prove prior construction
+  or overwriting of a clean ex-ante state.
 
 ## 6. Remaining work
 
-The experimental program is effectively complete for the current submission.
-Remaining work is primarily consolidation:
+The experimental program is closed after the fresh-confirmed G15 mechanism.
+Remaining work is consolidation:
 
 1. freeze the paper-level claim table and terminology;
 2. build Figure 1 around the natural question, 2×2 design, and replicated gap;
 3. build Figure 2 as the explanatory figure: real packet → foreign packet →
    verdict-redacted foreign packet, with own- and donor-direction arrows;
-4. move scale, G3, and failed interventions to compact tables / appendix;
-5. draft Introduction and Related Work around the locked novelty boundary;
-6. move exploratory controlled-suite history and failed source engineering to
+4. build the mechanism figure as packet-site non-transfer versus late
+   answer-site causal transfer, led by the fresh confirmation;
+5. move scale, G3, G13/G14 development history, and failed interventions to
+   compact tables / appendix;
+6. draft Introduction and Related Work around the locked novelty boundary;
+7. move exploratory controlled-suite history and failed source engineering to
    the appendix / repository rather than the main narrative;
-7. run a final adversarial ACL/EMNLP reviewer simulation before deciding whether
-   any new experiment is actually necessary.
+8. run a final adversarial ACL/EMNLP reviewer simulation of the locked paper.
 
 No defensive experiment is added merely to answer a possible reviewer objection.
-A new experiment must advance the outcome-entrainment explanation or identify a
-causal internal computation that explains it; otherwise it does not run.
+No new experiment runs unless the locked headline claim itself is found invalid.
