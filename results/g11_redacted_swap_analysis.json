@@ -1,0 +1,165 @@
+{
+  "preregistration": "PREREGISTRATION_G11_REDACTED_SWAP.md",
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "units": 256,
+      "parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "own_pull_redacted": {
+        "mean": 1.453125,
+        "ci_low": -1.328125,
+        "ci_high": 4.2421875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_redacted": {
+        "mean": 3.671875,
+        "ci_low": 0.84375,
+        "ci_high": 6.41796875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_full": {
+        "mean": 4.96875,
+        "ci_low": 2.109375,
+        "ci_high": 7.8125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "explicit_label_contribution": {
+        "mean": 1.296875,
+        "ci_low": -1.0546875,
+        "ci_high": 3.828125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_redacted": {
+        "mean": 14.90625,
+        "ci_low": 12.81640625,
+        "ci_high": 17.16015625,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "retention": 0.7389937106918238,
+      "pairing_validity_ok": true,
+      "verdict": "survives"
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "units": 255,
+      "parse_rate": 0.99609375,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "own_pull_redacted": {
+        "mean": 0.7529411764705882,
+        "ci_low": -1.8392156862745097,
+        "ci_high": 3.3411764705882354,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_redacted": {
+        "mean": 8.227450980392156,
+        "ci_low": 5.91764705882353,
+        "ci_high": 10.666666666666666,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_full": {
+        "mean": 12.258823529411766,
+        "ci_low": 9.635294117647058,
+        "ci_high": 14.929411764705883,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "explicit_label_contribution": {
+        "mean": 4.031372549019608,
+        "ci_low": 2.3411764705882354,
+        "ci_high": 5.886274509803922,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_redacted": {
+        "mean": 13.31764705882353,
+        "ci_low": 11.349019607843138,
+        "ci_high": 15.333333333333334,
+        "n": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "retention": 0.6711452335252718,
+      "pairing_validity_ok": true,
+      "verdict": "survives"
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "units": 256,
+      "parse_rate": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "own_pull_redacted": {
+        "mean": 0.7988671875,
+        "ci_low": -0.1620703125,
+        "ci_high": 1.746171875,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_redacted": {
+        "mean": 1.0254296875,
+        "ci_low": 0.09765625,
+        "ci_high": 1.9883203125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "donor_pull_full": {
+        "mean": 2.9316796875,
+        "ci_low": 1.70703125,
+        "ci_high": 4.2246484375,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "explicit_label_contribution": {
+        "mean": 1.90625,
+        "ci_low": 0.8203125,
+        "ci_high": 3.078125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "S_redacted": {
+        "mean": 4.1699609375,
+        "ci_low": 3.3672265625,
+        "ci_high": 5.017578125,
+        "n": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "retention": 0.3497754860028514,
+      "pairing_validity_ok": true,
+      "verdict": "verdict-dependent"
+    }
+  },
+  "panel": {
+    "tally": {
+      "survives": 2,
+      "verdict-dependent": 1,
+      "indeterminate": 0
+    },
+    "qualified_models": 3,
+    "verdict": "survives"
+  },
+  "permitted_sentence": "Explicit answer copying is insufficient: an irrelevant question's outcome evidence still pulls the judgment toward that question's outcome."
+}

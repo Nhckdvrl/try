@@ -35,14 +35,15 @@ before its first generation:
 
 | round | question | status |
 |---|---|---|
-| **G3** exclusion reason | which *kind* of boundary can a model enforce? | **H-inert** — no stated reason reduces the effect: not temporal, not a non-temporal licensing reason with the evidence's accuracy affirmed, not one that undercuts its truth, while recognition stays 97–100% |
+| **G3** exclusion reason | does changing the stated justification improve enforcement? | **no panel-level reduction**; two added clauses increase Gemma's effect, while recognition stays 97–100% |
 | **G4** model breadth | three checkpoints, or the class? | 8/8 qualified checkpoints pass, five families; Spearman(recognition, intrusion) = 0.08 |
-| **G5** deliberation | does forcing ex-ante state construction help? | running |
-| **G6** mechanism + method | overwritten late, or never formed — and can masking enforce it? | frozen |
+| **G5** deliberation | does forcing ex-ante state construction help? | **instrument failure / indeterminate** — truncation invalidated most CoT cells and the licensed scaffold was ill-posed |
+| **G6** mechanism + method | when does packet information reach the answer computation? | **deferred** — the current masking sweep localizes access but does not by itself adjudicate whether an ex-ante state existed |
 | **G7** ex-ante anchor | does it move the model away from a competent ex-ante forecast? | **preregistered test failed in the opposite direction**; kept, with the limitation it exposes |
-| **G8** relevance | must the packet even be *about* this question? | running |
-| **G9** numeric track | same question, different task type | frozen, 128 units |
-| **G10** worked examples | what actually fixes it? | frozen |
+| **G8** relevance | must the packet even be *about* this question? | **H-presence-weak by frozen rule** — foreign packets cause 50.7–100.1% of real-packet movement; donor pull is positive in all three but clears the 5-point strong-form threshold in one |
+| **G9** numeric track | same question, different task type | **instrument did not qualify**; no replication verdict |
+| **G10** worked examples | what actually fixes it? | **indeterminate** — one improves, one worsens, one is indeterminate |
+| **G11** redacted foreign packets | is foreign outcome import only explicit YES/NO copying? | **survives, 2/3** — redacted donor pull retains 67–74% in Qwen/Gemma; Mistral is verdict-dependent |
 
 ---
 
@@ -148,6 +149,29 @@ size while enforcement varies by more than 20 probability points, and the
 largest checkpoint is not less contaminated.
 
 See [`results/qwen_size_sweep_results.md`](results/qwen_size_sweep_results.md).
+
+## 2.4 Retrospective outcome entrainment
+
+The explanatory advance comes from crossing relevance with outcome direction.
+G8 replaces each question's future packet with a packet from a different
+question. These foreign packets cause 50.7–100.1% as much absolute movement as
+real packets. Their donor-outcome pull is positive with intervals above zero in
+all three models (2.93–12.26 points), although only Gemma clears G8's frozen
+5-point strong-form threshold; the preregistered panel row is therefore
+`H-presence-weak`.
+
+G11 then removes explicit YES/NO verdict sentences from those same foreign
+packets. Donor pull retains 73.9% in Qwen and 67.1% in Gemma, but only 35.0% in
+Mistral. The preregistered panel verdict is `survives` (2/3): explicit verdict
+copying is insufficient to explain why an irrelevant question's outcome pulls
+the current historical judgment toward itself.
+
+We call this **retrospective outcome entrainment**. It is the positive
+scientific phenomenon around which the paper should be organized; scale,
+prompt reasons, and failed mitigations are characterization rather than the
+headline tree.
+
+See [`results/g11_redacted_swap_results.md`](results/g11_redacted_swap_results.md).
 
 ---
 

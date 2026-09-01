@@ -85,4 +85,5 @@ outcome-unknown.
 - [x] tests written
 - [x] tests and dry-run pass (31 focused tests; 256 units, 512 prompts; longest
   prompt 4,223 tokens; 368 verdict sentences removed; 19 packets unchanged)
-- [ ] design commit and tag precede first generation
+- [x] design commit `1ef0746` and tag `g11-redacted-swap-design-v1` precede
+  first generation

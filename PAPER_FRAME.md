@@ -61,12 +61,25 @@ open checkpoints:
   model rather than of the reason it was given. (The licensed frame also asks a
   different target question, by design; it normalizes the effect, it is not a
   minimal pair for the licence.)
+- are perturbed even by a post-cutoff packet from a **different question**:
+  foreign packets cause 50.7–100.1% as much undirected movement as real
+  packets. Donor-outcome pull is positive with intervals above zero in all
+  three models (2.93–12.26 points), although G8's preregistered 5-point
+  strong-form threshold is cleared only by Gemma, so its frozen panel row is
+  `H-presence-weak`;
+- still import the foreign question's outcome after explicit YES/NO verdict
+  sentences are removed. G11 retains 73.9% of donor pull in Qwen and 67.1% in
+  Gemma, while Mistral retains 35.0%; the preregistered panel verdict is
+  `survives` (2/3).
 
-G3 is what turned the phenomenon into a claim. The failure is not about time,
-not about whether the model believes the evidence, and not about the reason
-being unstated. Two manipulations that changed how much the prompt *talks about*
-the packet — removing the verdict sentence (G2-B), adding clauses about it
-(G3) — both made the effect **larger**.
+G3 establishes that changing the stated reason does not reduce the effect at
+panel level. It does **not** establish that the model actually comes to believe
+the `unreliable` packet false, and it therefore cannot rule out a general
+belief-sensitive account. Two manipulations that changed how much the prompt
+talks about the packet — removing the verdict sentence (G2-B), adding clauses
+about it (G3) — made the effect larger in at least one model. G8 and G11 provide
+the sharper explanatory step: outcome-shaped context exerts directional
+influence even when it concerns another question and lacks an explicit verdict.
 
 One preregistered test has failed and is kept: G7 predicted the packet moves
 the model away from BTF-3's independent ex-ante forecast, and it moves it
@@ -85,15 +98,18 @@ remaining experiment is fixed by which pair it separates.
 |---|---|---|
 | **H-copy** | the model reads the revealed answer | G2 Experiment B — **ruled out** |
 | **H-scale** | small models; capability closes the gap | G2 size analysis — **ruled out within one family** |
-| **H-truth** | the model has no machinery for making information it believes *true* causally inert; the temporal label is one instance | G3 — **ruled out**: undercutting the packet's truth does not reduce the effect either |
-| **H-temporal** | licensing is enforceable in general; reconstructing a *past* state is the specific hard operation | G3 — **ruled out**: a non-temporal licensing reason is enforced no better |
-| **H-inert** | no stated reason is enforced; the packet's presence dominates every licensing rule | G3 — **realized**. G8 asks whether the packet must even be *about* this question |
-| **H-override** | the ex-ante belief state *is* constructed internally and then overridden by the packet-driven answer | G6 (deferred; see §8) |
-| **H-absent** | no ex-ante belief state is ever constructed; recognition is a labeling computation running beside, not upstream of, the answer | G5 (behaviorally), G6 (internally) |
+| **H-truth** | evidence believed true is hard to make causally inert | G3's `unreliable` wording does not reduce intrusion, but this does not prove the model believed it false; the general account remains unresolved |
+| **H-temporal** | reconstructing a past state is specifically hard | disfavored within this prompt slot, not globally ruled out: a non-temporal procedural reason is enforced no better |
+| **H-reason-inert** | changing the stated justification does not improve enforcement | G3 — **realized at panel level**; no reason reduces the effect, while two added clauses increase Gemma's effect |
+| **H-own-diagnostic** | contamination is integration of evidence diagnostic of this question | G8 — **insufficient**: unrelated packets cause large movement and donor-directed pull |
+| **H-explicit-label** | foreign outcome import is explicit YES/NO copying | G11 — **insufficient at panel level**: redacted donor pull survives in 2/3 models; Mistral is the stated exception |
+| **H-outcome-context** | outcome-shaped later context enters the judgment even when it concerns another question | G8 + G11 — **supported behaviorally** |
+| **H-override / H-absent** | an ex-ante estimate is built then overridden / never built | unresolved. The current G6 suffix mask localizes packet-to-answer access but does not establish either internal-state claim |
 
-H-override and H-absent are the pair that mechanistic interpretability is
-*required* for. Neither is decidable from outputs, which is the only condition
-under which this project is permitted to open a model.
+H-override and H-absent remain a legitimate mechanistic pair, but the existing
+G6 intervention does not distinguish them. Opening the model is permitted only
+after a causal variable and intervention make the two accounts predict
+different outcomes.
 
 ## 5. The novel explanatory step
 
@@ -101,25 +117,29 @@ Not "prior work did not measure X on Y." The step is the same one the reference
 papers make: replace a coarse observed variable with a sharper latent one.
 
 ```text
-observed:  "the model violates a temporal boundary it can state correctly"
-latent:    the boundary's *reason* is not what fails -- no stated reason is
-           enforced at all, temporal or otherwise, including one that undercuts
-           the evidence's truth. What the model lacks is any route from a
-           licensing statement it can restate to the computation that produces
-           the judgment.
+observed:  future evidence shifts a reconstructed past judgment
+latent:    retrospective outcome entrainment -- outcome-shaped later context
+           pulls the judgment toward the outcome it supports even when the
+           context concerns a different question and contains no explicit
+           verdict sentence
 ```
 
-The factorization was designed to ask *which* reason is enforceable. The answer
-came back **none**, which is a stronger and simpler claim than the one the
-design was built to support, and it is what the paper now argues.
+This is the paper's forward explanatory step. G8 orthogonalizes relevance from
+outcome direction: the donor packet is irrelevant to the recipient question,
+yet produces large movement and donor-directed pull. G11 orthogonalizes
+explicit verdict visibility from the remaining outcome evidence: the pull
+survives at panel level. Together they identify a lower-level regularity beneath
+generic hindsight contamination, analogous to contextual entrainment beneath
+generic distraction.
 
 The nearest published neighbour (*When Do LLMs Apply the Wrong Law?*, arXiv
 2608.14610) already owns the observed layer: models state a temporal rule and
 violate it. We concede that in the introduction and do not compete on it. What
 that work does not have is the within-item causal manipulation of a single
-fixed piece of evidence, and it does not factor the boundary into licensing
-versus reason. That factorization, and what it implies about which boundaries a
-language model can enforce at all, is the contribution.
+fixed piece of evidence, and it does not identify donor-directed outcome
+entrainment from irrelevant future context. The paper's contribution is this
+positive phenomenon and its controlled decomposition, not a catalogue of
+accounts that failed.
 
 ## 6. The measurement window
 
@@ -149,7 +169,12 @@ because it is derived downward from §1:
 | **reason for exclusion (G3)** | which kind of boundary can the model enforce at all? |
 | **model breadth (G4)** | is this a property of three checkpoints or of the class? |
 | **deliberation and the state scaffold (G5)** | does forcing explicit reconstruction of the ex-ante state recover the judgment? |
-| **layerwise readout and intervention (G6)** | is the ex-ante judgment built and overridden, or never built — and can it be restored at inference time? |
+| **foreign packet (G8)** | does outcome-shaped future context pull the judgment when it is causally irrelevant to this question? |
+| **redacted foreign packet (G11)** | is that donor-directed pull an explicit-verdict artifact or an evidential effect? |
+
+Only the first, G8, and G11 belong to the main explanatory tree. G2/G3/G4 are
+compact characterization or alternative-account checks; G5/G7/G9/G10 are
+reported failures or boundaries and belong outside the headline sequence.
 
 ## 7. Robustness of the title to failure
 
@@ -164,12 +189,12 @@ head is found.
 This paper is in the second class, and the claim has now been tested rather
 than asserted. The title-level object is *whether a model can reconstruct a past
 judgment after learning the outcome*, and the answer to that is already
-measured. G3 returned H-inert rather than the H-truth row the design leaned
-toward; G7's primary test failed outright and in the opposite direction. The
-title did not move in either case — only the explanation section did. Nothing
-downstream can retroactively unmake the 256-unit recognition–enforcement
-dissociation, and if G6 finds no ex-ante state anywhere, that is a result about
-*how* the failure happens, not about whether it does.
+measured. G3 did not support its favoured reason-sensitive account; G7's primary
+test failed outright and in the opposite direction. The title did not move in
+either case — only the explanation section did. G8 and G11 then strengthened
+the paper by isolating retrospective outcome entrainment. Even if a future
+neural account fails, the causal phenomenon and its donor-directed structure
+remain.
 
 ## 8. When mechanism is allowed
 
@@ -179,12 +204,14 @@ the paper look mechanistic. The rule, taken from the reference papers:
 > Open the model only when two competing explanations make the same behavioral
 > prediction and differ only internally.
 
-That is true of exactly one remaining pair: **H-override vs H-absent** (§4).
-Both predict the same contaminated output; they differ in whether an ex-ante
-estimate exists in the residual stream and is discarded, or was never computed.
-G6 is therefore permitted, and is deliberately **not** preregistered until G3
-and G5 resolve, because which mechanism question is worth asking depends on whether
-enforcement turns out to be truth-keyed.
+The frozen G6 implementation does not meet this bar. Its suffix attention mask
+can show when direct access from answer positions to packet tokens remains
+causally effective. Late masking failure can equally arise because packet
+information was copied into other token residuals early; late masking success
+does not establish that an ex-ante estimate was previously constructed. The
+curve is therefore a timing/localization instrument, not an adjudication of
+`H-override` versus `H-absent`. Full G6 is deferred until a stronger causal
+variable and intervention are specified.
 
 Any patching, probing, or head-ablation proposal that does not adjudicate a
 named pair from §4 is refused.
@@ -194,18 +221,20 @@ named pair from §4 is refused.
 1. **Natural question** — §1. One sentence, no apparatus.
 2. **Scientific object** — §2. Reconstruction of a past epistemic state; a
    cognition object that precedes the dataset.
-3. **Competing explanations** — §4. Six named, two already eliminated by
-   preregistered experiments.
-4. **Novel explanatory step** — §5. Licensing/reason factorization, not a new
-   scenario for an old observation. The nearest neighbour is conceded by name.
+3. **Competing explanations** — §4. The main sequence distinguishes
+   own-question diagnostic integration, explicit-verdict copying, and
+   outcome-context entrainment; internal-state accounts remain unresolved.
+4. **Novel explanatory step** — §5. Generic hindsight contamination becomes
+   donor-directed retrospective outcome entrainment. The nearest neighbour is
+   conceded by name.
 5. **Measurement window** — §6. BTF-3 isolates the variable; it did not create
    the question.
 6. **Experiment coherence** — §6's table. Every experiment is a sub-question of
    §1 and can be written as one.
-7. **Hypothesis robustness** — §7. The title survives every possible outcome of
-   G3, G4, G5 and G6.
-8. **Mechanism necessity** — §8. Mechanism is gated on a behaviorally
-   undecidable pair, and refused otherwise.
+7. **Hypothesis robustness** — §7. The natural question and replicated effect
+   survive failure of any favoured explanation.
+8. **Mechanism necessity** — §8. The current mechanism design is deferred
+   because it does not identify its named internal contrast.
 
 ## 10. Standing rule for new experiments
 

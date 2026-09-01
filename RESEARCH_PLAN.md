@@ -10,9 +10,9 @@ The current paper is temporal and asks:
 > **After a model has seen what happened later, can it still reconstruct the
 > judgment that should have been made using only what was knowable at the time?**
 
-## 1. Primary claim
+## 1. Primary claim and explanatory step
 
-The paper's central claim is a **recognition–enforcement gap**:
+The replicated starting phenomenon is a **recognition–enforcement gap**:
 
 > Language models can correctly identify that future evidence lies outside the
 > target historical information set while nevertheless allowing that same
@@ -26,6 +26,17 @@ The paper does **not** claim priority over the general observation that models c
 state a temporal rule correctly and still violate it. The novelty is the
 within-item causal manipulation and continuous effect measurement on hundreds of
 independently sampled natural forecasting questions.
+
+The paper's forward contribution is the lower-level phenomenon isolated beneath
+that gap:
+
+> **Retrospective outcome entrainment:** outcome-shaped future context pulls a
+> reconstructed past judgment toward the outcome it supports even when the
+> context concerns a different question and contains no explicit verdict.
+
+This is the ACL-shaped explanatory step: observed hindsight contamination → a
+controlled, donor-directed regularity. The paper is not organized around a list
+of alternative explanations that were eliminated.
 
 ## 2. Evidence hierarchy
 
@@ -45,7 +56,25 @@ Primary paper reporting should lead with the 256-unit replication. The 64-unit
 round establishes prospective confirmation and cross-round stability; the 8-item
 pilot is discovery history, not primary evidence.
 
-### P1 — explicit-verdict redaction
+### P1 — retrospective outcome entrainment (G8 + G11)
+
+G8 replaces each question's packet with the packet from a different question.
+Foreign packets produce 50.7–100.1% as much absolute movement as real packets;
+donor pull is positive with intervals above zero in all three models
+(2.93–12.26 points). The frozen strong-form rule requires a 5-point mean, so
+G8's preregistered panel row is `H-presence-weak`, not strong.
+
+G11 removes explicit verdict sentences from the same foreign packets. Qwen and
+Gemma retain 73.9% and 67.1% of donor pull; Mistral retains 35.0%. The
+preregistered panel verdict is `survives` (2/3, all qualified).
+
+Permitted headline claim:
+
+> **An irrelevant question's outcome evidence can pull a reconstructed past
+> judgment toward that question's outcome; explicit verdict copying is
+> insufficient to explain the effect.**
+
+### P2 — own-packet explicit-verdict redaction
 
 The strongest depth result is that contamination survives removal of explicit
 YES/NO verdict sentences from the future packet while the remaining evidence
@@ -58,7 +87,7 @@ Permitted claim:
 The increase in contamination after redaction was unanticipated and should be
 reported without a mechanism claim.
 
-### P2 — within-family size analysis
+### Characterization — within-family size analysis
 
 Qwen3.5 4B / 9B / 27B all show near-ceiling boundary recognition and all clear
 the intrusion SESOI on the same 256 items. Intrusion is non-monotone
@@ -112,14 +141,17 @@ the same-evidence causal manipulation and measured probability shift.
 
 ## 4. Paper claim set
 
-The main text should be organized around three claims only:
+The main text should be organized around one phenomenon and one explanatory
+advance:
 
 1. **Recognition–Enforcement Gap.** Near-perfect temporal-boundary recognition
    coexists with substantial causal hindsight contamination.
-2. **Not explicit-label copying.** The effect survives removal of explicit
-   resolution-verdict sentences while remaining evidence stays useful.
-3. **Not solved by scale.** Within Qwen3.5, larger checkpoints do not
-   monotonically reduce contamination despite saturated recognition.
+2. **Retrospective Outcome Entrainment.** Outcome-shaped future context causes
+   donor-directed influence even when it belongs to another question; in two
+   of three models the influence survives explicit-verdict redaction.
+
+Verdict redaction on own packets, size, breadth, and exclusion reasons are
+supporting characterization. They are not equal-weight headline claims.
 
 The following are explicitly **not** paper claims:
 
@@ -157,9 +189,9 @@ Introduce the causal design before naming datasets. The conceptual punchline is:
 
 1. 64-unit confirmation and 256-unit large replication;
 2. recognition vs enforcement dissociation;
-3. verdict-redaction depth test;
-4. Qwen3.5 size analysis;
-5. clearly labelled non-headline results / failed external attempt.
+3. G8 relevance × donor-outcome intervention;
+4. G11 explicit-verdict decomposition of donor pull;
+5. compact characterization and transparent boundaries.
 
 ### Related work
 
@@ -182,14 +214,16 @@ The experimental program is effectively complete for the current submission.
 Remaining work is primarily consolidation:
 
 1. freeze the paper-level claim table and terminology;
-2. build Figure 1 around the 2×2 design + recognition/enforcement result;
-3. build Figure 2 for 64→256 replication and cross-model effects;
-4. build Figure 3 / table for verdict redaction and the Qwen size analysis;
+2. build Figure 1 around the natural question, 2×2 design, and replicated gap;
+3. build Figure 2 as the explanatory figure: real packet → foreign packet →
+   verdict-redacted foreign packet, with own- and donor-direction arrows;
+4. move scale, G3, and failed interventions to compact tables / appendix;
 5. draft Introduction and Related Work around the locked novelty boundary;
 6. move exploratory controlled-suite history and failed source engineering to
    the appendix / repository rather than the main narrative;
 7. run a final adversarial ACL/EMNLP reviewer simulation before deciding whether
    any new experiment is actually necessary.
 
-No new manipulation, source, or mechanism experiment should be added merely to
-make the paper look larger.
+No defensive experiment is added merely to answer a possible reviewer objection.
+A new experiment must advance the outcome-entrainment explanation or identify a
+causal internal computation that explains it; otherwise it does not run.

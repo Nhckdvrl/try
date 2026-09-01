@@ -468,3 +468,48 @@ The five unqualified checkpoints fail on **recognition** (56–75%), not on
 responsiveness — four of them use the licensed evidence at 46 points, as well as
 any qualified model. They are a different failure and the paper reports them
 separately.
+
+### 22. G8 result: relevance is not required for large movement
+
+The frozen foreign-packet derangement qualified in all three models. Foreign
+packets caused 50.7–100.1% as much absolute movement as real packets. Donor
+pull was positive with intervals above zero in all three models (Qwen 4.97,
+Gemma 12.26, Mistral 2.93), but G8's strong-form rule also required a 5-point
+mean, so only Gemma counted. The preregistered panel row is therefore
+`H-presence-weak`; the continuous donor-direction results are reported without
+silently changing that row.
+
+### 23. G11 result: donor pull survives explicit-verdict redaction
+
+G11 was derived from the positive explanatory gap left by G8, not from a generic
+reviewer checklist. It crossed G8's relevance manipulation with G2's already
+frozen verdict-redaction rule. Design commit `1ef0746` and tag
+`g11-redacted-swap-design-v1` precede all generation; 31 focused tests and the
+dry-run passed first. The transform removed 368 verdict sentences, left 19
+packets unchanged, and preserved the exact G8 pairing.
+
+All models qualified with 99.61–100% parse and 100% boundary recognition.
+Redacted donor pull retained 73.9% in Qwen (3.67 [0.84, 6.42]), 67.1% in Gemma
+(8.23 [5.92, 10.67]), and 35.0% in Mistral (1.03 [0.10, 1.99]). Frozen rows:
+Qwen/Gemma `survives`, Mistral `verdict-dependent`; panel `survives` 2/3.
+
+The paper-level consequence is a positive phenomenon: **retrospective outcome
+entrainment**. Outcome-shaped later context pulls a reconstructed past judgment
+toward the donor outcome even when it concerns another question and contains no
+explicit verdict sentence. G3, size, and failed mitigations move out of the
+headline tree.
+
+### 24. Compute hygiene and G6 stop decision
+
+Checked fvcrc10/11/12/13/15/20/21 by GPU PID and process ownership. No project
+GPU service was left running. fvcrc15 was empty, but its CUDA 12.4 driver is
+incompatible with the project's cu130 PyTorch environment; the 16-item G6 pilot
+failed before model loading and wrote no data. GPU memory returned to 14–16 MiB.
+Three completed stale wait shells on fvcrc21 were terminated by exact PID.
+
+G11 ran sequentially on fvcrc21 GPU1; each vLLM engine exited before the next
+model loaded, and final memory returned to 21 MiB. Full G6 is deferred for a
+scientific reason independent of the environment: suffix masking localizes
+packet access but does not distinguish an overwritten ex-ante state from one
+never constructed, because packet information may first move into other token
+residuals. It will not run merely to add a mechanism section.
