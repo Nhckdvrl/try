@@ -1,0 +1,436 @@
+{
+  "preregistration": "PREREGISTRATION_G14_DECISION_STATE.md",
+  "bridge": {
+    "parse_counts": {
+      "yes": 64,
+      "no": 64
+    },
+    "contrast": {
+      "mean": 16.84375,
+      "ci_low": 11.671875,
+      "ci_high": 22.3125,
+      "n": 64,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "passes": true
+  },
+  "representation": {
+    "per_layer": {
+      "5": {
+        "train_yes_projection_mean": 156.64385986328125,
+        "train_no_projection_mean": 152.5707244873047,
+        "heldout_balanced_accuracy": 0.609375
+      },
+      "11": {
+        "train_yes_projection_mean": -6276.95703125,
+        "train_no_projection_mean": -6302.396484375,
+        "heldout_balanced_accuracy": 0.546875
+      },
+      "17": {
+        "train_yes_projection_mean": -22016.09765625,
+        "train_no_projection_mean": -22113.865234375,
+        "heldout_balanced_accuracy": 0.515625
+      },
+      "23": {
+        "train_yes_projection_mean": 5092.0869140625,
+        "train_no_projection_mean": 4789.49755859375,
+        "heldout_balanced_accuracy": 0.7421875
+      },
+      "29": {
+        "train_yes_projection_mean": -19532.193359375,
+        "train_no_projection_mean": -21138.271484375,
+        "heldout_balanced_accuracy": 0.6953125
+      },
+      "35": {
+        "train_yes_projection_mean": -4483.18359375,
+        "train_no_projection_mean": -7867.24853515625,
+        "heldout_balanced_accuracy": 0.71875
+      },
+      "41": {
+        "train_yes_projection_mean": -10879.2412109375,
+        "train_no_projection_mean": -16425.57421875,
+        "heldout_balanced_accuracy": 0.6796875
+      },
+      "47": {
+        "train_yes_projection_mean": -4144.86181640625,
+        "train_no_projection_mean": -12630.408203125,
+        "heldout_balanced_accuracy": 0.703125
+      }
+    },
+    "passes": false
+  },
+  "causal": {
+    "per_layer": {
+      "5": {
+        "outcome_axis": {
+          "mean": -0.2734375,
+          "ci_low": -0.7421875,
+          "ci_high": 0.1171875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.0,
+          "ci_low": -0.3125,
+          "ci_high": 0.2734375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": -0.2734375,
+          "ci_low": -0.703125,
+          "ci_high": 0.0,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": -0.46875,
+          "ci_low": -1.40625,
+          "ci_high": 0.15625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": -0.078125,
+          "ci_low": -0.625,
+          "ci_high": 0.46875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": -0.016233766233766232
+      },
+      "11": {
+        "outcome_axis": {
+          "mean": 0.078125,
+          "ci_low": -0.3515625,
+          "ci_high": 0.546875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.4296875,
+          "ci_low": -1.1328125,
+          "ci_high": 0.1171875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 0.5078125,
+          "ci_low": 0.0390625,
+          "ci_high": 1.171875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 0.234375,
+          "ci_low": -0.46875,
+          "ci_high": 1.09375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": -0.078125,
+          "ci_low": -0.625,
+          "ci_high": 0.46875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.00463821892393321
+      },
+      "17": {
+        "outcome_axis": {
+          "mean": -0.078125,
+          "ci_low": -0.859375,
+          "ci_high": 0.6640625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.3125,
+          "ci_low": -0.9375,
+          "ci_high": 0.1953125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 0.234375,
+          "ci_low": -0.1171875,
+          "ci_high": 0.703125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": -0.15625,
+          "ci_low": -1.09375,
+          "ci_high": 0.703125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 0.0,
+          "ci_low": -1.328125,
+          "ci_high": 1.25,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": -0.00463821892393321
+      },
+      "23": {
+        "outcome_axis": {
+          "mean": 1.484375,
+          "ci_low": 0.625,
+          "ci_high": 2.578125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.3125,
+          "ci_low": -0.9375,
+          "ci_high": 0.15625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 1.796875,
+          "ci_low": 0.859375,
+          "ci_high": 2.9296875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 1.40625,
+          "ci_low": 0.3125,
+          "ci_high": 2.890625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 1.5625,
+          "ci_low": 0.390625,
+          "ci_high": 3.125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.08812615955473098
+      },
+      "29": {
+        "outcome_axis": {
+          "mean": 3.828125,
+          "ci_low": 2.265625,
+          "ci_high": 5.46875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.2734375,
+          "ci_low": -0.8984375,
+          "ci_high": 0.234375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 4.1015625,
+          "ci_low": 2.34375,
+          "ci_high": 5.9765625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 3.4375,
+          "ci_low": 1.71875,
+          "ci_high": 5.390625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 4.21875,
+          "ci_low": 1.875,
+          "ci_high": 6.640625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.22727272727272727
+      },
+      "35": {
+        "outcome_axis": {
+          "mean": 5.390625,
+          "ci_low": 3.359375,
+          "ci_high": 7.5,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.1953125,
+          "ci_low": -0.6640625,
+          "ci_high": 0.1953125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 5.5859375,
+          "ci_low": 3.4375,
+          "ci_high": 7.890625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 6.328125,
+          "ci_low": 3.4375,
+          "ci_high": 9.609375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 4.453125,
+          "ci_low": 1.875,
+          "ci_high": 7.03125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.3200371057513915
+      },
+      "41": {
+        "outcome_axis": {
+          "mean": 4.9296875,
+          "ci_low": 2.734375,
+          "ci_high": 7.390625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": -0.3515625,
+          "ci_low": -0.9765625,
+          "ci_high": 0.1171875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 5.28125,
+          "ci_low": 2.96875,
+          "ci_high": 7.8125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 6.96875,
+          "ci_low": 3.90625,
+          "ci_high": 10.484375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 2.890625,
+          "ci_low": 0.625,
+          "ci_high": 5.390625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.29267161410018555
+      },
+      "47": {
+        "outcome_axis": {
+          "mean": 3.7265625,
+          "ci_low": 1.734375,
+          "ci_high": 5.9140625,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "orthogonal_axis": {
+          "mean": 0.15625,
+          "ci_low": -0.1953125,
+          "ci_high": 0.5078125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "axis_specificity": {
+          "mean": 3.5703125,
+          "ci_low": 1.5390625,
+          "ci_high": 5.796875,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "no_to_yes": {
+          "mean": 4.40625,
+          "ci_low": 2.0,
+          "ci_high": 7.09375,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "yes_to_no": {
+          "mean": 3.046875,
+          "ci_low": 0.625,
+          "ci_high": 5.78125,
+          "n": 64,
+          "n_resamples": 10000,
+          "seed": 20260829
+        },
+        "recovery_fraction": 0.2212430426716141
+      }
+    },
+    "meaningful_layers": [
+      29,
+      35,
+      41,
+      47
+    ],
+    "adjacent_windows": [
+      [
+        29,
+        35
+      ],
+      [
+        35,
+        41
+      ],
+      [
+        41,
+        47
+      ]
+    ],
+    "peak_layer": 35,
+    "window_passes": true,
+    "specificity_passes": true
+  },
+  "verdict": "not-established",
+  "permitted_sentence": "G13 does not establish a donor-general causal outcome variable; any decodability result is representational only."
+}

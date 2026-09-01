@@ -544,3 +544,19 @@ bottleneck and motivates one specific algorithmic successor: test whether the
 outcome variable becomes causal only after recipient-conditioned integration at
 the answer position. The run used fvcrc21 GPU1 exclusively and released it to
 21 MiB on completion.
+
+### 27. G14: a causal outcome direction emerges at the decision site
+
+Frozen under `g14-decision-state-design-v1`, changing only the intervention site
+from packet-mean residuals to the final prompt token. Layers 29, 35, 41, and 47
+formed a continuous meaningful-transfer window. Peak layer 35 transferred
++5.39pp [3.36, 7.50], 32% of the +16.84pp baseline contrast; NO -> YES and
+YES -> NO both moved correctly, while the matched orthogonal axis was -0.20pp.
+Axis-specificity was +5.59pp [3.44, 7.89]. The frozen composite verdict remains
+`not-established` because its inherited global-midpoint balanced-accuracy gate
+peaked at 0.742 rather than 0.75. No gate changed. A diagnostic showed the
+scientifically relevant paired structure: within recipient, YES projection
+exceeded NO in 82.8--89.1% from layers 23--47, with positive paired-gap
+intervals. This motivates one confirmatory experiment with a fresh donor
+assignment and a preregistered paired representation estimand. GPU1 returned to
+21 MiB after all 2,048 patched generations.
