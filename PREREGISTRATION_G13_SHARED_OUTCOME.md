@@ -102,4 +102,5 @@ recovery `E_l / baseline_contrast` are descriptive.
 - [x] model, split, layers, intervention, estimands, and gates fixed
 - [x] implementation tests and no-model dry audit pass (3 focused tests; 256
   units, 512 paired prompts; longest 5,341 tokens; packet spans 132--3,463)
-- [ ] design commit and tag precede all target activations/output
+- [x] design commit `9d6539f` and tag `g13-shared-outcome-design-v1`
+  precede all target activations/output
