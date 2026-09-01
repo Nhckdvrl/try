@@ -87,7 +87,8 @@ packets share a causally transferable internal outcome representation.
 - [x] preregistration written
 - [x] builder, runner, analyzer, and tests written
 - [x] tests and dry-run pass
-- [ ] design commit and tag precede first generation
+- [x] design commit `2509c3e` and tag `g12-donor-outcome-design-v1`
+  precede first generation
 
 Frozen dry-run audit: 256 units, 1,024 prompts, maximum prompt length 4,978
 tokens, 736 explicit-verdict sentences removed, 38 packets mechanically
