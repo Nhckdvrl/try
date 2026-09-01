@@ -529,3 +529,18 @@ not a robustness condition: donor outcome is now manipulated within the exact
 same historical question. Gemma supplies the strong-effect model for a single
 next mechanism question—whether a donor-general outcome variable is causally
 transferable across packets.
+
+### 26. G13: packet outcome is decodable but not a causal scalar bottleneck
+
+Frozen under `g13-shared-outcome-design-v1`. Gemma's Transformers baseline
+reproduced G12 on the 64 donor-disjoint test recipients (+16.84pp [11.67,
+22.31], 128/128 parsed). A packet-mean outcome direction learned on 190
+recipients generalized across unseen donor identities at layer 29 (balanced
+accuracy 0.758). However, bidirectional one-dimensional interchange over the
+whole packet span never reached the frozen 3pp threshold; the largest mean was
++1.64pp at layer 11 with an interval crossing zero. The result is not called a
+mechanism. It distinguishes a shared decodable packet code from a causal
+bottleneck and motivates one specific algorithmic successor: test whether the
+outcome variable becomes causal only after recipient-conditioned integration at
+the answer position. The run used fvcrc21 GPU1 exclusively and released it to
+21 MiB on completion.

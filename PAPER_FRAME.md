@@ -104,6 +104,8 @@ remaining experiment is fixed by which pair it separates.
 | **H-own-diagnostic** | contamination is integration of evidence diagnostic of this question | G8 — **insufficient**: unrelated packets cause large movement and donor-directed pull |
 | **H-explicit-label** | foreign outcome import is explicit YES/NO copying | G11 — **insufficient at panel level**: redacted donor pull survives in 2/3 models; Mistral is the stated exception |
 | **H-outcome-context** | outcome-shaped later context enters the judgment even when it concerns another question | G8 + G11 — **supported behaviorally**; G12 directly changes donor outcome within recipient, with positive paired intervals in all three models and strongly heterogeneous magnitude |
+| **H-packet-scalar** | unrelated outcome evidence is carried to the answer through one shared packet-local scalar | G13 — **not established**: held-out donor outcome is decodable (peak BA 0.758), but one-dimensional packet-span interchange has no ≥3pp causal window |
+| **H-decision-state** | outcome evidence is contextualized into a recipient-conditioned variable at the answer position | open after G13; this is the only licensed next mechanism test |
 | **H-override / H-absent** | an ex-ante estimate is built then overridden / never built | unresolved. The current G6 suffix mask localizes packet-to-answer access but does not establish either internal-state claim |
 
 H-override and H-absent remain a legitimate mechanistic pair, but the existing
