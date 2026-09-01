@@ -70,4 +70,5 @@ All gates must pass for the permitted claim:
 - [x] fresh assignment, split, paired estimand, and causal gates fixed
 - [x] implementation tests and dry audit pass (5 focused tests; 256 units,
   512 fresh prompts; 190/64/2 donor-disjoint split; longest 4,823 tokens)
-- [ ] design commit and tag precede all fresh-assignment activation/output
+- [x] design commit `1ba3662` and tag `g15-decision-confirm-design-v1`
+  precede all fresh-assignment activation/output
