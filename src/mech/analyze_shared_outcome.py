@@ -56,7 +56,8 @@ def analyze(data: dict) -> dict:
 def main() -> int:
     p=argparse.ArgumentParser(); p.add_argument("--raw",type=Path,default=ROOT/"results/mech/g13_shared_outcome.json")
     p.add_argument("--out",type=Path,default=ROOT/"results/mech/g13_shared_outcome_analysis.json"); a=p.parse_args()
-    report={"preregistration":"PREREGISTRATION_G13_SHARED_OUTCOME.md",**analyze(json.loads(a.raw.read_text()))}
+    data=json.loads(a.raw.read_text())
+    report={"preregistration":data.get("metadata",{}).get("preregistration","PREREGISTRATION_G13_SHARED_OUTCOME.md"),**analyze(data)}
     a.out.parent.mkdir(parents=True,exist_ok=True); a.out.write_text(json.dumps(report,indent=2)+"\n")
     print(json.dumps({"bridge":report["bridge"]["passes"],"representation":report["representation"]["passes"],
                       "window":report["causal"]["window_passes"],"specificity":report["causal"]["specificity_passes"],

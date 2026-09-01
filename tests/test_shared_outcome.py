@@ -9,6 +9,7 @@ from adapters.btf3_donor_outcome import build_donor_pairs
 from information_set_schema import load_jsonl
 from mech.shared_outcome import balanced_accuracy,frozen_split,learn_axis,orthogonal_axis,split_digest
 from mech.analyze_shared_outcome import analyze
+from mech.run_decision_outcome import generate_answer_patch
 
 
 def test_frozen_split_is_exact_and_donor_disjoint():
@@ -45,3 +46,13 @@ def test_analyzer_requires_adjacent_transfer_and_specificity():
     report=analyze(data)
     assert report["verdict"]=="shared-causal-outcome-variable"
     assert report["causal"]["adjacent_windows"]==[(17,23)]
+
+
+def test_g14_reuses_exact_g13_test_baseline():
+    path=ROOT/"results/mech/g13_shared_outcome.json"
+    if not path.exists(): return
+    raw=__import__("json").loads(path.read_text()); rows=raw["baseline"]
+    assert len(rows)==128
+    assert sum(r["outcome"]=="yes" for r in rows)==64
+    assert sum(r["outcome"]=="no" for r in rows)==64
+    assert len({r["unit"] for r in rows})==64
