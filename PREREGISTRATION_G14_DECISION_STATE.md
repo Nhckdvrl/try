@@ -59,4 +59,5 @@ state**. Decodability without transfer is reported only as representation.
 - [x] question, competing explanations, site contrast, and inherited gates fixed
 - [x] implementation tests and no-model dry audit pass (4 focused tests; 256
   units, 512 prompts, 190/64/2 split, exact 128-row G13 baseline reuse)
-- [ ] design commit and tag precede all target activations/output
+- [x] design commit `d2703bd` and tag `g14-decision-state-design-v1`
+  precede all target activations/output
