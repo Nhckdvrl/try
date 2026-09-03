@@ -1,90 +1,79 @@
-# Reproducing the G0 results
+# Reproduction guide
 
-## Environment
+This file is a navigation guide for reproducing the **current hindsight paper**. The repository also contains the older controlled *Unring the Bell* program; those scripts/results remain available but are not the default reproduction target.
 
-Two conda envs are used, both already on this machine:
+## 1. Before running anything
 
-| env | transformers | used for |
-|---|---|---|
-| `fgvd` | 5.12 + vLLM 0.23 | every causal instruct model |
-| `dlm_clean` | 4.57 | LLaDA / Dream (their remote code predates the 5.x API) |
+Read:
 
-`fgvd`'s `bin` must be **on PATH**, not just invoked by absolute path: vLLM's
-flashinfer backend JIT-compiles and needs `ninja`. Run everything with
-`HF_HUB_OFFLINE=1`.
+1. [`EXPERIMENTS.md`](EXPERIMENTS.md) for the scientific role and result of each round;
+2. the exact original design in [`preregistrations/`](preregistrations/) for the round you intend to reproduce;
+3. [`BTF3_TRANSFORMATION_CONTRACT.md`](BTF3_TRANSFORMATION_CONTRACT.md) for the natural forecasting transformation;
+4. [`CLAUDE.md`](CLAUDE.md) for environment and GPU policy.
 
-```bash
-export PATH=/home/xiang/miniconda3/envs/fgvd/bin:$PATH
-export HF_HUB_OFFLINE=1 CUDA_VISIBLE_DEVICES=2
-```
+Do not infer a frozen design from the current paper narrative. The original preregistration and freeze commit/tag are the authority for an experiment's exact estimands, thresholds, sample, and analysis plan.
 
-## 1. Build and validate the dataset
+## 2. Environment
 
-```bash
-python src/build_dataset.py       # 180 items -> data/items/items_v1.jsonl
-python src/validate_dataset.py    # 8 structural checks, must report 0 errors
-```
+Prefer the project's **existing local conda/virtual environment** and shared model cache. Do not create a clean environment by default.
 
-`validate_dataset.py` is the guarantee that the five conditions differ only in
-the ways the design claims: same block multiset for pre vs post, a single
-differing `RULING` block for admit vs exclude, no evidence or rule leaking into
-`base`, no probe question inside a decision prompt.
+Historically, much of the project used the existing `fgvd` environment; older diffusion-model experiments also used `dlm_clean`. Before reproducing a current BTF-3 or mechanism round, inspect the script and current environment rather than assuming that an old G0 environment recipe is still the right entry point.
 
-## 2. Screen and freeze
+A new environment is warranted only for a genuine dependency/CUDA incompatibility.
 
-Screening uses **only** `base`, `admit_pre`, `admit_post` and the admit rule
-probe. The exclude conditions must not be run before the freeze.
+## 3. GPU use
 
-```bash
-python src/run_model.py --model Qwen/Qwen3-8B --tag qwen3-8b \
-  --kinds base,admit_pre,admit_post,rule_probe_admit_post \
-  --out results/raw/qwen3-8b_screen.jsonl --max-model-len 3072
-python src/screen.py --runs results/raw/qwen3-8b_screen.jsonl \
-  --out data/items/frozen_v1.json --report results/screen_report_qwen3-8b.json
-```
+Check GPU occupancy before launching. Idle cards on `fvcrc10`, `fvcrc11`, `fvcrc12`, `fvcrc13`, `fvcrc15`, `fvcrc20`, and `fvcrc21` may be used. During daytime, avoid occupying more than eight GPUs total unless explicitly authorized otherwise.
 
-`data/items/frozen_v1.json` in this repo is the frozen set (144 items) used for
-everything reported.
+## 4. Main paper evidence
 
-## 3. Run the models
+### Hindsight phenomenon
 
-```bash
-bash scripts/run_families.sh          # all causal instruct models, all conditions
-bash scripts/run_cued_and_diffusion.sh # fixed-position readout
-bash scripts/run_diffusion.sh          # LLaDA / Dream (needs dlm_clean)
-```
+Key outputs:
 
-Per-model quirks, all handled by flags in `src/run_model.py`:
+- `results/btf3_confirmatory_v1_results.md` — 64-item prospective confirmation;
+- `results/btf3_large_replication_v1_results.md` — 256-item fresh large replication;
+- `results/btf3_cross_round_replication.json` — cross-round comparison;
+- `results/btf3_factuality_audit_v1_results.md` — source-packet audit.
 
-* **Qwen3.5-27B** is a hybrid Mamba model — needs `--max-num-seqs 128
-  --enforce-eager`, and `--gpu-frac` at most ~0.80.
-* **Mistral-Small-24B** — run `scripts/make_mistral_shim.sh` first and point
-  `--model` at `data/mistral_small_24b_hf`.
-* **Dream** — `--logits-shift 1 --n-mask 8`. **LLaDA** — defaults (`0`, `1`).
+Exact design documents are in `preregistrations/PREREGISTRATION_BTF3_LARGE_REPLICATION.md` and the relevant earlier BTF/G1 preregistrations.
 
-## 4. Analyse
+### Directional outcome pull
 
-```bash
-python src/analyze.py --runs results/raw/qwen3-8b_main.jsonl \
-  --tag qwen3-8b --out-prefix results/g0_qwen3-8b
-python src/summarize_all.py        # -> results/cross_model_tables.md
-python src/summarize_cued.py       # -> results/cued_diffusion_tables.md
-python src/cluster_robustness.py   # -> results/cluster_robustness.md
-```
+Key outputs:
 
-## 5. Mechanism (Qwen3-8B)
+- `results/g8_packet_swap_analysis.json` — foreign resolved-event intervention;
+- `results/g11_redacted_swap_results.md` / `results/g11_redacted_swap_analysis.json` — verdict-redacted foreign packets;
+- `results/g12_donor_outcome_results.md` / `results/g12_donor_outcome_analysis.json` — paired outcome-direction intervention.
 
-```bash
-python src/mech/validate_direct_readout.py     # is the fixed-position readout valid?
-python src/mech/experiments.py                 # attention / patching / span gate
-python src/mech/analyze_mech.py
-python src/mech/repeat_check.py
-```
+Exact designs:
 
-## Note on run-to-run variation
+- `preregistrations/PREREGISTRATION_G8_RELEVANCE.md`;
+- `preregistrations/PREREGISTRATION_G11_REDACTED_SWAP.md`;
+- `preregistrations/PREREGISTRATION_G12_DONOR_OUTCOME.md`.
 
-The readout is deterministic, but the greedy rationale in front of it is not:
-vLLM batching is not bitwise deterministic, so at a near-tie the rationale can
-take a different path. A full replicate of Qwen3-8B (`qwen3-8b-rep2`) gives
-item-level r = 0.87–0.97 and aggregate estimates within 0.06 REI. Expect small
-differences, not different conclusions.
+### Mechanism
+
+Key outputs:
+
+- `results/mech/g13_shared_outcome_results.md` and analysis JSON;
+- `results/mech/g14_decision_outcome_results.md` and analysis JSON;
+- `results/mech/g15_decision_confirmation_results.md` and analysis JSON.
+
+Exact designs:
+
+- `preregistrations/PREREGISTRATION_G13_SHARED_OUTCOME.md`;
+- `preregistrations/PREREGISTRATION_G14_DECISION_STATE.md`;
+- `preregistrations/PREREGISTRATION_G15_DECISION_CONFIRMATION.md`.
+
+G14 is discovery for the recipient-conditioned answer-state formulation; G15 is the fresh prospective confirmation. Preserve that chronology when reproducing or extending the mechanism work.
+
+## 5. Supporting and historical experiments
+
+Supporting current-paper characterization (verdict redaction, size sweep, G3, G4) is indexed in `EXPERIMENTS.md` and has exact preregistrations under `preregistrations/`.
+
+The original G0 / controlled prospective-nullification experiments are historical. Their detailed narrative is archived in `archive/UNRING_THE_BELL_FINDINGS.md`; old G0 raw/model-analysis outputs remain under `results/`. Use them when studying the research history, not as the default starting point for the current paper.
+
+## 6. Reproduction principle
+
+Reproduce a round from its **frozen contract + preregistration + committed sample + analysis script**, not from a prose summary. If a historical environment no longer runs, first try to repair compatibility in the existing project environment; only then create a minimal new environment and record the reason.
