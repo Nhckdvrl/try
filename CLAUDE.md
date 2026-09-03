@@ -1,69 +1,71 @@
 # Claude project instructions
 
-This file is the first project-level context for Claude Code. Anthropic documents `./CLAUDE.md` as shared project memory loaded automatically when Claude Code starts in the repository.
+This is the default project context for Claude Code.
 
 ## Read these first
 
-Before proposing experiments, editing claims, or running code, read in this order:
-
-1. `PAPER_FRAME.md` — authoritative scientific object, current claims, forbidden overclaims, and experiment gate.
-2. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — the submission-quality standard. We align to strong ACL/EMNLP/NAACL Main papers and Outstanding papers, not to the median accepted paper and not to Findings as the target bar.
-3. `RESEARCH_HISTORY.md` — how the project moved from *Unring the Bell* to the current question. Preserve this epistemic chronology even when old trial documents are removed.
-4. `PAPER_OUTLINE.md` — current paper narrative and figure plan.
-5. `RELATED_WORK_2026.md` — novelty boundaries and closest conceptual neighbours.
-
-Preregistrations, frozen transformation contracts, result files, and raw analysis artifacts are evidence/provenance. Do not rewrite their historical claims to match the current story.
+1. `PAPER_FRAME.md` — the authoritative scientific story.
+2. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — what we mean by aligning to strong ACL/EMNLP/NAACL Main and Outstanding papers.
+3. `EXPERIMENTS.md` — one consolidated registry of all experimental rounds and preregistration history.
+4. `RESEARCH_HISTORY.md` — how *Unring the Bell* evolved into the current hindsight paper.
+5. `PAPER_OUTLINE.md` — current paper narrative and figures.
+6. `RELATED_WORK_2026.md` — conceptual neighbours and positive positioning.
 
 ## Scientific objective
 
-The paper asks:
+The paper asks one natural question:
 
-> **After learning how something turned out, can a language model still condition a reconstructed past judgment only on the information that was available beforehand?**
+> **After a language model learns how something turned out, can it still judge the past without hindsight?**
 
-The object is **retrospective epistemic reconstruction / information-set conditioning under hindsight**, not BTF-3, not generic temporal leakage, not generic distractor robustness, and not a benchmark-specific failure.
+The scientific object is **hindsight in language-model reasoning**.
 
-The current evidence chain is:
+Do not replace this with technical meta-language such as “retrospective epistemic reconstruction,” “information-set conditioning,” or a benchmark-specific metric. Those can be useful in methods, but they are not what the paper is *about*.
 
-1. future evidence violates information-set invariance despite near-ceiling boundary recognition;
-2. the influence is not restricted to evidence about the target event: outcome-shaped evidence from unrelated resolved events produces donor-directed retrospective pull, including after explicit verdict redaction in 2/3 primary models;
-3. replacing a NO-supporting irrelevant future packet with a YES-supporting one raises the same recipient probability in all three primary models, with strongly heterogeneous magnitude and an indeterminate preregistered 5pp panel gate;
-4. in the strong-effect model (Gemma), the tested one-dimensional packet-local bottleneck is not supported; after recipient contextualization, future-outcome influence becomes causally actionable in a late answer-position decision state, prospectively confirmed on a fresh donor assignment.
+The positive explanatory chain is:
 
-Do **not** silently strengthen this into “changing only an abstract outcome bit,” “robust causal outcome entrainment across models,” “a dedicated hindsight circuit,” or “the full mechanism of hindsight contamination.”
+1. later outcome evidence changes judgments of the past even when models recognize that the evidence came later;
+2. outcomes from unrelated resolved events also exert a directional pull;
+3. replacing NO-supporting later evidence with YES-supporting later evidence moves the same recipient judgment upward, with strongly model-dependent magnitude;
+4. in Gemma, this outcome influence becomes causally expressed after contextual integration in a late answer-position decision state.
 
-## Standard for new experiments
+`retrospective outcome entrainment` is a name for the discovered regularity in steps 2–3. It is not the paper's scientific object and should not dominate the title or introduction.
 
-The default is **no new experiment**. The current project is Main-shaped and should prioritize writing, figures, claim discipline, and reviewer-facing coherence.
+## Research style: no defense-first science
 
-A new experiment is allowed only if, before any run, we can write two algorithms/accounts that explain all evidence through G15 but make opposite causal predictions under one clean intervention. The only currently plausible Outstanding-ambition branch is:
+This project must not become a catalogue of reviewer objections.
 
-> **How does a represented information boundary interact with the late outcome pathway?**
+Do **not** add experiments because “a reviewer might ask for another model / prompt / benchmark / control / mitigation.” Do not organize the paper as a sequence of “not X, not Y, not Z.” Strong ACL/EMNLP papers usually establish a natural phenomenon and then descend through positive explanatory questions.
 
-Possible account family: a causal gate that should suppress outcome influence vs. a parallel recognition computation that is readable but not used by the decision pathway vs. a readout-only recognition representation. Do not create “G16” unless the intervention actually discriminates such accounts. No extra prompt, benchmark, model, redaction, CoT, mitigation, or scale sweep merely for reviewer defense.
+The main text should therefore read:
+
+> question → phenomenon → sharper regularity → causal test → mechanism
+
+not:
+
+> claim → objection 1 → control → objection 2 → control → limitation list.
+
+Failed experiments and preregistered reversals remain important scientific history, but they belong in `RESEARCH_HISTORY.md`, `EXPERIMENTS.md`, or the appendix unless they directly move the main explanatory story forward.
+
+The default is **no new experiment**. If a genuinely new scientific question emerges, formulate it first and then decide whether an experiment is needed. “Reviewer defense” is not a scientific question.
 
 ## Evidence discipline
 
-- Preserve preregistered failures and reversals (especially G7, G13, G14 chronology).
-- Separate exploratory discovery from prospective confirmation. G14 motivated the recipient-conditioned estimand; G15 prospectively confirmed it on a fresh assignment.
-- Report continuous estimates together with frozen categorical gates when they differ.
-- Mechanism claims in the main paper are Gemma-specific unless independently established elsewhere.
-- BTF-3 is a measurement window, not the scientific identity of the paper.
-- Do not claim external ex-ante fidelity: G7 failed in the opposite direction and uncontaminated judgments correlate only weakly with the independent ex-ante forecast.
+- Preserve the real chronology: especially the reversed original *Unring the Bell* prediction, the failed broad-family attempt, G7, and the G13 → G14 → G15 development.
+- Do not rewrite historical preregistrations. Individual top-level preregistration files have been consolidated out of the root; their exact text remains in Git history/freeze commits and is summarized in `EXPERIMENTS.md`.
+- Report the actual continuous results. Do not turn frozen decision thresholds into the paper's conceptual vocabulary.
+- Mechanistic conclusions from G13–G15 are Gemma-specific unless separately established.
+- BTF-3 is the natural experimental substrate, not the identity of the scientific question.
 
 ## Environment policy
 
-Prefer the **existing local project virtual/conda environment** and existing shared caches. First inspect the current environment and try to run with it. Do not create a fresh environment merely for cleanliness.
-
-Create a new environment only when the existing environment is genuinely unusable (for example an irreconcilable CUDA/PyTorch/package-version conflict). If a new environment is necessary, document why and keep it minimal/reproducible.
+Prefer the existing local project virtual/conda environment and existing shared caches. First inspect and try the current environment. Create a new environment only for a genuine incompatible CUDA/PyTorch/package-version conflict; document the reason and keep the replacement minimal.
 
 ## GPU policy
 
-Usable compute nodes when GPUs are actually idle: `fvcrc10`, `fvcrc11`, `fvcrc12`, `fvcrc13`, `fvcrc15`, `fvcrc20`, `fvcrc21`.
+Usable compute nodes when cards are actually idle: `fvcrc10`, `fvcrc11`, `fvcrc12`, `fvcrc13`, `fvcrc15`, `fvcrc20`, `fvcrc21`.
 
-Before launching, inspect GPU occupancy (for example with `nvidia-smi`) and use **idle cards only**. During daytime, avoid occupying more than **8 GPUs total at once** unless the user explicitly overrides this. The reason is shared-lab fairness: do not monopolize classmates' cards.
-
-Prefer packing work onto already-compatible nodes/environments rather than creating many node-specific environments. Be cautious about shared NFS/checkpoint-loading bottlenecks.
+Check occupancy before launching and use idle cards only. During daytime, avoid occupying more than **8 GPUs total at once** unless the user explicitly overrides this. Prefer compatible existing nodes/environments and be mindful of shared NFS/checkpoint-loading bottlenecks.
 
 ## Git policy
 
-The user wants completed research/documentation changes landed directly on `main`. Keep commits coherent and descriptive. Never rewrite or delete provenance needed to audit preregistered experiments. Clean obsolete narrative documents only after their scientifically useful history has been preserved in `RESEARCH_HISTORY.md`.
+Completed research/documentation changes should land directly on `main`. Keep commits coherent and descriptive. Preserve scientific provenance in Git history even when obsolete top-level narrative/preregistration files are consolidated for readability.
