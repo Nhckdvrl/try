@@ -1,0 +1,123 @@
+{
+ "note": "prompt-only freeze checklist; no model weights loaded, no generation",
+ "tokenizer": "/var/tmp/xiang-isr-models/qwen3-8b",
+ "families": [
+  "legal_judgment",
+  "evidence_inference"
+ ],
+ "length_tolerance_tokens": 4,
+ "n_items_total": 75,
+ "n_items_kept": 75,
+ "n_items_dropped": 0,
+ "dropped": [],
+ "site_resolution_failures": [],
+ "raw_deficit_tokens_before_padding": {
+  "min": 17,
+  "max": 17
+ },
+ "residual_gap_tokens_after_padding": {
+  "exclude_min": 0,
+  "exclude_max": 1,
+  "admit_min": 0,
+  "admit_max": 1
+ },
+ "pad_tokens": {
+  "min": 16,
+  "max": 16
+ },
+ "prompt_tokens": {
+  "id_exclude": {
+   "min": 225,
+   "max": 360
+  },
+  "cls_exclude": {
+   "min": 226,
+   "max": 360
+  },
+  "id_admit": {
+   "min": 229,
+   "max": 364
+  },
+  "cls_admit": {
+   "min": 230,
+   "max": 364
+  }
+ },
+ "kept_item_ids": [
+  "legal_burglary_wiretap",
+  "legal_burglary_search",
+  "legal_burglary_eyewitness",
+  "legal_burglary_privilege",
+  "legal_burglary_lab",
+  "legal_arson_wiretap",
+  "legal_arson_search",
+  "legal_arson_eyewitness",
+  "legal_arson_privilege",
+  "legal_arson_lab",
+  "legal_embezzle_wiretap",
+  "legal_embezzle_search",
+  "legal_embezzle_eyewitness",
+  "legal_embezzle_lab",
+  "legal_assault_wiretap",
+  "legal_assault_eyewitness",
+  "legal_assault_privilege",
+  "legal_assault_lab",
+  "legal_cargo_wiretap",
+  "legal_cargo_search",
+  "legal_cargo_privilege",
+  "legal_cargo_hearsay",
+  "legal_cargo_lab",
+  "legal_hitrun_wiretap",
+  "legal_hitrun_search",
+  "legal_hitrun_eyewitness",
+  "legal_hitrun_privilege",
+  "legal_hitrun_lab",
+  "legal_supply_wiretap",
+  "legal_supply_privilege",
+  "legal_supply_hearsay",
+  "legal_supply_lab",
+  "legal_insfraud_wiretap",
+  "legal_insfraud_search",
+  "legal_insfraud_lab",
+  "legal_vandal_wiretap",
+  "legal_vandal_search",
+  "legal_vandal_eyewitness",
+  "legal_vandal_privilege",
+  "legal_vandal_lab",
+  "legal_robbery_wiretap",
+  "legal_robbery_search",
+  "legal_robbery_eyewitness",
+  "legal_robbery_privilege",
+  "legal_robbery_lab",
+  "infer_engine_epistemic_invalidation_pos_0",
+  "infer_network_epistemic_invalidation_neg_1",
+  "infer_clinic_epistemic_invalidation_pos_2",
+  "infer_fraudops_epistemic_invalidation_neg_3",
+  "infer_agro_epistemic_invalidation_pos_4",
+  "infer_engine_access_control_neg_5",
+  "infer_network_access_control_pos_6",
+  "infer_clinic_access_control_neg_7",
+  "infer_fraudops_access_control_pos_8",
+  "infer_agro_access_control_neg_9",
+  "infer_engine_procedural_policy_pos_10",
+  "infer_network_procedural_policy_neg_11",
+  "infer_clinic_procedural_policy_pos_12",
+  "infer_fraudops_procedural_policy_neg_13",
+  "infer_agro_procedural_policy_pos_14",
+  "infer_engine_epistemic_invalidation_neg_15",
+  "infer_network_epistemic_invalidation_pos_16",
+  "infer_clinic_epistemic_invalidation_neg_17",
+  "infer_fraudops_epistemic_invalidation_pos_18",
+  "infer_agro_epistemic_invalidation_neg_19",
+  "infer_engine_access_control_pos_20",
+  "infer_network_access_control_neg_21",
+  "infer_clinic_access_control_pos_22",
+  "infer_fraudops_access_control_neg_23",
+  "infer_agro_access_control_pos_24",
+  "infer_engine_procedural_policy_neg_25",
+  "infer_network_procedural_policy_pos_26",
+  "infer_clinic_procedural_policy_neg_27",
+  "infer_fraudops_procedural_policy_pos_28",
+  "infer_agro_procedural_policy_neg_29"
+ ]
+}
