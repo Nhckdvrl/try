@@ -2,188 +2,99 @@
 
 **Updated:** 2026-09-03
 
-This file defines what the paper is about. Historical development is in `RESEARCH_HISTORY.md`; submission-quality standards are in `ACL_EMNLP_ALIGNMENT_STANDARD.md`.
+This file defines the paper's scientific story. Historical development is in `RESEARCH_HISTORY.md`; experiment bookkeeping is in `EXPERIMENTS.md`.
 
-## 1. Natural question
+## 1. The question
 
-> **After learning how something turned out, can a language model still condition a reconstructed past judgment only on the information that was available beforehand?**
+> **After a language model learns how something turned out, can it still judge the past without hindsight?**
 
-This wording deliberately avoids claiming that our target is the objectively “reasonable” or externally correct ex-ante belief. G7 showed that the uncontaminated model judgment is only weakly aligned with BTF-3's independent ex-ante forecast.
+Equivalently: once the outcome is known, can the model evaluate an earlier situation without letting that outcome distort the judgment?
 
-## 2. Scientific object
+This is the paper's scientific object: **hindsight in language-model reasoning**.
 
-**Retrospective epistemic reconstruction / information-set conditioning under hindsight.**
+It is deliberately a natural question, not a benchmark construct. BTF-3 gives us a clean place to study it because each item contains a real earlier forecasting situation and a later resolution.
 
-The object is the operation of producing a judgment as if conditioned only on an earlier information set while the reasoner currently possesses later information.
+## 2. The headline finding
 
-BTF-3 is a natural measurement window for this operation, not the paper's identity.
+We give models a historical forecasting question and later evidence revealing how the event resolved. We then ask for the judgment that should be made from the earlier point in time.
 
-## 3. Core established phenomenon
+Across 256 fresh questions, the three primary open checkpoints can identify almost perfectly (99.2–100%) that the resolution evidence comes from the future relative to the target judgment. Yet seeing that evidence still changes their probability by 7.46–27.73 points.
 
-On 256 fresh natural forecasting questions, the three primary open checkpoints:
+The basic result is simple:
 
-- recognize per item, at 99.2–100%, that the supplied resolution evidence postdates the target historical cutoff;
-- nevertheless allow that evidence to shift the reconstructed ex-ante probability by 7.46–27.73 points;
-- remain sensitive after explicit resolution-verdict sentences are removed;
-- show no monotonic disappearance of the effect over tested Qwen3.5 4B/9B/27B checkpoints.
+> **Knowing that information came later is not enough to keep it from shaping a judgment of the past.**
 
-The main behavioral dissociation is therefore:
+The paper starts here, but does not stop here.
 
-> **boundary recognition does not imply causal enforcement of that boundary in the judgment.**
+## 3. What kind of hindsight effect is this?
 
-This is not claimed as a priority result by itself; temporal leakage and rule-knowledge/behavior gaps already exist in prior work.
+A natural first explanation is that models simply integrate highly diagnostic evidence about the event they are judging. G8 breaks that link: we replace the event's own resolution packet with a packet from a different resolved event.
 
-## 4. The explanatory descent
+Those foreign packets still move the recipient judgment substantially, and the movement tends to follow the donor event's outcome. A future packet supporting YES pulls another question upward; one supporting NO pulls it downward.
 
-### 4.1 From target evidence to unrelated outcome-shaped evidence
+G11 removes the explicit YES/NO verdict sentence from those foreign packets. The directional pull remains strong in Qwen and Gemma and becomes much weaker in Mistral.
 
-G8 replaces the recipient's own future packet with a packet from a different resolved question. Foreign packets still induce substantial absolute movement (50.7–100.1% of real-packet movement) and donor-directed pull.
+This reveals a more specific regularity beneath the headline hindsight effect:
 
-G8's continuous donor-pull estimates are positive in all three primary models, but only one clears the preregistered 5pp strong-form threshold; the frozen panel row is therefore weak/heterogeneous, not universally strong.
+> **Outcome-shaped later context can pull a judgment of the past toward the outcome it supports, even when that context describes a different event.**
 
-### 4.2 Explicit verdict copying is insufficient
+We use **retrospective outcome entrainment** as a name for this discovered regularity. It is an explanatory result inside a paper about hindsight; it is not the scientific object of the paper.
 
-G11 removes explicit YES/NO verdict sentences from those foreign packets. Donor pull retains 73.9% in Qwen and 67.1% in Gemma, but only 35.0% in Mistral. The preregistered panel verdict is `survives` (2/3).
+## 4. Does outcome direction causally control the pull?
 
-Safe claim:
+G12 holds the recipient history and the rest of the prompt fixed, then replaces a verdict-redacted foreign packet supporting NO with a different verdict-redacted packet supporting YES.
 
-> **Outcome-shaped future evidence from another resolved event can directionally pull the reconstructed judgment even when explicit verdict copying is insufficient to explain the effect.**
+The recipient YES probability rises by:
 
-We use **retrospective outcome entrainment** as an operational name for this regularity. The paper's deeper object remains retrospective epistemic reconstruction.
+- **+4.41pp** in Qwen;
+- **+17.50pp** in Gemma;
+- **+1.55pp** in Mistral.
 
-### 4.3 Direct within-recipient directional intervention
+The magnitude differs sharply across models, but all three move in the predicted direction.
 
-G12 keeps the recipient history and all non-packet prompt material fixed, but replaces a verdict-redacted irrelevant future packet supporting NO with a different verdict-redacted irrelevant future packet supporting YES.
+This is the behavioral bridge from “later outcomes distort the past” to a mechanistic question: **how does information about an outcome become part of the current decision?**
 
-Paired shifts:
+## 5. How does the outcome influence the decision?
 
-- Qwen: +4.41pp
-- Gemma: +17.50pp
-- Mistral: +1.55pp
+The strong-effect Gemma setting lets us distinguish two internal stories that can produce the same behavioral pull.
 
-All move in the same direction, but magnitude is strongly model-dependent and the frozen 5pp panel gate is indeterminate.
+**Packet-local transport.** The model could compress the donor outcome into a shared scalar while reading the future packet and carry that scalar forward to the answer.
 
-**Do not write “changing only the donor outcome.”** The YES-supporting and NO-supporting packets differ in packet identity, event semantics, lexical content, and other properties. The supported result is that **outcome-shaped evidence class controls direction**, not that an abstract outcome bit was isolated holding all packet semantics fixed.
+**Contextual decision construction.** The packet could first be interpreted together with the recipient question, with an outcome-related decision variable becoming causal only later at the answer state.
 
-## 5. Mechanistic discrimination
+G13 finds that donor outcome is decodable from packet states, but exchanging the tested one-dimensional packet-local code does not transfer the behavior.
 
-The behavioral evidence motivates two internal accounts with similar output predictions:
+G14 discovers a late answer-position transfer pattern and motivates the recipient-conditioned formulation. G15 then tests that formulation prospectively on a fresh donor assignment.
 
-1. **packet-local transport:** donor outcome is compressed into a shared packet-local scalar and carried to the answer;
-2. **recipient-conditioned decision-state construction:** packet semantics are integrated with the recipient question before a causal outcome coordinate appears.
+On the fresh G15 assignment, the behavioral YES-vs-NO donor contrast is **+18.84pp [12.94, 24.97]**. Causal interchange at the answer position is near zero in early layers and reaches **+6.52 to +9.04pp** at layers 29–47; it works in both directions and is near zero for a matched orthogonal direction.
 
-### G13 — packet-local scalar test
+The resulting mechanistic conclusion is:
 
-Donor outcome is decodable from packet states, but the preregistered one-dimensional packet-span interchange does not establish a causal transfer window.
+> **In Gemma, the later outcome becomes causally expressed only after it has been integrated with the current question, in a late answer-position decision state.**
 
-Safe conclusion:
+The mechanism is therefore part of the explanation of hindsight, not a separate interpretability contribution bolted onto the paper.
 
-> **The tested donor-general one-dimensional packet-local bottleneck is not supported.**
-
-Do not generalize this to “packet representations are non-causal.”
-
-### G14 → G15 chronology
-
-G14 discovered a late answer-position transfer pattern but failed its inherited composite gate because the global representation criterion missed threshold by 0.008. That result motivated a refined **recipient-conditioned paired estimand**.
-
-G15 preregistered that refinement before fresh outputs/activations and rebuilt a fresh donor assignment. It confirmed:
-
-- fresh behavioral contrast: +18.84pp [12.94, 24.97];
-- strong late-layer within-recipient paired ordering;
-- causal transfer of +6.52 to +9.04pp at layers 29–47;
-- up to 48% recovery of the behavioral contrast;
-- correct transfer in both directions;
-- matched orthogonal direction near zero.
-
-Safe mechanism claim:
-
-> **In the strong-effect model (Gemma), future-outcome influence becomes causally actionable after recipient contextualization in a late answer-position decision state rather than through the tested one-dimensional packet-local bottleneck.**
-
-This does **not** establish a dedicated hindsight circuit and does **not** establish whether a clean ex-ante state was built earlier and later overwritten.
-
-## 6. What failed or narrowed the paper
-
-These results remain visible but do not form equal-weight main sections:
-
-- **G3:** changing the stated reason for exclusion does not reduce intrusion at panel level; this weakens a specifically temporal-reason account but does not prove the model internally disbelieved the “unreliable” packet.
-- **G5:** deliberation/state-scaffold instrument failure; indeterminate.
-- **G6:** masking localized access but did not distinguish clean-state override from absence; excluded from the main mechanism claim.
-- **G7:** preregistered external ex-ante-anchor prediction failed in the opposite direction; external-fidelity claim is dropped.
-- **G9:** second task did not qualify.
-- **G10:** heterogeneous/indeterminate mitigation result.
-- **FANToM:** perspective-family pilot failed qualification.
-- **FOMC:** external-source attempt failed its preregistered qualification gate.
-
-Failures are provenance and limitation evidence, not material to be hidden.
-
-## 7. Novelty boundary
-
-The paper is **not**:
-
-- the first evidence that LLMs use future information;
-- the first recognition–behavior gap for temporal rules;
-- another irrelevant-context robustness paper;
-- a generic “hindsight bias in LLMs” benchmark paper;
-- a universal information-set reasoning claim.
-
-The distinctive explanatory sequence is:
+## 6. The paper's explanatory arc
 
 ```text
-recognized information boundary
-    ↓
-unlicensed future evidence still causally changes the same reconstructed judgment
-    ↓
-unrelated outcome-shaped future evidence induces donor-directed pull
-    ↓
-outcome-class replacement controls direction, heterogeneously across models
-    ↓
-in Gemma, influence becomes causally actionable in a late recipient-conditioned answer state
+Can models judge the past without hindsight?
+                ↓
+Later outcome evidence changes the past judgment
+although the model knows that evidence came later
+                ↓
+Even outcomes from unrelated events exert a directional pull
+                ↓
+Changing the outcome direction of the later evidence changes
+which way the same judgment moves
+                ↓
+In Gemma, that influence becomes causal only after contextual
+integration, in a late decision state
 ```
 
-## 8. Scope of the main paper
+This is the main paper. Supporting scale, breadth, prompt-reason, failed mitigation, and source-engineering rounds belong in compact characterization or the appendix rather than becoming competing narrative branches.
 
-The primary positive natural substrate is BTF-3. Scope should be stated as:
+## 7. Scope
 
-> **evidence for retrospective information-set conditioning failure in one natural retrospective-forecasting substrate, with mechanistic analysis in the strong-effect model.**
+The positive natural evidence comes from one forecasting substrate, with mechanistic analysis in the strongest-effect model. That defines the empirical scope of the current paper; it does not change the natural question.
 
-Do not write “universal mechanism of hindsight reasoning.”
-
-## 9. Main-vs-Outstanding assessment
-
-Against the reference papers in `ACL_EMNLP_ALIGNMENT_STANDARD.md`, the current project is **Main-shaped** because it has:
-
-- a natural question independent of the benchmark;
-- prospectively replicated causal behavioral evidence;
-- an explanatory move below generic temporal leakage;
-- a direct directional intervention;
-- a prospectively confirmed mechanistic discrimination between internal-site accounts.
-
-The unresolved explanatory closure is:
-
-> **Why does a boundary the model can represent/recognize fail to gate the late outcome pathway?**
-
-G15 explains where/how outcome influence becomes causally actionable, not why recognized admissibility fails to control that pathway.
-
-## 10. Standing rule for new experiments
-
-The default is **stop experiments and write the paper**.
-
-A new experiment is permitted only if, before running it, we can state two algorithms that both explain every result through G15 but make opposite causal predictions under one clean intervention.
-
-The only currently justified high-ambition branch is **boundary representation × outcome pathway**. Candidate conceptual accounts include:
-
-- a real causal gate that is too weak or bypassed;
-- parallel boundary-recognition and outcome-integration computations whose decision readout favors the latter;
-- a recognition/readout representation that is probe-accessible but causally irrelevant to the historical judgment.
-
-If an experiment cannot distinguish such accounts, it is another condition rather than another explanation and should not run.
-
-## 11. Sentences the paper must not write
-
-- “We are the first to show that LLMs know a temporal rule but violate it.”
-- “Changing only the donor outcome causes the effect.”
-- “We establish robust outcome entrainment across models.”
-- “We discovered a dedicated hindsight axis/circuit.”
-- “Future evidence contaminates the past through *the* mechanism ...” without the Gemma/late-state qualification.
-- “The packet moves models away from a competent ex-ante forecast.”
-- “A clean ex-ante representation is absent/overwritten.”
+The next priority is writing and figures. Additional experiments are not part of the default plan. A new experiment is justified only if it answers a new scientific question about hindsight rather than defending the paper against a hypothetical reviewer objection.
