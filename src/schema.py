@@ -58,6 +58,7 @@ V6_CONDITIONS = v6.ALL_V6
 
 # Stage 3E duplicate control + proposition relation matrix
 V7_CONDITIONS = v7.ALL_V7
+G17_CONDITIONS = g17.G17_CONDITIONS
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS

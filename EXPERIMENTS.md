@@ -11,6 +11,9 @@ estimands, thresholds or freeze chronology.
 
 ---
 
+> **Consolidated snapshot:** [`STATUS.md`](STATUS.md) — main line, per-claim evidence,
+> what is explicitly not claimed, and the one open seam.
+
 # A. Main paper sequence — advance evidence exclusion
 
 ## A1. G0 — the reversal
@@ -217,6 +220,31 @@ compute limit.
 
 **Results.** `results/mech/readout_validity_binding_results.md`,
 `readout_validity_binding.json`; code `src/mech/readout_validity_binding.py`.
+
+## A11. G17 — is the binding requirement specific to complete suppression?
+
+**Question.** The paper asserts two regularities (A3's w=0 discontinuity, A4/A6's
+binding requirement) and never crosses them. Are they one?
+
+**Design.** Preview `{none, para}` × requested weight `{0.00, 0.25, 0.50}`, rule always
+before the evidence, plus a no-rule base and a w=1.00 admit anchor. 2,400 generations,
+four checkpoints. Frozen at `g17-binding-by-weight-design-v1` before any generation.
+
+**Result — split, both halves reported.** The frozen verdict is **`no-rescue`**, on a
+REI estimand that blows up (one item at REI 8,492) — the ratio instability Stage 3E had
+already documented and solved. The post-result re-analysis in raw rating points, the
+Stage 3E estimator, gives rescue **+10.09 [+7.03, +13.26]** at w=0 and null at both
+non-zero weights, interaction **Δ = +9.30 [+6.11, +12.65]** — exactly the predicted
+pattern.
+
+**Paper role.** None yet. A post-result estimator switch that produces the predicted
+answer is not a confirmation. §4 and §5 stay separate; the paper says why. A prospective
+confirmation with raw points as the primary estimand, a leverage floor fixed in advance,
+and per-preview baseline cells would settle it.
+
+**Results.** `results/g17_binding_by_weight_results.md`,
+`results/g17_binding_by_weight_analysis.json`; code `src/conditions_g17.py`,
+`src/analyze_g17.py`.
 
 ---
 

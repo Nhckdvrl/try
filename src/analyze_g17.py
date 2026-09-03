@@ -84,7 +84,9 @@ def rei_rows(items: dict, path: str):
         if s * leverage <= 0:
             continue
         rei = {c: s * (cells[c] - cells["g17_base"]) / abs(leverage) for c in need[2:]}
-        rows.append({"item_id": item_id, "cluster": cluster_of(item), "rei": rei})
+        pts = {c: s * (cells[c] - cells["g17_base"]) for c in need[2:]}
+        rows.append({"item_id": item_id, "cluster": cluster_of(item), "rei": rei,
+                     "pts": pts, "leverage": s * leverage})
     return rows
 
 
@@ -95,7 +97,9 @@ def main() -> None:
               "per_model": {}, "pooled": {}}
 
     pooled_rescue = {w: [] for w in WEIGHTS}
+    pooled_points = {w: [] for w in WEIGHTS}
     pooled_delta = []
+    pooled_delta_points = []
     per_model_gate1 = []
 
     print(f"{'model':<14}{'n':>4}   " + "".join(f"{'rescue ' + w:>26}" for w in WEIGHTS))
@@ -106,7 +110,7 @@ def main() -> None:
             print(f"{tag:<14}  (missing)")
             continue
         rows = rei_rows(items, path)
-        entry = {"n": len(rows), "rescue": {}, "rei": {}}
+        entry = {"n": len(rows), "rescue": {}, "rei": {}, "rescue_points": {}}
         line = f"{tag:<14}{len(rows):>4}   "
         for w in WEIGHTS:
             resc = [(r["cluster"], r["rei"][f"g17_{w}_none"] - r["rei"][f"g17_{w}_para"])
@@ -118,14 +122,26 @@ def main() -> None:
                     [(r["cluster"], r["rei"][f"g17_{w}_{arm}"]) for r in rows])
             pooled_rescue[w] += [(f"{tag}|{c}", v) for c, v in resc]
             line += f"{stats['mean']:>+8.3f} [{stats['ci_low']:+.3f},{stats['ci_high']:+.3f}]"
+            # post-result robustness estimator, see Amendment A1 in the preregistration
+            pts = [(r["cluster"], r["pts"][f"g17_{w}_none"] - r["pts"][f"g17_{w}_para"])
+                   for r in rows]
+            entry["rescue_points"][w] = summarise(pts)
+            pooled_points[w] += [(f"{tag}|{c}", v) for c, v in pts]
         print(line)
-        delta = [(r["cluster"],
-                  (r["rei"]["g17_w000_none"] - r["rei"]["g17_w000_para"])
-                  - ((r["rei"]["g17_w025_none"] - r["rei"]["g17_w025_para"])
-                     + (r["rei"]["g17_w050_none"] - r["rei"]["g17_w050_para"])) / 2)
+        def _resc(r, key, w):
+            return r[key][f"g17_{w}_none"] - r[key][f"g17_{w}_para"]
+
+        delta = [(r["cluster"], _resc(r, "rei", "w000")
+                  - (_resc(r, "rei", "w025") + _resc(r, "rei", "w050")) / 2)
                  for r in rows]
         entry["delta"] = summarise(delta)
         pooled_delta += [(f"{tag}|{c}", v) for c, v in delta]
+
+        delta_pts = [(r["cluster"], _resc(r, "pts", "w000")
+                      - (_resc(r, "pts", "w025") + _resc(r, "pts", "w050")) / 2)
+                     for r in rows]
+        entry["delta_points"] = summarise(delta_pts)
+        pooled_delta_points += [(f"{tag}|{c}", v) for c, v in delta_pts]
         g1 = entry["rescue"]["w000"]
         entry["gate1_pass"] = g1["mean"] >= RESCUE_FLOOR and g1["ci_low"] > 0
         per_model_gate1.append(entry["gate1_pass"])
@@ -138,6 +154,19 @@ def main() -> None:
         report["pooled"].setdefault("rescue", {})[w] = stats
         line += f"{stats['mean']:>+8.3f} [{stats['ci_low']:+.3f},{stats['ci_high']:+.3f}]"
     print(line)
+
+    print("\npost-result robustness: same rescue in RAW RATING POINTS (no ratio),")
+    print("the estimator Stage 3E adopted after the ratio proved unstable under previews")
+    line = f"{'POOLED pts':<14}{'':>4}   "
+    for w in WEIGHTS:
+        stats = summarise(pooled_points[w])
+        report["pooled"].setdefault("rescue_points", {})[w] = stats
+        line += f"{stats['mean']:>+8.2f} [{stats['ci_low']:+.2f},{stats['ci_high']:+.2f}]  "
+    print(line)
+    report["pooled"]["delta_points"] = summarise(pooled_delta_points)
+    dp = report["pooled"]["delta_points"]
+    print(f"interaction in points  Delta = {dp['mean']:+.2f} "
+          f"[{dp['ci_low']:+.2f}, {dp['ci_high']:+.2f}]")
 
     delta_stats = summarise(pooled_delta)
     report["pooled"]["delta"] = delta_stats

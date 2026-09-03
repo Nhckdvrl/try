@@ -17,6 +17,9 @@ states the required weight as exactly zero on 100% of items.
 What decides it is not memory, distance, the attention mask or the wording. It is
 what the policy can bind to.
 
+**Start here:** [`STATUS.md`](STATUS.md) — consolidated snapshot of the main line,
+the evidence behind each claim, and what is explicitly not claimed.
+
 ## Read these first
 
 1. [`PAPER_FRAME.md`](PAPER_FRAME.md) — the authoritative scientific story.
