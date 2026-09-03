@@ -2,13 +2,22 @@
 from __future__ import annotations
 import argparse,json
 from pathlib import Path
-try: from .analyze_exante_anchor import bootstrap_mean
-except ImportError: from analyze_exante_anchor import bootstrap_mean
+try:
+    from .analyze_exante_anchor import bootstrap_mean
+    from .run_information_set import parse_probability
+except ImportError:
+    from analyze_exante_anchor import bootstrap_mean
+    from run_information_set import parse_probability
 
 PANEL=("qwen35-9b","gemma3-12b","mistral-small-24b")
 
 def load(path):
     rows=[json.loads(x) for x in path.read_text().splitlines() if x]
+    for row in rows:
+        if row.get("record_type") == "decision" and row.get("value") is None:
+            recovered=parse_probability(row.get("raw", ""))
+            if recovered is not None:
+                row["value"]=recovered; row["value_reparsed"]=True
     return rows[0],[r for r in rows[1:]]
 
 def analyze(path):
@@ -27,6 +36,7 @@ def analyze(path):
     elif qualified and validity_ok and effect["ci_low"]>=-5 and effect["ci_high"]<=5: verdict="practically-null"
     else: verdict="indeterminate"
     return {"model_tag":meta["model_tag"],"assignment_sha256":meta["assignment_sha256"],"units":len(units),
+            "reparsed_values":sum(bool(r.get("value_reparsed")) for r in dec),
             "parse_rate":parse,"boundary_accuracy":boundary,"qualified":qualified,"causal_contrast":effect,
             "absolute_pair_difference":bootstrap_mean([abs(x) for x in c]),"recipient_aligned_validity":validity,
             "validity_ok":validity_ok,"verdict":verdict}
@@ -41,4 +51,3 @@ def main():
     report={"preregistration":"PREREGISTRATION_G12_DONOR_OUTCOME.md","per_model":per,"panel":{"tally":tally,"qualified_models":len(counted),"verdict":panel},"permitted_sentence":sentence}
     a.out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n"); print(json.dumps(report["panel"],indent=2)); print(sentence); return 0
 if __name__=="__main__": raise SystemExit(main())
-

@@ -42,3 +42,6 @@ Git freeze commits/tags remain the authority for when each preregistration becam
 - `PREREGISTRATION_LLAMA_BEHAVIORAL_EXTENSION.md` — unchanged G8/G11/G12
   instruments on the Llama-3.1-8B checkpoint already selected by G4. This does
   not alter any original panel verdict.
+- `ANALYSIS_CORRECTION_G8_VALIDITY.md` — explicitly post-result correction of
+  G8's assignment-leakage interpretation and the legacy `0.` parser bug; it
+  preserves all original frozen verdicts.

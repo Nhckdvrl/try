@@ -25,7 +25,10 @@ CONDITIONS = {
     "allowed_without": ("admissible_variant", "without_information_prompt"),
     "allowed_with": ("admissible_variant", "with_information_prompt"),
 }
-_PROBABILITY = re.compile(r"\s*(100(?:\.0+)?|(?:\d{1,2})(?:\.\d+)?)\s*%?\s*")
+# Accept a trailing decimal point (for example ``0.``), which is a valid
+# numeric completion emitted by several tokenizers. Keep the parser otherwise
+# strict: no labels, explanation, signs, or out-of-range values.
+_PROBABILITY = re.compile(r"\s*(100(?:\.0*)?|(?:\d{1,2})(?:\.\d*)?)\s*%?\s*")
 _YESNO = re.compile(r"\s*(YES|NO)\s*[.!]?\s*", re.IGNORECASE)
 
 

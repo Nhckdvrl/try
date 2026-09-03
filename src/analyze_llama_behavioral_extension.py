@@ -69,15 +69,33 @@ def main() -> int:
         report["g12"] = analyze_g12(g12_path)
 
     if report["new_rounds_complete"]:
-        full = (
+        preregistered_full = (
             report["g8"]["qualified"]
             and report["g8"]["I_own_null"]
             and report["g8"]["I_donor_positive"]
             and report["g11"]["verdict"] == "survives"
             and report["g12"]["verdict"] == "causal-outcome-entrainment"
         )
-        report["extension_verdict"] = "full-directional-chain" if full else "partial-chain"
+        report["preregistered_extension_verdict"] = (
+            "full-directional-chain" if preregistered_full else "partial-chain"
+        )
+        # Scientific chain after correcting G8's role: G8 identifies whether
+        # foreign events influence the judgment at all; G11/G12 identify and
+        # causally test direction. I_own is retained as a historical diagnostic
+        # but is not a valid assignment-leakage test because it also captures
+        # recipient-outcome response heterogeneity.
+        scientific_full = (
+            report["g8"]["cross_event_presence_supported"]
+            and report["g11"]["scientific_verdict"] == "survives"
+            and report["g12"]["verdict"] == "causal-outcome-entrainment"
+        )
+        report["scientific_chain_verdict"] = (
+            "full-explanatory-chain" if scientific_full else "partial-chain"
+        )
+        report["extension_verdict"] = report["scientific_chain_verdict"]
     else:
+        report["preregistered_extension_verdict"] = "pending"
+        report["scientific_chain_verdict"] = "pending"
         report["extension_verdict"] = "pending"
 
     original = {}
@@ -92,9 +110,11 @@ def main() -> int:
     print(json.dumps({
         "new_rounds_complete": report["new_rounds_complete"],
         "extension_verdict": report["extension_verdict"],
+        "preregistered_extension_verdict": report["preregistered_extension_verdict"],
         "a1_oob_boundary_accuracy": report["a1"]["boundary_by_condition"]["boundary_oob_with"]["accuracy"],
         "g8_donor_pull": report.get("g8", {}).get("I_donor"),
         "g11_verdict": report.get("g11", {}).get("verdict"),
+        "g11_scientific_verdict": report.get("g11", {}).get("scientific_verdict"),
         "g12_verdict": report.get("g12", {}).get("verdict"),
     }, indent=2))
     return 0

@@ -14,15 +14,22 @@ original Qwen/Gemma/Mistral panels.
 | level | result | frozen interpretation |
 |---|---|---|
 | A1: natural hindsight | +28.23pp [24.53, 31.85]; OOB timing recognition 250/256 (97.66%) | strong headline effect; original G4 two-frame qualification remains failed because the licensed/all-information probe was only 127/256 |
-| G8: foreign packet | donor pull +10.07pp [6.20, 13.94]; absolute movement is 69.8% of own-packet movement | directional result is positive, but the inherited pairing-validity gate fails because recipient-own pull is -4.01pp [-8.09, 0.00] rather than wholly inside [-5, 5] |
-| G11: verdict-redacted foreign packet | donor pull +11.31pp [8.01, 14.64]; 114.4% retention; explicit-label contribution -1.43pp [-4.09, 1.31] | `survives` |
-| G12: paired outcome direction | YES-supporting minus NO-supporting packet: +18.03pp [14.48, 21.61]; recipient-aligned validity -0.15pp [-4.41, 4.18] | `causal-outcome-entrainment` |
+| G8: foreign packet | 256/256 parsed; donor pull +10.10pp [6.24, 13.97]; absolute movement is 70.1% of own-packet movement | cross-event presence supported |
+| G11: verdict-redacted foreign packet | 255 complete units; donor pull +11.69pp [8.29, 15.10]; 115.6% retention | corrected scientific verdict `survives` |
+| G12: paired outcome direction | 254 complete pairs; YES-supporting minus NO-supporting packet: +18.06pp [14.45, 21.68]; recipient-aligned validity -0.25pp [-4.42, 4.04] | `causal-outcome-entrainment` |
 
-The frozen overall verdict is **`partial-chain`**, solely because G8's
-recipient-balance validity interval crosses the inherited equivalence bound.
-The direct paired G12 intervention avoids that accidental pairing imbalance
-and provides strong evidence that changing the outcome supported by later
-evidence changes the same Llama judgment.
+The corrected scientific verdict is **`full-explanatory-chain`**. The original
+preregistered extension verdict remains **`partial-chain`** in the analysis
+artifact because G8 treated a model-dependent recipient-response quantity as
+an assignment-leakage test. The same legacy check narrowly fails in G11 after
+valid `0.` outputs are recovered. The post-result correction is documented in
+`preregistrations/ANALYSIS_CORRECTION_G8_VALIDITY.md`; no threshold, seed,
+unit, or raw output was changed.
+
+The experiments now answer separate successive questions: G8 establishes that
+foreign events still move the judgment, G11 shows that the donor-direction
+signal survives explicit-verdict removal, and G12 identifies its causal effect
+within the same recipient.
 
 ## Paper interpretation
 
@@ -43,5 +50,6 @@ original three-model G12 panel became positive. The original panel remains
 - Data artifact SHA-256: `0b6fd8d0...acf0901d`.
 - G8/G11 pairing SHA-256: `a51b80c7...cec1c2`.
 - G12 assignment SHA-256: `19ce7ce1...a6c1`.
-- New volume: 2,048 generations; full machine-readable analysis is in
+- New volume: 2,048 generations; no regeneration was required for the parser
+  and estimator corrections. Full machine-readable analysis is in
   `results/llama_behavioral_extension_analysis.json`.

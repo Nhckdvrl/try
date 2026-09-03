@@ -110,7 +110,7 @@ Report the paired shifts directly:
 
 - Qwen +4.41pp;
 - Gemma +17.50pp;
-- Llama +18.03pp.
+- Llama +18.06pp.
 
 The important result is the directional causal relationship across the canonical comparison. Report Mistral's +1.55pp practical-null result in the same complete table or appendix and state that the original Qwen/Gemma/Mistral panel gate remains indeterminate. The prospective Llama replication does not rewrite that historical verdict.
 
@@ -193,7 +193,7 @@ Answer position: late causal transfer after recipient integration, with orthogon
 - exact experimental registry and original preregistrations;
 - model-selection chronology: Qwen/Gemma/Mistral were the original frozen panel; Llama was preselected in G4 and added prospectively to the explanatory descent;
 - full four-model tables, including Mistral's weak verdict-dependent result;
-- Llama qualification details: G4 failed the stronger licensed-frame probe, and G8 failed its recipient-balance validity gate despite positive donor pull; G11 and G12 passed;
+- Llama qualification details: G4 failed the stronger licensed-frame probe; a post-result audit corrected G8/G11's misuse of recipient-response heterogeneity as an assignment-leakage test; the original preregistered verdict remains reported alongside the corrected full scientific chain;
 - sampling / freeze / data-quality details;
 - supporting scale and model-breadth characterization;
 - G3 exclusion-reason results;

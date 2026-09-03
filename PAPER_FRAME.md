@@ -48,7 +48,7 @@ The recipient YES probability rises by:
 
 - **+4.41pp** in Qwen;
 - **+17.50pp** in Gemma;
-- **+18.03pp** in Llama.
+- **+18.06pp** in Llama.
 
 Mistral, retained as an additional family, moves only **+1.55pp** and meets the preregistered practical-null rule. The original Qwen/Gemma/Mistral panel verdict therefore remains `indeterminate`; the prospectively added Llama result is a separate positive replication, not a retroactive change to that gate.
 

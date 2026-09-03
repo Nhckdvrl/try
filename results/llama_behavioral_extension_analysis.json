@@ -69,124 +69,129 @@
   "g8": {
     "model_tag": "llama31-8b",
     "pairing_sha256": "a51b80c76ca46f1205e4ab4a59716019960204e363022e21aca315ab68cec1c2",
-    "units": 254,
-    "parse_rate": 0.9921875,
+    "units": 256,
+    "parse_rate": 1.0,
+    "reparsed_values": 2,
     "boundary_accuracy": 0.99609375,
     "qualified": true,
     "I_own": {
-      "mean": -4.011259842519685,
-      "ci_low": -8.087992125984252,
-      "ci_high": 0.003070866141732232,
-      "n": 254,
+      "mean": -3.706484375,
+      "ci_low": -7.7693359375,
+      "ci_high": 0.3007421875,
+      "n": 256,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "I_donor": {
-      "mean": 10.065590551181103,
-      "ci_low": 6.20255905511811,
-      "ci_high": 13.940984251968503,
-      "n": 254,
+      "mean": 10.104140625,
+      "ci_low": 6.236640625,
+      "ci_high": 13.9716796875,
+      "n": 256,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "I_real": {
-      "mean": 28.176141732283465,
-      "ci_low": 24.497598425196852,
-      "ci_high": 31.808976377952757,
-      "n": 254,
+      "mean": 28.229453125,
+      "ci_low": 24.526875,
+      "ci_high": 31.8468359375,
+      "n": 256,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "S_swap": {
-      "mean": 23.2596062992126,
-      "ci_low": 20.410944881889765,
-      "ci_high": 26.173425196850395,
-      "n": 254,
+      "mean": 23.351328125,
+      "ci_low": 20.513828125,
+      "ci_high": 26.24484375,
+      "n": 256,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "S_real": {
-      "mean": 33.31826771653543,
-      "ci_low": 30.315866141732283,
-      "ci_high": 36.19409448818897,
-      "n": 254,
+      "mean": 33.33140625,
+      "ci_low": 30.4315625,
+      "ci_high": 36.193125,
+      "n": 256,
       "n_resamples": 10000,
       "seed": 20260829
     },
-    "S_ratio": 0.6981037098657189,
+    "S_ratio": 0.7005803460512561,
     "pairing_direction_crosstab": {
-      "same_direction": 131,
-      "opposite_direction": 123
+      "same_direction": 132,
+      "opposite_direction": 124
     },
     "I_donor_opposite_only": {
-      "mean": 14.534634146341464,
-      "ci_low": 8.661138211382113,
-      "ci_high": 20.347642276422764,
-      "n": 123,
+      "mean": 14.256129032258064,
+      "ci_low": 8.461774193548386,
+      "ci_high": 20.030645161290323,
+      "n": 124,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "I_own_null": false,
     "I_donor_positive": true,
-    "S_substantial": true
+    "S_substantial": true,
+    "cross_event_presence_supported": true
   },
   "g11": {
     "model_tag": "llama31-8b",
-    "units": 251,
-    "parse_rate": 0.98828125,
+    "units": 255,
+    "parse_rate": 0.99609375,
+    "reparsed_values": 2,
     "boundary_accuracy": 1.0,
     "qualified": true,
     "own_pull_redacted": {
-      "mean": -1.3878486055776893,
-      "ci_low": -4.912749003984064,
-      "ci_high": 2.15597609561753,
-      "n": 251,
+      "mean": -1.5307843137254902,
+      "ci_low": -5.17843137254902,
+      "ci_high": 2.0713725490196078,
+      "n": 255,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "donor_pull_redacted": {
-      "mean": 11.308167330677291,
-      "ci_low": 8.010557768924302,
-      "ci_high": 14.636653386454183,
-      "n": 251,
+      "mean": 11.68764705882353,
+      "ci_low": 8.287647058823529,
+      "ci_high": 15.098431372549019,
+      "n": 255,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "donor_pull_full": {
-      "mean": 9.883107569721115,
-      "ci_low": 6.06187250996016,
-      "ci_high": 13.830318725099602,
-      "n": 251,
+      "mean": 10.108470588235294,
+      "ci_low": 6.249607843137255,
+      "ci_high": 14.001607843137254,
+      "n": 255,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "explicit_label_contribution": {
-      "mean": -1.4250597609561753,
-      "ci_low": -4.093545816733068,
-      "ci_high": 1.30597609561753,
-      "n": 251,
+      "mean": -1.5791764705882352,
+      "ci_low": -4.215686274509804,
+      "ci_high": 1.1215686274509804,
+      "n": 255,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "S_redacted": {
-      "mean": 20.289043824701196,
-      "ci_low": 17.652988047808766,
-      "ci_high": 22.9902390438247,
-      "n": 251,
+      "mean": 20.52764705882353,
+      "ci_low": 17.94372549019608,
+      "ci_high": 23.196470588235293,
+      "n": 255,
       "n_resamples": 10000,
       "seed": 20260829
     },
-    "retention": 1.1441914651745906,
-    "pairing_validity_ok": true,
-    "verdict": "survives"
+    "retention": 1.156223086054794,
+    "pairing_validity_ok": false,
+    "verdict": "indeterminate",
+    "scientific_verdict": "survives"
   },
   "g12": {
     "model_tag": "llama31-8b",
     "assignment_sha256": "19ce7ce190ab88b11ece52fe332934d64555a8f71133196e1b223d657e51a6c1",
-    "units": 253,
+    "units": 254,
+    "reparsed_values": 1,
     "parse_rate": {
       "YES": 1.0,
-      "NO": 0.98828125
+      "NO": 0.9921875
     },
     "boundary_accuracy": {
       "YES": 1.0,
@@ -194,33 +199,35 @@
     },
     "qualified": true,
     "causal_contrast": {
-      "mean": 18.02905138339921,
-      "ci_low": 14.48201581027668,
-      "ci_high": 21.608102766798417,
-      "n": 253,
+      "mean": 18.056496062992125,
+      "ci_low": 14.454330708661418,
+      "ci_high": 21.676968503937008,
+      "n": 254,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "absolute_pair_difference": {
-      "mean": 24.02628458498024,
-      "ci_low": 21.036561264822133,
-      "ci_high": 27.12727272727273,
-      "n": 253,
+      "mean": 24.03011811023622,
+      "ci_low": 21.03228346456693,
+      "ci_high": 27.078543307086615,
+      "n": 254,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "recipient_aligned_validity": {
-      "mean": -0.15158102766798418,
-      "ci_low": -4.407707509881423,
-      "ci_high": 4.184189723320158,
-      "n": 253,
+      "mean": -0.24940944881889762,
+      "ci_low": -4.418307086614173,
+      "ci_high": 4.035826771653543,
+      "n": 254,
       "n_resamples": 10000,
       "seed": 20260829
     },
     "validity_ok": true,
     "verdict": "causal-outcome-entrainment"
   },
-  "extension_verdict": "partial-chain",
+  "preregistered_extension_verdict": "partial-chain",
+  "scientific_chain_verdict": "full-explanatory-chain",
+  "extension_verdict": "full-explanatory-chain",
   "original_panel_verdicts_unchanged": {
     "g8_packet_swap_analysis.json": {
       "qualified_models": 3,

@@ -5,6 +5,8 @@ def test_probability_parser_is_strict_and_bounded():
     assert parse_probability("75") == 75.0
     assert parse_probability(" 12.5% ") == 12.5
     assert parse_probability("100.0") == 100.0
+    assert parse_probability("0.") == 0.0
+    assert parse_probability("100.") == 100.0
     assert parse_probability("101") is None
     assert parse_probability("Probability: 75") is None
 

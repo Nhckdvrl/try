@@ -81,9 +81,12 @@ For the same recipient history, replacing a NO-supporting foreign packet with a 
 Llama-3.1-8B had been selected in the earlier G4 breadth design but had not
 been part of the original explanatory panels. A later preregistered extension
 reused the exact G8, G11, and G12 instruments. It found a large A1 hindsight
-effect (+28.23pp), verdict-redacted donor pull in G11 (+11.31pp), and a strong,
-valid paired G12 contrast (+18.03pp). Its random-pair G8 result was formally
-invalid because the inherited recipient-balance interval crossed its bound.
+effect (+28.23pp), verdict-redacted donor pull in G11 (+11.69pp), and a strong,
+valid paired G12 contrast (+18.06pp). A post-result audit found that G8/G11 had
+misinterpreted recipient-outcome response heterogeneity as assignment leakage;
+after correcting that estimator role and a strict-parser bug, the scientific
+chain is complete. The original preregistered `partial-chain` verdict remains
+preserved alongside the corrected result.
 
 The paper therefore uses Qwen/Gemma/Llama as a canonical matched-scale
 comparison while retaining Mistral as a fully disclosed additional family.

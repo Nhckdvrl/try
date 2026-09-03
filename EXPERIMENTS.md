@@ -22,7 +22,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Replace the target event's future packet with the resolution packet of a different event.
 
-**Result.** In the original panel, foreign packets cause 50.7–100.1% as much absolute movement as real packets; only Gemma passes the frozen donor-direction gate. In the prospective Llama extension, donor pull is +10.07pp, but accidental recipient imbalance makes the inherited random-pairing test formally invalid. G12 supplies the clean paired outcome-direction test.
+**Result.** In the original panel, foreign packets cause 50.7–100.1% as much absolute movement as real packets. In the prospective Llama extension, all 256 decisions parse after correcting the strict parser, and foreign packets cause 70.1% as much movement as real packets. Donor pull is +10.10pp, while G12 supplies the clean paired outcome-direction test.
 
 **Paper role.** First explanatory step below generic hindsight: later context carries a directional outcome influence even when it is about another event.
 
@@ -32,7 +32,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Remove explicit verdict sentences from the foreign future packets while retaining the remaining post-outcome evidence.
 
-**Result.** Qwen, Gemma, and prospectively tested Llama retain a directional pull after redaction; Mistral is much more verdict-dependent.
+**Result.** Qwen, Gemma, and prospectively tested Llama retain a directional pull after redaction; Llama's corrected estimate is +11.69pp [8.29, 15.10] with 115.6% retention. Mistral is much more verdict-dependent.
 
 **Paper role.** Shows that the directional effect can be carried by outcome-shaped evidence, not only by copying a visible answer label.
 
@@ -42,7 +42,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Hold the recipient history and non-packet prompt fixed; replace a verdict-redacted irrelevant packet supporting NO with a different verdict-redacted irrelevant packet supporting YES.
 
-**Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +18.03pp (prospective Llama replication). Mistral rises by +1.55pp and satisfies its frozen practical-null rule. The original Qwen/Gemma/Mistral panel verdict remains `indeterminate`.
+**Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +18.06pp [14.45, 21.68] in the prospective Llama replication. Mistral rises by +1.55pp and satisfies its frozen practical-null rule. The original Qwen/Gemma/Mistral panel verdict remains `indeterminate`.
 
 **Paper role.** Direct behavioral evidence that outcome direction controls the pull.
 
@@ -123,10 +123,12 @@ Exact preregistration text is in [`preregistrations/`](preregistrations/), organ
 **Llama-3.1-8B explanatory descent.** A1 from the frozen G4 panel shows
 +28.23pp hindsight intrusion and 250/256 OOB boundary recognition, while the
 original stronger two-frame qualification fails because the licensed probe is
-only 127/256. The prospectively frozen extension finds positive G8 donor pull
-(+10.07pp) but fails that round's recipient-balance validity gate. Verdict-
-redacted pull survives in G11 (+11.31pp), and the direct paired G12 contrast is
-+18.03pp [14.48, 21.61] with its validity check passed. The frozen overall
-extension verdict is therefore `partial-chain`. See
+only 127/256. After correcting the legacy `0.` parser, G8 has 256/256 decisions
+and foreign-packet movement is 70.1% of real-packet movement. Verdict-redacted
+pull survives in G11 (+11.69pp), and the direct paired G12 contrast is +18.06pp
+[14.45, 21.68] with its validity check passed. The corrected scientific verdict
+is `full-explanatory-chain`; the original preregistered `partial-chain` remains
+recorded because its G8/G11 recipient-response diagnostic was incorrectly
+interpreted as assignment leakage. See
 [`results/llama_behavioral_extension_results.md`](results/llama_behavioral_extension_results.md).
 Mistral and every original panel verdict remain unchanged.

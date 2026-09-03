@@ -21,8 +21,10 @@ import statistics as st
 
 try:
     from .analyze_exante_anchor import bootstrap_mean
+    from .run_information_set import parse_probability
 except ImportError:  # direct script execution
     from analyze_exante_anchor import bootstrap_mean
+    from run_information_set import parse_probability
 
 SESOI = 5.0
 PARSE_RATE_FLOOR = 248 / 256
@@ -35,6 +37,14 @@ EXPECTED_MODELS = ("qwen35-9b", "gemma3-12b", "mistral-small-24b")
 def load(path: Path) -> tuple[dict, list[dict]]:
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
     metadata = next(row for row in rows if row["record_type"] == "metadata")
+    # Raw text is the immutable observation. Reparse legacy nulls so a parser
+    # bug can be corrected without rewriting generated artifacts.
+    for row in rows:
+        if row.get("record_type") == "decision" and row.get("value") is None:
+            recovered = parse_probability(row.get("raw", ""))
+            if recovered is not None:
+                row["value"] = recovered
+                row["value_reparsed"] = True
     return metadata, [row for row in rows if row["record_type"] != "metadata"]
 
 
@@ -81,6 +91,7 @@ def analyze_model(tag: str, baseline_path: Path, swap_path: Path) -> dict:
         "pairing_sha256": swap_meta["pairing_sha256"],
         "units": len(units),
         "parse_rate": parse_rate,
+        "reparsed_values": sum(bool(r.get("value_reparsed")) for r in decisions),
         "boundary_accuracy": boundary_accuracy,
         "qualified": bool(parse_rate >= PARSE_RATE_FLOOR and boundary_accuracy >= BOUNDARY_FLOOR),
         "I_own": i_own,
@@ -97,6 +108,11 @@ def analyze_model(tag: str, baseline_path: Path, swap_path: Path) -> dict:
         "I_own_null": bool(i_own["ci_low"] >= -SESOI and i_own["ci_high"] <= SESOI),
         "I_donor_positive": bool(i_donor["mean"] >= SESOI and i_donor["ci_low"] > 0),
         "S_substantial": bool(s_swap["mean"] >= SUBSTANTIAL_FRACTION * s_real["mean"]),
+        "cross_event_presence_supported": bool(
+            parse_rate >= PARSE_RATE_FLOOR
+            and boundary_accuracy >= BOUNDARY_FLOOR
+            and s_swap["mean"] >= SUBSTANTIAL_FRACTION * s_real["mean"]
+        ),
     }
 
 

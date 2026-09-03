@@ -55,13 +55,25 @@ def analyze_model(tag: str, baseline_path: Path, full_path: Path, red_path: Path
         verdict = "verdict-dependent"
     else:
         verdict = "indeterminate"
+    # Corrected role after the G8/G11 validity audit. own_pull_redacted is
+    # retained, but it is not an assignment-leakage test: it also measures
+    # genuine recipient-outcome response heterogeneity. G12's within-recipient
+    # paired intervention is the causal validity test for donor direction.
+    if qualified and i_red["ci_low"] > 0 and retention >= 0.5:
+        scientific_verdict = "survives"
+    elif qualified and delta["ci_low"] > 0 and retention < 0.5:
+        scientific_verdict = "verdict-dependent"
+    else:
+        scientific_verdict = "indeterminate"
     return {
         "model_tag": tag, "units": len(units), "parse_rate": parse_rate,
+        "reparsed_values": sum(bool(r.get("value_reparsed")) for r in decisions),
         "boundary_accuracy": boundary_accuracy, "qualified": qualified,
         "own_pull_redacted": i_own, "donor_pull_redacted": i_red,
         "donor_pull_full": i_full, "explicit_label_contribution": delta,
         "S_redacted": bootstrap_mean(s_red), "retention": retention,
         "pairing_validity_ok": validity, "verdict": verdict,
+        "scientific_verdict": scientific_verdict,
     }
 
 
@@ -98,4 +110,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
