@@ -1,112 +1,76 @@
 # Can Language Models Unsee the Future?
 
-## Retrospective epistemic reconstruction after outcomes are known
+## How known outcomes shape judgments of the past
 
-This repository studies a simple question:
+This project studies one natural question:
 
-> **After learning how something turned out, can a language model still condition a reconstructed past judgment only on the information that was available beforehand?**
+> **After a language model learns how something turned out, can it still judge the past without hindsight?**
 
-The current paper is about **retrospective epistemic reconstruction / information-set conditioning under hindsight**. BTF-3 is the main natural measurement window; it is not the scientific identity of the project.
+The answer, in our current experiments, is often **no**. Models can correctly recognize that a piece of evidence became available only later, yet knowing that later evidence still changes what they say about the earlier situation.
 
-## Read this repository in this order
+The paper is therefore about **hindsight in language-model reasoning**.
 
-1. [`CLAUDE.md`](CLAUDE.md) — project instructions for Claude Code, environment/GPU policy, and the default research decision rule.
-2. [`PAPER_FRAME.md`](PAPER_FRAME.md) — authoritative scientific claims and forbidden overclaims.
-3. [`ACL_EMNLP_ALIGNMENT_STANDARD.md`](ACL_EMNLP_ALIGNMENT_STANDARD.md) — the quality bar, explicitly calibrated to strong ACL/EMNLP/NAACL Main and Outstanding papers.
-4. [`RESEARCH_HISTORY.md`](RESEARCH_HISTORY.md) — how the project evolved from *Unring the Bell* to the current paper.
-5. [`PAPER_OUTLINE.md`](PAPER_OUTLINE.md) — current submission narrative and figure plan.
-6. [`RELATED_WORK_2026.md`](RELATED_WORK_2026.md) — novelty boundaries and closest conceptual neighbours.
+## Start here
 
-Preregistrations, frozen transformation contracts, result files, and analysis artifacts remain in the repository as scientific provenance.
+1. [`CLAUDE.md`](CLAUDE.md) — default project instructions, research style, environment, GPU, and Git policy.
+2. [`PAPER_FRAME.md`](PAPER_FRAME.md) — the current scientific story.
+3. [`ACL_EMNLP_ALIGNMENT_STANDARD.md`](ACL_EMNLP_ALIGNMENT_STANDARD.md) — the quality bar learned from strong ACL/EMNLP/NAACL Main and Outstanding papers.
+4. [`EXPERIMENTS.md`](EXPERIMENTS.md) — compact registry of every experimental round.
+5. [`preregistrations/`](preregistrations/) — original preregistration documents for exact designs, thresholds, and frozen hypotheses.
+6. [`RESEARCH_HISTORY.md`](RESEARCH_HISTORY.md) — how the project evolved from *Unring the Bell* to the current hindsight question.
+7. [`PAPER_OUTLINE.md`](PAPER_OUTLINE.md) — paper structure and figure plan.
+8. [`RELATED_WORK_2026.md`](RELATED_WORK_2026.md) — conceptual positioning.
 
-## Current evidence chain
+## The result in one paragraph
 
-### 1. Recognition does not guarantee enforcement
+On a fresh 256-question natural forecasting set, three open models identify at 99.2–100% accuracy that the supplied resolution evidence comes from after the historical point they are asked to judge. Nevertheless, seeing that evidence shifts their earlier probability judgments by 7.46–27.73 points. The effect becomes more revealing when the future evidence comes from a **different resolved event**: those unrelated outcomes still pull the current judgment in the direction they support. Replacing NO-supporting later evidence with YES-supporting later evidence moves the same recipient judgment upward in all three primary models, though by very different amounts. In the strongest-effect model, Gemma, causal interventions show that this outcome influence becomes effective only after the later evidence has been integrated with the current question, in a late answer-position decision state.
 
-On a fresh 256-question BTF-3 replication, three primary open checkpoints recognize at 99.2–100% accuracy that a resolution packet postdates the target historical cutoff, yet the same future evidence still shifts reconstructed ex-ante probabilities by 7.46–27.73 points.
+## Scientific story
 
-This is a **within-item causal effect** of explicit later evidence on an otherwise identical historical judgment.
+### 1. Models know which evidence came later — and are still influenced by it
 
-### 2. The effect is not just explicit verdict copying
+BTF-3 gives us real historical forecasting situations with information available before a cutoff and a later resolution. We compare the same earlier judgment with and without the later resolution evidence and separately ask whether the model recognizes that the evidence comes from the future relative to the target time.
 
-Mechanical removal of explicit resolution-verdict sentences does not eliminate the contamination. The redacted packet still has substantial causal influence.
+Recognition is near perfect. Hindsight influence remains large.
 
-### 3. Outcome-shaped evidence from unrelated events still pulls the judgment
+### 2. Hindsight is not confined to the event being judged
 
-G8 replaces the recipient's own packet with a future packet from a different resolved question. Foreign packets still cause large movement and donor-directed pull.
+We then replace the event's own resolution evidence with the resolution of a different event. These unrelated future packets still move the judgment substantially, and the direction of movement follows the donor event's outcome.
 
-G11 removes explicit YES/NO verdict sentences from those foreign packets. Much of the donor pull survives in Qwen and Gemma; Mistral is substantially more verdict-dependent.
+Removing the explicit YES/NO verdict sentence preserves much of this pull in Qwen and Gemma. We call this discovered regularity **retrospective outcome entrainment**: outcome-shaped later context can pull a judgment of the past toward the outcome it supports.
 
-We call this operational regularity **retrospective outcome entrainment**.
+### 3. Outcome direction controls the pull
 
-### 4. Paired outcome-class replacement controls direction, but heterogeneously
+In a paired intervention, the recipient question stays fixed while a NO-supporting foreign future packet is replaced by a YES-supporting one. The recipient YES probability rises by +4.41pp in Qwen, +17.50pp in Gemma, and +1.55pp in Mistral.
 
-G12 holds the recipient history fixed and replaces a verdict-redacted irrelevant packet supporting NO with a different packet supporting YES.
+The effect size is model-dependent, but the directional structure is consistent.
 
-Paired shifts:
+### 4. In Gemma, the influence becomes causal late in the decision
 
-- Qwen: +4.41pp
-- Gemma: +17.50pp
-- Mistral: +1.55pp
+A mechanistic experiment asks whether outcome information is carried forward as a shared packet-local scalar or becomes causal only after the future evidence is interpreted together with the current question.
 
-All point in the same direction, but effect magnitude is strongly model-dependent and the preregistered 5pp panel gate is indeterminate.
+The tested packet-local scalar is decodable but does not causally transfer the behavior. A fresh prospective confirmation instead finds a late answer-position state whose interchange transfers 6.52–9.04 probability points at layers 29–47, works in both directions, and is near zero for a matched orthogonal direction.
 
-Important: this does **not** isolate an abstract outcome bit while holding all packet semantics fixed.
+This gives the paper a positive explanatory arc:
 
-### 5. In Gemma, influence becomes causal late after recipient contextualization
+```text
+hindsight changes judgments of the past
+        ↓
+unrelated outcomes still exert directional pull
+        ↓
+outcome direction causally controls that pull
+        ↓
+in Gemma, the influence becomes causal after contextual integration
+```
 
-G13 tested a donor-general one-dimensional packet-local bottleneck: outcome is decodable from packet states, but the preregistered packet-span interchange does not establish a causal transfer window.
+## Where the project came from
 
-G14 then discovered a late answer-site pattern but failed its inherited composite gate by a narrow representation-threshold miss. It motivated a refined recipient-conditioned hypothesis.
+The project began as *Can LLMs Unring the Bell?* The original prediction was actually reversed: models were often better at suppressing evidence when the exclusion instruction came after the evidence than before it. That failure led through a controlled prospective-nullification program, then a broader Information-Set Reasoning attempt, and finally to the natural hindsight problem studied here.
 
-G15 prospectively preregistered that refinement on a fresh donor assignment and confirmed a late causal answer-position state:
+That chronology is preserved in [`RESEARCH_HISTORY.md`](RESEARCH_HISTORY.md). It is important scientific history, but it is not the paper's main narrative.
 
-- fresh behavior: +18.84pp [12.94, 24.97];
-- causal transfer at layers 29–47: +6.52 to +9.04pp;
-- up to 48% behavioral-effect recovery;
-- bidirectional transfer;
-- matched orthogonal direction near zero.
+## Current priority
 
-Safe conclusion:
+The experimental program is not looking for more defensive controls. The priority is to write the strongest, cleanest version of the paper: introduction, figures, main results, mechanism, related work, and appendix.
 
-> **In the strong-effect model, future-outcome influence becomes causally actionable after recipient contextualization in a late answer-position decision state rather than through the tested one-dimensional packet-local bottleneck.**
-
-## What the paper does not claim
-
-- not the first observation that LLMs know a temporal rule but violate it;
-- not universal failure across models/tasks;
-- not cross-source replication;
-- not a generic irrelevant-context paper;
-- not robust strong-form outcome entrainment across all models;
-- not “changing only the abstract outcome” in G12;
-- not a dedicated hindsight circuit;
-- not proof that a clean ex-ante representation is absent or overwritten;
-- not fidelity to an external objective ex-ante forecast.
-
-## What failed and why it matters
-
-The project keeps preregistered failures rather than smoothing them away.
-
-- the original *Unring the Bell* directional hypothesis reversed;
-- broad perspective-family qualification failed;
-- FOMC external-source qualification failed;
-- G5 deliberation was an instrument/design failure;
-- G7 external ex-ante-anchor prediction failed in the opposite direction;
-- G13 packet-local causal bottleneck was not supported;
-- G14's inherited composite gate failed before G15 prospectively confirmed the refined recipient-conditioned hypothesis.
-
-See [`RESEARCH_HISTORY.md`](RESEARCH_HISTORY.md) for the full scientific transition.
-
-## Current research decision
-
-For an ACL/EMNLP/NAACL Main submission, the experimental program is sufficiently complete. The default is now **paper consolidation: introduction, related work, figures, tables, limitations, and adversarial reviewer simulation**.
-
-The one unresolved higher-level mechanistic question is:
-
-> **Why does an information boundary the model can represent/recognize fail to gate the late outcome pathway?**
-
-A new experiment should run only if it prospectively distinguishes competing algorithms that all explain the evidence through G15. Do not add another prompt, benchmark, model, redaction, CoT, mitigation, or scale sweep merely for reviewer defense.
-
-## Reproduction and provenance
-
-See [`REPRODUCE.md`](REPRODUCE.md) for execution entry points. Frozen preregistrations and transformation contracts define historical experimental decisions; do not retrospectively rewrite them to fit the current narrative.
+See [`EXPERIMENTS.md`](EXPERIMENTS.md) for the full experimental record and [`REPRODUCE.md`](REPRODUCE.md) for execution entry points.
