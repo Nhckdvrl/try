@@ -206,19 +206,37 @@ estimand the bridge reads −8.11, which is an artifact: `cls_admit` tells the m
 that an item marked unauthorised carries the full weight of a verified one, and the
 model does not comply, so that anchor collapses (gap **+8.00 [+5.00, +10.82]**).
 
-Two consequences, neither optional:
+**The cause is the readout, not the construction.** Two follow-up diagnostics settle
+it. On G16's own two families the behavioural class advantage is *larger* than in the
+families it omitted (−0.290 vs −0.245), so the sample is not it. And Stage 3A's
+byte-identical prompts, with no padding at all, reproduce the null the moment they are
+scored with the direct readout:
 
-1. **The mechanism closes on Stage 5 plus the span gate**, not on the
-   tag/identifier contrast. What is established is that *a* binding state is causally
-   exchangeable between matched preview runs. Whether the tag/identifier difference
-   reduces to that same state is open.
-2. **§5's class-marker claim rests on the tagged-stream result**, which G16 does not
-   touch.
+| readout | `oe_L0` | `cls_pre` | class advantage |
+|---|---|---|---|
+| behavioural | 0.571 | 0.067 | **−0.503 [−0.754, −0.249]** |
+| direct (mechanism) | 0.405 | 0.450 | **+0.045 [−0.124, +0.232]** |
 
-The construction was not adjusted and re-run. A successor must be preregistered
-separately, must state which of readout, sample or padding it is testing, and should
-use the tagged-stream contrast as its bridge. No further model, prompt, benchmark or
-mitigation round is planned.
+The direct readout is not globally blind to binding — it tracks rule position at
+r = 0.76 / 0.90, and it sees content-preview binding clearly (Stage 5: +8.56 gap,
+−12.11 interaction). It misses the class-marker form specifically, plausibly because
+that advantage is expressed in deliberation rather than in the immediate next-token
+distribution.
+
+Three consequences, none optional:
+
+1. **The mechanism's scope is the position contrast and content-preview binding.**
+   It does not speak to class-marker binding and the paper must not imply otherwise.
+2. **§5's class-marker claim rests on the tagged-stream result**, which no readout
+   question touches.
+3. **This readout limitation belongs next to the readout description in the paper**,
+   not in an appendix. We found one contrast the mechanism readout misses; saying so
+   is what makes the contrasts it does track credible.
+
+There is no viable successor with this method: matched-chronology interchange needs
+aligned token positions, and a generated rationale differs per condition and per item.
+No further round is planned. See
+`results/mech/readout_validity_binding_results.md`.
 
 ## 9. The explanatory arc
 
@@ -249,9 +267,12 @@ late, and a binding state can be causally exchanged between matched runs
   effectively untested.
 - Item screening was performed on Qwen3-8B alone; the frozen set transfers well
   (133–144 of 144 usable on every other model) but was not screened on them.
-- The mechanism is established on Qwen3-8B, and its causal interchange holds
-  between matched preview conditions, not between the tag-bound and identifier-bound
-  policies — G16 stopped at its bridge gate.
+- The mechanism is established on Qwen3-8B, and its causal interchange holds between
+  matched preview conditions, not between tag-bound and identifier-bound policies.
+- The fixed-position mechanism readout tracks rule position and content-preview
+  binding but is **blind to class-marker binding**, which the behavioural readout
+  shows at −0.50 on the same prompts. The mechanism therefore cannot address that
+  form of binding, and no method available here can.
 - The external Ramsey and Baron-Hershey/Aiyer materials are **boundary checks**,
   not an independently authored held-out tier.
 - The effect is about soft evidential integration; where a contribution is

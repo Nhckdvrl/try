@@ -178,15 +178,45 @@ the full weight of a verified one, and it does not comply, so that anchor collap
 (gap +8.00 [+5.00, +10.82]). Re-scored against a common anchor — Stage 3A's own
 estimator — the bridge is a precise null, **−0.11 [−5.62, +5.20]**.
 
-**Paper role.** Negative, and it costs something. The Stage 3A single-item
-class-versus-specific comparison did not replicate under matched grammar, matched
-length and the mechanism readout. §5's class-marker claim now rests on **Stage 3B**
-(A4), whose tagged-stream result has exact ground truth, five models and both arms,
-and which this round does not touch. The mechanism section closes on Stage 5 plus the
-span gate. The construction was not adjusted and re-run.
+**Cause, resolved in A10.** Not the construction — the readout. §5's class-marker
+claim rests on **Stage 3B** (A4), whose tagged-stream result has exact ground truth,
+five models and both arms, and which no readout question touches. The mechanism
+section closes on Stage 5 plus the span gate.
 
 **Results.** `results/mech/g16_binding_interchange_results.md`,
 `g16_freeze_checklist.json`, `g16_baselines.json`, `g16_analysis.json`.
+
+## A10. Readout validity on the binding contrast — **the mechanism readout is blind to it**
+
+**Question.** Did G16's null come from its padded construction, its sample, or the
+fixed-position readout every mechanism round in this project uses?
+
+**Design.** Two diagnostics. (i) Split the existing six-model Stage 3A data by family.
+(ii) Run Stage 3A's byte-identical prompts — no padding, no changed grammar — through
+the direct readout on Qwen3-8B and compare with the behavioural numbers already on
+disk. Interpretation pre-committed in the script docstring before running.
+
+**Result.** Sample excluded: on G16's own two families the behavioural class advantage
+is −0.290 [−0.408, −0.164], slightly larger than in the three omitted families
+(−0.245 [−0.366, −0.126]). Padding excluded, readout confirmed: on identical prompts,
+behavioural gives −0.503 [−0.754, −0.249] and direct gives **+0.045 [−0.124, +0.232]**.
+
+The direct readout is not globally blind to binding — it tracks rule position at
+r = 0.76 / 0.90 and content-preview binding at +8.56 with a −12.11 interaction
+(Stage 5). It misses the class-marker form specifically.
+
+**Paper role.** A scope limit that must be stated next to the readout description, not
+in an appendix: the mechanism speaks to rule position and content-preview binding, not
+to class-marker binding. It also extends B4 — `metric_audit.md` warned before the
+freeze that single-token readouts can dissociate from the model's own reasoning; this
+is a concrete instance found in our own results.
+
+**No successor.** Matched-chronology interchange needs aligned token positions, and a
+generated rationale differs per condition and per item. This is a methods limit, not a
+compute limit.
+
+**Results.** `results/mech/readout_validity_binding_results.md`,
+`readout_validity_binding.json`; code `src/mech/readout_validity_binding.py`.
 
 ---
 

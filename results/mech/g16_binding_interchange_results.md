@@ -49,25 +49,34 @@ So the honest reading is **not** that the class-bound policy is worse. It is a
 precise null: on these 75 items, with the mechanism readout, **the two policies
 suppress equally**.
 
-## What this costs the paper
+## Why — resolved by follow-up, and it is not the construction
 
-The Stage 3A class-versus-specific comparison did **not** reproduce here. Three
-differences from Stage 3A could carry that, and this round cannot separate them:
+Three differences from Stage 3A could have carried the null: readout, sample, or
+G16's 17-token pad. Both follow-ups are zero-to-minimal cost and both are conclusive.
 
-1. **Readout.** Stage 3A used the behavioural two-sentence-rationale readout; this
-   used the fixed-position direct readout (item-level r = 0.76 / 0.90 — good, not 1).
-2. **Sample.** Stage 3A pooled all 144 items across five families; this is 75 items
-   in the two families where the direct readout is validated.
-3. **Padding.** The identifier arm carries a 17-token clerical block upstream of the
-   rule; Stage 3A's specific arm did not.
+**Sample: excluded.** On G16's own two families the behavioural class advantage is
+**−0.290 [−0.408, −0.164]** pooled over six models, slightly *larger* than in the
+three families G16 omitted (−0.245 [−0.366, −0.126]). On Qwen3-8B alone it is
+**−0.503 [−0.754, −0.249]**.
 
-**The claim in `PAPER_FRAME.md` §5 must be narrowed accordingly.** The strong
-evidence that an evidence-carried class marker works prospectively is **Stage 3B**,
-not Stage 3A: the tagged evidence stream has exact ground truth, five models, and
-leakage falling from 0.406–0.536 with no policy to ≈0 in **both** arms. That result
-is untouched by this round. The Stage 3A single-item class-versus-specific
-comparison is the weaker evidence for the same claim, and it now has a failed
-same-family, length-matched replication against it.
+**Padding: excluded. Readout: confirmed.** Running Stage 3A's byte-identical prompts,
+with no padding, through the direct readout reproduces the null:
+
+| readout | `oe_L0` | `cls_pre` | class advantage |
+|---|---|---|---|
+| behavioural | 0.571 | 0.067 | **−0.503 [−0.754, −0.249]** |
+| direct | 0.405 | 0.450 | **+0.045 [−0.124, +0.232]** |
+
+**G16's construction was sound.** The mechanism readout is simply blind to this
+contrast — see `results/mech/readout_validity_binding_results.md`. The direct readout
+does track rule position (r = 0.76 / 0.90) and content-preview binding (Stage 5: +8.56
+gap, −12.11 interaction); it is the class-marker form specifically that it misses,
+plausibly because that advantage is expressed in deliberation.
+
+**Consequences.** §5's class-marker claim rests on **Stage 3B**'s tagged stream —
+exact ground truth, five models, both arms — which no readout question touches. The
+mechanism section's scope is the position contrast and content-preview binding, and
+it must say so.
 
 ## What was deliberately not done
 
@@ -77,10 +86,13 @@ construction after the fact", and searching for the variant that restores the ga
 how a garden path starts. The diagnostic above uses only the 300 generations already
 produced.
 
-Any successor experiment must be preregistered separately, must state up front which
-of the three differences it is testing, and should use the Stage 3B tagged-stream
-contrast — which is robust across five models with exact ground truth — as its
-behavioural bridge rather than the Stage 3A comparison that just failed to replicate.
+The follow-ups above were diagnostics on the instrument, not attempts to make the
+bridge pass — and their outcome is the unfavourable one.
+
+**There is no viable successor with this method.** Redoing the interchange under the
+behavioural readout is not a compute problem but a methods problem: matched-chronology
+interchange requires aligned token positions, and a generated rationale differs per
+condition and per item. No successor is scheduled.
 
 ## Volume
 

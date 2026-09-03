@@ -89,6 +89,12 @@ Introduce the instrument after the question.
   the next-token distribution over digits at a fixed position. Deterministic,
   continuous, no parsing, no LLM judge. The three piloted readouts that failed and
   why belong in the appendix — they are a genuine methodological contribution.
+- The mechanism sections use a one-token variant of the same readout at the same
+  position, because patching needs a single forward pass. It tracks the behavioural
+  readout on rule position (r = 0.76, 0.90) and on content-preview binding, but we
+  found it **blind to class-marker binding** (−0.503 behavioural vs +0.045 direct on
+  identical prompts). Say this here, in two sentences. It bounds the mechanism's scope
+  and it is why §7 makes no claim about class markers.
 
 ## 3. Advance exclusion fails, and the obvious explanations do not survive
 
@@ -171,12 +177,14 @@ and should not be written as one.
    21, ≈85% by 27 of 36.
 3. **Binding state is exchangeable.** Matched-chronology, length-matched rule-span
    interchange transfers in both directions at layers 14–18.
-4. **G16 did not close it.** The tag/identifier interchange stopped at its
-   preregistered bridge gate — the behavioural gap it needed is absent on this
-   subset — so the patched runs were never executed. Report this in the text, in two
-   sentences, alongside the Stage-5 correction. What the paper claims is that *a*
-   binding state is causally exchangeable between matched runs; whether the
-   tag/identifier difference is that same state is open.
+4. **G16 did not close it, and the reason is a scope limit worth stating.** The
+   tag/identifier interchange stopped at its preregistered bridge gate. Follow-up
+   showed the cause is the fixed-position readout, not the construction: on identical
+   prompts the behavioural readout gives −0.503 and the direct readout +0.045. The
+   readout does track rule position and content-preview binding. Put this next to the
+   readout description in §2, in two sentences, and repeat it in Limitations. What the
+   paper claims is that *a* binding state is causally exchangeable between matched
+   runs; class-marker binding is outside what this method can reach.
 
 Report the Stage-5 correction — the first version of this analysis reported medians
 of an unstable recovery fraction and overstated the effect — in the text, not
