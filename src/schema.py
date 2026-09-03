@@ -18,6 +18,7 @@ import linear_blocks as lb
 import conditions_v6 as v6
 import conditions_v7 as v7
 import conditions_g17 as g17
+import conditions_g18 as g18
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -59,6 +60,7 @@ V6_CONDITIONS = v6.ALL_V6
 # Stage 3E duplicate control + proposition relation matrix
 V7_CONDITIONS = v7.ALL_V7
 G17_CONDITIONS = g17.G17_CONDITIONS
+G18_CONDITIONS = g18.G18_CONDITIONS
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
@@ -131,6 +133,8 @@ def _blocks(item: Item, cond: str):
                     "removed from this record. It is not available to you.")]
     if cond in ext.EXT_RAMSEY_CONDITIONS and item.task_family == "ext_ramsey":
         return ext.ramsey_blocks(item, cond)
+    if cond in g18.G18_CONDITIONS:
+        return g18.blocks(item, cond, B, E)
     if cond in g17.G17_CONDITIONS:
         return g17.blocks(item, cond, B, E)
     if cond in v7.ALL_V7:
