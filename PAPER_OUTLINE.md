@@ -46,7 +46,7 @@ failure` is the mechanism's name and belongs in the body, never in the title.
 > system-level identifier policy is worth nothing and suppression follows the
 > proposition rather than the document ID. Mechanistically, the excluded evidence
 > is still read at the decision — blocking that one attention path removes the
-> entire residual — gating is resolved in the upper-middle layers, and the binding
+> entire residual — gating is resolved in the upper-middle layers, and a binding
 > state transfers causally between matched runs in both directions.
 
 ## 1. Introduction — a rule that arrives before its target
@@ -72,7 +72,7 @@ Three contributions, positively:
    evidence-carried class markers work prospectively, named future identifiers do
    not. The same dissociation holds in an agent.
 3. **Mechanism.** Excluded evidence is still read at the decision; gating is
-   resolved late; the binding state is causally exchangeable.
+   resolved late; a binding state is causally exchangeable between matched runs.
 
 Do not enumerate ruled-out accounts here. Section 3 does that as science.
 
@@ -137,9 +137,13 @@ metric change that confound forced.
 
 ### 5.3 A class marker carried on the evidence works prospectively
 
-Class policy beats item-specific policy in five of six models; the tagged
-evidence-stream result takes leakage from 0.48 to ≈0 in both arms across five
-models.
+Lead with the tagged evidence-stream result: exact ground truth, five models, leakage
+from 0.406–0.536 to ≈0 in **both** arms. That is the load-bearing evidence.
+
+The single-item class-versus-specific comparison (five of six models in Stage 3A) is
+reported as the weaker form, together with the fact that it did **not** replicate in
+G16 under matched grammar, matched length and the mechanism readout: −0.11
+[−5.62, +5.20]. Do not lead with it and do not omit the failure.
 
 State the regularity here:
 
@@ -167,8 +171,12 @@ and should not be written as one.
    21, ≈85% by 27 of 36.
 3. **Binding state is exchangeable.** Matched-chronology, length-matched rule-span
    interchange transfers in both directions at layers 14–18.
-4. **G16** closes it on the headline contrast (tag-bound vs identifier-bound), if
-   it confirms.
+4. **G16 did not close it.** The tag/identifier interchange stopped at its
+   preregistered bridge gate — the behavioural gap it needed is absent on this
+   subset — so the patched runs were never executed. Report this in the text, in two
+   sentences, alongside the Stage-5 correction. What the paper claims is that *a*
+   binding state is causally exchangeable between matched runs; whether the
+   tag/identifier difference is that same state is open.
 
 Report the Stage-5 correction — the first version of this analysis reported medians
 of an unstable recovery fraction and overstated the effect — in the text, not

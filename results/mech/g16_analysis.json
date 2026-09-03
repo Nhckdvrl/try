@@ -1,0 +1,69 @@
+{
+ "design_tag": "g16-binding-interchange-design-v1.1",
+ "bootstrap": {
+  "seed": 20260829,
+  "n_resamples": 10000,
+  "clusters": "case skeleton / latent problem"
+ },
+ "gate1": {
+  "bridge": {
+   "n": 75,
+   "n_clusters": 15,
+   "mean": -8.108586874904576,
+   "ci_low": -11.471684344665425,
+   "ci_high": -5.067852897913202
+  },
+  "exclusion_effect": {
+   "id": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 11.01483759343857,
+    "ci_low": 6.468650271045486,
+    "ci_high": 16.13964959121989
+   },
+   "cls": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 2.9062507185339927,
+    "ci_low": -0.8343804614631006,
+    "ci_high": 6.879356316096279
+   }
+  },
+  "floor": 5.0,
+  "passed": false
+ },
+ "posthoc_diagnostic": {
+  "note": "post-result diagnostic; changes no frozen gate or verdict",
+  "anchor_gap_id_admit_minus_cls_admit": {
+   "n": 75,
+   "n_clusters": 15,
+   "mean": 8.00021074041181,
+   "ci_low": 5.000620074794239,
+   "ci_high": 10.820320160252697
+  },
+  "common_anchor_exclusion_effect": {
+   "id": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 11.01483759343857,
+    "ci_low": 6.468650271045486,
+    "ci_high": 16.13964959121989
+   },
+   "cls": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 10.906461458945802,
+    "ci_low": 5.572567742091552,
+    "ci_high": 15.767090446077216
+   }
+  },
+  "common_anchor_bridge": {
+   "n": 75,
+   "n_clusters": 15,
+   "mean": -0.10837613449276735,
+   "ci_low": -5.615512341863438,
+   "ci_high": 5.204537889551772
+  }
+ },
+ "verdict": "bridge-failed"
+}

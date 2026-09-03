@@ -37,9 +37,12 @@ what the policy can bind to.
 
 ## Status, 2026-09-03
 
-**Main line.** Prospective evidence exclusion. Behavioural programme and mechanism
-are complete. One experiment remains designed and unrun:
-[`preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md`](preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md).
+**Main line.** Prospective evidence exclusion. The behavioural programme and the
+mechanism are complete. G16, the one planned experiment, was frozen, run, and
+**stopped at its preregistered bridge gate** — see
+[`results/mech/g16_binding_interchange_results.md`](results/mech/g16_binding_interchange_results.md).
+It cost the paper the single-item form of the class-marker claim, which now rests on
+the tagged-stream result instead. No successor is scheduled.
 
 **Stopped branch.** The BTF-3 hindsight paper was stopped. Its data, results and
 preregistrations are retained; see `RESEARCH_HISTORY.md` §5 for why and

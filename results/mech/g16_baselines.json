@@ -1,0 +1,1734 @@
+{
+ "design_tag": "g16-binding-interchange-design-v1.1",
+ "readout": "ANSWER_FORMATS['direct'] fixed-position digit expectation",
+ "n_items": 75,
+ "mean_bridge": -8.108586874904576,
+ "bridge_floor": 5.0,
+ "records": [
+  {
+   "item_id": "legal_burglary_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 344,
+    "cls_exclude": 344,
+    "id_admit": 348,
+    "cls_admit": 348
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 54.343536376953125,
+    "cls_exclude": 72.99928283691406,
+    "id_admit": 76.94327545166016,
+    "cls_admit": 76.94466400146484
+   },
+   "exclusion_effect": {
+    "id": 22.59973907470703,
+    "cls": 3.9453811645507812
+   },
+   "bridge": -18.65435791015625
+  },
+  {
+   "item_id": "legal_burglary_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 330,
+    "cls_exclude": 330,
+    "id_admit": 334,
+    "cls_admit": 334
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 31.63125991821289,
+    "cls_exclude": 39.19993209838867,
+    "id_admit": 54.728885650634766,
+    "cls_admit": 52.30681228637695
+   },
+   "exclusion_effect": {
+    "id": 23.097625732421875,
+    "cls": 13.106880187988281
+   },
+   "bridge": -9.990745544433594
+  },
+  {
+   "item_id": "legal_burglary_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 324,
+    "cls_exclude": 324,
+    "id_admit": 328,
+    "cls_admit": 328
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 29.462995529174805,
+    "cls_exclude": 33.692298889160156,
+    "id_admit": 56.53241729736328,
+    "cls_admit": 51.9625129699707
+   },
+   "exclusion_effect": {
+    "id": 27.069421768188477,
+    "cls": 18.270214080810547
+   },
+   "bridge": -8.79920768737793
+  },
+  {
+   "item_id": "legal_burglary_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 360,
+    "cls_exclude": 360,
+    "id_admit": 364,
+    "cls_admit": 364
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.0052917106077075005,
+    "cls_exclude": 0.05208052694797516,
+    "id_admit": 1.4305555820465088,
+    "cls_admit": 23.48675537109375
+   },
+   "exclusion_effect": {
+    "id": -1.4252638714388013,
+    "cls": -23.434674844145775
+   },
+   "bridge": -22.009410972706974
+  },
+  {
+   "item_id": "legal_burglary_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 334,
+    "cls_exclude": 334,
+    "id_admit": 338,
+    "cls_admit": 338
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 13.244572639465332,
+    "cls_exclude": 8.095311164855957,
+    "id_admit": 18.830129623413086,
+    "cls_admit": 24.40629005432129
+   },
+   "exclusion_effect": {
+    "id": -5.585556983947754,
+    "cls": -16.310978889465332
+   },
+   "bridge": -10.725421905517578
+  },
+  {
+   "item_id": "legal_arson_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 293,
+    "cls_exclude": 293,
+    "id_admit": 297,
+    "cls_admit": 297
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 39.05160903930664,
+    "cls_exclude": 62.78692626953125,
+    "id_admit": 71.13735961914062,
+    "cls_admit": 75.64324188232422
+   },
+   "exclusion_effect": {
+    "id": 32.085750579833984,
+    "cls": 12.856315612792969
+   },
+   "bridge": -19.229434967041016
+  },
+  {
+   "item_id": "legal_arson_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 283,
+    "cls_exclude": 283,
+    "id_admit": 287,
+    "cls_admit": 287
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 30.851221084594727,
+    "cls_exclude": 36.89259338378906,
+    "id_admit": 61.88103485107422,
+    "cls_admit": 59.97250747680664
+   },
+   "exclusion_effect": {
+    "id": 31.029813766479492,
+    "cls": 23.079914093017578
+   },
+   "bridge": -7.949899673461914
+  },
+  {
+   "item_id": "legal_arson_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 272,
+    "cls_exclude": 272,
+    "id_admit": 276,
+    "cls_admit": 276
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 31.95362091064453,
+    "cls_exclude": 30.527597427368164,
+    "id_admit": 60.509765625,
+    "cls_admit": 53.935611724853516
+   },
+   "exclusion_effect": {
+    "id": 28.55614471435547,
+    "cls": 23.40801429748535
+   },
+   "bridge": -5.148130416870117
+  },
+  {
+   "item_id": "legal_arson_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 314,
+    "cls_exclude": 314,
+    "id_admit": 318,
+    "cls_admit": 318
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.01808471791446209,
+    "cls_exclude": 0.0024452987127006054,
+    "id_admit": 4.915622711181641,
+    "cls_admit": 2.2293999195098877
+   },
+   "exclusion_effect": {
+    "id": -4.8975379932671785,
+    "cls": -2.226954620797187
+   },
+   "bridge": 2.6705833724699914
+  },
+  {
+   "item_id": "legal_arson_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 284,
+    "cls_exclude": 284,
+    "id_admit": 288,
+    "cls_admit": 288
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.5595930218696594,
+    "cls_exclude": 0.03779095411300659,
+    "id_admit": 13.967903137207031,
+    "cls_admit": 13.704601287841797
+   },
+   "exclusion_effect": {
+    "id": -13.408310115337372,
+    "cls": -13.66681033372879
+   },
+   "bridge": -0.25850021839141846
+  },
+  {
+   "item_id": "legal_embezzle_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 293,
+    "cls_exclude": 293,
+    "id_admit": 297,
+    "cls_admit": 297
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 63.81131362915039,
+    "cls_exclude": 97.91353607177734,
+    "id_admit": 89.59015655517578,
+    "cls_admit": 94.39781951904297
+   },
+   "exclusion_effect": {
+    "id": 25.77884292602539,
+    "cls": -3.515716552734375
+   },
+   "bridge": -29.294559478759766
+  },
+  {
+   "item_id": "legal_embezzle_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 275,
+    "cls_exclude": 275,
+    "id_admit": 279,
+    "cls_admit": 279
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 29.99330711364746,
+    "cls_exclude": 81.37970733642578,
+    "id_admit": 88.6641845703125,
+    "cls_admit": 88.429443359375
+   },
+   "exclusion_effect": {
+    "id": 58.67087745666504,
+    "cls": 7.049736022949219
+   },
+   "bridge": -51.62114143371582
+  },
+  {
+   "item_id": "legal_embezzle_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 270,
+    "cls_exclude": 270,
+    "id_admit": 274,
+    "cls_admit": 274
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 14.60252571105957,
+    "cls_exclude": 10.729771614074707,
+    "id_admit": 44.156097412109375,
+    "cls_admit": 33.351661682128906
+   },
+   "exclusion_effect": {
+    "id": 29.553571701049805,
+    "cls": 22.6218900680542
+   },
+   "bridge": -6.9316816329956055
+  },
+  {
+   "item_id": "legal_embezzle_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 280,
+    "cls_exclude": 280,
+    "id_admit": 284,
+    "cls_admit": 284
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 2.383694648742676,
+    "cls_exclude": 0.42361682653427124,
+    "id_admit": 8.32347583770752,
+    "cls_admit": 7.043336868286133
+   },
+   "exclusion_effect": {
+    "id": -5.939781188964844,
+    "cls": -6.619720041751862
+   },
+   "bridge": -0.6799388527870178
+  },
+  {
+   "item_id": "legal_assault_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 285,
+    "cls_exclude": 285,
+    "id_admit": 289,
+    "cls_admit": 289
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 87.12445831298828,
+    "cls_exclude": 91.5708999633789,
+    "id_admit": 90.24330139160156,
+    "cls_admit": 89.8244857788086
+   },
+   "exclusion_effect": {
+    "id": 3.1188430786132812,
+    "cls": -1.7464141845703125
+   },
+   "bridge": -4.865257263183594
+  },
+  {
+   "item_id": "legal_assault_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 273,
+    "cls_exclude": 273,
+    "id_admit": 277,
+    "cls_admit": 277
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 26.326845169067383,
+    "cls_exclude": 29.30217933654785,
+    "id_admit": 63.61036682128906,
+    "cls_admit": 46.28190231323242
+   },
+   "exclusion_effect": {
+    "id": 37.28352165222168,
+    "cls": 16.97972297668457
+   },
+   "bridge": -20.30379867553711
+  },
+  {
+   "item_id": "legal_assault_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 317,
+    "cls_exclude": 317,
+    "id_admit": 321,
+    "cls_admit": 321
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.060795240104198456,
+    "cls_exclude": 0.043204415589571,
+    "id_admit": 7.942785739898682,
+    "cls_admit": 2.580679178237915
+   },
+   "exclusion_effect": {
+    "id": -7.881990499794483,
+    "cls": -2.537474762648344
+   },
+   "bridge": 5.344515737146139
+  },
+  {
+   "item_id": "legal_assault_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 281,
+    "cls_exclude": 281,
+    "id_admit": 285,
+    "cls_admit": 285
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 1.8454499244689941,
+    "cls_exclude": 0.8362159132957458,
+    "id_admit": 10.760639190673828,
+    "cls_admit": 13.544869422912598
+   },
+   "exclusion_effect": {
+    "id": -8.915189266204834,
+    "cls": -12.708653509616852
+   },
+   "bridge": -3.793464243412018
+  },
+  {
+   "item_id": "legal_cargo_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 274,
+    "cls_exclude": 274,
+    "id_admit": 278,
+    "cls_admit": 278
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 71.6753921508789,
+    "cls_exclude": 98.84020233154297,
+    "id_admit": 91.65381622314453,
+    "cls_admit": 97.45555114746094
+   },
+   "exclusion_effect": {
+    "id": 19.978424072265625,
+    "cls": -1.3846511840820312
+   },
+   "bridge": -21.363075256347656
+  },
+  {
+   "item_id": "legal_cargo_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 261,
+    "cls_exclude": 261,
+    "id_admit": 265,
+    "cls_admit": 265
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 44.50967788696289,
+    "cls_exclude": 75.10721588134766,
+    "id_admit": 79.73348236083984,
+    "cls_admit": 88.78777313232422
+   },
+   "exclusion_effect": {
+    "id": 35.22380447387695,
+    "cls": 13.680557250976562
+   },
+   "bridge": -21.54324722290039
+  },
+  {
+   "item_id": "legal_cargo_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 295,
+    "cls_exclude": 295,
+    "id_admit": 299,
+    "cls_admit": 299
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 1.1188418865203857,
+    "cls_exclude": 0.13710355758666992,
+    "id_admit": 6.713220119476318,
+    "cls_admit": 2.01741099357605
+   },
+   "exclusion_effect": {
+    "id": -5.594378232955933,
+    "cls": -1.8803074359893799
+   },
+   "bridge": 3.7140707969665527
+  },
+  {
+   "item_id": "legal_cargo_hearsay",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 312,
+    "cls_exclude": 312,
+    "id_admit": 316,
+    "cls_admit": 316
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 13.7625093460083,
+    "cls_exclude": 0.6438339352607727,
+    "id_admit": 27.558448791503906,
+    "cls_admit": 33.1103515625
+   },
+   "exclusion_effect": {
+    "id": -13.795939445495605,
+    "cls": -32.46651762723923
+   },
+   "bridge": -18.670578181743622
+  },
+  {
+   "item_id": "legal_cargo_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 263,
+    "cls_exclude": 263,
+    "id_admit": 267,
+    "cls_admit": 267
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.4665854275226593,
+    "cls_exclude": 0.2043522149324417,
+    "id_admit": 10.829505920410156,
+    "cls_admit": 19.162612915039062
+   },
+   "exclusion_effect": {
+    "id": -10.362920492887497,
+    "cls": -18.95826070010662
+   },
+   "bridge": -8.595340207219124
+  },
+  {
+   "item_id": "legal_hitrun_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 315,
+    "cls_exclude": 315,
+    "id_admit": 319,
+    "cls_admit": 319
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 27.630210876464844,
+    "cls_exclude": 32.50139617919922,
+    "id_admit": 82.7017822265625,
+    "cls_admit": 84.2899169921875
+   },
+   "exclusion_effect": {
+    "id": 55.071571350097656,
+    "cls": 51.78852081298828
+   },
+   "bridge": -3.283050537109375
+  },
+  {
+   "item_id": "legal_hitrun_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 299,
+    "cls_exclude": 299,
+    "id_admit": 303,
+    "cls_admit": 303
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 33.56078338623047,
+    "cls_exclude": 37.43140411376953,
+    "id_admit": 78.67459869384766,
+    "cls_admit": 55.67567825317383
+   },
+   "exclusion_effect": {
+    "id": 45.11381530761719,
+    "cls": 18.244274139404297
+   },
+   "bridge": -26.86954116821289
+  },
+  {
+   "item_id": "legal_hitrun_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 291,
+    "cls_exclude": 291,
+    "id_admit": 295,
+    "cls_admit": 295
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 9.13402271270752,
+    "cls_exclude": 4.3146491050720215,
+    "id_admit": 47.097496032714844,
+    "cls_admit": 26.556344985961914
+   },
+   "exclusion_effect": {
+    "id": 37.963473320007324,
+    "cls": 22.241695880889893
+   },
+   "bridge": -15.721777439117432
+  },
+  {
+   "item_id": "legal_hitrun_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 346,
+    "cls_exclude": 346,
+    "id_admit": 350,
+    "cls_admit": 350
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.000384486629627645,
+    "cls_exclude": 0.0013020546175539494,
+    "id_admit": 0.0009132190025411546,
+    "cls_admit": 0.014820675365626812
+   },
+   "exclusion_effect": {
+    "id": -0.0005287323729135096,
+    "cls": -0.013518620748072863
+   },
+   "bridge": -0.012989888375159353
+  },
+  {
+   "item_id": "legal_hitrun_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 305,
+    "cls_exclude": 305,
+    "id_admit": 309,
+    "cls_admit": 309
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.07878503203392029,
+    "cls_exclude": 1.0057660341262817,
+    "id_admit": 2.1174023151397705,
+    "cls_admit": 10.883907318115234
+   },
+   "exclusion_effect": {
+    "id": -2.03861728310585,
+    "cls": -9.878141283988953
+   },
+   "bridge": -7.839524000883102
+  },
+  {
+   "item_id": "legal_supply_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 295,
+    "cls_exclude": 295,
+    "id_admit": 299,
+    "cls_admit": 299
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 46.9229621887207,
+    "cls_exclude": 65.84909057617188,
+    "id_admit": 82.1940689086914,
+    "cls_admit": 81.92544555664062
+   },
+   "exclusion_effect": {
+    "id": 35.2711067199707,
+    "cls": 16.07635498046875
+   },
+   "bridge": -19.194751739501953
+  },
+  {
+   "item_id": "legal_supply_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 324,
+    "cls_exclude": 324,
+    "id_admit": 328,
+    "cls_admit": 328
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 20.689746856689453,
+    "cls_exclude": 8.680665016174316,
+    "id_admit": 29.68649673461914,
+    "cls_admit": 31.35813331604004
+   },
+   "exclusion_effect": {
+    "id": -8.996749877929688,
+    "cls": -22.677468299865723
+   },
+   "bridge": -13.680718421936035
+  },
+  {
+   "item_id": "legal_supply_hearsay",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 326,
+    "cls_exclude": 326,
+    "id_admit": 330,
+    "cls_admit": 330
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 31.80137062072754,
+    "cls_exclude": 27.345680236816406,
+    "id_admit": 48.085784912109375,
+    "cls_admit": 50.277061462402344
+   },
+   "exclusion_effect": {
+    "id": -16.284414291381836,
+    "cls": -22.931381225585938
+   },
+   "bridge": -6.646966934204102
+  },
+  {
+   "item_id": "legal_supply_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 286,
+    "cls_exclude": 286,
+    "id_admit": 290,
+    "cls_admit": 290
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 25.454458236694336,
+    "cls_exclude": 27.11988067626953,
+    "id_admit": 40.04582595825195,
+    "cls_admit": 42.16758728027344
+   },
+   "exclusion_effect": {
+    "id": -14.591367721557617,
+    "cls": -15.047706604003906
+   },
+   "bridge": -0.45633888244628906
+  },
+  {
+   "item_id": "legal_insfraud_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 289,
+    "cls_exclude": 289,
+    "id_admit": 293,
+    "cls_admit": 293
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 87.0748062133789,
+    "cls_exclude": 99.40948486328125,
+    "id_admit": 96.14623260498047,
+    "cls_admit": 98.8837890625
+   },
+   "exclusion_effect": {
+    "id": 9.071426391601562,
+    "cls": -0.52569580078125
+   },
+   "bridge": -9.597122192382812
+  },
+  {
+   "item_id": "legal_insfraud_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 276,
+    "cls_exclude": 276,
+    "id_admit": 280,
+    "cls_admit": 280
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 20.9148006439209,
+    "cls_exclude": 13.10111141204834,
+    "id_admit": 79.79790496826172,
+    "cls_admit": 50.492923736572266
+   },
+   "exclusion_effect": {
+    "id": 58.88310432434082,
+    "cls": 37.391812324523926
+   },
+   "bridge": -21.491291999816895
+  },
+  {
+   "item_id": "legal_insfraud_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 279,
+    "cls_exclude": 279,
+    "id_admit": 283,
+    "cls_admit": 283
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.5713366866111755,
+    "cls_exclude": 0.08474230766296387,
+    "id_admit": 0.22511379420757294,
+    "cls_admit": 0.5964345335960388
+   },
+   "exclusion_effect": {
+    "id": 0.3462228924036026,
+    "cls": -0.511692225933075
+   },
+   "bridge": -0.8579151183366776
+  },
+  {
+   "item_id": "legal_vandal_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 283,
+    "cls_exclude": 283,
+    "id_admit": 287,
+    "cls_admit": 287
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 56.216487884521484,
+    "cls_exclude": 74.5712661743164,
+    "id_admit": 99.79866027832031,
+    "cls_admit": 98.62081909179688
+   },
+   "exclusion_effect": {
+    "id": 43.58217239379883,
+    "cls": 24.04955291748047
+   },
+   "bridge": -19.53261947631836
+  },
+  {
+   "item_id": "legal_vandal_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 270,
+    "cls_exclude": 270,
+    "id_admit": 274,
+    "cls_admit": 274
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 36.6126594543457,
+    "cls_exclude": 36.862464904785156,
+    "id_admit": 68.83214569091797,
+    "cls_admit": 57.10382843017578
+   },
+   "exclusion_effect": {
+    "id": 32.219486236572266,
+    "cls": 20.241363525390625
+   },
+   "bridge": -11.97812271118164
+  },
+  {
+   "item_id": "legal_vandal_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 266,
+    "cls_exclude": 266,
+    "id_admit": 270,
+    "cls_admit": 270
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 17.632553100585938,
+    "cls_exclude": 0.3233432173728943,
+    "id_admit": 52.44682312011719,
+    "cls_admit": 45.28546905517578
+   },
+   "exclusion_effect": {
+    "id": 34.81427001953125,
+    "cls": 44.96212583780289
+   },
+   "bridge": 10.147855818271637
+  },
+  {
+   "item_id": "legal_vandal_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 320,
+    "cls_exclude": 320,
+    "id_admit": 324,
+    "cls_admit": 324
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.0009084821213036776,
+    "cls_exclude": 0.014281746931374073,
+    "id_admit": 0.02184564433991909,
+    "cls_admit": 0.2111295461654663
+   },
+   "exclusion_effect": {
+    "id": -0.020937162218615413,
+    "cls": -0.19684779923409224
+   },
+   "bridge": -0.17591063701547682
+  },
+  {
+   "item_id": "legal_vandal_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 278,
+    "cls_exclude": 278,
+    "id_admit": 282,
+    "cls_admit": 282
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.06040778383612633,
+    "cls_exclude": 0.14630666375160217,
+    "id_admit": 0.20762591063976288,
+    "cls_admit": 4.237921714782715
+   },
+   "exclusion_effect": {
+    "id": -0.14721812680363655,
+    "cls": -4.091615051031113
+   },
+   "bridge": -3.944396924227476
+  },
+  {
+   "item_id": "legal_robbery_wiretap",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 318,
+    "cls_exclude": 318,
+    "id_admit": 322,
+    "cls_admit": 322
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 45.573726654052734,
+    "cls_exclude": 76.4754409790039,
+    "id_admit": 89.93236541748047,
+    "cls_admit": 89.20872497558594
+   },
+   "exclusion_effect": {
+    "id": 44.358638763427734,
+    "cls": 12.733283996582031
+   },
+   "bridge": -31.625354766845703
+  },
+  {
+   "item_id": "legal_robbery_search",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 301,
+    "cls_exclude": 301,
+    "id_admit": 305,
+    "cls_admit": 305
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 33.86326599121094,
+    "cls_exclude": 49.41533279418945,
+    "id_admit": 77.29558563232422,
+    "cls_admit": 63.05154037475586
+   },
+   "exclusion_effect": {
+    "id": 43.43231964111328,
+    "cls": 13.636207580566406
+   },
+   "bridge": -29.796112060546875
+  },
+  {
+   "item_id": "legal_robbery_eyewitness",
+   "task_family": "legal_judgment",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 293,
+    "cls_exclude": 293,
+    "id_admit": 297,
+    "cls_admit": 297
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 28.20458984375,
+    "cls_exclude": 27.565649032592773,
+    "id_admit": 62.66476058959961,
+    "cls_admit": 41.19656753540039
+   },
+   "exclusion_effect": {
+    "id": 34.46017074584961,
+    "cls": 13.630918502807617
+   },
+   "bridge": -20.829252243041992
+  },
+  {
+   "item_id": "legal_robbery_privilege",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 348,
+    "cls_exclude": 348,
+    "id_admit": 352,
+    "cls_admit": 352
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.4495624899864197,
+    "cls_exclude": 0.026302210986614227,
+    "id_admit": 4.94219970703125,
+    "cls_admit": 3.773892402648926
+   },
+   "exclusion_effect": {
+    "id": -4.49263721704483,
+    "cls": -3.7475901916623116
+   },
+   "bridge": 0.7450470253825188
+  },
+  {
+   "item_id": "legal_robbery_lab",
+   "task_family": "legal_judgment",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 303,
+    "cls_exclude": 303,
+    "id_admit": 307,
+    "cls_admit": 307
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 0.9915156960487366,
+    "cls_exclude": 1.254250168800354,
+    "id_admit": 6.654290676116943,
+    "cls_admit": 14.011828422546387
+   },
+   "exclusion_effect": {
+    "id": -5.662774980068207,
+    "cls": -12.757578253746033
+   },
+   "bridge": -7.094803273677826
+  },
+  {
+   "item_id": "infer_engine_epistemic_invalidation_pos_0",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 225,
+    "cls_exclude": 226,
+    "id_admit": 229,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 80.23538970947266,
+    "cls_exclude": 60.85493469238281,
+    "id_admit": 87.49765014648438,
+    "cls_admit": 66.57095336914062
+   },
+   "exclusion_effect": {
+    "id": 7.262260437011719,
+    "cls": 5.7160186767578125
+   },
+   "bridge": -1.5462417602539062
+  },
+  {
+   "item_id": "infer_network_epistemic_invalidation_neg_1",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 238,
+    "cls_exclude": 238,
+    "id_admit": 242,
+    "cls_admit": 242
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 32.5546989440918,
+    "cls_exclude": 26.653364181518555,
+    "id_admit": 32.63228225708008,
+    "cls_admit": 34.71260452270508
+   },
+   "exclusion_effect": {
+    "id": -0.07758331298828125,
+    "cls": -8.059240341186523
+   },
+   "bridge": -7.981657028198242
+  },
+  {
+   "item_id": "infer_clinic_epistemic_invalidation_pos_2",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 75.89702606201172,
+    "cls_exclude": 40.8659553527832,
+    "id_admit": 84.78079986572266,
+    "cls_admit": 60.48099899291992
+   },
+   "exclusion_effect": {
+    "id": 8.883773803710938,
+    "cls": 19.61504364013672
+   },
+   "bridge": 10.731269836425781
+  },
+  {
+   "item_id": "infer_fraudops_epistemic_invalidation_neg_3",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 236,
+    "cls_exclude": 236,
+    "id_admit": 240,
+    "cls_admit": 240
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 21.537546157836914,
+    "cls_exclude": 21.987842559814453,
+    "id_admit": 22.40828514099121,
+    "cls_admit": 31.728363037109375
+   },
+   "exclusion_effect": {
+    "id": -0.8707389831542969,
+    "cls": -9.740520477294922
+   },
+   "bridge": -8.869781494140625
+  },
+  {
+   "item_id": "infer_agro_epistemic_invalidation_pos_4",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 86.75193786621094,
+    "cls_exclude": 58.14212417602539,
+    "id_admit": 89.02009582519531,
+    "cls_admit": 70.11653900146484
+   },
+   "exclusion_effect": {
+    "id": 2.268157958984375,
+    "cls": 11.974414825439453
+   },
+   "bridge": 9.706256866455078
+  },
+  {
+   "item_id": "infer_engine_access_control_neg_5",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 226,
+    "cls_exclude": 226,
+    "id_admit": 230,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 25.335678100585938,
+    "cls_exclude": 34.53288650512695,
+    "id_admit": 23.14571762084961,
+    "cls_admit": 39.49699783325195
+   },
+   "exclusion_effect": {
+    "id": 2.189960479736328,
+    "cls": -4.964111328125
+   },
+   "bridge": -7.154071807861328
+  },
+  {
+   "item_id": "infer_network_access_control_pos_6",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 237,
+    "cls_exclude": 237,
+    "id_admit": 241,
+    "cls_admit": 241
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 65.95539093017578,
+    "cls_exclude": 52.612342834472656,
+    "id_admit": 78.7808837890625,
+    "cls_admit": 62.71162414550781
+   },
+   "exclusion_effect": {
+    "id": 12.825492858886719,
+    "cls": 10.099281311035156
+   },
+   "bridge": -2.7262115478515625
+  },
+  {
+   "item_id": "infer_clinic_access_control_neg_7",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 11.178746223449707,
+    "cls_exclude": 7.30564022064209,
+    "id_admit": 11.523505210876465,
+    "cls_admit": 18.339778900146484
+   },
+   "exclusion_effect": {
+    "id": -0.3447589874267578,
+    "cls": -11.034138679504395
+   },
+   "bridge": -10.689379692077637
+  },
+  {
+   "item_id": "infer_fraudops_access_control_pos_8",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 235,
+    "cls_exclude": 235,
+    "id_admit": 239,
+    "cls_admit": 239
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 90.62370300292969,
+    "cls_exclude": 81.85784912109375,
+    "id_admit": 92.10243225097656,
+    "cls_admit": 80.66690063476562
+   },
+   "exclusion_effect": {
+    "id": 1.478729248046875,
+    "cls": -1.190948486328125
+   },
+   "bridge": -2.669677734375
+  },
+  {
+   "item_id": "infer_agro_access_control_neg_9",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 228,
+    "cls_exclude": 228,
+    "id_admit": 232,
+    "cls_admit": 232
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 30.970367431640625,
+    "cls_exclude": 34.00312042236328,
+    "id_admit": 32.40132522583008,
+    "cls_admit": 44.34181594848633
+   },
+   "exclusion_effect": {
+    "id": -1.4309577941894531,
+    "cls": -10.338695526123047
+   },
+   "bridge": -8.907737731933594
+  },
+  {
+   "item_id": "infer_engine_procedural_policy_pos_10",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 226,
+    "cls_exclude": 226,
+    "id_admit": 230,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 75.72064971923828,
+    "cls_exclude": 62.32563018798828,
+    "id_admit": 84.5675277709961,
+    "cls_admit": 65.37019348144531
+   },
+   "exclusion_effect": {
+    "id": 8.846878051757812,
+    "cls": 3.0445632934570312
+   },
+   "bridge": -5.802314758300781
+  },
+  {
+   "item_id": "infer_network_procedural_policy_neg_11",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 238,
+    "cls_exclude": 238,
+    "id_admit": 242,
+    "cls_admit": 242
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 31.980817794799805,
+    "cls_exclude": 29.53103256225586,
+    "id_admit": 32.4506721496582,
+    "cls_admit": 38.34242630004883
+   },
+   "exclusion_effect": {
+    "id": -0.46985435485839844,
+    "cls": -8.811393737792969
+   },
+   "bridge": -8.34153938293457
+  },
+  {
+   "item_id": "infer_clinic_procedural_policy_pos_12",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 66.24075317382812,
+    "cls_exclude": 40.8659553527832,
+    "id_admit": 78.16202545166016,
+    "cls_admit": 60.48099899291992
+   },
+   "exclusion_effect": {
+    "id": 11.921272277832031,
+    "cls": 19.61504364013672
+   },
+   "bridge": 7.6937713623046875
+  },
+  {
+   "item_id": "infer_fraudops_procedural_policy_neg_13",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 236,
+    "cls_exclude": 236,
+    "id_admit": 240,
+    "cls_admit": 240
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 12.743379592895508,
+    "cls_exclude": 10.681989669799805,
+    "id_admit": 14.738959312438965,
+    "cls_admit": 21.119409561157227
+   },
+   "exclusion_effect": {
+    "id": -1.995579719543457,
+    "cls": -10.437419891357422
+   },
+   "bridge": -8.441840171813965
+  },
+  {
+   "item_id": "infer_agro_procedural_policy_pos_14",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 87.0649185180664,
+    "cls_exclude": 63.35888671875,
+    "id_admit": 88.10194396972656,
+    "cls_admit": 74.7535400390625
+   },
+   "exclusion_effect": {
+    "id": 1.0370254516601562,
+    "cls": 11.3946533203125
+   },
+   "bridge": 10.357627868652344
+  },
+  {
+   "item_id": "infer_engine_epistemic_invalidation_neg_15",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 226,
+    "cls_exclude": 226,
+    "id_admit": 230,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 26.498743057250977,
+    "cls_exclude": 34.53288650512695,
+    "id_admit": 23.85976791381836,
+    "cls_admit": 39.49699783325195
+   },
+   "exclusion_effect": {
+    "id": 2.638975143432617,
+    "cls": -4.964111328125
+   },
+   "bridge": -7.603086471557617
+  },
+  {
+   "item_id": "infer_network_epistemic_invalidation_pos_16",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 237,
+    "cls_exclude": 237,
+    "id_admit": 241,
+    "cls_admit": 241
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 64.6163101196289,
+    "cls_exclude": 58.64327621459961,
+    "id_admit": 80.97966766357422,
+    "cls_admit": 63.27907943725586
+   },
+   "exclusion_effect": {
+    "id": 16.363357543945312,
+    "cls": 4.63580322265625
+   },
+   "bridge": -11.727554321289062
+  },
+  {
+   "item_id": "infer_clinic_epistemic_invalidation_neg_17",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 11.12966251373291,
+    "cls_exclude": 6.537303447723389,
+    "id_admit": 11.207802772521973,
+    "cls_admit": 15.7442626953125
+   },
+   "exclusion_effect": {
+    "id": -0.0781402587890625,
+    "cls": -9.206959247589111
+   },
+   "bridge": -9.128818988800049
+  },
+  {
+   "item_id": "infer_fraudops_epistemic_invalidation_pos_18",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 235,
+    "cls_exclude": 235,
+    "id_admit": 239,
+    "cls_admit": 239
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 88.04629516601562,
+    "cls_exclude": 81.85784912109375,
+    "id_admit": 91.52664184570312,
+    "cls_admit": 80.66690063476562
+   },
+   "exclusion_effect": {
+    "id": 3.4803466796875,
+    "cls": -1.190948486328125
+   },
+   "bridge": -4.671295166015625
+  },
+  {
+   "item_id": "infer_agro_epistemic_invalidation_neg_19",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 228,
+    "cls_exclude": 228,
+    "id_admit": 232,
+    "cls_admit": 232
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 30.792545318603516,
+    "cls_exclude": 33.94205856323242,
+    "id_admit": 29.80204200744629,
+    "cls_admit": 44.37443923950195
+   },
+   "exclusion_effect": {
+    "id": 0.9905033111572266,
+    "cls": -10.432380676269531
+   },
+   "bridge": -11.422883987426758
+  },
+  {
+   "item_id": "infer_engine_access_control_pos_20",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 226,
+    "cls_exclude": 226,
+    "id_admit": 230,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 74.50923919677734,
+    "cls_exclude": 56.710784912109375,
+    "id_admit": 81.99149322509766,
+    "cls_admit": 63.69591522216797
+   },
+   "exclusion_effect": {
+    "id": 7.4822540283203125,
+    "cls": 6.985130310058594
+   },
+   "bridge": -0.49712371826171875
+  },
+  {
+   "item_id": "infer_network_access_control_neg_21",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 238,
+    "cls_exclude": 238,
+    "id_admit": 242,
+    "cls_admit": 242
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 30.778133392333984,
+    "cls_exclude": 27.12079429626465,
+    "id_admit": 30.346370697021484,
+    "cls_admit": 34.61983108520508
+   },
+   "exclusion_effect": {
+    "id": 0.4317626953125,
+    "cls": -7.49903678894043
+   },
+   "bridge": -7.93079948425293
+  },
+  {
+   "item_id": "infer_clinic_access_control_pos_22",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 84.84866333007812,
+    "cls_exclude": 30.08517837524414,
+    "id_admit": 94.1614761352539,
+    "cls_admit": 66.01805114746094
+   },
+   "exclusion_effect": {
+    "id": 9.312812805175781,
+    "cls": 35.9328727722168
+   },
+   "bridge": 26.620059967041016
+  },
+  {
+   "item_id": "infer_fraudops_access_control_neg_23",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 236,
+    "cls_exclude": 236,
+    "id_admit": 240,
+    "cls_admit": 240
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 13.631168365478516,
+    "cls_exclude": 10.681989669799805,
+    "id_admit": 16.05605125427246,
+    "cls_admit": 21.119409561157227
+   },
+   "exclusion_effect": {
+    "id": -2.4248828887939453,
+    "cls": -10.437419891357422
+   },
+   "bridge": -8.012537002563477
+  },
+  {
+   "item_id": "infer_agro_access_control_pos_24",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 89.75313568115234,
+    "cls_exclude": 58.14212417602539,
+    "id_admit": 89.50458526611328,
+    "cls_admit": 70.11653900146484
+   },
+   "exclusion_effect": {
+    "id": -0.2485504150390625,
+    "cls": 11.974414825439453
+   },
+   "bridge": 12.222965240478516
+  },
+  {
+   "item_id": "infer_engine_procedural_policy_neg_25",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 226,
+    "cls_exclude": 226,
+    "id_admit": 230,
+    "cls_admit": 230
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 21.4798526763916,
+    "cls_exclude": 28.72473907470703,
+    "id_admit": 21.3461856842041,
+    "cls_admit": 33.976470947265625
+   },
+   "exclusion_effect": {
+    "id": 0.1336669921875,
+    "cls": -5.251731872558594
+   },
+   "bridge": -5.385398864746094
+  },
+  {
+   "item_id": "infer_network_procedural_policy_pos_26",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 237,
+    "cls_exclude": 237,
+    "id_admit": 241,
+    "cls_admit": 241
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 64.20118713378906,
+    "cls_exclude": 52.612342834472656,
+    "id_admit": 79.3934097290039,
+    "cls_admit": 62.71162414550781
+   },
+   "exclusion_effect": {
+    "id": 15.192222595214844,
+    "cls": 10.099281311035156
+   },
+   "bridge": -5.0929412841796875
+  },
+  {
+   "item_id": "infer_clinic_procedural_policy_neg_27",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 229,
+    "cls_exclude": 229,
+    "id_admit": 233,
+    "cls_admit": 233
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 15.953279495239258,
+    "cls_exclude": 12.678120613098145,
+    "id_admit": 15.47662353515625,
+    "cls_admit": 23.86391258239746
+   },
+   "exclusion_effect": {
+    "id": 0.4766559600830078,
+    "cls": -11.185791969299316
+   },
+   "bridge": -11.662447929382324
+  },
+  {
+   "item_id": "infer_fraudops_procedural_policy_pos_28",
+   "task_family": "evidence_inference",
+   "direction": "increase",
+   "n_tok": {
+    "id_exclude": 235,
+    "cls_exclude": 235,
+    "id_admit": 239,
+    "cls_admit": 239
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 86.8359146118164,
+    "cls_exclude": 77.92621612548828,
+    "id_admit": 88.67864227294922,
+    "cls_admit": 79.82736206054688
+   },
+   "exclusion_effect": {
+    "id": 1.8427276611328125,
+    "cls": 1.9011459350585938
+   },
+   "bridge": 0.05841827392578125
+  },
+  {
+   "item_id": "infer_agro_procedural_policy_neg_29",
+   "task_family": "evidence_inference",
+   "direction": "decrease",
+   "n_tok": {
+    "id_exclude": 228,
+    "cls_exclude": 228,
+    "id_admit": 232,
+    "cls_admit": 232
+   },
+   "pad_tokens": 16,
+   "y": {
+    "id_exclude": 31.36557388305664,
+    "cls_exclude": 33.94205856323242,
+    "id_admit": 30.962589263916016,
+    "cls_admit": 44.37443923950195
+   },
+   "exclusion_effect": {
+    "id": 0.402984619140625,
+    "cls": -10.432380676269531
+   },
+   "bridge": -10.835365295410156
+  }
+ ]
+}

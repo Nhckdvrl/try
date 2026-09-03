@@ -138,9 +138,16 @@ it, is part of the record.
 
 **A policy carried on the evidence itself is executed prospectively.** When the
 policy names a class and the class marker travels with each item — `[unverified]`
-printed on the evidence block — leakage falls from 0.48 with no policy to
-approximately zero, **in both arms**, across five models. The prospective case
-stops being the broken one.
+printed on the evidence block — leakage falls from 0.406–0.536 with no policy to
+approximately zero, **in both arms**, across five models, on a task with exact
+ground truth. The prospective case stops being the broken one.
+
+This stream result is the load-bearing evidence for the claim. The weaker,
+single-item form — one class policy versus one identifier policy — was re-run in G16
+on 75 items with matched grammar, matched length and the mechanism readout, and gave
+a precise null: **−0.11 [−5.62, +5.20]** under a common anchor. That form is
+therefore reported as not replicating under those conditions, and the paper rests the
+claim on the stream. See `results/mech/g16_binding_interchange_results.md`.
 
 > **An exclusion policy governs the decision when it can be resolved against the
 > content it governs; a policy that must be held as a pending intention about a
@@ -178,30 +185,40 @@ a decision-gating failure, not a comprehension failure.
 **The gating decision is made late.** Answer-position patching recovers none of the
 pre/post gap below layer 18, reaches 50% at layer 21 and ≈85% by layer 27, of 36.
 
-**The binding state is causally exchangeable.** With chronology and token length
+**A binding state is causally exchangeable.** With chronology and token length
 matched — the two runs differ only in whether the preview before the rule is a
 paraphrase of the evidence or an unrelated pad — rule-span interchange transfers in
 both directions at layers 14–18: failure → success **+13.3 [+8.1, +18.9]** rating
 points, success → failure **−3.6 [−5.9, −1.4]**, against a near-null admit arm.
 
-## 8. The one experiment still worth running
+## 8. G16 — run, and stopped at its own gate
 
-Section 7 shows the binding state can be exchanged between a bound and an unbound
-*preview* condition. It does not yet show the same for the two structures the paper
-actually contrasts: a policy bound to a named future identifier versus a policy
-bound to a class marker carried on the evidence.
+Section 7 shows a binding state can be exchanged between a bound and an unbound
+*preview* condition. G16 asked the same of the two structures §5 contrasts: a policy
+bound to a named future identifier versus one bound to a class marker carried on the
+evidence.
 
-> **G16.** Interchange the late rule/evidence binding state between the tag-bound
-> and identifier-bound conditions, in both directions, with matched chronology,
-> matched length, and a matched control direction.
+**The interchange was never run.** Gate 1 — a preregistered stopping rule — required
+the behavioural gap that the interchange would have to transfer, and on 75 items with
+matched grammar, matched length and the mechanism readout that gap is absent:
+**−0.11 [−5.62, +5.20]** under a common anchor. Under the frozen per-arm-anchor
+estimand the bridge reads −8.11, which is an artifact: `cls_admit` tells the model
+that an item marked unauthorised carries the full weight of a verified one, and the
+model does not comply, so that anchor collapses (gap **+8.00 [+5.00, +10.82]**).
 
-If tag-bound → identifier-bound removes the prospective leakage and the reverse
-restores it, the mechanism closes on the headline: the difference between a policy
-that works before the evidence and one that does not is a specific, causally
-manipulable internal state.
+Two consequences, neither optional:
 
-That is one experiment answering one question. It is not a control battery, and no
-further model, prompt, benchmark or mitigation round is planned.
+1. **The mechanism closes on Stage 5 plus the span gate**, not on the
+   tag/identifier contrast. What is established is that *a* binding state is causally
+   exchangeable between matched preview runs. Whether the tag/identifier difference
+   reduces to that same state is open.
+2. **§5's class-marker claim rests on the tagged-stream result**, which G16 does not
+   touch.
+
+The construction was not adjusted and re-run. A successor must be preregistered
+separately, must state which of readout, sample or padding it is testing, and should
+use the tagged-stream contrast as its bridge. No further model, prompt, benchmark or
+mitigation round is planned.
 
 ## 9. The explanatory arc
 
@@ -222,7 +239,7 @@ referent fails, propositional content and evidence-carried class
 markers succeed — in vignettes and in an agent
                 ↓
 The excluded evidence is still read at the decision, gating happens
-late, and the binding state can be causally exchanged
+late, and a binding state can be causally exchanged between matched runs
 ```
 
 ## 10. Scope
@@ -232,7 +249,9 @@ late, and the binding state can be causally exchanged
   effectively untested.
 - Item screening was performed on Qwen3-8B alone; the frozen set transfers well
   (133–144 of 144 usable on every other model) but was not screened on them.
-- The mechanism is established on Qwen3-8B.
+- The mechanism is established on Qwen3-8B, and its causal interchange holds
+  between matched preview conditions, not between the tag-bound and identifier-bound
+  policies — G16 stopped at its bridge gate.
 - The external Ramsey and Baron-Hershey/Aiyer materials are **boundary checks**,
   not an independently authored held-out tier.
 - The effect is about soft evidential integration; where a contribution is

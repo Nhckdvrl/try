@@ -60,7 +60,9 @@ asymmetry only at zero.
   the gap intact in 4 of 6 models; Gemma-3-12B is a real exception.
 - **Announcing the object makes it worse.** L0–L5 ladder, uniform across six models.
 - **A class policy on the evidence works.** Beats the item-specific rule
-  prospectively in 5 of 6 models.
+  prospectively in 5 of 6 models. **This single-item comparison did not replicate
+  in G16** (A9) under matched grammar, matched length and the mechanism readout;
+  the claim is carried by A4's tagged stream instead.
 - **Not one sentence.** Eight ruling constructions, 40 of 40 model × wording cells
   positive.
 
@@ -157,17 +159,34 @@ replaced by rating-point shifts on the pooled 70 items.
 **Paper role.** Section 7.
 **Results.** `stages/STAGE5.md`, `results/mech/`.
 
-## A9. G16 — binding-state interchange *(designed, not run)*
+## A9. G16 — binding-state interchange: **bridge-failed**
 
 **Question.** Is the difference between a policy that works before the evidence and
 one that does not a specific, causally manipulable internal state?
 
 **Design.** Interchange the late binding state between tag-bound and
 identifier-bound prospective conditions, both directions, matched chronology,
-matched length, matched control direction.
+matched length, matched control direction. Frozen at
+`g16-binding-interchange-design-v1.1` before any generation; Amendment A1 corrected
+the readout to the mechanism's fixed-position direct readout, also before any output.
 
-**Status.** `preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md`. Must be
-frozen before any generation. **This is the only planned new experiment.**
+**Result.** Gate 1 was a preregistered stopping rule and it failed, so **the patched
+phase was never executed** (300 baselines, 0 patched generations). The frozen
+per-arm-anchor bridge is −8.11 [−11.47, −5.07] against a +5 floor. A post-result
+diagnostic shows why: `cls_admit` asks the model to give an item marked unauthorised
+the full weight of a verified one, and it does not comply, so that anchor collapses
+(gap +8.00 [+5.00, +10.82]). Re-scored against a common anchor — Stage 3A's own
+estimator — the bridge is a precise null, **−0.11 [−5.62, +5.20]**.
+
+**Paper role.** Negative, and it costs something. The Stage 3A single-item
+class-versus-specific comparison did not replicate under matched grammar, matched
+length and the mechanism readout. §5's class-marker claim now rests on **Stage 3B**
+(A4), whose tagged-stream result has exact ground truth, five models and both arms,
+and which this round does not touch. The mechanism section closes on Stage 5 plus the
+span gate. The construction was not adjusted and re-run.
+
+**Results.** `results/mech/g16_binding_interchange_results.md`,
+`g16_freeze_checklist.json`, `g16_baselines.json`, `g16_analysis.json`.
 
 ---
 

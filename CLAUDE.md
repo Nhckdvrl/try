@@ -46,7 +46,7 @@ The positive explanatory chain is:
 5. the same dissociation appears in an agent, where a `SYSTEM` identifier policy is
    worth nothing and suppression follows the proposition, not the document ID;
 6. the excluded evidence is still read at the decision, gating is resolved late, and
-   the binding state is causally exchangeable.
+   a binding state is causally exchangeable between matched runs.
 
 ## What was stopped, and what must not be restarted
 
@@ -89,10 +89,16 @@ More models is not more rigour. The behavioural breadth here — 12 instruct mod
 4 vendors, 2 architectures, 5 task families — is already unusual; the missing piece
 is never coverage, it is whether the mechanism explains the headline.
 
-The default is **no new experiment**. The only planned one is
-`preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md`, and it must be
-committed and tagged before any generation. If a genuinely new scientific question
-emerges, formulate it first and only then decide whether an experiment is needed.
+The default is **no new experiment**. G16 was the one planned experiment; it was
+frozen, run, and stopped at its preregistered bridge gate
+(`results/mech/g16_binding_interchange_results.md`). **No successor is scheduled**,
+and specifically: do not adjust the G16 construction and re-run it looking for a
+bridge that passes. If a successor is ever justified it must be preregistered
+separately, state up front which of readout, sample or padding it is testing, and use
+the Stage 3B tagged-stream contrast as its bridge.
+
+If a genuinely new scientific question emerges, formulate it first and only then
+decide whether an experiment is needed.
 
 ## Evidence discipline
 
