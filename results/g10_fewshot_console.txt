@@ -1,0 +1,23 @@
+
+=== qwen35-9b (probe 1.0000, qualified True)
+  I_temporal   16.02 [ 14.18, 17.89]
+  I_fewshot    28.16 [ 24.79, 31.50]
+  M           -12.14 [-15.49, -8.69] -> indeterminate
+  copy-check rho(fewshot_without, oob_without) = 0.705
+
+=== gemma3-12b (probe 1.0000, qualified True)
+  I_temporal   27.73 [ 25.15, 30.39]
+  I_fewshot    20.34 [ 17.81, 23.00]
+  M            +7.32 [ +5.02, +9.73] -> works
+  copy-check rho(fewshot_without, oob_without) = 0.823
+
+=== mistral-small-24b (probe 1.0000, qualified True)
+  I_temporal    7.46 [  5.41,  9.57]
+  I_fewshot    10.01 [  8.45, 11.65]
+  M            -2.55 [ -4.16, -0.97] -> does_not_work
+  copy-check rho(fewshot_without, oob_without) = 0.894
+
+panel: indeterminate
+The interval does not place the demonstrations on either side of the frozen threshold.
+
+wrote results/g10_fewshot_analysis.json

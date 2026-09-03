@@ -1,0 +1,176 @@
+{
+  "preregistration": "PREREGISTRATION_G10_FEWSHOT.md",
+  "sesoi": 5.0,
+  "per_model": {
+    "qwen35-9b": {
+      "model_tag": "qwen35-9b",
+      "prefix_sha256": "e44dfbde0463c187edaf21cb81b198eaa08b15d5142e9b358f4876fad65287f2",
+      "demonstration_ids": [
+        "204ca8c4-72aa-5d1b-aced-ee7a80aac413",
+        "8d2bc0c7-2a27-5f67-bbc4-2f462046906e",
+        "747428c5-781d-51a6-b388-93c578412b1d"
+      ],
+      "demonstration_answers": [
+        93,
+        3,
+        92
+      ],
+      "parse_rate_with": 1.0,
+      "parse_rate_without": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_temporal": {
+        "mean": 16.015625,
+        "ci_low": 14.18359375,
+        "ci_high": 17.890625,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 256
+      },
+      "I_fewshot": {
+        "mean": 28.15625,
+        "ci_low": 24.79296875,
+        "ci_high": 31.5,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 256
+      },
+      "M": {
+        "mean": -12.140625,
+        "ci_low": -15.4921875,
+        "ci_high": -8.6875,
+        "units": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "verdict": "indeterminate",
+      "copy_correlation": 0.7051164392204063,
+      "copying_suspected": false
+    },
+    "gemma3-12b": {
+      "model_tag": "gemma3-12b",
+      "prefix_sha256": "e44dfbde0463c187edaf21cb81b198eaa08b15d5142e9b358f4876fad65287f2",
+      "demonstration_ids": [
+        "204ca8c4-72aa-5d1b-aced-ee7a80aac413",
+        "8d2bc0c7-2a27-5f67-bbc4-2f462046906e",
+        "747428c5-781d-51a6-b388-93c578412b1d"
+      ],
+      "demonstration_answers": [
+        93,
+        3,
+        92
+      ],
+      "parse_rate_with": 1.0,
+      "parse_rate_without": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_temporal": {
+        "mean": 27.733333333333334,
+        "ci_low": 25.145098039215686,
+        "ci_high": 30.388235294117646,
+        "n_observations": 255,
+        "n_clusters": 255,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 255
+      },
+      "I_fewshot": {
+        "mean": 20.3359375,
+        "ci_low": 17.8125,
+        "ci_high": 22.99609375,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 256
+      },
+      "M": {
+        "mean": 7.317647058823529,
+        "ci_low": 5.023529411764706,
+        "ci_high": 9.733333333333333,
+        "units": 255,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "verdict": "works",
+      "copy_correlation": 0.82265953796403,
+      "copying_suspected": false
+    },
+    "mistral-small-24b": {
+      "model_tag": "mistral-small-24b",
+      "prefix_sha256": "e44dfbde0463c187edaf21cb81b198eaa08b15d5142e9b358f4876fad65287f2",
+      "demonstration_ids": [
+        "204ca8c4-72aa-5d1b-aced-ee7a80aac413",
+        "8d2bc0c7-2a27-5f67-bbc4-2f462046906e",
+        "747428c5-781d-51a6-b388-93c578412b1d"
+      ],
+      "demonstration_answers": [
+        93,
+        3,
+        92
+      ],
+      "parse_rate_with": 1.0,
+      "parse_rate_without": 1.0,
+      "boundary_accuracy": 1.0,
+      "qualified": true,
+      "I_temporal": {
+        "mean": 7.4590234375,
+        "ci_low": 5.4082421875,
+        "ci_high": 9.568359375,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 256
+      },
+      "I_fewshot": {
+        "mean": 10.0078125,
+        "ci_low": 8.44921875,
+        "ci_high": 11.6484375,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05,
+        "units": 256
+      },
+      "M": {
+        "mean": -2.5487890625,
+        "ci_low": -4.1620703125,
+        "ci_high": -0.9687109375,
+        "units": 256,
+        "n_resamples": 10000,
+        "seed": 20260829
+      },
+      "verdict": "does_not_work",
+      "copy_correlation": 0.894090332354763,
+      "copying_suspected": false
+    }
+  },
+  "panel": {
+    "tally": {
+      "works": 1,
+      "does_not_work": 1,
+      "indeterminate": 1
+    },
+    "qualified_models": 3,
+    "panel_verdict": "indeterminate"
+  },
+  "permitted_sentence": "The interval does not place the demonstrations on either side of the frozen threshold.",
+  "copying_suspected_models": []
+}

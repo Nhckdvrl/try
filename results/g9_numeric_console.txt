@@ -1,0 +1,6 @@
+{
+  "qualified_models": 0,
+  "intrusion_pass_models": 0,
+  "panel_complete": true,
+  "btf3_large_replication_v1": false
+}
