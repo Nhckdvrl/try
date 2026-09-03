@@ -51,10 +51,12 @@ of its normal causal weight.
 > **A model can hold a correct, fully stated exclusion policy and still route the
 > excluded evidence into its decision.**
 
-## 3. What the failure is not
+## 3. The failure is not in the rule, and not in the prompt geometry
 
-Four candidate explanations are ruled out by experiments that were run to
-discriminate, not to defend:
+Four experiments localise it. Each was run to discriminate between live accounts, and
+together they say something positive: whatever goes wrong is not a property of the
+instruction or of where it sits, so it must be a property of **the relationship
+between the instruction and its target** — which is what §5 is about.
 
 - **Not memory or retrieval.** The declarative policy probe is at 100% in both
   arms, and rule-to-evidence delay out to ~1,000 tokens leaves the gap intact in
@@ -70,6 +72,10 @@ discriminate, not to defend:
   give a positive gap in 40 of 40 model × wording cells; the counterfactual
   phrasing is the *worst* prospectively. An explicit presentation policy stating
   that display does not imply relevance rescues no model.
+
+The rule is held, correctly, in a form the model can state on demand, in any of eight
+constructions, at any distance, under bidirectional attention. What varies is only
+whether it reaches the evidence.
 
 ## 4. Sharper regularity — the failure is specific to complete suppression
 
@@ -225,8 +231,11 @@ distribution.
 
 Three consequences, none optional:
 
-1. **The mechanism's scope is the position contrast and content-preview binding.**
-   It does not speak to class-marker binding and the paper must not imply otherwise.
+1. **The mechanism reaches the paper's central binding claim, and stops there.**
+   Stage 5's interchange contrasts a proposition-matched preview against a
+   length-matched unrelated one — that *is* the §5.2 manipulation, the entailment-graded
+   result that §5 is built on — so the mechanism does close on it. What it cannot reach
+   is §5.3's class-marker form, and the paper must not imply otherwise.
 2. **§5's class-marker claim rests on the tagged-stream result**, which no readout
    question touches.
 3. **This readout limitation belongs next to the readout description in the paper**,

@@ -108,13 +108,18 @@ all twelve; matched admit control flat. **Figure 1.**
 The declarative probe at 100% exactly-zero in both arms, against REI up to +0.64
 prospectively. This is the sentence the paper is built on.
 
-### 3.3 What it is not
+### 3.3 Localising the failure
 
-Distance (no main effect; further helps), rule-to-evidence delay (intact to ~1,000
-tokens in 4/6), bidirectional attention (largest asymmetry in Dream-7B), wording
-(40/40 cells), inclusion implicature (rescues no model). Keep this compact: one
-paragraph per account, one number each. These earn their place because each
-predicts a different result and each was run to discriminate.
+Write this as one positive move, not a list of denials. Distance (no main effect;
+further helps), rule-to-evidence delay (intact to ~1,000 tokens in 4/6), bidirectional
+attention (largest asymmetry in Dream-7B), wording (40/40 cells), inclusion implicature
+(rescues no model).
+
+The paragraph's conclusion, which is what earns it a section: the rule is held
+correctly, in any of eight constructions, at any distance, under bidirectional
+attention — so what fails is not the instruction but its relationship to its target.
+That sentence is the hand-off to §5. One number per account, no more; do not let this
+run longer than §5.1.
 
 ## 4. The failure is specific to complete suppression
 
