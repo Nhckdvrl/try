@@ -23,7 +23,7 @@ The paper is therefore about **hindsight in language-model reasoning**.
 
 ## The result in one paragraph
 
-On a fresh 256-question natural forecasting set, three open models identify at 99.2–100% accuracy that the supplied resolution evidence comes from after the historical point they are asked to judge. Nevertheless, seeing that evidence shifts their earlier probability judgments by 7.46–27.73 points. The effect becomes more revealing when the future evidence comes from a **different resolved event**: those unrelated outcomes still pull the current judgment in the direction they support. Replacing NO-supporting later evidence with YES-supporting later evidence moves the same recipient judgment upward in all three primary models, though by very different amounts. In the strongest-effect model, Gemma, causal interventions show that this outcome influence becomes effective only after the later evidence has been integrated with the current question, in a late answer-position decision state.
+On a fresh 256-question natural forecasting set, the canonical Qwen, Gemma, and Llama comparison identifies at 97.7–100% accuracy that the supplied resolution evidence comes from after the historical point being judged. Nevertheless, seeing that evidence shifts their earlier probability judgments by 16.02–28.23 points. The effect becomes more revealing when the future evidence comes from a **different resolved event**: verdict-redacted outcome evidence still pulls the current judgment in the direction it supports. Replacing NO-supporting later evidence with YES-supporting later evidence moves the same recipient judgment upward by 4.41–18.03 points across these three families. Mistral remains fully reported as an additional family with a broad hindsight effect but a much weaker directional effect. In the strongest mechanistic setting, Gemma, causal interventions show that outcome influence becomes effective only after later evidence has been integrated with the current question, in a late answer-position decision state.
 
 ## Scientific story
 
@@ -35,13 +35,13 @@ Recognition is near perfect. Hindsight influence remains large.
 
 ### 2. Hindsight is not confined to the event being judged
 
-We then replace the event's own resolution evidence with the resolution of a different event. These unrelated future packets still move the judgment substantially, and the direction of movement follows the donor event's outcome.
+We then replace the event's own resolution evidence with the resolution of a different event. These unrelated future packets still move the judgment substantially, showing that the influence is not confined to evidence about the target event.
 
-Removing the explicit YES/NO verdict sentence preserves much of this pull in Qwen and Gemma. We call this discovered regularity **retrospective outcome entrainment**: outcome-shaped later context can pull a judgment of the past toward the outcome it supports.
+Removing the explicit YES/NO verdict sentence reveals a directional pull in Qwen, Gemma, and Llama: evidence supporting YES pulls upward and evidence supporting NO pulls downward. We call this discovered regularity **retrospective outcome entrainment**: outcome-shaped later context can pull a judgment of the past toward the outcome it supports.
 
 ### 3. Outcome direction controls the pull
 
-In a paired intervention, the recipient question stays fixed while a NO-supporting foreign future packet is replaced by a YES-supporting one. The recipient YES probability rises by +4.41pp in Qwen, +17.50pp in Gemma, and +1.55pp in Mistral.
+In a paired intervention, the recipient question stays fixed while a NO-supporting foreign future packet is replaced by a YES-supporting one. The recipient YES probability rises by +4.41pp in Qwen, +17.50pp in Gemma, and +18.03pp in Llama. Mistral's additional-family result is +1.55pp and practically null under its frozen threshold.
 
 The effect size is model-dependent, but the directional structure is consistent.
 

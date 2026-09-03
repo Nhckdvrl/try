@@ -1,0 +1,251 @@
+{
+  "preregistration": "preregistrations/PREREGISTRATION_LLAMA_BEHAVIORAL_EXTENSION.md",
+  "model_tag": "llama31-8b",
+  "a1": {
+    "path": "results/raw/isr_llama31-8b_btf3_large_replication_v1.jsonl",
+    "model_tag": "llama31-8b",
+    "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+    "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+    "artifact_sha256": "0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d",
+    "n_decisions": 1024,
+    "n_probes": 512,
+    "decision_parse_rate": 1.0,
+    "boundary_accuracy": 0.736328125,
+    "complete_units": 256,
+    "mean_allowed_with_alignment": 99.453125,
+    "metrics": {
+      "responsiveness": {
+        "mean": 45.98828125,
+        "ci_low": 42.84375,
+        "ci_high": 49.17578125,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05
+      },
+      "out_of_set_intrusion": {
+        "mean": 28.229453125,
+        "ci_low": 24.526875,
+        "ci_high": 31.8468359375,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05
+      },
+      "boundary_selectivity": {
+        "mean": 17.758828125,
+        "ci_low": 14.26640625,
+        "ci_high": 21.31375,
+        "n_observations": 256,
+        "n_clusters": 256,
+        "cluster_size_min": 1,
+        "cluster_size_max": 1,
+        "n_resamples": 10000,
+        "alpha": 0.05
+      }
+    },
+    "qualified": false,
+    "intrusion_pass": false,
+    "boundary_by_condition": {
+      "boundary_oob_with": {
+        "n": 256,
+        "parsed": 255,
+        "correct": 250,
+        "accuracy": 0.9765625
+      },
+      "boundary_allowed_with": {
+        "n": 256,
+        "parsed": 256,
+        "correct": 127,
+        "accuracy": 0.49609375
+      }
+    }
+  },
+  "new_rounds_complete": true,
+  "g8": {
+    "model_tag": "llama31-8b",
+    "pairing_sha256": "a51b80c76ca46f1205e4ab4a59716019960204e363022e21aca315ab68cec1c2",
+    "units": 254,
+    "parse_rate": 0.9921875,
+    "boundary_accuracy": 0.99609375,
+    "qualified": true,
+    "I_own": {
+      "mean": -4.011259842519685,
+      "ci_low": -8.087992125984252,
+      "ci_high": 0.003070866141732232,
+      "n": 254,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "I_donor": {
+      "mean": 10.065590551181103,
+      "ci_low": 6.20255905511811,
+      "ci_high": 13.940984251968503,
+      "n": 254,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "I_real": {
+      "mean": 28.176141732283465,
+      "ci_low": 24.497598425196852,
+      "ci_high": 31.808976377952757,
+      "n": 254,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "S_swap": {
+      "mean": 23.2596062992126,
+      "ci_low": 20.410944881889765,
+      "ci_high": 26.173425196850395,
+      "n": 254,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "S_real": {
+      "mean": 33.31826771653543,
+      "ci_low": 30.315866141732283,
+      "ci_high": 36.19409448818897,
+      "n": 254,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "S_ratio": 0.6981037098657189,
+    "pairing_direction_crosstab": {
+      "same_direction": 131,
+      "opposite_direction": 123
+    },
+    "I_donor_opposite_only": {
+      "mean": 14.534634146341464,
+      "ci_low": 8.661138211382113,
+      "ci_high": 20.347642276422764,
+      "n": 123,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "I_own_null": false,
+    "I_donor_positive": true,
+    "S_substantial": true
+  },
+  "g11": {
+    "model_tag": "llama31-8b",
+    "units": 251,
+    "parse_rate": 0.98828125,
+    "boundary_accuracy": 1.0,
+    "qualified": true,
+    "own_pull_redacted": {
+      "mean": -1.3878486055776893,
+      "ci_low": -4.912749003984064,
+      "ci_high": 2.15597609561753,
+      "n": 251,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "donor_pull_redacted": {
+      "mean": 11.308167330677291,
+      "ci_low": 8.010557768924302,
+      "ci_high": 14.636653386454183,
+      "n": 251,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "donor_pull_full": {
+      "mean": 9.883107569721115,
+      "ci_low": 6.06187250996016,
+      "ci_high": 13.830318725099602,
+      "n": 251,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "explicit_label_contribution": {
+      "mean": -1.4250597609561753,
+      "ci_low": -4.093545816733068,
+      "ci_high": 1.30597609561753,
+      "n": 251,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "S_redacted": {
+      "mean": 20.289043824701196,
+      "ci_low": 17.652988047808766,
+      "ci_high": 22.9902390438247,
+      "n": 251,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "retention": 1.1441914651745906,
+    "pairing_validity_ok": true,
+    "verdict": "survives"
+  },
+  "g12": {
+    "model_tag": "llama31-8b",
+    "assignment_sha256": "19ce7ce190ab88b11ece52fe332934d64555a8f71133196e1b223d657e51a6c1",
+    "units": 253,
+    "parse_rate": {
+      "YES": 1.0,
+      "NO": 0.98828125
+    },
+    "boundary_accuracy": {
+      "YES": 1.0,
+      "NO": 1.0
+    },
+    "qualified": true,
+    "causal_contrast": {
+      "mean": 18.02905138339921,
+      "ci_low": 14.48201581027668,
+      "ci_high": 21.608102766798417,
+      "n": 253,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "absolute_pair_difference": {
+      "mean": 24.02628458498024,
+      "ci_low": 21.036561264822133,
+      "ci_high": 27.12727272727273,
+      "n": 253,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "recipient_aligned_validity": {
+      "mean": -0.15158102766798418,
+      "ci_low": -4.407707509881423,
+      "ci_high": 4.184189723320158,
+      "n": 253,
+      "n_resamples": 10000,
+      "seed": 20260829
+    },
+    "validity_ok": true,
+    "verdict": "causal-outcome-entrainment"
+  },
+  "extension_verdict": "partial-chain",
+  "original_panel_verdicts_unchanged": {
+    "g8_packet_swap_analysis.json": {
+      "qualified_models": 3,
+      "I_own_null_models": 3,
+      "I_donor_positive_models": 1,
+      "S_substantial_models": 3,
+      "pairing_validity_ok": true
+    },
+    "g11_redacted_swap_analysis.json": {
+      "tally": {
+        "survives": 2,
+        "verdict-dependent": 1,
+        "indeterminate": 0
+      },
+      "qualified_models": 3,
+      "verdict": "survives"
+    },
+    "g12_donor_outcome_analysis.json": {
+      "tally": {
+        "causal-outcome-entrainment": 1,
+        "practically-null": 1,
+        "indeterminate": 0
+      },
+      "qualified_models": 2,
+      "verdict": "indeterminate"
+    }
+  }
+}

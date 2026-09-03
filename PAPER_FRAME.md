@@ -18,7 +18,7 @@ It is deliberately a natural question, not a benchmark construct. BTF-3 gives us
 
 We give models a historical forecasting question and later evidence revealing how the event resolved. We then ask for the judgment that should be made from the earlier point in time.
 
-Across 256 fresh questions, the three primary open checkpoints can identify almost perfectly (99.2–100%) that the resolution evidence comes from the future relative to the target judgment. Yet seeing that evidence still changes their probability by 7.46–27.73 points.
+Across 256 fresh questions, Qwen, Gemma, and Llama identify with 97.7–100% accuracy that the resolution evidence comes from the future relative to the target judgment. Yet seeing that evidence still changes their probability by 16.02–28.23 points. These three similarly sized, canonical model families form the main behavioral comparison; the originally preregistered Mistral result remains fully reported as an additional heterogeneous family.
 
 The basic result is simple:
 
@@ -30,9 +30,9 @@ The paper starts here, but does not stop here.
 
 A natural first explanation is that models simply integrate highly diagnostic evidence about the event they are judging. G8 breaks that link: we replace the event's own resolution packet with a packet from a different resolved event.
 
-Those foreign packets still move the recipient judgment substantially, and the movement tends to follow the donor event's outcome. A future packet supporting YES pulls another question upward; one supporting NO pulls it downward.
+Those foreign packets still move the recipient judgment substantially. This first step shows that the hindsight effect is not confined to diagnostic evidence about the target event.
 
-G11 removes the explicit YES/NO verdict sentence from those foreign packets. The directional pull remains strong in Qwen and Gemma and becomes much weaker in Mistral.
+G11 then asks whether this cross-event influence has directional structure. After removing the explicit YES/NO verdict sentence, a future packet supporting YES pulls another question upward and one supporting NO pulls it downward in Qwen, Gemma, and Llama. Mistral is much more dependent on the explicit verdict.
 
 This reveals a more specific regularity beneath the headline hindsight effect:
 
@@ -48,9 +48,9 @@ The recipient YES probability rises by:
 
 - **+4.41pp** in Qwen;
 - **+17.50pp** in Gemma;
-- **+1.55pp** in Mistral.
+- **+18.03pp** in Llama.
 
-The magnitude differs sharply across models, but all three move in the predicted direction.
+Mistral, retained as an additional family, moves only **+1.55pp** and meets the preregistered practical-null rule. The original Qwen/Gemma/Mistral panel verdict therefore remains `indeterminate`; the prospectively added Llama result is a separate positive replication, not a retroactive change to that gate.
 
 This is the behavioral bridge from “later outcomes distort the past” to a mechanistic question: **how does information about an outcome become part of the current decision?**
 

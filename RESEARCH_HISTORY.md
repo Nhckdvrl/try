@@ -74,7 +74,21 @@ We named this **retrospective outcome entrainment**. It is a discovered result, 
 
 ### G12 — change outcome direction
 
-For the same recipient history, replacing a NO-supporting foreign packet with a YES-supporting packet moved the YES probability upward in all three primary models: +4.41pp, +17.50pp, and +1.55pp.
+For the same recipient history, replacing a NO-supporting foreign packet with a YES-supporting packet moved the YES probability upward in the original panel: +4.41pp in Qwen, +17.50pp in Gemma, and +1.55pp in Mistral. The frozen panel verdict was `indeterminate` because these effects occupied different threshold rows.
+
+### Prospective Llama extension
+
+Llama-3.1-8B had been selected in the earlier G4 breadth design but had not
+been part of the original explanatory panels. A later preregistered extension
+reused the exact G8, G11, and G12 instruments. It found a large A1 hindsight
+effect (+28.23pp), verdict-redacted donor pull in G11 (+11.31pp), and a strong,
+valid paired G12 contrast (+18.03pp). Its random-pair G8 result was formally
+invalid because the inherited recipient-balance interval crossed its bound.
+
+The paper therefore uses Qwen/Gemma/Llama as a canonical matched-scale
+comparison while retaining Mistral as a fully disclosed additional family.
+This organization does not retroactively change the original panel or its
+preregistered verdicts.
 
 The effect is heterogeneous, but the directional relationship motivated a concrete mechanistic question: how does known outcome information become part of the current decision?
 

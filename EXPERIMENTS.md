@@ -12,7 +12,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** The same historical question is evaluated with and without a post-cutoff resolution packet. A separate probe checks whether the model recognizes that the packet comes from after the target time. The effect was discovered on 8 items, prospectively confirmed on 64 fresh items, and then replicated on 256 additional fresh items.
 
-**Result.** In the 256-item round, the three primary open checkpoints recognize the time boundary at 99.2–100%, yet the later evidence still shifts the past judgment by 7.46–27.73 probability points.
+**Result.** In the 256-item round, the canonical Qwen/Gemma/Llama comparison recognizes the out-of-set time boundary at 97.7–100%, yet later evidence still shifts the past judgment by 16.02–28.23 probability points. Mistral, from the original frozen panel, also shows the headline effect (+7.46pp) and remains an additional reported family.
 
 **Paper role.** Headline phenomenon: models show a strong hindsight effect even when they know which evidence came later.
 
@@ -22,7 +22,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Replace the target event's future packet with the resolution packet of a different event.
 
-**Result.** Foreign packets still cause substantial movement (50.7–100.1% of the absolute movement caused by real packets), and donor-directed pull is positive across the three primary models, though its magnitude is heterogeneous.
+**Result.** In the original panel, foreign packets cause 50.7–100.1% as much absolute movement as real packets; only Gemma passes the frozen donor-direction gate. In the prospective Llama extension, donor pull is +10.07pp, but accidental recipient imbalance makes the inherited random-pairing test formally invalid. G12 supplies the clean paired outcome-direction test.
 
 **Paper role.** First explanatory step below generic hindsight: later context carries a directional outcome influence even when it is about another event.
 
@@ -32,7 +32,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Remove explicit verdict sentences from the foreign future packets while retaining the remaining post-outcome evidence.
 
-**Result.** Qwen and Gemma retain most of the donor-directed pull; Mistral is much more verdict-dependent.
+**Result.** Qwen, Gemma, and prospectively tested Llama retain a directional pull after redaction; Mistral is much more verdict-dependent.
 
 **Paper role.** Shows that the directional effect can be carried by outcome-shaped evidence, not only by copying a visible answer label.
 
@@ -42,7 +42,7 @@ The original preregistration documents are preserved **unchanged** in [`preregis
 
 **Design.** Hold the recipient history and non-packet prompt fixed; replace a verdict-redacted irrelevant packet supporting NO with a different verdict-redacted irrelevant packet supporting YES.
 
-**Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +1.55pp (Mistral). The direction is consistent; magnitude is strongly model-dependent.
+**Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +18.03pp (prospective Llama replication). Mistral rises by +1.55pp and satisfies its frozen practical-null rule. The original Qwen/Gemma/Mistral panel verdict remains `indeterminate`.
 
 **Paper role.** Direct behavioral evidence that outcome direction controls the pull.
 
@@ -118,12 +118,15 @@ The BTF-3 transformation contract, factuality-audit protocol, frozen data artifa
 
 Exact preregistration text is in [`preregistrations/`](preregistrations/), organized by [`preregistrations/README.md`](preregistrations/README.md). The corresponding Git freeze commits/tags remain the authority for chronology relative to model outputs.
 
-## F. Active prospective extension
+## F. Completed prospective extension
 
-**Llama-3.1-8B explanatory descent.** A1 already exists from the frozen G4
-panel: hindsight intrusion is +28.23pp, OOB boundary recognition is 250/256,
-but the original stronger two-frame G4 qualification failed because the model
-misread the licensed/all-information boundary check. The prospectively frozen
-extension runs the unchanged G8, G11, and G12 instruments to locate how far the
-Meta family follows the positive explanatory chain. Mistral and every original
-panel verdict remain unchanged.
+**Llama-3.1-8B explanatory descent.** A1 from the frozen G4 panel shows
++28.23pp hindsight intrusion and 250/256 OOB boundary recognition, while the
+original stronger two-frame qualification fails because the licensed probe is
+only 127/256. The prospectively frozen extension finds positive G8 donor pull
+(+10.07pp) but fails that round's recipient-balance validity gate. Verdict-
+redacted pull survives in G11 (+11.31pp), and the direct paired G12 contrast is
++18.03pp [14.48, 21.61] with its validity check passed. The frozen overall
+extension verdict is therefore `partial-chain`. See
+[`results/llama_behavioral_extension_results.md`](results/llama_behavioral_extension_results.md).
+Mistral and every original panel verdict remain unchanged.

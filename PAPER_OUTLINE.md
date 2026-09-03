@@ -21,7 +21,7 @@ The title should keep **hindsight / judging the past** as the object. `Retrospec
 
 ## Abstract draft
 
-> Once an outcome is known, can a language model still judge an earlier situation without hindsight? We study this on natural forecasting questions whose later resolutions are known. On 256 fresh questions, three open models identify with 99.2–100% accuracy that resolution evidence became available only after the historical point they are asked to judge. Yet seeing that evidence shifts their earlier probability judgments by 7.5–27.7 points. We then ask what structure this hindsight effect has. Resolution evidence from an unrelated event still moves the current judgment, and the movement follows the unrelated event's outcome; much of this directional pull survives removal of explicit YES/NO verdict sentences in two of the three models. In a paired intervention, replacing NO-supporting later evidence with YES-supporting later evidence raises the same recipient probability in all three models, with strongly model-dependent magnitude. Finally, in the strongest-effect model, we test how this outcome influence enters the decision. A shared packet-local outcome code is decodable but does not causally transfer behavior. Instead, a prospectively confirmed late answer-position state transfers 6.5–9.0 probability points after the later evidence has been integrated with the current question. These results show that language models can know which information came later while still allowing known outcomes to reshape judgments of the past, and reveal a directional pathway through which hindsight enters the decision.
+> Once an outcome is known, can a language model still judge an earlier situation without hindsight? We study this on natural forecasting questions whose later resolutions are known. Across three similarly sized, canonical open-model families, models identify with 97.7–100% accuracy that resolution evidence became available only after the historical point they are asked to judge. Yet seeing that evidence shifts their earlier probability judgments by 16.0–28.2 points. We then ask what structure this hindsight effect has. Resolution evidence from an unrelated event still moves the current judgment, and verdict-redacted evidence pulls Qwen, Gemma, and Llama toward the outcome it supports. In a paired intervention, replacing NO-supporting later evidence with YES-supporting later evidence raises the same recipient probability by 4.4–18.0 points across these families. A fully reported additional Mistral checkpoint shows the broad hindsight effect but a weaker, verdict-dependent directional effect. Finally, in the strongest mechanistic setting, we test how this outcome influence enters the decision. A shared packet-local outcome code is decodable but does not causally transfer behavior. Instead, a prospectively confirmed late answer-position state transfers 6.5–9.0 probability points after the later evidence has been integrated with the current question. These results show that language models can know which information came later while still allowing known outcomes to reshape judgments of the past, and reveal a directional pathway through which hindsight enters the decision.
 
 ## 1. Introduction — Can a model judge the past after it knows the ending?
 
@@ -65,10 +65,10 @@ Explain the 8-item discovery → 64-item prospective confirmation → 256-item f
 
 Lead with the 256 fresh items.
 
-Show, for the three primary checkpoints:
+Show, for the canonical Qwen3.5-9B, Gemma-3-12B, and Llama-3.1-8B comparison:
 
-- time recognition: 99.2–100%;
-- shift caused by later evidence: 7.46–27.73 probability points.
+- time recognition: 97.7–100%;
+- shift caused by later evidence: 16.02–28.23 probability points.
 
 This is the first major figure.
 
@@ -86,15 +86,15 @@ This is the conceptual center of the paper after the headline result.
 
 Give the historical question a resolution packet from a different event.
 
-Foreign packets still cause 50.7–100.1% as much absolute movement as the event's own resolution packet. More importantly, the movement tends to follow the donor event's outcome.
+In the original panel, foreign packets still cause 50.7–100.1% as much absolute movement as the event's own resolution packet. This establishes cross-event influence. Do not make G8 carry the directional claim: only Gemma passes its frozen donor-direction gate, and Llama's later extension has accidental recipient imbalance under this random pairing.
 
 This changes the interpretation of the phenomenon: hindsight is not only the rational integration of highly diagnostic future evidence about the target event.
 
 ### 4.2 The pull survives without the visible verdict — G11
 
-Remove the explicit YES/NO verdict sentence from the foreign packet.
+Remove the explicit YES/NO verdict sentence from the foreign packet. This is where the paper first makes the cross-event directional claim.
 
-Qwen and Gemma retain much of the directional pull; Mistral is more dependent on the explicit verdict.
+Qwen, Gemma, and Llama retain a directional pull after verdict redaction; Mistral is more dependent on the explicit verdict.
 
 Introduce the term here:
 
@@ -110,9 +110,9 @@ Report the paired shifts directly:
 
 - Qwen +4.41pp;
 - Gemma +17.50pp;
-- Mistral +1.55pp.
+- Llama +18.03pp.
 
-The important result is the directional causal relationship; the heterogeneity is scientifically interesting rather than something to apologize for.
+The important result is the directional causal relationship across the canonical comparison. Report Mistral's +1.55pp practical-null result in the same complete table or appendix and state that the original Qwen/Gemma/Mistral panel gate remains indeterminate. The prospective Llama replication does not rewrite that historical verdict.
 
 ## 5. How outcome information enters the decision
 
@@ -191,6 +191,9 @@ Answer position: late causal transfer after recipient integration, with orthogon
 ## Appendix organization
 
 - exact experimental registry and original preregistrations;
+- model-selection chronology: Qwen/Gemma/Mistral were the original frozen panel; Llama was preselected in G4 and added prospectively to the explanatory descent;
+- full four-model tables, including Mistral's weak verdict-dependent result;
+- Llama qualification details: G4 failed the stronger licensed-frame probe, and G8 failed its recipient-balance validity gate despite positive donor pull; G11 and G12 passed;
 - sampling / freeze / data-quality details;
 - supporting scale and model-breadth characterization;
 - G3 exclusion-reason results;
