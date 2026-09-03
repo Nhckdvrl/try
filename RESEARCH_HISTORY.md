@@ -1,194 +1,136 @@
-# Research history — from *Unring the Bell* to retrospective epistemic reconstruction
+# Research history — from *Unring the Bell* to hindsight
 
-This document preserves the scientific evolution of the project so obsolete stage-by-stage narrative files can be removed without erasing why the current question exists.
+This file preserves **why the question changed** over the life of the project. It is not the paper narrative and not a replacement for the original preregistrations in [`preregistrations/`](preregistrations/).
 
-It is **history, not the current paper frame**. For live claims, read `PAPER_FRAME.md`.
+## 1. Starting question — *Can LLMs Unring the Bell?*
 
-## 0. Starting point: *Can LLMs Unring the Bell?*
+The project began from a familiar intuition: once evidence has been seen, perhaps it is especially hard to ignore when it is later declared inadmissible.
 
-The original project was motivated by a human-style “Unring the Bell” intuition: if evidence is later declared inadmissible, perhaps a model will continue to use it because it has already incorporated it.
+G0 preregistered the prediction that exclusion **after** evidence would be harder than exclusion **before** it.
 
-G0 preregistered a broad controlled study over 144 frozen items and multiple task families/models. The central temporal prediction was **reversed**. Models were generally better at suppressing evidence when the exclusion rule came **after** the evidence than when the same rule was stated **before** it.
+The result went the other way. Across a broad model panel, models were generally *better* at suppressing evidence when the exclusion instruction came after the evidence. The original *Unring the Bell* headline therefore died.
 
-That killed the original headline. The important surviving observation was not “LLMs cannot unring the bell,” but a prospective nullification problem: models could often state the exclusion rule correctly yet still let supposedly zero-weight evidence influence a later decision.
+What survived was more interesting: models could often state that evidence should receive zero weight while still letting it influence a later decision, especially when the rule was given before the evidence arrived.
 
-This reversal is the first important epistemic transition in the project. It must remain visible because the current paper was not designed backwards from the final result.
+That reversal started the next phase.
 
-## 1. Controlled-mechanism phase: prospective nullification gap
+## 2. Controlled phase — prospective nullification
 
-Stages 2–5 tried to understand the reversed effect in controlled synthetic tasks.
+A long controlled program tested why prospective exclusion failed. It varied rule position, distance, weight, target description, tags, explicit weight retrieval, routing structure, and internal representations.
 
-The program tested whether the failure was explained by distance/recency, exact-zero discontinuity, prospective memory, object identity/addressability, class predicates, explicit weight retrieval, semantic tags, and internal rule representations. Several early interpretations were overturned by later controls.
+Several apparent explanations were later overturned by cleaner controls. The phase produced real behavioral and mechanistic observations, but the research was becoming increasingly tied to a synthetic prompt grammar: “a future item receives weight zero.”
 
-Useful lessons survived, but the phase became too tied to a particular controlled prompt grammar. In particular:
+The important lesson was broader than that grammar:
 
-- exact-zero suppression behaved differently from non-zero attenuation;
-- declarative knowledge of the rule did not guarantee causal non-use;
-- some apparently promising “class routing” explanations were artifacts of semantic tags;
-- mechanistic interventions could localize states in the controlled setup, but the scientific object was becoming narrower than the natural question that motivated the work.
+> a model can know a rule about what information should matter without that rule determining what actually influences the decision.
 
-These experiments are scientifically useful provenance, not the submission narrative.
+The submission, however, needed a more natural question.
 
-## 2. Broad reframing: Information-Set Reasoning
+## 3. Broad phase — Information-Set Reasoning
 
-The project then generalized the problem away from a particular “zero-weight rule.” The broader question became whether a model can reason from a **specified information set** while possessing information outside it.
+The project generalized from “weight this item zero” to a broader idea: can a model reason using only the information that belongs to a specified situation while other information is also available?
 
-A multi-family program was designed across temporal, perspective, procedural/access, and other candidate boundaries. The intended object was selective causal use of information rather than forgetting or factual recall.
+This motivated experiments across several candidate boundary types.
 
-This was a conceptual improvement: the project stopped asking whether one wording works and started asking whether a reasoner can condition a judgment on the correct epistemic state.
+The program was useful conceptually but too broad empirically. The temporal BTF-3 branch qualified; the perspective-family FANToM branch did not. A later FOMC source attempt also failed its qualification gate.
 
-However, the broad program did not survive qualification cleanly.
+Instead of forcing a multi-domain story, the project narrowed to the natural temporal phenomenon that was actually strong.
 
-## 3. Natural-substrate narrowing: temporal reconstruction on BTF-3
+## 4. Return to a natural question — hindsight
 
-BTF-3 provided a natural measurement window with:
+BTF-3 contains real forecasting questions at an earlier point in time together with later resolution evidence. That gives a direct version of a very ordinary problem:
 
-- a historical forecasting question;
-- information available before a cutoff;
-- a later resolution packet;
-- a continuous probability judgment;
-- a realized outcome.
+> **Once you know how something ended, can you still judge the earlier situation without hindsight?**
 
-The perspective-family FANToM pilot failed qualification. A FOMC external-source attempt later failed its preregistered source-qualification gate. Those failures forced the project to **narrow rather than overclaim**.
+The evidence accumulated in three stages:
 
-The paper therefore became temporal-only: can a model reconstruct a historical judgment while explicit post-cutoff evidence is present but defined as outside the target information set?
+- 8-item discovery;
+- 64-item prospective confirmation;
+- 256-item fresh large replication.
 
-## 4. Replicated phenomenon: recognition without enforcement
+In the 256-item replication, the three primary models identify almost perfectly that the resolution evidence came later, yet seeing it still shifts their earlier probability judgments by 7.46–27.73 points.
 
-The BTF-3 effect was accumulated prospectively:
+At this point the project had a strong hindsight phenomenon, but not yet a satisfying explanation of its structure.
 
-1. 8-item discovery pilot;
-2. 64-item preregistered confirmation;
-3. 256-item preregistered fresh large replication.
+## 5. Explanatory turn — outcomes pull other judgments too
 
-In the 256-unit round, three primary open checkpoints recognized the temporal boundary at 99.2–100% accuracy, yet the future packet still shifted the reconstructed ex-ante probability by roughly 7.5–27.7 points.
+### G8 — foreign outcomes
 
-This established a strong behavioral dissociation: **recognizing that evidence is outside the target information set does not make that evidence causally inert in the decision.**
+The next question was simple: is the effect only because the model is integrating highly diagnostic future evidence about the very event it is judging?
 
-Verdict redaction showed that the effect was not reducible to copying an explicit YES/NO resolution sentence. A within-family Qwen3.5 size sweep showed no monotonic disappearance with scale.
+We replaced that evidence with the resolution of a **different event**.
 
-At this point the paper had a replicated phenomenon, but not yet a sufficiently sharp explanatory step.
+The foreign resolution still moved the recipient judgment substantially, and the movement tended to follow the donor event's outcome.
 
-## 5. Failed and narrowing accounts: G3–G7
+### G11 — remove the visible verdict
 
-The next rounds are important mainly because they prevented an easy but wrong story.
+Removing explicit YES/NO verdict sentences preserved much of the donor-directed pull in Qwen and Gemma, though substantially less in Mistral.
 
-### G3 — exclusion reason
+This suggested a more specific regularity beneath the broad hindsight effect:
 
-Changing why the packet should be excluded — temporal, procedural, unreliable, or no stated reason — did not reduce intrusion at panel level. This weakened a simple “temporal rule is uniquely hard” story.
+> outcome-shaped later context can pull a judgment toward the outcome it supports, even when the context describes another resolved event.
 
-But G3 does **not** prove a general belief-insensitive mechanism: telling a model that a packet may be unreliable does not establish that the model internally treated it as false.
+We named this **retrospective outcome entrainment**. It is a discovered result, not the paper's top-level scientific object.
 
-### G4 — breadth
+### G12 — change outcome direction
 
-Broader checkpoint testing showed that recognition and intrusion are not simply the same capability axis. This is characterization, not the paper’s core explanatory advance.
+For the same recipient history, replacing a NO-supporting foreign packet with a YES-supporting packet moved the YES probability upward in all three primary models: +4.41pp, +17.50pp, and +1.55pp.
 
-### G5 — deliberation
+The effect is heterogeneous, but the directional relationship motivated a concrete mechanistic question: how does known outcome information become part of the current decision?
 
-The preregistered deliberation/state-scaffold test suffered an instrument/design failure and is kept as indeterminate rather than repaired post hoc.
+## 6. Mechanistic turn — from packet to decision
 
-### G6 — early mechanism attempt
+### G13 — packet-local hypothesis
 
-Layer-window masking localized packet access but could not actually distinguish whether a clean ex-ante state had existed and was overwritten versus never constructed. It was therefore excluded from the main mechanistic story.
+The first hypothesis was that different future packets compress their outcomes into a shared one-dimensional signal that is then carried to the answer.
 
-### G7 — external ex-ante anchor
-
-This preregistered test failed in the **opposite direction**: adding the packet moved model judgments closer to BTF-3’s independent ex-ante forecast, not farther away. The uncontaminated judgments correlated only about 0.28–0.33 with that forecast.
-
-This killed any claim that the packet makes models less faithful to an objective/competent ex-ante reference. The paper’s valid object became more precise: **causal invariance to information that is outside the target information set**, not objective forecast quality.
-
-This is why the current natural question should avoid overloading the word “reasonable.”
-
-## 6. Explanatory turn: from generic contamination to outcome-shaped pull
-
-### G8 — foreign future packets
-
-Each recipient question received a post-cutoff resolution packet from a **different question**. These unrelated packets still caused substantial movement, and their effects tended to pull the recipient judgment toward the donor question’s outcome.
-
-This showed that the phenomenon was not limited to integrating evidence diagnostic of the recipient event itself.
-
-The preregistered strong-form threshold was not uniformly met, so the frozen conclusion remained weak/heterogeneous rather than universal.
-
-### G11 — verdict-redacted foreign packets
-
-Removing explicit YES/NO verdict sentences preserved much of the donor-directed pull in Qwen and Gemma, but much less in Mistral. Explicit label copying was therefore insufficient as a panel-level explanation, while model dependence remained real.
-
-This motivated the operational term **retrospective outcome entrainment**: outcome-shaped later context can pull a reconstructed past judgment toward the outcome it supports even when the context comes from another resolved event.
-
-The term is useful, but the paper’s deeper scientific object remains retrospective epistemic reconstruction.
-
-## 7. Direct directional intervention: G12
-
-G12 held the recipient history fixed and replaced a verdict-redacted foreign packet supporting NO with a different verdict-redacted foreign packet supporting YES.
-
-The recipient probability increased in all three primary models, but magnitude was strongly heterogeneous (+4.41pp Qwen, +17.50pp Gemma, +1.55pp Mistral). The preregistered 5pp panel gate was indeterminate.
-
-Critical precision:
-
-> G12 changes the **outcome class of the irrelevant future evidence**, but the YES-supporting and NO-supporting packets are different packets. Packet identity, lexical content, event semantics, and other features are not held fixed.
-
-Therefore the safe result is directional control by outcome-shaped evidence class, **not** isolation of an abstract outcome bit with all other semantics fixed.
-
-## 8. Mechanistic discrimination: G13 → G14 → G15
-
-The mechanistic question became where donor outcome information is transformed into something that causally controls the recipient answer.
-
-### G13 — packet-local scalar hypothesis
-
-Preregistered hypothesis: donor outcome is compressed into a shared one-dimensional packet-local scalar that is transported to the answer.
-
-Result: donor outcome was decodable from packet states, but the preregistered packet-span interchange did not produce the required causal transfer window. The tested packet-local one-dimensional bottleneck was therefore **not established**.
+Outcome was decodable at packet states, but exchanging that tested packet-local signal did not causally transfer the behavior.
 
 ### G14 — answer-site discovery
 
-Moving the analysis to the answer position revealed a late, bidirectional causal transfer pattern, but the inherited global representation criterion missed its preregistered threshold by 0.008. G14 therefore remained a failed composite gate while generating a refined hypothesis: the relevant variable may be **recipient-conditioned**, so within-recipient paired ordering is the correct estimand.
+Moving the intervention to the answer position revealed a late causal pattern. The round did not pass its original composite gate, but it generated a sharper hypothesis: the relevant outcome variable might be **recipient-conditioned**, becoming meaningful only after the future packet is interpreted together with the current question.
 
 ### G15 — prospective confirmation
 
-Before observing fresh outputs/activations, G15 preregistered that refined recipient-conditioned estimand, kept the strict threshold, and rebuilt a fresh donor assignment.
+That refined hypothesis was preregistered before a fresh donor assignment was opened.
 
-The fresh behavioral contrast was +18.84pp [12.94, 24.97]. Late layers showed strong paired ordering; one-dimensional causal interchange at the answer position transferred 6.52–9.04pp across layers 29–47, worked bidirectionally, and disappeared on a matched orthogonal direction.
+The fresh behavioral contrast was +18.84pp [12.94, 24.97]. Late answer-position interventions transferred +6.52 to +9.04pp at layers 29–47, worked in both directions, and were near zero for a matched orthogonal direction.
 
-The resulting claim is strong but bounded:
+This produced the current mechanistic result:
 
-> **In the strong-effect model, future-outcome influence becomes causally actionable after recipient contextualization in a late answer-position decision state; the tested one-dimensional packet-local bottleneck is not supported.**
+> **In Gemma, known outcome information becomes causally expressed after contextual integration, in a late decision state.**
 
-It is not evidence for a dedicated hindsight circuit, and it does not establish whether a clean ex-ante state was constructed earlier.
+## 7. What the failed branches contributed
 
-## 9. Current paper: retrospective epistemic reconstruction
+Several failures mattered because they changed what question the project was asking:
 
-The current scientific object is best stated as:
+- the original *Unring the Bell* direction reversed;
+- the broad multi-boundary program did not qualify beyond the temporal branch;
+- G5's deliberation instrument did not produce a clean result;
+- G6's first mechanism experiment did not distinguish its intended algorithms;
+- G7's external-forecast prediction failed in the opposite direction;
+- G9 did not qualify as a second task;
+- G10 did not yield a coherent mitigation story.
 
-> **After learning how something turned out, can a language model still condition a reconstructed past judgment only on the information that was available beforehand?**
+These results are preserved in `EXPERIMENTS.md`, original preregistrations, results, and Git history. They should not be promoted into equal-weight sections of the paper.
 
-The submission narrative is now:
+## 8. Current paper
+
+The project has come full circle from a specific *Unring the Bell* prediction to a broader but still natural question:
+
+> **Can language models judge the past without hindsight once they know the outcome?**
+
+The current story is:
 
 ```text
-information-set boundary is recognized
-    ↓
-unlicensed future evidence still changes the judgment
-    ↓
-unrelated outcome-shaped evidence produces directional pull
-    ↓
-paired outcome-class replacement controls direction, heterogeneously
-    ↓
-in Gemma, the influence becomes causal in a late recipient-conditioned decision state
+known outcomes alter judgments of the past
+although models know the evidence came later
+        ↓
+outcomes from unrelated events still exert a directional pull
+        ↓
+changing outcome direction changes which way the judgment moves
+        ↓
+in Gemma, the influence becomes causal after contextual integration
 ```
 
-BTF-3 is the measurement window. The scientific object is retrospective information-set conditioning under hindsight.
-
-## 10. What remains open
-
-For an ACL/EMNLP Main submission, the experimental program can stop here.
-
-The unresolved higher-level puzzle is:
-
-> **Why does a represented/recognized information boundary fail to gate the late outcome pathway?**
-
-A future Outstanding-ambition experiment is justified only if it prospectively distinguishes algorithms that all explain G0–G15, for example:
-
-- a genuine admissibility gate exists but is too weak/bypassed;
-- boundary recognition and outcome integration are parallel computations and the decision readout ignores the former;
-- boundary “recognition” is only a probe-readable/readout state with no causal role in the historical judgment.
-
-Do not run another condition merely because it is easy. The next experiment, if any, must answer this algorithmic question.
+The next task is to write this story cleanly. The history explains how we found it; it should not dictate the structure of the final paper.
