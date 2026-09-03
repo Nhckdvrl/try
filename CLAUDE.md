@@ -6,10 +6,12 @@ This is the default project context for Claude Code.
 
 1. `PAPER_FRAME.md` — the authoritative scientific story.
 2. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — what we mean by aligning to strong ACL/EMNLP/NAACL Main and Outstanding papers.
-3. `EXPERIMENTS.md` — one consolidated registry of all experimental rounds and preregistration history.
+3. `EXPERIMENTS.md` — concise registry of all experimental rounds.
 4. `RESEARCH_HISTORY.md` — how *Unring the Bell* evolved into the current hindsight paper.
 5. `PAPER_OUTLINE.md` — current paper narrative and figures.
-6. `RELATED_WORK_2026.md` — conceptual neighbours and positive positioning.
+6. `RELATED_WORK_2026.md` — conceptual neighbors and positive positioning.
+
+For exact frozen experimental details, use `preregistrations/`. Old failed research branches and detailed early-stage narratives live in `archive/` and should **not** override the current frame.
 
 ## Scientific objective
 
@@ -19,7 +21,7 @@ The paper asks one natural question:
 
 The scientific object is **hindsight in language-model reasoning**.
 
-Do not replace this with technical meta-language such as “retrospective epistemic reconstruction,” “information-set conditioning,” or a benchmark-specific metric. Those can be useful in methods, but they are not what the paper is *about*.
+Do not replace this with technical meta-language such as “retrospective epistemic reconstruction,” “information-set conditioning,” or a benchmark-specific metric. Those terms can be useful inside methods or historical notes, but they are not what the paper is about.
 
 The positive explanatory chain is:
 
@@ -34,25 +36,28 @@ The positive explanatory chain is:
 
 This project must not become a catalogue of reviewer objections.
 
-Do **not** add experiments because “a reviewer might ask for another model / prompt / benchmark / control / mitigation.” Do not organize the paper as a sequence of “not X, not Y, not Z.” Strong ACL/EMNLP papers usually establish a natural phenomenon and then descend through positive explanatory questions.
+Do **not** add experiments because “a reviewer might ask for another model / prompt / benchmark / control / mitigation.” Do not organize the paper as a sequence of “not X, not Y, not Z.” Strong ACL/EMNLP papers establish a natural phenomenon and then descend through positive explanatory questions.
 
-The main text should therefore read:
+The main text should read:
 
-> question → phenomenon → sharper regularity → causal test → mechanism
+> **question → phenomenon → sharper regularity → causal test → mechanism**
 
 not:
 
 > claim → objection 1 → control → objection 2 → control → limitation list.
 
-Failed experiments and preregistered reversals remain important scientific history, but they belong in `RESEARCH_HISTORY.md`, `EXPERIMENTS.md`, or the appendix unless they directly move the main explanatory story forward.
+Controls are warranted when they are necessary for validity or when they reveal a genuinely new scientific relationship. Reviewer defense alone is not a scientific reason to run an experiment.
 
-The default is **no new experiment**. If a genuinely new scientific question emerges, formulate it first and then decide whether an experiment is needed. “Reviewer defense” is not a scientific question.
+Failed experiments and preregistered reversals remain important history, but they belong in `RESEARCH_HISTORY.md`, `EXPERIMENTS.md`, `preregistrations/`, or the appendix unless they directly move the main explanatory story forward.
+
+The default is **no new experiment**. If a genuinely new scientific question emerges, formulate it first and only then decide whether an experiment is needed.
 
 ## Evidence discipline
 
-- Preserve the real chronology: especially the reversed original *Unring the Bell* prediction, the failed broad-family attempt, G7, and the G13 → G14 → G15 development.
-- Do not rewrite historical preregistrations. Individual top-level preregistration files have been consolidated out of the root; their exact text remains in Git history/freeze commits and is summarized in `EXPERIMENTS.md`.
-- Report the actual continuous results. Do not turn frozen decision thresholds into the paper's conceptual vocabulary.
+- Preserve the real chronology, especially the reversed original *Unring the Bell* prediction and G13 → G14 → G15 development.
+- Original preregistrations are preserved unchanged in `preregistrations/`; their freeze commits/tags remain the authority for chronology.
+- Use `EXPERIMENTS.md` for normal project navigation rather than opening twenty preregistrations by default.
+- Report the actual continuous results. Frozen thresholds are experiment bookkeeping, not the conceptual vocabulary of the paper.
 - Mechanistic conclusions from G13–G15 are Gemma-specific unless separately established.
 - BTF-3 is the natural experimental substrate, not the identity of the scientific question.
 
@@ -68,4 +73,4 @@ Check occupancy before launching and use idle cards only. During daytime, avoid 
 
 ## Git policy
 
-Completed research/documentation changes should land directly on `main`. Keep commits coherent and descriptive. Preserve scientific provenance in Git history even when obsolete top-level narrative/preregistration files are consolidated for readability.
+Completed research/documentation changes should land directly on `main`. Keep commits coherent and descriptive. Preserve scientific provenance when consolidating old files: current narrative lives at the root, original preregistrations in `preregistrations/`, and dead research branches in `archive/`.
