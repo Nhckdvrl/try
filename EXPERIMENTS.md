@@ -2,7 +2,7 @@
 
 This is the single live index of the experimental program.
 
-The repository previously kept one top-level `PREREGISTRATION_*.md` file for nearly every round. That was useful while experiments were being designed, but it made the project hard to read once the scientific story stabilized. The original preregistration files remain recoverable from Git history and their freeze commits/tags; this file records what each round asked, what happened, and what role it has in the paper. Historical preregistrations must not be retrospectively rewritten.
+The original preregistration documents are preserved **unchanged** in [`preregistrations/`](preregistrations/). Use this file to understand what each round asked, what happened, and what role it has in the paper; open an original preregistration when you need exact hypotheses, estimands, thresholds, sampling rules, qualification gates, or frozen analysis plans.
 
 ## A. Main paper sequence
 
@@ -18,13 +18,13 @@ The repository previously kept one top-level `PREREGISTRATION_*.md` file for nea
 
 ### A2. G8 — foreign resolved events
 
-**Question.** Is the hindsight effect tied to evidence about the target event, or can the mere shape of a known outcome pull another judgment?
+**Question.** Is the hindsight effect tied to evidence about the target event, or can the outcome of another resolved event pull the judgment too?
 
 **Design.** Replace the target event's future packet with the resolution packet of a different event.
 
 **Result.** Foreign packets still cause substantial movement (50.7–100.1% of the absolute movement caused by real packets), and donor-directed pull is positive across the three primary models, though its magnitude is heterogeneous.
 
-**Paper role.** First explanatory step below generic hindsight: the influence is organized by the outcome supported by later context, not only by evidence diagnostic of the target event.
+**Paper role.** First explanatory step below generic hindsight: later context carries a directional outcome influence even when it is about another event.
 
 ### A3. G11 — outcome evidence without an explicit verdict
 
@@ -34,7 +34,7 @@ The repository previously kept one top-level `PREREGISTRATION_*.md` file for nea
 
 **Result.** Qwen and Gemma retain most of the donor-directed pull; Mistral is much more verdict-dependent.
 
-**Paper role.** Shows that the directional effect is carried by outcome-shaped evidence, not only by copying a visible answer label.
+**Paper role.** Shows that the directional effect can be carried by outcome-shaped evidence, not only by copying a visible answer label.
 
 ### A4. G12 — paired outcome-direction intervention
 
@@ -44,7 +44,7 @@ The repository previously kept one top-level `PREREGISTRATION_*.md` file for nea
 
 **Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +1.55pp (Mistral). The direction is consistent; magnitude is strongly model-dependent.
 
-**Paper role.** Direct behavioral evidence that outcome direction controls the pull. The experiment does not isolate a single abstract outcome bit because the two donor packets are different pieces of text.
+**Paper role.** Direct behavioral evidence that outcome direction controls the pull.
 
 ### A5. G13 → G14 → G15 — where outcome influence becomes causal
 
@@ -56,7 +56,7 @@ The repository previously kept one top-level `PREREGISTRATION_*.md` file for nea
 
 **G15.** Before observing fresh outputs or activations, the recipient-conditioned paired estimand is preregistered on a fresh donor assignment. The fresh behavioral contrast is +18.84pp [12.94, 24.97]. Late answer-position interchange transfers +6.52 to +9.04pp at layers 29–47, works in both directions, and is near zero on a matched orthogonal direction.
 
-**Paper role.** In Gemma, the outcome influence becomes causally expressed in a late recipient-conditioned decision state; the tested one-dimensional packet-local bottleneck is not supported.
+**Paper role.** In Gemma, the outcome influence becomes causally expressed in a late recipient-conditioned decision state.
 
 ## B. Supporting characterization
 
@@ -68,7 +68,7 @@ Removing the explicit resolution verdict from the target event's own future pack
 
 ### B2. Qwen3.5 size sweep
 
-Qwen3.5 4B/9B/27B all show the effect, with a strongly non-monotonic pattern (32.00 → 16.02 → 36.75pp). This is characterization, not a scaling-law claim.
+Qwen3.5 4B/9B/27B all show the effect, with a strongly non-monotonic pattern (32.00 → 16.02 → 36.75pp). This is characterization, not the paper's conceptual center.
 
 ### B3. G3 — exclusion reason
 
@@ -76,7 +76,7 @@ Changing the stated reason for ignoring the packet (temporal, procedural, unreli
 
 ### B4. G4 — model breadth
 
-Broader checkpoint testing shows that recognizing the boundary and resisting outcome influence are not the same capability axis. This supports the behavioral dissociation but is not the paper's conceptual center.
+Broader checkpoint testing shows that recognizing the boundary and resisting outcome influence are not the same capability axis. This supports the headline dissociation but is not a separate story.
 
 ## C. Historical rounds that changed or narrowed the project
 
@@ -88,7 +88,7 @@ The original preregistered prediction was that excluding evidence after seeing i
 
 ### C2. G1 and factorization rounds — broad Information-Set Reasoning
 
-The project tried to generalize the phenomenon across multiple kinds of information boundaries. BTF-3 temporal tasks qualified; the perspective-family FANToM branch did not. This forced a narrower, natural hindsight paper rather than a broad information-set benchmark paper.
+The project tried to generalize the phenomenon across multiple kinds of information boundaries. BTF-3 temporal tasks qualified; the perspective-family FANToM branch did not. This forced a narrower empirical program and ultimately returned the project to the natural question of hindsight.
 
 ### C3. G5 — deliberation/state scaffold
 
@@ -100,7 +100,7 @@ Layer-window masking localized access from packet to answer but did not distingu
 
 ### C5. G7 — external ex-ante anchor
 
-The preregistered prediction failed in the opposite direction: later evidence moved model judgments closer to BTF-3's independent ex-ante forecast. The round removed an unnecessary claim about objective forecast fidelity and left the within-item hindsight effect untouched.
+The preregistered prediction failed in the opposite direction: later evidence moved model judgments closer to BTF-3's independent ex-ante forecast. This removed an unnecessary claim about objective forecast fidelity and left the within-item hindsight effect untouched.
 
 ### C6. G9 — numeric second-task attempt
 
@@ -108,12 +108,12 @@ The task did not pass its qualification gate and therefore provides no replicati
 
 ### C7. G10 — worked-example mitigation
 
-Results were heterogeneous across models. This is not a main contribution and should not be used to turn the paper into a mitigation study.
+Results were heterogeneous across models. This is not a main contribution and should not turn the paper into a mitigation study.
 
 ## D. Data and audit artifacts
 
 The BTF-3 transformation contract, factuality-audit protocol, frozen data artifacts, result files, analysis code, and raw outputs remain in their existing locations. These are provenance and reproduction materials, not paper-navigation documents.
 
-## E. How to recover an original preregistration
+## E. Original preregistrations
 
-The individual preregistration files were consolidated out of the repository root on 2026-09-03. Their exact historical text remains in Git history and, where used, the corresponding freeze commits/tags. To inspect one, use Git history for its former filename (for example `PREREGISTRATION_G15_DECISION_CONFIRMATION.md`) rather than reconstructing it from this summary.
+Exact preregistration text is in [`preregistrations/`](preregistrations/), organized by [`preregistrations/README.md`](preregistrations/README.md). The corresponding Git freeze commits/tags remain the authority for chronology relative to model outputs.
