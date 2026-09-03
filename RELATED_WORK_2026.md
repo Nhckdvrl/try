@@ -1,93 +1,154 @@
-# Related work — hindsight in language-model reasoning
+# Related work — advance commitment to ignore evidence
 
 The paper asks:
 
-> **After a language model learns how something turned out, can it still judge the past without hindsight?**
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-Related work is best understood as four neighboring questions rather than a list of claims we need to defend against.
+Five neighbouring questions, positioned positively. None of these is an objection to
+answer; each is a place where our result sharpens or corrects an existing account.
 
-## 1. Hindsight, outcome bias, and the curse of knowledge
+## 1. Instructed disregard in people
 
-The broad scientific problem predates language models. Human judgments of earlier decisions can change after outcomes are revealed, and people who know an answer can struggle to reconstruct the perspective of someone who did not know it. Hindsight bias, outcome bias, and the curse of knowledge all study versions of this asymmetry between knowing now and judging then.
+Our preregistration was borrowed from this literature. A meta-analysis over 48
+studies and 8,474 participants finds that jurors told to disregard evidence they
+have already heard retain its influence, and can be *more* influenced after the
+instruction (<https://pubmed.ncbi.nlm.nih.gov/16906469/>). Related work on hindsight
+and the curse of knowledge documents the same general asymmetry between knowing now
+and judging then.
 
-This literature motivates the paper's natural question. Our experiments do not assume that LLMs reproduce the same cognitive process as humans; they use controlled outcome information to ask whether a similar retrospective distortion appears in model judgments and, if so, what structure it has.
+We predicted the same ordering in models and got the opposite one. The human
+literature therefore enters the paper as the source of a falsified prediction, not
+as an analogy the results are then bent to fit. We make no claim that models
+implement the human process.
 
-A useful modern replication of classic outcome-bias work is Aiyer et al. (2023), which shows that outcome information changes evaluations of earlier decisions even when participants can explicitly state that outcomes should not matter.
+## 2. Instruction position and instruction following
 
-## 2. Ex-ante and temporal reasoning in language models
+### *Instruction Position Matters in Sequence Generation* — ACL 2024 Findings
+<https://aclanthology.org/2024.findings-acl.693/>
 
-### ExAnte — EACL 2026
+Liu et al. find that moving a task instruction *after* the input improves
+performance, and attribute it to instruction forgetting over long inputs.
 
-https://aclanthology.org/2026.eacl-long.72/
+Our headline has the same sign and a different cause. In our setting the model has
+not forgotten anything: a separate probe returns the required weight as exactly zero
+on 100% of items in both arms, rule-to-answer distance has no main effect, and
+within the prospective arm placing the rule *further* from the answer helps. The
+same behavioural regularity therefore has an explanation other than forgetting when
+the instruction is a suppression policy rather than a task description.
 
-ExAnte evaluates whether models can reason under an earlier temporal cutoff despite possessing later knowledge in their parameters. Across stock prediction, QA, event generation, and publication generation, models often use post-cutoff information.
+### *Did You Forget What I Asked? Prospective Memory Failures in LLMs* — 2026
+<https://arxiv.org/html/2603.23530>
 
-This establishes **ex-ante reasoning under future knowledge** as an important LLM capability problem.
+Compliance with deferred instructions degrades under concurrent load, and a salience
+enhanced format recovers most of it. This is the closest existing framing to ours and
+the contrast is the point: prospective-memory work asks whether the model remembers
+to act. We hold retrieval constant at ceiling and ask whether a remembered policy
+governs the decision. Our rule-to-evidence delay sweep — the gap intact out to ~1,000
+tokens in four of six models — separates the two directly.
 
-Our paper asks a complementary, more directly causal hindsight question. Instead of relying on whatever future knowledge the model happened to internalize during training, we explicitly control the later evidence shown in context and measure how revealing a known outcome changes the same earlier judgment.
+### Instruction hierarchy
+<https://arxiv.org/pdf/2404.13208>, <https://aclanthology.org/2026.findings-acl.1960/>
 
-### *When Do LLMs Apply the Wrong Law?* — 2026
+This line assumes that a higher-privilege instruction, given earlier and from a more
+trusted source, should dominate. Our agent result is a limiting case for that
+assumption: a `SYSTEM`-level policy naming a document that has not yet been retrieved
+is worth *nothing* relative to no policy at all in two of three models, while the
+identical policy delivered after the tool output works. Privilege and position do not
+determine enforcement; binding does.
 
-https://arxiv.org/abs/2608.14610
-
-This work studies temporal applicable-law determination. Models often favor the newest statute even for earlier cases, despite understanding temporal scope and knowing historical laws.
-
-The conceptual connection is strong: explicit knowledge of the relevant time boundary need not determine the final judgment. Our paper develops the hindsight side of that problem using resolved events and continuous judgments, then follows the effect into directional outcome influence and internal decision states.
-
-## 3. Contextual distraction and structured influence
-
-Later outcome information is also a form of context, so work on distraction and misleading context is an important neighbor.
+## 3. Distraction and irrelevant context
 
 ### *Llama See, Llama Do* — ACL 2025 Outstanding
+<https://aclanthology.org/2025.acl-long.791/>
 
-https://aclanthology.org/2025.acl-long.791/
+Niu et al. show that tokens which appeared in context receive increased output
+propensity even when random, identify entrainment heads, and attenuate the behaviour
+by ablating them. It is the structural model for this paper: a coarse behavioural
+failure becomes informative once the regularity beneath it is found, and the
+mechanism earns its place by acting on that regularity.
 
-Niu et al. show that distraction has a primitive regularity: tokens that have appeared in context receive increased output propensity even when they are random or semantically irrelevant. They call this **contextual entrainment** and identify attention heads that causally support it.
-
-The lesson for our work is conceptual. A coarse behavioral failure becomes more informative when one discovers the regularity underneath it. Our analogous descent is from “known outcomes alter judgments of the past” to the finding that **outcome-shaped later context produces directional pull even across unrelated events**.
-
-The two phenomena are not identical: our effect depends on semantic interpretation of outcome evidence rather than token occurrence alone.
+The phenomena are different. Contextual entrainment is driven by token occurrence and
+modulated by semantics; our effect is null under high lexical overlap with different
+meaning and strong under a reworded paraphrase, so it is governed by propositional
+content rather than by surface form.
 
 ### *Stochastic Chameleons* — ACL 2025 Main
+<https://aclanthology.org/2025.acl-long.1458/>
 
-https://aclanthology.org/2025.acl-long.1458/
+Irrelevant cues produce structured class-based misgeneralisation rather than noise,
+linked to competing internal computations. It is why "irrelevant context hurts" is
+not a sufficient framing for our result either: our evidence is not irrelevant, it is
+*prohibited*, and the model agrees that it is prohibited.
 
-This work shows that irrelevant contextual cues can cause structured class-based misgeneralization rather than arbitrary noise, and links that behavior to competing internal computations.
+### *Large Language Models Can Be Easily Distracted by Irrelevant Context* — ICML 2023
+<https://arxiv.org/abs/2302.00093>
 
-It reinforces why our paper should not be framed merely as “irrelevant context hurts.” The distinctive object is hindsight: information known *now* reshaping a judgment about *then*. The foreign-packet experiments are useful because they reveal the directional structure of that hindsight influence.
+The origin of the distraction line. Our contribution relative to it is that the
+governing variable is not the presence of the extra material but the structure of the
+policy that is supposed to exclude it.
 
-## 4. Mechanistic explanations of contextualization and decision competition
+## 4. Suppression and unlearning at inference time
+
+### *Answer When Needed, Forget When Not* — ACL 2025 Findings
+<https://aclanthology.org/2025.findings-acl.1276.pdf>
+
+Models instructed to unlearn knowledge in context "pretend to forget": the decision to
+emit a forgetting token is made only in the final layer, with the answer represented
+internally before that.
+
+This is the closest mechanistic neighbour and it is complementary. They study
+suppression of *recall* of parametric knowledge; we study suppression of *evidential
+weight* of in-context material, and find the same late-resolution shape — nothing
+below layer 18, 50% recovery at 21 of 36 — plus the variable that decides whether the
+gate closes at all.
+
+### *Self-Blinding and Counterfactual Self-Simulation* — 2026
+<https://arxiv.org/abs/2601.14553>
+
+Prompting a model to ignore biasing information fails and sometimes backfires;
+querying a genuinely blinded replica works better. That is a mitigation result for
+demographic bias. Ours locates when in-context instructed ignoring works — it does,
+reliably, once the policy can bind to content — which is why a structural fix inside
+one context is available here.
+
+## 5. Mechanistic accounts of contextualisation and competing pathways
 
 ### *Racing Thoughts* — NAACL 2025 Main
+<https://aclanthology.org/2025.naacl-long.155/>
 
-https://aclanthology.org/2025.naacl-long.155/
+Contextualisation errors explained by a race condition between token-processing
+steps, with causal interventions on processing order. The methodological model: the
+mechanism must explain the headline failure. Our span gate, late patching curve and
+matched-chronology interchange all target the pre/post gap itself.
 
-Racing Thoughts asks why contextualization errors occur and proposes a race-condition account based on dependencies between token-processing steps. Causal interventions on processing order support the explanation.
+### *Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions* — EMNLP 2025 Outstanding
+<https://aclanthology.org/2025.emnlp-main.1271/>
 
-The paper is an important methodological model for us: mechanism earns its place by explaining the behavioral phenomenon. Our G13–G15 sequence similarly asks how later outcome information becomes part of the current decision, comparing packet-local transport with contextual construction of a late decision variable.
+Interchange interventions used to answer a theory question about shared abstract
+structure. Our G16 has the same shape: whether tag-bound and identifier-bound
+prospective policies differ in one causally exchangeable state.
 
 ### *Do LLMs Know Tool Irrelevance?* — ACL 2026 Main
+<https://aclanthology.org/2026.acl-long.1473/>
 
-https://aclanthology.org/2026.acl-long.1473/
+A natural failure, an explanatory latent variable that separates semantic relevance
+from structural alignment, then competing pathways that explain the wrong action.
+The closest analogue to our descent: not "models cannot follow exclusion rules", but
+*what the policy can be resolved against* determines whether it governs the decision.
 
-This work separates semantic relevance from structural alignment and identifies competing internal pathways whose relative strength determines tool invocation. It is a strong example of a natural problem leading to an explanatory variable, then to a mechanism.
+## 6. Position of the present paper
 
-For our paper, the comparable conceptual move is not a new benchmark or another exclusion prompt. It is the discovery that known outcomes exert a directional pull and that, in Gemma, this influence becomes causally effective only after contextual integration.
+The surrounding literature establishes that instruction position affects compliance,
+that deferred instructions decay under load, that irrelevant context exerts
+structured influence, and that instructed forgetting can be superficial.
 
-### *Reason to Rote* — EMNLP 2025 Main
+We study the case where the model demonstrably holds the policy and still fails to
+apply it, and show that the deciding factor is neither memory nor position but what
+the policy can bind to. A named future item cannot be bound and is worse than saying
+nothing; propositional content and class markers carried on the evidence can be, and
+make prospective exclusion work — in vignettes and in an agent. The excluded material
+is still read at the decision, gating is resolved late, and the binding state
+transfers causally between matched runs.
 
-https://aclanthology.org/2025.emnlp-main.437/
-
-Reason to Rote asks how memorization relates to reasoning and finds that memorization can build on generalizable reasoning computations rather than replacing them. It is another useful example of mechanism answering a relationship between natural phenomena rather than hunting for a dedicated neuron or circuit label.
-
-## 5. Position of the present paper
-
-The surrounding literature establishes three important facts:
-
-1. models struggle with ex-ante reasoning when later knowledge is available;
-2. models can understand a temporal rule yet still make a temporally inappropriate decision;
-3. contextual information can exert structured, mechanistically interpretable influence on model outputs.
-
-Our paper connects these threads through **hindsight**. We directly manipulate known outcomes while holding the earlier judgment task fixed, then show that the resulting distortion has a directional structure: outcome-shaped later context pulls judgments toward the outcome it supports, even across unrelated resolved events. In the strongest-effect model, we then trace that influence to a late contextualized decision state.
-
-That is the positive positioning the introduction and related-work section should preserve.
+That is the positive positioning the introduction and related-work section should
+preserve.

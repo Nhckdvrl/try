@@ -1,134 +1,245 @@
 # Experiment registry
 
-This is the single live index of the experimental program.
+The single live index of the experimental programme.
 
-The original preregistration documents are preserved **unchanged** in [`preregistrations/`](preregistrations/). Use this file to understand what each round asked, what happened, and what role it has in the paper; open an original preregistration when you need exact hypotheses, estimands, thresholds, sampling rules, qualification gates, or frozen analysis plans.
+Original preregistrations are preserved **unchanged** in
+[`preregistrations/`](preregistrations/). Full result tables for the main line are
+in [`PROSPECTIVE_EXCLUSION_FINDINGS.md`](PROSPECTIVE_EXCLUSION_FINDINGS.md) and
+[`stages/`](stages/). Use this file to see what each round asked, what happened,
+and what role it has; open a preregistration when you need exact hypotheses,
+estimands, thresholds or freeze chronology.
 
-## A. Main paper sequence
+---
 
-### A1. Natural hindsight effect — BTF-3 confirmation and large replication
+# A. Main paper sequence — advance evidence exclusion
 
-**Question.** After a model learns how an event ended, does that later evidence change its judgment of the event as it looked beforehand?
+## A1. G0 — the reversal
 
-**Design.** The same historical question is evaluated with and without a post-cutoff resolution packet. A separate probe checks whether the model recognizes that the packet comes from after the target time. The effect was discovered on 8 items, prospectively confirmed on 64 fresh items, and then replicated on 256 additional fresh items.
+**Question.** Is an exclusion instruction harder to follow when it arrives after
+the evidence, as it is for people?
 
-**Result.** In the 256-item round, the canonical Qwen/Gemma/Llama comparison recognizes the out-of-set time boundary at 97.7–100%, yet later evidence still shifts the past judgment by 16.02–28.23 probability points. Mistral, from the original frozen panel, also shows the headline effect (+7.46pp) and remains an additional reported family.
+**Design.** 144 frozen items, five task families, five conditions plus independent
+rule and memory probes. 12 instruct models from four vendors, plus LLaDA-8B and
+Dream-7B (masked diffusion, bidirectional prompt attention).
 
-**Paper role.** Headline phenomenon: models show a strong hindsight effect even when they know which evidence came later.
+**Result.** Reversed. `Δ_time` negative in all twelve instruct models, ten of twelve
+intervals excluding zero; the admit control is flat everywhere. The rule is not
+forgotten — a separate probe returns "exactly zero" on 100% of items in both arms —
+and the asymmetry is largest in a bidirectional diffusion model.
 
-### A2. G8 — foreign resolved events
+**Paper role.** Headline phenomenon.
+**Prereg.** `PREREGISTRATION_G0.md`. **Results.** `PROSPECTIVE_EXCLUSION_FINDINGS.md`,
+`results/g0_*.json|md`, `results/cluster_robustness.md`.
 
-**Question.** Is the hindsight effect tied to evidence about the target event, or can the outcome of another resolved event pull the judgment too?
+## A2. Stage 2 — distance, anaphora, and the first sight of the weight sweep
 
-**Design.** Replace the target event's future packet with the resolution packet of a different event.
+**Question.** Is the asymmetry decision proximity, linguistic scope, or something
+about binding a rule to an object that does not exist yet?
 
-**Result.** In the original panel, foreign packets cause 50.7–100.1% as much absolute movement as real packets. In the prospective Llama extension, all 256 decisions parse after correcting the strict parser, and foreign packets cause 70.1% as much movement as real packets. Donor pull is +10.10pp, while G12 supplies the clean paired outcome-direction test.
+**Result.** Distance has no main effect in any model and within the prospective arm
+more distance helps. Removing every directional referent shrinks the effect but
+leaves it significant in 3 of 4 models. A coarse weight sweep already shows the
+asymmetry only at zero.
 
-**Paper role.** First explanatory step below generic hindsight: later context carries a directional outcome influence even when it is about another event.
+**Paper role.** Section 3.3 — rules out the two obvious accounts.
+**Results.** `results/stage2_tables.md`, `stages/STAGE3.md` §context.
 
-### A3. G11 — outcome evidence without an explicit verdict
+## A3. Stage 3A — naming the phenomenon
 
-**Question.** Does the donor-directed pull require a literal YES/NO resolution sentence?
+**Question.** What exactly fails?
 
-**Design.** Remove explicit verdict sentences from the foreign future packets while retaining the remaining post-outcome evidence.
+**Results.**
+- **Declarative policy is perfect, the decision ignores it.** 100% "exactly zero"
+  in six models, against REI up to +0.64 prospectively.
+- **Zero is a discontinuity.** Nine requested weights worded identically; pooled
+  `(gap at 0) − (mean gap over eight non-zero levels)` =
+  **+0.295 [+0.185, +0.405], p < 1e-4** (n = 422 item-model pairs). Descriptively
+  uniform; the formal kink term is identified in only 2 of 6 models, and that is
+  reported.
+- **Not prospective-memory decay.** Rule-to-evidence delay to ~1,000 tokens leaves
+  the gap intact in 4 of 6 models; Gemma-3-12B is a real exception.
+- **Announcing the object makes it worse.** L0–L5 ladder, uniform across six models.
+- **A class policy on the evidence works.** Beats the item-specific rule
+  prospectively in 5 of 6 models.
+- **Not one sentence.** Eight ruling constructions, 40 of 40 model × wording cells
+  positive.
 
-**Result.** Qwen, Gemma, and prospectively tested Llama retain a directional pull after redaction; Llama's corrected estimate is +11.69pp [8.29, 15.10] with 115.6% retention. Mistral is much more verdict-dependent.
+**Paper role.** Sections 3.2, 4, 5.1, 5.3.
+**Results.** `stages/STAGE3.md`, `results/stage3_tables.md`, `results/stage3_pooled.md`,
+`results/paraphrase_tables.md`.
 
-**Paper role.** Shows that the directional effect can be carried by outcome-shaped evidence, not only by copying a visible answer label.
+## A4. Stage 3B — tagged evidence stream
 
-### A4. G12 — paired outcome-direction intervention
+**Question.** Does a policy resolved against a marker travelling with each item
+survive being stated in advance?
 
-**Question.** Does replacing NO-supporting later evidence with YES-supporting later evidence systematically change the same recipient judgment?
+**Design.** 48 numeric items, 2/4/8/16 reports, half `[verified]` and half
+`[unverified]`, policy before or after the stream; exact ground truth, so leakage is
+the regression coefficient on the excluded group mean.
 
-**Design.** Hold the recipient history and non-packet prompt fixed; replace a verdict-redacted irrelevant packet supporting NO with a different verdict-redacted irrelevant packet supporting YES.
+**Result.** Leakage 0.406–0.536 with no policy, ≈0 in **both** arms with the policy,
+across five models. Caveat: Qwen3-8B is unstable prospectively at N=16.
 
-**Result.** The recipient YES probability rises by +4.41pp (Qwen), +17.50pp (Gemma), and +18.06pp [14.45, 21.68] in the prospective Llama replication. Mistral rises by +1.55pp and satisfies its frozen practical-null rule. The original Qwen/Gemma/Mistral panel verdict remains `indeterminate`.
+**Paper role.** Section 5.3 — the structural fix.
+**Results.** `results/routing_tables.md`.
 
-**Paper role.** Direct behavioral evidence that outcome direction controls the pull.
+## A5. Stage 3C — attacking the narrow claim
 
-### A5. G13 → G14 → G15 — where outcome influence becomes causal
+**Results.**
+- **Inclusion implicature rejected.** An explicit presentation policy stating that
+  display does not imply relevance rescues no model; the relevance-*positive*
+  control produces gaps as large or larger in 4 of 5.
+- **The discontinuity is bounded.** On a task where the requested contribution is
+  arithmetically implementable, the pre-post gap at `w=0` is exactly **0.000** in 4
+  of 5 models. Phi-4-mini fails retrospectively instead.
 
-**Question.** Is donor outcome carried forward as a shared packet-local scalar, or does it become a causal decision variable only after the packet is interpreted in the recipient context?
+**Paper role.** Section 3.3 and Section 4's boundary condition.
+**Results.** `stages/STAGE3C.md`.
 
-**G13.** Donor outcome is decodable from packet states, but the preregistered one-dimensional packet-span interchange does not produce a causal transfer window.
+## A6. Stage 3D / 3E — semantic addressability, and the confound that changed the metric
 
-**G14.** Moving the intervention to the answer position reveals a late transfer pattern. Its inherited composite gate misses because the global representation criterion falls 0.008 below threshold; this round is discovery for the recipient-conditioned hypothesis.
+**Question.** Does the rule need the target's text, or its meaning?
 
-**G15.** Before observing fresh outputs or activations, the recipient-conditioned paired estimand is preregistered on a fresh donor assignment. The fresh behavioral contrast is +18.84pp [12.94, 24.97]. Late answer-position interchange transfers +6.52 to +9.04pp at layers 29–47, works in both directions, and is near zero on a matched orthogonal direction.
+**Results.** The similarity ladder gives `exact ≈ paraphrase > entailing summary ≈ 0
+> same-direction different fact` in all four models. The proposition relation matrix
+(two models) puts both entailment relations far above everything else, with surface
+overlap at or below the no-preview baseline; the middle rows differ between models
+and are reported that way.
 
-**Paper role.** In Gemma, the outcome influence becomes causally expressed in a late recipient-conditioned decision state.
+**Correction inside the round.** A duplicate control found that a fact already read
+keeps only 6–18% of its marginal weight on second presentation with no rule
+involved. That confound made the ratio metric unstable and the analysis moved to raw
+rating points, separating `marg(no rule)` from `ExclusionEffect`. An earlier
+similarity ladder built on a weak rule form was discarded and rebuilt before
+reporting.
 
-## B. Supporting characterization
+**Paper role.** Section 5.2.
+**Results.** `stages/STAGE3D.md`, `stages/STAGE3E.md`, `results/semaddr_tables.md`,
+`results/stage7_tables.md`, `results/onpolicy_tables.md`.
 
-These experiments sharpen the main result but should not become separate narrative branches in the paper.
+## A7. Stage 4A — the same failure in an agent
 
-### B1. Verdict redaction on the target event
+**Design.** `SYSTEM` policy before retrieval → document in a `TOOL` message →
+assistant answers. 75 items, legal + inference.
 
-Removing the explicit resolution verdict from the target event's own future packet does not eliminate the hindsight effect. This motivated the later foreign-packet decomposition.
+**Result.** An identifier-only system policy is worth nothing in 2 of 3 models
+(+1.014 vs +0.991 naive). The same policy after the tool output is much better in
+all three. Suppression follows the proposition, not the identifier: the same content
+arriving as `D9` defeats an ID-only policy but not a proposition policy.
 
-### B2. Qwen3.5 size sweep
+**Paper role.** Section 6.
+**Results.** `stages/STAGE4.md`, `results/agent_tables.md`, `results/agent_marginal.md`.
 
-Qwen3.5 4B/9B/27B all show the effect, with a strongly non-monotonic pattern (32.00 → 16.02 → 36.75pp). This is characterization, not the paper's conceptual center.
+## A8. Mechanism — span gate, late gating, and matched interchange
 
-### B3. G3 — exclusion reason
+**Model.** Qwen3-8B, 75 items from the two families where a fixed-position readout
+tracks the behavioural one (item-level r = 0.76 and 0.90).
 
-Changing the stated reason for ignoring the packet (temporal, procedural, unreliable, or no reason) does not reduce the effect at panel level. This helped move the project away from a narrow story about one temporal instruction wording.
+**Results.**
+- **Evidence-span causal gate.** Blocking downstream attention to the evidence span
+  returns the answer to Base: +0.46 → −0.12 prospectively, +0.32 → −0.08
+  retrospectively, p < 1e-4 both. A decision-gating failure, not a comprehension
+  failure.
+- **Late resolution.** Answer-position patching recovers nothing below layer 18, 50%
+  at 21, ≈85% by 27 of 36.
+- **Matched-chronology interchange.** With evidence after the rule on both sides and
+  the unrelated preview padded to the paraphrase's token length, rule-span transfer
+  runs both ways at layers 14–18: failure → success **+13.3 [+8.1, +18.9]**, success
+  → failure **−3.6 [−5.9, −1.4]**, admit arm near null.
+- **Attention correlate.** The rule:evidence per-token attention ratio at the answer
+  position tracks the behavioural rescue (2.14 → 2.68 → 2.64). Reported as a
+  correlate, not an explanation.
 
-### B4. G4 — model breadth
+**Correction inside the round.** The first version reported medians of a recovery
+fraction whose denominator is often a few points; it overstated the effect and was
+replaced by rating-point shifts on the pooled 70 items.
 
-Broader checkpoint testing shows that recognizing the boundary and resisting outcome influence are not the same capability axis. This supports the headline dissociation but is not a separate story.
+**Paper role.** Section 7.
+**Results.** `stages/STAGE5.md`, `results/mech/`.
 
-## C. Historical rounds that changed or narrowed the project
+## A9. G16 — binding-state interchange *(designed, not run)*
 
-These are retained because they explain how the project arrived at the current question, not because they belong in the main narrative.
+**Question.** Is the difference between a policy that works before the evidence and
+one that does not a specific, causally manipulable internal state?
 
-### C1. G0 — *Can LLMs Unring the Bell?*
+**Design.** Interchange the late binding state between tag-bound and
+identifier-bound prospective conditions, both directions, matched chronology,
+matched length, matched control direction.
 
-The original preregistered prediction was that excluding evidence after seeing it would be harder than excluding it in advance. The result reversed: post-evidence exclusion was generally easier. This killed the original headline and led to the prospective-nullification line of work.
+**Status.** `preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md`. Must be
+frozen before any generation. **This is the only planned new experiment.**
 
-### C2. G1 and factorization rounds — broad Information-Set Reasoning
+---
 
-The project tried to generalize the phenomenon across multiple kinds of information boundaries. BTF-3 temporal tasks qualified; the perspective-family FANToM branch did not. This forced a narrower empirical program and ultimately returned the project to the natural question of hindsight.
+# B. Supporting characterisation
 
-### C3. G5 — deliberation/state scaffold
+Sharpens the main result; must not become separate narrative branches.
 
-The preregistered instrument did not cleanly qualify because of truncation/design problems. It is indeterminate and not part of the main paper.
+- **B1. Ruling paraphrases.** Eight constructions × five models; the counterfactual
+  phrasing is the *worst* prospectively. `results/paraphrase_tables.md`.
+- **B2. Cluster robustness.** Resampling the 38 case skeletons rather than items
+  barely widens intervals. `results/cluster_robustness.md`.
+- **B3. Reproducibility.** Qwen3-8B run twice end to end; aggregate estimates move by
+  at most 0.06 REI against effects of 0.2–0.6, but 6.9% of cells differ by >5 points
+  because vLLM batching is not bitwise deterministic.
+- **B4. Readout methodology.** Three piloted readouts failed before the freeze:
+  greedy integers collapse to four values; a single-token rating can anti-correlate
+  with the model's own stated reasoning; a 6σ outlier is silently discarded even
+  when the rule says to use it. `results/metric_audit.md`.
+- **B5. External boundary checks.** Ramsey/Liu/Trueblood medication reports and the
+  Baron-Hershey/Aiyer vignettes. Retained as **boundary checks**, not an
+  independently authored held-out tier — see the provenance correction at the top of
+  `results/external_tables.md` and `stages/DATASET_REDESIGN.md`.
 
-### C4. G6 — early mechanism attempt
+---
 
-Layer-window masking localized access from packet to answer but did not distinguish the internal accounts it was meant to separate. It was superseded by the G13–G15 question.
+# C. Stopped branch — BTF-3 hindsight
 
-### C5. G7 — external ex-ante anchor
+Stopped 2026-09-03. Retained in full for provenance and because one result is held
+as a separate lead. Not part of the current paper. Reasons are in
+`RESEARCH_HISTORY.md` §5.
 
-The preregistered prediction failed in the opposite direction: later evidence moved model judgments closer to BTF-3's independent ex-ante forecast. This removed an unnecessary claim about objective forecast fidelity and left the within-item hindsight effect untouched.
+- **C1. BTF-3 temporal replication.** 8-item discovery → 64-item prospective
+  confirmation → 256-item fresh replication. Qwen 16.02, Gemma 27.73, Mistral 7.46pp.
+  `results/btf3_large_replication_v1_results.md`.
+- **C2. G2 Experiment B — verdict redaction.** Contamination *increases* when the
+  explicit verdict is removed, 3/3 models. **Held as the second lead** —
+  `SECOND_LEAD_EXPLICIT_OUTCOME_PARADOX.md`.
+- **C3. G2 Experiment A — positional replication.** Panel gate not met (1/3); the raw
+  effects reproduce the earlier pattern in the same two models. This is the natural-
+  substrate echo of the main line's positional result and is *not* claimed as a
+  replication of it.
+- **C4. G8 / G11 / G12.** Foreign-packet, verdict-redacted, and paired
+  outcome-direction rounds. G12's original Qwen/Gemma/Mistral panel verdict is
+  `indeterminate`. All three are robust to excluding the 34 leaking packets.
+- **C5. G13 → G14 → G15.** Packet-local null, answer-site discovery, fresh
+  preregistered confirmation of a late recipient-conditioned decision state
+  (Gemma-only). `results/mech/g1[345]_*`.
+- **C6. G3 exclusion reason, G4 model breadth, Qwen3.5 size sweep.** G4 analysed 5 of
+  a preregistered 17 checkpoints. **The remaining 12 will not be run** — completing a
+  preregistration for a stopped branch is bookkeeping, not science.
+- **C7. Indeterminate or failed rounds.** G5 deliberation, G6 early mechanism, G7
+  ex-ante anchor (prediction failed in the opposite direction), G9 numeric, G10
+  worked-example mitigation.
+- **C8. Data-integrity corrections.**
+  `preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md` — the redactor's
+  conditional-marker bypass leaves 34/256 packets asserting the outcome and the
+  frozen audit could not detect it; and the Llama boundary-probe figure was reported
+  at single-frame scope (73.63% over both frames, licensed arm 49.61%). Neither
+  changes a preregistered verdict.
 
-### C6. G9 — numeric second-task attempt
+---
 
-The task did not pass its qualification gate and therefore provides no replication verdict.
+# D. Earlier narrowing rounds
 
-### C7. G10 — worked-example mitigation
+- **D1. G1 and the factorization rounds.** The attempt to generalise across boundary
+  types. BTF-3 qualified; FANToM did not; FOMC failed its gate. This forced the
+  detour described in `RESEARCH_HISTORY.md` §4.
 
-Results were heterogeneous across models. This is not a main contribution and should not turn the paper into a mitigation study.
+---
 
-## D. Data and audit artifacts
+# E. Preregistrations
 
-The BTF-3 transformation contract, factuality-audit protocol, frozen data artifacts, result files, analysis code, and raw outputs remain in their existing locations. These are provenance and reproduction materials, not paper-navigation documents.
-
-## E. Original preregistrations
-
-Exact preregistration text is in [`preregistrations/`](preregistrations/), organized by [`preregistrations/README.md`](preregistrations/README.md). The corresponding Git freeze commits/tags remain the authority for chronology relative to model outputs.
-
-## F. Completed prospective extension
-
-**Llama-3.1-8B explanatory descent.** A1 from the frozen G4 panel shows
-+28.23pp hindsight intrusion and 250/256 OOB boundary recognition, while the
-original stronger two-frame qualification fails because the licensed probe is
-only 127/256. After correcting the legacy `0.` parser, G8 has 256/256 decisions
-and foreign-packet movement is 70.1% of real-packet movement. Verdict-redacted
-pull survives in G11 (+11.69pp), and the direct paired G12 contrast is +18.06pp
-[14.45, 21.68] with its validity check passed. The corrected scientific verdict
-is `full-explanatory-chain`; the original preregistered `partial-chain` remains
-recorded because its G8/G11 recipient-response diagnostic was incorrectly
-interpreted as assignment leakage. See
-[`results/llama_behavioral_extension_results.md`](results/llama_behavioral_extension_results.md).
-Mistral and every original panel verdict remain unchanged.
+Exact text in [`preregistrations/`](preregistrations/), indexed by its README. Git
+freeze commits and tags remain the authority for chronology relative to model
+outputs.

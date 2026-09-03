@@ -59,11 +59,11 @@ Good level of abstraction:
 
 For this project:
 
-> **After a language model learns how something turned out, can it still judge the past without hindsight?**
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-The scientific object is simply **hindsight in language-model reasoning**.
+The scientific object is simply **whether a stated exclusion policy governs the decision**.
 
-Terms such as `information set`, `out-of-set intrusion`, `retrospective outcome entrainment`, and `recipient-conditioned decision state` belong at progressively lower explanatory levels. They must not replace the natural object.
+`Prospective binding failure` is the mechanism's name and sits at a lower explanatory level; it must not replace the natural object. Terms from the abandoned hindsight frame — `information set`, `out-of-set intrusion`, `retrospective outcome entrainment`, `recipient-conditioned decision state` — do not belong in this paper at all.
 
 ### 2. Positive explanatory descent
 
@@ -99,17 +99,17 @@ Controls are useful only when they reveal something scientifically new or are ne
 
 A strong paper does not maximize the number of statements it can defend. It identifies the smallest set of results that changes how we understand the phenomenon.
 
-For this project, the key move is not “we ruled out copying, scale, wording, etc.” The key move is:
+For this project, the key move is not “we ruled out distance, wording, masking, implicature.” Those tests earn their place because each was run to discriminate between live explanations, but they are Section 3, not the paper. The key move is:
 
-> **Known outcomes distort judgments of the past, and the distortion has a directional structure: outcome-shaped later context pulls judgments toward the outcome it supports, even across unrelated events.**
+> **An exclusion policy governs the decision when it can be resolved against the content it governs; a policy held as a pending intention about a named future item does not — and naming that item is worse than saying nothing.**
 
-The mechanism then asks how that outcome influence enters the decision.
+The mechanism then asks where that binding difference becomes causal.
 
 ### 4. Mechanism earns its place by explaining the phenomenon
 
 Opening the model is justified when it distinguishes genuinely different algorithms or explains the headline behavior. More probes, patching, neurons, or layers do not automatically increase paper quality.
 
-For this project, G13–G15 matter because they distinguish packet-local transport from contextual construction of the late decision variable. The mechanism should be narrated as an answer to **how hindsight enters the decision**, not as a separate MI section seeking technical prestige.
+For this project, the span gate, the late patching curve and the matched-chronology interchange matter because they show that excluded evidence is still *read* at the decision, that gating is resolved late, and that the binding state is exchangeable. The mechanism should be narrated as an answer to **why a stated policy fails to gate**, not as a separate MI section seeking technical prestige. G16 is the one experiment that would close it on the paper's own contrast.
 
 ### 5. Limitations are compact, not a second paper
 
@@ -121,30 +121,62 @@ The main text should state the strongest result supported by the data in ordinar
 
 ### Natural question
 
-> **Can language models judge the past without hindsight once they know the outcome?**
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-This is strong enough to carry the paper without any bespoke terminology.
+This is strong enough to carry the paper without any bespoke terminology, and it
+describes a structure — a policy that precedes the data it governs — that occurs in
+every agent, RAG and system-prompt deployment.
 
 ### Main explanatory arc
 
 ```text
-known outcomes alter judgments of the past
-although models know the evidence came later
+exclusion stated after the evidence is followed; the identical
+exclusion stated before it is not, while the model states the
+required weight as exactly zero on 100% of items
     ↓
-outcomes from unrelated events still pull the judgment
-in the direction they support
+not memory, not distance, not the causal mask, not one wording,
+not inclusion implicature
     ↓
-changing the outcome direction of later evidence changes
-which way the same judgment moves
+the failure is specific to complete suppression, and disappears
+where the contribution is arithmetically implementable
     ↓
-in Gemma, this influence becomes causal only after the
-later evidence is integrated with the current question
+what the policy can bind to decides it: naming a future item is
+worse than saying nothing; propositional content and class markers
+carried on the evidence work — in vignettes and in an agent
+    ↓
+excluded evidence is still read at the decision, gating is resolved
+late, and the binding state is causally exchangeable
 ```
 
-This is the paper's core. Scale sweeps, prompt-reason manipulations, failed mitigation, and broad source attempts are secondary.
+This is the paper's core. Paraphrase sweeps, cluster robustness, readout
+methodology and external boundary checks are secondary.
+
+### Where it stands against each reference paper
+
+| reference | the move it models | our counterpart | status |
+|---|---|---|---|
+| *Llama See, Llama Do* | phenomenon → regularity → mechanism that acts on it | reversal → binding → span gate and interchange | present |
+| filler–gap interchange | causal interchange answers a theory question | Stage 5, and G16 on the paper's own contrast | Stage 5 done, G16 designed |
+| *Value-Action Gap* | separate two quantities prior work conflated | stated policy vs enforced policy, at 100% vs +0.64 | present |
+| *Racing Thoughts* | mechanism explains the headline failure | mechanism targets the pre/post gap itself | present |
+| *Tool Irrelevance* | latent variable beneath the failure | what the policy can be resolved against | present |
+
+### Honest weak points
+
+- The mechanism is Qwen3-8B only, and G16 does not change that.
+- The materials are authored vignettes from 10 legal skeletons; the external sets are
+  boundary checks, not a held-out tier.
+- `procedural_hearsay` collapsed to 2 usable items and that arm is untested.
+- Item screening was done on Qwen3-8B alone.
+
+These go in Limitations in four sentences. They are not fixed by adding models.
 
 ## Decision rule for future work
 
 The default is **write the paper, not defend it with more experiments**.
 
-Run something new only when it answers a new scientific question that materially deepens our understanding of hindsight. “A reviewer may ask for another control/model/benchmark” is not sufficient justification.
+The only planned experiment is G16, and it is planned because it closes the
+mechanism on the headline contrast — not because a reviewer might ask for it. “A
+reviewer may ask for another control/model/benchmark” is not sufficient
+justification, and neither is “a preregistration in the repository was left
+unfinished.”

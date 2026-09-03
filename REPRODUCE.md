@@ -1,79 +1,117 @@
 # Reproduction guide
 
-This file is a navigation guide for reproducing the **current hindsight paper**. The repository also contains the older controlled *Unring the Bell* program; those scripts/results remain available but are not the default reproduction target.
+Navigation guide for reproducing the **current paper on advance evidence exclusion**.
+The repository also contains the stopped BTF-3 hindsight branch; its scripts and
+results remain available but are not the default reproduction target.
 
 ## 1. Before running anything
 
 Read:
 
 1. [`EXPERIMENTS.md`](EXPERIMENTS.md) for the scientific role and result of each round;
-2. the exact original design in [`preregistrations/`](preregistrations/) for the round you intend to reproduce;
-3. [`BTF3_TRANSFORMATION_CONTRACT.md`](BTF3_TRANSFORMATION_CONTRACT.md) for the natural forecasting transformation;
+2. [`PROSPECTIVE_EXCLUSION_FINDINGS.md`](PROSPECTIVE_EXCLUSION_FINDINGS.md) and
+   [`stages/`](stages/) for the full result tables;
+3. the exact original design in [`preregistrations/`](preregistrations/) for the round
+   you intend to reproduce;
 4. [`CLAUDE.md`](CLAUDE.md) for environment and GPU policy.
 
-Do not infer a frozen design from the current paper narrative. The original preregistration and freeze commit/tag are the authority for an experiment's exact estimands, thresholds, sample, and analysis plan.
+Do not infer a frozen design from the current paper narrative. The original
+preregistration and freeze commit/tag are the authority for an experiment's exact
+estimands, thresholds, sample and analysis plan.
 
 ## 2. Environment
 
-Prefer the project's **existing local conda/virtual environment** and shared model cache. Do not create a clean environment by default.
+Prefer the project's **existing local conda/virtual environment** and shared model
+cache. Do not create a clean environment by default.
 
-Historically, much of the project used the existing `fgvd` environment; older diffusion-model experiments also used `dlm_clean`. Before reproducing a current BTF-3 or mechanism round, inspect the script and current environment rather than assuming that an old G0 environment recipe is still the right entry point.
-
-A new environment is warranted only for a genuine dependency/CUDA incompatibility.
+Much of the main line used the existing `fgvd` environment; the masked diffusion
+models (LLaDA-8B, Dream-7B) used `dlm_clean`. Inspect the script and the current
+environment before assuming either. A new environment is warranted only for a genuine
+dependency/CUDA incompatibility.
 
 ## 3. GPU use
 
-Check GPU occupancy before launching. Idle cards on `fvcrc10`, `fvcrc11`, `fvcrc12`, `fvcrc13`, `fvcrc15`, `fvcrc20`, and `fvcrc21` may be used. During daytime, avoid occupying more than eight GPUs total unless explicitly authorized otherwise.
+Check occupancy before launching. Idle cards on `fvcrc10`–`fvcrc13`, `fvcrc15`,
+`fvcrc20` and `fvcrc21` may be used. During daytime, avoid occupying more than eight
+GPUs total unless explicitly authorised otherwise.
 
 ## 4. Main paper evidence
 
-### Hindsight phenomenon
+Frozen items: `data/items/frozen_v1.json` (144 items, five families). Additional
+frozen sets: `data/items/routing_v1.jsonl` (tagged streams),
+`data/items/frozen_semaddr.json` (similarity ladder), `data/items/linear_v1.jsonl`.
 
-Key outputs:
+### The reversal (G0)
 
-- `results/btf3_confirmatory_v1_results.md` — 64-item prospective confirmation;
-- `results/btf3_large_replication_v1_results.md` — 256-item fresh large replication;
-- `results/btf3_cross_round_replication.json` — cross-round comparison;
-- `results/btf3_factuality_audit_v1_results.md` — source-packet audit.
+- `PROSPECTIVE_EXCLUSION_FINDINGS.md` — full narrative and all model tables;
+- `results/g0_*.json` / `results/g0_*.md`, `results/stage1_*` — per-model outputs;
+- `results/cross_model_tables.md`, `results/cued_diffusion_tables.md` — panel and
+  diffusion-model results;
+- `results/cluster_robustness.md` — case-skeleton cluster bootstrap.
 
-Exact design documents are in `preregistrations/PREREGISTRATION_BTF3_LARGE_REPLICATION.md` and the relevant earlier BTF/G1 preregistrations.
+Design: `preregistrations/PREREGISTRATION_G0.md`.
 
-### Directional outcome pull
+### What the failure is not, and what it is
 
-Key outputs:
+- `results/stage2_tables.md` — distance, anaphora, first weight sweep;
+- `stages/STAGE3.md`, `results/stage3_tables.md`, `results/stage3_pooled.md` — the
+  declarative probe, the zero discontinuity, delay, the announcement ladder, class
+  policy;
+- `stages/STAGE3C.md` — inclusion implicature and the arithmetic boundary condition;
+- `results/paraphrase_tables.md` — eight ruling wordings;
+- `results/routing_tables.md` — tagged evidence streams (`src/gen_routing.py`,
+  `src/analyze_routing.py`).
 
-- `results/g8_packet_swap_analysis.json` — foreign resolved-event intervention;
-- `results/g11_redacted_swap_results.md` / `results/g11_redacted_swap_analysis.json` — verdict-redacted foreign packets;
-- `results/g12_donor_outcome_results.md` / `results/g12_donor_outcome_analysis.json` — paired outcome-direction intervention.
+### Binding
 
-Exact designs:
+- `stages/STAGE3D.md`, `results/semaddr_tables.md` — similarity ladder;
+- `stages/STAGE3E.md`, `results/stage7_tables.md` — duplicate control and the
+  proposition relation matrix;
+- `results/onpolicy_tables.md` — on-policy check of the teacher-forced result.
 
-- `preregistrations/PREREGISTRATION_G8_RELEVANCE.md`;
-- `preregistrations/PREREGISTRATION_G11_REDACTED_SWAP.md`;
-- `preregistrations/PREREGISTRATION_G12_DONOR_OUTCOME.md`.
+Condition builders: `src/conditions_v3.py` (weights, delay, ladder, class policy),
+`src/conditions_v6.py` / `src/conditions_v7.py` (previews and relation matrix).
+
+### Agent
+
+- `stages/STAGE4.md`, `results/agent_tables.md`, `results/agent_marginal.md`;
+- builders in `src/conditions_agent.py`, analysis in `src/analyze_agent.py`.
 
 ### Mechanism
 
-Key outputs:
+- `results/mech/mechanism_report.md` — span gate, attention, answer-position patching;
+- `results/mech/patch_matched_report.md`, `stages/STAGE5.md` — matched-chronology
+  bidirectional interchange, including the withdrawal of the earlier
+  recovery-fraction analysis;
+- `results/mech/direct_readout.json` — fixed-position readout validation;
+- code: `src/mech/span_mask.py`, `src/mech/patch_matched.py`, `src/mech/analyze_mech.py`.
 
-- `results/mech/g13_shared_outcome_results.md` and analysis JSON;
-- `results/mech/g14_decision_outcome_results.md` and analysis JSON;
-- `results/mech/g15_decision_confirmation_results.md` and analysis JSON.
+### Readout methodology
 
-Exact designs:
+`results/metric_audit.md` and `src/metric_audit.py` — the three piloted readouts that
+failed, and why single-token rating readouts can anti-correlate with the model's own
+stated reasoning.
 
-- `preregistrations/PREREGISTRATION_G13_SHARED_OUTCOME.md`;
-- `preregistrations/PREREGISTRATION_G14_DECISION_STATE.md`;
-- `preregistrations/PREREGISTRATION_G15_DECISION_CONFIRMATION.md`.
+## 5. Planned experiment
 
-G14 is discovery for the recipient-conditioned answer-state formulation; G15 is the fresh prospective confirmation. Preserve that chronology when reproducing or extending the mechanism work.
+`preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md` is a **draft**. It
+authorises nothing until committed and tagged `g16-binding-interchange-design-v1`.
+Freeze first, then run baselines, then patched runs — in that order.
 
-## 5. Supporting and historical experiments
+## 6. Stopped branch (BTF-3 hindsight)
 
-Supporting current-paper characterization (verdict redaction, size sweep, G3, G4) is indexed in `EXPERIMENTS.md` and has exact preregistrations under `preregistrations/`.
+Retained for provenance; see `EXPERIMENTS.md` §C. Entry points:
+`BTF3_TRANSFORMATION_CONTRACT.md`, `results/btf3_large_replication_v1_results.md`,
+`results/g1[12]_*`, `results/mech/g1[345]_*`.
 
-The original G0 / controlled prospective-nullification experiments are historical. Their detailed narrative is archived in `archive/UNRING_THE_BELL_FINDINGS.md`; old G0 raw/model-analysis outputs remain under `results/`. Use them when studying the research history, not as the default starting point for the current paper.
+Two corrections apply to anything reproduced from this branch:
 
-## 6. Reproduction principle
+- `preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md` — the verdict redactor
+  leaves 34/256 packets asserting the outcome. Re-run
+  `PYTHONPATH=src python3 src/audit_redaction_leakage.py` to regenerate the audit and
+  the leak-free re-estimates. **Do not repair and re-run the frozen redactor.**
+- Llama boundary-probe figures must be reported at two-frame scope (73.63%), not the
+  single-frame 97.66%.
 
-Reproduce a round from its **frozen contract + preregistration + committed sample + analysis script**, not from a prose summary. If a historical environment no longer runs, first try to repair compatibility in the existing project environment; only then create a minimal new environment and record the reason.
+The preregistered G4 breadth panel is at 5 of 17 checkpoints and **will not be
+completed**.

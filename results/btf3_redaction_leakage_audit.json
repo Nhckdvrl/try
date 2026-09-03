@@ -1,0 +1,205 @@
+{
+ "note": "post-result correction; no frozen artifact, threshold or raw output changed",
+ "artifact": "data/external/review/btf3_temporal_large_replication_v1.jsonl",
+ "bootstrap": {
+  "seed": 20260829,
+  "n_resamples": 10000
+ },
+ "packet_audit": {
+  "n_units": 256,
+  "n_leaking": 34,
+  "leak_rate": 0.1328125,
+  "leaking_realized_yes": 20,
+  "leaking_realized_no": 14,
+  "leaking_unit_ids": [
+   "47cc7236-9764-5aa9-b180-2806b827d4dd",
+   "c0f5bb94-9b70-5dfc-a10c-cf370cd53cea",
+   "f4e752d2-cbc1-5cc4-b1ed-306106fa8b12",
+   "7c1af7e2-2451-5e22-b3a1-ef809bbb2331",
+   "0f63f1fc-815c-508c-86a8-b453230dadbb",
+   "01a607b2-d68c-5e0d-9bd8-efe79748b96e",
+   "009885f8-406c-570a-adbd-e63606108fea",
+   "3c29a467-1406-55a9-8808-e1b3616c145e",
+   "559e0736-ec8f-51b2-88cc-9991be4c568c",
+   "010a7e76-7d92-50a7-926e-2732f299c585",
+   "317e8d9e-7f48-555a-a979-e49b07c2cde4",
+   "7a1ef715-5b39-5429-b0e8-5adf684581dd",
+   "fbf697ca-8cc1-5da1-9d74-34cd3eeaba91",
+   "1aaaf310-8d62-578b-bf36-36af15d1bc76",
+   "b68d6dee-5a6b-59e6-9e65-4490ce1e3347",
+   "1a212384-33d7-5ab4-abf4-559c00ef7562",
+   "ee0672d3-0838-5516-9ace-cb54cf371c21",
+   "555d2be7-6581-5345-9052-655b8c898df0",
+   "22f09a7e-ea1c-5fba-83c5-171df87540de",
+   "50189e8b-1bfb-5abe-8309-ecfc8090e56b",
+   "19c51624-fb6a-5f03-b5b0-0362c9202cd1",
+   "b41eb641-c931-50da-97bb-4711c8dd6c65",
+   "95af7649-c12e-5421-bfc5-b4602e9140db",
+   "84e716ac-125c-5b58-b2ab-ee7ebc630885",
+   "a653ccb0-0617-5d42-b6c1-5d05e8b8fbb9",
+   "75e58d45-3a3a-5c36-8777-9665b2b891f6",
+   "8042e84d-abd1-5dd7-ae5f-c794cb342f5b",
+   "8c1f48ad-6eab-5d12-bb1d-498e7ba1d4bc",
+   "26ddb28f-3a4f-557e-9a35-dbbe6058f71f",
+   "a0321afa-c75a-51e9-abed-473012f40eba",
+   "cc65c42b-a42c-5592-9f73-795582542f79",
+   "d2fd04b8-f6d3-589d-bf27-12ad2ad89b68",
+   "a0022abe-c384-5c95-bb3d-dc53e212aee1",
+   "741b4bed-7502-5cd2-9cbe-949fbc70f857"
+  ],
+  "examples": [
+   {
+    "independent_unit_id": "47cc7236-9764-5aa9-b180-2806b827d4dd",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Because Strike Tracker, RTBF, VRT NWS and The Brussels Times collectively report only strike NOTICES for police (with the Liège one suspended) and no actual police cessation of work during May 13–June 30, 2026, the criteria's default applies: the question resolves NO."
+   },
+   {
+    "independent_unit_id": "c0f5bb94-9b70-5dfc-a10c-cf370cd53cea",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Because no publicly confirmed visa cancellation or refusal explicitly citing the Act or its s.500A/s.501 amendments was identified within May 12 – July 1, 2026, and the resolution criteria specify that absence of such an identified action resolves NO."
+   },
+   {
+    "independent_unit_id": "f4e752d2-cbc1-5cc4-b1ed-306106fa8b12",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Because the resolution criteria state the question resolves NO \"if the Court issues a majority opinion holding that federal law does not prohibit states from counting mail-in ballots received after Election Day,\" and that is exactly what happened, the correct resolution is NO (0)."
+   },
+   {
+    "independent_unit_id": "7c1af7e2-2451-5e22-b3a1-ef809bbb2331",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Per the resolution criteria, the question resolves NO if no such preliminary reading vote passes by July 1, 2026."
+   },
+   {
+    "independent_unit_id": "0f63f1fc-815c-508c-86a8-b453230dadbb",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Per the stated NO conditions (\"No INC candidate is declared elected for either of the two Jharkhand Rajya Sabha seats\"), this resolves NO."
+   },
+   {
+    "independent_unit_id": "01a607b2-d68c-5e0d-9bd8-efe79748b96e",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Therefore, since no Chipotle restaurant in South Korea was open to the public (walk-in or order) by the June 1, 2026 deadline — with construction ongoing and an August target — the question resolves NO."
+   },
+   {
+    "independent_unit_id": "009885f8-406c-570a-adbd-e63606108fea",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Under the resolution criteria, the question resolves NO because oral arguments had not concluded and judgment had not been reserved by July 1, 2026."
+   },
+   {
+    "independent_unit_id": "3c29a467-1406-55a9-8808-e1b3616c145e",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Since no formal addition was published or filed for public inspection by the deadline, the question resolves NO per its explicit terms (\"If no such formal addition is published or filed for public inspection by the deadline, this question resolves No\")."
+   },
+   {
+    "independent_unit_id": "559e0736-ec8f-51b2-88cc-9991be4c568c",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Because no final Report and Order explicitly prohibiting Covered List equipment in submarine cable systems was formally adopted (by majority vote, evidenced in EDOCS or the Federal Register) between May 1 and June 1, 2026, the question resolves NO per its resolution criteria, which specify that issuance of only an NPRM, Further Notice, or interim guidance results in a NO."
+   },
+   {
+    "independent_unit_id": "010a7e76-7d92-50a7-926e-2732f299c585",
+    "outcome_alignment_sign": -1,
+    "surviving_sentence": "Per the resolution criteria, the question resolves NO if \"The Senate does not approve any version of the PASO reform bill by the deadline.\"\n\nThe evidence overwhelmingly shows the Senate did NOT approve ANY version of the bill (neither full elimination nor an optional-PAS version) by July 1, 2026."
+   }
+  ]
+ },
+ "g12_paired_donor_contrast": {
+  "gemma3-12b": {
+   "all_pairs": {
+    "n": 255,
+    "mean": 17.501960784313727,
+    "ci_low": 14.733333333333333,
+    "ci_high": 20.349019607843136
+   },
+   "leak_free_pairs": {
+    "n": 192,
+    "mean": 16.0,
+    "ci_low": 13.125,
+    "ci_high": 19.03125
+   }
+  },
+  "llama31-8b": {
+   "all_pairs": {
+    "n": 253,
+    "mean": 18.02905138339921,
+    "ci_low": 14.326086956521738,
+    "ci_high": 21.68221343873518
+   },
+   "leak_free_pairs": {
+    "n": 189,
+    "mean": 17.66375661375661,
+    "ci_low": 13.637037037037038,
+    "ci_high": 21.75925925925926
+   }
+  },
+  "mistral-small-24b": {
+   "all_pairs": {
+    "n": 256,
+    "mean": 1.552734375,
+    "ci_low": 0.5625,
+    "ci_high": 2.595703125
+   },
+   "leak_free_pairs": {
+    "n": 192,
+    "mean": 1.6380208333333333,
+    "ci_low": 0.3880208333333333,
+    "ci_high": 2.9348958333333335
+   }
+  },
+  "qwen35-9b": {
+   "all_pairs": {
+    "n": 256,
+    "mean": 4.40625,
+    "ci_low": 1.3203125,
+    "ci_high": 7.47265625
+   },
+   "leak_free_pairs": {
+    "n": 192,
+    "mean": 3.734375,
+    "ci_low": 0.14583333333333334,
+    "ci_high": 7.348958333333333
+   }
+  }
+ },
+ "g2b_redaction_amplification": {
+  "qwen35-9b": {
+   "all_units": {
+    "n": 256,
+    "mean": 7.33203125,
+    "ci_low": 5.80078125,
+    "ci_high": 8.87890625
+   },
+   "leak_free_units": {
+    "n": 222,
+    "mean": 8.094594594594595,
+    "ci_low": 6.495495495495495,
+    "ci_high": 9.806306306306306
+   }
+  },
+  "gemma3-12b": {
+   "all_units": {
+    "n": 255,
+    "mean": 6.909803921568628,
+    "ci_low": 5.211764705882353,
+    "ci_high": 8.686274509803921
+   },
+   "leak_free_units": {
+    "n": 221,
+    "mean": 7.230769230769231,
+    "ci_low": 5.352941176470588,
+    "ci_high": 9.253393665158372
+   }
+  },
+  "mistral-small-24b": {
+   "all_units": {
+    "n": 256,
+    "mean": 2.716796875,
+    "ci_low": 1.251953125,
+    "ci_high": 4.185546875
+   },
+   "leak_free_units": {
+    "n": 222,
+    "mean": 3.222972972972973,
+    "ci_low": 1.5765765765765767,
+    "ci_high": 4.867117117117117
+   }
+  }
+ }
+}

@@ -1,5 +1,15 @@
 # BTF-3 explicit-verdict redaction — pre-run audit
 
+> **CORRECTION NOTICE (added 2026-09-03, content below unchanged).** The
+> `assertive verdict sentences surviving redaction: 0` line in this frozen audit is
+> **withdrawn**. It was produced by the same conditional-marker heuristic that
+> decides what the redactor deletes, and an independent re-audit finds that
+> **34/256 (13.3%)** of redacted packets still assert the realized outcome. Every
+> affected estimate has been recomputed on the leak-free subset and none changes
+> sign or ordering. See `preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md`
+> and `results/btf3_redaction_leakage_audit.json`. Nothing below this banner has
+> been edited.
+
 - artifact: `data/external/review/btf3_temporal_large_replication_v1.jsonl` (SHA-256 `0b6fd8d0304f6b7cde336a6518b1058983a9b93529e90cbb577d1878acf0901d`)
 - units: 256
 - assertive verdict sentences surviving redaction: **0** (hard gate: must be 0)

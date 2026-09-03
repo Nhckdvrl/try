@@ -2,201 +2,228 @@
 
 **Updated:** 2026-09-03
 
-The paper should feel like one scientific investigation, not a sequence of defenses. The main arc is:
+The paper is one investigation of one question. The arc is:
 
-> **hindsight → directional outcome pull → causal outcome manipulation → late contextual decision state**
+> **advance exclusion fails → not the obvious causes → only at exactly zero →
+> binding determines it → same failure in an agent → causal gating mechanism**
 
 ## Title
 
 Recommended:
 
-> **Can Language Models Unsee the Future? How Known Outcomes Shape Judgments of the Past**
+> **Can Language Models Commit in Advance to Ignore Evidence?**
 
 Other viable forms:
 
-- *Can Language Models Judge the Past without Hindsight?*
-- *The Future Pulls the Past: Hindsight in Language Model Reasoning*
+- *Why Language Models Fail to Exclude Evidence Before They See It*
+- *Told in Advance, Ignored Anyway: Prospective Evidence Exclusion in LLMs*
 
-The title should keep **hindsight / judging the past** as the object. `Retrospective outcome entrainment` is a result discovered inside the paper, not the title-level object.
+Keep **advance commitment to ignore evidence** as the object. `Prospective binding
+failure` is the mechanism's name and belongs in the body, never in the title.
 
 ## Abstract draft
 
-> Once an outcome is known, can a language model still judge an earlier situation without hindsight? We study this on natural forecasting questions whose later resolutions are known. Across three similarly sized, canonical open-model families, models identify with 97.7–100% accuracy that resolution evidence became available only after the historical point they are asked to judge. Yet seeing that evidence shifts their earlier probability judgments by 16.0–28.2 points. We then ask what structure this hindsight effect has. Resolution evidence from an unrelated event still moves the current judgment, and verdict-redacted evidence pulls Qwen, Gemma, and Llama toward the outcome it supports. In a paired intervention, replacing NO-supporting later evidence with YES-supporting later evidence raises the same recipient probability by 4.4–18.0 points across these families. A fully reported additional Mistral checkpoint shows the broad hindsight effect but a weaker, verdict-dependent directional effect. Finally, in the strongest mechanistic setting, we test how this outcome influence enters the decision. A shared packet-local outcome code is decodable but does not causally transfer behavior. Instead, a prospectively confirmed late answer-position state transfers 6.5–9.0 probability points after the later evidence has been integrated with the current question. These results show that language models can know which information came later while still allowing known outcomes to reshape judgments of the past, and reveal a directional pathway through which hindsight enters the decision.
+> A policy usually exists before the data it governs: a system prompt forbids a
+> source before retrieval runs, a court excludes evidence before the record is
+> read. We ask whether a language model can commit in advance to ignore evidence it
+> has not yet seen. Borrowing the design of the human inadmissible-evidence
+> literature, we preregistered the human pattern — that an instruction arriving
+> *after* the evidence is the hard case — and found the opposite. Across twelve
+> instruction-tuned models from four vendors, two masked diffusion language models,
+> and five task families, exclusion stated after the evidence is followed well,
+> while the identical instruction stated before it leaves up to 0.64 of the
+> evidence's normal causal weight in the decision. This is not a failure to hold
+> the rule: asked what weight the evidence should receive, every model answers
+> exactly zero on 100% of items in both conditions. It is not distance, not the
+> causal attention mask — the asymmetry is largest in a bidirectional diffusion
+> model — and not one wording. The failure is specific to driving a contribution to
+> exactly zero, and disappears entirely when that contribution is arithmetically
+> computable. What decides the outcome is what the policy can bind to: naming a
+> future item makes suppression worse than not mentioning it at all, a preview
+> rescues it in proportion to entailment rather than surface overlap, and a class
+> marker carried on the evidence itself drives leakage to zero whether the policy
+> is stated before or after. The same dissociation appears in an agent, where a
+> system-level identifier policy is worth nothing and suppression follows the
+> proposition rather than the document ID. Mechanistically, the excluded evidence
+> is still read at the decision — blocking that one attention path removes the
+> entire residual — gating is resolved in the upper-middle layers, and the binding
+> state transfers causally between matched runs in both directions.
+
+## 1. Introduction — a rule that arrives before its target
 
-## 1. Introduction — Can a model judge the past after it knows the ending?
+Open on the ordinary structure: policies precede the data they govern. Give the
+three concrete cases (system prompt before retrieval, inadmissibility before
+testimony, agent memory restrictions before lookup).
 
-Open with ordinary situations where retrospective judgment matters:
+State the human baseline honestly, because it is what we predicted: a meta-analysis
+over 48 studies and 8,474 participants finds that jurors told to disregard evidence
+they have already heard retain its influence. Our preregistration predicted the
+same ordering in models.
 
-- evaluating an earlier forecast after the event resolved;
-- auditing a past decision with information learned later;
-- asking what an actor could have concluded before the outcome was known.
+Then the question and the reversal.
 
-The difficulty is universal: once the ending is known, it is hard to reason as though it were not.
+Three contributions, positively:
 
-Then ask the paper's question:
+1. **Phenomenon.** Exclusion stated before the evidence fails where the identical
+   exclusion stated after it succeeds — the reverse of the human pattern — while
+   the model states the policy perfectly in both cases.
+2. **Explanation.** The failure occurs only at complete suppression, and is
+   governed by what the policy can bind to: propositional content and
+   evidence-carried class markers work prospectively, named future identifiers do
+   not. The same dissociation holds in an agent.
+3. **Mechanism.** Excluded evidence is still read at the decision; gating is
+   resolved late; the binding state is causally exchangeable.
+
+Do not enumerate ruled-out accounts here. Section 3 does that as science.
 
-> **Can language models judge the past without hindsight once they know the outcome?**
+## 2. Measuring whether a rule governs a decision
 
-The introduction should make three contributions, positively:
+Introduce the instrument after the question.
 
-1. **Phenomenon.** Known outcomes substantially change judgments of the past even when models correctly identify the evidence as later.
-2. **Structure.** The influence is directional: outcome-shaped context from unrelated events pulls judgments toward the outcome it supports.
-3. **Mechanism.** In Gemma, this outcome influence becomes causally effective after contextual integration in a late decision state.
+- 144 frozen items, five task families, built from 10 legal case skeletons plus
+  inference, ranking, outcome-evaluation and numeric-aggregation families.
+- Five conditions plus independent rule and memory probes.
+- `REI` = 0 means the model decided as if it had never seen the evidence; 1 means
+  it used the evidence as fully as when told it was admissible.
+- Readout: a greedily decoded two-sentence rationale followed by the expectation of
+  the next-token distribution over digits at a fixed position. Deterministic,
+  continuous, no parsing, no LLM judge. The three piloted readouts that failed and
+  why belong in the appendix — they are a genuine methodological contribution.
 
-Do not spend the introduction enumerating every alternative explanation tested in the repository.
+## 3. Advance exclusion fails, and the obvious explanations do not survive
 
-## 2. Studying hindsight with natural resolved events
+### 3.1 The reversal
 
-Introduce BTF-3 only here, after the question is clear.
+Lead with the twelve-model table and the two diffusion models. `Δ_time` negative in
+all twelve; matched admit control flat. **Figure 1.**
 
-Each item provides:
+### 3.2 The rule is held, and ignored
 
-- an earlier forecasting situation;
-- information available at that time;
-- a later resolution packet;
-- a realized YES/NO outcome;
-- a continuous probability judgment.
+The declarative probe at 100% exactly-zero in both arms, against REI up to +0.64
+prospectively. This is the sentence the paper is built on.
 
-The core comparison is intuitive: ask for the earlier judgment with versus without seeing the later resolution evidence. A separate timing probe asks whether the model knows that the evidence became available only after the target time.
+### 3.3 What it is not
 
-Explain the 8-item discovery → 64-item prospective confirmation → 256-item fresh replication briefly. Technical sampling, transformation, and freeze details go to the appendix / preregistration archive.
+Distance (no main effect; further helps), rule-to-evidence delay (intact to ~1,000
+tokens in 4/6), bidirectional attention (largest asymmetry in Dream-7B), wording
+(40/40 cells), inclusion implicature (rescues no model). Keep this compact: one
+paragraph per account, one number each. These earn their place because each
+predicts a different result and each was run to discriminate.
 
-## 3. Knowing the timing does not remove hindsight
+## 4. The failure is specific to complete suppression
 
-Lead with the 256 fresh items.
+The weight sweep, worded identically at every level. Pooled discontinuity
+**+0.295 [+0.185, +0.405], p < 1e-4**. Report the honest caveat that the formal
+kink term is identified in only two of six models while the descriptive pattern is
+uniform.
 
-Show, for the canonical Qwen3.5-9B, Gemma-3-12B, and Llama-3.1-8B comparison:
+Then the boundary condition: on an arithmetically implementable task the pre-post
+gap is exactly 0.000 in four of five models. This is what makes the claim specific
+rather than a general statement about future-directed instructions.
 
-- time recognition: 97.7–100%;
-- shift caused by later evidence: 16.02–28.23 probability points.
+## 5. Binding decides it
 
-This is the first major figure.
+The conceptual centre. **Figure 2.**
 
-The scientific message is:
+### 5.1 A named referent makes it worse
 
-> **Models can know that evidence belongs to the future and still let it reshape their view of the past.**
+The L0–L5 ladder, uniform across six models, inverting the obvious prediction.
 
-A short supporting paragraph can mention that the effect survives removal of the explicit resolution sentence and does not disappear monotonically over the tested Qwen3.5 sizes. Do not turn either into a separate story.
+### 5.2 The rule binds to propositional content
 
-## 4. Known outcomes exert a directional pull
+The similarity ladder (four models) and the proposition relation matrix (two
+models), with the duplicate control that separates rescue from redundancy — and the
+metric change that confound forced.
 
-This is the conceptual center of the paper after the headline result.
+### 5.3 A class marker carried on the evidence works prospectively
 
-### 4.1 Outcomes from other events still matter — G8
+Class policy beats item-specific policy in five of six models; the tagged
+evidence-stream result takes leakage from 0.48 to ≈0 in both arms across five
+models.
 
-Give the historical question a resolution packet from a different event.
+State the regularity here:
 
-In the original panel, foreign packets still cause 50.7–100.1% as much absolute movement as the event's own resolution packet. This establishes cross-event influence. Do not make G8 carry the directional claim: only Gemma passes its frozen donor-direction gate, and Llama's later extension has accidental recipient imbalance under this random pairing.
+> An exclusion policy governs the decision when it can be resolved against the
+> content it governs; a policy held as a pending intention about a named future
+> item does not.
 
-This changes the interpretation of the phenomenon: hindsight is not only the rational integration of highly diagnostic future evidence about the target event.
+## 6. The same failure in an agent
 
-### 4.2 The pull survives without the visible verdict — G11
+`SYSTEM` policy → `TOOL` document → answer. The identifier-only system policy worth
+nothing; the same policy after the tool output much better; suppression following
+the proposition rather than the document ID when the content reappears as D9.
 
-Remove the explicit YES/NO verdict sentence from the foreign packet. This is where the paper first makes the cross-event directional claim.
+This section is short and it is the practical payoff. It is not a deployment study
+and should not be written as one.
 
-Qwen, Gemma, and Llama retain a directional pull after verdict redaction; Mistral is more dependent on the explicit verdict.
+## 7. Mechanism — where the gating fails
 
-Introduce the term here:
+**Figure 3.**
 
-> **Retrospective outcome entrainment:** later context pulls a judgment of the past toward the outcome that context supports.
+1. **Evidence-span gate.** Blocking downstream attention to the evidence span
+   returns the answer to Base in both arms. The residual is carried by direct reads
+   at and after the decision.
+2. **Late resolution.** Answer-position patching: nothing below layer 18, 50% at
+   21, ≈85% by 27 of 36.
+3. **Binding state is exchangeable.** Matched-chronology, length-matched rule-span
+   interchange transfers in both directions at layers 14–18.
+4. **G16** closes it on the headline contrast (tag-bound vs identifier-bound), if
+   it confirms.
 
-The term names the discovered regularity. It should not replace the paper's broader question about hindsight.
+Report the Stage-5 correction — the first version of this analysis reported medians
+of an unstable recovery fraction and overstated the effect — in the text, not
+buried. It is short and it is what makes the rest credible.
 
-### 4.3 Changing outcome direction changes the same judgment — G12
+## 8. Related work
 
-For the same recipient history, replace a NO-supporting foreign packet with a YES-supporting foreign packet.
+Positive positioning, four neighbourhoods: human inadmissible-evidence and
+instructed disregard; instruction following and instruction position; distraction
+and irrelevant context; mechanistic accounts of contextualisation and competing
+pathways. See `RELATED_WORK_2026.md`.
 
-Report the paired shifts directly:
+The positioning sentence:
 
-- Qwen +4.41pp;
-- Gemma +17.50pp;
-- Llama +18.06pp.
+> Prior work asks whether models follow instructions and whether irrelevant context
+> distracts them. We ask whether a stated exclusion policy actually governs the
+> decision, show that the answer depends on what the policy can bind to rather than
+> on whether the model holds it, and trace the difference to a causally
+> manipulable late gating state.
 
-The important result is the directional causal relationship across the canonical comparison. Report Mistral's +1.55pp practical-null result in the same complete table or appendix and state that the original Qwen/Gemma/Mistral panel gate remains indeterminate. The prospective Llama replication does not rewrite that historical verdict.
+## 9. Discussion and limitations
 
-## 5. How outcome information enters the decision
+What it means for agent policy design (attach policies to content or provenance,
+not identifiers; a post-retrieval restatement is cheap and works), and for any
+evaluation that assumes a stated constraint is an enforced one.
 
-Move from behavior to mechanism with one question:
-
-> **When does the outcome of the later evidence become part of the recipient decision?**
-
-Compare two algorithms:
-
-1. **packet-local transport** — a shared outcome code is formed while reading the later packet and carried to the answer;
-2. **contextual decision construction** — outcome information becomes a causal variable only after it is integrated with the recipient question.
-
-### 5.1 Packet states — G13
-
-Outcome is decodable from packet states, but exchanging the tested one-dimensional packet code does not transfer the behavioral pull.
-
-### 5.2 Answer state — G14/G15
-
-G14 discovers the late answer-site pattern. G15 tests the recipient-conditioned version prospectively on a fresh donor assignment.
-
-Fresh G15 result:
-
-- behavioral donor contrast: +18.84pp [12.94, 24.97];
-- late answer-position causal transfer: +6.52 to +9.04pp at layers 29–47;
-- bidirectional transfer;
-- matched orthogonal direction near zero.
-
-The section conclusion:
-
-> **In Gemma, known outcomes become causally expressed after they are integrated with the current question, in a late decision state.**
-
-This closes the paper's current explanatory descent. The paper does not need another mechanism branch merely to look more comprehensive.
-
-## 6. Related work
-
-Organize conceptually, not defensively:
-
-1. **Hindsight, outcome bias, and curse of knowledge** — the broader cognitive problem.
-2. **Ex-ante and temporal reasoning in LLMs** — models reasoning about earlier states despite later knowledge.
-3. **Contextual distraction and outcome-shaped influence** — adjacent work on irrelevant or conflicting context.
-4. **Mechanistic explanations of contextualization and decision competition** — the methodological/intellectual neighborhood of the G13–G15 analysis.
-
-The positioning sentence should be positive:
-
-> Prior work establishes temporal leakage and contextual distraction; we study hindsight directly by controlling known outcomes and show that their influence has a directional, causally traceable structure.
-
-## 7. Discussion and limitations
-
-Discuss what the results mean for retrospective reasoning, evaluation, forecasting analysis, and historical decision audit.
-
-Keep limitations compact:
-
-- the main natural substrate is forecasting;
-- effect magnitude varies substantially across models;
-- the mechanistic result is established in Gemma;
-- the task measures how known outcomes influence model judgments, not whether the model recovers a uniquely correct historical probability.
-
-The failed experiments and exact preregistration gates are scientific provenance and belong in the appendix / `EXPERIMENTS.md`, not as a second main narrative.
+Limitations, compact: 10 independent legal skeletons; `procedural_hearsay` at 2
+usable items; screening on Qwen3-8B only; mechanism on Qwen3-8B; external materials
+are boundary checks, not a held-out tier; the effect is about soft evidential
+integration.
 
 ## Figures
 
-### Figure 1 — The hindsight problem
+**Figure 1 — The reversal.** Same rule, two positions, twelve instruct models plus
+two diffusion models; matched admit control flat. The reader should see the sign
+flip without reading a number.
 
-A single historical event shown at two times: what was known then versus what is known after resolution. Show that the model correctly labels the resolution as “later” but its earlier probability still moves.
+**Figure 2 — Binding.** One row per binding structure — named future identifier,
+gist, content preview, class marker on the evidence — with leakage before and after.
+The point is that the prospective bar collapses as binding becomes resolvable.
 
-### Figure 2 — Outcome pull across events
+**Figure 3 — Where gating happens.** Span-gate bar (ungated vs gated, both arms),
+the layer-wise patching curve, and the bidirectional interchange.
 
-Own outcome evidence → unrelated outcome evidence → verdict-redacted unrelated evidence → paired NO-supporting vs YES-supporting replacement. The visual should make the directional pull obvious without requiring experiment codes.
+## Appendix
 
-### Figure 3 — Where the pull becomes causal
-
-Packet position: outcome decodable, little causal transfer.
-
-Answer position: late causal transfer after recipient integration, with orthogonal control shown compactly.
-
-## Appendix organization
-
-- exact experimental registry and original preregistrations;
-- model-selection chronology: Qwen/Gemma/Mistral were the original frozen panel; Llama was preselected in G4 and added prospectively to the explanatory descent;
-- full four-model tables, including Mistral's weak verdict-dependent result;
-- Llama qualification details: G4 failed the stronger licensed-frame probe; a post-result audit corrected G8/G11's misuse of recipient-response heterogeneity as an assignment-leakage test; the original preregistered verdict remains reported alongside the corrected full scientific chain;
-- sampling / freeze / data-quality details;
-- supporting scale and model-breadth characterization;
-- G3 exclusion-reason results;
-- G14 discovery chronology;
-- failed or indeterminate rounds (G5/G6/G7/G9/G10);
-- earlier *Unring the Bell* / broad Information-Set Reasoning history where relevant.
+- full 12-model × 5-family tables and the cluster-robustness check;
+- diffusion-model implementation notes (Dream's shift convention, mask block);
+- the three failed readouts and why single-token rating readouts can anti-correlate
+  with the model's own reasoning;
+- ruling paraphrase tables (8 wordings × 5 models);
+- Stage 3C alternative-account tests in full;
+- the duplicate-control confound and the REI → rating-points metric change;
+- the Stage-5 recovery-fraction correction;
+- external boundary checks and their provenance correction;
+- dataset limitations and the frozen-set screening caveat;
+- the abandoned BTF-3 hindsight branch and the redaction-audit correction, as
+  research history and data-integrity record only.

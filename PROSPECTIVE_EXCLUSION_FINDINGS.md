@@ -1,4 +1,13 @@
-# Can LLMs Unring the Bell? — G0 results
+# Prospective evidence exclusion — full results (G0 and the controlled stages)
+
+> **Status, 2026-09-03.** This is a **live main-line results document**. It was
+> written under the original *Can LLMs Unring the Bell?* title and was briefly
+> filed under `archive/` while the project ran the BTF-3 hindsight branch; that
+> branch is stopped and this line is the paper. The text below is preserved as
+> written, including its original framing and its open items, because it is the
+> record of what was found when. Current framing is in `PAPER_FRAME.md`; the
+> later controlled stages are in `stages/`.
+
 
 Twelve instruct models from four vendors plus two masked diffusion LMs, over 144
 frozen items across five task families, five conditions plus independent rule and
