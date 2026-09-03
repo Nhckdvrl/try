@@ -78,10 +78,36 @@ semantic rather than positional.
 
 ## 3. Model, readout, statistics — inherited unchanged
 
-Qwen3-8B at the revision already used for the mechanism work. Greedy two-sentence
-rationale followed by the digit-expectation readout at a fixed position. Cluster
-bootstrap over case skeletons, seed `20260829`, 10,000 resamples. Runner
+Qwen3-8B at the revision already used for the mechanism work. Cluster bootstrap over
+case skeletons, seed `20260829`, 10,000 resamples. Runner
 `src/mech/binding_interchange.py`, built on the unmodified `patch_matched.py` design.
+
+**Readout — see Amendment A1.** The mechanism readout is the fixed-position
+`ANSWER_FORMATS["direct"]` one-token digit expectation, not the behavioural
+two-sentence-rationale readout.
+
+### Amendment A1 — readout, made before any generation
+
+**2026-09-03, after tag `g16-binding-interchange-design-v1`, before any G16 model
+output exists.**
+
+Section 3 as first frozen described the readout as "greedy two-sentence rationale
+followed by the digit-expectation readout at a fixed position". That is the
+*behavioural* readout used in G0 and the stage rounds. Every mechanism experiment in
+this project — the span gate, the answer-position patching curve, and Stage 5's
+matched interchange — uses the fixed-position `ANSWER_FORMATS["direct"]` one-token
+digit expectation instead, which was validated against the behavioural readout on
+exactly these two families (item-level r = 0.76 and 0.90,
+`results/mech/direct_readout.json`).
+
+G16 uses the direct readout, so that its numbers are comparable to Stage 5 and to
+the span-gate analysis. The original sentence was a drafting error, not a design
+choice, and correcting it makes G16 consistent with the rounds it must be read
+against.
+
+This amendment is recorded rather than applied silently, and it is made while the
+generation count for this round is still zero. Tag `g16-binding-interchange-design-v1.1`
+supersedes `-v1`; the v1 tag is retained so the original text stays recoverable.
 
 ## 4. Patch sites and layers, fixed in advance
 
