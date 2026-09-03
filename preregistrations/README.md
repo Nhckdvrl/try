@@ -36,3 +36,9 @@ The files intentionally preserve the language used at the time each experiment w
 - `PREREGISTRATION_G10_FEWSHOT.md`
 
 Git freeze commits/tags remain the authority for when each preregistration became immutable relative to model outputs.
+
+## Prospective extension after the archive consolidation
+
+- `PREREGISTRATION_LLAMA_BEHAVIORAL_EXTENSION.md` — unchanged G8/G11/G12
+  instruments on the Llama-3.1-8B checkpoint already selected by G4. This does
+  not alter any original panel verdict.

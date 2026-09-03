@@ -117,3 +117,13 @@ The BTF-3 transformation contract, factuality-audit protocol, frozen data artifa
 ## E. Original preregistrations
 
 Exact preregistration text is in [`preregistrations/`](preregistrations/), organized by [`preregistrations/README.md`](preregistrations/README.md). The corresponding Git freeze commits/tags remain the authority for chronology relative to model outputs.
+
+## F. Active prospective extension
+
+**Llama-3.1-8B explanatory descent.** A1 already exists from the frozen G4
+panel: hindsight intrusion is +28.23pp, OOB boundary recognition is 250/256,
+but the original stronger two-frame G4 qualification failed because the model
+misread the licensed/all-information boundary check. The prospectively frozen
+extension runs the unchanged G8, G11, and G12 instruments to locate how far the
+Meta family follows the positive explanatory chain. Mistral and every original
+panel verdict remain unchanged.
