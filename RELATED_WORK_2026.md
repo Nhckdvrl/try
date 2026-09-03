@@ -4,10 +4,41 @@ The paper asks:
 
 > **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-Five neighbouring questions, positioned positively. None of these is an objection to
-answer; each is a place where our result sharpens or corrects an existing account.
+and answers with a specific dependency:
 
-## 1. Instructed disregard in people
+> **A policy can be available to the model without being addressable to the
+> information it is supposed to govern.**
+
+The positioning must be built on that dependency, not on "nobody has studied ignoring,
+policies, deferred instructions, or instruction states." Each of those is occupied.
+
+## 0. What is already taken, and must be conceded plainly
+
+| work | what it establishes | why it does not cover us |
+|---|---|---|
+| **I³C**, NAACL 2024 Main (<https://aclanthology.org/2024.naacl-long.379/>) | identify irrelevant conditions, verify them, instruct the model to ignore them; eight math word-problem datasets | the irrelevant material is *present* when it is judged; nothing is deferred |
+| **IHEval**, NAACL 2025 Main (<https://aclanthology.org/2025.naacl-long.425/>) | system / user / history / tool instruction hierarchy, 3,538 examples × 9 tasks; large failures under conflict | conflicts between *co-present* instructions, not a policy whose target has not arrived |
+| **COMPASS**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.2139/>) | organisational allowlist/denylist policies, 5,920 queries, 8 scenarios, 7 models; allowlist >95% vs adversarial denylist 13–40% | establishes that prohibition is hard; does not ask what determines when a prohibition binds |
+| **Instruction Position Matters**, ACL 2024 Findings (<https://aclanthology.org/2024.findings-acl.693/>) | moving the instruction after the input improves generation; attributed to instruction forgetting | same sign as our contribution 1, different cause — our declarative probe is at 100% and distance has no main effect |
+| **Prospective memory failures**, 2026 (<https://arxiv.org/html/2603.23530>) | deferred instructions decay under concurrent load; salience formats recover compliance | asks whether the model *remembers to act*; we hold retrieval at ceiling and ask whether a remembered policy governs |
+| **LoCoMo-Plus**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.1150/>) | cue and later trigger semantically disconnected in long-term agent memory | the cue must be *retrieved*; our rule is in context and correctly recalled |
+| **Patches of Nonlinearity**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.559/>) | causal localisation of instruction representations; instruction vectors as circuit selectors | an internal instruction state is not our novelty; that a rule state depends on whether a *semantic target was available* is |
+
+**"LLMs are bad at ignoring things" is not a contribution, and neither is "we find an
+instruction state."** Both are already in the literature.
+
+## 1. The dependency we study
+
+> Prior work asks whether models identify irrelevant information, obey policy
+> hierarchies, retain deferred instructions, or refuse prohibited actions. We study a
+> different dependency: when a policy is stated **before its evidential target
+> exists**, what determines whether that policy later controls the target's causal
+> contribution?
+
+The answer — the target's own representation at rule time — is what none of the above
+addresses, and it is confirmed prospectively on fresh items in G18.
+
+## 2. Instructed disregard in people
 
 Our preregistration was borrowed from this literature. A meta-analysis over 48
 studies and 8,474 participants finds that jurors told to disregard evidence they
@@ -21,7 +52,7 @@ literature therefore enters the paper as the source of a falsified prediction, n
 as an analogy the results are then bent to fit. We make no claim that models
 implement the human process.
 
-## 2. Instruction position and instruction following
+## 3. Instruction position and instruction following
 
 ### *Instruction Position Matters in Sequence Generation* — ACL 2024 Findings
 <https://aclanthology.org/2024.findings-acl.693/>
@@ -51,12 +82,14 @@ tokens in four of six models — separates the two directly.
 
 This line assumes that a higher-privilege instruction, given earlier and from a more
 trusted source, should dominate. Our agent result is a limiting case for that
-assumption: a `SYSTEM`-level policy naming a document that has not yet been retrieved
-is worth *nothing* relative to no policy at all in two of three models, while the
-identical policy delivered after the tool output works. Privilege and position do not
-determine enforcement; binding does.
+assumption. A `SYSTEM`-level policy naming a document that has not yet been retrieved
+is worth *nothing* relative to no policy at all in two of three models — though not
+all: it does suppress in Gemma-3-12B and Qwen3.5-27B. What holds across every model is
+that when the same proposition arrives under a different document identifier, the
+identifier policy stops protecting while the proposition policy still does. Privilege
+and position do not determine enforcement; addressability does.
 
-## 3. Distraction and irrelevant context
+## 4. Distraction and irrelevant context
 
 ### *Llama See, Llama Do* — ACL 2025 Outstanding
 <https://aclanthology.org/2025.acl-long.791/>
@@ -87,7 +120,7 @@ The origin of the distraction line. Our contribution relative to it is that the
 governing variable is not the presence of the extra material but the structure of the
 policy that is supposed to exclude it.
 
-## 4. Suppression and unlearning at inference time
+## 5. Suppression and unlearning at inference time
 
 ### *Answer When Needed, Forget When Not* — ACL 2025 Findings
 <https://aclanthology.org/2025.findings-acl.1276.pdf>
@@ -111,7 +144,7 @@ demographic bias. Ours locates when in-context instructed ignoring works — it 
 reliably, once the policy can bind to content — which is why a structural fix inside
 one context is available here.
 
-## 5. Mechanistic accounts of contextualisation and competing pathways
+## 6. Mechanistic accounts of contextualisation and competing pathways
 
 ### *Racing Thoughts* — NAACL 2025 Main
 <https://aclanthology.org/2025.naacl-long.155/>
@@ -136,19 +169,21 @@ from structural alignment, then competing pathways that explain the wrong action
 The closest analogue to our descent: not "models cannot follow exclusion rules", but
 *what the policy can be resolved against* determines whether it governs the decision.
 
-## 6. Position of the present paper
+## 7. Position of the present paper
 
 The surrounding literature establishes that instruction position affects compliance,
 that deferred instructions decay under load, that irrelevant context exerts
 structured influence, and that instructed forgetting can be superficial.
 
 We study the case where the model demonstrably holds the policy and still fails to
-apply it, and show that the deciding factor is neither memory nor position but what
-the policy can bind to. A named future item cannot be bound and is worse than saying
-nothing; propositional content and class markers carried on the evidence can be, and
-make prospective exclusion work — in vignettes and in an agent. The excluded material
-is still read at the decision, gating is resolved late, and the binding state
-transfers causally between matched runs.
+apply it, and show that the deciding factor is neither memory nor position but whether
+the policy has a **semantic target**. A referential stub is not enough and lexical
+similarity is worse than nothing; a matched proposition or an entailing description
+makes prospective exclusion work — confirmed on 100 fresh items over 30 independent
+skeletons, five checkpoints, four vendors. In an agent, semantic policies follow the
+proposition across a change of document identifier where identifier policies do not.
+Mechanistically, a mid-network rule state carries whether a target was found, and
+interchanging it changes later suppression in two architectures.
 
 That is the positive positioning the introduction and related-work section should
 preserve.

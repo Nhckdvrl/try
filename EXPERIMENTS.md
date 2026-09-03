@@ -137,7 +137,7 @@ arriving as `D9` defeats an ID-only policy but not a proposition policy.
 
 ## A8. Mechanism — span gate, late gating, and matched interchange
 
-**Model.** Qwen3-8B, 75 items from the two families where a fixed-position readout
+**Models.** Qwen3-8B and Mistral-Small-24B, 75/45 items from the two families where a fixed-position readout
 tracks the behavioural one (item-level r = 0.76 and 0.90).
 
 **Results.**
@@ -147,10 +147,14 @@ tracks the behavioural one (item-level r = 0.76 and 0.90).
   failure.
 - **Late resolution.** Answer-position patching recovers nothing below layer 18, 50%
   at 21, ≈85% by 27 of 36.
-- **Matched-chronology interchange.** With evidence after the rule on both sides and
-  the unrelated preview padded to the paraphrase's token length, rule-span transfer
-  runs both ways at layers 14–18: failure → success **+13.3 [+8.1, +18.9]**, success
-  → failure **−3.6 [−5.9, −1.4]**, admit arm near null.
+- **Matched-chronology interchange, replicated across architectures.** With evidence
+  after the rule on both sides and the unrelated preview padded to the paraphrase's
+  token length, rule-span transfer runs both ways in a mid-network window:
+  Qwen3-8B at layers 14–18 of 36 (relative depth 0.39–0.50), break **+13.3
+  [+8.1, +18.9]**, rescue **−3.6 [−5.9, −1.4]**; **Mistral-Small-24B** at layers 12–16
+  of 40 (relative depth 0.30–0.40), behavioural gap **+18.2**, interaction **−15.6**,
+  break **+15.7**, rescue **−13.4**, null above depth 0.45. The overlapping
+  mid-network window is the invariant; Qwen's rescue/break asymmetry is not.
 - **Attention correlate.** The rule:evidence per-token attention ratio at the answer
   position tracks the behavioural rescue (2.14 → 2.68 → 2.64). Reported as a
   correlate, not an explanation.
@@ -245,6 +249,44 @@ and per-preview baseline cells would settle it.
 **Results.** `results/g17_binding_by_weight_results.md`,
 `results/g17_binding_by_weight_analysis.json`; code `src/conditions_g17.py`,
 `src/analyze_g17.py`.
+
+## A12. G18 — prospective semantic targeting: **confirmed**
+
+**Question.** Does prospective exclusion succeed only when the model has a
+sufficiently specific *semantic* representation of the target at rule time, as opposed
+to a reference to it, a lexically similar description with a different meaning, or
+nothing?
+
+**Why it exists.** The centrepiece regularity was discovered through a chain that
+rebuilt the design (Stage 3D) and changed the metric (Stage 3E) in response to what
+each round showed. Every change was justified; together they meant the claim had never
+been measured by a design built for it, on items it was not discovered on.
+
+**Design.** 6 × 3 factorial: target representation `{none, ident, empty, para, entail,
+unrel}` × rule state `{preview only, preview+evidence, preview+rule+evidence}`. Every
+level carries its own no-rule baseline. Raw sign-aligned rating points, no ratio.
+**100 fresh items, 30 independent skeletons**, three families, disjoint from
+`items_v1.jsonl` by build-time assertion. Five checkpoints, four vendors, 9,000
+generations. Frozen at `g18-semantic-targeting-design-v1` before any run.
+
+**Result.** Both gates pass. Pooled `ExclusionEffect`: entail 31.16, para 30.93,
+ident 26.27, unrel 22.06, none 21.84, empty 18.08. **Δ_semantic = +8.91
+[+7.15, +10.76], positive in 5 of 5 models**; the length- and lexically-matched
+contrast **para − empty = +12.85 [+10.32, +15.42]**, positive in 5 of 5 (interval
+excludes zero in 4; Phi-4-mini is +3.50 [−1.06, +8.57]).
+
+**The decomposition, reported in the paper not the appendix.** Under a semantic
+preview the evidence is largely redundant (`marg(no rule)` falls from ~32 to ~3), and
+the rule then drives the judgment ~28 points **below** the preview-only baseline —
+negative in 5/5 under `para`, positive in 5/5 under `empty`. With a semantic target,
+exclusion follows the proposition into text the rule never named.
+
+**Paper role.** Contribution 2, confirmed. Per the preregistration this **closes the
+experimental programme**.
+
+**Results.** `results/g18_semantic_targeting_results.md`,
+`results/g18_semantic_targeting_analysis.json`; code `src/gen_g18.py`,
+`src/conditions_g18.py`, `src/analyze_g18.py`; items `data/items/g18_v1.jsonl`.
 
 ---
 
