@@ -1,292 +1,176 @@
-# Related work and novelty boundary — current temporal paper
+# Related work and novelty boundary — 2026 paper
 
-This file is the **binding novelty note for the current hindsight-contamination
-paper**. Earlier multi-family Information-Set Reasoning plans are no longer the
-submission target.
+This is the binding novelty note for the current paper. The paper studies **retrospective epistemic reconstruction / information-set conditioning under hindsight**.
 
-The paper's central object is:
+Core question:
 
-> **the causal effect of explicit future evidence on an otherwise identical
-> reconstructed historical judgment, while separately measuring whether the
-> model recognizes that the evidence lies outside the target time.**
+> **After learning how something turned out, can a language model still condition a reconstructed past judgment only on information that was available beforehand?**
 
-The novelty is therefore **not** the generic observation that models use future
-information, exhibit hindsight-like bias, or can state a temporal rule and still
-violate it.
+The novelty is not generic future-information leakage, generic irrelevant-context sensitivity, or the fact that a model can state a temporal rule and still violate it.
 
----
-
-## 1. Closest neighbour: temporal legal reasoning
-
-### *When Do LLMs Apply the Wrong Law? Diagnosing LLM Failures in Temporal Legal Reasoning* (2026)
-
-This is the closest neighbour to the paper's recognition–enforcement framing.
-It reports that models are biased toward newer statute versions; the same models
-can state the temporal-applicability rule correctly and demonstrate knowledge of
-the older statute, yet still apply the wrong vintage to a concrete case.
-
-URL: https://arxiv.org/abs/2608.14610
-
-### Binding consequence
-
-We must **not** write:
-
-> We are the first to show that LLMs understand a temporal boundary but fail to
-> obey it.
-
-That priority claim is unavailable.
-
-The distinction we can defend is methodological and quantitative:
-
-- the legal work studies **version selection** among legal texts;
-- our design holds one question and one future evidence packet fixed and
-  directly manipulates whether that packet is present and whether it is licensed
-  for the target judgment;
-- our outcome is a continuous probability shift, not only a right/wrong version
-  choice;
-- boundary recognition is measured per item and is near ceiling rather than
-  inferred from a separate task.
-
-Locked novelty formulation:
-
-> **We causally manipulate the presence and admissibility of the same explicit
-> in-context future evidence, measuring how much that evidence shifts an
-> otherwise identical reconstructed historical judgment.**
-
----
-
-## 2. Ex-ante reasoning and temporal leakage
+## 1. Ex-ante reasoning and temporal leakage
 
 ### ExAnte (EACL 2026)
+https://aclanthology.org/2026.eacl-long.72/
 
-ExAnte studies whether models reason as if they were located at an earlier time
-when their parameters may already contain later facts. It establishes temporal
-leakage / ex-ante inference as an existing problem.
+ExAnte studies reasoning under an explicit historical cutoff when model parameters may already contain later knowledge. It establishes ex-ante inference and temporal leakage as existing objects.
 
-This means the paper cannot be sold as:
+Therefore we cannot claim:
 
-> LLMs know future events and accidentally use them when asked to reason about
-> the past.
+> “LLMs accidentally use future knowledge when asked to reason about the past.”
 
-Our stronger distinction is that **knowledge availability is experimentally
-controlled in context**. We insert the same later packet and compare its causal
-effect under ex-ante versus retrospective admissibility.
+Our distinction is that later knowledge is **explicitly manipulated in context** and its causal effect is measured within the same recipient judgment.
 
-This separates:
+### *When Do LLMs Apply the Wrong Law?* (2026)
+https://arxiv.org/abs/2608.14610
+
+This work shows that models can know a temporal applicability rule and the historical law yet still prefer a newer statute version.
+
+Therefore we cannot claim priority for:
+
+> “models know the temporal rule but fail to obey it.”
+
+Our contribution begins below that observation: same-evidence causal sensitivity, unrelated outcome-shaped evidence, paired donor-outcome-class replacement, and late causal expression.
+
+## 2. Irrelevant context, distraction, and contextual conflict
+
+Generic irrelevant-context sensitivity is a crowded area. The paper must not be framed as “irrelevant future evidence distracts LLMs.”
+
+### ACL 2025 Outstanding — *Llama See, Llama Do*
+https://aclanthology.org/2025.acl-long.791/
+
+This paper moves below generic distraction to **contextual entrainment**: prior token occurrence increases propensity for that token even for random tokens, with identifiable entrainment heads.
+
+Lesson for our positioning: the valuable move is from a coarse failure to a sharper regularity. Our corresponding move is **not** “future packets distract,” but that **outcome-shaped evidence from unrelated resolved events exerts donor-directed pull on a reconstructed historical judgment**.
+
+The analogy is methodological, not one-to-one. Llama See isolates a more primitive token-occurrence law than our semantically interpreted outcome-shaped evidence.
+
+### ACL 2025 Main — *Stochastic Chameleons*
+https://aclanthology.org/2025.acl-long.1458/
+
+This work already studies structured misgeneralization driven by irrelevant contextual cues. It is another reason the paper cannot be sold as a generic distractor-robustness result.
+
+### Authority / source-conflict work
+
+Work on source preference and authority bias similarly shows that competing contextual sources can steer answers. Our distinction is that the excluded information may be accurate and highly diagnostic, but is **definitionally outside the epistemic state being reconstructed**.
+
+That is different from ordinary semantic irrelevance.
+
+## 3. Knowledge/recognition–action gaps
+
+### EMNLP 2025 Outstanding — *Mind the Value-Action Gap*
+https://aclanthology.org/2025.emnlp-main.154/
+
+This paper demonstrates why declarative self-report and actual behavior are distinct scientific quantities.
+
+Our recognition probe plays a similar conceptual role: a model's ability to identify that evidence is outside the target information set is not equivalent to enforcing that fact in the downstream judgment.
+
+But recognition–enforcement dissociation alone is **not** our full novelty claim because temporal rule/application gaps already exist. It is the starting phenomenon for the explanatory analysis.
+
+## 4. Mechanistic contextualization and competing pathways
+
+### NAACL 2025 Main — *Racing Thoughts*
+https://aclanthology.org/2025.naacl-long.155/
+
+Racing Thoughts proposes an algorithmic race-condition hypothesis for contextualization errors and tests it with interventions that change processing dependencies. Its strength is that the mechanism directly explains the headline failure.
+
+This is the right benchmark for our remaining open question. G15 localizes where outcome influence becomes causal, but does not yet explain why a recognized information boundary fails to gate it.
+
+### ACL 2026 Main — *Do LLMs Know Tool Irrelevance?*
+https://aclanthology.org/2026.acl-long.1473/
+
+This work first orthogonalizes **semantic relevance × structural alignment**, then identifies competing semantic-checking and structural-matching pathways whose balance predicts tool invocation.
+
+The important lesson is design-level factorization of latent variables. It also motivates the only plausible next mechanistic branch for our project: whether boundary/admissibility computation causally gates, competes with, or merely coexists with the late outcome pathway.
+
+### EMNLP 2025 Outstanding — filler–gap causal abstraction
+https://aclanthology.org/2025.emnlp-main.1271/
+
+Here causal interchange is valuable because it directly adjudicates a pre-existing theoretical question about shared abstract structure across constructions. This is the standard for using mechanistic tools: the method must answer the scientific question rather than serve as a credential.
+
+### NAACL 2025 Main — SCIURus
+https://aclanthology.org/2025.naacl-long.618/
+
+SCIURus asks whether uncertainty and factuality arise from shared or separate circuitry and uses causal tracing/ablation to adjudicate the alternatives across models and datasets.
+
+### NAACL 2025 Main — The LLM Language Network
+https://aclanthology.org/2025.naacl-long.544/
+
+This work starts from functional specialization and uses ablation to establish causal task relevance. Again, the object comes before the interpretability method.
+
+### EMNLP 2025 Main — *Reason to Rote*
+https://aclanthology.org/2025.emnlp-main.437/
+
+This work asks how memorization relates to generalizable reasoning machinery and finds that memorization builds on distributed reasoning computation rather than simply locating a separate memorization mechanism. It is a useful model for relationship-first mechanistic questions.
+
+## 5. Natural phenomena with mechanism as explanation
+
+### ACL 2026 Main — *Privacy Collapse*
+https://aclanthology.org/2026.acl-long.400/
+
+The paper first establishes a natural consequential phenomenon — benign fine-tuning selectively damages contextual privacy — then uses mechanism to explain differential fragility.
+
+### ACL 2026 Main — *How Memory Management Impacts LLM Agents*
+https://aclanthology.org/2026.acl-long.27/
+
+This paper is organized around a behavioral regularity, **experience-following**, which explains error propagation and memory-management consequences. It shows that a strong Main paper does not require a complete circuit when the scientific regularity itself is clear and explanatory.
+
+## 6. Human hindsight / outcome bias
+
+Human hindsight and outcome-bias literatures motivate the natural question that knowledge of an outcome can distort reconstruction or evaluation of earlier judgments.
+
+We do **not** claim that LLMs instantiate the same psychological mechanism. “Hindsight” is descriptive/motivational language; our measured object is causal information-set sensitivity.
+
+## 7. In-context forgetting and information-flow control
+
+In-context forgetting asks whether a model can selectively forget or suppress contextual information. Security/privacy work studies noninterference and forbidden information flow.
+
+Our desired behavior is narrower:
 
 ```text
-Does the model possess later information?
-from
-Does the model use explicitly supplied later information when the task says it
-lies outside the target historical information set?
-```
-
----
-
-## 3. Human hindsight / outcome-bias literature
-
-Human work has long shown that knowing an outcome can distort evaluations of
-what was knowable or reasonable beforehand.
-
-### Aiyer et al. (2023)
-
-**Outcomes Affect Evaluations of Decision Quality: Replication and Extensions of
-Baron and Hershey's (1988) Outcome Bias Experiment 1**
-
-- preregistered replication;
-- `N=692`;
-- outcome information changes evaluation of the prior decision;
-- the effect can persist even among participants who explicitly state that
-  outcomes should not matter.
-
-URL: https://osf.io/knjhu/
-
-### Boundary
-
-The current paper is **not** a claim that LLMs reproduce a human psychological
-bias in the same sense. Human hindsight/outcome-bias work motivates the problem;
-our LLM contribution is the causal same-evidence design, per-item temporal
-recognition probe, model comparison, and follow-up interventions.
-
-Use "hindsight contamination" as an operational description, not as evidence of
-human-equivalent cognition.
-
----
-
-## 4. Curse of knowledge / privileged-state contamination
-
-Several literatures already show that possessing privileged information can
-contaminate judgments about an uninformed state.
-
-### Human curse of knowledge
-
-Work on predicting other people's knowledge shows that learning an answer can
-bias estimates of what an uninformed person would know.
-
-Example materials: https://osf.io/2ngbq/
-
-### ComplexEval (Findings of EMNLP 2025)
-
-**Curse of Knowledge: When Complex Evaluation Context Benefits yet Biases LLM
-Judges** studies auxiliary-information-induced bias in LLM evaluation.
-
-URL: https://aclanthology.org/2025.findings-emnlp.805/
-
-### Answer-side intrusion in LLM query simulation (2026)
-
-Recent work traces concepts from answer-side documents into generated queries
-that are intended to simulate a pre-search user state.
-
-URL: https://arxiv.org/abs/2608.25245
-
-### Boundary
-
-Therefore "LLMs are contaminated by privileged knowledge" is not a sufficient
-novelty claim.
-
-Our paper requires all three simultaneously:
-
-1. the later information is demonstrably useful when licensed;
-2. the model identifies it as outside the ex-ante information set when
-   unlicensed;
-3. supplying that same unlicensed information still causally changes the
-   decision.
-
----
-
-## 5. In-context forgetting and selective non-use
-
-### ICF-Bench (ICLR 2026)
-
-**Do LLMs Forget What They Should? Evaluating In-Context Forgetting in Large
-Language Models** studies selective contextual forgetting while retaining useful
-context.
-
-URL: https://proceedings.iclr.cc/paper_files/paper/2026/hash/b13d00a62d438856cfe6fbd13b6b2cb8-Abstract-Conference.html
-
-### Boundary
-
-Our desired state is not necessarily "the model can no longer recall the fact".
-The future packet may remain visible and answerable. The requirement is narrower:
-
-```text
-future evidence remains available
+later evidence may remain visible, true, useful, and recallable
 but
-its causal effect on the ex-ante judgment should be ~0
+its causal effect on a reconstructed earlier judgment should be approximately zero
 ```
 
-So the current paper is about **decision influence under a temporal information
-boundary**, not forgetting as a memory objective.
+The target is **decision conditioning**, not erasure from memory.
 
----
+## 8. Current novelty statement
 
-## 6. Continued influence and misinformation retraction
+The defensible novelty is the full explanatory sequence, not any one isolated observation:
 
-The Continued Influence Effect literature studies persistent use of
-misinformation after correction or retraction. This is related but differs in
-the epistemic status of the evidence.
+> **We prospectively show that explicit future evidence causally changes an otherwise identical reconstructed historical judgment despite near-ceiling recognition that it lies outside the target information set; we then show that outcome-shaped evidence from unrelated resolved events produces directional pull, including under a paired outcome-class intervention, and in the strong-effect model localize this influence to a late recipient-conditioned answer state rather than the tested one-dimensional packet-local bottleneck.**
 
-In our core task the future evidence can be **true, useful, and perfectly
-remembered**. It is excluded because it was unavailable at the historical time,
-not because it is false.
+## 9. Important precision boundaries
 
-This distinction matters: the model is not being asked to revise its belief that
-the future packet is true; it is being asked to reconstruct a judgment from an
-earlier information state.
+### G12
 
----
+Do not write “changing only donor outcome.” YES-supporting and NO-supporting packets are different packets; event semantics, lexical content, and other packet properties co-vary.
 
-## 7. Generic irrelevant-context and distractor robustness
+Safe wording:
 
-There is extensive prior work showing that irrelevant context or competing
-signals can alter LLM answers. Therefore:
+> “Replacing a NO-supporting irrelevant future packet with a YES-supporting irrelevant future packet raises the same reconstructed probability.”
 
-> irrelevant information changes model behavior
+### Cross-model strength
 
-is not a contribution by itself.
+G12 direction is positive in all three primary models, but effect magnitude is highly heterogeneous and the preregistered 5pp panel gate is indeterminate.
 
-Our packet is also not "irrelevant" in the ordinary sense: the same packet is
-highly useful in the retrospective licensed condition. The scientific question
-is whether the model can condition **causal use** on the target time.
+Do not write “robust causal outcome entrainment across models.”
 
----
+### Mechanism
 
-## 8. Security / information-flow work
+G15 is strong evidence in Gemma for a late recipient-conditioned causal decision state. It does not establish a dedicated hindsight circuit or the full mechanism of boundary failure.
 
-Security and privacy research already uses information-flow and noninterference
-language for LLM agents.
+### External fidelity
 
-Examples include:
+G7 failed in the opposite direction and uncontaminated judgments correlate only weakly with BTF-3's independent ex-ante forecast. Do not claim the packet makes the model less faithful to an objective ex-ante forecast.
 
-- **Fides / Securing AI Agents with Information-Flow Control** —
-  https://arxiv.org/abs/2505.23643
-- **AgentSecBench** — https://arxiv.org/abs/2605.26269
-- **Ghost in the Agent / NeuroTaint** — https://arxiv.org/abs/2604.23374
-- **CoPriva (EMNLP 2025)** — https://github.com/hwanchang00/CoPriva
+## 10. Main vs. higher-ambition closure
 
-We therefore do **not** claim that noninterference, taint, policy labels, or
-forbidden-information flow are new framings.
+The current paper is Main-shaped under the standard in `ACL_EMNLP_ALIGNMENT_STANDARD.md`.
 
-The present paper differs in object:
+The unresolved higher-level question is:
 
-| Security / privacy work | Current paper |
-|---|---|
-| disclosure, injection, forbidden action | continuous change in a legitimate probability judgment |
-| often adversarial / untrusted information | accurate future evidence that is merely too late |
-| system-level enforcement | model's own temporal-boundary compliance |
-| leakage/action success | paired causal sensitivity of a historical judgment |
+> **Why does a represented/recognized information boundary fail to gate the late outcome pathway?**
 
----
-
-## 9. Self-anchoring and why the commitment experiment was dropped
-
-*Competing Biases underlie Overconfidence and Underconfidence in LLMs* (Nature
-Machine Intelligence, 2026; doi:10.1038/s42256-026-01217-9) reports that exposing
-a model to its own prior answer can induce choice-supportive anchoring.
-
-This makes a "show the model its earlier probability, then ask it to maintain the
-past state" manipulation fundamentally confounded. The earlier M3 commitment
-idea is therefore not part of the current paper and should not be revived as a
-mechanism result.
-
----
-
-## 10. Current contribution boundary
-
-### What the paper can claim
-
-- A preregistered **recognition–enforcement gap** under a within-item causal
-  manipulation of the same future evidence.
-- The effect is prospectively confirmed on 64 fresh BTF-3 questions and
-  independently replicated on 256 additional unseen questions.
-- Boundary recognition is 99.2–100% in the 256-unit round while future evidence
-  still shifts ex-ante judgments by 7.46–27.73 probability points across the
-  three primary checkpoints.
-- Removing explicit YES/NO verdict sentences does not eliminate contamination,
-  so the effect is **not reducible to explicit-label copying**.
-- Within available dense Qwen3.5 checkpoints, scale does not monotonically
-  remove the failure.
-
-### What the paper cannot claim
-
-- first observation of temporal-rule recognition without behavioral compliance;
-- cross-source replication;
-- generality across temporal, perspective, procedural, role/access, or privacy
-  boundaries;
-- a universal "information-set reasoning" failure;
-- a neural / representation-level mechanism;
-- an independently replicated exclusion-specific positional mechanism;
-- a scaling law;
-- that verdict-redacted evidence is non-revealing;
-- complete factual certification of the BTF-3 packets.
-
----
-
-## 11. One-sentence paper novelty
-
-> **Language models can identify with near-ceiling accuracy that evidence
-> postdates the historical moment they are asked to reason from, yet supplying
-> that same evidence still causally shifts their reconstructed ex-ante judgment
-> by a large and independently replicated margin; the effect survives removal
-> of explicit resolution labels and is not eliminated by model scale within the
-> tested Qwen3.5 family.**
+Only a clean prospective causal discrimination among competing algorithms for this interaction would materially deepen the paper toward the explanatory closure of Racing Thoughts / Tool Irrelevance. More prompts, datasets, models, mitigations, or generic-axis controls are not automatically useful.
