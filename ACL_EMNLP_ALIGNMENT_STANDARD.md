@@ -1,126 +1,150 @@
 # ACL / EMNLP / NAACL alignment standard
 
-This is the quality bar for the project. The target is **strong Main / Outstanding-shaped work**, not the median accepted paper and not Findings as the aspiration.
+The target is **strong Main / Outstanding-shaped work**, not the median accepted paper and not Findings as the aspiration.
 
-## Reference papers to emulate
+The most important lesson from the reference papers is not “run more controls” and not “add mechanistic interpretability.” It is:
+
+> **Start from a natural scientific question, discover something non-obvious about it, and make every major experiment deepen the explanation.**
+
+## Reference papers
 
 ### ACL 2025 Outstanding — *Llama See, Llama Do*
 https://aclanthology.org/2025.acl-long.791/
 
-What to learn: the paper does not stop at “irrelevant context distracts models.” It identifies a lower-level regularity — prior token occurrence itself raises propensity for that token, even for random tokens — and then connects a mechanistic intervention back to the behavioral failure.
+The broad problem is **LLM distraction**. The paper then discovers contextual entrainment: prior token occurrence itself raises the token's propensity, even for random tokens. The new phenomenon is useful because it explains something about distraction; the attention-head work then connects the internal mechanism back to that phenomenon.
+
+**Lesson:** natural problem → surprising regularity → mechanism that explains the regularity.
 
 ### EMNLP 2025 Outstanding — *Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions*
 https://aclanthology.org/2025.emnlp-main.1271/
 
-What to learn: the scientific question predates the interpretability method. Causal interchange is valuable because it adjudicates whether apparently different constructions share abstract structure. Mechanism is evidence for a theory question, not an end in itself.
+The question is whether apparently different constructions share abstract structure. Causal interchange is valuable because it answers that theory question and reveals where the shared-structure story breaks or changes.
+
+**Lesson:** the scientific question exists before the method.
 
 ### EMNLP 2025 Outstanding — *Mind the Value-Action Gap*
 https://aclanthology.org/2025.emnlp-main.154/
 
-What to learn: a top paper can advance the field by changing the evaluation object. “What a model says it values” and “what it does” are different scientific quantities. The conceptual separation matters more than having a circuit diagram.
+The question is immediately understandable: **do LLMs act in alignment with the values they state?** The paper matters because it separates two natural quantities that prior evaluation often conflated.
+
+**Lesson:** a strong paper can advance the field by defining the right object of study; it does not need a circuit as decoration.
 
 ### NAACL 2025 Main — *Racing Thoughts*
 https://aclanthology.org/2025.naacl-long.155/
 
-What to learn: propose an algorithmic hypothesis that makes directional causal predictions. Backpatching/frozen-backpatching is strong because it manipulates processing order and rules out the simpler “more computation” account.
+The paper is about **contextualization errors**. The race-condition hypothesis is valuable because it offers an algorithmic explanation and makes causal predictions about processing order.
+
+**Lesson:** mechanism should explain the headline failure, not sit beside it.
 
 ### ACL 2026 Main — *Do LLMs Know Tool Irrelevance?*
 https://aclanthology.org/2026.acl-long.1473/
 
-What to learn: define latent variables first, then build an instrument that orthogonalizes them. Structural alignment and semantic relevance are independently controlled; competing pathways then directly explain why the wrong action wins.
+The natural problem is whether a model can refrain from invoking an irrelevant tool. Structural alignment bias is the explanatory variable beneath the failure; SABEval is built to separate structural alignment from semantic relevance; competing pathways then explain the wrong action.
 
-### ACL 2025 Main — *Stochastic Chameleons*
-https://aclanthology.org/2025.acl-long.1458/
+**Lesson:** latent variables and experiments descend from the natural question. The dataset is an instrument, not the paper's identity.
 
-What to learn: generic irrelevant-context failure is already crowded territory. A publishable explanatory step needs a more specific regularity or abstraction than “distractors hurt.”
+## What strong papers do structurally
 
-### NAACL 2025 Main — *SCIURus*
-https://aclanthology.org/2025.naacl-long.618/
+### 1. A short natural question
 
-What to learn: mechanism answers a crisp alternatives question — shared or separate circuitry for factuality and uncertainty — across multiple models/datasets.
+The question should make sense before introducing a benchmark, metric, layer, causal estimator, or newly coined term.
 
-### NAACL 2025 Main — *The LLM Language Network*
-https://aclanthology.org/2025.naacl-long.544/
+Good level of abstraction:
 
-What to learn: the natural question is functional specialization; ablation is used to establish causal task relevance, not to manufacture novelty after the fact.
+- Why do irrelevant contexts distract language models?
+- Do different syntactic constructions share a mechanism?
+- Do models act according to their stated values?
+- Why does contextualization fail?
+- Why do models invoke tools they know are irrelevant?
 
-### EMNLP 2025 Main — *Reason to Rote*
-https://aclanthology.org/2025.emnlp-main.437/
+For this project:
 
-What to learn: ask how two phenomena relate algorithmically (memorization and reasoning) rather than looking for a “memorization neuron.” A surprising relationship can itself be the explanatory contribution.
+> **After a language model learns how something turned out, can it still judge the past without hindsight?**
 
-### ACL 2026 Main — *Privacy Collapse*
-https://aclanthology.org/2026.acl-long.400/
+The scientific object is simply **hindsight in language-model reasoning**.
 
-What to learn: first establish a natural, consequential phenomenon, then use mechanism to explain differential fragility. The paper identity is the phenomenon, not the probe.
+Terms such as `information set`, `out-of-set intrusion`, `retrospective outcome entrainment`, and `recipient-conditioned decision state` belong at progressively lower explanatory levels. They must not replace the natural object.
 
-### ACL 2026 Main — *How Memory Management Impacts LLM Agents*
-https://aclanthology.org/2026.acl-long.27/
+### 2. Positive explanatory descent
 
-What to learn: a strong Main paper can be organized around a newly characterized behavioral regularity (experience-following) when that regularity explains downstream failures and design consequences.
-
-## The eight gates for this project
-
-A proposed main-paper claim should pass all eight.
-
-1. **Natural question.** Can be stated in one sentence without dataset, metric, model, or method names.
-2. **Scientific object.** Exists independently of the chosen benchmark.
-3. **Instrument follows the question.** Dataset/manipulation is built to isolate an already-defined variable, not vice versa.
-4. **Novel explanatory step.** Goes below the coarse known failure into a sharper variable, relation, or algorithmic distinction.
-5. **Related-work separation.** The novelty is not “prior work did not test our benchmark/model.” State what conceptual variable or causal relation is new.
-6. **Experiment coherence.** Main experiments form one descending explanatory tree; failed/dead-end conditions do not become equal-weight sections.
-7. **Claim robustness.** A failed favorite mechanism should not force us to change the natural question after seeing results.
-8. **Mechanism necessity.** Open the model only when two accounts predict the same outputs but differ internally, or when the intervention directly explains the headline failure.
-
-## Current project score against the bar
-
-### Natural question — strong
-
-> After learning how something turned out, can a language model still condition a reconstructed past judgment only on the information available beforehand?
-
-This is broader and cleaner than forecasting accuracy. It is a question about **retrospective epistemic reconstruction / information-set conditioning under hindsight**.
-
-### Current explanatory descent — Main-shaped
+The main paper should read:
 
 ```text
-recognized temporal boundary
+natural question
     ↓
-future evidence still causally changes the reconstructed judgment
+important phenomenon
     ↓
-unrelated outcome-shaped future evidence produces donor-directed pull
+sharper regularity
     ↓
-paired donor-outcome replacement controls direction, with heterogeneous magnitude
+causal discrimination
     ↓
-in the strong-effect model, influence becomes causally actionable in a late recipient-conditioned answer state
+mechanistic explanation
 ```
 
-This is substantially stronger than “future information leaks” or “irrelevant context distracts.”
+It should **not** read:
 
-### Where the paper is not yet Outstanding-closed
+```text
+claim
+    ↓
+reviewer objection A → control
+    ↓
+reviewer objection B → control
+    ↓
+reviewer objection C → control
+```
 
-The late decision-state result explains **where/how outcome influence becomes causally actionable**, but not yet **why an information boundary the model can recognize fails to gate that pathway**.
+Controls are useful only when they reveal something scientifically new or are necessary for the validity of the central result. They are not the narrative.
 
-That missing closure should not be patched with more benchmark breadth or prompt controls. If we pursue it, the experiment must discriminate competing algorithms for boundary/outcome interaction.
+### 3. One or two real explanatory moves beat many narrow claims
 
-## Strict claim language
+A strong paper does not maximize the number of statements it can defend. It identifies the smallest set of results that changes how we understand the phenomenon.
 
-Prefer:
+For this project, the key move is not “we ruled out copying, scale, wording, etc.” The key move is:
 
-- “outcome-shaped future evidence from unrelated resolved events produces directional retrospective pull”;
-- “replacing a NO-supporting irrelevant packet with a YES-supporting packet raises the same reconstructed probability”;
-- “magnitude is strongly model-dependent; the preregistered 5pp panel gate is indeterminate”;
-- “in Gemma, future-outcome influence becomes causally actionable in a late recipient-conditioned answer-position state.”
+> **Known outcomes distort judgments of the past, and the distortion has a directional structure: outcome-shaped later context pulls judgments toward the outcome it supports, even across unrelated events.**
 
-Avoid:
+The mechanism then asks how that outcome influence enters the decision.
 
-- “changing only the outcome” (packet identity/semantics also change in G12);
-- “robust causal outcome entrainment across models”;
-- “a dedicated hindsight axis/circuit”;
-- “the mechanism of hindsight contamination” without qualification;
-- “we are first to show models know a temporal rule but violate it.”
+### 4. Mechanism earns its place by explaining the phenomenon
 
-## Decision rule for further work
+Opening the model is justified when it distinguishes genuinely different algorithms or explains the headline behavior. More probes, patching, neurons, or layers do not automatically increase paper quality.
 
-For a Main submission, the default is to **stop adding experiments** and improve paper density, figures, novelty boundaries, and wording.
+For this project, G13–G15 matter because they distinguish packet-local transport from contextual construction of the late decision variable. The mechanism should be narrated as an answer to **how hindsight enters the decision**, not as a separate MI section seeking technical prestige.
 
-For an Outstanding-level attempt, run a new experiment only if all existing evidence through G15 is consistent with two explicitly stated algorithms and a prospective intervention makes opposite predictions. The most promising question is whether the boundary/admissibility representation causally gates, competes with, or merely coexists with the late outcome pathway.
+### 5. Limitations are compact, not a second paper
+
+Precision matters, but defensive prose should not dominate the introduction, abstract, result headings, or conclusion. Detailed gate failures, preregistration thresholds, unsuccessful branches, and qualification rules belong in the experiment registry, appendix, or limitations when needed.
+
+The main text should state the strongest result supported by the data in ordinary scientific language.
+
+## Current project against this bar
+
+### Natural question
+
+> **Can language models judge the past without hindsight once they know the outcome?**
+
+This is strong enough to carry the paper without any bespoke terminology.
+
+### Main explanatory arc
+
+```text
+known outcomes alter judgments of the past
+although models know the evidence came later
+    ↓
+outcomes from unrelated events still pull the judgment
+in the direction they support
+    ↓
+changing the outcome direction of later evidence changes
+which way the same judgment moves
+    ↓
+in Gemma, this influence becomes causal only after the
+later evidence is integrated with the current question
+```
+
+This is the paper's core. Scale sweeps, prompt-reason manipulations, failed mitigation, and broad source attempts are secondary.
+
+## Decision rule for future work
+
+The default is **write the paper, not defend it with more experiments**.
+
+Run something new only when it answers a new scientific question that materially deepens our understanding of hindsight. “A reviewer may ask for another control/model/benchmark” is not sufficient justification.
