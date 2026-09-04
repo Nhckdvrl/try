@@ -1,123 +1,142 @@
-# Project status — main line, claims, evidence
+# Project status — final experimental ledger
 
-**As of:** 2026-09-03, after G18. **Experimental programme: CLOSED.**
+**As of:** 2026-09-04, after G18. **Experimental programme: CLOSED.**
 **Target:** ARR 2026-10-12 → NAACL 2027.
 
-This is the single consolidated snapshot: what the paper claims, what backs each claim,
-what is disputed, and what is not claimed. `PAPER_FRAME.md` is the narrative register;
-this file is the ledger.
+This file is the compact factual ledger. The final scientific story is in
+[PAPER_FRAME.md](PAPER_FRAME.md); the writing blueprint is in
+[PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md). Historical stage documents are
+preserved as records of what was believed at the time and are not retroactively
+rewritten.
 
----
-
-## 1. The question
+## 1. Scientific question
 
 > **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-A policy nearly always exists before the data it governs — a system prompt forbids a
-source before retrieval runs, a court excludes evidence before the record is read, an
-agent is told which memories are off-limits before any is fetched. The scientific
-object is **whether a stated exclusion policy actually governs the decision**, and what
-determines when it does.
+The paper studies a common structure: a policy is available before the information it
+will later govern. The core question is not merely whether the policy can be recalled,
+but whether it actually controls the later evidence's contribution to a decision.
 
-## 2. The main line, and what carries each step
+## 2. Final main line
 
-| # | Step | Evidence | Breadth | Status |
+| # | Claim | Load-bearing evidence | Breadth | Status |
 |---|---|---|---|---|
-| 1 | **Advance exclusion fails where post-hoc exclusion succeeds** — the reverse of the human pattern | `Δ_time` negative in all 12 instruct models, 10/12 CIs exclude 0; admit control flat | 12 instruct + 2 masked diffusion, 4 vendors, 5 task families, 144 items | **solid** |
-| 2 | **The rule is held and ignored** | declarative probe returns "exactly 0" on **100%** of items in both arms, against REI up to **+0.64** prospectively | 6 models | **solid** |
-| 3 | **Not memory, distance, causal mask, wording, or implicature** | delay intact to ~1,000 tok (4/6); distance no main effect, further *helps*; largest asymmetry in bidirectional Dream-7B; 40/40 model×wording cells; presentation policy rescues none | 4–12 models per test | **solid** |
-| 4 | **The failure is specific to complete suppression** | pooled discontinuity **+0.295 [+0.185, +0.405]**, p<1e-4, n=422; and pre-post gap exactly **0.000** in 4/5 models when the contribution is arithmetically implementable | 6 models / 5 models | **solid** |
-| 5 | **Binding decides it — a named future referent is worse than silence** | L0–L5 ladder, uniform inversion | 6 models | **solid** |
-| 6 | **The policy needs a semantic target — reference and lexical similarity do not suffice** | **G18, prospective**: pooled ExclusionEffect entail 31.16 / para 30.93 vs ident 26.27 / unrel 22.06 / none 21.84 / empty 18.08; **Δ_semantic +8.91 [+7.15, +10.76], 5/5 models**; para − empty **+12.85 [+10.32, +15.42]**. Discovery support: similarity ladder, semantically-empty tag = identity predicate, content × identity 2×2 | **100 fresh items, 30 fresh skeletons, 3 families, 5 models, 4 vendors** | **confirmed** |
-| 6b | **With a semantic target, exclusion follows the proposition beyond the named block** | `marg(exclude)` −27.66 under `para` vs +14.40 under `empty`; negative in 5/5 under `para`, positive in 5/5 under `empty` | 5 models | **solid** |
-| 7 | **A class marker carried on the evidence works prospectively** | tagged stream: leakage **0.406–0.536 → ≈0 in both arms**, exact ground truth | 5 models | **solid** |
-| 8 | **The same dissociation in an agent** | `SYSTEM` identifier policy worth nothing (+1.014 vs +0.991 naive); same policy after the tool output much better; suppression follows the proposition, not the document ID | 3 models, real `SYSTEM`/`TOOL` roles | **solid** |
-| 9 | **Excluded evidence is still read at the decision** | span gate returns the answer to Base: +0.46→−0.12 pre, +0.32→−0.08 post, p<1e-4 | Qwen3-8B | **solid, single model** |
-| 10 | **Gating is resolved late** | answer-position patching: nothing <L18, 50% at L21, ≈85% by L27 of 36 | Qwen3-8B | **solid, single model** |
-| 11 | **A mid-network rule state carries whether a semantic target was found, and interchanging it changes later suppression** | Qwen3-8B L14–18/36 (depth 0.39–0.50) break +13.3 [+8.1, +18.9], rescue −3.6 [−5.9, −1.4]; **Mistral-Small-24B** L12–16/40 (depth 0.30–0.40) gap +18.2, break +15.7, rescue −13.4, null above 0.45 | **2 models, 2 architectures** | **solid** |
+| 1 | **Prospective exclusion is systematically harder than post-evidence exclusion.** | G0: same exclusion rule before vs after evidence; matched Admit control has no order effect. Delta_time has the same sign in all 12 instruct models, with 10/12 intervals excluding zero. | 12 instruct + 2 masked diffusion LMs, 4 vendors, 5 task families, 144 frozen items | **established** |
+| 2 | **Explicit access to the policy is not sufficient for enforcement.** | Separate probes recover the required zero-weight policy at ceiling; more importantly, on-policy and teacher-forced state-externalisation show that in Qwen3-8B and Gemma-3-12B, evidence can still influence the decision even when the trajectory explicitly states zero weight. | separate probe: broad panel; on-policy causal dissociation: 3 models, strongest in Qwen/Gemma | **established, model-heterogeneous** |
+| 3 | **The difficult regime is hard suppression of semantically integrated evidence, not future-directed instruction following in general.** | Same-wording weight sweep shows a sharp concentration at requested zero; explicit arithmetic contribution is implemented prospectively with zero pre/post gap in 4/5 models. Non-multiplicative cap/sign-flip manipulations retain smaller gaps, so this is a concentration, not a universal “zero only” law. | 3–6 models depending on test | **boundary condition** |
+| 4 | **Prospective exclusion depends on target addressability: semantic target representations support stronger exclusion than reference or surface resemblance alone.** | **G18 confirmatory factorial**: Delta_semantic = **+8.91 [+7.15,+10.76] rating points**, positive in 5/5 models. Para-minus-empty = **+12.85 [+10.32,+15.42]**, positive in 5/5, CI excluding zero in 4/5. | **100 fresh items, 30 fresh skeletons, 3 families, 5 models, 4 vendors; 9,000 generations** | **prospectively confirmed** |
+| 5 | **Semantic control can follow information across a change of identifier.** | Agent SYSTEM→TOOL counterfactual: when the same proposition arrives as D9, identifier policies lose their protection while proposition policies continue to suppress it. Identifier-only policies can work on their named D7 in some models; the invariant is the cross-identifier dissociation. | 4 models, real chat roles | **established** |
+| 6 | **A target-dependent rule state causally carries successful vs failed prospective exclusion.** | Matched-chronology rule-span interchange changes later suppression before the later evidence is processed. Qwen3-8B: L14–18/36; Mistral-Small-24B: L12–16/40. The mid-network localisation and causal transfer replicate; Qwen's rescue/break asymmetry does not. | 2 models, 2 architectures | **causal mechanism established** |
 
-## 3. The seam that was open, and what happened to it
+## 3. G18 — the centrepiece confirmation
 
-Steps 4 and 6 were asserted side by side and never crossed. G17 tried to unify them
-and its frozen verdict was `no-rescue` on a defective ratio estimand; a robust
-re-analysis in raw points matched the prediction (+9.30 [+6.11, +12.65]) but only
-post-result. **The paper does not claim unification and does not need to.** `w = 0`
-is written as a boundary condition serving step 6, not as a competing regularity:
-the failure is not a generic inability to follow future-directed instructions, it is
-about making semantically integrated evidence causally inert. See
-`results/g17_binding_by_weight_results.md`.
+G18 was frozen specifically because the target-addressability account had been
+discovered through Stage 3C→3D→3E, including a design rebuild and a change from REI to
+raw rating points. The confirmatory round therefore used the final estimand from the
+start, on fresh materials.
 
-## 4. What is explicitly not claimed
+Design:
+- 6 target representations: none, identifier stub, lexical-overlap/wrong proposition,
+  paraphrase, entailing-specific statement, unrelated length-matched content;
+- 3 rule states: preview only, preview + evidence, preview + exclusion rule + evidence;
+- every preview level has its own no-rule baseline;
+- raw sign-aligned rating points only; no leverage-normalised ratio;
+- 100 fresh items / 30 fresh skeletons / three families;
+- 5 frozen checkpoints across four vendors.
 
-- **Not** that the mechanism explains class-marker binding. The fixed-position
-  mechanism readout is **blind to that contrast** (−0.503 behavioural vs +0.045 direct
-  on identical prompts). Its reach is rule position and content-preview binding — the
-  latter being §5.2, the paper's central binding claim.
-- **Not** that the tag-bound and identifier-bound policies differ in one exchangeable
-  state. G16 stopped at its bridge gate; no method available here can test it.
-- **Not** that steps 4 and 6 are one regularity (§3 above).
-- **Not** anything mechanistic beyond Qwen3-8B and Mistral-Small-24B.
-- **Not** that `ExclusionEffect` measures the same thing at every G18 level; at the
-  semantic levels little evidence influence remains to remove and the quantity is
-  dominated by suppression below baseline. The decomposition is in the paper text.
-- **Not** that identifier policies never work — they do in Gemma-3-12B and
-  Qwen3.5-27B. What holds in all four agent models is that they fail when the same
-  proposition arrives under a new identifier.
+Pooled ExclusionEffect:
+- entail **31.16 [27.99,34.40]**
+- paraphrase **30.93 [28.19,33.66]**
+- identifier 26.27 [23.65,28.96]
+- unrelated 22.06 [19.16,24.97]
+- none 21.84 [19.21,24.66]
+- lexical-overlap / wrong proposition 18.08 [15.71,20.57]
 
-## 5. Negative and corrected results, all on the record
+The primary frozen contrast is Delta_semantic = **+8.91 [+7.15,+10.76]** and is
+positive in every model.
 
-| item | what happened |
-|---|---|
-| G0's original prediction | Reversed. The human ordering does not hold for models. The reversal is the paper. |
-| G16 | Frozen, run, stopped at gate 1. 300 baselines, 0 patched generations. Cause traced to the readout, not the construction. |
-| G17 | Frozen verdict `no-rescue` on a defective estimand; robust re-analysis supports the hypothesis; reported as suggestive only. |
-| Stage 3E duplicate control | Found a real confound in Stage 3D and forced the metric from REI to raw rating points. |
-| Stage 5 | An earlier recovery-fraction analysis overstated the effect and was withdrawn. |
-| External materials | Reclassified from a held-out tier to boundary checks after a provenance audit. |
-| Readout pilots | Three failed before the freeze; single-token readouts can anti-correlate with the model's own reasoning. |
-| G18 `para − empty` | Does not exclude zero in Phi-4-mini (+3.50 [−1.06, +8.57]); positive in 5/5, interval excludes zero in 4/5. |
-| Mistral G18 load | The `/var/tmp` snapshot fails under this vLLM build; the HF-tokenizer conversion of the same checkpoint was used, as in earlier rounds. No checkpoint replaced. |
+### G18 decomposition
 
-## 6. Stopped branch
+The semantic preview also makes the later evidence highly redundant:
+marg(no rule) falls to about +3 points under paraphrase/entailment. Yet with the
+exclusion rule, marg(exclude) becomes about -28 points, below the preview-only
+baseline; this sign is negative in 5/5 models under paraphrase and positive in 5/5
+under the lexical-overlap/wrong-proposition control.
 
-The BTF-3 hindsight paper was stopped on 2026-09-03 (`RESEARCH_HISTORY.md` §5). Its
-data and verdicts are retained. Two integrity corrections are on the record
-(`preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md`): the verdict redactor leaves
-34/256 packets asserting the outcome and its own audit could not detect it; and the
-Llama boundary figure was reported at single-frame scope. Neither changes a
-preregistered verdict. The G4 breadth panel will not be completed.
+This is reported as a surprising consequence of semantic target identification. It
+licenses **block-transcending suppression once the proposition is identified**, but
+does not by itself distinguish proposition-level generalisation from answer-level
+overcorrection.
 
-One result is held as a separate, unconfirmed lead
-(`SECOND_LEAD_EXPLICIT_OUTCOME_PARADOX.md`): removing an explicit outcome statement
-makes later evidence *more* influential, 3/3 models.
+## 4. Supporting characterisation — important, not separate contributions
 
-## 7. Assessment against the five standards
+These experiments explain or bound the main line but should not become independent
+paper stories:
 
-1. **Natural claim, not covered, right width** — met. Searched: the reversal is
-   unpublished for LLMs; ACL 2024 Findings *Instruction Position Matters* found the same
-   sign but attributed it to forgetting, which step 2 refutes; prospective-memory work
-   asks a different question (step 3 separates them); the w=0 discontinuity and the
-   content-vs-identifier variable return nothing.
-2. **Main line coherent** — met. Steps 1→3→4→6→8→11 form one line: a gap, a
-   localisation, a boundary condition, the explanatory variable **confirmed
-   prospectively on fresh items**, its deployment form, and a causal mechanism in two
-   architectures. The one seam that was open is now written as a boundary condition
-   rather than a competing regularity (§3).
-3. **Workload and breadth** — met and above median: 12+2 models for the phenomenon,
-   5 models / 4 vendors / 100 fresh items / 30 fresh skeletons for the centrepiece,
-   2 architectures for the mechanism, ~13 preregistered rounds, 3 intervention types.
-4. **No downgrade under disappointing results** — the claims that moved, moved because
-   data required it; one earlier over-correction was reversed (the mechanism *does*
-   reach the central claim); and rather than settle for the discovery chain, the
-   centrepiece was re-run prospectively on fresh materials and **confirmed**.
-5. **No defensive experiment sprawl** — every round in the main line discriminates
-   between live accounts or answers a positive question; §3 is written as a positive
-   localisation, not a list of denials.
+- eight natural-language ruling formulations: positive prospective/post gap in 40/40
+  model×wording cells;
+- distance and rule-to-evidence delay: ordinary recency/forgetting is insufficient;
+- masked diffusion models: the effect does not require a left-to-right causal prompt
+  mask;
+- Stage 3A/3D preview ladders and content×identity 2×2: discovery evidence for target
+  addressability;
+- Stage 3E duplicate/redundancy audit: established the correct raw-point estimand;
+- tagged evidence stream: meaningful evidence-carried provenance/class semantics can
+  support prospective selective routing;
+- G16: bridge gate failed; no class-marker mechanism claim;
+- G17: frozen ratio estimand failed; post-result raw-point reanalysis is suggestive
+  only and is not needed for the paper.
 
-## 8. Next step
+## 5. Mechanistic scope
 
-**The experimental programme is closed.** G18's preregistration commits us to stopping
-on `confirmed`: no G19, no further models, no frontier API, no mitigation study, no
-third mechanism model, no successor to G16 or G17, no naturally-occurring corpus.
+Licensed:
+- downstream access to excluded evidence is causally necessary for the residual
+  decision shift in Qwen3-8B;
+- successful and failed content-preview conditions differ in a causal rule-span state
+  in the middle of the network;
+- interchanging this state changes later suppression in Qwen3-8B and
+  Mistral-Small-24B;
+- the shared invariant is mid-network localisation plus causal transfer.
 
-The remaining work is writing (`PAPER_OUTLINE.md`).
+Not licensed:
+- a universal reusable “semantic binding vector”;
+- a dedicated neuron/circuit named “target found”;
+- a mechanism for class-marker binding;
+- mechanism generality beyond the two tested architectures.
+
+## 6. Practical implications already supported
+
+The paper is not a mitigation paper, but its existing experiments support three design
+implications:
+
+1. **Restate exclusion after retrieval when possible.** The identical post-evidence
+   policy is consistently more effective than the prospective form.
+2. **Prefer semantically meaningful/provenance-based policy targets over arbitrary
+   resource names when the semantics are available.** The tagged stream and G18 show
+   why target representation matters.
+3. **Do not treat an identifier policy as semantic protection.** In the agent
+   counterfactual, semantic policies follow the proposition across D7→D9 whereas
+   identifier policies do not.
+
+No claim is made that these are a fully evaluated deployment mitigation suite.
+
+## 7. Corrections and negative results retained
+
+- G0's preregistered human-motivated prediction reversed.
+- Stage 3D's first similarity-ladder construction was rebuilt after a design problem
+  was identified; Stage 3E then found the redundancy confound and changed the metric.
+  G18 exists precisely to confirm the final account prospectively.
+- Stage 5's initial recovery-fraction summary overstated rescue and was withdrawn.
+- G16 stopped at its frozen bridge gate.
+- G17's frozen ratio estimand was defective; its post-result raw-point pattern is
+  labelled suggestive only.
+- The abandoned BTF-3 hindsight branch and its integrity corrections remain in the
+  repository but are not part of this paper.
+
+## 8. Programme status
+
+**Closed by the G18 preregistration.** No G19, no additional model-size sweep, no
+frontier API panel, no new natural corpus, no mitigation study, no third mechanism
+model, and no successor to G16/G17 before submission.
+
+Remaining work: paper writing, figures, appendix compression, and reviewer simulation.
