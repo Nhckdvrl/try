@@ -1,3 +1,19 @@
+> **Interpretation correction — 2026-09-04 scientific register v3**
+>
+> The numerical G18 result below remains valid and prospectively confirmed.
+> Its earlier interpretation is narrowed: `para/entail` previews themselves
+> substantively assert almost the same proposition as the later evidence and reduce the
+> later evidence's no-rule marginal from ~32 to ~3 points. Therefore G18 does **not**
+> isolate non-evidential knowledge of a future target from prior evidential
+> instantiation.
+>
+> Current role: diagnostic evidence motivating G22 Target Knowledge vs Evidential
+> Instantiation. The below-baseline semantic suppression is a mechanism clue, not proof
+> of source/proposition scope collapse.
+>
+> Current authority:
+> [../../SCIENTIFIC_REGISTER_2026-09-04_V3.md](../../SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+
 # G18 — prospective semantic targeting: **confirmed**
 
 **Frozen design:** `preregistrations/PREREGISTRATION_G18_SEMANTIC_TARGETING.md`,
