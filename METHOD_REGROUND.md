@@ -1,128 +1,129 @@
 # ReGround — post-retrieval policy grounding
 
 **Status:** implemented and preregistered; no G19 model output has been observed.
-**Role if successful:** practical method / fourth contribution of the paper.
+**Role if successful:** mechanism-guided mitigation / fourth paper contribution.
 **Preregistration:** [preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md)
 
-## 1. Why this method follows from the paper
+## 1. Method idea
 
-The paper establishes:
+The paper shows that prospective exclusion depends on target addressability. ReGround
+turns that explanation into a simple inference-time system:
 
-1. prospective exclusion is harder than post-evidence exclusion;
-2. target addressability governs prospective exclusion;
-3. target availability changes a causal rule state before later evidence is processed.
+> **keep the policy prospective, but resolve its semantic scope against the concrete
+> documents only after retrieval has instantiated them.**
 
-A direct engineering implication is therefore to **delay target resolution, not the
-policy itself**.
+Pipeline:
 
-The policy still exists prospectively. ReGround waits until retrieval instantiates the
-candidate information, resolves the policy against those concrete documents, and only
-then compiles a decision-time exclusion ledger.
+semantic prospective policy
+→ retrieval
+→ semantic policy resolver
+→ matched document IDs
+→ trusted exclusion ledger
+→ original model decision
 
-This is different from a generic reminder:
-- the prospective policy is not simply repeated;
-- the resolver identifies which actual document carries the governed proposition;
-- the compiled message contains only document IDs, not a repeated target proposition;
-- the method can follow the target across D7→D9;
-- a lexical-overlap / wrong-proposition D7 is an explicit false-positive test.
+No model weights are changed.
 
-## 2. Algorithm
+## 2. Fair input design
 
-### Inputs
+ReGround must not win because it secretly receives more semantic information than its
+baseline.
 
-- prospective policy visible to the decision model;
-- structured semantic target descriptor stored by the policy layer;
-- retrieved documents.
+Therefore Semantic-Pre, Semantic-Generic, Semantic-Restate, ReGround-Gold and
+ReGround-Self all receive the same semantic exclusion policy in the SYSTEM message.
+The semantic descriptor is G18's frozen paraphrase representation.
 
-### Resolver
+The only additional operation in ReGround is explicit **policy-to-document
+resolution after retrieval**.
 
-A short greedy call receives only:
+Identifier-only conditions remain practical baselines, but they are secondary rather
+than the primary fairness comparison.
 
-- the semantic target descriptor;
+## 3. Resolver
+
+The short resolver pass sees:
+
+- the semantic policy target;
 - retrieved document IDs and texts.
+
+It does **not** see the final answer question.
 
 It returns matching IDs or NONE.
 
-The final question is **not** shown to the resolver.
+ReGround-Self uses the same checkpoint for this call. ReGround-Gold uses the known
+experimental match and measures the upper bound of the compiler independent of
+resolver errors.
 
-### Compiler
+## 4. Compiler
 
-The predicted IDs become a trusted POLICY COMPILATION message listing only the
-matched document IDs and instructing the decision model to assign those documents zero
-evidential weight.
+The resolver output is converted to a trusted decision-time ledger such as:
 
-For a non-match the compiler emits EXCLUDED DOCUMENTS: NONE.
+    POLICY COMPILATION (trusted)
+    EXCLUDED DOCUMENTS: D9
+    Only the listed retrieved documents are excluded by this policy.
+    Treat their contents as having zero evidential weight.
 
-The semantic descriptor itself is not copied into the final decision prompt. This
-prevents ReGround from winning simply because it repeats the prohibited proposition.
+If there is no semantic match:
 
-### Decision
+    EXCLUDED DOCUMENTS: NONE
 
-The original model receives:
+This representation is deliberately document-specific. It resolves the previously
+prospective semantic policy to the objects that now actually exist.
 
-SYSTEM prospective policy
-→ USER background/question
-→ TOOL retrieved documents
-→ trusted compiled ledger
-→ answer
+## 5. Retrieval variants
 
-No training or weight update is used.
-
-## 3. Method variants
-
-- **ReGround-Gold** — gold document match; upper bound on the compiler.
-- **ReGround-Self** — the same checkpoint performs the short resolver pass, then
-  answers using the compiled ledger.
-
-The paper's method claim, if the frozen gates pass, is about **ReGround-Self**.
-Gold is an explanatory upper bound.
-
-## 4. Baselines
-
-The method evaluation deliberately includes baselines that isolate what ReGround buys:
-
-- **Naive:** no exclusion policy.
-- **ID-Pre:** identifier-only prospective system policy.
-- **Semantic-Pre:** expose the semantic descriptor prospectively to the decision model.
-- **Generic-Repeat:** same prospective ID policy plus a generic post-retrieval reminder.
-- **ID-Restate:** explicitly restate D7 after retrieval.
-- **Sanitation-Gold:** remove the matched document; ceiling/reference.
-
-Thus:
-- Self > Generic asks whether grounding adds more than recency/reminding;
-- Self > ID-Restate asks whether semantic resolution beats literal identifier scope;
-- Self vs Semantic-Pre asks whether post-retrieval grounding adds value beyond simply
-  putting more semantic content in the original policy;
-- Self vs Gold measures resolver headroom.
-
-## 5. Evaluation cases
-
-Every item receives three retrieval variants.
+The method is not evaluated only on an easy same-ID case.
 
 ### same-D7
 
-The governed proposition arrives under the identifier named by the prospective policy.
+The governed proposition arrives under D7.
 
 ### same-D9
 
-The **same proposition** arrives under a new identifier. This is the Stage-4
-counterfactual turned into a method test.
+The same proposition arrives under a different document identifier. A successful
+semantic resolver should follow the information to D9.
 
 ### wrong-D9
 
-D7 contains G18's **high-lexical-overlap, different-proposition** control.
+D7 is absent. D9 contains the G18 high-lexical-overlap but different-proposition hard
+negative. The correct resolver output is NONE.
 
-A useful method must exclude same-D7 and same-D9 while leaving wrong-D9 alone.
+This cleanly tests false semantic matching without conflicting with the literal D7
+identifier policy.
 
-## 6. Data and model panel
+## 6. Baselines
+
+### Anchors
+
+- Base
+- Naive
+- Sanitation-Gold
+
+### Identifier controls
+
+- ID-Pre
+- ID-Restate
+
+### Equal-information semantic controls
+
+- **Semantic-Pre:** semantic policy only.
+- **Semantic-Generic:** same semantic policy plus a same-position,
+  comparable-length generic post-retrieval reminder, with no resolved match.
+- **Semantic-Restate:** same semantic policy repeated after retrieval.
+
+### Method
+
+- ReGround-Gold
+- ReGround-Self
+
+The load-bearing method comparisons are Self vs Semantic-Pre and Self vs
+Semantic-Generic.
+
+## 7. Evaluation
 
 Materials:
-- 100 G18 confirmation items;
+- 100 G18 items;
 - 30 independent skeletons;
-- three task families.
-
-The method conditions themselves are new and no G19 generation existed when the
-design was frozen.
+- 3 task families.
 
 Models:
 - Qwen3-8B
@@ -131,91 +132,80 @@ Models:
 - Qwen3.5-27B
 - Mistral-Small-24B
 
-Approximate volume:
-- about 12,000 decision generations;
-- 1,500 short resolver calls;
-- no training.
+Exact volume:
+- 27 decision conditions per item/model;
+- 13,500 decision conditions total;
+- 1,500 short resolver calls.
 
-## 7. Primary metrics
+No training.
 
-### Positive-target error
+## 8. Metrics
 
-For same-D7 and same-D9:
+### Positive targets
 
-TargetError = absolute value of Y_method - Y_base
+For same-D7 / same-D9:
 
-This is deliberately absolute: both residual use and over-suppression are errors.
+TargetError = absolute distance from the no-critical-document Base answer.
 
-Primary rescue:
+This is preferable to signed leakage because it penalizes both continued evidence use
+and over-suppression.
 
-Improvement = TargetError(ID-Pre) - TargetError(ReGround-Self)
+Primary improvement is reduction in TargetError relative to **Semantic-Pre**.
 
-### Hard-negative collateral
+### Generic-reminder comparison
 
-For wrong-D9:
+ReGround must also reduce TargetError relative to Semantic-Generic, showing that the
+gain is not merely due to another post-retrieval policy message.
 
-Collateral = absolute value of Y_method_wrong - Y_naive_wrong
+### Hard-negative precision
 
-The method should not distort the answer merely because the wrong document has similar
-vocabulary.
+For wrong-D9, total collateral is the absolute difference from the Naive answer.
 
-### Resolver accuracy
+The resolver also has a direct exact-set target:
+- D7
+- D9
+- NONE
 
-Exact document-set accuracy:
-- same-D7 → D7
-- same-D9 → D9
-- wrong-D9 → NONE
+## 9. Frozen success bar
 
-## 8. Frozen success gates
+Success requires all three:
 
-See the preregistration for authoritative wording.
+1. Self improves over Semantic-Pre by at least +3.0 rating points, pooled CI lower >0,
+   and the model-wise improvement is positive in at least 4/5 models.
+2. Self improves over Semantic-Generic by at least +2.0 points, pooled CI lower >0.
+3. Resolver exact-set accuracy is at least 90% and wrong-D9 total collateral is at
+   most 5 rating points.
 
-In short, success requires:
+Semantic-Restate, ID baselines, Gold and sanitation are reported as secondary
+comparisons and bounds.
 
-1. ReGround-Self improves over ID-Pre by at least 5 raw rating points, CI lower > 0,
-   with positive model-wise improvement in at least 4/5 models;
-2. it beats Generic-Repeat by at least 3 points with CI lower > 0;
-3. resolver accuracy at least 90% and wrong-D9 collateral at most 5 points.
+## 10. Implementation
 
-No gate requires beating sanitation.
-
-## 9. Implementation
-
-- src/reground.py — prompt/compiler logic
+- src/reground.py — method/compiler
 - src/run_reground.py — two-pass vLLM runner
-- src/analyze_reground.py — frozen metrics and gates
-- tests/test_reground.py — prompt/parser hard-negative tests
+- src/analyze_reground.py — frozen metrics/gates
+- tests/test_reground.py — prompt, control and hard-negative tests
+- preregistrations/PREREGISTRATION_G19_REGROUND.md — authoritative design
 
-Expected raw outputs:
+Expected outputs:
 
-results/raw/<tag>_reground.jsonl
-
-Analysis command:
-
-PYTHONPATH=src python3 src/analyze_reground.py qwen3-8b gemma3-12b phi4-mini qwen3.5-27b mistral-small-24b
-
-Outputs:
-
+- results/raw/<tag>_reground.jsonl
 - results/reground_analysis.json
 - results/reground_results.md
 
-## 10. Paper role
+## 11. Scientific role
 
-If **success**:
-the paper gains a final arc:
+If successful, ReGround gives the paper an Outstanding-shaped final descent:
 
-phenomenon
+prospective exclusion failure
 → target addressability
-→ causal mechanism
-→ ReGround mitigation
+→ causal target-dependent rule state
+→ **explicitly re-ground the policy after retrieval and improve the behavior**
 
-This brings the structure closer to ACL 2025 Outstanding Llama See, Llama Do and ACL
-2026 Main Do LLMs Know Tool Irrelevance?, where mechanistic explanation leads to a
-behavior-changing intervention.
+This is the same kind of positive closure that makes Llama See, Llama Do and Tool
+Irrelevance especially satisfying: the explanation tells us what intervention to make.
 
-If **partial**:
-ReGround is reported as proof-of-concept mitigation, not a general method.
+If only partial, ReGround remains a proof of concept.
 
-If **no-benefit**:
-the method is an honest negative and is removed from the contribution list. No
-successor method is scheduled.
+If the primary rescue fails, it is a negative result and does not alter the phenomenon,
+G18, or mechanism. No successor method is scheduled.
