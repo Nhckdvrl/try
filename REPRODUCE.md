@@ -100,7 +100,12 @@ matrix).
 failed, and why single-token rating readouts can anti-correlate with the model's own
 stated reasoning.
 
-## 5. Active post-reset work
+## 5. Current scientific-design status
+
+Current authority:
+- `SCIENTIFIC_REGISTER_2026-09-04_V3.md`
+- `G22_DESIGN_AUDIT.md`
+- `NEXT_EXPERIMENTS_POST_RESET.md`
 
 ### Cancelled G19 — ReGround
 
@@ -108,25 +113,51 @@ ReGround was **cancelled before G19_FREEZE.md and before any model generation** 
 novelty audit. The code and preregistration are historical provenance only.
 
 Do not run:
-- src/run_reground.py
-- src/analyze_reground.py
+- `src/run_reground.py`
+- `src/analyze_reground.py`
 
 See:
-- METHOD_REGROUND.md
-- preregistrations/PREREGISTRATION_G19_REGROUND.md
+- `METHOD_REGROUND.md`
+- `preregistrations/PREREGISTRATION_G19_REGROUND.md`
 
-### G20 / G21
+### G20
 
-The active designs are currently **design documents, not frozen preregistrations**:
+Deferred-composition / late-target designs are retained as **conditional hypothesis
+provenance**, not an active frozen experiment.
 
-- NOVELTY_RESET_2026-09-04.md
-- NEXT_EXPERIMENTS_POST_RESET.md
+Do not generate G20. The latest design still mixes target knowledge, evidential
+instantiation, and timing/distance. G20 becomes relevant only if G22 first establishes
+that exact non-evidential target knowledge is sufficient for exclusion.
 
-G20 tests late target revelation / rule replay.
-G21 tests source-scoped exclusion / semantic spillover.
+### G21
 
-No generation is authorized until each experiment receives its own frozen
-preregistration, dataset build, analysis code, and freeze commit.
+Source–Proposition Scope Entanglement is **downgraded before generation**. It may be a
+future side project but does not explain G0.
+
+Do not generate G21.
+
+### G22
+
+G22 Target Knowledge vs Evidential Instantiation is the registered next design audit.
+
+It is:
+- not preregistered;
+- not frozen;
+- not authorized for generation.
+
+Before any G22 run:
+1. construct a genuinely non-evidential target-knowledge carrier;
+2. define/freeze its judgment-neutrality gate;
+3. freeze U/K/I baselines and estimands;
+4. preregister competing H-A/H-B/H-C predictions;
+5. implement analyzer/tests;
+6. commit/tag;
+7. only then generate.
+
+### D22-A
+
+Tagged-routing deconfound is supporting-only and also not authorized for generation.
+
 
 ## 6. Stopped branch (BTF-3 hindsight)
 
