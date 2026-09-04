@@ -18,10 +18,11 @@ would be the hard case.
 after the evidence was followed well; the identical rule stated *before* it was
 not. `Δ_time` was negative in all twelve models.
 
-Two things made the reversal a finding rather than a failure. Models state the
-policy perfectly — 100% "exactly zero" on the separate probe, in both arms — and
-still route the evidence into the decision. And the asymmetry survives in
-bidirectional masked diffusion models, so it is not the causal attention mask.
+Two things made the reversal a finding rather than a failure. The separate probe
+recovers the intended zero-weight policy at ceiling, while later trajectory-level
+rounds show that explicit policy access and decision-time enforcement can dissociate
+in Qwen/Gemma. And the asymmetry survives in bidirectional masked diffusion models,
+so a left-to-right causal prompt mask is not necessary.
 
 ## 2. The controlled programme that followed
 
@@ -143,3 +144,50 @@ and the binding state is causally exchangeable
 
 The history explains how we found this, lost it, and came back. It should not
 dictate the structure of the paper.
+
+
+## 8. Novelty reset on 2026-09-04
+
+After G18 prospectively confirmed the semantic-target effect, the project briefly
+converged on "target addressability" as the paper's explanatory novelty and designed a
+post-retrieval ReGround mitigation.
+
+A second literature/narrative audit rejected that frame.
+
+The problem was not empirical weakness. G18 is clean and strong. The problem was that
+the headline could be compressed to a normal statement:
+
+> if the model knows more specifically what future evidence it must ignore, the rule is
+> easier to apply.
+
+That is too close to instruction specificity and identify-then-ignore methods to carry
+an Outstanding-shaped phenomenon paper. ReGround had the same issue at method level:
+resolving the policy after retrieval and explicitly marking the matched document is a
+reasonable system design, but too obvious as a new scientific contribution.
+
+ReGround G19 was therefore **cancelled before freeze and before any generation**.
+
+The audit re-read the odd parts of G18 and Stage 5 instead of trying to defend the old
+story. Two stronger hypotheses emerged:
+
+1. **Binding Deadline / Late Target Revelation.** The crucial variable may be whether
+   target semantics exist **when the rule is processed**, not whether they exist
+   somewhere before the final decision. Stage 5 already shows a causal target-dependent
+   state at the rule span before later evidence is processed. G20 will move the same
+   semantic target block across the fixed rule and test whether replaying the rule after
+   late target revelation repairs the failure.
+2. **Semantic Scope Collapse / Spillover.** G18's semantic condition drives judgments
+   below the preview-only baseline, and semantic policies follow propositions across
+   document identifiers. This may mean successful exclusion loses source/occurrence
+   precision. G21 will exclude Source A while explicitly preserving independent Source
+   B and ask whether B loses evidential weight only when it expresses the same
+   proposition.
+
+The new candidate abstraction is a **binding–scope trade-off**:
+
+- unresolved target at rule time → **under-binding** and leakage;
+- strong semantic binding → possible **over-binding** across provenance boundaries.
+
+The current question is therefore not merely whether models can decide what to ignore,
+but whether they can establish a future control relation that is both **effective and
+precisely scoped**.
