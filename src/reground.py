@@ -23,7 +23,7 @@ FILLER_DOCS = [
             "and the date on which each entry was archived."),
 ]
 
-VARIANTS = ("same_d7", "same_d9", "wrong_d7")
+VARIANTS = ("same_d7", "same_d9", "wrong_d9")
 METHODS = ("naive", "idpre", "sempre", "generic", "idrestate", "gold", "self")
 
 COMPILER_PROTOCOL = (
@@ -74,7 +74,7 @@ def retrieved_docs(item, variant: str, sanitize: bool = False) -> list[tuple[str
         elif variant == "same_d9":
             docs.append(("D9", item.critical_evidence))
         else:
-            docs.append(("D7", wrong_proposition(item)))
+            docs.append(("D9", wrong_proposition(item)))
     docs.append(FILLER_DOCS[1])
     return docs
 
@@ -115,7 +115,7 @@ def gold_selection(variant: str) -> set[str]:
         return {"D7"}
     if variant == "same_d9":
         return {"D9"}
-    if variant == "wrong_d7":
+    if variant == "wrong_d9":
         return set()
     raise ValueError(variant)
 
