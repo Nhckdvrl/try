@@ -191,30 +191,35 @@ patching.
 | Clean centerpiece | G18 frozen fresh-item factorial | strong |
 | Externalisation | SYSTEM→TOOL D7→D9 counterfactual | useful and directly tied to the variable |
 | Causal mechanism | matched rule-state interchange in Qwen + Mistral | strong for Main, credible Outstanding-shaped depth |
-| Practical method | no new mitigation algorithm | weaker than Llama See / Tool Irrelevance, but not a requirement |
+| Practical method | **ReGround frozen, pending G19** | if successful, closes the largest remaining gap to the engineering-oriented Outstanding/Main references |
 | Narrative risk | too many historical experiments and over-strong wording | writing problem, not experiment problem |
 
 ## 4. The practical-method question
 
-Should the paper derive a real method from the mechanism?
+The authors explicitly chose to reopen the programme once for **ReGround**, because
+this is a positive consequence of the confirmed mechanism rather than a defensive
+control.
 
-**Not as a new experiment before submission.**
+ReGround implements the natural intervention suggested by the paper:
 
-There are two successful Outstanding/Main patterns:
-1. phenomenon → mechanism → mitigation, as in Llama See, Racing Thoughts and Tool
-   Irrelevance;
-2. phenomenon/theory → causal mechanism that changes understanding, as in the EMNLP
-   filler–gap Outstanding paper and CausalGym.
+semantic prospective policy
+→ retrieval instantiates possible targets
+→ resolve policy-to-document matches
+→ compile a trusted exclusion ledger
+→ decide
 
-Our work already has actionable behavioral implications:
-- post-retrieval restatement is more reliable than prospective exclusion;
-- meaningful semantic/provenance targets outperform arbitrary identity alone;
-- identifier scope and semantic scope should not be conflated.
+The evaluation is deliberately stronger than “repeat the rule”:
+- the primary baseline receives the **same semantic policy**;
+- a same-position, comparable-length semantic generic reminder controls for recency;
+- Semantic-Restate is a strong repeat-the-full-rule baseline;
+- same-D9 tests whether the policy follows content across identity;
+- wrong-D9 tests lexical similarity without semantic match.
 
-A future method could be a **post-retrieval policy grounding/compiler step** that
-re-instantiates a prospective policy against retrieved content before decision making.
-That is a natural downstream method paper, but it is not necessary to establish the
-current scientific claim and has not been evaluated here.
+If successful, the final paper adopts the first Outstanding/Main pattern:
+phenomenon → factorized explanatory variable → causal mechanism → mitigation.
+
+If it fails, the fixed scientific paper remains valid under the second pattern:
+phenomenon/theory → causal mechanism that advances understanding.
 
 ## 5. Main-text discipline
 
@@ -231,6 +236,8 @@ G18 factorizes target addressability
 agent identity swap externalizes the same distinction
     ↓
 causal mid-network rule state explains the distinction
+    ↓
+ReGround mitigation, **only if the frozen G19 gates pass**
 
 It should not read:
 
@@ -240,15 +247,16 @@ Chronology is provenance, not narrative.
 
 ## 6. Experiment-stop rule
 
-The experimental programme is closed.
+The explanatory programme closed at G18. It has been **reopened exactly once** for the
+frozen G19 ReGround method evaluation by explicit author decision.
 
-No new experiment should be added merely to:
+No other experiment is reopened merely to:
 - include a 70B model;
 - obtain a frontier API model;
-- convert design implications into a mitigation section;
 - close G16/G17;
 - add a naturally occurring corpus;
+- add a third mechanism model;
 - make every mechanism result universal.
 
-New experiments are justified only after external review identifies a specific
-validity failure that threatens a load-bearing claim.
+Every G19 verdict—success, partial, or no-benefit—closes the programme permanently.
+There is no ReGround-v2 before submission.
