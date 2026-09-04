@@ -62,7 +62,7 @@ Design: `preregistrations/PREREGISTRATION_G0.md`.
 - `results/routing_tables.md` — tagged evidence streams (`src/gen_routing.py`,
   `src/analyze_routing.py`).
 
-### Binding
+### Target addressability
 
 - `stages/STAGE3D.md`, `results/semaddr_tables.md` — similarity ladder;
 - `stages/STAGE3E.md`, `results/stage7_tables.md` — duplicate control and the
@@ -70,7 +70,15 @@ Design: `preregistrations/PREREGISTRATION_G0.md`.
 - `results/onpolicy_tables.md` — on-policy check of the teacher-forced result.
 
 Condition builders: `src/conditions_v3.py` (weights, delay, ladder, class policy),
-`src/conditions_v6.py` / `src/conditions_v7.py` (previews and relation matrix).
+`src/conditions_v6.py` / `src/conditions_v7.py` (discovery previews and relation
+matrix).
+
+**G18 confirmatory centrepiece:**
+- items: `data/items/g18_v1.jsonl`;
+- design: `preregistrations/PREREGISTRATION_G18_SEMANTIC_TARGETING.md`;
+- code: `src/conditions_g18.py`, `src/analyze_g18.py`;
+- result: `results/g18_semantic_targeting_results.md` and
+  `results/g18_semantic_targeting_analysis.json`.
 
 ### Agent
 
@@ -92,11 +100,47 @@ Condition builders: `src/conditions_v3.py` (weights, delay, ladder, class policy
 failed, and why single-token rating readouts can anti-correlate with the model's own
 stated reasoning.
 
-## 5. Planned experiment
+## 5. Frozen G19 method evaluation — ReGround
 
-`preregistrations/PREREGISTRATION_G16_BINDING_INTERCHANGE.md` is a **draft**. It
-authorises nothing until committed and tagged `g16-binding-interchange-design-v1`.
-Freeze first, then run baselines, then patched runs — in that order.
+G16 and G17 are complete historical rounds. The only open generation round is the
+explicitly authorised **G19 ReGround** method evaluation.
+
+Read before running:
+- `METHOD_REGROUND.md`;
+- `preregistrations/PREREGISTRATION_G19_REGROUND.md`;
+- `G19_FREEZE.md`.
+
+Implementation:
+- `src/reground.py`;
+- `src/run_reground.py`;
+- `src/analyze_reground.py`;
+- `tests/test_reground.py`.
+
+The freeze authority is the commit that creates `G19_FREEZE.md` over the complete
+design/code tree. Do not use an earlier sequential implementation commit as the
+experimental freeze.
+
+Each model writes:
+`results/raw/<tag>_reground.jsonl`.
+
+Example runner shape:
+
+    PYTHONPATH=src python3 src/run_reground.py \
+      --model <checkpoint-path> \
+      --tag qwen3-8b \
+      --out results/raw/qwen3-8b_reground.jsonl
+
+After all five frozen model tags are present:
+
+    PYTHONPATH=src python3 src/analyze_reground.py \
+      qwen3-8b gemma3-12b phi4-mini qwen3.5-27b mistral-small-24b
+
+This writes:
+- `results/reground_analysis.json`;
+- `results/reground_results.md`.
+
+The analyzer implements the preregistered raw-point gates. Do not substitute REI or a
+different baseline after seeing G19 outputs.
 
 ## 6. Stopped branch (BTF-3 hindsight)
 
