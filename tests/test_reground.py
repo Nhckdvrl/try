@@ -51,7 +51,7 @@ def test_variants_place_expected_documents():
     assert ("D7", it.critical_evidence) in retrieved_docs(it, "same_d7")
     assert ("D9", it.critical_evidence) in retrieved_docs(it, "same_d9")
     wrong = dict(retrieved_docs(it, "wrong_d9"))
-    assert wrong["D7"] == wrong_proposition(it)
+    assert wrong["D9"] == wrong_proposition(it)
 
 
 def test_selector_parser_is_strict_to_document_ids():
