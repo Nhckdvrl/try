@@ -149,9 +149,37 @@ def analyze_tag(tag, items):
         if r.get("n_prompt_tokens") is not None
     ]
 
+    # Variant-specific Self results required by the preregistration.
+    by_variant = {}
+    for variant in POS:
+        errors, ecls = [], []
+        gains, gcls = [], []
+        for iid, item in items.items():
+            base = d.get((iid, "base", "base"), {}).get("value")
+            y_self = d.get((iid, "self", variant), {}).get("value")
+            y_sem = d.get((iid, "sempre", variant), {}).get("value")
+            if base is None or y_self is None:
+                continue
+            errors.append(abs(y_self - base))
+            ecls.append(_cluster(item))
+            if y_sem is not None:
+                gains.append(abs(y_sem - base) - abs(y_self - base))
+                gcls.append(_cluster(item))
+        by_variant[variant] = dict(
+            target_error=_boot(errors, ecls, 31),
+            improvement_vs_semantic_pre=_boot(gains, gcls, 32),
+        )
+
+    resolver_wall = None
+    resolver_n = None
+    if self_rows:
+        resolver_wall = self_rows[0].get("resolver_batch_seconds")
+        resolver_n = self_rows[0].get("resolver_batch_n")
+
     return dict(
         tag=tag,
         methods=per,
+        by_variant=by_variant,
         secondary=secondary,
         selector_accuracy=selector_accuracy,
         selector_false_positive_ids=false_positive_ids,
@@ -162,6 +190,8 @@ def analyze_tag(tag, items):
         mean_self_decision_prompt_tokens=(
             st.mean(decision_tokens) if decision_tokens else None
         ),
+        resolver_batch_seconds=resolver_wall,
+        resolver_batch_n=resolver_n,
     )
 
 
@@ -306,6 +336,26 @@ def main(tags):
             f"{_fmt(self_m['added_collateral'])} | "
             f"{_fmt(self_m['total_collateral'])} | "
             f"{analysis['selector_accuracy']:.3f} |"
+        )
+
+    md += [
+        "",
+        "## ReGround-Self by retrieval variant",
+        "",
+        "| model | D7 target error | D7 improvement | D9 target error | D9 improvement | resolver batch sec / calls |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for analysis in analyses:
+        d7 = analysis["by_variant"]["same_d7"]
+        d9 = analysis["by_variant"]["same_d9"]
+        wall = analysis["resolver_batch_seconds"]
+        ncall = analysis["resolver_batch_n"]
+        overhead = "—" if wall is None else f"{wall:.1f} / {ncall}"
+        md.append(
+            f"| {analysis['tag']} | {_fmt(d7['target_error'])} | "
+            f"{_fmt(d7['improvement_vs_semantic_pre'])} | "
+            f"{_fmt(d9['target_error'])} | "
+            f"{_fmt(d9['improvement_vs_semantic_pre'])} | {overhead} |"
         )
 
     md += [
