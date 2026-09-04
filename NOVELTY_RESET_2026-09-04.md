@@ -1,9 +1,19 @@
-> **Supersession notice — later on 2026-09-04:** the subsequent mainline audit in
-> [MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md) concluded that
-> G21 is interesting but does **not** naturally explain the original G0 reversal.
-> Therefore G21 is downgraded from paper-center status. The active mainline is now G20
-> v3 Deferred Control Composition / non-commutative exclusion. The historical reasoning
-> below is preserved for provenance; its final G21-first priority is superseded.
+> **CURRENT AUTHORITY NOTICE — later 2026-09-04**
+>
+> This file records the first novelty reset and is preserved for provenance. Its
+> G20/G21 priority discussion is superseded.
+>
+> Current authority:
+> [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md).
+>
+> Current position:
+> - G21 is downgraded from the paper center;
+> - G20 is a conditional hypothesis, not an authorized next experiment;
+> - G18 semantic previews are recognized to mix target knowledge with evidential
+>   instantiation;
+> - G22 Target Knowledge vs Evidential Instantiation is the registered design-audit
+>   candidate;
+> - no new generation is authorized.
 
 # Novelty reset — 2026-09-04
 
