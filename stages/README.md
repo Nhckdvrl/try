@@ -6,6 +6,7 @@ several interpretations, so these documents are not the authoritative final pape
 frame.
 
 For current claims use:
+- [../NOVELTY_RESET_2026-09-04.md](../NOVELTY_RESET_2026-09-04.md)
 - [../PAPER_FRAME.md](../PAPER_FRAME.md)
 - [../PAPER_DRAFT_MAINLINE.md](../PAPER_DRAFT_MAINLINE.md)
 - [../STATUS.md](../STATUS.md)
@@ -22,16 +23,31 @@ For current claims use:
 | STAGE5.md | causal mechanism: matched-chronology rule-span interchange | Qwen recovery-fraction overstatement corrected; Mistral replication establishes the cross-architecture mid-network causal window |
 | DATASET_REDESIGN.md | historical provenance of the stopped BTF-3 branch | obsolete for the present paper; retained only as research-history provenance |
 
-## Final centrepiece not in the stage chronology
+## Post-stage diagnostic not in the stage chronology
 
-The load-bearing explanatory confirmation is **G18**:
+G18 is the prospectively frozen semantic-target diagnostic:
 [../results/g18_semantic_targeting_results.md](../results/g18_semantic_targeting_results.md).
 
-G18 prospectively confirms target addressability on 100 fresh items, 30 fresh
-skeletons, three families and five models, using raw rating points and a separate
-no-rule baseline for every target representation.
+G18 confirms a semantic dependence on 100 fresh items, 30 fresh skeletons, three
+families and five models, using raw rating points and a separate no-rule baseline for
+every target representation. After the 2026-09-04 novelty reset, this is **supporting
+diagnostic evidence**, not the paper's headline explanation. Its below-baseline
+oversuppression motivates the active source-scope hypothesis.
 
 ## Reading rule
 
 Use stage documents to understand **how the account was discovered**. Use the final
 paper documents to understand **what the paper now claims**.
+
+
+## Active post-reset hypotheses
+
+No stage file yet exists for the new rounds.
+
+- **G20:** Binding Deadline / Late Target Revelation
+- **G21:** Source-Scope Collapse / Semantic Spillover
+
+See ../NEXT_EXPERIMENTS_POST_RESET.md. That file is a design document only and does not
+authorize generation.
+
+ReGround G19 was cancelled before generation; its files are historical provenance.
