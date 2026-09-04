@@ -35,34 +35,38 @@ The active question is:
 
 Two active hypotheses:
 
-### H1 — Binding Deadline
+### H1 — Source–Proposition Scope Entanglement (first priority)
 
-A rule may be compiled against whatever target representation exists when the rule is
-processed. Revealing the semantic target later—even before the actual evidence—may
-fail to retroactively update that rule state. Replaying the rule after target
-revelation should restore control.
-
-Planned G20:
-- same semantic target P and unrelated block U;
-- swap P/U around a fixed first rule;
-- actual evidence remains after the rule;
-- 2×2 target-before-rule × rule-replay;
-- Admit, arithmetic, explicit-link and masked-diffusion controls.
-
-### H2 — Semantic Scope Collapse
-
-A source/occurrence-scoped exclusion rule may become proposition-scoped once semantic
-binding succeeds.
+A source-scoped exclusion policy may behaviorally become proposition-scoped.
 
 Planned G21:
-- Source A excluded;
-- independent Source B explicitly admissible;
-- vary semantic relation between A and B;
-- measure how much B's independently established evidence leverage survives.
+- Source A appears before the policy and is excluded;
+- Source B is independent and explicitly admissible;
+- vary whether B paraphrases/entails A, has lexical overlap with different meaning, or
+  is unrelated but decision-relevant;
+- compare source-scoped and proposition-scoped policies;
+- use conditional B marginals:
+  BMarginal_no = Y(A+B)-Y(A)
+  BMarginal_source = Y(A+SourcePolicy+B)-Y(A+SourcePolicy)
+- SourceSpillover = BMarginal_no-BMarginal_source.
 
-A strong result is:
-same proposition → allowed B loses influence;
-lexical lookalike / unrelated → B remains influential.
+Never use B-alone as the primary baseline; that repeats the Stage-3E redundancy error.
+
+### H2 — Dynamic Late Binding (second priority)
+
+The first "binding deadline" phrasing was too close to the trivial causal-mask fact
+that earlier decoder hidden states cannot see later tokens.
+
+Planned G20 is only publishable if:
+- the model correctly identifies the late target on a full-context probe;
+- Admit/arithmetic/routing late-binding controls work;
+- exclusion still has PRE>LATE;
+- replaying the identical rule selectively repairs LATE;
+- at least one masked-diffusion model with bidirectional prompt attention preserves the
+  pattern.
+
+The claim is then about failure of downstream dynamic control composition, not about
+an earlier rule token literally updating.
 
 ## Stable established findings
 
