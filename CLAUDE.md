@@ -8,11 +8,12 @@ This is the default project context for local agents.
 2. `STATUS.md` — stable findings and active fork.
 3. `PAPER_FRAME.md` — current paper frame.
 4. `NEXT_EXPERIMENTS_POST_RESET.md` — G22 design audit and conditional follow-ups.
-5. `PAPER_DRAFT_MAINLINE.md` — current mother draft.
-6. `PAPER_OUTLINE.md` — conditional paper structure.
-7. `RELATED_WORK_2026.md` — literature boundary.
-8. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — Outstanding-shaped narrative standard.
-9. `EXPERIMENTS.md` / `RESEARCH_HISTORY.md` — chronology and registry.
+5. `G22_DESIGN_AUDIT.md` — dedicated G22 registration; no generation.
+6. `PAPER_DRAFT_MAINLINE.md` — current mother draft.
+7. `PAPER_OUTLINE.md` — conditional paper structure.
+8. `RELATED_WORK_2026.md` — literature boundary.
+9. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — Outstanding-shaped narrative standard.
+10. `EXPERIMENTS.md` / `RESEARCH_HISTORY.md` — chronology and registry.
 
 Historical reset/audit/stage files preserve provenance. Their interpretations may have
 been superseded.
