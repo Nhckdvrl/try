@@ -1,6 +1,6 @@
 # Project status — final experimental ledger
 
-**As of:** 2026-09-04, after G18. **Experimental programme: CLOSED.**
+**As of:** 2026-09-04, after G18 and the frozen ReGround design. **Experimental programme: reopened exactly once for G19 method evaluation.**
 **Target:** ARR 2026-10-12 → NAACL 2027.
 
 This file is the compact factual ledger. The final scientific story is in
@@ -104,10 +104,27 @@ Not licensed:
 - a mechanism for class-marker binding;
 - mechanism generality beyond the two tested architectures.
 
-## 6. Practical implications already supported
+## 6. Method extension — ReGround
 
-The paper is not a mitigation paper, but its existing experiments support three design
-implications:
+After G18, the authors explicitly reopened the programme for one positive method test
+rather than another explanatory/control round. **ReGround** resolves a stored semantic
+policy descriptor against the documents that actually arrived, compiles the matched
+IDs into a trusted post-retrieval exclusion ledger, and then lets the original model
+decide. It has a gold upper bound and an end-to-end self-resolving version.
+
+G19 is frozen before generation in
+`preregistrations/PREREGISTRATION_G19_REGROUND.md`. It uses the G18 100-item / 30-skeleton
+set in an agentic retrieval wrapper, five models, same-D7 / same-D9 / lexical-overlap
+wrong-D7 variants, generic-reminder and ID-restatement baselines, and raw-point target
+error plus collateral-damage metrics. The primary method must improve over both the
+prospective ID baseline and a generic post-retrieval reminder while preserving the
+hard negative.
+
+Until G19 has run, ReGround is a **designed, frozen method**, not a claimed result.
+
+### Practical implications already supported
+
+Independently of G19, the completed experiments support three design implications:
 
 1. **Restate exclusion after retrieval when possible.** The identical post-evidence
    policy is consistently more effective than the prospective form.
@@ -135,8 +152,12 @@ No claim is made that these are a fully evaluated deployment mitigation suite.
 
 ## 8. Programme status
 
-**Closed by the G18 preregistration.** No G19, no additional model-size sweep, no
-frontier API panel, no new natural corpus, no mitigation study, no third mechanism
-model, and no successor to G16/G17 before submission.
+**Reopened once for G19 ReGround by explicit author decision.** This is a positive
+method evaluation derived from the confirmed target-addressability mechanism, not a
+repair of G18/G16/G17. No other experimental branch is reopened: no model-size sweep,
+frontier API panel, new natural corpus, third mechanism model, or successor to
+G16/G17.
 
-Remaining work: paper writing, figures, appendix compression, and reviewer simulation.
+G19 outcomes are frozen to `success`, `partial`, or `no-benefit`; every outcome closes
+the programme permanently. Remaining work in parallel: paper writing, figures,
+appendix compression, and reviewer simulation.
