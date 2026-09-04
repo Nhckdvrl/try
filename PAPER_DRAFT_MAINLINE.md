@@ -601,9 +601,9 @@ That limitation does not weaken the central causal claim:
 
 ---
 
-# 11. The paper's three final contributions
+# 11. The paper's contribution structure
 
-The Introduction should present only three contributions.
+Before G19 results, the first three contributions are fixed. ReGround becomes a fourth contribution only if it passes its frozen method gate.
 
 ## Contribution 1 — Prospective exclusion gap
 
@@ -641,7 +641,21 @@ Evidence:
 - Qwen3-8B causal interchange
 - Mistral-Small-24B replication
 
-Everything else supports these three claims.
+## Pending Contribution 4 — ReGround mitigation
+
+> Explicitly resolving a prospective semantic policy against the documents that
+> actually arrive can turn target addressability into a selective inference-time
+> mitigation.
+
+G19 is frozen but not yet run. The primary comparison is deliberately against
+**Semantic-Pre**, which receives the same semantic policy information, not against an
+information-poor ID baseline. ReGround-Self must also beat a same-position,
+comparable-length Semantic-Generic reminder and reject a lexical-overlap/wrong-
+proposition D9 hard negative.
+
+If Gate 1 fails, this contribution disappears. No successor method is planned.
+
+Everything else supports these fixed claims or the pending method test.
 
 ---
 
@@ -705,6 +719,18 @@ Qwen and Mistral layer curves on relative depth.
 Optional inset:
 evidence-span gate / late answer patching.
 
+## Figure 4 — ReGround, conditional on G19
+
+Panel A:
+semantic policy → retrieval → resolver → compiled document ledger → decision.
+
+Panel B:
+TargetError for Semantic-Pre, Semantic-Generic, Semantic-Restate, ReGround-Self,
+ReGround-Gold and sanitation.
+
+Panel C:
+same-D7 / same-D9 rescue plus wrong-D9 resolver accuracy and collateral.
+
 ---
 
 # 13. Outstanding-shaped alignment
@@ -731,10 +757,11 @@ target-dependent rule state → causal interchange**
 
 The structural alignment is strong.
 
-Their additional advantage is a direct mitigation-like ablation of entrainment heads.
-We do not need to imitate this by inventing a new experiment: our interchange already
-causally changes the central behavior, and our behavioral experiments imply concrete
-policy-design changes.
+Their additional advantage is a direct behavior-changing intervention. G19 now tests
+the analogous positive closure for this paper: whether the target-addressability
+explanation can be compiled into an inference-time mitigation. The method is not needed
+to validate the first three contributions, but a successful result would make the
+overall arc closer to this Outstanding reference.
 
 ## EMNLP 2025 Outstanding — Causal Interventions Reveal Shared Structure
 
@@ -822,58 +849,61 @@ The final mechanism does four useful things:
 
 This is more than a probe-and-heatmap mechanism section.
 
-The mechanism is slightly weaker than the most engineering-oriented Outstanding
-examples in one respect: it does not yield a simple reusable cross-item direction or a
-fully packaged mitigation.
+The mechanism itself is already sufficient for the scientific paper even though the
+shared cross-item steering direction failed. G19 does not attempt to manufacture a
+better hidden-state direction. Instead it tests the explanation at the system level:
+once retrieval has instantiated the target, explicitly resolve the semantic policy to
+the matching document and compile the result.
 
-That is not a fatal gap because:
-- the EMNLP Outstanding filler-gap paper is causal-theory work without mitigation;
-- CausalGym values causal interventions themselves;
-- our causal intervention directly changes the paper's centerpiece behavior.
-
-The correct response is therefore **strong writing and precise mechanistic framing**,
-not another GPU round.
+This keeps mechanism and method conceptually aligned without requiring the internal
+state to collapse to a one-dimensional reusable steering vector.
 
 ---
 
-# 15. Can the explanation lead to a practical method?
+# 15. From explanation to method — ReGround
 
-Yes conceptually, but the current paper should distinguish **supported implication**
-from **new evaluated method**.
+The method is now implemented and prospectively frozen as G19.
 
-Three implications are already experimentally supported.
+## 15.1 Principle
 
-### 15.1 Re-ground policies after retrieval
+> **Delay target resolution, not the policy.**
 
-The same exclusion instruction is consistently more effective after the evidence has
-arrived. A practical agent can therefore re-instantiate or restate a prospective
-information-control policy after tool/retrieval output.
+The semantic policy remains prospective. After retrieval, ReGround uses a short
+resolver pass to match the policy's target against the concrete documents that
+arrived, then compiles the matched IDs into a trusted exclusion ledger before the
+final decision.
 
-### 15.2 Encode meaningful target semantics or provenance
+## 15.2 Fairness
 
-G18 and the tagged-stream experiments show that a meaningful target representation can
-support stronger prospective control than an arbitrary resource identity alone.
+The primary baseline receives the **same semantic policy**. Semantic-Pre,
+Semantic-Generic, Semantic-Restate, ReGround-Gold and ReGround-Self therefore differ
+in execution, not in what the policy means.
 
-### 15.3 Separate identifier scope from semantic scope
+ReGround must establish more than a reminder effect:
+- improve over Semantic-Pre;
+- improve over a comparable-length Semantic-Generic post-retrieval reminder;
+- preserve a wrong-D9 high-lexical-overlap semantic non-match.
 
-The D7→D9 agent counterfactual shows that “this document ID is forbidden” and “this
-information is forbidden” are not equivalent policies.
+## 15.3 Frozen evaluation
 
-A natural future method is therefore a **post-retrieval policy grounding/compiler**
-step:
+- 100 G18 items / 30 skeletons / three families;
+- five G18 checkpoints;
+- same-D7, same-D9 and wrong-D9 retrieval variants;
+- 13,500 decision conditions + 1,500 short resolver calls;
+- no training.
 
-prospective policy
-→ retrieval result
-→ resolve which retrieved propositions satisfy the policy
-→ restate/compile the exclusion against those instantiated targets
-→ answer
+Positive-target performance is absolute distance from Base, so over-suppression is
+penalized along with residual evidence use.
 
-This method follows directly from the explanation and could be evaluated in a future
-engineering paper.
+If all gates pass, the final scientific descent becomes:
 
-For the current paper, do **not** claim that such a compiler has been built or
-validated. The current scientific contribution is the phenomenon and causal
-explanation.
+prospective failure
+→ target addressability
+→ causal rule-state mechanism
+→ **post-retrieval policy grounding improves selective exclusion**
+
+If the primary rescue fails, ReGround is an honest negative and does not enter the
+contribution list.
 
 ---
 
@@ -889,6 +919,7 @@ explanation.
 - G18 decomposition
 - agent D7→D9
 - Qwen + Mistral mechanism
+- G19 ReGround only if its frozen Gate 1 passes
 
 ## Appendix
 
@@ -926,5 +957,7 @@ The main text should look like a paper that asked one question, not a project th
    identity.**
 6. **Inside the model, target availability changes a mid-network rule state that
    causally controls whether later evidence is suppressed.**
+7. **If G19 succeeds, explicitly re-grounding the semantic policy after retrieval
+   turns that explanation into a selective inference-time mitigation.**
 
-That is the paper.
+The first six sentences are fixed; the seventh is conditional on the frozen G19 result.
