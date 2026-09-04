@@ -168,7 +168,54 @@ remain distinct in a SYSTEM→TOOL setting. Matched rule-state interchange then 
 that target availability causally changes a mid-network state that controls later
 suppression in two architectures.
 
-## 8. Method/mitigation positioning
+## 8. Retrieval-time control and mitigation
+
+Two 2026 neighbours are useful for positioning the method without overclaiming novelty.
+
+**SPARKLE**, ACL 2026 Main
+https://aclanthology.org/2026.acl-long.1793/
+
+SPARKLE introduces a separate proxy model that learns an adaptive retrieval policy and
+decides when/how to retrieve. ReGround also separates a control module from the final
+LLM decision, but its object is different: retrieval has already happened, and the
+module resolves a pre-existing **exclusion policy** to the concrete documents that
+arrived. ReGround uses no RL or model training.
+
+**EPRAG**, Knowledge-Based Systems 2026
+https://www.sciencedirect.com/science/article/pii/S0950705126016552
+
+EPRAG performs epistemic diagnosis and action selection over multi-source enterprise
+RAG evidence. It shows that retrieval-time governance can benefit from an explicit
+policy layer. ReGround studies a narrower causal problem: how a semantic policy stated
+before retrieval is instantiated against its later evidential targets so that those
+targets become causally inert in the final decision.
+
+These works mean the paper should not claim “the first policy layer for RAG” or “the
+first post-retrieval control system.” The method contribution, if G19 succeeds, is the
+**mechanism-derived grounding operation** tied specifically to the target-addressability
+phenomenon established in this paper.
+
+## 9. ReGround positioning
+
+ReGround is prospectively frozen as G19. All fair primary baselines receive the same
+semantic policy. The method adds one operation after retrieval: resolve that policy to
+the actual matching document IDs and compile a trusted exclusion ledger.
+
+The decisive controls are:
+- Semantic-Pre: same semantic policy, no grounding;
+- Semantic-Generic: same policy plus a comparable-length post-retrieval reminder;
+- Semantic-Restate: repeat the full semantic policy after retrieval;
+- wrong-D9: lexical overlap without proposition match.
+
+If successful, the claim is:
+
+> **Explicit post-retrieval grounding makes a prospective semantic exclusion policy
+> more reliable and selective.**
+
+It is not a claim that ReGround solves access control, RAG security, or arbitrary
+identifier-only policies in general.
+
+
 
 The paper should be explicit that it is primarily a **phenomenon + causal explanation**
 paper, not a new mitigation paper.
