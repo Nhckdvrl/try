@@ -115,10 +115,11 @@ decide. It has a gold upper bound and an end-to-end self-resolving version.
 G19 is frozen before generation in
 `preregistrations/PREREGISTRATION_G19_REGROUND.md`. It uses the G18 100-item / 30-skeleton
 set in an agentic retrieval wrapper, five models, same-D7 / same-D9 / lexical-overlap
-wrong-D7 variants, generic-reminder and ID-restatement baselines, and raw-point target
-error plus collateral-damage metrics. The primary method must improve over both the
-prospective ID baseline and a generic post-retrieval reminder while preserving the
-hard negative.
+wrong-D9 variants, equal-information Semantic-Pre / Semantic-Generic /
+Semantic-Restate baselines, identifier controls, and raw-point target error plus
+collateral metrics. The primary method must improve over the **same semantic policy**
+without grounding and over a comparable-length semantic post-retrieval reminder,
+while preserving the hard negative.
 
 Until G19 has run, ReGround is a **designed, frozen method**, not a claimed result.
 
