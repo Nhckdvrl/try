@@ -4,186 +4,180 @@ The paper asks:
 
 > **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-and answers with a specific dependency:
+and isolates one dependency:
 
-> **A policy can be available to the model without being addressable to the
-> information it is supposed to govern.**
+> **When a policy is processed before its evidential target exists, the target
+> representation itself affects whether that policy later controls the evidence.**
 
-The positioning must be built on that dependency, not on "nobody has studied ignoring,
-policies, deferred instructions, or instruction states." Each of those is occupied.
+The novelty claim must be built on this dependency. “LLMs are bad at ignoring things,”
+“early instructions are weaker,” and “instruction states exist” are all occupied
+territory.
 
-## 0. What is already taken, and must be conceded plainly
+## 1. Occupied neighbouring questions
 
-| work | what it establishes | why it does not cover us |
+| work | established question/result | remaining distinction |
 |---|---|---|
-| **I³C**, NAACL 2024 Main (<https://aclanthology.org/2024.naacl-long.379/>) | identify irrelevant conditions, verify them, instruct the model to ignore them; eight math word-problem datasets | the irrelevant material is *present* when it is judged; nothing is deferred |
-| **IHEval**, NAACL 2025 Main (<https://aclanthology.org/2025.naacl-long.425/>) | system / user / history / tool instruction hierarchy, 3,538 examples × 9 tasks; large failures under conflict | conflicts between *co-present* instructions, not a policy whose target has not arrived |
-| **COMPASS**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.2139/>) | organisational allowlist/denylist policies, 5,920 queries, 8 scenarios, 7 models; allowlist >95% vs adversarial denylist 13–40% | establishes that prohibition is hard; does not ask what determines when a prohibition binds |
-| **Instruction Position Matters**, ACL 2024 Findings (<https://aclanthology.org/2024.findings-acl.693/>) | moving the instruction after the input improves generation; attributed to instruction forgetting | same sign as our contribution 1, different cause — our declarative probe is at 100% and distance has no main effect |
-| **Prospective memory failures**, 2026 (<https://arxiv.org/html/2603.23530>) | deferred instructions decay under concurrent load; salience formats recover compliance | asks whether the model *remembers to act*; we hold retrieval at ceiling and ask whether a remembered policy governs |
-| **LoCoMo-Plus**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.1150/>) | cue and later trigger semantically disconnected in long-term agent memory | the cue must be *retrieved*; our rule is in context and correctly recalled |
-| **Patches of Nonlinearity**, ACL 2026 Main (<https://aclanthology.org/2026.acl-long.559/>) | causal localisation of instruction representations; instruction vectors as circuit selectors | an internal instruction state is not our novelty; that a rule state depends on whether a *semantic target was available* is |
+| **I3C**, NAACL 2024 Main — https://aclanthology.org/2024.naacl-long.379/ | identify irrelevant conditions and instruct models to ignore them across math datasets | the irrelevant condition is already present when judged; no not-yet-instantiated target |
+| **IHEval**, NAACL 2025 Main — https://aclanthology.org/2025.naacl-long.425/ | instruction hierarchy conflicts across system/user/history/tool | co-present instruction conflict, not prospective evidence targeting |
+| **COMPASS**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.2139/ | organization policy following; denylist/prohibition failures are severe | establishes prohibition difficulty but not what representation of a future target controls enforcement |
+| **Instruction Position Matters**, ACL 2024 Findings — https://aclanthology.org/2024.findings-acl.693/ | instructions after input can outperform instructions before input | same coarse sign, but target representation is not manipulated or explained |
+| **Prospective-memory failures**, 2026 — https://arxiv.org/abs/2603.23530 | deferred instructions degrade under load and reminders help | primarily asks whether the model remembers to execute a future action |
+| **LoCoMo-Plus**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.1150/ | semantically disconnected cue/trigger dependencies in long-term agent memory | retrieval of a past cue is the bottleneck; our policy is already in context |
+| **Patches of Nonlinearity**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.559/ | causal instruction representations and circuit selection | an instruction state itself is not our novelty; target-dependent conditioning of the rule state is |
+| **Semantic Gravity Wells**, 2026 — https://arxiv.org/abs/2601.08070 | negative output constraints can backfire through forbidden-token priming and late override | forbidden output tokens, not causal weighting of in-context evidence; our semantic preview improves rather than primes the forbidden target |
 
-**"LLMs are bad at ignoring things" is not a contribution, and neither is "we find an
-instruction state."** Both are already in the literature.
+## 2. Human instructed disregard
 
-## 1. The dependency we study
+The G0 preregistration was motivated by human inadmissible-evidence research. A
+meta-analysis of 48 studies and 8,474 participants reports persistent influence of
+evidence after people are instructed to disregard it:
+https://pubmed.ncbi.nlm.nih.gov/16906469/
 
-> Prior work asks whether models identify irrelevant information, obey policy
-> hierarchies, retain deferred instructions, or refuse prohibited actions. We study a
-> different dependency: when a policy is stated **before its evidential target
-> exists**, what determines whether that policy later controls the target's causal
-> contribution?
+The paper should not claim that we ran a matched human comparison. Correct framing:
 
-The answer — the target's own representation at rule time — is what none of the above
-addresses, and it is confirmed prospectively on fresh items in G18.
+> **A human-literature-motivated preregistered prediction was reversed in LLMs.**
 
-## 2. Instructed disregard in people
+The human work supplies the motivating hypothesis, not a claim of shared or opposite
+cognitive mechanism.
 
-Our preregistration was borrowed from this literature. A meta-analysis over 48
-studies and 8,474 participants finds that jurors told to disregard evidence they
-have already heard retain its influence, and can be *more* influenced after the
-instruction (<https://pubmed.ncbi.nlm.nih.gov/16906469/>). Related work on hindsight
-and the curse of knowledge documents the same general asymmetry between knowing now
-and judging then.
+## 3. Instruction position, prospective memory and hierarchy
 
-We predicted the same ordering in models and got the opposite one. The human
-literature therefore enters the paper as the source of a falsified prediction, not
-as an analogy the results are then bent to fit. We make no claim that models
-implement the human process.
+**Instruction Position Matters in Sequence Generation**
+https://aclanthology.org/2024.findings-acl.693/
 
-## 3. Instruction position and instruction following
+The same broad before/after sign is therefore not our novelty. Our contribution starts
+after that observation: explicit policy access remains available, ordinary distance
+does not explain the gap, and G18 manipulates the representation of the future target
+while holding the later evidence fixed.
 
-### *Instruction Position Matters in Sequence Generation* — ACL 2024 Findings
-<https://aclanthology.org/2024.findings-acl.693/>
+**Prospective memory**
+https://arxiv.org/abs/2603.23530
 
-Liu et al. find that moving a task instruction *after* the input improves
-performance, and attribute it to instruction forgetting over long inputs.
+The closest conceptual overlap is the requirement to act on an earlier instruction
+later. Our stronger dissociation is that in some models an explicitly recovered or
+teacher-forced zero-weight policy still fails to make the evidence causally inert.
+Thus policy accessibility and evidence enforcement can separate.
 
-Our headline has the same sign and a different cause. In our setting the model has
-not forgotten anything: a separate probe returns the required weight as exactly zero
-on 100% of items in both arms, rule-to-answer distance has no main effect, and
-within the prospective arm placing the rule *further* from the answer helps. The
-same behavioural regularity therefore has an explanation other than forgetting when
-the instruction is a suppression policy rather than a task description.
+**Instruction hierarchy / system policy**
+https://aclanthology.org/2025.naacl-long.425/
+https://aclanthology.org/2026.acl-long.2139/
 
-### *Did You Forget What I Asked? Prospective Memory Failures in LLMs* — 2026
-<https://arxiv.org/html/2603.23530>
+Our agent setting does not rely on a lower-priority conflicting instruction. The
+important counterfactual is scope: an identifier policy can protect its named D7, but
+that protection does not follow the same proposition to D9, whereas proposition-level
+control does.
 
-Compliance with deferred instructions degrades under concurrent load, and a salience
-enhanced format recovers most of it. This is the closest existing framing to ours and
-the contrast is the point: prospective-memory work asks whether the model remembers
-to act. We hold retrieval constant at ceiling and ask whether a remembered policy
-governs the decision. Our rule-to-evidence delay sweep — the gap intact out to ~1,000
-tokens in four of six models — separates the two directly.
+## 4. Irrelevant context and distraction
 
-### Instruction hierarchy
-<https://arxiv.org/pdf/2404.13208>, <https://aclanthology.org/2026.findings-acl.1960/>
+### ACL 2025 Outstanding — Llama See, Llama Do
+https://aclanthology.org/2025.acl-long.791/
 
-This line assumes that a higher-privilege instruction, given earlier and from a more
-trusted source, should dominate. Our agent result is a limiting case for that
-assumption. A `SYSTEM`-level policy naming a document that has not yet been retrieved
-is worth *nothing* relative to no policy at all in two of three models — though not
-all: it does suppress in Gemma-3-12B and Qwen3.5-27B. What holds across every model is
-that when the same proposition arrives under a different document identifier, the
-identifier policy stops protecting while the proposition policy still does. Privilege
-and position do not determine enforcement; addressability does.
+This is the closest Outstanding-shaped narrative reference. It turns the broad problem
+of distraction into a sharper regularity, **contextual entrainment**, then identifies
+entrainment heads and attenuates the behavior by ablating them.
 
-## 4. Distraction and irrelevant context
+Our phenomenon is not generic distraction: the evidence is decision-relevant but
+explicitly prohibited. Our corresponding explanatory move is **target addressability**,
+confirmed prospectively in G18. High lexical overlap with the wrong proposition does
+not reproduce the semantic-target effect.
 
-### *Llama See, Llama Do* — ACL 2025 Outstanding
-<https://aclanthology.org/2025.acl-long.791/>
+### ACL 2025 Main — Stochastic Chameleons
+https://aclanthology.org/2025.acl-long.1458/
 
-Niu et al. show that tokens which appeared in context receive increased output
-propensity even when random, identify entrainment heads, and attenuate the behaviour
-by ablating them. It is the structural model for this paper: a coarse behavioural
-failure becomes informative once the regularity beneath it is found, and the
-mechanism earns its place by acting on that regularity.
+Irrelevant-context errors are shown to be structured class-based misgeneralization
+with competing internal computations. This supports our narrative standard: a failure
+becomes scientifically valuable when it reveals a structured variable beneath the
+error, not because “extra context hurts.”
 
-The phenomena are different. Contextual entrainment is driven by token occurrence and
-modulated by semantics; our effect is null under high lexical overlap with different
-meaning and strong under a reworded paraphrase, so it is governed by propositional
-content rather than by surface form.
+## 5. In-context suppression and unlearning
 
-### *Stochastic Chameleons* — ACL 2025 Main
-<https://aclanthology.org/2025.acl-long.1458/>
+**Answer When Needed, Forget When Not**
+https://aclanthology.org/2025.findings-acl.1276/
 
-Irrelevant cues produce structured class-based misgeneralisation rather than noise,
-linked to competing internal computations. It is why "irrelevant context hurts" is
-not a sufficient framing for our result either: our evidence is not irrelevant, it is
-*prohibited*, and the model agrees that it is prohibited.
+This work studies selective suppression of parametric knowledge and finds late-layer
+“pretend to forget” behavior. Our object is different: controlling the causal
+contribution of newly provided in-context evidence. The mechanistic similarity—late
+decision-level resolution—is a useful neighbour, while target addressability is an
+additional variable specific to prospective evidence control.
 
-### *Large Language Models Can Be Easily Distracted by Irrelevant Context* — ICML 2023
-<https://arxiv.org/abs/2302.00093>
+**Self-Blinding and Counterfactual Self-Simulation**
+https://arxiv.org/abs/2601.14553/
 
-The origin of the distraction line. Our contribution relative to it is that the
-governing variable is not the presence of the extra material but the structure of the
-policy that is supposed to exclude it.
+This work shows that simply asking a model to ignore biasing information can fail and
+proposes genuinely blinded alternatives. Our paper does not compete on mitigation; it
+asks when an in-context exclusion policy succeeds and identifies the target
+representation as a determinant.
 
-## 5. Suppression and unlearning at inference time
+## 6. Mechanistic interpretability references
 
-### *Answer When Needed, Forget When Not* — ACL 2025 Findings
-<https://aclanthology.org/2025.findings-acl.1276.pdf>
+### NAACL 2025 Main — Racing Thoughts
+https://aclanthology.org/2025.naacl-long.155/
 
-Models instructed to unlearn knowledge in context "pretend to forget": the decision to
-emit a forgetting token is made only in the final layer, with the answer represented
-internally before that.
+Natural contextualization failure → algorithmic race hypothesis → correlational and
+causal evidence → inference-time implications. It is the closest NAACL structural
+reference for our behavior-to-mechanism descent.
 
-This is the closest mechanistic neighbour and it is complementary. They study
-suppression of *recall* of parametric knowledge; we study suppression of *evidential
-weight* of in-context material, and find the same late-resolution shape — nothing
-below layer 18, 50% recovery at 21 of 36 — plus the variable that decides whether the
-gate closes at all.
+### EMNLP 2025 Outstanding — Causal Interventions Reveal Shared Structure
+https://aclanthology.org/2025.emnlp-main.1271/
 
-### *Self-Blinding and Counterfactual Self-Simulation* — 2026
-<https://arxiv.org/abs/2601.14553>
+Distributed Interchange Interventions answer a pre-existing theory question about
+shared structure. This is an important precedent for our mechanism: causal transfer
+does not need to become a deployment algorithm to be scientifically central when it
+tests the paper's explanatory claim.
 
-Prompting a model to ignore biasing information fails and sometimes backfires;
-querying a genuinely blinded replica works better. That is a mitigation result for
-demographic bias. Ours locates when in-context instructed ignoring works — it does,
-reliably, once the policy can bind to content — which is why a structural fix inside
-one context is available here.
+### ACL 2024 Outstanding — CausalGym
+https://aclanthology.org/2024.acl-long.785/
 
-## 6. Mechanistic accounts of contextualisation and competing pathways
+CausalGym evaluates interpretability methods by their ability to alter behavior and
+then uses the strongest method to study mechanism learning. This is why our mechanism
+claim rests on causal span gating and interchange, not on the fact that a probe can
+decode policy information.
 
-### *Racing Thoughts* — NAACL 2025 Main
-<https://aclanthology.org/2025.naacl-long.155/>
+### ACL 2026 Main — Do LLMs Know Tool Irrelevance?
+https://aclanthology.org/2026.acl-long.1473/
 
-Contextualisation errors explained by a race condition between token-processing
-steps, with causal interventions on processing order. The methodological model: the
-mechanism must explain the headline failure. Our span gate, late patching curve and
-matched-chronology interchange all target the pre/post gap itself.
+This is the closest factorization reference: structural alignment is separated from
+semantic relevance in a dedicated controlled benchmark, then traced to competing
+pathways and mitigated.
 
-### *Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions* — EMNLP 2025 Outstanding
-<https://aclanthology.org/2025.emnlp-main.1271/>
+G18 plays the analogous centerpiece role for this paper:
+- future target representation is directly manipulated;
+- fresh items/skeletons are used;
+- every target representation has its own baseline;
+- the semantic contrast is frozen prospectively.
 
-Interchange interventions used to answer a theory question about shared abstract
-structure. Our G16 has the same shape: whether tag-bound and identifier-bound
-prospective policies differ in one causally exchangeable state.
+## 7. Positioning of the present paper
 
-### *Do LLMs Know Tool Irrelevance?* — ACL 2026 Main
-<https://aclanthology.org/2026.acl-long.1473/>
+Prior work establishes that:
+- irrelevant information can distract models;
+- models can fail to obey prohibitions and policy hierarchies;
+- instruction position affects compliance;
+- deferred instructions can be forgotten;
+- instruction representations can be causally localized.
 
-A natural failure, an explanatory latent variable that separates semantic relevance
-from structural alignment, then competing pathways that explain the wrong action.
-The closest analogue to our descent: not "models cannot follow exclusion rules", but
-*what the policy can be resolved against* determines whether it governs the decision.
+We study a dependency not isolated by these lines:
 
-## 7. Position of the present paper
+> **When an exclusion policy is processed before its evidential target exists, what
+> representation of that target is needed for the policy to control the target's later
+> causal contribution?**
 
-The surrounding literature establishes that instruction position affects compliance,
-that deferred instructions decay under load, that irrelevant context exerts
-structured influence, and that instructed forgetting can be superficial.
+G18 confirms that sufficiently specific semantic target representations support
+substantially stronger exclusion than referential or merely surface-similar
+representations. The agent identity-swap shows that semantic and identifier scope
+remain distinct in a SYSTEM→TOOL setting. Matched rule-state interchange then shows
+that target availability causally changes a mid-network state that controls later
+suppression in two architectures.
 
-We study the case where the model demonstrably holds the policy and still fails to
-apply it, and show that the deciding factor is neither memory nor position but whether
-the policy has a **semantic target**. A referential stub is not enough and lexical
-similarity is worse than nothing; a matched proposition or an entailing description
-makes prospective exclusion work — confirmed on 100 fresh items over 30 independent
-skeletons, five checkpoints, four vendors. In an agent, semantic policies follow the
-proposition across a change of document identifier where identifier policies do not.
-Mechanistically, a mid-network rule state carries whether a target was found, and
-interchanging it changes later suppression in two architectures.
+## 8. Method/mitigation positioning
 
-That is the positive positioning the introduction and related-work section should
-preserve.
+The paper should be explicit that it is primarily a **phenomenon + causal explanation**
+paper, not a new mitigation paper.
+
+Existing experiments nevertheless support practical implications:
+- restating a policy after retrieval is more reliable;
+- semantic/provenance targeting is safer than assuming an arbitrary resource name
+  defines semantic scope;
+- identifier and semantic scope should be represented separately in agent policies.
+
+A post-retrieval policy-grounding/compiler step is a natural future method, but has not
+been evaluated here and is not claimed as a contribution.
