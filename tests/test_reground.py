@@ -50,7 +50,7 @@ def test_variants_place_expected_documents():
     it = _item()
     assert ("D7", it.critical_evidence) in retrieved_docs(it, "same_d7")
     assert ("D9", it.critical_evidence) in retrieved_docs(it, "same_d9")
-    wrong = dict(retrieved_docs(it, "wrong_d7"))
+    wrong = dict(retrieved_docs(it, "wrong_d9"))
     assert wrong["D7"] == wrong_proposition(it)
 
 
@@ -64,7 +64,7 @@ def test_selector_parser_is_strict_to_document_ids():
 def test_gold_selection():
     assert gold_selection("same_d7") == {"D7"}
     assert gold_selection("same_d9") == {"D9"}
-    assert gold_selection("wrong_d7") == set()
+    assert gold_selection("wrong_d9") == set()
 
 
 def test_compiler_none_explicitly_prevents_overextension():
@@ -104,7 +104,7 @@ def test_semantic_pre_exposes_descriptor_as_control():
 
 def test_selector_prompt_has_hard_negative_but_not_answer_question():
     it = _item()
-    prompt = selector_prompt(it, "wrong_d7")
+    prompt = selector_prompt(it, "wrong_d9")
     assert target_descriptor(it) in prompt
     assert wrong_proposition(it) in prompt
     assert it.question not in prompt
