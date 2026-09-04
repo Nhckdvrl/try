@@ -1,3 +1,10 @@
+> **Supersession notice — later on 2026-09-04:** the subsequent mainline audit in
+> [MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md) concluded that
+> G21 is interesting but does **not** naturally explain the original G0 reversal.
+> Therefore G21 is downgraded from paper-center status. The active mainline is now G20
+> v3 Deferred Control Composition / non-commutative exclusion. The historical reasoning
+> below is preserved for provenance; its final G21-first priority is superseded.
+
 # Novelty reset — 2026-09-04
 
 ## Why this reset exists
