@@ -1,7 +1,7 @@
 # ReGround — post-retrieval policy grounding
 
-**Status:** implemented and preregistered; no G19 model output has been observed.
-**Role if successful:** mechanism-guided mitigation / fourth paper contribution.
+**Status:** **CANCELLED BEFORE GENERATION on 2026-09-04. No G19 model output exists.**
+**Role:** historical pre-run method design retained for provenance only; not part of the active paper.
 **Preregistration:** [preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md)
 
 ## 1. Method idea
@@ -193,7 +193,7 @@ Expected outputs:
 - results/reground_analysis.json
 - results/reground_results.md
 
-## 11. Scientific role
+## 11. Historical scientific role
 
 If successful, ReGround gives the paper an Outstanding-shaped final descent:
 
@@ -209,3 +209,20 @@ If only partial, ReGround remains a proof of concept.
 
 If the primary rescue fails, it is a negative result and does not alter the phenomenon,
 G18, or mechanism. No successor method is scheduled.
+
+
+## 12. Cancellation
+
+This design was cancelled before the freeze marker and before any model generation
+after a novelty audit found that "resolve the policy after retrieval and compile the
+matched ID" is a natural engineering response rather than a sufficiently novel method
+contribution.
+
+Do not run this design and do not revive it as the main paper method. The active
+post-reset hypotheses are documented in:
+- NOVELTY_RESET_2026-09-04.md
+- NEXT_EXPERIMENTS_POST_RESET.md
+
+The useful conceptual residue is that semantic resolution and enforcement can be
+separated at the system level; any future method must solve a non-trivial problem such
+as preserving source/provenance scope, not merely restating a grounded policy.
