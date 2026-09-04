@@ -1,3 +1,17 @@
+> **SUPERSEDED INTERPRETATION NOTICE — later 2026-09-04**
+>
+> This audit is preserved as research-history provenance. Its recommendation to center
+> G20 v3 / non-commutative deferred exclusion was subsequently downgraded after a deeper
+> prompt/data audit found that G18 semantic previews mix **target knowledge** with
+> **evidential instantiation**, and that the G20 P/U swap still mixes target-state and
+> distance.
+>
+> Current authority:
+> [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md).
+>
+> G20 remains a conditional hypothesis only. The registered next design audit is G22
+> Target Knowledge vs Evidential Instantiation. No generation is authorized.
+
 # Mainline audit v2 — 2026-09-04
 
 **Status:** scientific audit after rejecting G21 as a paper-center candidate.
