@@ -25,10 +25,12 @@ the evidence, as it is for people?
 rule and memory probes. 12 instruct models from four vendors, plus LLaDA-8B and
 Dream-7B (masked diffusion, bidirectional prompt attention).
 
-**Result.** Reversed. `Δ_time` negative in all twelve instruct models, ten of twelve
-intervals excluding zero; the admit control is flat everywhere. The rule is not
-forgotten — a separate probe returns "exactly zero" on 100% of items in both arms —
-and the asymmetry is largest in a bidirectional diffusion model.
+**Result.** Reversed. `Δ_time` is negative in all twelve instruct models, ten of
+twelve intervals excluding zero; the admit control is flat everywhere. A separate
+declarative probe recovers the intended zero-weight policy at ceiling, while later
+on-policy/teacher-forced rounds show that explicit policy access can still dissociate
+from enforcement in Qwen3-8B and Gemma-3-12B. The asymmetry also survives in masked
+diffusion models.
 
 **Paper role.** Headline phenomenon.
 **Prereg.** `PREREGISTRATION_G0.md`. **Results.** `PROSPECTIVE_EXCLUSION_FINDINGS.md`,
@@ -52,8 +54,10 @@ asymmetry only at zero.
 **Question.** What exactly fails?
 
 **Results.**
-- **Declarative policy is perfect, the decision ignores it.** 100% "exactly zero"
-  in six models, against REI up to +0.64 prospectively.
+- **Declarative access does not guarantee enforcement.** The separate zero-weight
+  probe is at ceiling, but later Stage 3C/3D trajectory tests show model heterogeneity:
+  Qwen/Gemma can still leak while explicitly stating zero; Phi is more mediated by
+  whether zero is stated.
 - **Zero is a discontinuity.** Nine requested weights worded identically; pooled
   `(gap at 0) − (mean gap over eight non-zero levels)` =
   **+0.295 [+0.185, +0.405], p < 1e-4** (n = 422 item-model pairs). Descriptively
@@ -127,10 +131,13 @@ reporting.
 **Design.** `SYSTEM` policy before retrieval → document in a `TOOL` message →
 assistant answers. 75 items, legal + inference.
 
-**Result.** An identifier-only system policy is worth nothing in 2 of 3 models
-(+1.014 vs +0.991 naive). The same policy after the tool output is much better in
-all three. Suppression follows the proposition, not the identifier: the same content
-arriving as `D9` defeats an ID-only policy but not a proposition policy.
+**Result.** Identifier-only effectiveness is model-dependent: it can suppress the
+named D7 in Gemma/Qwen3.5 but is weak in Qwen/Phi. The invariant counterfactual is that
+identifier-specific protection does not follow the same proposition from D7 to D9,
+whereas proposition-targeted suppression does. After the novelty reset this is
+interpreted as evidence that semantic control can cross document identity—potentially
+a benefit for proposition-scoped policies and a possible scope error for source-scoped
+policies.
 
 **Paper role.** Section 6.
 **Results.** `stages/STAGE4.md`, `results/agent_tables.md`, `results/agent_marginal.md`.
@@ -252,10 +259,8 @@ and per-preview baseline cells would settle it.
 
 ## A12. G18 — prospective semantic targeting: **confirmed**
 
-**Question.** Does prospective exclusion succeed only when the model has a
-sufficiently specific *semantic* representation of the target at rule time, as opposed
-to a reference to it, a lexically similar description with a different meaning, or
-nothing?
+**Question.** Does the representation of the future target available at rule time
+change prospective exclusion, after redundancy and ratio-instability are removed?
 
 **Why it exists.** The centrepiece regularity was discovered through a chain that
 rebuilt the design (Stage 3D) and changed the metric (Stage 3E) in response to what
@@ -281,12 +286,51 @@ the rule then drives the judgment ~28 points **below** the preview-only baseline
 negative in 5/5 under `para`, positive in 5/5 under `empty`. With a semantic target,
 exclusion follows the proposition into text the rule never named.
 
-**Paper role.** Contribution 2, confirmed. Per the preregistration this **closes the
-experimental programme**.
+**Post-reset paper role.** Prospectively confirmed **diagnostic**, not the headline
+novelty. The mean semantic benefit itself is too unsurprising to carry the paper. Two
+features motivate the active reset: (i) all successful semantic targets precede rule
+processing, motivating G20's binding-deadline test; (ii) the below-preview-baseline
+oversuppression motivates G21's source-scope-collapse test.
 
 **Results.** `results/g18_semantic_targeting_results.md`,
 `results/g18_semantic_targeting_analysis.json`; code `src/gen_g18.py`,
 `src/conditions_g18.py`, `src/analyze_g18.py`; items `data/items/g18_v1.jsonl`.
+
+
+## A13. G19 ReGround — **cancelled before generation**
+
+**Question.** Can a semantic policy be resolved against retrieved documents and
+compiled into a post-retrieval exclusion ledger?
+
+**Status.** Designed and preregistered, then cancelled after a novelty audit **before
+any G19_FREEZE.md and before any model generation**.
+
+**Reason.** The operation is a sensible engineering mitigation but too obvious to be a
+paper-level method contribution: resolve the policy after retrieval, identify the
+matching document, then explicitly exclude it.
+
+**Role.** Historical provenance only. Do not run.
+**Files.** `METHOD_REGROUND.md`,
+`preregistrations/PREREGISTRATION_G19_REGROUND.md`.
+
+## A14. G20 / G21 — active post-reset designs, **not yet frozen**
+
+### G20 — Binding Deadline / Late Target Revelation
+
+Tests whether the same semantic target information works differently depending on
+whether it is available **before or after rule processing**, while still preceding the
+actual evidence. A rule-replay factorial tests whether reprocessing the identical rule
+after late target revelation repairs control.
+
+### G21 — Source-Scope Collapse / Semantic Spillover
+
+Tests whether excluding Source A suppresses the independent evidential contribution of
+explicitly admissible Source B when B expresses the same proposition, but not when B
+only has lexical overlap or unrelated content.
+
+**Status.** Design-only in `NEXT_EXPERIMENTS_POST_RESET.md`. No generation is
+authorized until each has a dedicated preregistration, dataset, analyzer, tests and
+freeze commit.
 
 ---
 
