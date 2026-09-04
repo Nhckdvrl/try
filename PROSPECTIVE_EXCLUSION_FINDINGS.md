@@ -1,12 +1,12 @@
 # Prospective evidence exclusion — full results (G0 and the controlled stages)
 
-> **Status, 2026-09-03.** This is a **live main-line results document**. It was
-> written under the original *Can LLMs Unring the Bell?* title and was briefly
-> filed under `archive/` while the project ran the BTF-3 hindsight branch; that
-> branch is stopped and this line is the paper. The text below is preserved as
-> written, including its original framing and its open items, because it is the
-> record of what was found when. Current framing is in `PAPER_FRAME.md`; the
-> later controlled stages are in `stages/`.
+> **Status, 2026-09-04. Historical discovery/results record.** The numerical tables
+> remain authoritative for the rounds they report, but several local interpretations
+> below predate Stage 3C–3E and G18. In particular, do not use this file to infer the
+> final claims about policy availability, the human comparison, target addressability,
+> or mechanism scope. The final scientific framing is in `PAPER_FRAME.md`, the
+> paper-story mother draft is `PAPER_DRAFT_MAINLINE.md`, and the final ledger is
+> `STATUS.md`. The body is intentionally preserved as discovery-era provenance.
 
 
 Twelve instruct models from four vendors plus two masked diffusion LMs, over 144
