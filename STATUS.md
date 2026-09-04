@@ -1,182 +1,277 @@
-# Project status — post-mainline-audit ledger
+# Project status — scientific register v3
 
 **As of:** 2026-09-04.
-**Target:** ARR 2026-10-12 → NAACL 2027.
+**Target:** NAACL / ACL / EMNLP Main-level paper.
+**Authoritative scientific ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
 
-The broad phenomenon, G18 diagnostic, agent transfer, and two-model mechanism are
-complete. The previous ReGround G19 method design was **cancelled before generation**.
-A second mainline audit has now also **downgraded G21 Source–Proposition Scope
-Entanglement from paper-center status** because it does not naturally explain the
-original G0 prospective/retrospective reversal.
+The project is in a **mainline factorization audit**, not an experiment-running phase.
 
-Read first:
-- [MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md)
-- [NOVELTY_RESET_2026-09-04.md](NOVELTY_RESET_2026-09-04.md)
-- [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
+The paper identity remains:
 
-Historical stage documents and preregistrations remain unchanged as provenance.
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-## 1. Stable empirical core
+The current task is to explain the original G0 prospective/retrospective reversal
+without drifting into a different paper.
 
-| # | Finding | Load-bearing evidence | Breadth | Status |
-|---|---|---|---|---|
-| 1 | **Prospective exclusion is systematically harder than post-evidence exclusion.** | G0: same exclusion rule before vs after evidence; matched Admit control has no analogous order effect. Delta_time has the same sign in all 12 instruct models, with 10/12 intervals excluding zero. | 12 instruct + 2 masked diffusion LMs, 4 vendors, 5 task families, 144 frozen items | **established** |
-| 2 | **Explicit policy access is not sufficient for enforcement in at least some models.** | Separate policy probes recover zero weight; on-policy and teacher-forced state externalisation show that Qwen3-8B and Gemma-3-12B can explicitly state zero while prospective evidence still influences the decision. Phi-4-mini does not show the same dissociation. | 3-model on-policy test + broader declarative probe | **established, heterogeneous** |
-| 3 | **The failure is not a generic inability to execute future numeric rules.** | Requested-weight characterization; exact arithmetic contribution task yields zero pre/post gap in 4/5 models at weight zero; non-multiplicative transforms retain smaller gaps. | 3–6 models depending on test | **boundary condition** |
-| 4 | **Pre-rule target semantics strongly alter prospective exclusion, but this is a factorization result rather than the final novelty.** | G18: Delta_semantic = **+8.91 [+7.15,+10.76] rating points**, positive in 5/5 models; para-minus-empty = **+12.85 [+10.32,+15.42]**. | 100 fresh items, 30 fresh skeletons, 3 families, 5 models / 4 vendors; 9,000 generations | **prospectively confirmed diagnostic** |
-| 5 | **Effective suppression is substantially content-conditioned rather than purely identifier-conditioned.** | Stage 3D content×identity and Stage 4 D7→D9 counterfactuals. | 4 models | **established diagnostic** |
-| 6 | **A target-dependent rule state causally carries successful vs failed prospective exclusion.** | Matched-chronology rule-span interchange changes later suppression before the later evidence is processed. Qwen3-8B: L14–18/36; Mistral-Small-24B: L12–16/40. | 2 architectures | **causal mechanism established** |
+---
 
-## 2. Current mainline hypothesis
+## 1. Established empirical core
 
-The strongest unified account is now:
+### G0 — prospective exclusion reversal
 
-> **LLMs appear to construct a target-conditioned exclusion state when the exclusion
-> rule is processed, rather than storing a deferred exclusion operator that is
-> reliably composed with a target once that target becomes available later.**
+- 144 frozen items;
+- five task families;
+- 12 instruction-tuned models / four vendors;
+- two masked diffusion LMs;
+- same exclusion rule before vs after evidence;
+- timing-gap direction same in 12/12 instruct models;
+- 10/12 intervals exclude zero;
+- matched Admit order effect is absent.
 
-Equivalent high-level formulation:
+Established headline:
 
-> **Prospective evidence exclusion is a non-commutative control-composition problem:
-> target → EXCLUDE works substantially better than EXCLUDE → target.**
+> **Models are systematically worse at pre-committing to evidence exclusion than at
+> excluding the same evidence after it appears.**
 
-Why this is natural:
+### Policy access vs enforcement
 
-- G0 retrospective = target evidence → exclusion rule.
-- G0 prospective = exclusion rule → target evidence.
-- G18 preview rescue restores target semantics before the exclusion rule while keeping
-  the actual decision evidence after the rule.
-- Stage 5 finds the causal success/failure state around rule processing.
-- arithmetic future weighting succeeds, so deferred composition is not generically
-  impossible.
+Separate policy probes recover the intended zero weight at or near ceiling.
 
-This remains a hypothesis until the redesigned G20 is run.
+Qwen3-8B / Gemma-3-12B can explicitly state zero on-policy while prospective evidence
+still affects judgment. Phi-4-mini does not show the same strong dissociation.
 
-## 3. G18 — retained as factorization evidence
+Established:
 
-G18 remains important because it cleanly manipulates what target representation is
-available **before the rule** and nets out preview redundancy.
+> **Explicit policy access is not sufficient for causal enforcement in at least some
+> models.**
 
-Pooled ExclusionEffect:
-- entail **31.16 [27.99,34.40]**
-- paraphrase **30.93 [28.19,33.66]**
-- identifier 26.27 [23.65,28.96]
-- unrelated 22.06 [19.16,24.97]
-- none 21.84 [19.21,24.66]
-- lexical-overlap / wrong proposition 18.08 [15.71,20.57]
+### Explicit arithmetic boundary
 
-Primary frozen contrast:
-- Delta_semantic **+8.91 [+7.15,+10.76]**, 5/5 positive.
+On the verifiable linear task, four of five models execute prospective `w=0` exactly
+on qualified items; Qwen3.5-27B tracks all tested weights exactly.
 
-The below-baseline paraphrase pattern remains a useful clue that successful control is
-content-level rather than a clean deletion of one later occurrence, but it is **not**
-being expanded into a source-scope paper.
+Established:
 
-## 4. Active novelty-bearing experiment
+> **The failure is not a generic inability to obey future numeric rules.**
 
-### G20 v3 — Deferred Control Composition / Non-Commutative Exclusion
+### Object-existence ladder
 
-First priority.
+Identifier/name/content-pending/type/direction before the rule do not reliably rescue;
+full target content before the rule does.
 
-Core conditions:
+Established:
 
-```
-TARGET-FIRST:
-P → EXCLUDE → U → CHECKPOINT → EVIDENCE → QUESTION
+> **A future referent or coarse description is not sufficient for strong prospective
+> exclusion.**
 
-RULE-FIRST:
-U → EXCLUDE → P → CHECKPOINT → EVIDENCE → QUESTION
-```
+### G18 — confirmed result, downgraded interpretation
 
-At the shared CHECKPOINT both arms have already seen the same target semantics, rule,
-and neutral block. The scientific question is whether the earlier order still leaves a
-different causal control state.
+G18:
+- 100 fresh items;
+- 30 independent skeletons;
+- three families;
+- five models / four vendors;
+- 9,000 generations.
 
-Load-bearing requirements:
-- high late-target comprehension;
-- TARGET-FIRST > RULE-FIRST exclusion;
-- selective RULE-FIRST rescue when the exclusion rule is replayed after P;
-- ideally rule replay > target replay;
-- matched Admit/arithmetic/routing late composition works;
-- post-resolution checkpoint interchange causally changes later suppression;
-- replication beyond a single model family.
+Frozen primary:
+`Delta_semantic = +8.91 [7.15,+10.76]`, 5/5 positive.
 
-This is designed specifically to avoid the trivial decoder causal-mask claim.
+However, `para/entail` previews themselves substantively assert the target proposition.
+Their no-rule later-evidence marginal collapses from ~32 to ~3 points.
 
-## 5. G21 status
+Therefore G18 currently establishes:
 
-### Source–Proposition Scope Entanglement
+> **Having the target proposition already represented before exclusion strongly changes
+> later suppression.**
 
-**Downgraded / not authorized as the next paper-defining experiment.**
+It does **not** establish that merely knowing what a future target will mean is enough.
 
-Reason:
-it asks whether successful semantic exclusion preserves source scope. That may be
-interesting, but it does not explain the G0 prospective/retrospective reversal.
+### Stage 4 — content-conditioned target
 
-Keep the design as:
-- a possible future paper;
-- a secondary consequence if later evidence demands it;
-- repository provenance.
+Proposition-targeted policies can follow content across D7→D9 while identifier-only
+protection does not universally follow.
 
-Do not allocate a main claim, main figure, or current experiment budget to it.
+Use only as evidence that effective control can be content-conditioned.
 
-## 6. Existing mechanism under the new story
+### Stage 5 — causal rule-time state
 
-Licensed:
-- excluded evidence is still causally read when prospective suppression fails;
-- a target-dependent rule state forms in the middle of the network before later
-  evidence is processed;
-- interchanging that state changes later suppression in Qwen3-8B and
-  Mistral-Small-24B;
-- the shared state is item-specific on current evidence; a universal steering
-  direction was not found.
+A target-dependent mid-network rule state causally changes later suppression:
+- Qwen3-8B L14–18 / 36;
+- Mistral-Small-24B L12–16 / 40.
 
-The ideal next mechanism test is at a **post-resolution shared checkpoint**, not another
-earlier rule-token localization.
+Established:
 
-If TARGET-FIRST and RULE-FIRST still differ causally after both target and rule are
-available, that would establish history-dependent control composition rather than a
-trivial inability of an earlier hidden state to see future tokens.
+> **Target availability changes a causal state formed around exclusion processing.**
 
-## 7. Cancelled ReGround G19
+No universal steering vector was found.
 
-Status:
-- **cancelled before G19_FREEZE.md**
-- **no model generations**
-- **no result**
+---
+
+## 2. Important downgraded conclusions
+
+### “Target Addressability Governs Prospective Exclusion”
+
+**Retired as paper novelty.**
 
 Reason:
-the method “resolve the semantic policy after retrieval and compile matching document
-IDs” is a sensible engineering mitigation but too obvious to serve as a novel
-contribution.
+semantic specificity helping is too obvious/occupied, and G18 semantic previews also
+instantiate substantive evidence content.
 
-Do not run or revive it in its current form.
+### G21 Source–Proposition Scope Entanglement
 
-## 8. Supporting characterization
+**Downgraded before generation.**
 
-Useful, but not separate contributions:
-- eight natural-language rule formulations;
-- delay/distance tests;
-- masked diffusion replication;
-- Stage 3A/3D semantic ladders and content×identity 2×2;
-- Stage 3E redundancy deconfounding and relation matrix;
-- tagged provenance streams;
-- Stage 4 D7→D9;
-- G16 failed class-marker mechanism bridge;
-- G17 failed frozen ratio estimand + posthoc raw-point pattern.
+Interesting future question, but it does not explain G0.
 
-## 9. Programme status
+### G20 v3 as the authorized next experiment
 
-**Open only for a redesigned, novelty-driven G20 v3 and its directly coupled
-post-resolution mechanism.**
+**Downgraded back to hypothesis/design status.**
 
-Do not add:
-- G21 as current mainline;
-- model-size sweeps;
-- frontier API breadth;
-- more semantic-preview ladders;
-- generic reminder/restatement experiments;
-- ReGround-v2;
-- a third mechanism model before G20 behavior exists.
+Its P/U swap still mixes target knowledge, evidential instantiation, and
+target-to-evidence distance.
 
-The next experiment must directly explain the original prospective exclusion reversal.
+### G18 oversuppression ⇒ scope collapse
+
+**Not licensed.**
+
+The semantic preview itself is evidence-like.
+
+### Tagged routing proves standing prospective policy execution
+
+**Not identified.**
+
+Stage 3B lacks a semantic-labels-present/no-policy cell. Its successful routing may
+partly or wholly reflect local semantics of `[unverified]`.
+
+### ReGround G19
+
+Cancelled before freeze/generation. Do not run.
+
+---
+
+## 3. Current root-cause fork
+
+The active question is:
+
+> **What must exist when an exclusion policy is processed for future evidence to become
+> causally inert later?**
+
+Three live accounts:
+
+### H-A — deferred target binding / eager control compilation
+
+Target semantics may need to exist when exclusion is processed. Late target resolution
+may be understood without reconstructing the same control state.
+
+### H-B — evidential instantiation / retrospective revision
+
+Knowing future content may be insufficient. Exclusion may become effective only after a
+matching evidential representation has already entered the model's judgment state.
+
+### H-C — local semantic control vs standing relational control
+
+Prospective control may work when incoming evidence carries a locally meaningful
+control feature, but fail when the model must preserve a novel policy→future-object
+relation.
+
+None of these is currently established.
+
+---
+
+## 4. Registered next experiment
+
+### G22 — Target Knowledge vs Evidential Instantiation
+
+**Status: DESIGN-AUDIT CANDIDATE ONLY.**
+**No generation authorized.**
+
+Core factor:
+
+1. unresolved future target;
+2. future target semantically **known but explicitly non-evidential**;
+3. same proposition **already evidentially instantiated** before the rule.
+
+The known-but-non-evidential carrier must pass a preregistered judgment-neutrality gate.
+
+Interpretation branch:
+
+- if semantic knowledge alone rescues → only then test mapping-before vs mapping-after
+  and deferred composition;
+- if only evidential instantiation rescues → test retrospective state
+  revision/cancellation;
+- if neither rescues → reassess rather than pivot to another adjacent phenomenon.
+
+See:
+[SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+
+---
+
+## 5. Registered supporting diagnostic
+
+### D22-A — Tagged routing deconfound
+
+Supporting only, not headline novelty.
+
+Need:
+- semantic labels + no policy;
+- semantic labels + matching policy;
+- semantic labels + reversed policy;
+- nonce labels + standing policy;
+- optional nonce labels + definitions.
+
+Purpose:
+determine whether Stage 3B reflects standing-policy execution or local label semantics.
+
+---
+
+## 6. Mechanism authorization
+
+No new mechanism run yet.
+
+Mechanism depends on G22 branch:
+
+- H-A → post-resolution checkpoint / backpatch / frozen-backpatch / buffer vs
+  operator-reprocessing;
+- H-B → passive gate vs active cancellation/revision;
+- H-C → local semantic circuit-selection test.
+
+Existing Stage 5 remains an asset, not a complete explanation.
+
+---
+
+## 7. Current paper-claim status
+
+| claim | status |
+|---|---|
+| prospective exclusion is harder than retrospective exclusion | **established** |
+| policy access can dissociate from enforcement | **established, heterogeneous** |
+| explicit future arithmetic control can work | **established boundary** |
+| semantic target information alone is sufficient | **not established** |
+| exclusion is non-commutative / deferred binding fails | **live hypothesis** |
+| exclusion is retrospective evidence-state revision | **live hypothesis** |
+| semantic local cues explain successful routing | **live hypothesis** |
+| source/proposition scope collapse | **downgraded** |
+| target-dependent causal rule-time state exists | **established, 2 architectures** |
+
+---
+
+## 8. Current authorization
+
+Allowed:
+- literature search;
+- design audit;
+- non-outcome-exposing material drafting;
+- dummy/synthetic analyzer tests;
+- repository cleanup.
+
+Not allowed:
+- G20 generation;
+- G21 generation;
+- G22 generation;
+- D22-A generation;
+- ReGround;
+- new mechanism runs.
+
+Before generation:
+design → competing predictions → baselines → gates → preregistration → analyzer/tests →
+commit/tag → generation.
