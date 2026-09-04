@@ -3,7 +3,7 @@
 Primary quantities are raw rating points:
 - positive-target TargetError = |Y(method) - Y(base)| on same-D7 and same-D9;
 - Improvement = TargetError(ID-Pre) - TargetError(method);
-- wrong-D7 Collateral = |Y(method) - Y(naive)|;
+- wrong-D9 Collateral = |Y(method) - Y(naive)|;
 - resolver exact-set accuracy.
 
 No REI or leverage-normalized ratio is used.
@@ -72,8 +72,8 @@ def analyze_tag(tag, items):
                 if m is not None and ref is not None:
                     imp.append(abs(ref - b) - abs(m - b))
                     icls.append(_cluster(it))
-            mw = d.get((iid, method, "wrong_d7"), {}).get("value")
-            nw = d.get((iid, "naive", "wrong_d7"), {}).get("value")
+            mw = d.get((iid, method, "wrong_d9"), {}).get("value")
+            nw = d.get((iid, "naive", "wrong_d9"), {}).get("value")
             if mw is not None and nw is not None:
                 coll.append(abs(mw - nw))
                 ccls.append(_cluster(it))
@@ -172,8 +172,8 @@ def main(tags):
                 if ys is not None and yg is not None:
                     pooled_gen.append(abs(yg - b) - abs(ys - b))
                     gen_cls.append(_cluster(it))
-            ys = d.get((iid, "self", "wrong_d7"), {}).get("value")
-            yn = d.get((iid, "naive", "wrong_d7"), {}).get("value")
+            ys = d.get((iid, "self", "wrong_d9"), {}).get("value")
+            yn = d.get((iid, "naive", "wrong_d9"), {}).get("value")
             if ys is not None and yn is not None:
                 pooled_coll.append(abs(ys - yn))
                 coll_cls.append(_cluster(it))
@@ -207,7 +207,7 @@ def main(tags):
         pooled=dict(
             self_improvement_vs_idpre=p_imp,
             self_improvement_vs_generic=p_gen,
-            self_wrong_d7_collateral=p_coll,
+            self_wrong_d9_collateral=p_coll,
             selector_accuracy=p_acc,
             positive_models_for_improvement=positive_models,
         ),
@@ -230,7 +230,7 @@ def main(tags):
         "|---|---|",
         f"| ReGround-Self improvement vs ID-Pre | **{_fmt(p_imp)}** |",
         f"| ReGround-Self improvement vs Generic-Repeat | **{_fmt(p_gen)}** |",
-        f"| wrong-D7 collateral | **{_fmt(p_coll)}** |",
+        f"| wrong-D9 collateral | **{_fmt(p_coll)}** |",
         f"| resolver exact-set accuracy | **{p_acc:.3f}** |",
         f"| model-wise improvement positive | **{positive_models}/{len(analyses)}** |",
         "",
