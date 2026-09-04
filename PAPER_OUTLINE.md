@@ -1,250 +1,379 @@
-# Paper outline
+# Paper outline — post-G18 writing blueprint
 
-**Updated:** 2026-09-03
+**Updated:** 2026-09-04
 
-The paper is one investigation of one question. The arc is:
+This outline follows the final intellectual structure, not the chronological order of
+experiments.
 
-> **advance exclusion fails → not the obvious causes → only at exactly zero →
-> binding determines it → same failure in an agent → causal gating mechanism**
-
-## Title
-
-Recommended:
+## Working title
 
 > **Can Language Models Commit in Advance to Ignore Evidence?**
 
-Other viable forms:
+Alternative:
+- *Before the Evidence Arrives: Target Addressability in Prospective Exclusion*
+- *What Can an Exclusion Policy Refer To? Prospective Evidence Control in LLMs*
 
-- *Why Language Models Fail to Exclude Evidence Before They See It*
-- *Told in Advance, Ignored Anyway: Prospective Evidence Exclusion in LLMs*
+The title should stay natural. “Target addressability” is the explanatory variable,
+not a replacement for the question.
 
-Keep **advance commitment to ignore evidence** as the object. `Prospective binding
-failure` is the mechanism's name and belongs in the body, never in the title.
+## Abstract structure
 
-## Abstract draft
+The abstract should contain exactly five moves:
 
-> A policy usually exists before the data it governs: a system prompt forbids a
-> source before retrieval runs, a court excludes evidence before the record is
-> read. We ask whether a language model can commit in advance to ignore evidence it
-> has not yet seen. Borrowing the design of the human inadmissible-evidence
-> literature, we preregistered the human pattern — that an instruction arriving
-> *after* the evidence is the hard case — and found the opposite. Across twelve
-> instruction-tuned models from four vendors, two masked diffusion language models,
-> and five task families, exclusion stated after the evidence is followed well,
-> while the identical instruction stated before it leaves up to 0.64 of the
-> evidence's normal causal weight in the decision. This is not a failure to hold
-> the rule: asked what weight the evidence should receive, every model answers
-> exactly zero on 100% of items in both conditions. It is not distance, not the
-> causal attention mask — the asymmetry is largest in a bidirectional diffusion
-> model — and not one wording. The failure is specific to driving a contribution to
-> exactly zero, and disappears entirely when that contribution is arithmetically
-> computable. What decides the outcome is what the policy can bind to: naming a
-> future item makes suppression worse than not mentioning it at all, a preview
-> rescues it in proportion to entailment rather than surface overlap, and a class
-> marker carried on the evidence itself drives leakage to zero whether the policy
-> is stated before or after. The same dissociation appears in an agent, where a
-> system-level identifier policy is worth nothing and suppression follows the
-> proposition rather than the document ID. Mechanistically, the excluded evidence
-> is still read at the decision — blocking that one attention path removes the
-> entire residual — gating is resolved in the upper-middle layers, and a binding
-> state transfers causally between matched runs in both directions.
+1. **Natural problem.** Policies often precede the information they govern.
+2. **Phenomenon.** Across 12 instruct models, two masked diffusion LMs and five task
+   families, the same exclusion rule works better after evidence than before it.
+3. **Key dissociation.** Explicit policy access is not sufficient for enforcement.
+4. **Centerpiece explanation.** G18 prospectively confirms target addressability on
+   fresh materials: semantic target representations improve exclusion by
+   **+8.91 [7.15,10.76] rating points** relative to referential/surface controls, with
+   the effect positive in all five models.
+5. **Mechanism.** A target-dependent mid-network rule state causally changes later
+   suppression in Qwen3-8B and Mistral-Small-24B.
 
-## 1. Introduction — a rule that arrives before its target
+Do not claim “the policy is perfectly held and ignored,” “only zero works,”
+“identifiers never work,” or a dedicated semantic-binding circuit.
 
-Open on the ordinary structure: policies precede the data they govern. Give the
-three concrete cases (system prompt before retrieval, inadmissibility before
-testimony, agent memory restrictions before lookup).
+## 1. Introduction — policies arrive before their targets
 
-State the human baseline honestly, because it is what we predicted: a meta-analysis
-over 48 studies and 8,474 participants finds that jurors told to disregard evidence
-they have already heard retain its influence. Our preregistration predicted the
-same ordering in models.
+Opening examples:
+- system policy before retrieval;
+- inadmissibility before later evidence;
+- agent restriction before memory/tool output.
 
-Then the question and the reversal.
+Question:
 
-Three contributions, positively:
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-1. **Phenomenon.** Exclusion stated before the evidence fails where the identical
-   exclusion stated after it succeeds — the reverse of the human pattern — while
-   the model states the policy perfectly in both cases.
-2. **Explanation.** The failure occurs only at complete suppression, and is
-   governed by what the policy can bind to: propositional content and
-   evidence-carried class markers work prospectively, named future identifiers do
-   not. The same dissociation holds in an agent.
-3. **Mechanism.** Excluded evidence is still read at the decision; gating is
-   resolved late; a binding state is causally exchangeable between matched runs.
+Human instructed-disregard work motivates the original prediction, but the paper
+should say only that the LLM ordering **reversed our human-motivated preregistered
+prediction**, not that it exactly reverses a matched human experiment.
 
-Do not enumerate ruled-out accounts here. Section 3 does that as science.
+### Contributions
 
-## 2. Measuring whether a rule governs a decision
+1. **Prospective exclusion gap.** A broad before/after asymmetry across models,
+   architectures and tasks.
+2. **Target addressability.** A fresh prospectively frozen factorial shows that a
+   sufficiently specific semantic target supports substantially stronger prospective
+   exclusion than reference or surface resemblance alone; the same distinction
+   transfers to an agent.
+3. **Causal mechanism.** Target-matched context changes a mid-network rule state, and
+   interchanging that state changes later evidence suppression in two architectures.
 
-Introduce the instrument after the question.
+The Introduction should not enumerate every control.
 
-- 144 frozen items, five task families, built from 10 legal case skeletons plus
-  inference, ranking, outcome-evaluation and numeric-aggregation families.
-- Five conditions plus independent rule and memory probes.
-- `REI` = 0 means the model decided as if it had never seen the evidence; 1 means
-  it used the evidence as fully as when told it was admissible.
-- Readout: a greedily decoded two-sentence rationale followed by the expectation of
-  the next-token distribution over digits at a fixed position. Deterministic,
-  continuous, no parsing, no LLM judge. The three piloted readouts that failed and
-  why belong in the appendix — they are a genuine methodological contribution.
-- The mechanism sections use a one-token variant of the same readout at the same
-  position, because patching needs a single forward pass. It tracks the behavioural
-  readout on rule position (r = 0.76, 0.90) and on content-preview binding, but we
-  found it **blind to class-marker binding** (−0.503 behavioural vs +0.045 direct on
-  identical prompts). Say this here, in two sentences. It bounds the mechanism's scope
-  and it is why §7 makes no claim about class markers.
+## 2. Measuring evidence influence
 
-## 3. Advance exclusion fails, and the obvious explanations do not survive
+### 2.1 G0 materials
 
-### 3.1 The reversal
+- 144 frozen items.
+- five task families: legal judgment, evidence inference, ranking/selection,
+  outcome evaluation, numeric aggregation.
+- screened only on Base/Admit before any Exclude condition was generated.
+- Base, Admit-before/after, Exclude-before/after plus independent probes.
 
-Lead with the twelve-model table and the two diffusion models. `Δ_time` negative in
-all twelve; matched admit control flat. **Figure 1.**
+### 2.2 Readout
 
-### 3.2 The rule is held, and ignored
+Explain the behavioral rating readout and REI only for G0/discovery rounds.
+Emphasize:
+- deterministic continuous readout;
+- no LLM judge;
+- matched Admit anchors.
 
-The declarative probe at 100% exactly-zero in both arms, against REI up to +0.64
-prospectively. This is the sentence the paper is built on.
+G18 uses a different, cleaner estimand:
+- raw sign-aligned rating points;
+- every preview has a preview-only and no-rule baseline;
+- ExclusionEffect is the number of rating points removed by the rule beyond the
+  preview's own effect.
 
-### 3.3 Localising the failure
+The transition from REI in discovery to raw points in G18 should be framed as a
+methodological lesson learned and then prospectively fixed, not hidden.
 
-Write this as one positive move, not a list of denials. Distance (no main effect;
-further helps), rule-to-evidence delay (intact to ~1,000 tokens in 4/6), bidirectional
-attention (largest asymmetry in Dream-7B), wording (40/40 cells), inclusion implicature
-(rescues no model).
+## 3. Phenomenon — prospective exclusion is harder
 
-The paragraph's conclusion, which is what earns it a section: the rule is held
-correctly, in any of eight constructions, at any distance, under bidirectional
-attention — so what fails is not the instruction but its relationship to its target.
-That sentence is the hand-off to §5. One number per account, no more; do not let this
-run longer than §5.1.
+### 3.1 Broad reversal
 
-## 4. The failure is specific to complete suppression
+**Figure 1A.** 12 instruct models + two masked diffusion models.
 
-The weight sweep, worded identically at every level. Pooled discontinuity
-**+0.295 [+0.185, +0.405], p < 1e-4**. Report the honest caveat that the formal
-kink term is identified in only two of six models while the descriptive pattern is
-uniform.
+Show:
+- Exclude-before;
+- Exclude-after;
+- matched Admit-before/after.
 
-Then the boundary condition: on an arithmetically implementable task the pre-post
-gap is exactly 0.000 in four of five models. This is what makes the claim specific
-rather than a general statement about future-directed instructions.
+Headline:
+> the exclusion timing gap is widespread; generic rule order is not.
 
-## 5. Binding decides it
+### 3.2 Explicit access is not sufficient
 
-The conceptual centre. **Figure 2.**
+Use only the strongest evidence:
+- declarative zero-weight probe is near/at ceiling;
+- on-policy trajectories in Qwen/Gemma can explicitly state zero weight while the
+  evidence still influences the decision;
+- teacher-forcing the correct zero-weight statement does not fully restore
+  prospective suppression.
 
-### 5.1 A named referent makes it worse
+Conclusion:
+> **policy accessibility and policy enforcement are separable.**
 
-The L0–L5 ladder, uniform across six models, inverting the obvious prediction.
+### 3.3 Compact localisation paragraph
 
-### 5.2 The rule binds to propositional content
+One paragraph, not four subsections:
+- delay up to ~1,000 tokens does not systematically worsen prospective failure;
+- rule-to-answer distance has no main effect;
+- eight wording families preserve the gap;
+- bidirectional masked diffusion models preserve it.
 
-The similarity ladder (four models) and the proposition relation matrix (two
-models), with the duplicate control that separates rescue from redundancy — and the
-metric change that confound forced.
+Conclusion:
+> ordinary forgetting, wording fragility, and a causal prompt mask are insufficient
+> explanations; the next question is what the rule can target.
 
-### 5.3 A class marker carried on the evidence works prospectively
+### 3.4 Boundary condition
 
-Lead with the tagged evidence-stream result: exact ground truth, five models, leakage
-from 0.406–0.536 to ≈0 in **both** arms. That is the load-bearing evidence.
+A short subsection:
+- timing gap is sharply concentrated at hard suppression;
+- explicit arithmetic contributions can be prospectively zeroed exactly;
+- non-multiplicative cap/sign-flip retain smaller effects.
 
-The single-item class-versus-specific comparison (five of six models in Stage 3A) is
-reported as the weaker form, together with the fact that it did **not** replicate in
-G16 under matched grammar, matched length and the mechanism readout: −0.11
-[−5.62, +5.20]. Do not lead with it and do not omit the failure.
+Do not promote “zero discontinuity” into a separate contribution.
 
-State the regularity here:
+## 4. Target addressability — the centerpiece
 
-> An exclusion policy governs the decision when it can be resolved against the
-> content it governs; a policy held as a pending intention about a named future
-> item does not.
+This is the longest behavioral section and **Figure 2**.
 
-## 6. The same failure in an agent
+### 4.1 Why a confirmation was necessary
 
-`SYSTEM` policy → `TOOL` document → answer. The identifier-only system policy worth
-nothing; the same policy after the tool output much better; suppression following
-the proposition rather than the document ID when the content reappears as D9.
+In two sentences:
+- Stage 3C–3E discovered the semantic-target account and the correct raw-point
+  estimand through iterative design;
+- G18 therefore re-tests the final claim prospectively on fresh items and skeletons.
 
-This section is short and it is the practical payoff. It is not a deployment study
-and should not be written as one.
+### 4.2 G18 design
 
-## 7. Mechanism — where the gating fails
+**Figure 2A: factorial schematic.**
 
-**Figure 3.**
+Six target representations before the rule:
+- none;
+- identifier stub;
+- lexical-overlap but wrong proposition;
+- paraphrase;
+- more-specific entailment;
+- unrelated length-matched.
 
-1. **Evidence-span gate.** Blocking downstream attention to the evidence span
-   returns the answer to Base in both arms. The residual is carried by direct reads
-   at and after the decision.
-2. **Late resolution.** Answer-position patching: nothing below layer 18, 50% at
-   21, ≈85% by 27 of 36.
-3. **Binding state is exchangeable.** Matched-chronology, length-matched rule-span
-   interchange transfers in both directions at layers 14–18.
-4. **G16 did not close it, and the reason is a scope limit worth stating.** The
-   tag/identifier interchange stopped at its preregistered bridge gate. Follow-up
-   showed the cause is the fixed-position readout, not the construction: on identical
-   prompts the behavioural readout gives −0.503 and the direct readout +0.045. The
-   readout does track rule position and content-preview binding. Put this next to the
-   readout description in §2, in two sentences, and repeat it in Limitations. What the
-   paper claims is that *a* binding state is causally exchangeable between matched
-   runs; class-marker binding is outside what this method can reach.
+Three rule states per level:
+- preview only;
+- preview + evidence;
+- preview + exclusion rule + evidence.
 
-Report the Stage-5 correction — the first version of this analysis reported medians
-of an unstable recovery fraction and overstated the effect — in the text, not
-buried. It is short and it is what makes the rest credible.
+Five models / four vendors / 100 fresh items / 30 fresh skeletons / three families.
+
+### 4.3 Primary result
+
+**Figure 2B: ExclusionEffect by target representation.**
+
+Report:
+- entail 31.16 [27.99,34.40]
+- para 30.93 [28.19,33.66]
+- ident 26.27 [23.65,28.96]
+- unrel 22.06 [19.16,24.97]
+- none 21.84 [19.21,24.66]
+- empty 18.08 [15.71,20.57]
+
+Primary frozen contrast:
+> **Delta_semantic = +8.91 [7.15,10.76], positive in 5/5 models.**
+
+Decisive surface-matched contrast:
+> **para - empty = +12.85 [10.32,15.42]**, positive in 5/5; 4/5 individual CIs
+> exclude zero.
+
+Interpretation:
+> target representation matters; reference helps somewhat, but matching semantic
+> content supports substantially stronger control than reference or lexical form.
+
+### 4.4 Decomposition
+
+**Figure 2C.**
+
+Show only the memorable comparison:
+- empty: marg(no rule) ~+32, marg(exclude) ~+14;
+- para: marg(no rule) ~+3, marg(exclude) ~-28.
+
+State two findings:
+1. semantic preview redundancy is real and large, and G18's baseline design nets it
+   out;
+2. once the target is semantically identified, exclusion extends beyond the literal
+   later block, producing below-baseline suppression.
+
+Do not decide between proposition-level generalisation and overcorrection.
+
+### 4.5 Discovery support
+
+Move most Stage 3A/3D/3E detail to appendix. In main text give one compact panel or
+paragraph:
+- paraphrase beats lexical wrong-meaning;
+- content×identity 2×2 favors matching content over matching label;
+- semantically empty Z9 does not reproduce meaningful provenance/class effects.
+
+These explain why G18 was designed as it was; they are not separate contributions.
+
+## 5. Agent counterfactual — semantic scope survives identifier change
+
+**Figure 3A** or a small panel attached to Figure 2.
+
+Structure:
+SYSTEM policy → TOOL document → assistant decision.
+
+Do not headline “identifier policies fail.” Instead show:
+- identifier policies can suppress their named D7 in some models;
+- when the same proposition arrives as D9, that identifier-specific protection does
+  not transfer;
+- proposition policies continue to suppress the content under D9.
+
+Conclusion:
+> **identifier scope and semantic scope are different control relations.**
+
+Practical implication:
+a pre-retrieval policy cannot be assumed to follow information merely because the
+information is logically “the same thing” as a named resource.
+
+## 6. Mechanism — how target availability changes later gating
+
+**Figure 3B–D.**
+
+### 6.1 Evidence span is causally read
+
+Span gate in Qwen3-8B:
+blocking downstream access to the excluded evidence returns the decision toward Base.
+
+Purpose:
+establish that residual influence is carried by evidence access, not merely by a
+previously changed hidden state.
+
+### 6.2 Late answer-level resolution
+
+Answer-position patching:
+little recovery in lower layers, increasing recovery later.
+
+Purpose:
+separate the earlier rule-state difference from the later final decision resolution.
+
+### 6.3 Target-dependent rule-state interchange
+
+Matched chronology:
+- unrelated padded preview → rule → evidence;
+- paraphrase preview → rule → evidence.
+
+At rule time the later evidence is not yet processed in either run.
+
+Causal transfer:
+- Qwen3-8B: L14–18/36, break +13.3 [8.1,18.9], rescue -3.6 [-5.9,-1.4];
+- Mistral-Small-24B: L12–16/40, break +15.7, rescue -13.4, null above depth 0.45.
+
+Headline:
+> **a target-dependent mid-network rule state causally carries the
+> successful-vs-failed prospective exclusion contrast.**
+
+Avoid:
+- reusable semantic-binding vector;
+- dedicated TARGET_FOUND circuit;
+- universality beyond the two architectures.
+
+### 6.4 What failed mechanistically
+
+Keep to 3–4 sentences:
+- shared steering direction did not generalise;
+- G16 class-marker bridge failed because the fixed-position readout was blind to that
+  behavioral contrast;
+- therefore mechanism scope is content-target addressability only.
+
+Detailed correction history goes to appendix.
+
+## 7. Discussion — what this changes
+
+### 7.1 Scientific implication
+
+Instruction following is not only about whether a rule is represented or remembered.
+For prospective information-control policies, the relation between a rule and a
+not-yet-instantiated target can be a separate bottleneck.
+
+### 7.2 Agent/policy implication
+
+Existing experiments support:
+- post-retrieval restatement;
+- meaningful semantic/provenance policy targets;
+- separating identifier scope from semantic scope.
+
+Do not call these a new mitigation algorithm.
+
+### 7.3 From mechanism to methods
+
+Outstanding/Main references show two legitimate endpoints:
+- actionable mitigation, as in *Llama See, Llama Do*, *Racing Thoughts*, and
+  *Tool Irrelevance*;
+- theory-advancing causal explanation without a deployment method, as in the EMNLP
+  Outstanding filler–gap paper and ACL Outstanding CausalGym.
+
+Our paper belongs primarily to the second category, with actionable design
+implications from existing behavioral experiments. A future method could re-ground a
+prospective policy against retrieved content after tool return, but this is future
+work, not an untested contribution.
 
 ## 8. Related work
 
-Positive positioning, four neighbourhoods: human inadmissible-evidence and
-instructed disregard; instruction following and instruction position; distraction
-and irrelevant context; mechanistic accounts of contextualisation and competing
-pathways. See `RELATED_WORK_2026.md`.
+Organize around occupied questions, then the missing dependency:
+1. irrelevant-information identification (I3C);
+2. hierarchy/policy compliance (IHEval, COMPASS);
+3. instruction position and prospective memory;
+4. long-context cue/trigger dependencies;
+5. negative constraints and in-context suppression;
+6. mechanistic instruction representations;
+7. contextualization/distraction mechanisms.
 
-The positioning sentence:
+Positioning sentence:
 
-> Prior work asks whether models follow instructions and whether irrelevant context
-> distracts them. We ask whether a stated exclusion policy actually governs the
-> decision, show that the answer depends on what the policy can bind to rather than
-> on whether the model holds it, and trace the difference to a causally
-> manipulable late gating state.
+> Prior work studies whether models identify irrelevant information, remember
+> deferred instructions, obey policy hierarchies, or represent instructions
+> internally. We ask what happens when a valid policy is processed **before its
+> evidential target exists**, and show that the target representation itself is a
+> causal determinant of later enforcement.
 
-## 9. Discussion and limitations
+## 9. Limitations
 
-What it means for agent policy design (attach policies to content or provenance,
-not identifiers; a post-retrieval restatement is cheap and works), and for any
-evaluation that assumes a stated constraint is an enforced one.
+Keep compact:
+- controlled authored materials, not a naturally occurring corpus;
+- G18 explanation breadth: five models / three families, not the full 14-model G0
+  panel;
+- Phi-4-mini para-empty individual CI overlaps zero despite the panel effect;
+- mechanism on two architectures;
+- G18 below-baseline suppression has two viable interpretations;
+- screening details and collapsed minor families in appendix.
 
-Limitations, compact: 10 independent legal skeletons; `procedural_hearsay` at 2
-usable items; screening on Qwen3-8B only; mechanism on Qwen3-8B; external materials
-are boundary checks, not a held-out tier; the effect is about soft evidential
-integration.
+## Main figures
 
-## Figures
+**Figure 1 — The phenomenon.**
+Broad model panel, Exclude-before vs Exclude-after, Admit control.
 
-**Figure 1 — The reversal.** Same rule, two positions, twelve instruct models plus
-two diffusion models; matched admit control flat. The reader should see the sign
-flip without reading a number.
+**Figure 2 — The centerpiece.**
+A: G18 factorial schematic.
+B: ExclusionEffect by target representation.
+C: decomposition (empty vs para).
 
-**Figure 2 — Binding.** One row per binding structure — named future identifier,
-gist, content preview, class marker on the evidence — with leakage before and after.
-The point is that the prospective bar collapses as binding becomes resolvable.
+**Figure 3 — Generalisation and mechanism.**
+A: agent D7→D9 counterfactual.
+B: span gate.
+C: layer-wise rule-state interchange for Qwen and Mistral.
 
-**Figure 3 — Where gating happens.** Span-gate bar (ungated vs gated, both arms),
-the layer-wise patching curve, and the bidirectional interchange.
+## Appendix priorities
 
-## Appendix
-
-- full 12-model × 5-family tables and the cluster-robustness check;
-- diffusion-model implementation notes (Dream's shift convention, mask block);
-- the three failed readouts and why single-token rating readouts can anti-correlate
-  with the model's own reasoning;
-- ruling paraphrase tables (8 wordings × 5 models);
-- Stage 3C alternative-account tests in full;
-- the duplicate-control confound and the REI → rating-points metric change;
-- the Stage-5 recovery-fraction correction;
-- external boundary checks and their provenance correction;
-- dataset limitations and the frozen-set screening caveat;
-- the abandoned BTF-3 hindsight branch and the redaction-audit correction, as
-  research history and data-integrity record only.
+- full G0 model×family tables;
+- rule wording and distance/delay characterization;
+- requested-weight sweep / arithmetic boundary;
+- Stage 3 discovery ladders and content×identity tables;
+- Stage 3E redundancy/metric correction;
+- tagged stream;
+- on-policy trajectory analysis;
+- full agent tables;
+- G16/G17;
+- Stage 5 correction and failed shared direction;
+- readout pilots and validity;
+- stopped hindsight branch only as repository provenance, not paper appendix unless
+  required for artifact transparency.
