@@ -67,9 +67,9 @@ three critical variants:
 
 1. **same-D7:** the governed proposition appears under identifier D7;
 2. **same-D9:** the same governed proposition appears under a different identifier D9;
-3. **wrong-D7:** D7 contains the G18 lexical-overlap / different-proposition control.
+3. **wrong-D9:** D7 contains the G18 lexical-overlap / different-proposition control.
 
-The wrong-D7 condition is deliberately difficult: surface vocabulary resembles the
+The wrong-D9 condition is deliberately difficult: surface vocabulary resembles the
 target, but the proposition is different.
 
 ## 4. Policy representation
@@ -109,7 +109,7 @@ Each item is evaluated under:
 - **ReGround-Gold**
 - **ReGround-Self**
 
-Every applicable method is run on same-D7, same-D9 and wrong-D7.
+Every applicable method is run on same-D7, same-D9 and wrong-D9.
 
 ## 6. Model panel
 
@@ -145,7 +145,7 @@ skeletons.
 
 ### 7.2 Negative-match collateral
 
-For wrong-D7:
+For wrong-D9:
 
 `Collateral(method) = abs(Y_method_wrong - Y_naive_wrong)`
 
@@ -157,7 +157,7 @@ similar but semantically outside the policy.
 For ReGround-Self:
 - same-D7: select D7
 - same-D9: select D9
-- wrong-D7: select NONE
+- wrong-D9: select NONE
 
 Report exact-set accuracy and false-positive / false-negative rates.
 
@@ -171,7 +171,7 @@ Report exact-set accuracy and false-positive / false-negative rates.
 2. **Beyond reminder:** ReGround-Self improves over Generic-Repeat by at least
    **3.0 rating points**, with pooled CI lower bound > 0 on same-D7 + same-D9.
 3. **Selective grounding:** resolver exact-set accuracy is at least **90% pooled** and
-   pooled wrong-D7 Collateral is at most **5.0 rating points**.
+   pooled wrong-D9 Collateral is at most **5.0 rating points**.
 
 Secondary comparisons, reported regardless of outcome:
 - ReGround-Self vs ID-Restate;
