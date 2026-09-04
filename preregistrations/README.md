@@ -5,9 +5,10 @@ corrections. Historical text is not rewritten when later evidence changes the pa
 interpretation.
 
 Use:
-- ../STATUS.md for the final experimental ledger;
-- ../PAPER_FRAME.md for final claims;
-- ../PAPER_DRAFT_MAINLINE.md for the post-G18 paper story.
+- ../NOVELTY_RESET_2026-09-04.md for the current scientific reset;
+- ../STATUS.md for the current ledger;
+- ../PAPER_FRAME.md for the active candidate claims;
+- ../PAPER_DRAFT_MAINLINE.md for the current paper story.
 
 ## Main paper line — prospective evidence exclusion
 
@@ -20,10 +21,9 @@ Use:
 - PREREGISTRATION_G18_SEMANTIC_TARGETING.md — **final explanatory confirmation**.
   Frozen before generation at tag g18-semantic-targeting-design-v1. Both gates passed:
   Delta_semantic +8.91 [7.15,10.76], positive in 5/5 models.
-- PREREGISTRATION_G19_REGROUND.md — **one explicitly authorised post-G18 method
-  evaluation**. ReGround is a positive mechanism-derived extension, not a repair of
-  the explanatory chain. The final G19_FREEZE.md commit is the freeze authority; every
-  G19 verdict closes the programme permanently.
+- PREREGISTRATION_G19_REGROUND.md — **cancelled before generation** after the novelty
+  audit. No G19_FREEZE.md was created and no model output exists. Preserve it as a
+  pre-run cancelled design; do not execute it.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -73,3 +73,11 @@ historical preregistrations.
 
 Git freeze commits and tags remain the authority for chronology relative to model
 outputs.
+
+
+## Active next rounds
+
+G20 Binding Deadline and G21 Source-Scope Collapse are currently specified in
+../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**. They are not authorized until
+separate preregistration/freeze files are created. Do not infer a frozen design from
+that planning document.
