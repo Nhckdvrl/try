@@ -1,262 +1,257 @@
-# ACL / EMNLP / NAACL alignment standard
+# ACL / EMNLP / NAACL alignment standard — post-novelty reset
 
-The aspiration is **Outstanding-shaped scientific organisation**, with Main as the
-realistic acceptance target. The point of using Outstanding papers as references is
-not to imitate their page count or add experiments mechanically; it is to copy the way
-they turn a broad failure into one memorable scientific regularity and then make the
-mechanism act on that regularity.
+The target is **Outstanding-shaped scientific organisation**, with NAACL Main as the
+realistic acceptance goal. The point is not to imitate page count or add experiments
+mechanically. The point is to copy how strong phenomenon papers turn an intuitive
+failure into a **non-obvious computational regularity** and then make the mechanism
+test that regularity.
 
-## 1. Reference papers and what to copy
+The previous framing—"semantic target information helps prospective exclusion"—fails
+this standard because the reader can predict it before seeing the experiment.
+
+## 1. Reference papers
 
 ### ACL 2025 Outstanding — Llama See, Llama Do
 https://aclanthology.org/2025.acl-long.791/
 
 Arc:
-context distraction → contextual entrainment → semantic modulation → entrainment-head
-discovery → head ablation attenuates the behavioral effect.
+context distraction → **contextual entrainment** → semantic modulation → entrainment
+heads → causal ablation.
 
-What makes it Outstanding-shaped:
-- the paper does not stop at “irrelevant context hurts”;
-- it coins a sharper regularity that is measurable independently;
-- mechanism and intervention are explicitly about that regularity;
-- the final intervention changes the original behavior.
+Lesson:
+"irrelevant context hurts" is not enough. The paper earns its identity by exposing a
+sharper regularity that was not obvious from the coarse failure.
 
-**Our analogue:** prospective exclusion gap → target addressability → G18 factorial →
-target-dependent rule state → causal interchange.
+Our target analogue:
+prospective exclusion paradox → **binding deadline / scope collapse** → causal
+rule-state computation.
 
-### EMNLP 2025 Outstanding — Causal Interventions Reveal Shared Structure Across
-English Filler–Gap Constructions
-https://aclanthology.org/2025.emnlp-main.1271/
-
-Arc:
-natural theory question about shared structure → Distributed Interchange
-Interventions → cross-construction causal transfer → factors that refine linguistic
-theory.
-
-What to copy:
-- the theory question exists before the MI method;
-- causal interchange is valuable because it answers the theory question;
-- no deployment mitigation algorithm is required for an Outstanding paper when the
-  causal result itself advances understanding.
-
-**Our analogue:** the question is advance commitment to ignore evidence; interchange
-tests whether target availability changes the rule state that later controls evidence.
-
-### ACL 2024 Outstanding + SAC — CausalGym
-https://aclanthology.org/2024.acl-long.785/
-
-Arc:
-behavioral psycholinguistic tests are not enough → benchmark causal interpretability
-methods by whether they can change model behavior → identify the strongest method →
-use it to discover discrete stages of mechanism learning.
-
-What to copy:
-- interpretability evidence is strongest when causal efficacy is measured, not when a
-  probe merely decodes information;
-- method validation and scientific inference must be separated.
-
-**Our analogue:** separate declarative probes are supporting evidence; span gating and
-interchange carry the causal mechanism claim.
+Not:
+prospective exclusion paradox → "more semantic detail helps".
 
 ### NAACL 2025 Main — Racing Thoughts
 https://aclanthology.org/2025.naacl-long.155/
 
 Arc:
-natural contextualization failure → Race Conditions Hypothesis → correlational and
-causal evidence → inference-time intervention implications.
+contextualization errors → **Race Conditions Hypothesis** → causal tests of dependency
+ordering → intervention implications.
 
-What to copy:
-- a controlled stress test is acceptable when it reveals an algorithmic failure;
-- not every alternative account has to be eliminated;
-- one coherent causal hypothesis is better than many defensive controls.
+This is now the closest narrative reference.
+
+The useful lesson is that a model can possess all relevant information by final-answer
+time yet still fail because one computation had to be resolved **before another
+computation formed**.
+
+Our potential analogue:
+> the target may have to be instantiated before the exclusion rule is processed;
+> revealing it later but still before evidence/answer may be too late unless the rule
+> is reprocessed.
+
+That is an algorithmic ordering claim, not a prompt-position observation.
 
 ### ACL 2026 Main — Do LLMs Know Tool Irrelevance?
 https://aclanthology.org/2026.acl-long.1473/
 
 Arc:
-tool-refusal failure → structural alignment bias → SABEval factorizes structural
-alignment from semantic relevance → competing pathways → rebalancing mitigation.
+known tool-refusal failure → **structural alignment bias** → factorized controlled
+benchmark → competing internal pathways → mitigation.
 
-What to copy:
-- the centerpiece experiment factorizes the explanatory variable cleanly;
-- the dataset is an instrument for the scientific question;
-- a coarse known failure becomes novel when a previously conflated variable is
-  separated.
+Lesson:
+a coarse failure becomes Main-worthy when the paper separates two variables that
+previous evaluations conflate.
 
-**G18 is our SABEval moment:** target representation is manipulated directly on fresh
-materials with its own baselines.
+Our candidate factorization after the reset:
+- **binding strength** — does the rule actually control the future target?
+- **scope precision** — does it control only the intended evidence source/occurrence?
 
-### ACL 2025 Main — Stochastic Chameleons
-https://aclanthology.org/2025.acl-long.1458/
+If G20 and G21 pass, the paper exposes a genuine control trade-off rather than a
+specificity benefit.
 
-Arc:
-irrelevant-context hallucination → structured class-based misgeneralization →
-lower-layer abstraction / higher-layer answer refinement → competing circuits.
+### EMNLP 2024 Main — Representational Analysis of Binding
+https://aclanthology.org/2024.emnlp-main.967/
 
-What to copy:
-- behavioral errors should reveal a structured regularity, not be presented as random
-  failure;
-- internal analysis can identify which part of the behavioral abstraction is
-  actually implemented.
+This paper already studies entity–attribute binding and Binding IDs, including causal
+editing in a low-rank subspace.
+
+Lesson:
+generic "binding" is occupied. Our use of the word must be narrower:
+**binding a control policy to a future evidence instance/source**.
+
+Do not claim novelty from discovering that LLMs bind semantic objects internally.
 
 ### ACL 2026 Main — Patches of Nonlinearity
 https://aclanthology.org/2026.acl-long.559/
 
-Arc:
-instruction representations → causal localization → non-linear interaction →
-instruction vectors as circuit selectors.
+This paper localizes instruction representations and finds that instruction vectors can
+act as circuit selectors conditioned on earlier task representations.
 
-What to copy:
-- “we find an instruction representation” is no longer sufficient novelty;
-- the interesting question is what information conditions that representation and how
-  it changes downstream computation.
+Lesson:
+"we found an instruction state in mid layers" is not enough.
 
-**Our distinction:** the novelty is not an instruction vector; it is that a rule state
-depends on whether a semantic target was available before the evidence arrived.
+Our Stage-5 result matters only if it supports the new computation:
+- target state present at rule time vs revealed later;
+- semantic identity vs provenance/source identity.
 
-## 2. What Outstanding-shaped papers have in common
+### ACL 2024 Findings — Instruction Position Matters
+https://aclanthology.org/2024.findings-acl.693/
 
-### A natural question precedes terminology
+Already establishes that moving instructions after the input can improve following.
 
-Good:
-> Can a language model commit in advance to ignore evidence it has not yet seen?
+Lesson:
+the G0 before/after sign is the entrance, not the novelty.
 
-Bad:
-> Do prospective semantic-binding states implement zero-weight routing?
+G20 must keep the rule fixed and move **target resolution** across the rule boundary.
 
-The technical term belongs after the phenomenon.
+### COLING 2025 — Chain-of-Specificity
+https://aclanthology.org/2025.coling-main.164/
 
-### A centerpiece experiment makes the novelty visible
+Explicitly emphasizing more specific constraints improves adherence.
 
-The reader should be able to point to one figure and say what the new variable is.
+Lesson:
+"make the target more specific" is already a method-level idea and is too normal for
+our scientific headline.
 
-For this paper that is **G18**:
-- fresh items and skeletons;
-- semantic vs referential vs lexical target representation;
-- per-preview baselines;
-- raw-point ExclusionEffect;
-- frozen Delta_semantic.
+### NAACL 2024 Main — I3C
+https://aclanthology.org/2024.naacl-long.379/
 
-If Figure 2 does not make target addressability obvious without reading Stage 3
-history, the writing has failed.
+Identifies irrelevant conditions, verifies them, then explicitly instructs the model to
+ignore them.
 
-### Explanation is broader than an estimand but narrower than a universal theory
+Lesson:
+"identify target then tell the model to ignore it" is occupied in spirit. This is why
+the cancelled ReGround design cannot carry paper novelty.
 
-Strong ACL papers often use a useful scientific abstraction that is not proven in
-every imaginable case. Do not shrink the story to “on this six-level factorial the
-bootstrap contrast is positive.” Equally, do not inflate it to “all instruction
-following requires semantic binding.”
+## 2. What the post-reset paper must achieve
 
-Correct level:
-> **For prospective evidence exclusion, how the future target is represented when the
-> policy is processed is a causal determinant of later enforcement.**
+### A. One non-obvious computational statement
 
-### Mechanism must touch the center
+A reader should not be able to predict the central result from common sense.
 
-Main mechanism:
-- matched semantic vs unrelated target;
-- rule state differs before later evidence;
-- interchange changes later suppression;
-- replicated in Qwen and Mistral.
+Candidate G20 statement:
+> **An unresolved control rule has a binding deadline: target information arriving
+> after rule processing does not reliably update it, even though it arrives before the
+> evidence and final decision. Replaying the rule after target revelation repairs the
+> failure.**
 
-Supporting mechanism:
-- evidence-span gate;
-- late answer-position resolution.
+Candidate G21 statement:
+> **Semantic binding can destroy provenance scope: excluding Source A suppresses an
+> independent, explicitly admissible Source B when B expresses the same proposition.**
 
-Do not center:
-- G16 class-marker bridge;
-- failed shared steering direction;
-- generic instruction-state decoding.
+Both are substantially sharper than:
+> semantic target information helps.
 
-### Breadth and depth can be distributed
+### B. The centerpiece must distinguish the new account from the obvious one
 
-Outstanding/Main papers do not run every mechanism on every behavioral model.
+For G20, the obvious specificity account predicts:
+- PRE target and LATE target should both help because the same semantic information is
+  available before the answer.
 
-Our division is legitimate:
-- phenomenon breadth: 12 instruct + 2 diffusion, five task families;
-- explanatory confirmation: five models, three families, 100 fresh items / 30
-  skeletons;
-- mechanism depth: two architectures.
+The binding-deadline account predicts:
+- PRE > LATE;
+- replaying the same rule after late target revelation selectively repairs LATE.
 
-Do not borrow the 14-model breadth when describing G18, and do not demand 14-model
-patching.
+For G21, a benign-generalization account predicts:
+- a source-scoped rule should preserve B because B is explicitly allowed.
 
-## 3. Final project against the bar
+Scope-collapse predicts:
+- B loses evidence weight only when it is semantically equivalent to excluded A.
 
-| dimension | current evidence | assessment |
+### C. Mechanism must touch the new variable
+
+Existing Stage 5 already shows:
+- target-dependent rule state;
+- mid-network localization;
+- state exists before later evidence;
+- causal interchange changes suppression;
+- Qwen + Mistral replication.
+
+If G20 passes, the ideal mechanistic result is not another layer localization. It is:
+> late target revelation fails to reconstruct the successful rule state until rule
+> replay.
+
+If G21 passes:
+> causal suppression follows proposition identity more strongly than provenance/source
+> identity.
+
+### D. Breadth should not replace novelty
+
+Already sufficient:
+- G0: 12 instruct + 2 diffusion / five families;
+- G18 diagnostic: five models / three families / fresh set;
+- mechanism: two architectures.
+
+New experiments should prioritize clean causal discriminations, not model-count
+inflation.
+
+## 3. Current project against the higher bar
+
+| dimension | current status | judgment |
 |---|---|---|
-| Natural question | advance commitment to ignore future evidence | strong |
-| Broad phenomenon | G0, 12+2 models, five families | strong |
-| Memorable explanatory variable | target addressability | strong after G18 |
-| Clean centerpiece | G18 frozen fresh-item factorial | strong |
-| Externalisation | SYSTEM→TOOL D7→D9 counterfactual | useful and directly tied to the variable |
-| Causal mechanism | matched rule-state interchange in Qwen + Mistral | strong for Main, credible Outstanding-shaped depth |
-| Practical method | **ReGround frozen, pending G19** | if successful, closes the largest remaining gap to the engineering-oriented Outstanding/Main references |
-| Narrative risk | too many historical experiments and over-strong wording | writing problem, not experiment problem |
+| Natural question | future evidence control | strong |
+| Broad surprising phenomenon | G0 reversal | strong |
+| Old explanation | semantic target helps | **too obvious; retired** |
+| G18 | excellent deconfounded diagnostic | valuable evidence, not novelty center |
+| Existing mechanism | two-architecture causal rule state | strong asset |
+| New explanatory object | binding deadline | high novelty if confirmed |
+| New failure object | semantic source-scope collapse | high novelty if confirmed |
+| Practical relevance | source/document/tool policies | strong if G21 transfers to agent roles |
+| New method | ReGround | cancelled as too obvious |
 
-## 4. The practical-method question
+## 4. Outstanding-shaped target story
 
-The authors explicitly chose to reopen the programme once for **ReGround**, because
-this is a positive consequence of the confirmed mechanism rather than a defensive
-control.
+Ideal final arc:
 
-ReGround implements the natural intervention suggested by the paper:
-
-semantic prospective policy
-→ retrieval instantiates possible targets
-→ resolve policy-to-document matches
-→ compile a trusted exclusion ledger
-→ decide
-
-The evaluation is deliberately stronger than “repeat the rule”:
-- the primary baseline receives the **same semantic policy**;
-- a same-position, comparable-length semantic generic reminder controls for recency;
-- Semantic-Restate is a strong repeat-the-full-rule baseline;
-- same-D9 tests whether the policy follows content across identity;
-- wrong-D9 tests lexical similarity without semantic match.
-
-If successful, the final paper adopts the first Outstanding/Main pattern:
-phenomenon → factorized explanatory variable → causal mechanism → mitigation.
-
-If it fails, the fixed scientific paper remains valid under the second pattern:
-phenomenon/theory → causal mechanism that advances understanding.
-
-## 5. Main-text discipline
-
-The paper should read:
-
-natural policy question
+natural policy problem
     ↓
-broad prospective exclusion gap
+prospective exclusion paradox
     ↓
-explicit policy access does not guarantee enforcement
+**binding deadline**:
+late target information does not retroactively update an already processed rule
     ↓
-G18 factorizes target addressability
+**scope collapse**:
+when semantic binding succeeds, it can cross source/occurrence boundaries
     ↓
-agent identity swap externalizes the same distinction
+causal target-dependent rule state formed during rule processing
     ↓
-causal mid-network rule state explains the distinction
-    ↓
-ReGround mitigation, **only if the frozen G19 gates pass**
+control problem:
+models struggle to bind future rules both **strongly and precisely**
 
-It should not read:
+This is stronger than simply appending a mitigation.
 
-G0 → Stage2 → Stage3A → P0-1 → P0-2 → Stage3C → Stage3D → Stage3E → G16 → G17 → G18
+## 5. Figure standard
 
-Chronology is provenance, not narrative.
+### Figure 1
+The broad paradox. Reviewer should understand it in ten seconds.
 
-## 6. Experiment-stop rule
+### Figure 2
+If G20 passes, a 2x2 target-timing × rule-replay figure should visually establish the
+binding deadline.
 
-The explanatory programme closed at G18. It has been **reopened exactly once** for the
-frozen G19 ReGround method evaluation by explicit author decision.
+### Figure 3
+If G21 passes, show retained contribution of allowed Source B by semantic relation.
+The striking visual should be:
+same proposition → B suppressed;
+lexical lookalike / unrelated → B retained.
 
-No other experiment is reopened merely to:
-- include a 70B model;
-- obtain a frontier API model;
-- close G16/G17;
-- add a naturally occurring corpus;
-- add a third mechanism model;
-- make every mechanism result universal.
+### Figure 4
+Mechanism on relative layer depth, tied explicitly to the rule-processing computation.
 
-Every G19 verdict—success, partial, or no-benefit—closes the programme permanently.
-There is no ReGround-v2 before submission.
+G18 becomes a bridge/diagnostic, not the hero figure.
+
+## 6. Experiment discipline
+
+Active novelty-driven work only:
+- G20 Binding Deadline
+- G21 Source-Scope Collapse
+
+Do not run:
+- cancelled ReGround G19;
+- another target-specificity ladder;
+- generic reminder/restatement as a paper contribution;
+- model-size sweep;
+- third mechanism model before new behavior is confirmed;
+- additional "semantic vs identifier" experiment without a binding-time or
+  provenance-scope question.
+
+If G20/G21 fail, the right response is to reconsider the paper, not to revive the
+obvious story.
