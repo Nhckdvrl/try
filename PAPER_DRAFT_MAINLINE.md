@@ -1,63 +1,89 @@
-# Paper mainline draft — novelty-reset version
+# Paper mainline draft — deferred-control composition version
 
-**Status:** provisional scientific mother draft after 2026-09-04 novelty audit.
+**Status:** provisional mother draft after the 2026-09-04 mainline audit.
 **Target:** Outstanding-shaped organisation; NAACL Main as realistic acceptance target.
 
-The previous center—"semantic target information improves exclusion"—has been
-retired as too obvious. This draft separates **established evidence** from the two new
-hypotheses that must earn the final story.
+The paper remains about one question:
+
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+
+The previous center—“semantic target information improves exclusion”—was retired as
+too obvious. G21 source-scope collapse has also been downgraded because it does not
+naturally explain the original prospective/retrospective reversal.
+
+The active candidate explanation is:
+
+> **LLMs construct a target-conditioned exclusion state when the rule is processed,
+> rather than reliably storing a deferred exclusion operator that can be composed with
+> a target later.**
+
+Equivalent shorthand:
+
+> **target → EXCLUDE works better than EXCLUDE → target.**
+
+The new G20 v3 must earn this claim.
 
 ---
 
-# 0. One-paragraph candidate abstract
+# 0. Candidate abstract
 
 > Policies often precede the evidence they are meant to govern. We find that language
 > models are systematically worse at excluding evidence when an exclusion rule is
-> stated before the evidence than after it, across twelve instruction-tuned models,
-> two masked diffusion language models, and five task families. The failure cannot be
-> reduced to policy access alone: in some models the policy can be explicitly
-> recovered while the excluded evidence still affects the decision. Existing
-> experiments reveal that target semantics alter a causal rule state before the
-> evidence is processed, but this observation raises a deeper question than prompt
-> specificity: **when can a control rule bind to a target that does not yet exist, and
-> how precisely is that binding scoped?** We therefore test two hypotheses. First, a
-> **binding deadline**: target information revealed after a rule has been processed may
-> fail to retroactively instantiate the earlier control relation, unless the rule is
-> processed again. Second, **semantic scope collapse**: once exclusion binds through
-> semantic content, it may spread from the intended evidence source or occurrence to
-> independently admissible evidence expressing the same proposition. A previously
-> identified mid-network rule state provides a causal mechanism linking target
-> availability to later evidence suppression.
+> stated before the evidence than after it, across twelve instruction-tuned models, two
+> masked diffusion language models, and five task families. The asymmetry is not a
+> generic inability to obey future rules: models can execute explicit future arithmetic
+> weighting exactly, and in some models explicit policy access can remain correct even
+> while excluded evidence still influences the decision. A semantic factorization shows
+> that prospective exclusion becomes much stronger when the target proposition is
+> instantiated before the rule, even though the actual governed evidence still arrives
+> later. This suggests that the relevant computation is not generic instruction
+> position but the order in which target semantics and exclusion control are composed.
+> We therefore test whether a target revealed after the rule can be correctly resolved
+> yet fail to reconstruct the same causal exclusion state, and whether reprocessing the
+> exclusion operator after target resolution restores control. Existing causal
+> interchange experiments localize a target-dependent mid-network state during rule
+> processing; a post-resolution checkpoint test asks whether this history dependence
+> persists after both target and rule are available. Together, the results test whether
+> current LLMs behave as eager target-conditioned control compilers rather than reliable
+> executors of deferred evidence policies.
 
-The last two empirical claims enter the final abstract only if G20/G21 confirm them.
+The G20-dependent sentences enter the final abstract only if confirmed.
 
 ---
 
 # 1. The natural problem
 
-A system can know a policy before it knows the object to which the policy will later
-apply.
+A policy can exist before the object it governs.
 
 Examples:
-- a system policy exists before a retrieval result;
+- a system policy is written before retrieval;
 - a source may be ruled inadmissible before its testimony is fetched;
-- an agent may be told not to use a class of memories before those memories are
-  instantiated.
+- an agent may be told that a future tool result must not affect a decision.
 
-The obvious mental model is **late binding**:
-the system stores the rule now, resolves its target later, and then applies the rule
-when the target appears.
+A normal symbolic system can represent the policy now and evaluate it once the target
+appears.
 
-The project asks whether LLMs actually implement that kind of dynamic control.
+The question is whether an LLM can do the same.
 
-A second requirement is usually implicit: a policy should preserve **scope**.
-Excluding Source A should not make an independent Source B inadmissible merely because
-B says the same thing.
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-Thus the final scientific object has two dimensions:
+The simplest test compares the same exclusion instruction in two orders.
 
-> **Can a language model bind a future control rule strongly enough to work, and
-> precisely enough to govern only what the rule actually scopes over?**
+Retrospective:
+```
+evidence → exclusion rule → judgment
+```
+
+Prospective:
+```
+exclusion rule → evidence → judgment
+```
+
+If exclusion were represented as a persistent executable rule, those orders should not
+produce a large systematic difference once all information is available for the final
+decision.
+
+They do.
 
 ---
 
@@ -102,7 +128,7 @@ Representative REI:
 
 Matched Admit order is approximately flat.
 
-### Established headline
+### Headline
 
 > **Language models are systematically worse at pre-committing to evidence exclusion
 > than at excluding the same evidence after it has appeared.**
@@ -111,9 +137,9 @@ This is Figure 1.
 
 ---
 
-# 3. The problem is not just forgetting the rule
+# 3. The problem is not simply forgetting the rule
 
-The separate declarative probe recovers the intended zero-weight policy at or near
+A separate declarative probe recovers the intended zero-weight policy at or near
 ceiling.
 
 The stronger on-policy result is model-heterogeneous:
@@ -125,20 +151,66 @@ Teacher-forcing the correct zero-weight state does not fully restore Qwen/Gemma
 prospective suppression.
 
 Supporting controls:
-- ~1,000-token rule-to-evidence delay does not monotonically worsen the prospective
-  effect;
+- ~1,000-token rule-to-evidence delay does not monotonically worsen the effect;
 - eight rule wordings preserve the gap;
-- masked diffusion models preserve the phenomenon.
+- masked diffusion models preserve the broad asymmetry.
 
-### Established conclusion
+### Conclusion
 
 > **Policy accessibility and policy enforcement can separate.**
 
-Do not turn that into a universal hidden-state claim.
+Do not universalize the strongest dissociation.
 
 ---
 
-# 4. G18 — diagnostic evidence, not the final novelty
+# 4. The failure is not generic future-rule execution
+
+Stage 3C introduces an explicit arithmetic task:
+
+```
+answer = base + w * delta
+```
+
+When models are qualified on intermediate weights, four of five tested models execute
+prospective `w=0` exactly.
+
+Thus:
+
+> **Models can prospectively apply an explicit future-directed zero operation when the
+> target contribution is symbolically specified.**
+
+The difficult case is semantic evidence whose contribution must be inferred and then
+made causally inert.
+
+This boundary becomes crucial for the new story: deferred composition is possible in
+principle, but semantic exclusion appears to use a different control computation.
+
+---
+
+# 5. G0 factorized: target semantics before exclusion
+
+G0 reverses the order of:
+1. target representation;
+2. exclusion rule.
+
+Retrospective:
+`target → EXCLUDE`
+
+Prospective:
+`EXCLUDE → target`
+
+Stage 3C/3D/G18 ask whether the actual evidence itself must be early.
+
+It does not.
+
+A semantic preview can appear before the rule while the actual evidence used by the
+decision remains after it:
+
+```
+target-semantic preview → EXCLUDE → later evidence → judgment
+```
+
+## 5.1 G18
 
 G18 uses:
 - 100 fresh items;
@@ -161,376 +233,399 @@ Frozen semantic contrast:
 
 > **+8.91 [7.15,10.76]**, positive in 5/5 models.
 
-This proves semantic target information changes prospective exclusion.
+This result is not itself the novelty.
 
-It does **not** earn a headline such as:
-> more specific semantic targets are better.
+The scientific interpretation is:
 
-That is too obvious.
+> **Prospective exclusion becomes much stronger when a sufficiently specific target
+> proposition already exists when the exclusion rule is processed.**
 
-Instead G18 contributes two clues for the new story.
+Lexical overlap and vague gist are not enough.
 
-## 4.1 Clue 1 — the successful target always precedes rule processing
+## 5.2 Why this explains more of G0 than generic position
 
-The target manipulation in G18 is available before the rule.
+The actual governed evidence is still after the rule.
 
-Stage 5 then finds a causal success/failure state **at the rule span**, before the later
-evidence is processed.
+Therefore the important temporal variable is not simply:
+> is the evidence block before or after the instruction?
 
-This motivates a temporal hypothesis:
-> perhaps target information must exist when the rule is processed.
+It is:
+> **does the model already have a semantic representation of what is to be excluded
+> when it processes the exclusion operator?**
 
-## 4.2 Clue 2 — semantic success overshoots its literal block
+That is the direct bridge from G0 to mechanism.
 
-Under paraphrase:
-- marg(no-rule) ≈ +3;
-- marg(exclude) ≈ **−28** relative to preview-only baseline.
+## 5.3 Oversuppression as a clue, not a new paper
 
-The exclusion does more than remove the later evidence's marginal contribution.
+Under paraphrase preview:
+- marg(no-rule) is only about +3 points;
+- marg(exclude) is about −28 points relative to preview-only baseline.
 
-This motivates a scope hypothesis:
-> perhaps successful semantic binding spreads to semantically equivalent information
-> outside the rule's intended evidence occurrence.
+This suggests successful exclusion is not implemented as a perfectly local deletion of
+one repeated evidence occurrence.
 
----
+A safe interpretation:
 
-# 5. Candidate Contribution 2 — Source–Proposition Scope Entanglement
+> the successful control state is content-level and can be stronger than merely
+> cancelling the later block's marginal contribution.
 
-**First priority, pending G21.**
-
-The strongest new question is not whether semantic content helps exclusion. It is
-whether semantic control preserves **which source is governed**.
-
-Use:
-
-Source A
-→ source-scoped exclusion policy
-→ independent Source B
-→ decision
-
-The source policy says:
-- A is excluded;
-- **only A** is excluded;
-- B and other independent sources remain fully admissible even if they support the
-  same proposition.
-
-B varies:
-- paraphrase / mutual entailment;
-- more-specific entailment;
-- gist;
-- high lexical overlap but different proposition;
-- unrelated but decision-relevant control.
-
-A separate proposition-scoped policy explicitly says that A's proposition is excluded
-regardless of source. This is the positive control for true proposition-level
-suppression.
-
-## 5.1 Redundancy-deconfounded metric
-
-Do not compare B-alone with A+B.
-
-Same-proposition sources are naturally redundant. Instead measure B's conditional
-marginal with A already present:
-
-BMarginal_no = Y(A+B) - Y(A)
-
-BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
-
-SourceSpillover = BMarginal_no - BMarginal_source
-
-Thus any spillover is **additional loss of allowed-B influence caused by the
-source-scoped exclusion policy**, beyond ordinary semantic redundancy.
-
-Primary semantic contrast:
-
-mean(SourceSpillover[paraphrase, entail])
--
-mean(SourceSpillover[lexical-wrong, unrelated])
-
-## 5.2 Claim if confirmed
-
-> **Exclusion entangles source identity with proposition identity: a policy that
-> excludes Source A suppresses the causal contribution of independent, explicitly
-> admissible Source B when B expresses the same proposition.**
-
-The strongest version also shows:
-- A itself is successfully excluded;
-- B has non-trivial conditional leverage;
-- proposition-scoped policy suppresses B as expected;
-- lexical overlap without semantic identity does not reproduce the effect;
-- a post-B reminder that B remains admissible does not fully restore B;
-- the model can declaratively answer that B is allowed while behaviorally discounting
-  it.
-
-That is a much less normal phenomenon than "semantic target descriptions improve
-constraint following".
+Do not turn this anomaly into the separate G21 source-scope story.
 
 ---
 
-# 6. Candidate Contribution 3 — Dynamic Late Binding
+# 6. Stage 4: the effective target is content-conditioned
 
-**Second priority, pending strengthened G20.**
+In a system→tool setting:
+- identifier-only policy can work on its named D7 in some models;
+- when the same proposition moves D7→D9, ID-specific protection does not follow;
+- proposition-targeted suppression does follow the content.
 
-The first version of the Binding Deadline idea had its own obviousness problem:
-decoder-only rule tokens cannot literally attend to later target tokens.
+This does not imply that semantic policy is always better.
 
-The publishable claim therefore cannot be:
-> the earlier rule-token state does not update.
+Its role in the paper is narrower:
 
-The stronger test asks whether the **whole model**, at answer time, can dynamically
-compose an earlier unresolved exclusion rule with a later target mapping.
+> **The effective exclusion target is substantially tied to propositional content, not
+> solely to a symbolic identifier.**
 
-PRE:
-P → rule → U → evidence
-
-LATE:
-U → rule → P → evidence
-
-Both contain the same semantic information before evidence and answer.
-
-## 6.1 Mandatory late-target comprehension
-
-On an independent full-context probe, the model must correctly identify which later
-evidence the earlier rule applies to.
-
-If it cannot, G20 is merely target-comprehension failure.
-
-## 6.2 Rule replay
-
-LATE+REPLAY:
-U → rule → P → identical rule → evidence
-
-PRE+REPLAY:
-P → rule → U → identical rule → evidence
-
-A selective LATE replay rescue tests whether reprocessing the rule after target
-resolution repairs enforcement rather than simply adding recency.
-
-## 6.3 Positive late-binding controls
-
-The same earlier-rule/later-target structure must work substantially better for:
-- Admit;
-- explicit arithmetic;
-- use/select routing.
-
-This shows the model is capable of late composition in general.
-
-Masked diffusion models are load-bearing. At least one should preserve the exclusion
-pattern despite bidirectional prompt attention before we make a strong rule-compilation
-claim.
-
-## 6.4 Claim if confirmed
-
-> **LLMs can understand a late-resolved target yet fail to dynamically attach an
-> earlier exclusion policy to it; reprocessing the rule after target resolution
-> restores control.**
-
-This is a downstream control-algorithm failure, not the trivial fact that causal
-hidden states cannot look backward.
+That is exactly the kind of target representation G18 places before the rule.
 
 ---
 
-# 7. Candidate higher-level result — a binding–scope trade-off
+# 7. Candidate central law — deferred control composition
 
-If both new experiments pass, the paper has one memorable abstraction.
+The existing results motivate:
 
-## Under-binding
+> **When an exclusion rule is processed, the model constructs a target-conditioned
+> control state from whatever target representation is already available. If the target
+> is unresolved, later target recognition may not reconstruct the same state.**
 
-The target is unresolved when the rule is processed.
+This is an eager-composition hypothesis.
 
-Result:
-> later target/evidence is insufficiently controlled.
+It predicts a non-obvious asymmetry:
 
-## Over-binding
+> target semantics arriving after the rule but before the governed evidence should be
+> understood, yet exclusion may remain weaker until the exclusion operator is processed
+> again.
 
-The semantic target is instantiated strongly enough for the rule to work.
-
-Result:
-> suppression spreads beyond the intended source/occurrence.
-
-### Final scientific claim
-
-> **Current LLMs struggle to bind prospective evidence-control rules both strongly and
-> precisely: unresolved rules under-bind future targets, while semantic binding can
-> over-bind across provenance boundaries.**
-
-This is not a prompt engineering observation.
-
-It is a statement about the internal control abstraction used by the model.
+G20 v3 tests this directly.
 
 ---
 
-# 8. Mechanism — existing causal evidence
+# 8. G20 v3 — Non-Commutative Exclusion
 
-Stage 5 compares two same-chronology conditions:
-- unrelated preview → rule → evidence;
-- paraphrase preview → rule → evidence.
+## 8.1 Core order
+
+Fresh materials:
+- semantic target preview P;
+- length-matched unrelated U;
+- exclusion rule X;
+- neutral shared checkpoint C;
+- later evidence E.
+
+Conditions:
+
+```
+TARGET-FIRST:
+P → X → U → C → E → question
+
+RULE-FIRST:
+U → X → P → C → E → question
+```
+
+By C, both arms have seen:
+- P;
+- X;
+- U.
+
+Thus both have all information required to construct the intended control state.
+
+This is the key redesign against the causal-mask objection.
+
+## 8.2 Mandatory comprehension
+
+On the full RULE-FIRST context, the model must correctly identify which later target the
+earlier exclusion rule applies to.
+
+A stronger same-trajectory resolved-target statement should be used if it can be
+implemented without creating a new confound.
+
+If comprehension is low, the experiment does not support deferred-composition failure.
+
+## 8.3 Behavior
+
+Primary:
+
+```
+CompositionOrderGap = EE(TARGET-FIRST) - EE(RULE-FIRST)
+```
+
+The novelty-bearing result is:
+
+> **TARGET-FIRST remains stronger even though RULE-FIRST has correctly resolved the
+> target before evidence and before the final decision.**
+
+That is a much stronger statement than “later instructions work better.”
+
+## 8.4 Reprocessing the operator
+
+```
+RULE-FIRST + replay:
+U → X → P → X → C → E
+
+TARGET-FIRST + replay:
+P → X → U → X → C → E
+```
+
+Critical interaction:
+
+> the second X should preferentially repair RULE-FIRST.
+
+This tests whether the missing computation is reapplication of exclusion after the
+target becomes available.
+
+## 8.5 Target replay
+
+Desirable control:
+
+```
+U → X → P → P → C → E
+```
+
+If target replay produces much less rescue than rule replay, simple target salience is
+not enough.
+
+## 8.6 Positive operations
+
+At least two matched deferred-composition controls:
+- Admit / use-select;
+- arithmetic weighting;
+- optional routing/select.
+
+The strongest pattern is:
+
+> the same model can late-compose an earlier rule with a later target for positive or
+> explicit operations, but semantic nullification remains history-dependent.
+
+## 8.7 Claim if confirmed
+
+> **Exclusion is non-commutative in context: models can know a late-resolved target yet
+> fail to compose it with an earlier exclusion operator. Reprocessing the operator after
+> target resolution reconstructs control.**
+
+This is the main novelty-bearing behavioral result.
+
+---
+
+# 9. Causal mechanism
+
+## 9.1 Existing Stage 5
+
+Matched chronology:
+
+```
+FAILURE:
+unrelated preview → X → evidence → answer
+
+SUCCESS:
+target paraphrase → X → evidence → answer
+```
+
+The evidence is after X in both arms.
 
 Qwen3-8B:
 - behavioral gap +13.2 [8.6,18.1];
-- rule-span break +13.3 [8.1,18.9] at layer 14;
-- rescue smaller but significant around −3.6 [−5.9,−1.4];
-- causal window L14–18 / 36.
+- causal rule-state window L14–18 / 36;
+- L14 break +13.3 [8.1,18.9];
+- rescue about −3.6 [−5.9,−1.4].
 
 Mistral-Small-24B:
 - behavioral gap +18.2 [10.0,26.9];
+- causal window L12–16 / 40;
 - break +18.3 [12.6,24.5];
-- rescue −16.1 [−24.2,−9.0];
-- causal window L12–16 / 40.
+- rescue −16.1 [−24.2,−9.0].
 
-Shared result:
+Invariant:
 
-> **A target-dependent mid-network rule state forms before the later evidence is
-> processed, and causally changes later suppression.**
+> **A target-dependent mid-network rule state forms before later evidence is processed,
+> and causal interchange changes later suppression.**
 
-Under the novelty reset, the most important mechanistic interpretation is:
-> the critical computation happens at rule processing.
+Do not claim:
+- a universal steering vector;
+- a TARGET_FOUND neuron;
+- a universal rescue/break asymmetry.
 
-The failed shared steering direction is useful:
-the control state appears item-specific, not a generic one-dimensional "ignore"
-feature.
+## 9.2 Why existing Stage 5 is not yet the final mechanism
 
-## Mechanism after G20/G21
+The earlier rule span in RULE-FIRST cannot see future P in a decoder.
 
-If G20 passes:
-test whether late target revelation fails to reconstruct the successful policy state
-unless the rule is replayed.
+Therefore the new causal test should occur at C, after both P and X are available.
 
-If G21 passes:
-test whether causal control follows Source-B semantic content more strongly than its
-source/provenance label.
+## 9.3 Post-resolution checkpoint
 
-Do not run these before the new behavioral effects exist.
+At C:
+- target mapping should be correct in both orders;
+- token positions are matched;
+- all operands are available.
 
----
+Causal tests:
+1. TARGET-FIRST C → RULE-FIRST recipient;
+2. RULE-FIRST C → TARGET-FIRST recipient;
+3. identical Admit/control interchange;
+4. compare RULE-FIRST before and after rule replay.
 
-# 9. Literature positioning
+Strong result:
 
-## Instruction position
+> **The two histories do not converge to the same control state after target
+> resolution; checkpoint interchange changes later evidence suppression.**
 
-Instruction Position Matters and Order Matters show that placement changes compliance.
-They do not isolate **target resolution crossing the rule-processing boundary**.
-
-## Prospective memory
-
-Prospective-memory work studies whether deferred constraints are remembered under
-load and shows trailing reminders can help. Here the target is revealed before the
-decision and the question is whether an unresolved rule can be **late-bound**.
-
-## Binding
-
-Representational Analysis of Binding studies entity–attribute associations and Binding
-IDs. This paper concerns binding **control scope** to future evidence.
-
-## Instruction vectors
-
-Patches of Nonlinearity shows localized instruction representations and circuit
-selection. It does not ask whether a later target can update an earlier control state.
-
-## Provenance
-
-TROVE, GenProve, GAVEL, Label Effects and source-conflict work study attribution,
-source tracking, citation, or trust.
-
-The new source-scope question is different:
-> **does a source-scoped exclusion rule preserve the contribution of an allowed source
-> that says the same thing?**
-
-## Negative constraints
-
-Semantic Gravity Wells studies forbidden output tokens and semantic priming.
-Our dependent variable is the causal use of evidence inside a decision, with explicit
-source/occurrence scope.
+This would connect the broad reversal to a causal downstream state without relying on
+the trivial earlier-token causal mask.
 
 ---
 
-# 10. Outstanding-shaped comparison
+# 10. Higher-level scientific statement
 
-### Llama See, Llama Do
+If G20 v3 and checkpoint mechanism pass, the paper can say:
 
-Known coarse problem:
-> context distracts.
+> **LLMs do not reliably treat exclusion policies as deferred predicates over future
+> evidence. Effective exclusion is constructed in a target-conditioned manner, making
+> control depend on whether the target representation exists when exclusion is
+> processed.**
 
-New sharp object:
-> contextual entrainment.
+That is broader than a prompt trick and narrower than generic binding.
 
-Our target:
-> not "semantic context helps", but **binding deadline + scope collapse**.
+A memorable shorthand:
 
-### Racing Thoughts
-
-Known coarse problem:
-> contextualization sometimes fails.
-
-Sharp mechanism:
-> a dependency must resolve before downstream integration; violations create race
-> conditions.
-
-Our potential analogue:
-> target resolution may have to complete **before rule compilation**, not merely before
-> final decision.
-
-### Tool Irrelevance
-
-Known coarse problem:
-> models call irrelevant tools.
-
-Sharp factor:
-> structural alignment vs semantic relevance.
-
-Our potential factorization:
-> **binding strength vs scope precision**, with target timing determining the first and
-> semantic/provenance identity determining the second.
+> **LLMs can remember the rule and recognize the target, yet still fail to compose the
+> two in time.**
 
 ---
 
-# 11. Figure plan if G20/G21 pass
+# 11. Related-work boundary
 
-## Figure 1 — Prospective exclusion paradox
-Broad G0 panel + Admit control.
+Do not claim novelty from:
+- instruction position;
+- constraint order;
+- prospective memory;
+- in-context forgetting;
+- generic entity binding;
+- instruction-state localization;
+- identify-then-ignore;
+- source provenance;
+- negative output constraints.
 
-## Figure 2 — Binding deadline
-PRE vs LATE target permutation, with rule replay interaction.
-Small diffusion / Admit inset.
+Closest conceptual prior:
+Racing Thoughts.
 
-## Figure 3 — Scope collapse
-Source A excluded, Source B allowed.
-Show B retention by semantic relation and explicit-B-admissible condition.
+The distinct dependency here is:
+> **deferred composition of an exclusion operator with a future semantic evidence
+> target.**
 
-## Figure 4 — Causal rule state
-Qwen + Mistral mid-layer interchange, interpreted as rule-time control computation.
-
-G18 moves to a compact diagnostic panel or main-text bridge, with full factorial in
-appendix.
-
----
-
-# 12. Current stop/go logic
-
-### G21 passes
-Source–proposition scope entanglement becomes the new centerpiece.
-
-### G21 fails
-Do not rescue it with B-alone metrics or more prompt variants; proceed to the strengthened G20 only on its pre-frozen design.
-
-### G20 passes
-Dynamic late-binding failure becomes a major explanatory contribution, provided the comprehension, positive-control and masked-diffusion criteria also pass.
-
-### G20 fails
-Do not fall back to the trivial rule-token causal-mask story.
-
-### Both fail
-Do not revive ReGround or "target addressability" as a headline. Re-evaluate whether
-the broad G0 + existing mechanism is sufficient for a smaller paper.
+ICF-Bench is especially important to distinguish:
+it studies forgetting already-seen information after a later forgetting instruction;
+our core question is the prospective reverse.
 
 ---
 
-# 13. What is no longer active
+# 12. Method opening
 
-- ReGround G19: cancelled before generation.
-- "Target Addressability Governs Prospective Exclusion": retired as headline.
-- generic post-retrieval restatement: supporting control only.
-- more identifier-vs-semantic ladders: not useful.
-- more model size breadth: not the missing scientific value.
+Do not revive ReGround as the paper method.
 
-The next gain must be a genuinely new computational phenomenon.
+The result naturally creates a stronger method problem:
+
+> **How can a model preserve an exclusion operator in a deferred, executable form and
+> compose it with a target only when that target later becomes available?**
+
+Future directions:
+- factorized policy-operator and target representations;
+- training objective enforcing post-resolution equivalence of target→policy and
+  policy→target;
+- typed deferred-control state instantiated at evidence arrival;
+- external reference monitor / policy runtime;
+- activation or routing method that reconstructs the target-conditioned state after
+  late resolution.
+
+This follows from the computation rather than bolting on a reminder.
+
+---
+
+# 13. What is not the paper
+
+### G21
+Source–Proposition Scope Entanglement is not the current paper center.
+
+It may be a future follow-up, but it does not explain G0.
+
+### G19
+ReGround was cancelled before freeze/generation.
+
+### Generic semantic specificity
+Not a contribution.
+
+### Another model sweep
+Not needed unless G20 behavior requires breadth confirmation.
+
+---
+
+# 14. Main claims if G20 confirms
+
+### Claim 1
+> **Prospective exclusion is systematically harder than retrospective exclusion.**
+
+G0.
+
+### Claim 2
+> **The reversal reflects target/operator order: target semantics before exclusion
+> enable strong control, while late target resolution after exclusion does not reliably
+> reconstruct it.**
+
+G18 + G20.
+
+### Claim 3
+> **Policy/target knowledge is not enough: models can know the rule and resolve the
+> target while excluded evidence remains causally active; other deferred operations can
+> still succeed.**
+
+On-policy + G20 comprehension + positive controls.
+
+### Claim 4
+> **A target-conditioned causal control state forms during exclusion processing and
+> remains history-dependent after target resolution.**
+
+Stage 5 + checkpoint mechanism.
+
+---
+
+# 15. Figure plan
+
+Figure 1:
+G0 prospective vs retrospective exclusion + Admit.
+
+Figure 2:
+G20 target-first vs rule-first + rule replay + target replay/control.
+
+Figure 3:
+Stage 5 rule-time causal state + G20 post-resolution checkpoint interchange.
+
+Compact bridge:
+G18 target-semantic factorization.
+
+No G21 main figure.
+
+---
+
+# 16. Outstanding-shaped criterion
+
+The paper is strong enough only if the descent is visible:
+
+```
+natural question
+→ broad reversal
+→ factorization of the reversal
+→ non-obvious deferred-composition law
+→ causal state carrying that law
+→ method problem implied by the law
+```
+
+If G20 fails, do not replace it with G21 merely because G21 is interesting.
+Reconsider the mainline instead.
