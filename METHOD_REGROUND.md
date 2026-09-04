@@ -108,11 +108,11 @@ The governed proposition arrives under the identifier named by the prospective p
 The **same proposition** arrives under a new identifier. This is the Stage-4
 counterfactual turned into a method test.
 
-### wrong-D7
+### wrong-D9
 
 D7 contains G18's **high-lexical-overlap, different-proposition** control.
 
-A useful method must exclude same-D7 and same-D9 while leaving wrong-D7 alone.
+A useful method must exclude same-D7 and same-D9 while leaving wrong-D9 alone.
 
 ## 6. Data and model panel
 
@@ -152,7 +152,7 @@ Improvement = TargetError(ID-Pre) - TargetError(ReGround-Self)
 
 ### Hard-negative collateral
 
-For wrong-D7:
+For wrong-D9:
 
 Collateral = absolute value of Y_method_wrong - Y_naive_wrong
 
@@ -164,7 +164,7 @@ vocabulary.
 Exact document-set accuracy:
 - same-D7 → D7
 - same-D9 → D9
-- wrong-D7 → NONE
+- wrong-D9 → NONE
 
 ## 8. Frozen success gates
 
@@ -175,7 +175,7 @@ In short, success requires:
 1. ReGround-Self improves over ID-Pre by at least 5 raw rating points, CI lower > 0,
    with positive model-wise improvement in at least 4/5 models;
 2. it beats Generic-Repeat by at least 3 points with CI lower > 0;
-3. resolver accuracy at least 90% and wrong-D7 collateral at most 5 points.
+3. resolver accuracy at least 90% and wrong-D9 collateral at most 5 points.
 
 No gate requires beating sanitation.
 
