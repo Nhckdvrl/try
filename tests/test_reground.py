@@ -32,11 +32,21 @@ def _item():
         meta={
             "skeleton": "demo:x",
             "previews": {
-                "para": "PRELIMINARY NOTE\nA witness reports that the defendant admitted it.",
-                "empty": "PRELIMINARY NOTE\nA witness reports that the interview room was repainted.",
+                "para": (
+                    "PRELIMINARY NOTE\n"
+                    "A witness reports that the defendant admitted it."
+                ),
+                "empty": (
+                    "PRELIMINARY NOTE\n"
+                    "A witness reports that the interview room was repainted."
+                ),
             },
         },
     )
+
+
+def _render(msgs):
+    return "\n".join(m["content"] for m in msgs)
 
 
 def test_target_and_wrong_are_distinct():
@@ -52,6 +62,7 @@ def test_variants_place_expected_documents():
     assert ("D9", it.critical_evidence) in retrieved_docs(it, "same_d9")
     wrong = dict(retrieved_docs(it, "wrong_d9"))
     assert wrong["D9"] == wrong_proposition(it)
+    assert "D7" not in wrong
 
 
 def test_selector_parser_is_strict_to_document_ids():
@@ -73,9 +84,16 @@ def test_compiler_none_explicitly_prevents_overextension():
     assert "Do not exclude any retrieved document" in msg
 
 
-def test_self_decision_never_copies_semantic_descriptor():
+def test_reground_and_semantic_pre_receive_same_semantic_policy():
     it = _item()
-    msgs = decision_messages(
+    sempre = decision_messages(
+        it,
+        "sempre",
+        "same_d9",
+        SYSTEM,
+        ANSWER_FORMATS["reasoned"],
+    )
+    self_msgs = decision_messages(
         it,
         "self",
         "same_d9",
@@ -83,23 +101,48 @@ def test_self_decision_never_copies_semantic_descriptor():
         ANSWER_FORMATS["reasoned"],
         selection={"D9"},
     )
-    rendered = "\n".join(m["content"] for m in msgs)
-    assert "EXCLUDED DOCUMENTS: D9" in rendered
-    # The semantic descriptor belongs to the hidden resolver, not the final prompt.
-    assert target_descriptor(it) not in rendered
+    assert target_descriptor(it) in sempre[0]["content"]
+    assert target_descriptor(it) in self_msgs[0]["content"]
+    # ReGround's added information is the resolved document identity.
+    assert "EXCLUDED DOCUMENTS: D9" not in _render(sempre)
+    assert "EXCLUDED DOCUMENTS: D9" in _render(self_msgs)
 
 
-def test_semantic_pre_exposes_descriptor_as_control():
+def test_generic_reminder_is_same_semantic_policy_and_comparable_length():
+    it = _item()
+    generic = decision_messages(
+        it,
+        "semgeneric",
+        "same_d9",
+        SYSTEM,
+        ANSWER_FORMATS["reasoned"],
+    )
+    self_msgs = decision_messages(
+        it,
+        "self",
+        "same_d9",
+        SYSTEM,
+        ANSWER_FORMATS["reasoned"],
+        selection={"D9"},
+    )
+    assert generic[0]["content"] == self_msgs[0]["content"]
+    # Both add a post-retrieval message in the same position. The generic message
+    # is deliberately close in character length but contains no resolved match.
+    assert abs(len(generic[-1]["content"]) - len(self_msgs[-1]["content"])) <= 20
+    assert "EXCLUDED DOCUMENTS" not in generic[-1]["content"]
+
+
+def test_semantic_restatement_is_a_strong_same_information_control():
     it = _item()
     msgs = decision_messages(
         it,
-        "sempre",
+        "semrestate",
         "same_d7",
         SYSTEM,
         ANSWER_FORMATS["reasoned"],
     )
-    rendered = "\n".join(m["content"] for m in msgs)
-    assert target_descriptor(it) in rendered
+    assert target_descriptor(it) in msgs[0]["content"]
+    assert target_descriptor(it) in msgs[-1]["content"]
 
 
 def test_selector_prompt_has_hard_negative_but_not_answer_question():
