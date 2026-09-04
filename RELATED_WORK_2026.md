@@ -216,15 +216,3 @@ It is not a claim that ReGround solves access control, RAG security, or arbitrar
 identifier-only policies in general.
 
 
-
-The paper should be explicit that it is primarily a **phenomenon + causal explanation**
-paper, not a new mitigation paper.
-
-Existing experiments nevertheless support practical implications:
-- restating a policy after retrieval is more reliable;
-- semantic/provenance targeting is safer than assuming an arbitrary resource name
-  defines semantic scope;
-- identifier and semantic scope should be represented separately in agent policies.
-
-A post-retrieval policy-grounding/compiler step is a natural future method, but has not
-been evaluated here and is not claimed as a contribution.
