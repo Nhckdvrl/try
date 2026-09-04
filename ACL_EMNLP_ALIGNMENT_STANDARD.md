@@ -1,257 +1,287 @@
-# ACL / EMNLP / NAACL alignment standard — post-novelty reset
+# ACL / EMNLP / NAACL alignment standard — deferred-control mainline
 
 The target is **Outstanding-shaped scientific organisation**, with NAACL Main as the
-realistic acceptance goal. The point is not to imitate page count or add experiments
-mechanically. The point is to copy how strong phenomenon papers turn an intuitive
-failure into a **non-obvious computational regularity** and then make the mechanism
-test that regularity.
+realistic acceptance goal.
 
-The previous framing—"semantic target information helps prospective exclusion"—fails
-this standard because the reader can predict it before seeing the experiment.
+The paper must keep one scientific descent:
 
-## 1. Reference papers
+```
+natural pre-commitment question
+→ broad prospective/retrospective reversal
+→ clean target/operator factorization
+→ non-obvious deferred-control law
+→ causal mechanism
+→ method problem implied by the failure
+```
+
+The paper must not become a provenance/scope paper halfway through.
+
+## 1. Reference papers and lessons
 
 ### ACL 2025 Outstanding — Llama See, Llama Do
 https://aclanthology.org/2025.acl-long.791/
 
 Arc:
-context distraction → **contextual entrainment** → semantic modulation → entrainment
-heads → causal ablation.
+context distraction → contextual entrainment → semantic modulation → causal heads.
 
 Lesson:
-"irrelevant context hurts" is not enough. The paper earns its identity by exposing a
-sharper regularity that was not obvious from the coarse failure.
+the broad failure is only the entrance. The paper earns its identity by exposing a
+sharper regularity underneath it.
 
-Our target analogue:
-prospective exclusion paradox → **binding deadline / scope collapse** → causal
-rule-state computation.
+Our analogue:
+prospective exclusion reversal → **target/operator composition order** → causal
+history-dependent control state.
 
 Not:
-prospective exclusion paradox → "more semantic detail helps".
+prospective reversal → “semantic target information helps.”
 
 ### NAACL 2025 Main — Racing Thoughts
 https://aclanthology.org/2025.naacl-long.155/
 
 Arc:
-contextualization errors → **Race Conditions Hypothesis** → causal tests of dependency
-ordering → intervention implications.
+contextualization error → dependency-order hypothesis → causal tests.
 
-This is now the closest narrative reference.
+This is the closest narrative reference.
 
-The useful lesson is that a model can possess all relevant information by final-answer
-time yet still fail because one computation had to be resolved **before another
-computation formed**.
+Our candidate dependency:
+> target semantics must be composed with exclusion control; processing exclusion first
+> may leave a state that later target resolution does not reconstruct.
 
-Our potential analogue:
-> the target may have to be instantiated before the exclusion rule is processed;
-> revealing it later but still before evidence/answer may be too late unless the rule
-> is reprocessed.
-
-That is an algorithmic ordering claim, not a prompt-position observation.
+Important difference:
+G20 v3 tests a shared checkpoint **after both target and rule are available**, so the
+claim is not merely that an earlier decoder token cannot see future input.
 
 ### ACL 2026 Main — Do LLMs Know Tool Irrelevance?
 https://aclanthology.org/2026.acl-long.1473/
 
 Arc:
-known tool-refusal failure → **structural alignment bias** → factorized controlled
-benchmark → competing internal pathways → mitigation.
+known failure → clean factorization → competing causal pathways → mitigation.
 
 Lesson:
-a coarse failure becomes Main-worthy when the paper separates two variables that
-previous evaluations conflate.
+our centerpiece must distinguish a new computational account from generic prompt order.
 
-Our candidate factorization after the reset:
-- **binding strength** — does the rule actually control the future target?
-- **scope precision** — does it control only the intended evidence source/occurrence?
-
-If G20 and G21 pass, the paper exposes a genuine control trade-off rather than a
-specificity benefit.
+Targeted contrast:
+- exclusion operator;
+- semantic target resolution;
+- target-first vs rule-first;
+- matched Admit/arithmetic/routing operations.
 
 ### EMNLP 2024 Main — Representational Analysis of Binding
 https://aclanthology.org/2024.emnlp-main.967/
 
-This paper already studies entity–attribute binding and Binding IDs, including causal
-editing in a low-rank subspace.
+### ACL 2026 Main — Cell-Based Representation of Relational Binding
+https://aclanthology.org/2026.acl-long.2194/
 
-Lesson:
-generic "binding" is occupied. Our use of the word must be narrower:
-**binding a control policy to a future evidence instance/source**.
+Generic binding is occupied.
 
-Do not claim novelty from discovering that LLMs bind semantic objects internally.
+Use:
+> deferred operator–target composition
+
+rather than claiming a new general binding mechanism.
 
 ### ACL 2026 Main — Patches of Nonlinearity
 https://aclanthology.org/2026.acl-long.559/
 
-This paper localizes instruction representations and finds that instruction vectors can
-act as circuit selectors conditioned on earlier task representations.
+Instruction-state localization is occupied.
 
-Lesson:
-"we found an instruction state in mid layers" is not enough.
-
-Our Stage-5 result matters only if it supports the new computation:
-- target state present at rule time vs revealed later;
-- semantic identity vs provenance/source identity.
+Stage 5 matters only because it supports the specific target-conditioned exclusion
+computation. The stronger new mechanism must occur at the post-resolution checkpoint.
 
 ### ACL 2024 Findings — Instruction Position Matters
 https://aclanthology.org/2024.findings-acl.693/
 
-Already establishes that moving instructions after the input can improve following.
+### ACL 2025 Findings — Order Matters
+https://aclanthology.org/2025.findings-acl.646/
 
-Lesson:
-the G0 before/after sign is the entrance, not the novelty.
+Generic position/order effects are occupied.
 
-G20 must keep the rule fixed and move **target resolution** across the rule boundary.
+G0 is the hook, not sufficient novelty.
 
 ### COLING 2025 — Chain-of-Specificity
 https://aclanthology.org/2025.coling-main.164/
 
-Explicitly emphasizing more specific constraints improves adherence.
+More specific constraints helping is occupied/obvious.
 
-Lesson:
-"make the target more specific" is already a method-level idea and is too normal for
-our scientific headline.
+G18 must remain a factorization diagnostic.
 
 ### NAACL 2024 Main — I3C
 https://aclanthology.org/2024.naacl-long.379/
 
-Identifies irrelevant conditions, verifies them, then explicitly instructs the model to
-ignore them.
+Identify-then-ignore is occupied in spirit.
 
-Lesson:
-"identify target then tell the model to ignore it" is occupied in spirit. This is why
-the cancelled ReGround design cannot carry paper novelty.
+This is why ReGround remains cancelled.
 
-## 2. What the post-reset paper must achieve
+### ICLR 2026 — ICF-Bench
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/b13d00a62d438856cfe6fbd13b6b2cb8-Abstract-Conference.html
+
+Studies explicit forgetting of information already present in dialogue.
+
+Our chronology is the missing prospective direction:
+policy first, governed evidence later.
+
+### TriggerBench — 2026
+https://arxiv.org/abs/2606.23459
+
+Prospective memory is adjacent.
+
+Our claim must exceed remembering/triggering:
+correct target recognition can coexist with failed causal exclusion.
+
+## 2. What the paper must achieve
 
 ### A. One non-obvious computational statement
 
-A reader should not be able to predict the central result from common sense.
+Candidate:
 
-Candidate G20 statement:
-> **An unresolved control rule has a binding deadline: target information arriving
-> after rule processing does not reliably update it, even though it arrives before the
-> evidence and final decision. Replaying the rule after target revelation repairs the
-> failure.**
+> **Exclusion control is history-dependent: target → EXCLUDE and EXCLUDE → target do
+> not converge to the same causal control state, even after the late target is correctly
+> resolved and both pieces of information are available.**
 
-Candidate G21 statement:
-> **Semantic binding can destroy provenance scope: excluding Source A suppresses an
-> independent, explicitly admissible Source B when B expresses the same proposition.**
+This is substantially sharper than:
+> order matters.
 
-Both are substantially sharper than:
-> semantic target information helps.
+### B. The centerpiece must falsify the obvious explanation
 
-### B. The centerpiece must distinguish the new account from the obvious one
+The obvious causal-mask account says:
+an earlier rule token cannot see later target tokens.
 
-For G20, the obvious specificity account predicts:
-- PRE target and LATE target should both help because the same semantic information is
-  available before the answer.
+G20 v3 therefore inserts a shared downstream checkpoint.
 
-The binding-deadline account predicts:
-- PRE > LATE;
-- replaying the same rule after late target revelation selectively repairs LATE.
+At that checkpoint:
+- both arms have target + rule + neutral context;
+- target mapping is understood;
+- the state can attend all required information.
 
-For G21, a benign-generalization account predicts:
-- a source-scoped rule should preserve B because B is explicitly allowed.
+If behavior and causal state still differ, the result is about downstream composition,
+not literal earlier-token visibility.
 
-Scope-collapse predicts:
-- B loses evidence weight only when it is semantically equivalent to excluded A.
+### C. Positive controls must show selective failure
 
-### C. Mechanism must touch the new variable
+Required:
+- Admit/use-select;
+- arithmetic weighting;
+- optional routing.
 
-Existing Stage 5 already shows:
+A publishable result is:
+> the same model late-composes other operations but not semantic exclusion.
+
+### D. Replay must test the missing operation
+
+Rule replay after late target resolution should preferentially rescue RULE-FIRST.
+
+A target-replay control is desirable.
+
+This converts:
+> repeating instructions helps
+
+into:
+> **reapplying the operator after target resolution reconstructs a missing control
+> computation.**
+
+### E. Mechanism must touch the new variable
+
+Existing Stage 5:
 - target-dependent rule state;
 - mid-network localization;
-- state exists before later evidence;
-- causal interchange changes suppression;
-- Qwen + Mistral replication.
+- causal interchange;
+- Qwen + Mistral.
 
-If G20 passes, the ideal mechanistic result is not another layer localization. It is:
-> late target revelation fails to reconstruct the successful rule state until rule
-> replay.
+New mechanism:
+- post-resolution checkpoint;
+- both operands available;
+- order-dependent state remains causal.
 
-If G21 passes:
-> causal suppression follows proposition identity more strongly than provenance/source
-> identity.
+Do not run another generic layer sweep.
 
-### D. Breadth should not replace novelty
+## 3. G21 judgment
 
-Already sufficient:
-- G0: 12 instruct + 2 diffusion / five families;
-- G18 diagnostic: five models / three families / fresh set;
-- mechanism: two architectures.
+Source–Proposition Scope Entanglement is **not the current mainline**.
 
-New experiments should prioritize clean causal discriminations, not model-count
-inflation.
+Reason:
+it may reveal an interesting semantic scope failure, but it does not explain why
+prospective exclusion is weaker than retrospective exclusion.
 
-## 3. Current project against the higher bar
+Outstanding-shaped organization values one deep descent over two loosely related novel
+phenomena.
 
-| dimension | current status | judgment |
+Therefore G21 is:
+- future work;
+- possible second paper;
+- secondary consequence only.
+
+## 4. Current project against the bar
+
+| dimension | status | judgment |
 |---|---|---|
-| Natural question | future evidence control | strong |
+| Natural question | pre-commit to ignore future evidence | strong |
 | Broad surprising phenomenon | G0 reversal | strong |
-| Old explanation | semantic target helps | **too obvious; retired** |
-| G18 | excellent deconfounded diagnostic | valuable evidence, not novelty center |
+| Old explanation | semantic target helps | too obvious; retired |
+| G18 | clean target-before-rule factorization | strong diagnostic |
+| Arithmetic boundary | future rules can work when symbolic | strong specificity control |
+| Stage 4 | content-conditioned target representation | useful diagnostic |
 | Existing mechanism | two-architecture causal rule state | strong asset |
-| New explanatory object | binding deadline | high novelty if confirmed |
-| New failure object | semantic source-scope collapse | high novelty if confirmed |
-| Practical relevance | source/document/tool policies | strong if G21 transfers to agent roles |
-| New method | ReGround | cancelled as too obvious |
+| New central hypothesis | non-commutative deferred exclusion | high novelty if confirmed |
+| New behavioral experiment | G20 v3 | must carry novelty |
+| G21 | scope side branch | downgraded |
+| ReGround | obvious mitigation | cancelled |
 
-## 4. Outstanding-shaped target story
+## 5. Ideal final arc
 
-Ideal final arc:
+```
+Can models pre-commit what future evidence should not matter?
+    ↓
+G0: same exclusion rule works worse before evidence
+    ↓
+Factorization: retrospective gives target → EXCLUDE;
+prospective gives EXCLUDE → target
+    ↓
+G18: supplying target semantics before EXCLUDE restores control
+    ↓
+G20 v3: late target is recognized, but EXCLUDE → target still fails;
+replaying EXCLUDE after target repairs it
+    ↓
+post-resolution checkpoint remains causally history-dependent
+    ↓
+method problem: order-invariant deferred policy–target composition
+```
 
-natural policy problem
-    ↓
-prospective exclusion paradox
-    ↓
-**binding deadline**:
-late target information does not retroactively update an already processed rule
-    ↓
-**scope collapse**:
-when semantic binding succeeds, it can cross source/occurrence boundaries
-    ↓
-causal target-dependent rule state formed during rule processing
-    ↓
-control problem:
-models struggle to bind future rules both **strongly and precisely**
+That is the standard to aim for.
 
-This is stronger than simply appending a mitigation.
-
-## 5. Figure standard
+## 6. Figure standard
 
 ### Figure 1
-The broad paradox. Reviewer should understand it in ten seconds.
+Broad G0 reversal + Admit control.
 
 ### Figure 2
-If G20 passes, a 2x2 target-timing × rule-replay figure should visually establish the
-binding deadline.
+G20 v3:
+- target-first vs rule-first;
+- rule replay interaction;
+- optional target replay.
 
 ### Figure 3
-If G21 passes, show retained contribution of allowed Source B by semantic relation.
-The striking visual should be:
-same proposition → B suppressed;
-lexical lookalike / unrelated → B retained.
+Mechanism:
+- existing Stage-5 rule-time state;
+- post-resolution checkpoint interchange.
 
-### Figure 4
-Mechanism on relative layer depth, tied explicitly to the rule-processing computation.
+### Bridge panel
+G18 target-semantic factorization.
 
-G18 becomes a bridge/diagnostic, not the hero figure.
+No G21 main figure.
 
-## 6. Experiment discipline
+## 7. Experiment discipline
 
 Active novelty-driven work only:
-- G20 Binding Deadline
-- G21 Source-Scope Collapse
+- G20 v3 behavior;
+- its directly coupled post-resolution mechanism after qualification.
 
 Do not run:
-- cancelled ReGround G19;
-- another target-specificity ladder;
-- generic reminder/restatement as a paper contribution;
-- model-size sweep;
-- third mechanism model before new behavior is confirmed;
-- additional "semantic vs identifier" experiment without a binding-time or
-  provenance-scope question.
+- G21 as current mainline;
+- ReGround;
+- another semantic ladder;
+- generic reminders;
+- model-size sweeps;
+- source/provenance breadth;
+- third-model mechanism breadth before the new behavior exists.
 
-If G20/G21 fail, the right response is to reconsider the paper, not to revive the
-obvious story.
+If G20 v3 fails, reconsider the paper rather than substituting a different interesting
+topic.
