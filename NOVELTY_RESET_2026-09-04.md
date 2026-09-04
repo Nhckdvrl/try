@@ -250,3 +250,57 @@ without another post-result narrative pivot.
 If neither phenomenon appears, the paper falls back to the broad G0 phenomenon +
 mechanism and should be re-evaluated rather than reviving the normal
 "semantic-target-helps" story.
+
+
+## 8. Second audit — G20 obviousness and G21 redundancy
+
+A second pass applied the same "too normal?" test to the replacement experiments.
+
+### G20 needed a stronger formulation
+
+The first Binding Deadline design risked another trivial story. In a decoder-only
+Transformer, an earlier rule-token hidden state cannot literally attend to later target
+tokens because of the causal mask. Therefore "later target information does not update
+the earlier rule token" is an architectural fact, not a discovery.
+
+G20 remains interesting only under a stronger criterion:
+
+> The full model can correctly identify the late target at answer time, can perform
+> matched late-binding operations in Admit/arithmetic/routing controls, yet still fails
+> to enforce the earlier exclusion unless the rule is reprocessed.
+
+A selective rule-replay rescue and replication in at least one bidirectional masked
+diffusion model are therefore load-bearing, not optional decoration.
+
+### G21's first metric repeated the Stage-3E redundancy mistake
+
+Comparing B-alone leverage with B's contribution after semantically equivalent Source A
+is present would confound source-scope spillover with ordinary semantic redundancy.
+
+The corrected G21 uses a difference-in-differences:
+
+- BMarginal_no = Y(A+B) - Y(A)
+- BMarginal_source = Y(A+SourceScoped(A)+B) - Y(A+SourceScoped(A))
+- SourceSpillover = BMarginal_no - BMarginal_source
+
+Thus the question is whether the **source-scoped exclusion policy removes additional
+allowed-B influence beyond whatever redundancy A already creates**.
+
+G21 also gains an explicit positive-control policy:
+- source-scoped: exclude A only, preserve B;
+- proposition-scoped: exclude proposition p from any source.
+
+The strongest result would be source-scoped behavior moving toward proposition-scoped
+behavior only when B is semantically equivalent to A.
+
+### Updated priority
+
+**G21 is now first priority.**
+
+It tests a genuinely non-obvious control failure:
+> the model may understand provenance and policy scope declaratively yet entangle
+> source identity with proposition identity during causal evidence weighting.
+
+G20 remains valuable, but only if it survives the stronger comprehension, positive
+late-binding, replay-specificity, and bidirectional-architecture criteria in
+NEXT_EXPERIMENTS_POST_RESET.md.
