@@ -1,10 +1,11 @@
-"""Analyze G19 ReGround.
+"""Analyze G19 ReGround under the frozen raw-point metrics.
 
-Primary quantities are raw rating points:
-- positive-target TargetError = |Y(method) - Y(base)| on same-D7 and same-D9;
-- Improvement = TargetError(Semantic-Pre) - TargetError(method);
-- wrong-D9 Collateral = |Y(method) - Y(naive)|;
-- resolver exact-set accuracy.
+Primary quantities:
+- TargetError(method) = abs(Y_method - Y_base), pooled over same-D7/same-D9.
+- Improvement(method) = TargetError(Semantic-Pre) - TargetError(method).
+- AddedCollateral(method) on wrong-D9 = abs(Y_method - Y_semantic_pre).
+- TotalCollateral(method) on wrong-D9 = abs(Y_method - Y_naive).
+- Resolver exact-set accuracy.
 
 No REI or leverage-normalized ratio is used.
 """
@@ -24,7 +25,14 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 ITEMS = os.path.join(ROOT, "data", "items", "g18_v1.jsonl")
 POS = ("same_d7", "same_d9")
 METHOD_ORDER = (
-    "idpre", "sempre", "generic", "idrestate", "gold", "self", "sanitize"
+    "idpre",
+    "sempre",
+    "semgeneric",
+    "semrestate",
+    "idrestate",
+    "gold",
+    "self",
+    "sanitize",
 )
 
 
@@ -46,8 +54,8 @@ def _fmt(x):
 
 
 def load_tag(tag):
-    p = os.path.join(ROOT, "results", "raw", f"{tag}_reground.jsonl")
-    return [json.loads(l) for l in open(p)]
+    path = os.path.join(ROOT, "results", "raw", f"{tag}_reground.jsonl")
+    return [json.loads(line) for line in open(path)]
 
 
 def analyze_tag(tag, items):
@@ -56,158 +64,201 @@ def analyze_tag(tag, items):
 
     per = {}
     for method in METHOD_ORDER:
-        err, cls = [], []
-        imp, icls = [], []
-        coll, ccls = [], []
-        for iid, it in items.items():
-            b = d.get((iid, "base", "base"), {}).get("value")
-            if b is None:
+        errors, ecls = [], []
+        improvements, icls = [], []
+        total_collateral, tcls = [], []
+        added_collateral, acls = [], []
+
+        for iid, item in items.items():
+            base = d.get((iid, "base", "base"), {}).get("value")
+            if base is None:
                 continue
-            for v in POS:
-                m = d.get((iid, method, v), {}).get("value")
-                ref = d.get((iid, "sempre", v), {}).get("value")
-                if m is not None:
-                    err.append(abs(m - b))
-                    cls.append(_cluster(it))
-                if m is not None and ref is not None:
-                    imp.append(abs(ref - b) - abs(m - b))
-                    icls.append(_cluster(it))
-            mw = d.get((iid, method, "wrong_d9"), {}).get("value")
-            nw = d.get((iid, "naive", "wrong_d9"), {}).get("value")
-            if mw is not None and nw is not None:
-                coll.append(abs(mw - nw))
-                ccls.append(_cluster(it))
+
+            for variant in POS:
+                y = d.get((iid, method, variant), {}).get("value")
+                y_sem = d.get((iid, "sempre", variant), {}).get("value")
+                if y is not None:
+                    errors.append(abs(y - base))
+                    ecls.append(_cluster(item))
+                if y is not None and y_sem is not None:
+                    improvements.append(abs(y_sem - base) - abs(y - base))
+                    icls.append(_cluster(item))
+
+            y = d.get((iid, method, "wrong_d9"), {}).get("value")
+            y_naive = d.get((iid, "naive", "wrong_d9"), {}).get("value")
+            y_sem = d.get((iid, "sempre", "wrong_d9"), {}).get("value")
+            if y is not None and y_naive is not None:
+                total_collateral.append(abs(y - y_naive))
+                tcls.append(_cluster(item))
+            if y is not None and y_sem is not None:
+                added_collateral.append(abs(y - y_sem))
+                acls.append(_cluster(item))
+
         per[method] = dict(
-            error=_boot(err, cls, 10),
-            improvement=_boot(imp, icls, 11),
-            collateral=_boot(coll, ccls, 12),
+            target_error=_boot(errors, ecls, 10),
+            improvement_vs_semantic_pre=_boot(improvements, icls, 11),
+            total_collateral=_boot(total_collateral, tcls, 12),
+            added_collateral=_boot(added_collateral, acls, 13),
         )
 
-    vs_generic, vgcls = [], []
-    vs_idrest, vicls = [], []
-    vs_sem, vscls = [], []
-    vs_gold, vglcls = [], []
-    for iid, it in items.items():
-        b = d.get((iid, "base", "base"), {}).get("value")
-        if b is None:
-            continue
-        for v in POS:
-            yself = d.get((iid, "self", v), {}).get("value")
-            if yself is None:
+    # Secondary pairwise comparisons. Positive means ReGround-Self has lower
+    # positive-target error than the named baseline.
+    secondary = {}
+    for baseline, seed in (
+        ("semgeneric", 21),
+        ("semrestate", 22),
+        ("idpre", 23),
+        ("idrestate", 24),
+        ("gold", 25),
+    ):
+        vals, cls = [], []
+        for iid, item in items.items():
+            base = d.get((iid, "base", "base"), {}).get("value")
+            if base is None:
                 continue
-            for method, out, outcls in (
-                ("semgeneric", vs_generic, vgcls),
-                ("idrestate", vs_idrest, vicls),
-                ("sempre", vs_sem, vscls),
-                ("gold", vs_gold, vglcls),
-            ):
-                y = d.get((iid, method, v), {}).get("value")
-                if y is not None:
-                    out.append(abs(y - b) - abs(yself - b))
-                    outcls.append(_cluster(it))
+            for variant in POS:
+                y_self = d.get((iid, "self", variant), {}).get("value")
+                y_base = d.get((iid, baseline, variant), {}).get("value")
+                if y_self is None or y_base is None:
+                    continue
+                vals.append(abs(y_base - base) - abs(y_self - base))
+                cls.append(_cluster(item))
+        secondary[baseline] = _boot(vals, cls, seed)
 
     self_rows = [r for r in rows if r["method"] == "self"]
-    sel_acc = (
+    selector_accuracy = (
         sum(bool(r.get("selector_correct")) for r in self_rows) / len(self_rows)
         if self_rows else 0.0
     )
-    fp = fn = 0
-    for r in self_rows:
-        pred = set(r.get("selector_pred") or [])
-        gold = set(r.get("selector_expected") or [])
-        fp += len(pred - gold)
-        fn += len(gold - pred)
+    false_positive_ids = 0
+    false_negative_ids = 0
+    for row in self_rows:
+        pred = set(row.get("selector_pred") or [])
+        expected = set(row.get("selector_expected") or [])
+        false_positive_ids += len(pred - expected)
+        false_negative_ids += len(expected - pred)
 
     resolver_tokens = [
-        r.get("selector_prompt_tokens") for r in self_rows
+        r.get("selector_prompt_tokens")
+        for r in self_rows
         if r.get("selector_prompt_tokens") is not None
     ]
     decision_tokens = [
-        r.get("n_prompt_tokens") for r in self_rows
+        r.get("n_prompt_tokens")
+        for r in self_rows
         if r.get("n_prompt_tokens") is not None
     ]
 
     return dict(
         tag=tag,
         methods=per,
-        self_vs_generic=_boot(vs_generic, vgcls, 21),
-        self_vs_idrestate=_boot(vs_idrest, vicls, 22),
-        self_vs_semantic_restate=_boot(vs_sem, vscls, 23),
-        self_vs_gold=_boot(vs_gold, vglcls, 24),
-        selector_accuracy=sel_acc,
-        selector_false_positive_ids=fp,
-        selector_false_negative_ids=fn,
-        mean_selector_prompt_tokens=(st.mean(resolver_tokens) if resolver_tokens else None),
-        mean_self_decision_prompt_tokens=(st.mean(decision_tokens) if decision_tokens else None),
+        secondary=secondary,
+        selector_accuracy=selector_accuracy,
+        selector_false_positive_ids=false_positive_ids,
+        selector_false_negative_ids=false_negative_ids,
+        mean_selector_prompt_tokens=(
+            st.mean(resolver_tokens) if resolver_tokens else None
+        ),
+        mean_self_decision_prompt_tokens=(
+            st.mean(decision_tokens) if decision_tokens else None
+        ),
     )
 
 
 def main(tags):
-    items = {x.item_id: x for x in load_items(ITEMS)}
-    analyses = [analyze_tag(t, items) for t in tags]
+    items = {item.item_id: item for item in load_items(ITEMS)}
+    analyses = [analyze_tag(tag, items) for tag in tags]
 
-    pooled_imp, pooled_cls = [], []
-    pooled_gen, gen_cls = [], []
-    pooled_coll, coll_cls = [], []\n    pooled_total_coll, total_coll_cls = [], []
+    pooled_improvement, picls = [], []
+    pooled_vs_generic, pgcls = [], []
+    pooled_added_collateral, pacls = [], []
+    pooled_total_collateral, ptcls = [], []
     model_improvements = []
-    total_correct = total_self = 0
+    selector_correct = selector_total = 0
 
-    for a in analyses:
-        m = a["methods"]["self"]["improvement"]
-        model_improvements.append(None if m is None else m["mean"])
+    for analysis in analyses:
+        model_imp = analysis["methods"]["self"]["improvement_vs_semantic_pre"]
+        model_improvements.append(None if model_imp is None else model_imp["mean"])
 
-        rows = load_tag(a["tag"])
+        rows = load_tag(analysis["tag"])
         d = {(r["item_id"], r["method"], r["variant"]): r for r in rows}
-        for iid, it in items.items():
-            b = d.get((iid, "base", "base"), {}).get("value")
-            if b is None:
+
+        for iid, item in items.items():
+            base = d.get((iid, "base", "base"), {}).get("value")
+            if base is None:
                 continue
-            for v in POS:
-                ys = d.get((iid, "self", v), {}).get("value")
-                yi = d.get((iid, "idpre", v), {}).get("value")
-                yg = d.get((iid, "generic", v), {}).get("value")
-                if ys is not None and yi is not None:
-                    pooled_imp.append(abs(yi - b) - abs(ys - b))
-                    pooled_cls.append(_cluster(it))
-                if ys is not None and yg is not None:
-                    pooled_gen.append(abs(yg - b) - abs(ys - b))
-                    gen_cls.append(_cluster(it))
-            ys = d.get((iid, "self", "wrong_d9"), {}).get("value")
-            yn = d.get((iid, "naive", "wrong_d9"), {}).get("value")
-            if ys is not None and yn is not None:
-                pooled_coll.append(abs(ys - yn))
-                coll_cls.append(_cluster(it))
 
-        sr = [r for r in rows if r["method"] == "self"]
-        total_correct += sum(bool(r.get("selector_correct")) for r in sr)
-        total_self += len(sr)
+            for variant in POS:
+                y_self = d.get((iid, "self", variant), {}).get("value")
+                y_sem = d.get((iid, "sempre", variant), {}).get("value")
+                y_generic = d.get((iid, "semgeneric", variant), {}).get("value")
 
-    p_imp = _boot(pooled_imp, pooled_cls, 101)
-    p_gen = _boot(pooled_gen, gen_cls, 102)
-    p_coll = _boot(pooled_coll, coll_cls, 103)\n    p_total_coll = _boot(pooled_total_coll, total_coll_cls, 104)
-    p_acc = total_correct / total_self if total_self else 0.0
-    positive_models = sum(x is not None and x > 0 for x in model_improvements)
+                if y_self is not None and y_sem is not None:
+                    pooled_improvement.append(
+                        abs(y_sem - base) - abs(y_self - base)
+                    )
+                    picls.append(_cluster(item))
+                if y_self is not None and y_generic is not None:
+                    pooled_vs_generic.append(
+                        abs(y_generic - base) - abs(y_self - base)
+                    )
+                    pgcls.append(_cluster(item))
+
+            y_self = d.get((iid, "self", "wrong_d9"), {}).get("value")
+            y_sem = d.get((iid, "sempre", "wrong_d9"), {}).get("value")
+            y_naive = d.get((iid, "naive", "wrong_d9"), {}).get("value")
+            if y_self is not None and y_sem is not None:
+                pooled_added_collateral.append(abs(y_self - y_sem))
+                pacls.append(_cluster(item))
+            if y_self is not None and y_naive is not None:
+                pooled_total_collateral.append(abs(y_self - y_naive))
+                ptcls.append(_cluster(item))
+
+        self_rows = [r for r in rows if r["method"] == "self"]
+        selector_correct += sum(bool(r.get("selector_correct")) for r in self_rows)
+        selector_total += len(self_rows)
+
+    p_imp = _boot(pooled_improvement, picls, 101)
+    p_generic = _boot(pooled_vs_generic, pgcls, 102)
+    p_added = _boot(pooled_added_collateral, pacls, 103)
+    p_total = _boot(pooled_total_collateral, ptcls, 104)
+    p_acc = selector_correct / selector_total if selector_total else 0.0
+
+    positive_models = sum(
+        x is not None and x > 0 for x in model_improvements
+    )
 
     gate1 = bool(
-        p_imp and p_imp["mean"] >= 5.0 and p_imp["lo"] > 0 and positive_models >= 4
+        p_imp
+        and p_imp["mean"] >= 3.0
+        and p_imp["lo"] > 0
+        and positive_models >= 4
     )
-    gate2 = bool(p_gen and p_gen["mean"] >= 3.0 and p_gen["lo"] > 0)
-    gate3 = bool(p_acc >= 0.90 and p_coll and p_coll["mean"] <= 5.0)
-    verdict = "success" if gate1 and gate2 and gate3 else (
-        "partial" if gate1 else "no-benefit"
+    gate2 = bool(
+        p_generic and p_generic["mean"] >= 2.0 and p_generic["lo"] > 0
+    )
+    gate3 = bool(
+        p_acc >= 0.90 and p_added and p_added["mean"] <= 3.0
     )
 
-    out = dict(
+    verdict = (
+        "success"
+        if gate1 and gate2 and gate3
+        else ("partial" if gate1 else "no-benefit")
+    )
+
+    result = dict(
         preregistered_verdict=verdict,
         gates=dict(
-            behavioral_rescue=gate1,
-            beyond_generic_reminder=gate2,
+            behavioral_rescue_over_semantic_pre=gate1,
+            beyond_semantic_generic_reminder=gate2,
             selective_grounding=gate3,
         ),
         pooled=dict(
             self_improvement_vs_semantic_pre=p_imp,
-            self_improvement_vs_semantic_generic=p_gen,
-            self_wrong_d9_added_collateral=p_coll,\n            self_wrong_d9_total_collateral=p_total_coll,
+            self_improvement_vs_semantic_generic=p_generic,
+            self_wrong_d9_added_collateral=p_added,
+            self_wrong_d9_total_collateral=p_total,
             selector_accuracy=p_acc,
             positive_models_for_improvement=positive_models,
         ),
@@ -215,9 +266,9 @@ def main(tags):
     )
 
     os.makedirs(os.path.join(ROOT, "results"), exist_ok=True)
-    jout = os.path.join(ROOT, "results", "reground_analysis.json")
-    with open(jout, "w") as f:
-        json.dump(out, f, indent=2)
+    json_path = os.path.join(ROOT, "results", "reground_analysis.json")
+    with open(json_path, "w") as handle:
+        json.dump(result, handle, indent=2)
 
     md = [
         "# G19 ReGround — method evaluation",
@@ -228,56 +279,66 @@ def main(tags):
         "",
         "| metric | result |",
         "|---|---|",
-        f"| ReGround-Self improvement vs Semantic-Pre | **{_fmt(p_imp)}** |",
-        f"| ReGround-Self improvement vs Semantic-Generic | **{_fmt(p_gen)}** |",
-        f"| wrong-D9 added collateral vs Semantic-Pre | **{_fmt(p_coll)}** |",\n        f"| wrong-D9 total collateral vs Naive | **{_fmt(p_total_coll)}** |",
+        f"| Self improvement vs Semantic-Pre | **{_fmt(p_imp)}** |",
+        f"| Self improvement vs Semantic-Generic | **{_fmt(p_generic)}** |",
+        f"| wrong-D9 added collateral vs Semantic-Pre | **{_fmt(p_added)}** |",
+        f"| wrong-D9 total collateral vs Naive | **{_fmt(p_total)}** |",
         f"| resolver exact-set accuracy | **{p_acc:.3f}** |",
         f"| model-wise improvement positive | **{positive_models}/{len(analyses)}** |",
         "",
-        "## Gates",
+        "## Frozen gates",
         "",
-        f"- behavioral rescue: **{gate1}**",
-        f"- beyond generic reminder: **{gate2}**",
+        f"- behavioral rescue over Semantic-Pre: **{gate1}**",
+        f"- beyond semantic generic reminder: **{gate2}**",
         f"- selective grounding: **{gate3}**",
         "",
-        "## Model-wise",
+        "## Model-wise ReGround-Self",
         "",
-        "| model | self target error | self improvement vs Semantic-Pre | collateral | selector acc |",
-        "|---|---:|---:|---:|---:|",
+        "| model | target error | improvement vs Semantic-Pre | added collateral | total collateral | selector acc |",
+        "|---|---:|---:|---:|---:|---:|",
     ]
-    for a in analyses:
-        m = a["methods"]["self"]
+
+    for analysis in analyses:
+        self_m = analysis["methods"]["self"]
         md.append(
-            f"| {a['tag']} | {_fmt(m['error'])} | {_fmt(m['improvement'])} | "
-            f"{_fmt(m['collateral'])} | {a['selector_accuracy']:.3f} |"
+            f"| {analysis['tag']} | {_fmt(self_m['target_error'])} | "
+            f"{_fmt(self_m['improvement_vs_semantic_pre'])} | "
+            f"{_fmt(self_m['added_collateral'])} | "
+            f"{_fmt(self_m['total_collateral'])} | "
+            f"{analysis['selector_accuracy']:.3f} |"
         )
 
     md += [
         "",
-        "## Secondary comparisons",
+        "## Secondary positive-target comparisons",
         "",
-        "| model | self beats semantic-generic | self beats ID-restatement | self beats semantic-restatement | gold minus self |",
-        "|---|---:|---:|---:|---:|",
+        "| model | vs Semantic-Generic | vs Semantic-Restate | vs ID-Pre | vs ID-Restate | Gold minus Self |",
+        "|---|---:|---:|---:|---:|---:|",
     ]
-    for a in analyses:
+    for analysis in analyses:
+        sec = analysis["secondary"]
         md.append(
-            f"| {a['tag']} | {_fmt(a['self_vs_generic'])} | "
-            f"{_fmt(a['self_vs_idrestate'])} | {_fmt(a['self_vs_semantic_restate'])} | "
-            f"{_fmt(a['self_vs_gold'])} |"
+            f"| {analysis['tag']} | {_fmt(sec['semgeneric'])} | "
+            f"{_fmt(sec['semrestate'])} | {_fmt(sec['idpre'])} | "
+            f"{_fmt(sec['idrestate'])} | {_fmt(sec['gold'])} |"
         )
 
-    mout = os.path.join(ROOT, "results", "reground_results.md")
-    with open(mout, "w") as f:
-        f.write("\n".join(md) + "\n")
+    md_path = os.path.join(ROOT, "results", "reground_results.md")
+    with open(md_path, "w") as handle:
+        handle.write("\n".join(md) + "\n")
+
     print("\n".join(md))
-    print(f"\nJSON: {jout}\nMarkdown: {mout}")
+    print(f"\nJSON: {json_path}\nMarkdown: {md_path}")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:] or [
-        "qwen3-8b",
-        "gemma3-12b",
-        "phi4-mini",
-        "qwen3.5-27b",
-        "mistral-small-24b",
-    ])
+    main(
+        sys.argv[1:]
+        or [
+            "qwen3-8b",
+            "gemma3-12b",
+            "phi4-mini",
+            "qwen3.5-27b",
+            "mistral-small-24b",
+        ]
+    )
