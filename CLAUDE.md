@@ -1,142 +1,209 @@
 # Claude project instructions
 
-This is the default project context for Claude Code.
+This is the default project context for local agents.
 
 ## Read these first
 
-1. `PAPER_FRAME.md` — the authoritative scientific story.
-2. `ACL_EMNLP_ALIGNMENT_STANDARD.md` — what we mean by aligning to strong
-   ACL/EMNLP/NAACL Main and Outstanding papers.
-3. `EXPERIMENTS.md` — concise registry of all experimental rounds.
-4. `RESEARCH_HISTORY.md` — how the question moved, and why it moved back.
-5. `PAPER_OUTLINE.md` — current paper narrative and figures.
-6. `RELATED_WORK_2026.md` — conceptual neighbours and positive positioning.
+1. NOVELTY_RESET_2026-09-04.md — why the old semantic-target story was retired.
+2. PAPER_FRAME.md — active candidate scientific frame.
+3. NEXT_EXPERIMENTS_POST_RESET.md — G20/G21 design logic; not yet frozen.
+4. STATUS.md — stable findings vs active hypotheses.
+5. PAPER_DRAFT_MAINLINE.md — current mother draft.
+6. PAPER_OUTLINE.md — conditional paper structure.
+7. RELATED_WORK_2026.md — occupied literature and novelty boundary.
+8. ACL_EMNLP_ALIGNMENT_STANDARD.md — Outstanding-shaped narrative standard.
+9. EXPERIMENTS.md / RESEARCH_HISTORY.md — chronology and full registry.
 
-Full main-line results are in `PROSPECTIVE_EXCLUSION_FINDINGS.md` and `stages/`.
-For exact frozen experimental details, use `preregistrations/`. Dead research
-branches live in `archive/` and must not override the current frame.
+Historical stage files and preregistrations are evidence/provenance. They may contain
+interpretations that were later superseded.
 
 ## Scientific objective
 
-The paper asks one natural question:
+The old headline:
 
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+> semantic target information makes prospective exclusion work better
 
-The scientific object is **whether a stated exclusion policy actually governs the
-decision**, and what determines when it does.
+is **retired as too obvious**.
 
-Do not replace this with technical meta-language. `Prospective binding failure` is
-the mechanism's name and belongs in methods and analysis, never in the title or
-introduction. Terms from the abandoned frames — `information set`, `out-of-set
-intrusion`, `retrospective outcome entrainment`, `recipient-conditioned decision
-state` — do not belong in this paper at all.
+Do not restore it as the paper novelty.
 
-The positive explanatory chain is:
+The active question is:
 
-1. exclusion stated after the evidence is followed well; the identical exclusion
-   stated before it is not — the reverse of the human pattern — while the model
-   states the required weight as exactly zero on 100% of items in both arms;
-2. it is not memory, not distance, not the causal attention mask, not one wording,
-   and not inclusion implicature;
-3. the failure is specific to driving a contribution to exactly zero, and vanishes
-   when that contribution is arithmetically implementable;
-4. what decides it is what the policy can bind to — a named future referent fails
-   and is worse than saying nothing, while propositional content and class markers
-   carried on the evidence succeed;
-5. the same dissociation appears in an agent, where a `SYSTEM` identifier policy is
-   worth nothing and suppression follows the proposition, not the document ID;
-6. the excluded evidence is still read at the decision, gating is resolved late, and
-   a binding state is causally exchangeable between matched runs.
+> **Can a language model bind a control rule to evidence that does not yet exist, and
+> keep that rule scoped to the correct evidence source/occurrence once the target
+> appears?**
 
-## What was stopped, and what must not be restarted
+Two active hypotheses:
 
-The BTF-3 hindsight paper was stopped on 2026-09-03. Its data and verdicts are
-retained for provenance (`EXPERIMENTS.md` §C). Do not restart it, do not rewrite it,
-and do not import its vocabulary into the current paper.
+### H1 — Binding Deadline
 
-Specifically, **do not**:
+A rule may be compiled against whatever target representation exists when the rule is
+processed. Revealing the semantic target later—even before the actual evidence—may
+fail to retroactively update that rule state. Replaying the rule after target
+revelation should restore control.
 
-- run the remaining 12 checkpoints of the preregistered G4 breadth panel;
-- add frontier or reasoning models to a stopped branch;
-- run further hindsight mechanism rounds;
-- repair the frozen verdict redactor and re-run it. Its defect is disclosed in
-  `preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md`; repairing a frozen
-  instrument after seeing its outputs would convert a disclosed defect into an
-  undisclosed one.
+Planned G20:
+- same semantic target P and unrelated block U;
+- swap P/U around a fixed first rule;
+- actual evidence remains after the rule;
+- 2×2 target-before-rule × rule-replay;
+- Admit, arithmetic, explicit-link and masked-diffusion controls.
 
-The one hindsight result worth keeping is held separately in
-`SECOND_LEAD_EXPLICIT_OUTCOME_PARADOX.md`, with the single clean experiment that
-would confirm or kill it. It is not scheduled and it is not part of this paper.
+### H2 — Semantic Scope Collapse
 
-## Research style: no defense-first science
+A source/occurrence-scoped exclusion rule may become proposition-scoped once semantic
+binding succeeds.
 
-This project must not become a catalogue of reviewer objections.
+Planned G21:
+- Source A excluded;
+- independent Source B explicitly admissible;
+- vary semantic relation between A and B;
+- measure how much B's independently established evidence leverage survives.
 
-Do **not** add experiments because "a reviewer might ask for another model / prompt /
-benchmark / control / mitigation." Do not organise the paper as a sequence of
-"not X, not Y, not Z." Strong ACL/EMNLP papers establish a natural phenomenon and
-then descend through positive explanatory questions.
+A strong result is:
+same proposition → allowed B loses influence;
+lexical lookalike / unrelated → B remains influential.
 
-The main text should read:
+## Stable established findings
 
-> **question → phenomenon → sharper regularity → causal test → mechanism**
+### G0
+- 144 frozen items / five families.
+- 12 instruct models / four vendors + two masked diffusion LMs.
+- same exclusion rule works better after evidence than before.
+- timing-gap direction same in 12/12 instruct models; 10/12 CIs exclude zero.
+- matched Admit rule has no analogous order effect.
 
-Section 3 of the paper does rule out four accounts, and that is legitimate because
-each was run to discriminate between live explanations and each predicts a different
-result. Ruling something out to pre-empt a reviewer is not the same activity.
+Do not claim this is exactly the reverse of a matched human experiment. It reversed a
+human-literature-motivated preregistered prediction.
 
-More models is not more rigour. The behavioural breadth here — 12 instruct models,
-4 vendors, 2 architectures, 5 task families — is already unusual; the missing piece
-is never coverage, it is whether the mechanism explains the headline.
+### Policy access/enforcement
+- separate declarative probe often/at ceiling recovers zero weight;
+- Qwen3-8B and Gemma-3-12B can state zero on-policy while prospective evidence still
+  affects judgment;
+- Phi-4-mini does not show the same dissociation.
 
-The default is **no new experiment**. G16 was the one planned experiment; it was
-frozen, run, and stopped at its preregistered bridge gate
-(`results/mech/g16_binding_interchange_results.md`). **No successor is scheduled**,
-and specifically: do not adjust the G16 construction and re-run it looking for a
-bridge that passes. If a successor is ever justified it must be preregistered
-separately, state up front which of readout, sample or padding it is testing, and use
-the Stage 3B tagged-stream contrast as its bridge.
+Correct headline:
+> explicit policy access is not sufficient for enforcement in at least some models.
 
-If a genuinely new scientific question emerges, formulate it first and only then
-decide whether an experiment is needed.
+Do not write "the rule is perfectly held and ignored".
+
+### Boundary
+- hard suppression is the difficult regime;
+- explicit arithmetic future weighting can prospectively nullify exactly in 4/5 models;
+- non-multiplicative transforms retain smaller gaps.
+
+Do not write "only exactly zero".
+
+### G18
+G18 is a **prospectively confirmed diagnostic**, not the final novelty:
+- 100 fresh items / 30 skeletons / 3 families / 5 models;
+- Delta_semantic +8.91 [7.15,10.76], 5/5 positive;
+- para-empty +12.85 [10.32,15.42].
+
+The scientifically important clue after reset:
+semantic paraphrase condition has marg(no-rule) about +3 but marg(exclude) about -28,
+below preview-only baseline. This motivates possible over-binding/scope spillover.
+
+Do not headline "Target Addressability Governs Prospective Exclusion".
+
+### Agent
+ID-only policy can work on its named D7 in Gemma/Qwen3.5. The invariant is:
+- ID-specific protection does not follow the same proposition D7→D9;
+- proposition-targeted suppression does.
+
+Under reset, this is not automatically a benefit. For a source-scoped policy,
+following content across identity may be a scope error.
+
+### Mechanism
+Stage 5 is **two-model**, not Qwen-only:
+- Qwen3-8B rule-span causal window L14–18 / 36;
+- Mistral-Small-24B L12–16 / 40;
+- causal transfer changes later evidence suppression;
+- state exists before later evidence processing;
+- shared steering direction failed → no universal reusable vector.
+
+Correct use:
+> target availability changes a causal rule-time state that later controls evidence
+> suppression.
+
+Do not claim literal TARGET_FOUND feature or universal semantic-binding vector.
+
+## Cancelled work
+
+### ReGround G19
+**CANCELLED BEFORE FREEZE AND BEFORE ANY MODEL GENERATION.**
+
+Do not run src/run_reground.py or src/analyze_reground.py.
+
+The code/preregistration are preserved only because they were written before the
+novelty audit. The method—resolve semantic policy after retrieval and compile matching
+IDs—was judged too obvious as paper novelty.
+
+### G16
+Stopped at frozen bridge gate. Do not repair/re-run.
+
+### G17
+Frozen ratio estimand failed; posthoc raw-point result remains suggestive only. Do not
+confirm it.
+
+### BTF-3 hindsight branch
+Stopped. Do not restart.
+
+## Research style
+
+The project is explicitly aligning to **Outstanding-shaped scientific abstraction**.
+
+A new experiment is justified only if it can reveal or kill a new non-obvious
+phenomenon.
+
+Good:
+> Does target resolution have to precede rule processing?
+> Does successful semantic exclusion destroy source scope?
+
+Bad:
+> Does another semantic wording help?
+> Does a 70B model show the same sign?
+> Does another reminder improve compliance?
+> Can we make the obvious post-retrieval compiler work?
+
+Do not organize the paper as a reviewer-objection checklist.
+
+## Current experiment authorization
+
+NEXT_EXPERIMENTS_POST_RESET.md is a **design document only**.
+
+Before any G20 or G21 generation:
+1. build fresh materials;
+2. complete design audit;
+3. create a dedicated preregistration;
+4. implement frozen analyzer and tests;
+5. commit/tag the complete design;
+6. only then generate.
+
+No result-driven prompt repair.
 
 ## Evidence discipline
 
-- Preserve the real chronology, including the reversed original prediction, the
-  detour into hindsight, and the return.
-- Original preregistrations are preserved unchanged in `preregistrations/`; their
-  freeze commits and tags remain the authority for chronology.
-- Report the actual continuous results. Frozen thresholds are experiment
-  bookkeeping, not the conceptual vocabulary of the paper.
-- In-round corrections (the duplicate-control confound, the REI → rating-points
-  metric change, the Stage-5 recovery-fraction withdrawal, the redaction-audit and
-  Llama-scope corrections) stay visible. They are what makes the rest credible.
-- Never report a number at one measurement scope alongside another number at a
-  different scope. That is what produced the withdrawn "97.7–100%" panel figure.
-- Mechanistic conclusions are Qwen3-8B-specific unless separately established.
-- The 144-item vignette set is the instrument, not the identity of the question.
+- Preserve preregistrations/history verbatim.
+- Do not overwrite negative/corrected results.
+- Use raw rating points for preview/new designs where leverage baselines change.
+- Cluster bootstrap by independent skeleton.
+- Keep breadth claims attached to the experiment that actually has the breadth.
+- New G20/G21 claims do not inherit G0's 14-model breadth automatically.
 
-## Environment policy
+## Environment / GPU policy
 
-Prefer the existing local project virtual/conda environment and existing shared
-caches. First inspect and try the current environment. Create a new environment only
-for a genuine incompatible CUDA/PyTorch/package-version conflict; document the
-reason and keep the replacement minimal.
+Prefer existing local environments and shared caches.
 
-## GPU policy
+Usable nodes when idle:
+fvcrc10, fvcrc11, fvcrc12, fvcrc13, fvcrc15, fvcrc20, fvcrc21.
 
-Usable compute nodes when cards are actually idle: `fvcrc10`, `fvcrc11`, `fvcrc12`,
-`fvcrc13`, `fvcrc15`, `fvcrc20`, `fvcrc21`.
-
-Check occupancy before launching and use idle cards only. During daytime, avoid
-occupying more than **8 GPUs total at once** unless the user explicitly overrides
-this. Prefer compatible existing nodes/environments and be mindful of shared
-NFS/checkpoint-loading bottlenecks.
+Check occupancy before launching. During daytime avoid >8 GPUs total unless explicitly
+authorized.
 
 ## Git policy
 
-Completed research/documentation changes should land directly on `main`. Keep
-commits coherent and descriptive. Preserve scientific provenance when consolidating
-old files: current narrative lives at the root, main-line stage records in `stages/`,
-original preregistrations in `preregistrations/`, and dead research branches in
-`archive/`.
+Land completed work directly on main with coherent commits.
+
+Current root documents are authoritative; stages/ and preregistrations/ preserve
+chronology. Cancelled/stopped work stays visible and must not silently become active.
