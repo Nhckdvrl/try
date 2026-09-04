@@ -1,3 +1,17 @@
+> **Interpretation correction — 2026-09-04 scientific register v3**
+>
+> The numeric routing results below remain valid. However, the experiment does not
+> identify standing-policy execution because the existing no-policy control
+> (`rt_naive`) removes the `[verified]/[unverified]` labels themselves. There is no
+> labels-present/no-policy cell.
+>
+> Therefore the old conclusion that tagged routing proves successful prospective
+> standing-policy execution is downgraded. Success may reflect the local pretrained
+> semantics of `[unverified]`, the standing policy, or both.
+>
+> Current follow-up status: D22-A diagnostic design audit only; no generation authorized.
+> See [../SCIENTIFIC_REGISTER_2026-09-04_V3.md](../SCIENTIFIC_REGISTER_2026-09-04_V3.md).
+
 # Stage 3B — prospective selective routing
 
 `Y ~ a + b*mean_admitted + c*mean_excluded`. b = fidelity to admitted evidence
