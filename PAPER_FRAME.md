@@ -213,24 +213,35 @@ replicate and is model-specific.
 Do not claim a reusable “semantic binding vector” or a dedicated TARGET_FOUND circuit;
 the held-out shared-direction steering test failed.
 
-## 7. Practical implications — actionable, not a mitigation contribution
+## 7. Pending Contribution 4 — ReGround mitigation
 
-The paper does not introduce a new deployment algorithm, but the completed experiments
-already imply three actionable design principles:
+The confirmed explanation now motivates one final positive method evaluation:
+**ReGround**, a post-retrieval policy compiler.
 
-1. **Restate exclusion after retrieval when feasible.** The same policy is much more
-   effective after the evidence has appeared.
-2. **Address policies to meaningful information/provenance rather than assuming a
-   resource name is semantic protection.** Meaningful evidence-carried criteria and
-   semantic target descriptions support stronger prospective control.
-3. **Treat identifier scope and semantic scope as different.** The D7→D9 agent
-   counterfactual shows that an identifier policy does not automatically follow the
-   information it was intended to protect against.
+A semantic prospective policy is given before retrieval exactly as in the behavioral
+experiments. After retrieval, a short resolver matches that policy to the concrete
+documents that arrived and compiles the matched IDs into a trusted exclusion ledger
+before the final decision. ReGround-Self uses the same checkpoint for the resolver;
+ReGround-Gold is an upper bound.
 
-These are supported design implications, not a claim of a fully evaluated mitigation
-system. A future engineering direction is a post-retrieval policy compiler that
-re-instantiates prospective policies against retrieved content, but this paper does
-not evaluate such a method.
+The G19 design is frozen before generation. Its load-bearing comparison is deliberately
+not against an information-poor ID policy. **Semantic-Pre, Semantic-Generic,
+Semantic-Restate, Gold and Self all receive the same semantic policy.** ReGround must
+improve over Semantic-Pre and over a comparable-length post-retrieval generic reminder,
+while rejecting a D9 document with high lexical overlap but the wrong proposition.
+
+If G19 passes its frozen gates, the paper gains a fourth contribution:
+
+> **Explicitly re-grounding a prospective semantic policy to the documents that
+> actually arrive improves selective exclusion at inference time.**
+
+If Gate 1 fails, ReGround is removed from the contribution list; the phenomenon, G18
+and mechanism claims are unchanged. No successor method is planned.
+
+Independently of G19, the completed experiments already support the practical design
+principles that motivated it: restate policies after retrieval when possible, preserve
+semantic/provenance scope rather than relying only on arbitrary IDs, and distinguish
+identifier scope from semantic scope.
 
 ## 8. Outstanding-shaped alignment
 
@@ -281,5 +292,7 @@ in two architectures.
 
 ## 10. Programme status
 
-**Closed.** No further experiment is required before submission. The remaining work is
-figures, writing, appendix organisation and reviewer simulation.
+**Reopened exactly once for frozen G19 ReGround evaluation.** No other experimental
+branch is reopened. G19 success/partial/no-benefit all close the programme permanently;
+there will be no ReGround-v2, model-size sweep, new mechanism model or new dataset
+branch before submission.
