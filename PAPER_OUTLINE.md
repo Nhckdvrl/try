@@ -287,37 +287,80 @@ Keep to 3–4 sentences:
 
 Detailed correction history goes to appendix.
 
-## 7. Discussion — what this changes
+## 7. Pending method — ReGround
 
-### 7.1 Scientific implication
+This section enters the main paper only if G19 passes at least its proof-of-concept
+criterion. The design is frozen before output.
+
+**Method idea:** keep the semantic policy prospective, but after retrieval explicitly
+resolve it against the documents that actually arrived and compile the matched IDs
+into a trusted exclusion ledger.
+
+### 7.1 Fair baselines
+
+The method must not win by receiving extra semantic information. Semantic-Pre,
+Semantic-Generic, Semantic-Restate, ReGround-Gold and ReGround-Self all receive the
+same semantic policy.
+
+Load-bearing comparisons:
+- Self vs **Semantic-Pre**: does explicit grounding help beyond the same semantic
+  policy left to the decision model?
+- Self vs **Semantic-Generic**: does grounding help beyond another post-retrieval
+  reminder in the same position and of comparable length?
+- wrong-D9: does the resolver reject high lexical overlap when the proposition is
+  different?
+
+ID-Pre/ID-Restate, Gold and sanitation are secondary bounds/controls.
+
+### 7.2 Evaluation
+
+100 G18 items / 30 skeletons / three families, five G18 models.
+
+Retrieval variants:
+- same proposition as D7;
+- same proposition as D9;
+- lexical-overlap wrong proposition as D9.
+
+Primary positive-target error is absolute distance from Base, so both residual use and
+over-suppression count as errors.
+
+Frozen success requires:
+- Self improves over Semantic-Pre by at least 3 points with CI lower >0 and positive
+  effect in at least 4/5 models;
+- Self improves over Semantic-Generic by at least 2 points with CI lower >0;
+- resolver accuracy at least 90% and wrong-D9 total collateral at most 5 points.
+
+If success:
+> **Re-grounding a prospective semantic policy to retrieved documents improves
+> selective exclusion at inference time.**
+
+If Gate 1 fails, omit ReGround from the contribution list. No successor is run.
+
+### 7.3 Why it closes the scientific loop
+
+If successful, the paper becomes:
+
+phenomenon → target addressability → causal target-dependent rule state →
+**mechanism-guided policy grounding**
+
+This is a positive consequence of the explanation, not a reviewer-driven control.
+
+## 8. Discussion — what this changes
+
+### 8.1 Scientific implication
 
 Instruction following is not only about whether a rule is represented or remembered.
 For prospective information-control policies, the relation between a rule and a
 not-yet-instantiated target can be a separate bottleneck.
 
-### 7.2 Agent/policy implication
+### 8.2 Agent/policy implication
 
-Existing experiments support:
-- post-retrieval restatement;
-- meaningful semantic/provenance policy targets;
-- separating identifier scope from semantic scope.
+The behavioral work already supports post-retrieval restatement, meaningful
+semantic/provenance targets, and a distinction between identifier and semantic scope.
+If G19 succeeds, ReGround turns these observations into an explicitly evaluated
+inference-time mitigation.
 
-Do not call these a new mitigation algorithm.
-
-### 7.3 From mechanism to methods
-
-Outstanding/Main references show two legitimate endpoints:
-- actionable mitigation, as in *Llama See, Llama Do*, *Racing Thoughts*, and
-  *Tool Irrelevance*;
-- theory-advancing causal explanation without a deployment method, as in the EMNLP
-  Outstanding filler–gap paper and ACL Outstanding CausalGym.
-
-Our paper belongs primarily to the second category, with actionable design
-implications from existing behavioral experiments. A future method could re-ground a
-prospective policy against retrieved content after tool return, but this is future
-work, not an untested contribution.
-
-## 8. Related work
+## 9. Related work
 
 Organize around occupied questions, then the missing dependency:
 1. irrelevant-information identification (I3C);
@@ -336,7 +379,7 @@ Positioning sentence:
 > evidential target exists**, and show that the target representation itself is a
 > causal determinant of later enforcement.
 
-## 9. Limitations
+## 10. Limitations
 
 Keep compact:
 - controlled authored materials, not a naturally occurring corpus;
