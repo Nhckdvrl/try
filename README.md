@@ -2,72 +2,90 @@
 
 > **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-A policy almost always exists before the data it governs: a system prompt forbids a
-source before retrieval runs, a court excludes evidence before the record is read
-out, an agent is told which memories are off-limits before any is fetched.
+A policy commonly exists before the information it will later govern. This project
+asks whether such a prospective exclusion policy actually controls later evidence,
+what determines whether it succeeds, and where that difference becomes causal inside
+the model.
 
-We preregistered the human pattern — that an instruction to disregard arriving
-*after* the evidence is the hard case — and found the reverse. Across twelve
-instruction-tuned models from four vendors, two masked diffusion language models and
-five task families, exclusion stated **after** the evidence is followed well, while
-the identical instruction stated **before** it leaves up to 0.64 of the evidence's
-normal causal weight in the decision — even though every model, asked separately,
-states the required weight as exactly zero on 100% of items.
+## Final result
 
-What decides it is not memory, distance, the attention mask or the wording. It is
-what the policy can bind to.
+The experimental programme is **closed after G18**.
 
-**Start here:** [`STATUS.md`](STATUS.md) — consolidated snapshot of the main line,
-the evidence behind each claim, and what is explicitly not claimed.
+The paper has three contributions:
 
-## Read these first
+1. **Prospective exclusion gap.** Across 12 instruction-tuned models, two masked
+   diffusion LMs, four vendors and five task families, the same exclusion rule works
+   substantially better after evidence than before it.
+2. **Target addressability.** G18 prospectively confirms on 100 fresh items / 30 fresh
+   skeletons / three families / five models that semantic target representations
+   support stronger prospective exclusion than reference or surface resemblance alone:
+   **Delta_semantic = +8.91 [7.15,10.76] rating points**, positive in 5/5 models.
+3. **Causal mechanism.** A target-dependent mid-network rule state causally changes
+   later evidence suppression, replicated in Qwen3-8B and Mistral-Small-24B.
 
-1. [`PAPER_FRAME.md`](PAPER_FRAME.md) — the authoritative scientific story.
-2. [`PAPER_OUTLINE.md`](PAPER_OUTLINE.md) — narrative, sections and figures.
-3. [`EXPERIMENTS.md`](EXPERIMENTS.md) — registry of every round and its role.
-4. [`ACL_EMNLP_ALIGNMENT_STANDARD.md`](ACL_EMNLP_ALIGNMENT_STANDARD.md) — the bar.
-5. [`RELATED_WORK_2026.md`](RELATED_WORK_2026.md) — neighbours and positioning.
-6. [`RESEARCH_HISTORY.md`](RESEARCH_HISTORY.md) — how the question moved, and why it
-   moved back.
+The paper does **not** claim that every model perfectly preserves an internal policy
+and then ignores it, that identifiers never work, that the phenomenon exists only at
+the numerical value zero, or that a universal semantic-binding circuit has been
+identified.
 
-## Results
+## Start here
 
-- [`PROSPECTIVE_EXCLUSION_FINDINGS.md`](PROSPECTIVE_EXCLUSION_FINDINGS.md) — the G0
-  headline, the model panel, the mechanism.
-- [`stages/`](stages/) — the controlled stages that say what the failure is.
-- `results/` — machine-readable analyses and tables; `results/mech/` for
-  interventions; `results/raw/` for raw generations.
+1. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md) — paper-story mother draft:
+   question, datasets, claims, experiments, numbers, proof logic and figure plan.
+2. [PAPER_FRAME.md](PAPER_FRAME.md) — authoritative final scientific framing.
+3. [PAPER_OUTLINE.md](PAPER_OUTLINE.md) — section-by-section writing blueprint.
+4. [STATUS.md](STATUS.md) — compact factual ledger and experiment scope.
+5. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) — Outstanding-
+   shaped reference standard and gap analysis.
+6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md) — occupied neighbouring questions and
+   novelty positioning.
+7. [EXPERIMENTS.md](EXPERIMENTS.md) — full experiment registry.
+8. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md) — chronology, stopped branches and
+   corrections.
 
-## Status, 2026-09-03
+## Main empirical assets
 
-**Main line.** Prospective evidence exclusion. The behavioural programme and the
-mechanism are complete. G16, the one planned experiment, was frozen, run, and
-**stopped at its preregistered bridge gate** — see
-[`results/mech/g16_binding_interchange_results.md`](results/mech/g16_binding_interchange_results.md).
-It cost the paper the single-item form of the class-marker claim, which now rests on
-the tagged-stream result instead. No successor is scheduled.
+### G0 — broad phenomenon
+- 144 frozen items;
+- five task families;
+- 12 instruction-tuned checkpoints + two masked diffusion LMs;
+- Exclude-before / Exclude-after with matched Admit controls;
+- independent rule and memory probes.
 
-**Stopped branch.** The BTF-3 hindsight paper was stopped. Its data, results and
-preregistrations are retained; see `RESEARCH_HISTORY.md` §5 for why and
-`EXPERIMENTS.md` §C for what is where. The preregistered G4 breadth panel will not
-be completed — finishing a preregistration for a stopped branch is bookkeeping, not
-science.
+### G18 — centrepiece confirmation
+- 100 fresh items;
+- 30 fresh skeletons;
+- legal judgment, evidence inference and ranking/selection;
+- five frozen checkpoints from four vendors;
+- 6 target representations × 3 rule states;
+- 9,000 generations;
+- raw rating points with a separate no-rule baseline for every preview.
 
-**Second lead.**
-[`SECOND_LEAD_EXPLICIT_OUTCOME_PARADOX.md`](SECOND_LEAD_EXPLICIT_OUTCOME_PARADOX.md)
-— removing an explicit outcome statement makes later evidence *more* influential,
-in all three models tested. Held for one clean prospective test; not part of the
-current paper.
+See [results/g18_semantic_targeting_results.md](results/g18_semantic_targeting_results.md).
 
-**Corrections on the record.**
-[`preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md`](preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md)
-— the verdict redactor's conditional-marker bypass leaves 34/256 packets asserting
-the outcome and the frozen audit could not detect it; and the Llama boundary-probe
-figure was reported at single-frame scope. Neither changes a preregistered verdict;
-both are disclosed rather than repaired in place.
+### Agent counterfactual
+Real SYSTEM → TOOL → assistant structure. The key invariant is not that identifier
+policies never work; it is that identifier-specific protection does not follow the
+same proposition across D7→D9, while proposition-targeted control does.
+
+### Mechanism
+- evidence-span causal gate;
+- late answer-level resolution;
+- matched-chronology rule-state interchange;
+- Qwen3-8B + Mistral-Small-24B replication.
+
+See [stages/STAGE5.md](stages/STAGE5.md) and results/mech/.
+
+## Historical records
+
+The controlled stage files in [stages/](stages/) are preserved as historical records,
+including their own in-round corrections. Do not infer the current paper claim from an
+old stage heading; use PAPER_FRAME.md and STATUS.md.
+
+The BTF-3 hindsight branch is stopped. Its data, preregistrations and integrity
+corrections remain for provenance but are not part of the present paper.
 
 ## Reproduction
 
-See [`REPRODUCE.md`](REPRODUCE.md). Frozen items are in `data/items/frozen_v1.json`;
-every round names its freeze commit or tag, and Git tags remain the authority for
+See [REPRODUCE.md](REPRODUCE.md). Git freeze commits and tags remain the authority for
 chronology relative to model outputs.
