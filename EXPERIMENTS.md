@@ -286,11 +286,13 @@ the rule then drives the judgment ~28 points **below** the preview-only baseline
 negative in 5/5 under `para`, positive in 5/5 under `empty`. With a semantic target,
 exclusion follows the proposition into text the rule never named.
 
-**Post-reset paper role.** Prospectively confirmed **diagnostic**, not the headline
-novelty. The mean semantic benefit itself is too unsurprising to carry the paper. Two
-features motivate the active reset: (i) all successful semantic targets precede rule
-processing, motivating G20's binding-deadline test; (ii) the below-preview-baseline
-oversuppression motivates G21's source-scope-collapse test.
+**Current paper role after scientific register v3.** Prospectively confirmed
+**diagnostic**, not the headline novelty. The semantic previews themselves substantively
+assert the target proposition: later-evidence no-rule marginal falls from ~32 to ~3.
+Therefore G18 does **not** establish that non-evidential semantic knowledge of a future
+target is sufficient. It motivates G22's factorization of target knowledge versus
+evidential instantiation. The below-preview-baseline suppression remains a mechanism
+clue only; it no longer motivates G21 as the paper center.
 
 **Results.** `results/g18_semantic_targeting_results.md`,
 `results/g18_semantic_targeting_analysis.json`; code `src/gen_g18.py`,
@@ -313,24 +315,86 @@ matching document, then explicitly exclude it.
 **Files.** `METHOD_REGROUND.md`,
 `preregistrations/PREREGISTRATION_G19_REGROUND.md`.
 
-## A14. G20 / G21 — active post-reset designs, **not yet frozen**
+## A14. G20 / G21 — **downgraded design provenance**
 
-### G20 — Binding Deadline / Late Target Revelation
+### G20 — deferred composition / late target resolution
 
-Tests whether the same semantic target information works differently depending on
-whether it is available **before or after rule processing**, while still preceding the
-actual evidence. A rule-replay factorial tests whether reprocessing the identical rule
-after late target revelation repairs control.
+Multiple G20 variants were designed to test whether target information arriving after
+rule processing can be attached to an earlier exclusion policy.
 
-### G21 — Source-Scope Collapse / Semantic Spillover
+**Current status:** not authorized.
 
-Tests whether excluding Source A suppresses the independent evidential contribution of
-explicitly admissible Source B when B expresses the same proposition, but not when B
-only has lexical overlap or unrelated content.
+Reason:
+the latest P/U swap still mixes target knowledge, evidential instantiation, and
+target-to-evidence distance. The deferred-composition hypothesis remains live only
+conditionally: G22 must first show that target semantics can be represented
+non-evidentially and still affect exclusion.
 
-**Status.** Design-only in `NEXT_EXPERIMENTS_POST_RESET.md`. No generation is
-authorized until each has a dedicated preregistration, dataset, analyzer, tests and
-freeze commit.
+### G21 — Source–Proposition Scope Entanglement
+
+Tests whether excluding Source A spills into allowed Source B when both express the
+same proposition.
+
+**Current status:** downgraded before generation.
+
+Reason:
+scientifically interesting but does not naturally explain the original G0
+prospective/retrospective reversal.
+
+Keep both designs as provenance. Do not generate.
+
+## A15. G22 — Target Knowledge vs Evidential Instantiation: **registered design audit**
+
+**Question.** Is knowing exactly what future evidence will say sufficient for
+prospective exclusion, or does the proposition need to have already entered the model as
+substantive evidence before the rule?
+
+**Motivation.** G18 confounds semantic target knowledge with evidential instantiation:
+the `para/entail` previews themselves assert almost the same proposition as the later
+evidence and reduce that evidence's no-rule marginal from ~32 to ~3 points.
+
+**Registered factor.**
+1. `U` unresolved future target;
+2. `K` exact target semantics available in a **non-evidential, judgment-neutral**
+   carrier;
+3. `I` the same proposition already instantiated as substantive evidence.
+
+Each state requires its own:
+- state-only baseline;
+- state + later evidence, no rule;
+- state + exclusion + later evidence.
+
+Use raw sign-aligned rating points.
+
+**Critical gate.** `K` is valid only if it is demonstrably judgment-neutral before
+examining exclusion. If no clean carrier can satisfy that requirement, G22 must not run.
+
+**Branch logic.**
+- K rescues → proceed to clean early-vs-late target mapping / deferred-composition test.
+- only I rescues → test retrospective evidence-state revision/cancellation.
+- neither cleanly separates → reassess rather than pivot to a side phenomenon.
+
+**Status.** Registered in
+`SCIENTIFIC_REGISTER_2026-09-04_V3.md` and
+`NEXT_EXPERIMENTS_POST_RESET.md`.
+**Not preregistered, not frozen, no generation authorized.**
+
+## A16. D22-A tagged-routing deconfound — **supporting design audit**
+
+Existing Stage 3B cannot distinguish standing-policy execution from local semantics of
+`[verified]/[unverified]` because its no-policy control removes the labels.
+
+Candidate supporting cells:
+- semantic labels, no policy;
+- semantic labels + matching policy;
+- semantic labels + reversed policy;
+- nonce labels + explicit policy;
+- optional nonce labels + definitions.
+
+**Role:** diagnostic support for the local-semantic-control account only. Never a
+headline novelty.
+
+**Status:** design audit only; no generation authorized.
 
 ---
 
