@@ -2,7 +2,7 @@
 
 Primary quantities are raw rating points:
 - positive-target TargetError = |Y(method) - Y(base)| on same-D7 and same-D9;
-- Improvement = TargetError(ID-Pre) - TargetError(method);
+- Improvement = TargetError(Semantic-Pre) - TargetError(method);
 - wrong-D9 Collateral = |Y(method) - Y(naive)|;
 - resolver exact-set accuracy.
 
@@ -65,7 +65,7 @@ def analyze_tag(tag, items):
                 continue
             for v in POS:
                 m = d.get((iid, method, v), {}).get("value")
-                ref = d.get((iid, "idpre", v), {}).get("value")
+                ref = d.get((iid, "sempre", v), {}).get("value")
                 if m is not None:
                     err.append(abs(m - b))
                     cls.append(_cluster(it))
@@ -96,7 +96,7 @@ def analyze_tag(tag, items):
             if yself is None:
                 continue
             for method, out, outcls in (
-                ("generic", vs_generic, vgcls),
+                ("semgeneric", vs_generic, vgcls),
                 ("idrestate", vs_idrest, vicls),
                 ("sempre", vs_sem, vscls),
                 ("gold", vs_gold, vglcls),
@@ -132,7 +132,7 @@ def analyze_tag(tag, items):
         methods=per,
         self_vs_generic=_boot(vs_generic, vgcls, 21),
         self_vs_idrestate=_boot(vs_idrest, vicls, 22),
-        self_vs_semantic_pre=_boot(vs_sem, vscls, 23),
+        self_vs_semantic_restate=_boot(vs_sem, vscls, 23),
         self_vs_gold=_boot(vs_gold, vglcls, 24),
         selector_accuracy=sel_acc,
         selector_false_positive_ids=fp,
@@ -148,7 +148,7 @@ def main(tags):
 
     pooled_imp, pooled_cls = [], []
     pooled_gen, gen_cls = [], []
-    pooled_coll, coll_cls = [], []
+    pooled_coll, coll_cls = [], []\n    pooled_total_coll, total_coll_cls = [], []
     model_improvements = []
     total_correct = total_self = 0
 
@@ -184,7 +184,7 @@ def main(tags):
 
     p_imp = _boot(pooled_imp, pooled_cls, 101)
     p_gen = _boot(pooled_gen, gen_cls, 102)
-    p_coll = _boot(pooled_coll, coll_cls, 103)
+    p_coll = _boot(pooled_coll, coll_cls, 103)\n    p_total_coll = _boot(pooled_total_coll, total_coll_cls, 104)
     p_acc = total_correct / total_self if total_self else 0.0
     positive_models = sum(x is not None and x > 0 for x in model_improvements)
 
@@ -205,9 +205,9 @@ def main(tags):
             selective_grounding=gate3,
         ),
         pooled=dict(
-            self_improvement_vs_idpre=p_imp,
-            self_improvement_vs_generic=p_gen,
-            self_wrong_d9_collateral=p_coll,
+            self_improvement_vs_semantic_pre=p_imp,
+            self_improvement_vs_semantic_generic=p_gen,
+            self_wrong_d9_added_collateral=p_coll,\n            self_wrong_d9_total_collateral=p_total_coll,
             selector_accuracy=p_acc,
             positive_models_for_improvement=positive_models,
         ),
@@ -228,9 +228,9 @@ def main(tags):
         "",
         "| metric | result |",
         "|---|---|",
-        f"| ReGround-Self improvement vs ID-Pre | **{_fmt(p_imp)}** |",
-        f"| ReGround-Self improvement vs Generic-Repeat | **{_fmt(p_gen)}** |",
-        f"| wrong-D9 collateral | **{_fmt(p_coll)}** |",
+        f"| ReGround-Self improvement vs Semantic-Pre | **{_fmt(p_imp)}** |",
+        f"| ReGround-Self improvement vs Semantic-Generic | **{_fmt(p_gen)}** |",
+        f"| wrong-D9 added collateral vs Semantic-Pre | **{_fmt(p_coll)}** |",\n        f"| wrong-D9 total collateral vs Naive | **{_fmt(p_total_coll)}** |",
         f"| resolver exact-set accuracy | **{p_acc:.3f}** |",
         f"| model-wise improvement positive | **{positive_models}/{len(analyses)}** |",
         "",
@@ -242,7 +242,7 @@ def main(tags):
         "",
         "## Model-wise",
         "",
-        "| model | self target error | self improvement vs ID-Pre | collateral | selector acc |",
+        "| model | self target error | self improvement vs Semantic-Pre | collateral | selector acc |",
         "|---|---:|---:|---:|---:|",
     ]
     for a in analyses:
@@ -256,13 +256,13 @@ def main(tags):
         "",
         "## Secondary comparisons",
         "",
-        "| model | self beats generic | self beats ID-restatement | self beats semantic-pre | gold minus self |",
+        "| model | self beats semantic-generic | self beats ID-restatement | self beats semantic-restatement | gold minus self |",
         "|---|---:|---:|---:|---:|",
     ]
     for a in analyses:
         md.append(
             f"| {a['tag']} | {_fmt(a['self_vs_generic'])} | "
-            f"{_fmt(a['self_vs_idrestate'])} | {_fmt(a['self_vs_semantic_pre'])} | "
+            f"{_fmt(a['self_vs_idrestate'])} | {_fmt(a['self_vs_semantic_restate'])} | "
             f"{_fmt(a['self_vs_gold'])} |"
         )
 
