@@ -1,8 +1,7 @@
 # G19 preregistration — ReGround: post-retrieval policy grounding
 
 **Created:** 2026-09-04, before any G19 model generation.
-**Status:** final pre-generation design. The freeze authority is the later
-G19_FREEZE.md commit containing this complete implementation tree.
+**Status:** **CANCELLED BEFORE GENERATION on 2026-09-04. No G19_FREEZE.md was created and no G19 model output exists.**
 
 This round reopens the experimental programme exactly once, by explicit author
 decision, for a positive method evaluation derived from the confirmed mechanism.
@@ -299,3 +298,22 @@ The frozen tree must contain:
 Because the files were authored through sequential repository commits, the freeze
 authority is **the final G19_FREEZE.md commit over the complete tree**, not an earlier
 individual file commit. No model generation may occur before that freeze commit.
+
+
+## 14. Cancellation record
+
+This preregistered design was abandoned before execution after a novelty audit.
+The reason is scientific, not technical: the proposed operation—resolve a semantic
+policy after retrieval and compile the matching document IDs—is a reasonable
+engineering mitigation but too normal to justify reopening the paper around a new
+method contribution.
+
+Because no freeze marker and no generations exist, no statistical result is attached
+to this design. Preserve this file unchanged from this point as evidence of the
+cancelled pre-run plan.
+
+Active next hypotheses:
+- G20 Binding Deadline / Late Target Revelation
+- G21 Source-Scope Collapse / Semantic Spillover
+
+See NOVELTY_RESET_2026-09-04.md and NEXT_EXPERIMENTS_POST_RESET.md.
