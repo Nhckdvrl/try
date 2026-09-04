@@ -12,7 +12,7 @@
 > of source/proposition scope collapse.
 >
 > Current authority:
-> [../../SCIENTIFIC_REGISTER_2026-09-04_V3.md](../../SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+> [../SCIENTIFIC_REGISTER_2026-09-04_V3.md](../SCIENTIFIC_REGISTER_2026-09-04_V3.md)
 
 # G18 — prospective semantic targeting: **confirmed**
 
