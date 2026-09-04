@@ -204,6 +204,9 @@ Interpretation branch:
 See:
 [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
 
+Dedicated design registration:
+[G22_DESIGN_AUDIT.md](G22_DESIGN_AUDIT.md)
+
 ---
 
 ## 5. Registered supporting diagnostic
