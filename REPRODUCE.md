@@ -62,7 +62,7 @@ Design: `preregistrations/PREREGISTRATION_G0.md`.
 - `results/routing_tables.md` — tagged evidence streams (`src/gen_routing.py`,
   `src/analyze_routing.py`).
 
-### Target addressability
+### Semantic-target diagnostic and discovery history
 
 - `stages/STAGE3D.md`, `results/semaddr_tables.md` — similarity ladder;
 - `stages/STAGE3E.md`, `results/stage7_tables.md` — duplicate control and the
@@ -73,7 +73,7 @@ Condition builders: `src/conditions_v3.py` (weights, delay, ladder, class policy
 `src/conditions_v6.py` / `src/conditions_v7.py` (discovery previews and relation
 matrix).
 
-**G18 confirmatory centrepiece:**
+**G18 frozen semantic diagnostic:**
 - items: `data/items/g18_v1.jsonl`;
 - design: `preregistrations/PREREGISTRATION_G18_SEMANTIC_TARGETING.md`;
 - code: `src/conditions_g18.py`, `src/analyze_g18.py`;
@@ -100,47 +100,33 @@ matrix).
 failed, and why single-token rating readouts can anti-correlate with the model's own
 stated reasoning.
 
-## 5. Frozen G19 method evaluation — ReGround
+## 5. Active post-reset work
 
-G16 and G17 are complete historical rounds. The only open generation round is the
-explicitly authorised **G19 ReGround** method evaluation.
+### Cancelled G19 — ReGround
 
-Read before running:
-- `METHOD_REGROUND.md`;
-- `preregistrations/PREREGISTRATION_G19_REGROUND.md`;
-- `G19_FREEZE.md`.
+ReGround was **cancelled before G19_FREEZE.md and before any model generation** after a
+novelty audit. The code and preregistration are historical provenance only.
 
-Implementation:
-- `src/reground.py`;
-- `src/run_reground.py`;
-- `src/analyze_reground.py`;
-- `tests/test_reground.py`.
+Do not run:
+- src/run_reground.py
+- src/analyze_reground.py
 
-The freeze authority is the commit that creates `G19_FREEZE.md` over the complete
-design/code tree. Do not use an earlier sequential implementation commit as the
-experimental freeze.
+See:
+- METHOD_REGROUND.md
+- preregistrations/PREREGISTRATION_G19_REGROUND.md
 
-Each model writes:
-`results/raw/<tag>_reground.jsonl`.
+### G20 / G21
 
-Example runner shape:
+The active designs are currently **design documents, not frozen preregistrations**:
 
-    PYTHONPATH=src python3 src/run_reground.py \
-      --model <checkpoint-path> \
-      --tag qwen3-8b \
-      --out results/raw/qwen3-8b_reground.jsonl
+- NOVELTY_RESET_2026-09-04.md
+- NEXT_EXPERIMENTS_POST_RESET.md
 
-After all five frozen model tags are present:
+G20 tests late target revelation / rule replay.
+G21 tests source-scoped exclusion / semantic spillover.
 
-    PYTHONPATH=src python3 src/analyze_reground.py \
-      qwen3-8b gemma3-12b phi4-mini qwen3.5-27b mistral-small-24b
-
-This writes:
-- `results/reground_analysis.json`;
-- `results/reground_results.md`.
-
-The analyzer implements the preregistered raw-point gates. Do not substitute REI or a
-different baseline after seeing G19 outputs.
+No generation is authorized until each experiment receives its own frozen
+preregistration, dataset build, analysis code, and freeze commit.
 
 ## 6. Stopped branch (BTF-3 hindsight)
 
