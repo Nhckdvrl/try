@@ -1,287 +1,250 @@
-# ACL / EMNLP / NAACL alignment standard — deferred-control mainline
+# ACL / EMNLP / NAACL alignment standard — scientific register v3
 
-The target is **Outstanding-shaped scientific organisation**, with NAACL Main as the
-realistic acceptance goal.
+**Updated:** 2026-09-04.
 
-The paper must keep one scientific descent:
+The project is aiming for **Outstanding-shaped scientific organisation**:
+a natural question, a broad surprising phenomenon, a clean factorization, a
+non-obvious law, a causal mechanism, and a method problem that follows naturally.
+
+The current paper must preserve one descent:
 
 ```
-natural pre-commitment question
+Can models pre-commit to ignore future evidence?
 → broad prospective/retrospective reversal
-→ clean target/operator factorization
-→ non-obvious deferred-control law
+→ what target state is required?
+→ a non-obvious computational law
 → causal mechanism
-→ method problem implied by the failure
+→ persistent future-policy execution as method problem
 ```
 
-The paper must not become a provenance/scope paper halfway through.
+Do not replace this descent with a new interesting topic.
 
-## 1. Reference papers and lessons
+---
 
-### ACL 2025 Outstanding — Llama See, Llama Do
-https://aclanthology.org/2025.acl-long.791/
+# 1. Narrative lessons from reference papers
 
-Arc:
-context distraction → contextual entrainment → semantic modulation → causal heads.
+## Llama See, Llama Do — ACL 2025 Outstanding
 
 Lesson:
-the broad failure is only the entrance. The paper earns its identity by exposing a
-sharper regularity underneath it.
+a broad failure becomes paper-level when a sharper regularity beneath it is discovered
+and causally localized.
 
-Our analogue:
-prospective exclusion reversal → **target/operator composition order** → causal
-history-dependent control state.
+Our analogue is not:
+> semantic target information helps.
 
-Not:
-prospective reversal → “semantic target information helps.”
+It must be:
+> a precise law about what target state makes future exclusion executable.
 
-### NAACL 2025 Main — Racing Thoughts
-https://aclanthology.org/2025.naacl-long.155/
-
-Arc:
-contextualization error → dependency-order hypothesis → causal tests.
-
-This is the closest narrative reference.
-
-Our candidate dependency:
-> target semantics must be composed with exclusion control; processing exclusion first
-> may leave a state that later target resolution does not reconstruct.
-
-Important difference:
-G20 v3 tests a shared checkpoint **after both target and rule are available**, so the
-claim is not merely that an earlier decoder token cannot see future input.
-
-### ACL 2026 Main — Do LLMs Know Tool Irrelevance?
-https://aclanthology.org/2026.acl-long.1473/
-
-Arc:
-known failure → clean factorization → competing causal pathways → mitigation.
+## Racing Thoughts — NAACL 2025 Main
 
 Lesson:
-our centerpiece must distinguish a new computational account from generic prompt order.
+dependency-order stories become strong when the paper identifies a critical processing
+window and uses causal interventions to separate true ordering failure from extra
+computation.
 
-Targeted contrast:
-- exclusion operator;
-- semantic target resolution;
-- target-first vs rule-first;
-- matched Admit/arithmetic/routing operations.
+Possible migration only if G22 later supports target-knowledge sufficiency.
 
-### EMNLP 2024 Main — Representational Analysis of Binding
-https://aclanthology.org/2024.emnlp-main.967/
+## Do LLMs Know Tool Irrelevance? — ACL 2026 Main
 
-### ACL 2026 Main — Cell-Based Representation of Relational Binding
-https://aclanthology.org/2026.acl-long.2194/
+Lesson:
+factorize a broad failure into competing causal pathways rather than adding more
+robustness tables.
 
-Generic binding is occupied.
+Our factorization:
+- unresolved target;
+- known-but-non-evidential target;
+- evidentially instantiated target.
 
-Use:
-> deferred operator–target composition
+## Patches of Nonlinearity — ACL 2026 Main
 
-rather than claiming a new general binding mechanism.
+Lesson:
+instruction states and nonlinear circuit selection are already established topics.
 
-### ACL 2026 Main — Patches of Nonlinearity
-https://aclanthology.org/2026.acl-long.559/
+Stage 5 must support our specific future-evidence control law, not become a generic
+instruction-state paper.
 
-Instruction-state localization is occupied.
+## Binding papers — EMNLP 2024 / ACL 2026
 
-Stage 5 matters only because it supports the specific target-conditioned exclusion
-computation. The stronger new mechanism must occur at the post-resolution checkpoint.
+Lesson:
+generic binding is occupied.
 
-### ACL 2024 Findings — Instruction Position Matters
-https://aclanthology.org/2024.findings-acl.693/
+Use precise language tied to:
+- future evidence control;
+- target state;
+- policy execution.
 
-### ACL 2025 Findings — Order Matters
-https://aclanthology.org/2025.findings-acl.646/
+---
 
-Generic position/order effects are occupied.
+# 2. The current Outstanding-shaped fork
 
-G0 is the hook, not sufficient novelty.
+The next experiment should not be “another order study.”
 
-### COLING 2025 — Chain-of-Specificity
-https://aclanthology.org/2025.coling-main.164/
+It must answer:
 
-More specific constraints helping is occupied/obvious.
+> **Is exact non-evidential knowledge of future evidence sufficient for exclusion, or
+> does the proposition need to have already entered the judgment as evidence?**
 
-G18 must remain a factorization diagnostic.
+Why this matters:
 
-### NAACL 2024 Main — I3C
-https://aclanthology.org/2024.naacl-long.379/
+- if knowledge alone is enough, G0 may reflect a deferred-composition / eager-control
+  bottleneck;
+- if evidential instantiation is required, exclusion behaves more like retrospective
+  revision/cancellation than a standing future gate;
+- if neither explains the pattern, local semantic control must be deconfounded before a
+  new mainline claim.
 
-Identify-then-ignore is occupied in spirit.
+This is a real scientific fork, not a confirmation exercise.
 
-This is why ReGround remains cancelled.
+---
 
-### ICLR 2026 — ICF-Bench
-https://proceedings.iclr.cc/paper_files/paper/2026/hash/b13d00a62d438856cfe6fbd13b6b2cb8-Abstract-Conference.html
+# 3. What cannot carry novelty
 
-Studies explicit forgetting of information already present in dialogue.
+Do not headline:
 
-Our chronology is the missing prospective direction:
-policy first, governed evidence later.
+- “instruction position matters”;
+- “more specific instructions help”;
+- “semantic targets help”;
+- “models fail standing policies”;
+- “labels have semantics”;
+- “source scope collapses”;
+- “repeating the rule helps”;
+- “we found a mid-layer instruction state.”
 
-### TriggerBench — 2026
-https://arxiv.org/abs/2606.23459
+All are either occupied, obvious, or disconnected from G0.
 
-Prospective memory is adjacent.
+---
 
-Our claim must exceed remembering/triggering:
-correct target recognition can coexist with failed causal exclusion.
+# 4. G22 bar
 
-## 2. What the paper must achieve
+G22 is paper-level only if its middle condition is clean.
 
-### A. One non-obvious computational statement
+KNOWN-BUT-NON-EVIDENTIAL must:
+- specify the future target semantics exactly;
+- remain judgment-neutral without actual evidence;
+- preserve target identity;
+- avoid becoming a second policy or an evidential assertion.
 
-Candidate:
+If that state cannot be constructed cleanly, do not run G22.
 
-> **Exclusion control is history-dependent: target → EXCLUDE and EXCLUDE → target do
-> not converge to the same causal control state, even after the late target is correctly
-> resolved and both pieces of information are available.**
+The design must include:
+- per-state target-only baselines;
+- per-state no-rule evidence marginals;
+- per-state exclusion effects;
+- frozen neutrality gate;
+- cluster-aware inference;
+- mixed direction items.
 
-This is substantially sharper than:
-> order matters.
+---
 
-### B. The centerpiece must falsify the obvious explanation
+# 5. Branch-specific mechanism bar
 
-The obvious causal-mask account says:
-an earlier rule token cannot see later target tokens.
+## Route A — target knowledge sufficient
 
-G20 v3 therefore inserts a shared downstream checkpoint.
+Only then may the paper ask:
+> can late target resolution reconstruct the exclusion relation?
 
-At that checkpoint:
-- both arms have target + rule + neutral context;
-- target mapping is understood;
-- the state can attend all required information.
+Strong design:
+- early/late mapping with same semantic catalog;
+- high late-mapping comprehension;
+- post-resolution shared checkpoint;
+- neutral processing buffer;
+- operator replay vs mapping replay;
+- causal backpatch/frozen-backpatch.
 
-If behavior and causal state still differ, the result is about downstream composition,
-not literal earlier-token visibility.
+Outstanding-shaped law:
+> the model can know the late target yet fail to instantiate the causal exclusion
+> relation after the relevant processing window.
 
-### C. Positive controls must show selective failure
+## Route B — evidential instantiation required
 
-Required:
-- Admit/use-select;
-- arithmetic weighting;
-- optional routing.
+Strong design:
+- known target remains neutral and fails to rescue;
+- asserted evidence state rescues;
+- target-present + exclusion + no-later-evidence shifts judgment;
+- causal state intervention shows active target-specific revision/cancellation.
 
-A publishable result is:
-> the same model late-composes other operations but not semantic exclusion.
+Outstanding-shaped law:
+> natural-language exclusion does not behave like a standing future gate; it becomes
+> effective mainly by transforming an already-instantiated evidence state.
 
-### D. Replay must test the missing operation
+## Route C — local semantic control
 
-Rule replay after late target resolution should preferentially rescue RULE-FIRST.
+Needs a clean standing-policy-vs-local-label deconfound.
 
-A target-replay control is desirable.
+Even if real, it becomes mainline only if it explains G0 more naturally than routes A/B.
 
-This converts:
-> repeating instructions helps
+---
 
-into:
-> **reapplying the operator after target resolution reconstructs a missing control
-> computation.**
+# 6. Existing evidence against the bar
 
-### E. Mechanism must touch the new variable
+| component | current status |
+|---|---|
+| natural question | strong |
+| broad phenomenon | strong |
+| cross-model breadth | strong |
+| policy-access dissociation | strong supporting result |
+| arithmetic boundary | strong supporting result |
+| object-existence ladder | strong clue |
+| G18 | strong but confounded factorization |
+| Stage4 | useful content clue |
+| Stage5 | strong causal asset |
+| Stage3B | successful behavior, causal interpretation confounded |
+| G20 | conditional hypothesis only |
+| G21 | downgraded side branch |
+| G22 | correct next design-audit target |
 
-Existing Stage 5:
-- target-dependent rule state;
-- mid-network localization;
-- causal interchange;
-- Qwen + Mistral.
+---
 
-New mechanism:
-- post-resolution checkpoint;
-- both operands available;
-- order-dependent state remains causal.
-
-Do not run another generic layer sweep.
-
-## 3. G21 judgment
-
-Source–Proposition Scope Entanglement is **not the current mainline**.
-
-Reason:
-it may reveal an interesting semantic scope failure, but it does not explain why
-prospective exclusion is weaker than retrospective exclusion.
-
-Outstanding-shaped organization values one deep descent over two loosely related novel
-phenomena.
-
-Therefore G21 is:
-- future work;
-- possible second paper;
-- secondary consequence only.
-
-## 4. Current project against the bar
-
-| dimension | status | judgment |
-|---|---|---|
-| Natural question | pre-commit to ignore future evidence | strong |
-| Broad surprising phenomenon | G0 reversal | strong |
-| Old explanation | semantic target helps | too obvious; retired |
-| G18 | clean target-before-rule factorization | strong diagnostic |
-| Arithmetic boundary | future rules can work when symbolic | strong specificity control |
-| Stage 4 | content-conditioned target representation | useful diagnostic |
-| Existing mechanism | two-architecture causal rule state | strong asset |
-| New central hypothesis | non-commutative deferred exclusion | high novelty if confirmed |
-| New behavioral experiment | G20 v3 | must carry novelty |
-| G21 | scope side branch | downgraded |
-| ReGround | obvious mitigation | cancelled |
-
-## 5. Ideal final arc
-
-```
-Can models pre-commit what future evidence should not matter?
-    ↓
-G0: same exclusion rule works worse before evidence
-    ↓
-Factorization: retrospective gives target → EXCLUDE;
-prospective gives EXCLUDE → target
-    ↓
-G18: supplying target semantics before EXCLUDE restores control
-    ↓
-G20 v3: late target is recognized, but EXCLUDE → target still fails;
-replaying EXCLUDE after target repairs it
-    ↓
-post-resolution checkpoint remains causally history-dependent
-    ↓
-method problem: order-invariant deferred policy–target composition
-```
-
-That is the standard to aim for.
-
-## 6. Figure standard
+# 7. Main-figure standard
 
 ### Figure 1
-Broad G0 reversal + Admit control.
+G0 broad prospective exclusion reversal + Admit.
 
 ### Figure 2
-G20 v3:
-- target-first vs rule-first;
-- rule replay interaction;
-- optional target replay.
+G22 target-state factorization.
 
 ### Figure 3
-Mechanism:
-- existing Stage-5 rule-time state;
-- post-resolution checkpoint interchange.
+Mechanism selected by the branch G22 supports.
 
-### Bridge panel
-G18 target-semantic factorization.
+Supporting panels:
+- G18;
+- Stage4;
+- policy-access dissociation;
+- arithmetic boundary.
 
 No G21 main figure.
 
-## 7. Experiment discipline
+---
 
-Active novelty-driven work only:
-- G20 v3 behavior;
-- its directly coupled post-resolution mechanism after qualification.
+# 8. Method opening standard
 
-Do not run:
-- G21 as current mainline;
-- ReGround;
-- another semantic ladder;
-- generic reminders;
-- model-size sweeps;
-- source/provenance breadth;
-- third-model mechanism breadth before the new behavior exists.
+The final method problem should not be:
+> retrieve, then repeat the rule.
 
-If G20 v3 fails, reconsider the paper rather than substituting a different interesting
-topic.
+It should be:
+> **how can future evidence policies remain executable before their targets exist?**
+
+Possible families:
+- persistent structured policy state;
+- delayed rule instantiation;
+- factorized operator/target state;
+- external reference monitor;
+- training for future-target application;
+- causal reconstruction of the needed control state.
+
+The method opening must arise from the final computational law.
+
+---
+
+# 9. Stop rule
+
+If G22 fails to cleanly distinguish target knowledge from evidential instantiation:
+
+- do not rescue the project by promoting G21;
+- do not promote label semantics;
+- do not add model scale;
+- do not run another reminder experiment.
+
+Reassess the paper's scientific claim.
+
+The bar is one deep story, not several interesting observations.
