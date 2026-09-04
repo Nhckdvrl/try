@@ -1,465 +1,385 @@
-# Next experiments after novelty reset — v2
+# Next experiments after mainline audit — v3
 
 **Status:** design document only, not a preregistration.
-**Updated:** 2026-09-04 after a second novelty/confound audit.
+**Updated:** 2026-09-04 after the mainline audit that downgraded G21.
 
-The first reset proposed G20 Binding Deadline and G21 Source-Scope Collapse. A second
-audit found:
-- **G20 has a causal-mask obviousness risk** if phrased as "earlier rule-token states
-  cannot incorporate later target information" in decoder-only Transformers.
-- **G21's first metric confounded semantic spillover with ordinary redundancy** between
-  two sources expressing the same proposition—the exact Stage-3E mistake we already
-  learned from.
+The next experiment must explain the original G0 reversal:
 
-Both designs are strengthened below. **G21 is now the first priority.**
+> the same exclusion rule is weaker before evidence than after evidence.
+
+G21 Source–Proposition Scope Entanglement is no longer the current paper-defining
+experiment because it asks a different question about scope precision.
+
+The active hypothesis is now:
+
+> **LLMs may construct a target-conditioned exclusion state when the rule is processed,
+> rather than storing a deferred exclusion operator that is reliably composed with a
+> target once that target becomes available later.**
+
+Equivalent behavioral hypothesis:
+
+> **target → EXCLUDE and EXCLUDE → target are not equivalent.**
 
 No generation is authorized by this document.
 
 ---
 
-# Priority 1: G21 — Source–Proposition Scope Entanglement
+# Priority 1: G20 v3 — Deferred Control Composition
 
 ## Scientific question
 
-> **Can an LLM keep "which evidence source is excluded" separate from "what
-> proposition that source expresses"?**
+> **If an exclusion rule is processed before its semantic target is resolved, can the
+> model later compose the two once the target becomes available, before the governed
+> evidence arrives?**
 
-Natural policy:
-- Source A is excluded.
-- Independent Source B is explicitly admissible.
-- If B independently supports the same conclusion, B should retain its normal
-  evidential contribution.
+This directly explains G0 if true.
 
-Potential failure:
-> once exclusion binds to A's semantic content, the model suppresses B merely because B
-> expresses the same proposition.
+Retrospective G0:
 
-This is not a specificity benefit. It is a **scope error**.
+```
+target evidence → EXCLUDE → decision
+```
 
-A memorable paper sentence if confirmed:
+Prospective G0:
 
-> **When told to ignore a source, LLMs can end up ignoring the fact.**
+```
+EXCLUDE → target evidence → decision
+```
 
-## Why this is less obvious
+G18 already shows that giving target semantics before the rule can rescue prospective
+exclusion while the actual evidence remains later.
 
-Recent provenance work shows that models can trace sources and that source labels affect
-trust. That does not imply correct policy scope.
+G20 v3 tests the missing direction:
 
-A model can correctly know:
-- this sentence came from Source B;
-- Source B is allowed;
+> does target information revealed **after** the rule reconstruct the same effective
+> control?
 
-and still apply Source A's exclusion semantically to B.
+## Why v3 is stronger than the old binding-deadline design
 
-The experiment explicitly distinguishes:
-- **source-scoped exclusion**: exclude A only;
-- **proposition-scoped exclusion**: exclude proposition p wherever it appears.
+A decoder-only model's earlier rule-token state cannot attend to later target tokens.
+That fact is trivial.
 
-If the model behaves similarly in these conditions when B expresses p, that is direct
-evidence that source scope collapses toward proposition scope.
+Therefore the decisive test must occur at a point where **both target and rule are
+already in context**.
 
-## Materials
-
-Build **120 fresh dual-source items / 36 independent skeletons / three families**:
-- legal judgment 40
-- evidence inference 40
-- ranking/selection 40
-
-No item or skeleton overlap with G0/G18.
-
-Each item contains:
-- Base context;
-- Source A evidence A(p);
-- independent Source B evidence B(r);
-- B relation r to A's proposition:
-  1. **paraphrase / mutual entailment**;
-  2. **B more specific but entails p**;
-  3. **gist / p entails B**;
-  4. **high lexical overlap, different proposition**;
-  5. **unrelated but decision-relevant control**.
-
-A and B are explicitly framed as independently obtained reports. For matched semantic
-conditions, B should not be a verbatim duplicate.
-
-## Order
-
-Use:
-
-Base context
-→ Source A
-→ POLICY
-→ Source B
-→ question
-
-Source A appears before the policy on purpose. This guarantees that the policy has a
-fully instantiated semantic target and avoids mixing scope precision with the
-prospective under-binding problem.
-
-Source B appears after the policy. The question is whether a successfully grounded
-exclusion of A spills into B.
-
-## Policy factor
-
-### Source-scoped policy
-
-> Evidence from Source A is excluded and must have zero evidential weight. **Only
-> Source A is excluded. Source B and all other independent sources remain fully
-> admissible. If Source B independently supports the same proposition, count that
-> evidence normally.**
-
-### Proposition-scoped policy — positive control
-
-> The proposition stated by Source A is excluded and must have zero evidential weight
-> **regardless of which source expresses it**.
-
-### Admit-A control
-
-Source A is explicitly admissible, to estimate generic effects of inserting a policy
-between A and B.
-
-## Required condition cells
-
-For every B-relation item, collect:
-
-1. Base
-2. A only, no policy
-3. A+B, no policy
-4. A + SourceScoped(A), no B
-5. A + SourceScoped(A) + B
-6. A + SourceScoped(A) + B + **post-B explicit B-admissible reminder**
-7. A + PropositionScoped(p), no B
-8. A + PropositionScoped(p) + B
-9. A + AdmitA + B
-10. policy-only controls where needed for A-exclusion validation
-
-The post-B reminder should say, byte-identically across semantic-relation levels:
-
-> Source B remains admissible under the system policy. Preserve its normal evidential
-> contribution.
-
-If spillover survives this, the scope failure is especially strong.
-
-## The critical metric — redundancy deconfounded
-
-**Do not use B-alone leverage as the main baseline.**
-
-Same-proposition A/B are naturally redundant. G18/Stage3E already proved that.
-
-Measure B's marginal contribution **conditional on A already being present**.
-
-No-policy B marginal:
-
-BMarginal_no = Y(A+B) − Y(A)
-
-B marginal under source-scoped exclusion:
-
-BMarginal_source = Y(A+SourcePolicy+B) − Y(A+SourcePolicy)
-
-B marginal under proposition-scoped exclusion:
-
-BMarginal_prop = Y(A+PropPolicy+B) − Y(A+PropPolicy)
-
-All differences are sign-aligned raw rating points.
-
-### Source spillover
-
-SourceSpillover = BMarginal_no − BMarginal_source
-
-Positive means a policy that excludes only A removes some of allowed B's contribution,
-beyond ordinary A/B redundancy.
-
-### Proposition-control spillover
-
-PropSpillover = BMarginal_no − BMarginal_prop
-
-This is the expected ceiling when the policy is genuinely proposition-scoped.
-
-### Semantic scope interaction
-
-Primary semantic contrast:
-
-SemanticScopeEffect =
-mean(SourceSpillover[paraphrase, entail])
-−
-mean(SourceSpillover[lexical-wrong, unrelated])
-
-This asks whether **semantic equivalence**, not lexical overlap or generic policy
-presence, causes allowed-source suppression.
-
-### Scope-collapse fraction — descriptive, not primary
-
-SourceSpillover / PropSpillover on items with a preregistered PropSpillover leverage
-floor.
-
-This estimates how much source-scoped behavior resembles explicitly proposition-scoped
-behavior. Do not use the ratio as the frozen primary estimator.
-
-## Validate that A itself is successfully excluded
-
-A source-scope story requires the model actually to follow the exclusion of A.
-
-Use policy-only/Base cells to estimate A's marginal contribution with and without
-SourceScoped(A).
-
-Preregister a qualification rule before running semantic-scope analysis. The clean
-sample should have:
-- A materially influential without policy;
-- SourceScoped(A) materially reduces A's contribution;
-- B has non-trivial conditional no-policy marginal.
-
-This qualification may be built from no-policy/source-policy cells **before examining
-the semantic-relation spillover contrast**.
-
-## Strong result pattern
-
-The strongest finding is:
-
-1. Source A is successfully excluded.
-2. Independent B has measurable conditional leverage after A.
-3. Under a source-scoped policy, B loses substantial leverage **only when B expresses
-   the same proposition** as A.
-4. High lexical overlap with a different proposition does not reproduce the loss.
-5. Proposition-scoped policy suppresses B as expected.
-6. Explicitly reiterating that B remains admissible does not fully restore its
-   contribution.
-7. Models can answer a separate provenance/scope probe correctly ("B is admissible")
-   while still suppressing B.
-
-Point 7 is important: it separates declarative scope understanding from causal scope
-enforcement.
-
-## Model panel
-
-Primary:
-- Qwen3-8B
-- Gemma-3-12B
-- Phi-4-mini
-- Qwen3.5-27B
-- Mistral-Small-24B
-
-No extra size sweep.
-
-## Agent transfer
-
-If the controlled effect qualifies, reproduce the key condition in real roles:
-
-SYSTEM:
-- D7 excluded;
-- D9 explicitly allowed.
-
-TOOL D7:
-A(p)
-
-TOOL D9:
-independent paraphrase of p or lexical-wrong control
-
-assistant:
-decision.
-
-The key metric remains D9's **conditional marginal contribution**, not raw answer
-difference.
-
-## Mechanism follow-up — only after behavioral confirmation
-
-Matched pair:
-
-SAME-P:
-A(p) → SourceScoped(A) → B(paraphrase p)
-
-DIFF-P:
-A(p) → SourceScoped(A) → B(decision-relevant different proposition)
-
-Candidate causal tests:
-1. source-label span vs proposition-content span patching for B;
-2. source-scoped vs proposition-scoped rule-state interchange;
-3. whether the existing mid-layer control state becomes more proposition-like when
-   source spillover occurs.
-
-The desired mechanistic question is:
-
-> **Does the model encode exclusion scope more strongly by proposition identity than
-> by provenance identity?**
-
-Do not run this until G21 is real.
-
-## What kills G21
-
-Kill the scope-collapse story if:
-- SourceSpillover is no larger for semantic-equivalent B than lexical/unrelated B;
-- the apparent effect disappears after the conditional no-rule redundancy baseline;
-- A itself is not successfully excluded;
-- a simple explicit B-admissible statement fully restores B everywhere, leaving only a
-  trivial instruction omission.
-
----
-
-# Priority 2: G20 — Dynamic Late Binding, redesigned against the causal-mask objection
-
-## Why the first G20 story was not enough
-
-In a decoder-only Transformer, hidden states of an earlier rule token literally cannot
-attend to target tokens that occur later. Therefore:
-
-> "the rule token state does not update after a later target"
-
-is architecturally obvious and **not a publishable novelty**.
-
-G20 can matter only if it demonstrates a stronger behavioral/computational fact:
-
-> **Even though all information is available at answer time, the model understands the
-> late target mapping, and it can perform matched late-binding operations in positive
-> controls, it still fails to enforce the earlier exclusion unless the rule is
-> reprocessed.**
-
-That tests the algorithm the model chooses downstream, not the trivial causal mask.
+G20 v3 inserts a shared post-resolution checkpoint before the governed evidence.
 
 ## Materials
 
 Fresh set:
-- 120 items / 36 skeletons / three families.
-- matching semantic target P and unrelated U.
-- P/U token-length matched across tested tokenizers.
+- 120 items / 36 skeletons / three families;
+- legal judgment;
+- evidence inference;
+- ranking / selection;
+- no overlap with G0/G18 skeletons.
 
-Core order:
+Each item contains:
+- a semantic target preview `P`;
+- a length-matched unrelated neutral block `U`;
+- an exclusion rule `X`;
+- a byte-identical neutral checkpoint `C`;
+- later actual evidence `E`, semantically matched to `P`;
+- final decision question.
 
-PRE:
-P → RULE → U → EVIDENCE → QUESTION
+`P` is explicitly non-evidential metadata / preview. Each order receives its own
+no-rule baseline, as in G18.
 
-LATE:
-U → RULE → P → EVIDENCE → QUESTION
+## Core order factor
 
-The same semantic target information is present before evidence and answer in both.
+### TARGET-FIRST
 
-## Mandatory comprehension probe
+```
+P → X → U → C → E → question
+```
 
-On an independent call with the **full LATE prompt**, ask:
+### RULE-FIRST
 
-> Which later evidence item/proposition does the earlier exclusion rule apply to?
+```
+U → X → P → C → E → question
+```
 
-The binding-deadline claim is only interesting if models identify the target correctly
-at high accuracy while still failing to enforce exclusion.
+`P` and `U` must be tokenizer-length matched closely enough that `C` lands at the
+same or nearly identical token position.
 
-This establishes:
-> late target resolution is declaratively available at answer time.
+At `C`, both arms have already seen:
+- the same target semantics;
+- the same exclusion rule;
+- the same neutral block.
 
-## Rule replay
+Thus any remaining order effect is not merely “the earlier rule token cannot see the
+future.” The model now has a downstream position from which all required information is
+available.
 
-LATE+REPLAY:
-U → RULE → P → identical RULE → EVIDENCE
+## Mandatory late-target comprehension
 
-PRE+REPLAY:
-P → RULE → U → identical RULE → EVIDENCE
+On an independent full-context probe for RULE-FIRST, ask which later proposition/item
+the earlier exclusion rule applies to.
 
-Use a matched neutral slot in no-replay cells.
+The main claim requires high accuracy.
 
-A selective LATE replay rescue is evidence that the model's downstream enforcement
-depends on reprocessing the rule after target resolution.
+A stronger trajectory-level variant should also be prepared:
 
-## Positive late-binding controls
+> after `P`, require or observe an explicit resolved-target statement, then test
+> whether later `E` is still causally used.
 
-### Admit control
-Same unresolved target relation, but the policy says the future target should be
-fully admitted.
+This directly tests:
 
-### Arithmetic control
-Earlier rule defines an operation over future variable X; later block defines X;
-model must apply operation after the mapping is known.
+> late target resolution can be correct while causal control remains wrong.
 
-### Selection/routing control
-Earlier rule says "when the item matching X appears, select/use it"; later block
-defines X.
+## Rule reprocessing factor
 
-These establish that the model can late-compose an earlier rule with a later semantic
-mapping in non-destructive tasks.
+### RULE-FIRST + RULE-REPLAY
 
-## Masked-diffusion models become load-bearing
+```
+U → X → P → X → C → E
+```
 
-Dream-7B and LLaDA-8B are not decorative controls here.
+### TARGET-FIRST + RULE-REPLAY
 
-For standard causal LMs, PRE>LATE can always be criticized as compatible with
-left-to-right representation construction.
+```
+P → X → U → X → C → E
+```
 
-If at least one bidirectional masked-diffusion model shows:
-- correct late target comprehension;
-- PRE>LATE exclusion;
-- selective LATE replay rescue;
+Use matched neutral material in no-replay cells.
 
-then the phenomenon is much harder to reduce to causal masking.
+The critical effect is not “repetition helps.” It is:
 
-Without a diffusion-model effect, use "dynamic late-binding failure" cautiously and do
-not make architectural claims.
+> **reprocessing X after P should preferentially repair RULE-FIRST.**
 
-## Primary metrics
+Primary replay interaction:
 
-Use per-order no-rule raw-point baselines.
+```
+[EE(RULE-FIRST+REPLAY) - EE(RULE-FIRST)]
+-
+[EE(TARGET-FIRST+REPLAY) - EE(TARGET-FIRST)]
+```
 
-ExclusionEffect per condition as in G18.
+## Target-replay control
+
+If feasible, include:
+
+```
+U → X → P → P → C → E
+```
+
+with a matched replay in TARGET-FIRST.
+
+This distinguishes:
+- missing target salience;
+- missing reapplication of the exclusion operator.
+
+Strong pattern:
+
+> rule replay repairs substantially more than target replay.
+
+## Positive deferred-composition controls
+
+At least two should be present.
+
+### 1. Admit / use-select control
+
+Use the same unresolved target relation, but require the later matched item to be used
+or admitted.
+
+If RULE-FIRST works here while exclusion fails, the result is not generic inability to
+late-bind a target.
+
+### 2. Arithmetic control
+
+Earlier rule defines a weight/operation over a future variable; later `P` resolves the
+variable before the numeric evidence arrives.
+
+Existing Stage 3C already shows exact prospective arithmetic weighting in 4/5 models;
+the new control should preserve the same temporal structure as G20 where feasible.
+
+### Optional 3. Routing/select control
+
+Earlier rule:
+> when the item matching target X appears, select/use it.
+
+Later `P` defines X.
+
+This is another positive late-composition task without semantic nullification.
+
+## Behavioral estimands
+
+Use sign-aligned raw rating points and a no-rule baseline for each order.
+
+`ExclusionEffect` as in G18.
 
 Primary:
-DeadlineGap = EE(PRE) − EE(LATE)
 
-ReplayRescueLate = EE(LATE+REPLAY) − EE(LATE)
+```
+CompositionOrderGap = EE(TARGET-FIRST) - EE(RULE-FIRST)
+```
 
+Replay:
+
+```
+ReplayRescueRuleFirst =
+EE(RULE-FIRST+RULE-REPLAY) - EE(RULE-FIRST)
+```
+
+Specific replay interaction:
+
+```
 SpecificReplayInteraction =
-[EE(LATE+REPLAY) − EE(LATE)]
-−
-[EE(PRE+REPLAY) − EE(PRE)]
+[EE(RULE-FIRST+RULE-REPLAY) - EE(RULE-FIRST)]
+-
+[EE(TARGET-FIRST+RULE-REPLAY) - EE(TARGET-FIRST)]
+```
 
-Positive means replay specifically repairs the case where target resolution came after
-the first rule.
+If target replay is included:
+
+```
+OperatorReplayAdvantage =
+ReplayRescue(rule replay) - ReplayRescue(target replay)
+```
+
+## Post-resolution checkpoint mechanism
+
+This is the most important redesign.
+
+Capture the residual state at the identical checkpoint `C`.
+
+By `C`, both orders contain all necessary information.
+
+### Behavioral qualification
+
+Only mechanism-analyze models where:
+- target comprehension is high;
+- TARGET-FIRST > RULE-FIRST behavior is present.
+
+### Causal interchange
+
+At selected layers / relative-depth windows:
+
+1. TARGET-FIRST `C` → RULE-FIRST recipient;
+2. RULE-FIRST `C` → TARGET-FIRST recipient;
+3. identical interchange in Admit/control arms.
+
+The ideal result:
+
+- target-first checkpoint state rescues rule-first suppression;
+- rule-first checkpoint state breaks target-first suppression;
+- Admit/control interchange is much smaller or opposite;
+- after rule replay, RULE-FIRST checkpoint becomes less distinguishable causally from
+  TARGET-FIRST.
+
+This would license:
+
+> **The order in which target semantics and exclusion are composed leaves a causal
+> history-dependent control state even after both are available.**
+
+That is stronger than earlier rule-token localization and avoids the trivial causal-mask
+claim.
+
+## Relation to existing Stage 5
+
+Stage 5 already proves:
+- target-dependent rule state;
+- mid-network localization;
+- causal effect before later evidence;
+- replication in Qwen3-8B and Mistral-Small-24B.
+
+G20 v3 should not re-discover a layer window.
+
+Its new mechanism question is:
+
+> **does the control state converge after late target resolution, or does the earlier
+> composition order remain causally encoded?**
+
+## Masked diffusion
+
+Dream/LLaDA remain useful architecture controls.
+
+They are no longer solely responsible for defeating the causal-mask objection because
+the shared checkpoint is downstream of both operands.
+
+Still, replication in at least one bidirectional masked-diffusion LM would strengthen
+the claim that this is a learned control strategy rather than a decoder-only quirk.
 
 ## Main-claim requirements
 
-G20 becomes a paper-level claim only if:
+G20 v3 becomes the novelty-bearing paper result only if most of the following hold:
 
-1. LATE target-comprehension probe is high;
-2. PRE > LATE exclusion pooled with consistent model direction;
-3. rule replay selectively repairs LATE;
-4. positive late-binding controls succeed substantially better;
-5. at least one masked-diffusion model preserves the key pattern.
+1. RULE-FIRST target comprehension is high.
+2. TARGET-FIRST > RULE-FIRST exclusion on the fresh set.
+3. Rule replay selectively repairs RULE-FIRST.
+4. Preferably, rule replay beats target replay.
+5. Admit/arithmetic/routing late composition works substantially better.
+6. The post-resolution checkpoint remains causally order-dependent.
+7. The pattern is not confined to one model family.
 
-Otherwise G20 is supporting chronology, not novelty.
+## What kills G20 v3
 
-## What kills G20
+Kill or demote the composition story if:
+- RULE-FIRST ≈ TARGET-FIRST;
+- late target mapping itself is poorly understood;
+- replay helps both orders equally;
+- target replay helps just as much as rule replay;
+- matched positive operations fail in the same way;
+- checkpoint interchange has no exclusion-specific causal effect.
 
-- LATE≈PRE;
-- LATE target mapping itself is not understood;
-- replay is just a generic recency boost equally large in PRE;
-- arithmetic/admit/routing late-binding controls fail similarly;
-- only causal decoder models show the effect while bidirectional models do not.
+---
+
+# G21 — Source–Proposition Scope Entanglement
+
+## Status: DOWNGRADED / NOT CURRENTLY AUTHORIZED
+
+The design remains scientifically interesting:
+
+> excluding Source A may suppress an allowed Source B when B expresses the same
+> proposition.
+
+But it does not explain the original G0 prospective reversal.
+
+Therefore:
+- do not run it as the next experiment;
+- do not allocate a main figure or contribution to it;
+- keep the design as a future-paper / secondary-consequence candidate;
+- only revisit if the final G20 story independently motivates a scope follow-up.
+
+The previous deconfounded metric remains the correct one if G21 is ever revived:
+
+```
+BMarginal_no = Y(A+B) - Y(A)
+BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
+SourceSpillover = BMarginal_no - BMarginal_source
+```
+
+Do not revert to B-alone comparisons.
+
+---
+
+# ReGround G19
+
+Still cancelled before generation.
+
+Do not run or revive it as the current method contribution.
 
 ---
 
 # Recommended execution order
 
-## 1. Build and freeze G21 first
-
-Why:
-- it directly turns G18's weird oversuppression into a new causal-control failure;
-- it has immediate source/provenance relevance;
-- it avoids the architectural obviousness problem of G20;
-- the source-vs-proposition policy factor gives a clean positive control;
-- the deconfounded conditional-marginal metric directly addresses Stage3E redundancy.
-
-## 2. Freeze G20 independently before seeing G21 if possible
-
-This prevents another narrative-after-result pivot.
-
-But run priority can remain G21 → G20.
-
-## 3. Mechanism only after new behavior
-
-No new MI round until at least one new behavioral phenomenon qualifies.
+1. Build and audit G20 v3 materials.
+2. Freeze the behavioral design before generation.
+3. Run the smallest model panel needed to qualify the effect.
+4. Only if behavior passes, run the shared-checkpoint mechanism.
+5. Expand to the full planned model panel only if needed for the main claim.
+6. Do not run G21 in parallel.
 
 ---
 
 # Do not run
 
-- cancelled ReGround G19;
+- G21 as current mainline;
+- ReGround G19;
 - another semantic-specificity ladder;
-- raw B-alone vs A+B comparisons that ignore redundancy;
 - another generic reminder study;
-- model-size breadth;
-- a mechanism round looking for a result before G20/G21 behavior exists.
+- model-size sweeps;
+- third-mechanism-model breadth before the G20 behavior qualifies;
+- source/provenance experiments that do not explain G0.
 
-The next gain must be a **non-obvious control failure**, not a larger robustness table.
+The next gain must be a **direct explanation of the prospective/retrospective
+exclusion reversal**.
