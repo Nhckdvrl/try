@@ -17,10 +17,13 @@ Use:
   preregistered gate. It does not carry the final mechanism claim.
 - G17 binding-by-weight preregistration — frozen ratio estimand proved defective;
   post-result raw-point reanalysis is retained as suggestive only.
-- PREREGISTRATION_G18_SEMANTIC_TARGETING.md — **final confirmatory experiment**.
+- PREREGISTRATION_G18_SEMANTIC_TARGETING.md — **final explanatory confirmation**.
   Frozen before generation at tag g18-semantic-targeting-design-v1. Both gates passed:
-  Delta_semantic +8.91 [7.15,10.76], positive in 5/5 models. Per its decision rule,
-  this closed the experimental programme.
+  Delta_semantic +8.91 [7.15,10.76], positive in 5/5 models.
+- PREREGISTRATION_G19_REGROUND.md — **one explicitly authorised post-G18 method
+  evaluation**. ReGround is a positive mechanism-derived extension, not a repair of
+  the explanatory chain. The final G19_FREEZE.md commit is the freeze authority; every
+  G19 verdict closes the programme permanently.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
