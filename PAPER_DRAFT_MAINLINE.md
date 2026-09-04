@@ -194,104 +194,139 @@ This motivates a scope hypothesis:
 
 ---
 
-# 5. Candidate Contribution 2 — the Binding Deadline
+# 5. Candidate Contribution 2 — Source–Proposition Scope Entanglement
 
-**Pending G20.**
+**First priority, pending G21.**
 
-The key experiment is intentionally not another semantic-specificity ladder.
+The strongest new question is not whether semantic content helps exclusion. It is
+whether semantic control preserves **which source is governed**.
 
-Use the **same semantic target block P and same unrelated block U** and swap only their
-order relative to the exclusion rule:
+Use:
 
-PRE-BIND:
-P → rule → U → evidence
+Source A
+→ source-scoped exclusion policy
+→ independent Source B
+→ decision
 
-LATE-BIND:
-U → rule → P → evidence
+The source policy says:
+- A is excluded;
+- **only A** is excluded;
+- B and other independent sources remain fully admissible even if they support the
+  same proposition.
 
-Thus:
-- same semantic information;
-- same evidence;
-- same rule;
-- target is available before decision in both;
-- only whether target resolution occurs before or after rule processing changes.
+B varies:
+- paraphrase / mutual entailment;
+- more-specific entailment;
+- gist;
+- high lexical overlap but different proposition;
+- unrelated but decision-relevant control.
 
-A second factorial replays the identical rule after both blocks:
+A separate proposition-scoped policy explicitly says that A's proposition is excluded
+regardless of source. This is the positive control for true proposition-level
+suppression.
 
-PRE + REPLAY:
-P → rule → U → rule → evidence
+## 5.1 Redundancy-deconfounded metric
 
-LATE + REPLAY:
-U → rule → P → rule → evidence
+Do not compare B-alone with A+B.
 
-## Claim if confirmed
+Same-proposition sources are naturally redundant. Instead measure B's conditional
+marginal with A already present:
 
-> **Prospective exclusion has a binding deadline. An unresolved rule is not reliably
-> late-bound when its target is revealed later; reprocessing the rule after target
-> revelation restores the control relation.**
+BMarginal_no = Y(A+B) - Y(A)
 
-Why this is scientifically stronger:
-- the old "semantic information helps" account predicts PRE and LATE should both help;
-- ordinary prospective memory predicts a reminder effect, not a target-relative
-  binding deadline;
-- generic instruction position is controlled because the first rule remains fixed;
-- masked-diffusion replication would show that the effect is not merely an
-  autoregressive attention restriction.
+BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
 
-Matched Admit and arithmetic controls ask whether the deadline is specific to
-destructive evidence control rather than generic late composition.
+SourceSpillover = BMarginal_no - BMarginal_source
+
+Thus any spillover is **additional loss of allowed-B influence caused by the
+source-scoped exclusion policy**, beyond ordinary semantic redundancy.
+
+Primary semantic contrast:
+
+mean(SourceSpillover[paraphrase, entail])
+-
+mean(SourceSpillover[lexical-wrong, unrelated])
+
+## 5.2 Claim if confirmed
+
+> **Exclusion entangles source identity with proposition identity: a policy that
+> excludes Source A suppresses the causal contribution of independent, explicitly
+> admissible Source B when B expresses the same proposition.**
+
+The strongest version also shows:
+- A itself is successfully excluded;
+- B has non-trivial conditional leverage;
+- proposition-scoped policy suppresses B as expected;
+- lexical overlap without semantic identity does not reproduce the effect;
+- a post-B reminder that B remains admissible does not fully restore B;
+- the model can declaratively answer that B is allowed while behaviorally discounting
+  it.
+
+That is a much less normal phenomenon than "semantic target descriptions improve
+constraint following".
 
 ---
 
-# 6. Candidate Contribution 3 — Semantic Scope Collapse
+# 6. Candidate Contribution 3 — Dynamic Late Binding
 
-**Pending G21.**
+**Second priority, pending strengthened G20.**
 
-G21 makes scope explicit.
+The first version of the Binding Deadline idea had its own obviousness problem:
+decoder-only rule tokens cannot literally attend to later target tokens.
 
-Suppose:
-- Source A is excluded;
-- Source B is independent and explicitly admissible;
-- A and B express the same proposition.
+The publishable claim therefore cannot be:
+> the earlier rule-token state does not update.
 
-Correct behavior:
-> remove A, preserve B.
+The stronger test asks whether the **whole model**, at answer time, can dynamically
+compose an earlier unresolved exclusion rule with a later target mapping.
 
-Potential LLM behavior:
-> once the exclusion is semantically bound, B loses influence too.
+PRE:
+P → rule → U → evidence
 
-## Core estimand
+LATE:
+U → rule → P → evidence
 
-Measure Source B alone:
+Both contain the same semantic information before evidence and answer.
 
-BLeverage = Y(B) − Y(Base)
+## 6.1 Mandatory late-target comprehension
 
-Then measure B in the presence of excluded A:
+On an independent full-context probe, the model must correctly identify which later
+evidence the earlier rule applies to.
 
-BRetained = Y(A+B+ExcludeA) − Y(A+ExcludeA)
+If it cannot, G20 is merely target-comprehension failure.
 
-Spillover:
+## 6.2 Rule replay
 
-Spillover = BLeverage − BRetained
+LATE+REPLAY:
+U → rule → P → identical rule → evidence
 
-The decisive contrast compares:
-- B paraphrases/entails A's proposition;
-versus
-- lexical-overlap wrong meaning / unrelated B.
+PRE+REPLAY:
+P → rule → U → identical rule → evidence
 
-## Claim if confirmed
+A selective LATE replay rescue tests whether reprocessing the rule after target
+resolution repairs enforcement rather than simply adding recency.
 
-> **Semantic exclusion can collapse provenance scope: a rule that excludes one
-> evidence source suppresses an independent admissible source when both express the
-> same proposition.**
+## 6.3 Positive late-binding controls
 
-An explicit:
-> Source B remains admissible and should retain full evidential weight
+The same earlier-rule/later-target structure must work substantially better for:
+- Admit;
+- explicit arithmetic;
+- use/select routing.
 
-condition makes the test especially strong.
+This shows the model is capable of late composition in general.
 
-This is not "semantic policies generalize well". It is the opposite:
-> semantic generalization becomes a control error when policy scope is source-specific.
+Masked diffusion models are load-bearing. At least one should preserve the exclusion
+pattern despite bidirectional prompt attention before we make a strong rule-compilation
+claim.
+
+## 6.4 Claim if confirmed
+
+> **LLMs can understand a late-resolved target yet fail to dynamically attach an
+> earlier exclusion policy to it; reprocessing the rule after target resolution
+> restores control.**
+
+This is a downstream control-algorithm failure, not the trivial fact that causal
+hidden states cannot look backward.
 
 ---
 
@@ -472,15 +507,17 @@ appendix.
 
 # 12. Current stop/go logic
 
+### G21 passes
+Source–proposition scope entanglement becomes the new centerpiece.
+
+### G21 fails
+Do not rescue it with B-alone metrics or more prompt variants; proceed to the strengthened G20 only on its pre-frozen design.
+
 ### G20 passes
-Binding deadline becomes the new explanatory center.
+Dynamic late-binding failure becomes a major explanatory contribution, provided the comprehension, positive-control and masked-diffusion criteria also pass.
 
 ### G20 fails
-Do not force the story. The old "semantic information helps" account remains too
-normal; proceed to G21 because scope collapse can independently provide the novelty.
-
-### G21 passes
-Scope collapse becomes at least a major contribution and possibly the centerpiece.
+Do not fall back to the trivial rule-token causal-mask story.
 
 ### Both fail
 Do not revive ReGround or "target addressability" as a headline. Re-evaluate whether
