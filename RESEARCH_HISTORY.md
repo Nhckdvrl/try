@@ -238,3 +238,69 @@ every main experiment on the original pre-commitment question.
 
 The current authoritative audit is:
 [MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md).
+
+
+## 10. Third mainline audit — target knowledge vs evidential instantiation
+
+A deeper audit of the actual prompts and raw condition structure found that the
+second-reset “non-commutative exclusion” story was still one step too fast.
+
+The key correction came from re-reading G18 itself.
+
+Its semantic `para/entail` previews do not merely identify what a future evidence item
+will mean. They substantively assert almost the same proposition as the later evidence.
+This is visible behaviorally: under semantic previews, the later evidence's no-rule
+marginal falls from roughly 32 rating points to roughly 3.
+
+Therefore G18 had mixed two variables:
+
+1. **target knowledge** — the model knows exactly what future evidence will say;
+2. **evidential instantiation** — the same proposition has already entered the
+   judgment as substantive information.
+
+That distinction had never been cleanly tested.
+
+The audit also found a second interpretive gap in Stage 3B. Tagged
+`[verified]/[unverified]` routing succeeds prospectively, but the no-policy control
+removes the labels themselves. Thus the experiment cannot distinguish standing-policy
+execution from local semantic discounting caused by the `[unverified]` label.
+
+These corrections changed experiment priority again:
+
+- G21 remains downgraded because it does not explain G0.
+- G20 remains a serious conditional hypothesis, but is no longer the authorized next
+  experiment because its latest P/U swap still mixes target state and distance.
+- G18 remains a strong prospectively confirmed diagnostic but no longer licenses
+  “non-evidential future target semantics are sufficient.”
+- Stage 3B remains a successful routing result but no longer licenses “standing tagged
+  policies prove prospective gating works.”
+
+The project registered a new design-audit candidate:
+
+### G22 — Target Knowledge vs Evidential Instantiation
+
+The intended factorization is:
+
+```
+U: unresolved future target
+K: future target semantics exactly known but explicitly non-evidential
+I: the same proposition already instantiated as evidence
+```
+
+The critical scientific requirement is that K be genuinely judgment-neutral. If a
+clean K carrier cannot be constructed, the experiment must not run.
+
+The branch logic is intentionally falsifiable:
+
+- if K rescues exclusion, proceed to clean early-vs-late target mapping and deferred
+  composition;
+- if only I rescues, investigate retrospective evidence-state revision/cancellation;
+- if neither cleanly separates, reassess rather than promote a side phenomenon.
+
+A small D22-A routing diagnostic was also registered to distinguish standing-policy
+execution from local semantic label effects. It is explicitly supporting-only.
+
+The current authoritative ledger is:
+[SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md).
+
+No new generation was performed during this audit.
