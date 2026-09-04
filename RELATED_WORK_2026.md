@@ -1,218 +1,264 @@
-# Related work — advance commitment to ignore evidence
+# Related work — binding future evidence control
 
-The paper asks:
+The post-reset paper asks two questions:
 
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+> **Can an exclusion rule be late-bound when its target becomes identifiable only
+> after the rule has already been processed?**
 
-and isolates one dependency:
+and
 
-> **When a policy is processed before its evidential target exists, the target
-> representation itself affects whether that policy later controls the evidence.**
+> **When exclusion binds semantically, does it preserve the source/occurrence scope of
+> the policy or spread to semantically equivalent evidence outside that scope?**
 
-The novelty claim must be built on this dependency. “LLMs are bad at ignoring things,”
-“early instructions are weaker,” and “instruction states exist” are all occupied
-territory.
+These questions deliberately avoid three occupied/obvious claims:
+- later instructions can be easier to follow;
+- more specific semantic constraints can help;
+- identifying irrelevant information and then telling the model to ignore it can
+  improve performance.
 
-## 1. Occupied neighbouring questions
+## 1. Why the old "semantic target helps" story is insufficient
 
-| work | established question/result | remaining distinction |
-|---|---|---|
-| **I3C**, NAACL 2024 Main — https://aclanthology.org/2024.naacl-long.379/ | identify irrelevant conditions and instruct models to ignore them across math datasets | the irrelevant condition is already present when judged; no not-yet-instantiated target |
-| **IHEval**, NAACL 2025 Main — https://aclanthology.org/2025.naacl-long.425/ | instruction hierarchy conflicts across system/user/history/tool | co-present instruction conflict, not prospective evidence targeting |
-| **COMPASS**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.2139/ | organization policy following; denylist/prohibition failures are severe | establishes prohibition difficulty but not what representation of a future target controls enforcement |
-| **Instruction Position Matters**, ACL 2024 Findings — https://aclanthology.org/2024.findings-acl.693/ | instructions after input can outperform instructions before input | same coarse sign, but target representation is not manipulated or explained |
-| **Prospective-memory failures**, 2026 — https://arxiv.org/abs/2603.23530 | deferred instructions degrade under load and reminders help | primarily asks whether the model remembers to execute a future action |
-| **LoCoMo-Plus**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.1150/ | semantically disconnected cue/trigger dependencies in long-term agent memory | retrieval of a past cue is the bottleneck; our policy is already in context |
-| **Patches of Nonlinearity**, ACL 2026 Main — https://aclanthology.org/2026.acl-long.559/ | causal instruction representations and circuit selection | an instruction state itself is not our novelty; target-dependent conditioning of the rule state is |
-| **Semantic Gravity Wells**, 2026 — https://arxiv.org/abs/2601.08070 | negative output constraints can backfire through forbidden-token priming and late override | forbidden output tokens, not causal weighting of in-context evidence; our semantic preview improves rather than primes the forbidden target |
-
-## 2. Human instructed disregard
-
-The G0 preregistration was motivated by human inadmissible-evidence research. A
-meta-analysis of 48 studies and 8,474 participants reports persistent influence of
-evidence after people are instructed to disregard it:
-https://pubmed.ncbi.nlm.nih.gov/16906469/
-
-The paper should not claim that we ran a matched human comparison. Correct framing:
-
-> **A human-literature-motivated preregistered prediction was reversed in LLMs.**
-
-The human work supplies the motivating hypothesis, not a claim of shared or opposite
-cognitive mechanism.
-
-## 3. Instruction position, prospective memory and hierarchy
-
-**Instruction Position Matters in Sequence Generation**
+### Instruction Position Matters — ACL 2024 Findings
 https://aclanthology.org/2024.findings-acl.693/
 
-The same broad before/after sign is therefore not our novelty. Our contribution starts
-after that observation: explicit policy access remains available, ordinary distance
-does not explain the gap, and G18 manipulates the representation of the future target
-while holding the later evidence fixed.
+Moving the task instruction after the input can improve sequence-generation
+instruction following, motivated by instruction locality/forgetting.
 
-**Prospective memory**
+Implication:
+our G0 sign alone is not novel.
+
+### Chain-of-Specificity — COLING 2025
+https://aclanthology.org/2025.coling-main.164/
+
+Emphasizing and progressively refining specific constraints improves constraint
+adherence.
+
+Implication:
+"make the target more specific" is an occupied engineering idea and cannot be our
+headline explanation.
+
+### I3C — NAACL 2024 Main
+https://aclanthology.org/2024.naacl-long.379/
+
+I3C identifies candidate irrelevant conditions, verifies them, and then explicitly
+instructs the model to ignore them.
+
+Implication:
+"identify what should be ignored, then explicitly mark it" is already occupied in
+spirit. This is why the cancelled ReGround design is not a paper-level method novelty.
+
+## 2. Prospective memory
+
+### Did You Forget What I Asked? — 2026
 https://arxiv.org/abs/2603.23530
 
-The closest conceptual overlap is the requirement to act on an earlier instruction
-later. Our stronger dissociation is that in some models an explicitly recovered or
-teacher-forced zero-weight policy still fails to make the evidence causally inert.
-Thus policy accessibility and evidence enforcement can separate.
+Deferred formatting constraints degrade under concurrent task load; salience-enhanced
+formatting with a trailing reminder restores much of the lost compliance.
 
-**Instruction hierarchy / system policy**
-https://aclanthology.org/2025.naacl-long.425/
-https://aclanthology.org/2026.acl-long.2139/
+Our distinction:
+G20 does not ask whether a remembered rule is repeated near answer time. The rule stays
+fixed, the semantic target is revealed after it but before evidence/decision, and the
+test asks whether **target resolution can retroactively update an already processed
+control rule**.
 
-Our agent setting does not rely on a lower-priority conflicting instruction. The
-important counterfactual is scope: an identifier policy can protect its named D7, but
-that protection does not follow the same proposition to D9, whereas proposition-level
-control does.
+If LATE-BIND works as well as PRE-BIND, we should concede that prospective-memory /
+ordinary context integration is a sufficient story and drop the binding-deadline claim.
 
-## 4. Irrelevant context and distraction
+## 3. Generic binding is occupied
 
-### ACL 2025 Outstanding — Llama See, Llama Do
-https://aclanthology.org/2025.acl-long.791/
+### Representational Analysis of Binding in Language Models — EMNLP 2024 Main
+https://aclanthology.org/2024.emnlp-main.967/
 
-This is the closest Outstanding-shaped narrative reference. It turns the broad problem
-of distraction into a sharper regularity, **contextual entrainment**, then identifies
-entrainment heads and attenuates the behavior by ablating them.
+Studies entity–attribute Binding IDs and localizes a low-rank binding subspace; editing
+that subspace causally changes which attribute is bound to an entity.
 
-Our phenomenon is not generic distraction: the evidence is decision-relevant but
-explicitly prohibited. Our corresponding explanatory move is **target addressability**,
-confirmed prospectively in G18. High lexical overlap with the wrong proposition does
-not reproduce the semantic-target effect.
+Our distinction:
+we do not claim to discover binding in general. The object is a **control relation**
+between a policy and a future evidence instance/source.
 
-### ACL 2025 Main — Stochastic Chameleons
-https://aclanthology.org/2025.acl-long.1458/
+The critical G20 question is temporal:
+can that control relation be formed after the rule has already been processed?
 
-Irrelevant-context errors are shown to be structured class-based misgeneralization
-with competing internal computations. This supports our narrative standard: a failure
-becomes scientifically valuable when it reveals a structured variable beneath the
-error, not because “extra context hurts.”
+The critical G21 question is scopal:
+does the relation bind to an evidence instance/source or collapse onto proposition
+identity?
 
-## 5. In-context suppression and unlearning
+## 4. Instruction representations are occupied
 
-**Answer When Needed, Forget When Not**
-https://aclanthology.org/2025.findings-acl.1276/
+### Patches of Nonlinearity — ACL 2026 Main
+https://aclanthology.org/2026.acl-long.559/
 
-This work studies selective suppression of parametric knowledge and finds late-layer
-“pretend to forget” behavior. Our object is different: controlling the causal
-contribution of newly provided in-context evidence. The mechanistic similarity—late
-decision-level resolution—is a useful neighbour, while target addressability is an
-additional variable specific to prospective evidence control.
+Localizes instruction representations and shows non-linear causal interaction;
+instruction vectors act as circuit selectors conditioned on earlier task
+representations.
 
-**Self-Blinding and Counterfactual Self-Simulation**
-https://arxiv.org/abs/2601.14553/
+Our distinction:
+Stage 5's mid-layer rule state is not novelty by itself. It matters because it suggests
+a specific computation at rule time. G20 can test whether **later target information
+fails to reconstruct that state unless the rule is replayed**.
 
-This work shows that simply asking a model to ignore biasing information can fail and
-proposes genuinely blinded alternatives. Our paper does not compete on mitigation; it
-asks when an in-context exclusion policy succeeds and identifies the target
-representation as a determinant.
+## 5. Negative constraints
 
-## 6. Mechanistic interpretability references
+### Semantic Gravity Wells — 2026
+https://arxiv.org/abs/2601.08070
 
-### NAACL 2025 Main — Racing Thoughts
+Studies negative output constraints, where explicitly naming forbidden tokens can
+increase semantic pressure toward those tokens and late layers can override
+constraint-compliant computation.
+
+Our distinction:
+the governed object here is not an output token. It is the **causal contribution of
+contextual evidence**, with source/occurrence scope explicitly measurable.
+
+G21's potential scope spillover is therefore not simply forbidden-token priming.
+
+## 6. Provenance and source identity
+
+Several recent papers establish that LLMs can represent or be evaluated on provenance,
+and that source labels affect decisions.
+
+### TROVE — ACL 2025 Main
+https://aclanthology.org/2025.acl-long.577/
+
+Traces generated sentences back to fine-grained source sentences and classifies the
+relation between generation and source.
+
+### GenProve — ACL 2026 Main
+https://aclanthology.org/2026.acl-long.228/
+
+Trains generation with fine-grained provenance.
+
+### GAVEL — ACL 2026 Findings
+https://aclanthology.org/2026.findings-acl.1789/
+
+Uses evidence contracts that bind atomic subclaims to explicit evidence units and
+mechanically validates provenance.
+
+### Label Effects — ACL 2026 Main
+https://aclanthology.org/2026.acl-long.1495/
+
+Shows counterfactually that source labels themselves alter human and LLM trust
+judgments.
+
+These works occupy:
+- provenance tracing;
+- evidence attribution;
+- source-label trust;
+- provenance-grounded generation.
+
+They do **not** directly ask G21's control question:
+
+> If Source A is explicitly excluded and independent Source B is explicitly allowed,
+> does B lose causal evidential weight merely because it expresses the same
+> proposition as A?
+
+That distinction matters. Correct provenance tracking is compatible with incorrect
+policy scope: a model may know that a statement came from B and still apply A's
+semantic exclusion to it.
+
+## 7. Decision-time exclusion / non-use governance
+
+A very recent non-peer-reviewed preprint, **Certified Amnesia: A Decision-Evidence
+Protocol for Provable Context Exclusion in AI Agents** (July 2026), explicitly
+distinguishes syntactic context exclusion from stronger semantic non-use and proposes
+provenance-backed certificates for showing that forbidden items were absent from a
+decision's effective context.
+
+This is an important adjacent systems/governance reference.
+
+Our question is complementary:
+- Certified Amnesia asks how a system can **guarantee/certify** that forbidden
+  provenance was not admitted to effective context;
+- we empirically ask what an LLM does when the forbidden and allowed evidence are both
+  present and a natural-language rule is supposed to make only one source causally
+  inert.
+
+If G21 succeeds, it provides a behavioral reason why provenance-preserving external
+enforcement may be necessary: semantic in-model exclusion may not preserve
+source-specific scope.
+
+Do not claim priority over decision-time context exclusion as a systems problem.
+
+## 8. Contextualization / dependency-order mechanisms
+
+### Racing Thoughts — NAACL 2025 Main
 https://aclanthology.org/2025.naacl-long.155/
 
-Natural contextualization failure → algorithmic race hypothesis → correlational and
-causal evidence → inference-time implications. It is the closest NAACL structural
-reference for our behavior-to-mechanism descent.
+Explains contextualization errors through a race-condition hypothesis in which
+computations that should condition later processing do not resolve in the necessary
+order.
 
-### EMNLP 2025 Outstanding — Causal Interventions Reveal Shared Structure
-https://aclanthology.org/2025.emnlp-main.1271/
+This is the closest narrative/mechanistic neighbor to G20.
 
-Distributed Interchange Interventions answer a pre-existing theory question about
-shared structure. This is an important precedent for our mechanism: causal transfer
-does not need to become a deployment algorithm to be scientifically central when it
-tests the paper's explanatory claim.
+The distinction:
+our proposed dependency is between **target resolution and rule compilation**. The same
+semantic target is available before final decision in both PRE and LATE conditions;
+only whether it crossed the rule-processing boundary changes.
 
-### ACL 2024 Outstanding — CausalGym
-https://aclanthology.org/2024.acl-long.785/
+A positive replay interaction would make this much more than generic prompt order.
 
-CausalGym evaluates interpretability methods by their ability to alter behavior and
-then uses the strongest method to study mechanism learning. This is why our mechanism
-claim rests on causal span gating and interchange, not on the fact that a probe can
-decode policy information.
+### Llama See, Llama Do — ACL 2025 Outstanding
+https://aclanthology.org/2025.acl-long.791/
 
-### ACL 2026 Main — Do LLMs Know Tool Irrelevance?
+Turns broad distraction into the sharper regularity of contextual entrainment and then
+causally localizes entrainment heads.
+
+Narrative lesson:
+the paper needs a new regularity underneath the coarse failure. "Semantic target helps"
+does not meet that bar; binding deadline or scope collapse potentially does.
+
+### Do LLMs Know Tool Irrelevance? — ACL 2026 Main
 https://aclanthology.org/2026.acl-long.1473/
 
-This is the closest factorization reference: structural alignment is separated from
-semantic relevance in a dedicated controlled benchmark, then traced to competing
-pathways and mitigated.
+Turns tool-irrelevance errors into a conflict between structural alignment and semantic
+relevance, with a dedicated factorized benchmark and causal pathway analysis.
 
-G18 plays the analogous centerpiece role for this paper:
-- future target representation is directly manipulated;
-- fresh items/skeletons are used;
-- every target representation has its own baseline;
-- the semantic contrast is frozen prospectively.
+Narrative lesson:
+our factorization should concern **binding strength vs scope precision**, not simply
+identifier vs semantic content.
 
-## 7. Positioning of the present paper
+## 9. Policy/hierarchy benchmarks
 
-Prior work establishes that:
-- irrelevant information can distract models;
-- models can fail to obey prohibitions and policy hierarchies;
-- instruction position affects compliance;
-- deferred instructions can be forgotten;
-- instruction representations can be causally localized.
+### IHEval — NAACL 2025 Main
+System/user/history/tool instruction conflicts.
 
-We study a dependency not isolated by these lines:
+### COMPASS — ACL 2026 Main
+Organization-specific policy alignment; prohibition/denylist behavior can be weak.
 
-> **When an exclusion policy is processed before its evidential target exists, what
-> representation of that target is needed for the policy to control the target's later
-> causal contribution?**
+These establish that policy compliance is difficult. Our novelty cannot be "models
+fail policies".
 
-G18 confirms that sufficiently specific semantic target representations support
-substantially stronger exclusion than referential or merely surface-similar
-representations. The agent identity-swap shows that semantic and identifier scope
-remain distinct in a SYSTEM→TOOL setting. Matched rule-state interchange then shows
-that target availability causally changes a mid-network state that controls later
-suppression in two architectures.
+Our question concerns the internal referent/scope of a valid exclusion policy:
+- when can the policy acquire its future target?
+- once acquired, does it remain bound to the correct source/occurrence?
 
-## 8. Retrieval-time control and mitigation
+## 10. Novelty position after the audit
 
-Two 2026 neighbours are useful for positioning the method without overclaiming novelty.
+The paper should **not** claim:
+- first evidence-exclusion work;
+- first policy-following failure;
+- first study of binding;
+- first provenance-aware LLM work;
+- first discovery that more specific instructions help.
 
-**SPARKLE**, ACL 2026 Main
-https://aclanthology.org/2026.acl-long.1793/
+The candidate missing dependency, after targeted search, is narrower:
 
-SPARKLE introduces a separate proxy model that learns an adaptive retrieval policy and
-decides when/how to retrieve. ReGround also separates a control module from the final
-LLM decision, but its object is different: retrieval has already happened, and the
-module resolves a pre-existing **exclusion policy** to the concrete documents that
-arrived. ReGround uses no RL or model training.
+> **Whether a natural-language control rule can be late-bound after its semantic
+> target is revealed across the rule-processing boundary, and whether successful
+> semantic binding preserves source/occurrence scope when independently sourced
+> evidence expresses the same proposition.**
 
-**EPRAG**, Knowledge-Based Systems 2026
-https://www.sciencedirect.com/science/article/pii/S0950705126016552
+We have not found an ACL/EMNLP/NAACL paper directly isolating these two dependencies.
+That is a search result, not a proof of priority; final writing should say "we study"
+rather than "we are the first".
 
-EPRAG performs epistemic diagnosis and action selection over multi-source enterprise
-RAG evidence. It shows that retrieval-time governance can benefit from an explicit
-policy layer. ReGround studies a narrower causal problem: how a semantic policy stated
-before retrieval is instantiated against its later evidential targets so that those
-targets become causally inert in the final decision.
+## 11. Cancelled method
 
-These works mean the paper should not claim “the first policy layer for RAG” or “the
-first post-retrieval control system.” The method contribution, if G19 succeeds, is the
-**mechanism-derived grounding operation** tied specifically to the target-addressability
-phenomenon established in this paper.
+ReGround G19 was cancelled before freeze/generation.
 
-## 9. ReGround positioning
+Reason:
+post-retrieval target resolution followed by an explicit exclusion ledger is a
+reasonable systems response, but it is too close to ordinary policy evaluation and
+identify-then-ignore pipelines to be the scientific novelty.
 
-ReGround is prospectively frozen as G19. All fair primary baselines receive the same
-semantic policy. The method adds one operation after retrieval: resolve that policy to
-the actual matching document IDs and compile a trusted exclusion ledger.
-
-The decisive controls are:
-- Semantic-Pre: same semantic policy, no grounding;
-- Semantic-Generic: same policy plus a comparable-length post-retrieval reminder;
-- Semantic-Restate: repeat the full semantic policy after retrieval;
-- wrong-D9: lexical overlap without proposition match.
-
-If successful, the claim is:
-
-> **Explicit post-retrieval grounding makes a prospective semantic exclusion policy
-> more reliable and selective.**
-
-It is not a claim that ReGround solves access control, RAG security, or arbitrary
-identifier-only policies in general.
-
-
+Do not include it in the paper's contribution list.
