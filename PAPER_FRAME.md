@@ -69,68 +69,67 @@ This motivates a scope question:
 > **Does successful semantic binding suppress the proposition beyond the specific
 > evidence occurrence or source that the rule was meant to govern?**
 
-## 4. Candidate Contribution 2 — Binding Deadline
+## 4. Candidate Contribution 2 — Source–Proposition Scope Entanglement
 
-Pending G20.
-
-### Claim if confirmed
-
-> **Prospective exclusion has a binding deadline: target information must be available
-> when the rule is processed. Revealing the target later, even before the evidence,
-> does not reliably update the earlier control relation; replaying the rule after
-> target revelation restores it.**
-
-The clean test permutes the same semantic target block and matched unrelated block
-around the rule while keeping the actual evidence after the rule:
-
-PRE-BIND:
-semantic target → rule → unrelated → evidence
-
-LATE-BIND:
-unrelated → rule → semantic target → evidence
-
-A second copy of the identical rule after both blocks tests whether reprocessing the
-rule recompiles it against the now-instantiated target.
-
-Why this is not generic instruction-position work:
-- the rule itself stays in the same location;
-- the evidence stays after it;
-- only target resolution moves across the rule;
-- matched Admit/arithmetic controls test generic late composition;
-- masked-diffusion models test whether the phenomenon survives bidirectional prompt
-  attention.
-
-## 5. Candidate Contribution 3 — Semantic Scope Collapse
-
-Pending G21.
+**First priority, pending G21.**
 
 ### Claim if confirmed
 
-> **When an exclusion rule does bind semantically, its suppression can cross
-> provenance boundaries: excluding one source can reduce the evidential contribution
-> of an independent, explicitly admissible source expressing the same proposition.**
+> **A source-scoped exclusion rule can become proposition-scoped in effect: excluding
+> Source A reduces the causal contribution of an independent, explicitly admissible
+> Source B when B expresses the same proposition.**
 
-This turns the G18 oversuppression from a caveat into a precise, real-world failure.
+This is tested with Source A before the policy so that target binding is already
+successful. Source B arrives after the policy.
 
-The decisive test uses:
-- Source A: explicitly excluded;
-- Source B: explicitly admissible and independent;
-- B either paraphrases A's proposition or carries a lexical/semantic control.
+The primary metric is a redundancy-deconfounded conditional marginal:
 
-The key estimand is how much of Source B's independently measured leverage survives
-when Source A is excluded.
+BMarginal_no = Y(A+B) - Y(A)
 
-A semantic-only spillover would show that the model confuses:
+BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
 
-> which evidence instance is governed
+SourceSpillover = BMarginal_no - BMarginal_source
 
-with
+A separate proposition-scoped policy is the positive control. High lexical overlap
+with a different proposition and unrelated-but-relevant B are semantic controls.
 
-> what proposition that instance expresses.
+The strongest pattern is:
+- A itself is successfully excluded;
+- B has measurable conditional leverage under no policy;
+- source-scoped policy removes B leverage only for semantic-equivalent B;
+- proposition-scoped policy removes B as expected;
+- an explicit post-B reminder that B remains admissible does not fully restore it;
+- a separate scope probe can still report that B is allowed.
+
+That would establish a causal **scope-enforcement failure**, not mere provenance
+confusion or semantic redundancy.
+
+## 5. Candidate Contribution 3 — Dynamic Late Binding
+
+**Second priority, pending strengthened G20.**
+
+### Claim if confirmed
+
+> **Even when the model can identify a late-revealed target before decision time,
+> exclusion may still depend on whether target resolution preceded rule processing;
+> replaying the identical rule after target revelation selectively restores control.**
+
+This claim is deliberately stronger than "earlier rule states cannot see later
+tokens", which is trivial in decoder-only Transformers.
+
+G20 qualifies only if:
+- a full-context probe shows the late target mapping is understood;
+- matched Admit/arithmetic/routing late-binding controls succeed;
+- PRE target > LATE target for exclusion;
+- replay selectively repairs LATE rather than acting as generic recency;
+- at least one masked-diffusion model with bidirectional prompt attention preserves the
+  pattern.
+
+Without these properties, G20 should not become a central claim.
 
 ## 6. Higher-level hypothesis — under-binding vs over-binding
 
-If G20 and G21 both pass, the paper has a substantially stronger abstraction:
+If G21 and the strengthened G20 both pass, the paper has a substantially stronger abstraction:
 
 > **LLMs face a binding–scope trade-off in prospective evidence control.**
 
@@ -239,6 +238,6 @@ future control **strongly and precisely**.
 ReGround G19 is cancelled before generation.
 
 Active work:
-1. finalize/freeze G20 Binding Deadline;
-2. finalize/freeze G21 Source-Scope Collapse before seeing either result if feasible;
-3. run no additional breadth or mitigation round until these hypotheses are resolved.
+1. build/audit/freeze **G21 Source–Proposition Scope Entanglement first**;
+2. freeze the strengthened G20 independently before seeing G21 if feasible;
+3. run no new mechanism, breadth or mitigation round until at least one new behavioral phenomenon qualifies.
