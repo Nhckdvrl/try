@@ -1,313 +1,271 @@
-# Related work — deferred evidence control
+# Related work — prospective exclusion after scientific register v3
 
-The paper asks one central question:
+**Updated:** 2026-09-04.
+**Current scientific question:** what target state must exist when an exclusion policy is
+processed for future evidence to become causally inert?
 
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+This document is a positioning map, not a priority claim.
 
-The current candidate explanation is narrower:
+---
 
-> **When target semantics are unavailable at exclusion-rule processing time, can the
-> model later compose the already-processed exclusion operator with a target that is
-> resolved before the governed evidence arrives?**
-
-This avoids three occupied/obvious claims:
-- later instructions can be easier to follow;
-- more specific semantic constraints can help;
-- identifying irrelevant information and then telling the model to ignore it can
-  improve performance.
-
-G21 source/proposition scope is retained only as future-work provenance and is not part
-of the current novelty position.
-
-## 1. Generic instruction position and order are occupied
+# 1. Generic instruction position / order
 
 ### Instruction Position Matters — ACL 2024 Findings
 https://aclanthology.org/2024.findings-acl.693/
 
-Moving task instructions after the input can improve sequence-generation instruction
-following, motivated by instruction locality/forgetting.
-
-Implication:
-our G0 sign alone is not novel.
-
 ### Order Matters — ACL 2025 Findings
 https://aclanthology.org/2025.findings-acl.646/
 
-Shows strong position bias in multi-constraint instruction following and a hard-to-easy
-order advantage.
+Occupied:
+- later instructions can be easier;
+- constraint order matters;
+- recency/locality can affect instruction following.
 
 Implication:
-“order matters” is not sufficient as our claim.
+G0's sign alone is not the novelty.
 
-Our stronger variable is the ordering of **target semantic resolution** and the
-**exclusion operator**, with a downstream checkpoint where both are already available.
+Our target is a more specific dependency between:
+- future-target state;
+- exclusion-policy processing;
+- later causal evidence use.
 
-## 2. Constraint specificity is occupied
+---
+
+# 2. Constraint specificity / identify-then-ignore
 
 ### Chain-of-Specificity — COLING 2025
 https://aclanthology.org/2025.coling-main.164/
 
-Emphasizing/refining specific constraints improves adherence.
-
-Implication:
-“make the target more specific” cannot be our headline.
-
-G18 is therefore factorization evidence:
-pre-rule target semantics alter exclusion, but the novelty comes from whether the same
-semantics can be integrated **after** the rule.
-
-## 3. Identify-then-ignore is occupied
-
 ### I3C — NAACL 2024 Main
 https://aclanthology.org/2024.naacl-long.379/
 
-I3C identifies candidate irrelevant conditions, verifies them, and then explicitly
-instructs the model to ignore them.
+Occupied:
+- more specific constraints improve adherence;
+- identify irrelevant conditions then explicitly ignore them.
 
 Implication:
-post-hoc identification plus explicit ignore instruction is occupied in spirit. This is
-why ReGround G19 remains cancelled.
+“semantic target information helps” cannot carry the paper.
+ReGround remains cancelled.
 
-Our question is earlier:
-can a rule remain executable while its target is unresolved?
+---
 
-## 4. Prospective memory is adjacent but different
+# 3. Prospective memory / standing instructions
 
-### TriggerBench — 2026
-https://arxiv.org/abs/2606.23459
+Recent prospective-memory and standing-instruction work establishes that models often
+fail deferred constraints and long-lived instructions.
 
-Evaluates whether models spontaneously recall and act on latent future-triggered
-constraints. It finds prospective memory harder than retrospective memory and sensitive
-to context/interference.
+Relevant examples:
+- prospective-memory / trigger benchmarks;
+- long-horizon standing-instruction evaluations.
 
-### Did You Forget What I Asked? — 2026
-https://arxiv.org/abs/2603.23530
+Our distinction must be stronger than:
+> the model forgot the rule.
 
-Studies deferred formatting constraints under concurrent task load and shows trailing
-reminders can restore compliance.
+Existing policy probes and on-policy trajectories already show that rule access can be
+correct while evidence still influences decisions.
 
-Our distinction:
+The missing question is whether a future evidence-control relation is **causally
+instantiated**, not merely remembered.
 
-> the exclusion rule can remain accessible, and the late target can be correctly
-> recognized, yet the model may still fail to create the causal non-use relation.
+---
 
-Thus our object is not merely memory of the instruction or trigger detection. It is
-**deferred control composition**.
+# 4. In-context forgetting / selective forgetting
 
-## 5. In-context forgetting studies the opposite chronology
+Recent in-context-forgetting work studies instructions to forget or disregard
+information that has already appeared.
 
-### Do LLMs Forget What They Should? / ICF-Bench — ICLR 2026
-https://proceedings.iclr.cc/paper_files/paper/2026/hash/b13d00a62d438856cfe6fbd13b6b2cb8-Abstract-Conference.html
-
-Defines in-context forgetting as selectively discarding already-present information in
-multi-turn dialogue. Its instructional-forgetting example has:
+That chronology is typically:
 
 ```
-information appears → later forget instruction → query
+information → forgetting instruction → later query
 ```
 
-This is important adjacent work, but its chronology is retrospective.
-
-Our entry phenomenon is explicitly:
+Our original question is the prospective reverse:
 
 ```
-forget/exclude instruction → later evidence appears → decision
+exclusion policy → later information → judgment
 ```
 
-and compares it against the retrospective arrangement.
+Do not claim first selective forgetting.
 
-Therefore do not claim “first in-context forgetting.” The missing question is
-pre-commitment before the governed evidence exists.
+The scientific gap is what changes when the policy arrives before the evidence state it
+must control.
 
-## 6. Generic binding is occupied
+---
+
+# 5. Generic binding
 
 ### Representational Analysis of Binding in Language Models — EMNLP 2024 Main
 https://aclanthology.org/2024.emnlp-main.967/
 
-Studies entity–attribute Binding IDs and localizes a low-rank binding subspace.
-
-### Cell-Based Representation of Relational Binding — ACL 2026 Main
+### relational / cell-based binding — ACL 2026 Main
 https://aclanthology.org/2026.acl-long.2194/
 
-Extends binding analysis to entity–relation cells with causal representation editing.
+Occupied:
+- entity-attribute binding;
+- relational binding representations;
+- causal editing of binding states.
 
-Our distinction:
-we do not claim to discover binding in general.
+Do not claim first binding.
 
-The relevant relation is:
+If the G22 route later supports deferred composition, frame it specifically as:
+> future evidence-policy target composition.
 
-```
-EXCLUDE operator ↔ semantic evidence target
-```
+---
 
-and the question is temporal:
-can that relation be created **after** the operator has already been processed?
-
-Use phrases such as:
-- deferred control composition;
-- target-conditioned control;
-- operator–target composition.
-
-Avoid “first binding mechanism.”
-
-## 7. Instruction representations are occupied
+# 6. Eager instruction representations
 
 ### Patches of Nonlinearity — ACL 2026 Main
 https://aclanthology.org/2026.acl-long.559/
 
-Localizes instruction representations and shows non-linear causal interaction;
-instruction vectors can act as circuit selectors conditioned on task representations.
+This work is especially important for the current fork.
 
-Implication:
-Stage 5's mid-layer state is not novelty by itself.
+It shows that instruction-tuned models can form localized instruction
+representations/digests before later query processing, with nonlinear causal effects and
+circuit-selection behavior.
 
-Our mechanism matters only if it touches the new dependency:
-- target-first vs rule-first;
-- after both target and rule are available;
-- causal persistence of the order-dependent control state.
+Therefore do not claim:
+> LLMs eagerly process instructions.
 
-## 8. Dependency-order mechanisms: closest conceptual neighbor
+The useful open consequence for our setting is:
+
+> **What happens when an eagerly processed instruction requires target information that
+> does not yet exist?**
+
+Stage 5's target-dependent rule-time state makes this a concrete mechanistic question.
+
+But the paper must still distinguish:
+- target knowledge;
+- evidential instantiation;
+before asserting an eager-composition failure.
+
+---
+
+# 7. Dependency-order mechanisms
 
 ### Racing Thoughts — NAACL 2025 Main
 https://aclanthology.org/2025.naacl-long.155/
 
-Explains contextualization errors through a race-condition hypothesis: one computation
-must finish before a dependent computation integrates its result.
+Closest methodological neighbor.
 
-This is the closest conceptual prior.
+Useful transferable ideas:
+- critical processing windows;
+- causal backpatching;
+- frozen backpatching;
+- separating “more computation” from “correct computation order.”
 
-Our candidate dependency is distinct:
+Do not merely borrow the phrase race condition.
 
-> **target semantic resolution must be composed with an exclusion operator; when the
-> operator is processed first, later target resolution may fail to reconstruct the
-> effective control state.**
+If G22 later supports target knowledge sufficiency and a late-mapping failure, this
+methodology can test whether:
+- extra neutral processing time repairs control; or
+- the exclusion operator must be reprocessed after target resolution.
 
-The redesigned G20 uses a **post-resolution checkpoint** where both operands are
-available. A causal state difference there is stronger than the trivial statement that
-an earlier decoder token cannot see later input.
+---
 
-Position this as a new control dependency, not as the first order-sensitive computation
-in LLMs.
+# 8. Negative constraints / constructive semantic mechanisms
 
-## 9. Negative constraints
+Recent mechanistic negation work suggests that negative language can involve
+constructive representations rather than only passive suppression.
 
-### Semantic Gravity Wells — 2026
-https://arxiv.org/abs/2601.08070
+Use this as a methodological analogy only.
 
-Studies negative output constraints, including priming of forbidden tokens and late
-override of suppression signals.
+If G22 shows that evidential instantiation is required, a useful question becomes:
 
-Our distinction:
-the governed object here is not a generated token but the **causal contribution of
-contextual evidence to a judgment**.
+> does successful exclusion passively gate later evidence, or actively construct a
+> target-specific revision/cancellation state?
 
-Existing arithmetic and Admit controls further distinguish semantic evidence
-nullification from generic negative wording.
+Do not claim evidence exclusion is negation.
 
-## 10. Distraction / irrelevance mechanisms
+---
 
-### Llama See, Llama Do — ACL 2025 Outstanding
-https://aclanthology.org/2025.acl-long.791/
+# 9. Source labels / semantic labels
 
-Turns broad distraction into contextual entrainment and causally identifies relevant
-attention heads.
+Recent work on source-label effects and label-definition adherence shows that model
+behavior can be strongly shaped by the pretrained semantics of labels, and that models
+may resist arbitrary redefinitions.
 
-Narrative lesson:
-“models use evidence they should not” is not enough. The paper needs a sharper
-computational regularity.
+This is directly relevant to the Stage 3B correction.
 
-Our candidate regularity:
-**target/operator composition is history-dependent and exclusion-specific.**
+Existing Stage 3B has:
+- semantic `[verified]/[unverified]` labels + policy;
+- a no-policy control that removes labels.
 
-### Do LLMs Know Tool Irrelevance? — ACL 2026 Main
-https://aclanthology.org/2026.acl-long.1473/
+Therefore it does not isolate standing-policy execution.
 
-Factorizes tool refusal into structural alignment versus semantic relevance and finds
-competing causal pathways.
+A supporting diagnostic may compare:
+- semantic labels without policy;
+- matching/reversed policies;
+- nonce labels.
 
-Narrative lesson:
-the factorization must expose a non-obvious dependency, not simply add robustness.
+But label semantics cannot become the paper's novelty.
 
-## 11. Policy and instruction hierarchy
+---
 
-### IHEval — NAACL 2025 Main
-https://aclanthology.org/2025.naacl-long.425/
+# 10. Provenance / source work
 
-Evaluates conflicts across system/user/history/tool instruction hierarchy.
+TROVE, GenProve, provenance-role work, source-label trust, and provenance-aware agent
+memory occupy substantial space around:
+- source attribution;
+- provenance tracking;
+- source-role separation;
+- trust conditioned on source labels.
 
-### COMPASS — ACL 2026 Main
-https://aclanthology.org/2026.acl-long.2139/
+This is why G21 remains a future side branch rather than current mainline.
 
-Evaluates organization-specific allowlist/denylist compliance and finds large
-prohibition failures.
+---
 
-These occupy:
-- general policy following;
-- denylist failure;
-- authority conflicts.
+# 11. Policy / guideline systems
 
-Our novelty cannot be “models fail policies.”
+Recent guideline-following and standing-policy work increasingly externalizes or
+structures rule applicability rather than leaving it implicit in free-form reasoning.
 
-Our question is:
+This supports the final systems motivation:
 
-> when a valid exclusion policy precedes its target, does the model preserve it as a
-> deferred executable relation, or does effective control depend on target semantics
-> already existing when the policy is processed?
+> future evidence policies may need persistent structured state rather than prose alone.
 
-## 12. Provenance/source work — secondary relevance only
+But the paper first needs a behavioral law explaining why G0 fails.
 
-### TROVE — ACL 2025 Main
-https://aclanthology.org/2025.acl-long.577/
+---
 
-### GenProve — ACL 2026 Main
-https://aclanthology.org/2026.acl-long.228/
-
-### MemIR — 2026
-https://arxiv.org/abs/2605.25869
-
-These establish substantial prior work on provenance tracking, source-role separation,
-and provenance-aware generation.
-
-Because G21 is no longer the paper center, do not spend main-text novelty budget
-distinguishing source-scope collapse from all provenance literature.
-
-Use provenance only to motivate practical settings where evidence identity matters.
-
-## 13. Exact novelty position after the audit
+# 12. Exact current novelty boundary
 
 Do not claim:
 - first instruction-order effect;
 - first prospective-memory failure;
-- first in-context forgetting work;
+- first forgetting benchmark;
 - first binding mechanism;
-- first policy-following failure;
-- first provenance-aware evidence control;
-- first result that semantic specificity helps.
+- first semantic-label effect;
+- first policy failure;
+- first provenance-aware control;
+- first result that specificity helps.
 
-The candidate missing dependency is:
+The currently unoccupied scientific question we are trying to isolate is narrower:
 
-> **Whether exclusion control can be deferred across target resolution: after an
-> exclusion operator is processed with no semantic target instantiated, can a model
-> later recognize that target and reconstruct the same causal evidence-suppression state
-> before the evidence arrives?**
+> **When a policy must make future evidence causally inert, is exact semantic knowledge
+> of that future target sufficient, or does the target proposition need to be already
+> instantiated as evidence before exclusion becomes effective?**
 
-The strongest evidence would combine:
-1. correct late-target comprehension;
-2. target-first > rule-first exclusion;
-3. selective exclusion-rule replay rescue;
-4. successful late composition in Admit/arithmetic/routing controls;
-5. a shared post-resolution checkpoint whose state remains causally order-dependent.
+Only if semantic knowledge is sufficient do we proceed to the next dependency:
 
-Targeted search has not identified an ACL/EMNLP/NAACL/ICLR work directly isolating
-this exact dependency. Treat that as literature positioning, not proof of priority.
-Write “we study” rather than “we are the first.”
+> **Can a target-policy relation be composed after the policy has already been
+> processed?**
 
-## 14. Cancelled / downgraded branches
+Targeted search has not identified a paper directly isolating this exact two-stage
+factorization. Treat that as positioning, not proof of priority.
+
+---
+
+# 13. Historical branches
+
+### Target Addressability
+Confirmed diagnostic, retired novelty.
+
+### G20 deferred composition
+Live conditional hypothesis, not currently authorized.
+
+### G21 source/proposition scope
+Future-paper candidate only.
 
 ### ReGround G19
-Cancelled before freeze/generation. Too close to identify-then-ignore / ordinary policy
-evaluation to serve as a method novelty.
-
-### G21 Source–Proposition Scope Entanglement
-Retained as future-work provenance. Potentially interesting, but not a natural
-explanation of G0 and therefore not a current paper contribution.
+Cancelled before generation.
