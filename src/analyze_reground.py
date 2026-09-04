@@ -238,7 +238,7 @@ def main(tags):
         p_generic and p_generic["mean"] >= 2.0 and p_generic["lo"] > 0
     )
     gate3 = bool(
-        p_acc >= 0.90 and p_added and p_added["mean"] <= 3.0
+        p_acc >= 0.90 and p_total and p_total["mean"] <= 5.0
     )
 
     verdict = (
