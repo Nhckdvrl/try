@@ -1,385 +1,363 @@
-# Next experiments after mainline audit — v3
+# Next experiments after scientific register v3
 
-**Status:** design document only, not a preregistration.
-**Updated:** 2026-09-04 after the mainline audit that downgraded G21.
+**Status:** design-audit document only.
+**Updated:** 2026-09-04.
+**Authoritative ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
 
-The next experiment must explain the original G0 reversal:
+No model generation is authorized by this document.
 
-> the same exclusion rule is weaker before evidence than after evidence.
+The next experiment must explain:
 
-G21 Source–Proposition Scope Entanglement is no longer the current paper-defining
-experiment because it asks a different question about scope precision.
+> **Why is the same exclusion rule less effective before evidence than after evidence?**
 
-The active hypothesis is now:
-
-> **LLMs may construct a target-conditioned exclusion state when the rule is processed,
-> rather than storing a deferred exclusion operator that is reliably composed with a
-> target once that target becomes available later.**
-
-Equivalent behavioral hypothesis:
-
-> **target → EXCLUDE and EXCLUDE → target are not equivalent.**
-
-No generation is authorized by this document.
+Do not run a new experiment merely because it is surprising.
 
 ---
 
-# Priority 1: G20 v3 — Deferred Control Composition
+# Priority 1 — G22: Target Knowledge vs Evidential Instantiation
 
 ## Scientific question
 
-> **If an exclusion rule is processed before its semantic target is resolved, can the
-> model later compose the two once the target becomes available, before the governed
-> evidence arrives?**
+> **Is knowing exactly what future evidence will say enough to pre-exclude it, or does
+> exclusion become effective only once that proposition has already entered the model
+> as evidence?**
 
-This directly explains G0 if true.
+This is the clean missing factor between G0 and G18.
 
-Retrospective G0:
+G18 mixed:
+- semantic knowledge of the target;
+- substantive assertion of the target proposition.
+
+G22 must separate them.
+
+## Core target-state factor
+
+### U — unresolved target
+
+Ordinary prospective structure:
 
 ```
-target evidence → EXCLUDE → decision
+BACKGROUND
+→ EXCLUDE future target
+→ actual evidence E
+→ decision
 ```
 
-Prospective G0:
+The model does not know the target content when the rule is processed.
+
+### K — known but non-evidential target
+
+Before the rule, provide a representation that fixes exactly what the future target
+will contain **without asserting it as case evidence**.
+
+Conceptual form:
 
 ```
-EXCLUDE → target evidence → decision
+BACKGROUND
+→ NON-EVIDENTIAL TARGET SPECIFICATION(P)
+→ EXCLUDE target
+→ actual evidence E(P)
+→ decision
 ```
 
-G18 already shows that giving target semantics before the rule can rescue prospective
-exclusion while the actual evidence remains later.
+This is the critical new condition.
 
-G20 v3 tests the missing direction:
+The carrier must:
+- identify the exact future target proposition;
+- not present P as a fact to be used in the judgment;
+- have near-zero direct effect on the no-evidence judgment;
+- not itself say “ignore” / “exclude” / “irrelevant”;
+- not become an implicit second policy;
+- not trivially reveal the correct answer.
 
-> does target information revealed **after** the rule reconstruct the same effective
-> control?
+Possible carrier families to audit:
+- retrieval manifest describing the payload that a future record would contain;
+- interface/schema metadata mapping a document identifier to a payload description;
+- quoted non-evidential template explicitly marked as a description of the future
+  record, not a claim that the event occurred.
 
-## Why v3 is stronger than the old binding-deadline design
+Do not choose the carrier by intuition alone. Pilot only on non-outcome-exposing
+neutrality checks before preregistration.
 
-A decoder-only model's earlier rule-token state cannot attend to later target tokens.
-That fact is trivial.
+### I — evidentially instantiated target
 
-Therefore the decisive test must occur at a point where **both target and rule are
-already in context**.
+Before the rule, assert P as substantive case information:
 
-G20 v3 inserts a shared post-resolution checkpoint before the governed evidence.
+```
+BACKGROUND
+→ EVIDENTIAL ASSERTION(P)
+→ EXCLUDE target
+→ actual evidence E(P)
+→ decision
+```
+
+This is the conceptual analogue of G18 `para/entail`.
+
+## Mandatory per-state baselines
+
+For each target-state level U/K/I, collect:
+
+1. target-state only;
+2. target-state + actual evidence, no rule;
+3. target-state + exclusion + actual evidence.
+
+This permits:
+
+```
+EvidenceMarginal_no_rule(state)
+EvidenceMarginal_exclude(state)
+ExclusionEffect(state)
+```
+
+Use sign-aligned raw rating points.
+
+Do not use REI ratios when state changes evidence leverage.
+
+## Critical neutrality gate for K
+
+Before looking at exclusion effects, K must satisfy a frozen neutrality criterion.
+
+Conceptually:
+
+```
+|Y(K only) - Y(U only)| <= small threshold
+```
+
+pooled and on a large majority of items.
+
+The exact threshold must be set before generation.
+
+If K materially changes judgment, the design fails to separate target knowledge from
+evidential instantiation and must be rebuilt before any exclusion claim.
+
+## Competing predictions
+
+### H-A — target knowledge is sufficient
+
+Prediction:
+- K exclusion substantially approaches I exclusion;
+- U remains weaker.
+
+Consequence:
+semantic knowledge itself is enough; proceed to a second experiment on when the
+policy-target relation is composed.
+
+### H-B — evidential instantiation is required
+
+Prediction:
+- K remains close to U;
+- I is much stronger.
+
+Consequence:
+the important distinction is not knowing the target but whether a matching evidential
+state already exists. The mechanism story becomes retrospective revision/cancellation,
+not generic deferred binding.
+
+### H-C — neither target knowledge nor prior evidence is the whole story
+
+Prediction:
+K and I do not yield the expected separation, or effects depend strongly on how
+control-relevant semantics are locally encoded.
+
+Consequence:
+revisit local semantic control / label routing before constructing a mainline claim.
+
+## Positive controls
+
+G22 should preserve existing boundaries rather than add broad new model sweeps.
+
+Useful:
+- matched Admit condition where order should not create the same discontinuity;
+- explicit arithmetic future weighting on the same temporal pattern if a clean matched
+  version can be constructed.
+
+Do not add many unrelated controls.
+
+## Model panel
+
+Do not freeze yet.
+
+A reasonable audit panel is the established five-model cross-vendor set:
+- Qwen3-8B;
+- Gemma-3-12B;
+- Phi-4-mini;
+- Qwen3.5-27B;
+- Mistral-Small-24B.
+
+Final panel is chosen only after material design is complete and before outcomes.
 
 ## Materials
 
-Fresh set:
-- 120 items / 36 skeletons / three families;
-- legal judgment;
-- evidence inference;
-- ranking / selection;
-- no overlap with G0/G18 skeletons.
-
-Each item contains:
-- a semantic target preview `P`;
-- a length-matched unrelated neutral block `U`;
-- an exclusion rule `X`;
-- a byte-identical neutral checkpoint `C`;
-- later actual evidence `E`, semantically matched to `P`;
-- final decision question.
-
-`P` is explicitly non-evidential metadata / preview. Each order receives its own
-no-rule baseline, as in G18.
-
-## Core order factor
-
-### TARGET-FIRST
-
-```
-P → X → U → C → E → question
-```
-
-### RULE-FIRST
-
-```
-U → X → P → C → E → question
-```
-
-`P` and `U` must be tokenizer-length matched closely enough that `C` lands at the
-same or nearly identical token position.
-
-At `C`, both arms have already seen:
-- the same target semantics;
-- the same exclusion rule;
-- the same neutral block.
-
-Thus any remaining order effect is not merely “the earlier rule token cannot see the
-future.” The model now has a downstream position from which all required information is
-available.
-
-## Mandatory late-target comprehension
-
-On an independent full-context probe for RULE-FIRST, ask which later proposition/item
-the earlier exclusion rule applies to.
-
-The main claim requires high accuracy.
-
-A stronger trajectory-level variant should also be prepared:
-
-> after `P`, require or observe an explicit resolved-target statement, then test
-> whether later `E` is still causally used.
-
-This directly tests:
-
-> late target resolution can be correct while causal control remains wrong.
-
-## Rule reprocessing factor
-
-### RULE-FIRST + RULE-REPLAY
-
-```
-U → X → P → X → C → E
-```
-
-### TARGET-FIRST + RULE-REPLAY
-
-```
-P → X → U → X → C → E
-```
-
-Use matched neutral material in no-replay cells.
-
-The critical effect is not “repetition helps.” It is:
-
-> **reprocessing X after P should preferentially repair RULE-FIRST.**
-
-Primary replay interaction:
-
-```
-[EE(RULE-FIRST+REPLAY) - EE(RULE-FIRST)]
--
-[EE(TARGET-FIRST+REPLAY) - EE(TARGET-FIRST)]
-```
-
-## Target-replay control
-
-If feasible, include:
-
-```
-U → X → P → P → C → E
-```
-
-with a matched replay in TARGET-FIRST.
-
-This distinguishes:
-- missing target salience;
-- missing reapplication of the exclusion operator.
-
-Strong pattern:
-
-> rule replay repairs substantially more than target replay.
-
-## Positive deferred-composition controls
-
-At least two should be present.
-
-### 1. Admit / use-select control
-
-Use the same unresolved target relation, but require the later matched item to be used
-or admitted.
-
-If RULE-FIRST works here while exclusion fails, the result is not generic inability to
-late-bind a target.
-
-### 2. Arithmetic control
-
-Earlier rule defines a weight/operation over a future variable; later `P` resolves the
-variable before the numeric evidence arrives.
-
-Existing Stage 3C already shows exact prospective arithmetic weighting in 4/5 models;
-the new control should preserve the same temporal structure as G20 where feasible.
-
-### Optional 3. Routing/select control
-
-Earlier rule:
-> when the item matching target X appears, select/use it.
-
-Later `P` defines X.
-
-This is another positive late-composition task without semantic nullification.
-
-## Behavioral estimands
-
-Use sign-aligned raw rating points and a no-rule baseline for each order.
-
-`ExclusionEffect` as in G18.
-
-Primary:
-
-```
-CompositionOrderGap = EE(TARGET-FIRST) - EE(RULE-FIRST)
-```
-
-Replay:
-
-```
-ReplayRescueRuleFirst =
-EE(RULE-FIRST+RULE-REPLAY) - EE(RULE-FIRST)
-```
-
-Specific replay interaction:
-
-```
-SpecificReplayInteraction =
-[EE(RULE-FIRST+RULE-REPLAY) - EE(RULE-FIRST)]
--
-[EE(TARGET-FIRST+RULE-REPLAY) - EE(TARGET-FIRST)]
-```
-
-If target replay is included:
-
-```
-OperatorReplayAdvantage =
-ReplayRescue(rule replay) - ReplayRescue(target replay)
-```
-
-## Post-resolution checkpoint mechanism
-
-This is the most important redesign.
-
-Capture the residual state at the identical checkpoint `C`.
-
-By `C`, both orders contain all necessary information.
-
-### Behavioral qualification
-
-Only mechanism-analyze models where:
-- target comprehension is high;
-- TARGET-FIRST > RULE-FIRST behavior is present.
-
-### Causal interchange
-
-At selected layers / relative-depth windows:
-
-1. TARGET-FIRST `C` → RULE-FIRST recipient;
-2. RULE-FIRST `C` → TARGET-FIRST recipient;
-3. identical interchange in Admit/control arms.
-
-The ideal result:
-
-- target-first checkpoint state rescues rule-first suppression;
-- rule-first checkpoint state breaks target-first suppression;
-- Admit/control interchange is much smaller or opposite;
-- after rule replay, RULE-FIRST checkpoint becomes less distinguishable causally from
-  TARGET-FIRST.
-
-This would license:
-
-> **The order in which target semantics and exclusion are composed leaves a causal
-> history-dependent control state even after both are available.**
-
-That is stronger than earlier rule-token localization and avoids the trivial causal-mask
-claim.
-
-## Relation to existing Stage 5
-
-Stage 5 already proves:
-- target-dependent rule state;
-- mid-network localization;
-- causal effect before later evidence;
-- replication in Qwen3-8B and Mistral-Small-24B.
-
-G20 v3 should not re-discover a layer window.
-
-Its new mechanism question is:
-
-> **does the control state converge after late target resolution, or does the earlier
-> composition order remain causally encoded?**
-
-## Masked diffusion
-
-Dream/LLaDA remain useful architecture controls.
-
-They are no longer solely responsible for defeating the causal-mask objection because
-the shared checkpoint is downstream of both operands.
-
-Still, replication in at least one bidirectional masked-diffusion LM would strengthen
-the claim that this is a learned control strategy rather than a decoder-only quirk.
-
-## Main-claim requirements
-
-G20 v3 becomes the novelty-bearing paper result only if most of the following hold:
-
-1. RULE-FIRST target comprehension is high.
-2. TARGET-FIRST > RULE-FIRST exclusion on the fresh set.
-3. Rule replay selectively repairs RULE-FIRST.
-4. Preferably, rule replay beats target replay.
-5. Admit/arithmetic/routing late composition works substantially better.
-6. The post-resolution checkpoint remains causally order-dependent.
-7. The pattern is not confined to one model family.
-
-## What kills G20 v3
-
-Kill or demote the composition story if:
-- RULE-FIRST ≈ TARGET-FIRST;
-- late target mapping itself is poorly understood;
-- replay helps both orders equally;
-- target replay helps just as much as rule replay;
-- matched positive operations fail in the same way;
-- checkpoint interchange has no exclusion-specific causal effect.
+Fresh skeletons preferred.
+
+No requirement for another large breadth sweep.
+
+The important work is:
+- target-state purity;
+- leverage;
+- semantic-neutrality of K;
+- matched proposition content across K/I/E;
+- mixed evidence directions.
 
 ---
 
-# G21 — Source–Proposition Scope Entanglement
+# Conditional Priority 2A — only if G22 supports target knowledge sufficiency
 
-## Status: DOWNGRADED / NOT CURRENTLY AUTHORIZED
+## Mapping timing / deferred composition
 
-The design remains scientifically interesting:
+Only run if K already shows that non-evidential semantic target knowledge is sufficient.
 
-> excluding Source A may suppress an allowed Source B when B expresses the same
-> proposition.
+Then hold all semantic propositions constant and vary only when the mapping from policy
+referent to proposition becomes available.
 
-But it does not explain the original G0 prospective reversal.
-
-Therefore:
-- do not run it as the next experiment;
-- do not allocate a main figure or contribution to it;
-- keep the design as a future-paper / secondary-consequence candidate;
-- only revisit if the final G20 story independently motivates a scope follow-up.
-
-The previous deconfounded metric remains the correct one if G21 is ever revived:
+Conceptual design:
 
 ```
-BMarginal_no = Y(A+B) - Y(A)
-BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
-SourceSpillover = BMarginal_no - BMarginal_source
+catalog contains P and Q in both conditions
+
+EARLY-MAP:
+mapping(D7→P) → EXCLUDE D7 → ...
+
+LATE-MAP:
+EXCLUDE D7 → mapping(D7→P) → ...
 ```
 
-Do not revert to B-alone comparisons.
+Both prompts contain the same P/Q semantic content.
+
+Mandatory:
+- full-context mapping comprehension is high in LATE-MAP;
+- no difference in target evidentiality;
+- no target-to-evidence recency confound;
+- shared post-resolution checkpoint after mapping.
+
+Only here does a rule-replay condition become scientifically useful.
+
+### Operator replay
+
+If LATE-MAP fails despite correct mapping:
+
+```
+EXCLUDE → late mapping → EXCLUDE
+```
+
+Compare against:
+- EARLY-MAP + replay;
+- target/mapping replay without exclusion replay;
+- neutral processing buffer.
+
+The key distinction:
+
+> does extra computation time rescue, or must the exclusion operator itself be
+> re-executed after target resolution?
+
+This is where Racing-Thoughts-style critical-window logic becomes useful.
+
+---
+
+# Conditional Priority 2B — only if G22 supports evidential-instantiation dependence
+
+## Passive gate vs active revision
+
+If K≈U but I≫U/K, test:
+
+> does exclusion merely prevent later evidence from being read, or does it actively
+> construct a target-specific counteracting state once the proposition already exists?
+
+Candidate behavioral clue:
+G18 semantic exclusion falls far below preview-only baseline.
+
+Required deconfounding:
+- include target-present + rule + **no later evidence**;
+- compare exclusion with matched Admit and neutral rule;
+- distinguish changing belief in P from changing whether P may be used.
+
+Mechanism:
+- patch successful target-present exclusion state into target-absent contexts;
+- test whether the state shifts judgment even without later E;
+- compare with attention/span gating.
+
+Do not call this “phantom exclusion” in the paper unless a robust law is established.
+The no-evidence cell is a mechanism discriminator, not novelty by itself.
+
+---
+
+# Supporting diagnostic — D22-A tagged routing deconfound
+
+This is not a main experiment.
+
+Existing Stage 3B cannot separate standing-policy execution from local semantics of
+`[unverified]`.
+
+Use the same exact numeric routing substrate.
+
+Candidate cells:
+
+1. semantic labels, no policy;
+2. semantic labels, matching policy;
+3. semantic labels, reversed policy;
+4. nonce labels, policy defining which tag is excluded;
+5. optional nonce labels with explicit semantic definitions.
+
+Question:
+
+> does the earlier standing policy add causal routing beyond what the incoming label
+> already does locally?
+
+If semantic-label/no-policy already gives near-zero leakage, old Stage3B should be
+treated mainly as local semantic routing evidence.
+
+If policy adds strong value and can reverse natural label semantics, H-C weakens.
+
+Do not turn the answer into the paper center.
+
+---
+
+# G20 status
+
+Previous G20 versions are historical design provenance.
+
+Do not run:
+- old PRE/LATE target swap;
+- current P/U swap;
+- rule replay in isolation.
+
+The deferred-composition idea remains conditional on G22 demonstrating that target
+knowledge can be cleanly separated from evidential instantiation.
+
+---
+
+# G21 status
+
+Source–Proposition Scope Entanglement:
+- interesting;
+- deconfounded design retained;
+- not current paper;
+- no generation.
 
 ---
 
 # ReGround G19
 
-Still cancelled before generation.
+Cancelled before generation.
 
-Do not run or revive it as the current method contribution.
-
----
-
-# Recommended execution order
-
-1. Build and audit G20 v3 materials.
-2. Freeze the behavioral design before generation.
-3. Run the smallest model panel needed to qualify the effect.
-4. Only if behavior passes, run the shared-checkpoint mechanism.
-5. Expand to the full planned model panel only if needed for the main claim.
-6. Do not run G21 in parallel.
+Do not run.
 
 ---
 
-# Do not run
+# Freeze sequence for G22
 
-- G21 as current mainline;
-- ReGround G19;
-- another semantic-specificity ladder;
-- another generic reminder study;
-- model-size sweeps;
-- third-mechanism-model breadth before the G20 behavior qualifies;
-- source/provenance experiments that do not explain G0.
+Before any model outcome is observed:
 
-The next gain must be a **direct explanation of the prospective/retrospective
-exclusion reversal**.
+1. choose a K carrier that is genuinely non-evidential;
+2. build fresh materials;
+3. inspect all prompts manually;
+4. define K neutrality gate;
+5. define leverage qualification;
+6. freeze U/K/I estimands;
+7. state H-A/H-B/H-C predictions;
+8. preregister;
+9. implement analyzer and tests;
+10. commit/tag;
+11. only then generate.
+
+If the design cannot cleanly separate K from I, do not run it.
