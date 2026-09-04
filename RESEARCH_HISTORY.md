@@ -191,3 +191,50 @@ The new candidate abstraction is a **binding–scope trade-off**:
 The current question is therefore not merely whether models can decide what to ignore,
 but whether they can establish a future control relation that is both **effective and
 precisely scoped**.
+
+
+## 9. Second mainline audit later on 2026-09-04
+
+The scope branch was then audited against the original paper question rather than only
+against novelty.
+
+That audit changed the priority again.
+
+G21 Source–Proposition Scope Entanglement remains scientifically interesting, but it
+does not naturally explain why the same exclusion rule is weaker before evidence than
+after evidence. It asks a new question about the precision of successful semantic
+control. For that reason it was **downgraded from the paper center before generation**.
+
+The original G0 reversal was re-read directly as a change in composition order:
+
+```
+retrospective: target → EXCLUDE
+prospective:   EXCLUDE → target
+```
+
+This made G18 fit the original paper more cleanly. Its semantic preview restores:
+
+```
+target semantics → EXCLUDE → later evidence
+```
+
+without moving the actual evidence used by the decision.
+
+The new mainline hypothesis is therefore **deferred control composition**:
+
+> when processing an exclusion rule, the model may construct a target-conditioned
+> control state from whatever target representation already exists, rather than store a
+> deferred exclusion operator that is reliably composed with a target later.
+
+G20 was redesigned around a shared post-resolution checkpoint. TARGET-FIRST and
+RULE-FIRST conditions contain the same target, rule, and neutral material by that
+checkpoint, so both can in principle integrate all required information. The key test is
+whether the histories nevertheless retain different causal control states, and whether
+replaying the exclusion operator after late target resolution selectively repairs the
+RULE-FIRST condition.
+
+This redesign is intended to avoid the trivial decoder causal-mask explanation and keep
+every main experiment on the original pre-commitment question.
+
+The current authoritative audit is:
+[MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md).
