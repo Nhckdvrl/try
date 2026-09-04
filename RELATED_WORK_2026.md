@@ -156,7 +156,29 @@ That distinction matters. Correct provenance tracking is compatible with incorre
 policy scope: a model may know that a statement came from B and still apply A's
 semantic exclusion to it.
 
-## 7. Decision-time exclusion / non-use governance
+## 7. Provenance-role separation in agent memory
+
+### MemIR — Mitigating Provenance-Role Collapse in Long-Term Agents (arXiv 2026)
+https://arxiv.org/abs/2605.25869
+
+MemIR identifies provenance-role collapse in long-term agent memory and introduces a
+typed intermediate representation that separates raw evidence, retrieval cues, and
+truth-bearing claims, with provenance-scoped utilization.
+
+This is a serious neighboring concept. It means our paper should **not** coin
+"provenance collapse" or claim that LLM systems have never been shown to blur source
+roles.
+
+The remaining distinction is narrower and behavioral:
+MemIR studies memory representation and source-monitoring architecture; G21 asks
+whether a natural-language **source-scoped exclusion policy**, even when Source B is
+explicitly marked admissible, causally discounts B's contribution when B is
+semantically equivalent to excluded Source A.
+
+The direct factorization between source-scoped and proposition-scoped policies, with
+redundancy-deconfounded conditional evidence marginals, is therefore essential.
+
+## 8. Decision-time exclusion / non-use governance
 
 A very recent non-peer-reviewed preprint, **Certified Amnesia: A Decision-Evidence
 Protocol for Provable Context Exclusion in AI Agents** (July 2026), explicitly
@@ -179,7 +201,7 @@ source-specific scope.
 
 Do not claim priority over decision-time context exclusion as a systems problem.
 
-## 8. Contextualization / dependency-order mechanisms
+## 9. Contextualization / dependency-order mechanisms
 
 ### Racing Thoughts — NAACL 2025 Main
 https://aclanthology.org/2025.naacl-long.155/
@@ -217,7 +239,7 @@ Narrative lesson:
 our factorization should concern **binding strength vs scope precision**, not simply
 identifier vs semantic content.
 
-## 9. Policy/hierarchy benchmarks
+## 10. Policy/hierarchy benchmarks
 
 ### IHEval — NAACL 2025 Main
 System/user/history/tool instruction conflicts.
@@ -232,7 +254,7 @@ Our question concerns the internal referent/scope of a valid exclusion policy:
 - when can the policy acquire its future target?
 - once acquired, does it remain bound to the correct source/occurrence?
 
-## 10. Novelty position after the audit
+## 11. Novelty position after the audit
 
 The paper should **not** claim:
 - first evidence-exclusion work;
@@ -252,7 +274,7 @@ We have not found an ACL/EMNLP/NAACL paper directly isolating these two dependen
 That is a search result, not a proof of priority; final writing should say "we study"
 rather than "we are the first".
 
-## 11. Cancelled method
+## 12. Cancelled method
 
 ReGround G19 was cancelled before freeze/generation.
 
