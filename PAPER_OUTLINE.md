@@ -58,8 +58,8 @@ Question:
 
 Contribution list is conditional:
 1. broad prospective exclusion paradox;
-2. binding deadline (G20 if confirmed);
-3. source-scope collapse (G21 if confirmed);
+2. source–proposition scope entanglement (G21 if confirmed);
+3. dynamic late-binding failure (G20 if confirmed);
 4. causal mid-network rule state.
 
 G18 is mentioned as the diagnostic that motivated 2–3, not as a contribution called
@@ -152,13 +152,71 @@ This section exists to motivate G20/G21.
 
 ---
 
-# 5. Binding Deadline
+# 5. Source–Proposition Scope Entanglement
 
-**Only main-text claim if G20 confirms it.**
+**First priority; only a main-text claim if G21 confirms it.**
 
 **Figure 2.**
 
-## 5.1 Permutation
+Source A appears before a source-scoped policy. Independent Source B appears after it.
+
+Policy:
+> Only Source A is excluded. Source B remains fully admissible, including when it
+> independently supports the same proposition.
+
+B semantic relation:
+- paraphrase;
+- entailment;
+- gist;
+- lexical-overlap wrong proposition;
+- unrelated decision-relevant control.
+
+A proposition-scoped policy is the positive control.
+
+### 5.1 Main metric
+
+Use conditional marginals to remove A/B redundancy:
+
+BMarginal_no = Y(A+B) - Y(A)
+
+BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
+
+SourceSpillover = BMarginal_no - BMarginal_source
+
+Do **not** use B-alone leverage as the primary baseline.
+
+### 5.2 Strong tests
+- A itself must be successfully excluded.
+- B must have measurable conditional no-policy leverage.
+- semantic-equivalent B should show more SourceSpillover than lexical-wrong/unrelated.
+- proposition-scoped policy should suppress B as expected.
+- post-B "B remains admissible" reminder tests whether declarative scope can restore
+  causal scope.
+- separate scope probe asks whether the model knows B is allowed.
+
+Claim if confirmed:
+
+> **A source-scoped exclusion rule becomes proposition-scoped in effect: the model
+> discounts an allowed independent source because it says the same thing as the
+> excluded source.**
+
+### 5.3 Agent transfer
+
+SYSTEM: D7 excluded; D9 explicitly allowed.
+TOOL D7: proposition p.
+TOOL D9: independent paraphrase p or lexical-wrong control.
+
+Measure D9's conditional marginal contribution.
+
+---
+
+# 6. Dynamic Late Binding
+
+**Second priority; only a main-text claim if strengthened G20 confirms it.**
+
+The claim is not that earlier causal hidden states cannot see later tokens.
+
+**Figure 3.**
 
 PRE:
 P → rule → U → evidence
@@ -166,78 +224,30 @@ P → rule → U → evidence
 LATE:
 U → rule → P → evidence
 
-Same P, U, rule, evidence. Rule and evidence positions matched.
+Same P/U/rule/evidence; same information before final decision.
 
-## 5.2 Recompilation test
+### 6.1 Mandatory comprehension
+Full-context probe must show that the model correctly knows what the late-resolved
+target is.
 
-PRE+REPLAY:
-P → rule → U → rule → evidence
+### 6.2 Rule replay
+LATE+REPLAY vs PRE+REPLAY with identical second rule and matched neutral slots.
 
-LATE+REPLAY:
-U → rule → P → rule → evidence
+The critical result is a **selective LATE replay rescue**.
 
-Key results to report:
-- DeadlineGap
-- LateReplayRescue
-- remaining PRE/LATE gap after replay
+### 6.3 Positive late-binding controls
+- Admit;
+- arithmetic;
+- use/select routing.
 
-## 5.3 Controls
-- Admit factorial
-- arithmetic late-binding control
-- explicit link condition
-- Dream/LLaDA core comparison
+### 6.4 Architecture control
+Dream/LLaDA become load-bearing. At least one bidirectional model should preserve the
+core pattern for a strong computational claim.
 
-Claim if pattern holds:
+Claim if confirmed:
 
-> **The model does not reliably late-bind an unresolved exclusion rule. Target
-> resolution must precede rule processing, or the rule must be reprocessed.**
-
-This is the explanatory center if confirmed.
-
----
-
-# 6. Source-Scope Collapse
-
-**Only main-text claim if G21 confirms it.**
-
-**Figure 3.**
-
-Natural policy:
-> Source A is excluded. Source B remains fully admissible.
-
-Conditions:
-- B alone
-- A excluded alone
-- A+B with A excluded
-- A+B with explicit B-admissible reminder
-- no-policy controls
-
-Relations B to A:
-- paraphrase
-- entailment
-- gist
-- lexical wrong-meaning
-- unrelated
-
-Primary metric:
-BLeverage − BRetained.
-
-Claim if semantic contrast holds:
-
-> **Exclusion follows proposition identity strongly enough to cross provenance
-> boundaries, suppressing evidence the policy explicitly leaves admissible.**
-
-This is the strongest candidate "new phenomenon" because it converts semantic
-generalization from an apparent benefit into a scope error.
-
-## 6.1 Agent transfer
-SYSTEM source policy → TOOL D7 + TOOL D9 → decision.
-
-D7 excluded, D9 allowed, same proposition.
-
-Ask whether D9's independent contribution survives.
-
----
+> **The model can identify a late-resolved target but still fails to dynamically
+> attach an earlier exclusion policy to it; reprocessing the rule restores control.**
 
 # 7. Mechanism
 
@@ -334,9 +344,9 @@ update based on actual outcome, not intended narrative.
 
 Figure 1 — prospective exclusion paradox
 
-Figure 2 — binding deadline / rule replay interaction (if confirmed)
+Figure 2 — source–proposition scope entanglement / allowed-source conditional retention (if confirmed)
 
-Figure 3 — source-scope collapse / allowed-source retention (if confirmed)
+Figure 3 — dynamic late binding / rule replay interaction (if confirmed)
 
 Figure 4 — Qwen+Mistral causal rule state
 
