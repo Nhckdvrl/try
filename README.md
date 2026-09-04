@@ -9,9 +9,9 @@ the model.
 
 ## Final result
 
-The experimental programme is **closed after G18**.
+The core explanatory programme closed after G18 and was **reopened exactly once for the frozen G19 ReGround method evaluation**.
 
-The paper has three contributions:
+The paper has three established contributions and one pending method contribution:
 
 1. **Prospective exclusion gap.** Across 12 instruction-tuned models, two masked
    diffusion LMs, four vendors and five task families, the same exclusion rule works
@@ -22,6 +22,10 @@ The paper has three contributions:
    **Delta_semantic = +8.91 [7.15,10.76] rating points**, positive in 5/5 models.
 3. **Causal mechanism.** A target-dependent mid-network rule state causally changes
    later evidence suppression, replicated in Qwen3-8B and Mistral-Small-24B.
+4. **Pending — ReGround.** A frozen two-pass inference-time policy compiler resolves
+   the same prospective semantic policy against retrieved documents and compiles a
+   selective exclusion ledger. It becomes a contribution only if G19 passes its
+   preregistered gates.
 
 The paper does **not** claim that every model perfectly preserves an internal policy
 and then ignores it, that identifiers never work, that the phenomenon exists only at
@@ -40,8 +44,7 @@ identified.
 6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md) — occupied neighbouring questions and
    novelty positioning.
 7. [EXPERIMENTS.md](EXPERIMENTS.md) — full experiment registry.
-8. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md) — chronology, stopped branches and
-   corrections.
+8. [METHOD_REGROUND.md](METHOD_REGROUND.md) — frozen method design, baselines and gates.\n9. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md) — chronology, stopped branches and\n   corrections.
 
 ## Main empirical assets
 
@@ -75,6 +78,17 @@ same proposition across D7→D9, while proposition-targeted control does.
 - Qwen3-8B + Mistral-Small-24B replication.
 
 See [stages/STAGE5.md](stages/STAGE5.md) and results/mech/.
+
+### G19 — ReGround method evaluation (pending)
+- same semantic policy information in Semantic-Pre / Semantic-Generic / Semantic-Restate / Gold / Self;
+- same-D7 / same-D9 / lexical-overlap wrong-D9 retrieval variants;
+- ReGround-Self uses the same checkpoint as a short semantic resolver;
+- 100 items / 30 skeletons / three families / five models;
+- 13,500 decision conditions + 1,500 resolver calls;
+- no G19 result is claimed before generation.
+
+See [METHOD_REGROUND.md](METHOD_REGROUND.md) and
+[preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md).
 
 ## Historical records
 
