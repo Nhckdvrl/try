@@ -166,7 +166,7 @@ def decision_messages(item, method: str, variant: str | None, system_default: st
         if variant not in ("same_d7", "same_d9"):
             raise ValueError("sanitize is only defined for positive-target variants")
         docs = retrieved_docs(item, variant, sanitize=True)
-        policy = ID_POLICY
+        policy = semantic_policy(item)
         post = compiler_message(set())
     else:
         if method not in METHODS or variant not in VARIANTS:
