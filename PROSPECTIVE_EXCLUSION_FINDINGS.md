@@ -1,3 +1,20 @@
+> **Current interpretation notice — 2026-09-04 scientific register v3**
+>
+> This file is a historical discovery/results record. Numerical results remain
+> authoritative for the rounds they report, but several interpretations below are
+> superseded.
+>
+> In particular:
+> - G18 semantic previews mix target knowledge with evidential instantiation;
+> - tagged routing does not isolate standing-policy execution because no
+>   labels-present/no-policy condition exists;
+> - G20 is not currently authorized;
+> - G21 is downgraded;
+> - G22 Target Knowledge vs Evidential Instantiation is the registered next design audit.
+>
+> Current authority:
+> [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md).
+
 # Prospective evidence exclusion — full results (G0 and the controlled stages)
 
 > **Status, 2026-09-04. Historical discovery/results record.** The numerical tables
