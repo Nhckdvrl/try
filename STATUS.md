@@ -66,36 +66,33 @@ exclusion may lose occurrence/source precision and spread to the proposition its
 
 ## 4. Active hypotheses
 
-### H1 — Binding Deadline
+### H1 — Source–Proposition Scope Entanglement (first priority)
 
-> **A prospective control rule may be effectively compiled against the target
-> representation available when the rule is processed. A target revealed later—even
-> before the actual evidence—may not reliably retroactively bind the earlier rule.**
+> **A source-scoped exclusion policy may suppress an independent, explicitly
+> admissible source when that source expresses the same proposition as the excluded
+> source.**
 
-Critical new experiment: G20 Late Target Revelation.
+G21 now uses a redundancy-deconfounded difference-in-differences:
+- BMarginal_no = Y(A+B) - Y(A)
+- BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
+- SourceSpillover = BMarginal_no - BMarginal_source
 
-The decisive pattern would be:
-- target-before-rule > target-after-rule;
-- replaying the identical rule after late target revelation selectively restores
-  exclusion;
-- matched Admit/arithmetic controls do not show the same failure;
-- at least one masked-diffusion model preserves the effect, ruling out a purely
-  left-to-right architectural explanation.
+A proposition-scoped exclusion policy is the positive control. Lexical-wrong and
+unrelated B are semantic controls. A separate scope probe tests whether declarative
+knowledge that B is allowed can coexist with behavioral suppression of B.
 
-### H2 — Semantic Scope Collapse
+### H2 — Dynamic Late Binding (second priority)
 
-> **When semantic binding succeeds, exclusion may spread beyond the intended
-> evidence source/occurrence and suppress independently admissible evidence expressing
-> the same proposition.**
+> **The model may understand a target revealed after rule processing yet fail to
+> dynamically attach the earlier exclusion policy to it; replaying the rule after
+> target resolution may restore control.**
 
-Critical new experiment: G21 Source-Scope Collapse.
-
-The decisive pattern would be:
-- Source A is successfully excluded;
-- Source B independently contributes when alone;
-- B loses contribution when it expresses the same proposition as excluded A;
-- lexical overlap without proposition identity does not cause the loss;
-- an explicit statement that B remains admissible does not fully restore it.
+This is only interesting if it exceeds the trivial causal-mask fact. G20 therefore
+requires:
+- high late-target comprehension;
+- successful Admit/arithmetic/routing late-binding controls;
+- selective LATE rule-replay rescue;
+- at least one masked-diffusion replication with bidirectional prompt attention.
 
 ## 5. Candidate higher-level story
 
@@ -159,7 +156,7 @@ Still useful, but not separate contributions:
 
 ## 9. Programme status
 
-**Open only for novelty-driven G20/G21 design and execution.**
+**Open only for novelty-driven G21/G20 design and execution, with G21 first priority.**
 
 Do not add:
 - model-size sweeps;
