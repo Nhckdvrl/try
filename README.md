@@ -1,18 +1,22 @@
 # Prospective evidence control in language models
 
-> **Can a language model bind a control rule to evidence that does not yet exist—and
-> keep that rule scoped to the right evidence once the target appears?**
+> **Can a language model commit in advance to ignore evidence it has not yet seen?**
 
-The project began from a broad prospective-exclusion paradox: the same exclusion rule
+The project begins from a broad prospective-exclusion paradox: the same exclusion rule
 is systematically less effective when stated before its target evidence than after it.
-The post-G18 novelty audit retired the too-obvious headline
-"semantic target information helps". The active paper now asks two sharper questions:
 
-1. **Binding deadline:** can an unresolved rule be late-bound when its target becomes
-   semantically identifiable only after the rule has already been processed?
-2. **Scope precision:** when semantic binding succeeds, does exclusion remain scoped to
-   the intended source/occurrence, or spill over to independently admissible evidence
-   expressing the same proposition?
+The current mainline no longer treats “semantic target information helps” as the paper
+novelty, and no longer centers the separate G21 source-scope question.
+
+The active hypothesis is:
+
+> **LLMs may construct a target-conditioned exclusion state when the rule is processed,
+> rather than storing a deferred exclusion operator that is reliably composed with a
+> target once the target appears later.**
+
+Compactly:
+
+> **target → EXCLUDE works better than EXCLUDE → target.**
 
 ## Stable empirical core
 
@@ -28,10 +32,14 @@ The post-G18 novelty audit retired the too-obvious headline
 ### Policy access vs enforcement
 In Qwen3-8B and Gemma-3-12B, prospective evidence can still affect the decision even
 on trajectories that explicitly state zero weight; Phi-4-mini is more mediated by
-whether the zero-weight state is expressed. Policy accessibility is therefore not a
-complete account of enforcement.
+whether the zero-weight state is expressed.
 
-### G18 — semantic diagnostic, not the paper headline
+### Arithmetic boundary
+When evidence contribution is explicitly represented as arithmetic
+`base + w*delta`, four of five tested models execute prospective `w=0` exactly.
+The failure is therefore not a generic inability to obey any future-directed zero rule.
+
+### G18 — factorization evidence
 - 100 fresh items / 30 fresh skeletons / three families;
 - five models / four vendors;
 - 9,000 generations;
@@ -40,17 +48,19 @@ complete account of enforcement.
 Primary result:
 **Delta_semantic = +8.91 [7.15,10.76] rating points**, positive in 5/5 models.
 
-The important post-reset clue is the decomposition: under a paraphrase preview the
-later evidence contributes only about +3 points without the rule, yet the exclusion
-condition drives it to about **-28 points** relative to preview-only baseline. This
-suggests possible semantic over-binding / scope spillover rather than merely a useful
-specificity effect.
+The important reading is temporal/computational:
+
+```
+target semantics → EXCLUDE rule → later evidence
+```
+
+works much better than the ordinary prospective arrangement where no target semantics
+exist when the rule is processed.
 
 ### Agent counterfactual
-Identifier-specific protection does not follow the same proposition from D7 to D9,
-whereas proposition-targeted suppression does. Under the reset, this is evidence that
-semantic control can cross document identity—potentially useful for proposition-scoped
-policies, potentially a scope error for source-scoped policies.
+Proposition-targeted suppression can follow the same content across D7→D9, while
+identifier-specific protection does not. This is retained as evidence that the effective
+control target is substantially content-conditioned.
 
 ### Mechanism
 Matched-chronology causal interchange finds a target-dependent rule state before later
@@ -61,67 +71,87 @@ evidence integration:
 Interchanging the state changes later evidence suppression. A reusable shared steering
 direction was not found.
 
-## Active novelty reset
+## Read first
 
-Read these first:
-
-1. [NOVELTY_RESET_2026-09-04.md](NOVELTY_RESET_2026-09-04.md)
-2. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
+1. [MAINLINE_AUDIT_2026-09-04_V2.md](MAINLINE_AUDIT_2026-09-04_V2.md)
+2. [STATUS.md](STATUS.md)
 3. [PAPER_FRAME.md](PAPER_FRAME.md)
-4. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
-5. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
-6. [STATUS.md](STATUS.md)
+4. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
+5. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
+6. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
 7. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
 8. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
 
-## Next experiments
+## Next experiment
 
-### G21 — Source–Proposition Scope Entanglement (first priority)
-Source A is excluded; independent Source B is explicitly admissible.
+### G20 v3 — Deferred Control Composition
 
-The primary measurement uses **conditional B marginals** so ordinary same-proposition
-redundancy is removed:
+Core conditions:
 
-BMarginal_no = Y(A+B) - Y(A)
+```
+TARGET-FIRST:
+P → EXCLUDE → U → CHECKPOINT → EVIDENCE → QUESTION
 
-BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
+RULE-FIRST:
+U → EXCLUDE → P → CHECKPOINT → EVIDENCE → QUESTION
+```
 
-SourceSpillover = BMarginal_no - BMarginal_source
+By the shared checkpoint both arms have seen the same target semantics, exclusion rule,
+and neutral material.
 
-A proposition-scoped policy is the positive control; lexical-wrong/unrelated B are
-semantic controls. The key possible finding is:
+The key possible finding is:
 
-> **a source-scoped exclusion behaves proposition-scoped when the allowed source says
-> the same thing.**
+> **Even after the late target is correctly resolved, the model does not reconstruct
+> the same exclusion control state unless the exclusion operator is processed again.**
 
-### G20 — Dynamic Late Binding (second priority)
-Use the same semantic target information in both arms, but move it across the
-rule-processing boundary. This experiment becomes interesting only if:
-- the full-context model correctly understands the late target mapping;
-- Admit/arithmetic/routing late-binding controls work;
-- replaying the rule specifically repairs the late-target condition;
-- at least one masked-diffusion model preserves the pattern.
+Load-bearing tests:
+- high late-target comprehension;
+- TARGET-FIRST > RULE-FIRST exclusion;
+- selective rescue from replaying the exclusion rule after the late target;
+- target-replay control;
+- Admit/arithmetic/routing late-composition controls;
+- post-resolution checkpoint activation interchange.
 
-This avoids mistaking the trivial decoder causal mask for a scientific result.
+This design specifically avoids making the trivial claim that an earlier decoder token
+cannot attend to later tokens.
+
+## G21 — downgraded
+
+Source–Proposition Scope Entanglement remains an interesting future experiment, but it
+does not explain the original G0 reversal.
+
+Current status:
+- not a main contribution;
+- not a main figure;
+- not authorized as the next generation round;
+- retain as future-paper / secondary-consequence provenance.
 
 ## Cancelled before generation
 
 ### G19 — ReGround
 The post-retrieval policy compiler was designed and preregistered but **cancelled before
-freeze and before any model generation**. The method was judged too obvious as a
-scientific contribution: resolve the policy after retrieval and mark the matching
-document excluded.
+freeze and before any model generation**.
 
-Historical files are retained:
+Historical files:
 - [METHOD_REGROUND.md](METHOD_REGROUND.md)
 - [preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md)
 
 Do not run them.
 
-## Historical records
+## Current scientific arc
 
-The controlled files in [stages/](stages/) and original preregistrations are preserved
-for chronology. Their local interpretations may predate G18 and the novelty reset.
-Current scientific framing lives in the root documents above.
+```
+Can models pre-commit to ignore future evidence?
+        ↓
+G0: exclusion-before-evidence is systematically weaker
+        ↓
+G18: restoring target semantics before rule processing restores control
+        ↓
+G20 v3: does late target resolution reconstruct the same control?
+        ↓
+rule replay + post-resolution causal state
+        ↓
+order-invariant deferred policy–target composition as the method problem
+```
 
 The BTF-3 hindsight branch remains stopped and is not part of this paper.
