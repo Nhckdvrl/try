@@ -76,28 +76,33 @@ Read these first:
 
 ## Next experiments
 
-### G20 — Binding Deadline / Late Target Revelation
+### G21 — Source–Proposition Scope Entanglement (first priority)
+Source A is excluded; independent Source B is explicitly admissible.
+
+The primary measurement uses **conditional B marginals** so ordinary same-proposition
+redundancy is removed:
+
+BMarginal_no = Y(A+B) - Y(A)
+
+BMarginal_source = Y(A+SourcePolicy+B) - Y(A+SourcePolicy)
+
+SourceSpillover = BMarginal_no - BMarginal_source
+
+A proposition-scoped policy is the positive control; lexical-wrong/unrelated B are
+semantic controls. The key possible finding is:
+
+> **a source-scoped exclusion behaves proposition-scoped when the allowed source says
+> the same thing.**
+
+### G20 — Dynamic Late Binding (second priority)
 Use the same semantic target information in both arms, but move it across the
-rule-processing boundary:
+rule-processing boundary. This experiment becomes interesting only if:
+- the full-context model correctly understands the late target mapping;
+- Admit/arithmetic/routing late-binding controls work;
+- replaying the rule specifically repairs the late-target condition;
+- at least one masked-diffusion model preserves the pattern.
 
-PRE-BIND:
-semantic target → rule → unrelated block → evidence
-
-LATE-BIND:
-unrelated block → rule → semantic target → evidence
-
-A rule-replay factorial tests whether reprocessing the identical rule after late target
-revelation reconstructs control. Matched Admit, arithmetic, and masked-diffusion
-controls distinguish the hypothesis from generic order, memory, and autoregressive
-attention accounts.
-
-### G21 — Source-Scope Collapse
-Exclude Source A while explicitly preserving independent Source B. Manipulate whether B
-expresses the same proposition as A or only a lexical/semantic control. Measure how
-much of B's independently established evidential contribution survives.
-
-The key possible finding is not "semantic policies generalize", but:
-> **source-scoped exclusion can become proposition-scoped suppression.**
+This avoids mistaking the trivial decoder causal mask for a scientific result.
 
 ## Cancelled before generation
 
