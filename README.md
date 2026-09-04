@@ -1,105 +1,122 @@
-# Advance commitment to ignore evidence
+# Prospective evidence control in language models
 
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+> **Can a language model bind a control rule to evidence that does not yet exist—and
+> keep that rule scoped to the right evidence once the target appears?**
 
-A policy commonly exists before the information it will later govern. This project
-asks whether such a prospective exclusion policy actually controls later evidence,
-what determines whether it succeeds, and where that difference becomes causal inside
-the model.
+The project began from a broad prospective-exclusion paradox: the same exclusion rule
+is systematically less effective when stated before its target evidence than after it.
+The post-G18 novelty audit retired the too-obvious headline
+"semantic target information helps". The active paper now asks two sharper questions:
 
-## Final result
+1. **Binding deadline:** can an unresolved rule be late-bound when its target becomes
+   semantically identifiable only after the rule has already been processed?
+2. **Scope precision:** when semantic binding succeeds, does exclusion remain scoped to
+   the intended source/occurrence, or spill over to independently admissible evidence
+   expressing the same proposition?
 
-The core explanatory programme closed after G18 and was **reopened exactly once for the frozen G19 ReGround method evaluation**.
+## Stable empirical core
 
-The paper has three established contributions and one pending method contribution:
-
-1. **Prospective exclusion gap.** Across 12 instruction-tuned models, two masked
-   diffusion LMs, four vendors and five task families, the same exclusion rule works
-   substantially better after evidence than before it.
-2. **Target addressability.** G18 prospectively confirms on 100 fresh items / 30 fresh
-   skeletons / three families / five models that semantic target representations
-   support stronger prospective exclusion than reference or surface resemblance alone:
-   **Delta_semantic = +8.91 [7.15,10.76] rating points**, positive in 5/5 models.
-3. **Causal mechanism.** A target-dependent mid-network rule state causally changes
-   later evidence suppression, replicated in Qwen3-8B and Mistral-Small-24B.
-4. **Pending — ReGround.** A frozen two-pass inference-time policy compiler resolves
-   the same prospective semantic policy against retrieved documents and compiles a
-   selective exclusion ledger. It becomes a contribution only if G19 passes its
-   preregistered gates.
-
-The paper does **not** claim that every model perfectly preserves an internal policy
-and then ignores it, that identifiers never work, that the phenomenon exists only at
-the numerical value zero, or that a universal semantic-binding circuit has been
-identified.
-
-## Start here
-
-1. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md) — paper-story mother draft:
-   question, datasets, claims, experiments, numbers, proof logic and figure plan.
-2. [PAPER_FRAME.md](PAPER_FRAME.md) — authoritative final scientific framing.
-3. [PAPER_OUTLINE.md](PAPER_OUTLINE.md) — section-by-section writing blueprint.
-4. [STATUS.md](STATUS.md) — compact factual ledger and experiment scope.
-5. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) — Outstanding-
-   shaped reference standard and gap analysis.
-6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md) — occupied neighbouring questions and
-   novelty positioning.
-7. [EXPERIMENTS.md](EXPERIMENTS.md) — full experiment registry.
-8. [METHOD_REGROUND.md](METHOD_REGROUND.md) — frozen method design, baselines and gates.\n9. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md) — chronology, stopped branches and\n   corrections.
-
-## Main empirical assets
-
-### G0 — broad phenomenon
+### G0 — prospective exclusion paradox
 - 144 frozen items;
 - five task families;
-- 12 instruction-tuned checkpoints + two masked diffusion LMs;
-- Exclude-before / Exclude-after with matched Admit controls;
-- independent rule and memory probes.
+- 12 instruction-tuned checkpoints from four vendors;
+- two masked diffusion LMs;
+- same exclusion rule before vs after evidence;
+- 12/12 instruct models show the same timing-gap direction;
+- matched Admit control does not show the analogous order effect.
 
-### G18 — centrepiece confirmation
-- 100 fresh items;
-- 30 fresh skeletons;
-- legal judgment, evidence inference and ranking/selection;
-- five frozen checkpoints from four vendors;
-- 6 target representations × 3 rule states;
+### Policy access vs enforcement
+In Qwen3-8B and Gemma-3-12B, prospective evidence can still affect the decision even
+on trajectories that explicitly state zero weight; Phi-4-mini is more mediated by
+whether the zero-weight state is expressed. Policy accessibility is therefore not a
+complete account of enforcement.
+
+### G18 — semantic diagnostic, not the paper headline
+- 100 fresh items / 30 fresh skeletons / three families;
+- five models / four vendors;
 - 9,000 generations;
-- raw rating points with a separate no-rule baseline for every preview.
+- frozen raw-point analysis with a no-rule baseline for every preview.
 
-See [results/g18_semantic_targeting_results.md](results/g18_semantic_targeting_results.md).
+Primary result:
+**Delta_semantic = +8.91 [7.15,10.76] rating points**, positive in 5/5 models.
+
+The important post-reset clue is the decomposition: under a paraphrase preview the
+later evidence contributes only about +3 points without the rule, yet the exclusion
+condition drives it to about **-28 points** relative to preview-only baseline. This
+suggests possible semantic over-binding / scope spillover rather than merely a useful
+specificity effect.
 
 ### Agent counterfactual
-Real SYSTEM → TOOL → assistant structure. The key invariant is not that identifier
-policies never work; it is that identifier-specific protection does not follow the
-same proposition across D7→D9, while proposition-targeted control does.
+Identifier-specific protection does not follow the same proposition from D7 to D9,
+whereas proposition-targeted suppression does. Under the reset, this is evidence that
+semantic control can cross document identity—potentially useful for proposition-scoped
+policies, potentially a scope error for source-scoped policies.
 
 ### Mechanism
-- evidence-span causal gate;
-- late answer-level resolution;
-- matched-chronology rule-state interchange;
-- Qwen3-8B + Mistral-Small-24B replication.
+Matched-chronology causal interchange finds a target-dependent rule state before later
+evidence integration:
+- Qwen3-8B: L14–18 / 36;
+- Mistral-Small-24B: L12–16 / 40.
 
-See [stages/STAGE5.md](stages/STAGE5.md) and results/mech/.
+Interchanging the state changes later evidence suppression. A reusable shared steering
+direction was not found.
 
-### G19 — ReGround method evaluation (pending)
-- same semantic policy information in Semantic-Pre / Semantic-Generic / Semantic-Restate / Gold / Self;
-- same-D7 / same-D9 / lexical-overlap wrong-D9 retrieval variants;
-- ReGround-Self uses the same checkpoint as a short semantic resolver;
-- 100 items / 30 skeletons / three families / five models;
-- 13,500 decision conditions + 1,500 resolver calls;
-- no G19 result is claimed before generation.
+## Active novelty reset
 
-See [METHOD_REGROUND.md](METHOD_REGROUND.md) and
-[preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md).
+Read these first:
+
+1. [NOVELTY_RESET_2026-09-04.md](NOVELTY_RESET_2026-09-04.md)
+2. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
+3. [PAPER_FRAME.md](PAPER_FRAME.md)
+4. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
+5. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
+6. [STATUS.md](STATUS.md)
+7. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+8. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
+
+## Next experiments
+
+### G20 — Binding Deadline / Late Target Revelation
+Use the same semantic target information in both arms, but move it across the
+rule-processing boundary:
+
+PRE-BIND:
+semantic target → rule → unrelated block → evidence
+
+LATE-BIND:
+unrelated block → rule → semantic target → evidence
+
+A rule-replay factorial tests whether reprocessing the identical rule after late target
+revelation reconstructs control. Matched Admit, arithmetic, and masked-diffusion
+controls distinguish the hypothesis from generic order, memory, and autoregressive
+attention accounts.
+
+### G21 — Source-Scope Collapse
+Exclude Source A while explicitly preserving independent Source B. Manipulate whether B
+expresses the same proposition as A or only a lexical/semantic control. Measure how
+much of B's independently established evidential contribution survives.
+
+The key possible finding is not "semantic policies generalize", but:
+> **source-scoped exclusion can become proposition-scoped suppression.**
+
+## Cancelled before generation
+
+### G19 — ReGround
+The post-retrieval policy compiler was designed and preregistered but **cancelled before
+freeze and before any model generation**. The method was judged too obvious as a
+scientific contribution: resolve the policy after retrieval and mark the matching
+document excluded.
+
+Historical files are retained:
+- [METHOD_REGROUND.md](METHOD_REGROUND.md)
+- [preregistrations/PREREGISTRATION_G19_REGROUND.md](preregistrations/PREREGISTRATION_G19_REGROUND.md)
+
+Do not run them.
 
 ## Historical records
 
-The controlled stage files in [stages/](stages/) are preserved as historical records,
-including their own in-round corrections. Do not infer the current paper claim from an
-old stage heading; use PAPER_FRAME.md and STATUS.md.
+The controlled files in [stages/](stages/) and original preregistrations are preserved
+for chronology. Their local interpretations may predate G18 and the novelty reset.
+Current scientific framing lives in the root documents above.
 
-The BTF-3 hindsight branch is stopped. Its data, preregistrations and integrity
-corrections remain for provenance but are not part of the present paper.
-
-## Reproduction
-
-See [REPRODUCE.md](REPRODUCE.md). Git freeze commits and tags remain the authority for
-chronology relative to model outputs.
+The BTF-3 hindsight branch remains stopped and is not part of this paper.
