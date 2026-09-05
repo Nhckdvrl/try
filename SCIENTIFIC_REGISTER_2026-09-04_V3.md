@@ -35,8 +35,6 @@ No new generation is authorized by this register.
 
 ---
 
----
-
 # 1. Paper identity — unchanged
 
 The paper remains about one natural question:
