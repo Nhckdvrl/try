@@ -1,3 +1,23 @@
+> [!IMPORTANT]
+> **AUTHORITY NOTICE — 2026-09-06**
+>
+> This file remains authoritative as an **evidence/provenance ledger for the completed
+> prospective-exclusion program up to 2026-09-04**. It is **not** current
+> paper-identity or future-experiment authority.
+>
+> The statements below in **Section 1 ("Paper identity — unchanged")**, the
+> root-cause/mainline fork, and the G22 future-design sections are retained as historical
+> provenance and are **superseded** by:
+>
+> 1. `RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md`;
+> 2. `DURABLE_RQ_SEARCH_2026-09-06_V2.md`;
+> 3. `MAINLINE_AUDIT_2026-09-06_V9.md`;
+> 4. `STATUS.md`.
+>
+> Current state: **NO APPROVED PAPER MAINLINE**. G0 remains a strong empirical asset
+> with high-risk paper identity. **G22 is KILL / DO NOT RUN.** Nothing in the historical
+> sections below authorizes new generation.
+
 # Scientific register v3 — 2026-09-04
 
 **Status:** current authoritative scientific ledger.
@@ -12,6 +32,8 @@ This file supersedes the interpretive priority in:
 Those files remain in the repository as research-history provenance.
 
 No new generation is authorized by this register.
+
+---
 
 ---
 
