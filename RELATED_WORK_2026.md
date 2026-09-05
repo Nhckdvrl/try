@@ -2,7 +2,8 @@
 
 **Updated:** 2026-09-04.
 **Current scientific question:** what target state must exist when an exclusion policy is
-processed for future evidence to become causally inert?
+processed for future evidence to become causally inert?  
+**Latest mainline audit:** [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md)
 
 This document is a positioning map, not a priority claim.
 
@@ -246,10 +247,17 @@ The currently unoccupied scientific question we are trying to isolate is narrowe
 > of that future target sufficient, or does the target proposition need to be already
 > instantiated as evidence before exclusion becomes effective?**
 
-Only if semantic knowledge is sufficient do we proceed to the next dependency:
+The novelty role is outcome-dependent. If semantic knowledge is sufficient, that fact
+alone is not the intended headline; we proceed to the stronger dependency:
 
 > **Can a target-policy relation be composed after the policy has already been
-> processed?**
+> processed, even when the late target is correctly understood?**
+
+If semantic knowledge is neutral and correctly understood but insufficient while an
+already-instantiated evidence state succeeds, the stronger mainline becomes:
+
+> **Natural-language exclusion behaves like a transformation of an existing evidence
+> state rather than a standing future gate.**
 
 Targeted search has not identified a paper directly isolating this exact two-stage
 factorization. Treat that as positioning, not proof of priority.
