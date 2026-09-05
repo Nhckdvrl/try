@@ -1,34 +1,32 @@
-# Prospective evidence exclusion in language models
+# Research project — mainline and novelty reconstruction
 
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
+The repository contains a large completed experimental programme around prospective evidence exclusion, but **that old paper identity is no longer assumed to be the correct mainline**.
 
-This repository studies a robust reversal:
+The project is currently in an adversarial research-question audit. Existing results remain scientific assets and provenance; they do not determine what the next paper must be.
 
-> the same exclusion rule is systematically less effective when stated **before** its
-> target evidence than **after** it.
-
-The project is currently in a **scientific factorization audit**. No new generation is
-authorized.
+**No new model generation is authorized.**
 
 ## Current authority
 
 Read in this order:
 
-1. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
-2. [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md) — latest mainline/novelty-role audit.
-3. [STATUS.md](STATUS.md)
-4. [PAPER_FRAME.md](PAPER_FRAME.md)
-5. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
-6. [G22_DESIGN_AUDIT.md](G22_DESIGN_AUDIT.md) — registered G22 design constraints.
-7. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
-8. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
-9. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
-10. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
-11. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
+1. [MAINLINE_AUDIT_2026-09-06_V6.md](MAINLINE_AUDIT_2026-09-06_V6.md) — current experiment-priority and novelty authority.
+2. [STATUS.md](STATUS.md)
+3. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md) — evidence ledger for established/downgraded results.
+4. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
+5. [EXPERIMENTS.md](EXPERIMENTS.md)
+6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+7. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
+8. Earlier mainline audits / G20–G22 designs — provenance only unless V6 explicitly revives them.
 
-The scientific register remains the evidence ledger; the 2026-09-05 audit is the
-latest interpretation of what should carry novelty. Older reset/audit documents remain
-for provenance.
+V5 is retained because it documents a premature promotion of the zero/nonzero anomaly. V6 supersedes it for current decisions.
+
+Current decisions:
+- **no approved new mainline**;
+- **G22: do not run**;
+- **zero/nonzero anomaly: HIGH-RISK / data-audit lead, not an established law**;
+- **explicit-outcome paradox: HIGH-RISK; novelty audit required before a pilot**;
+- continue independent simple-data research-question search.
 
 ---
 
