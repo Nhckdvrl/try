@@ -14,7 +14,7 @@ silently rewritten.
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| publicness → common-knowledge closure | **HIGH-RISK PRE-PILOT SEARCH — current #1, not approved** |
+| publicness → common-knowledge closure | **HIGH-RISK INTERSECTION LEAD — current #1 search shape, not approved** |
 | free-choice / semantic–reasoning interface | **SECONDARY SEARCH ONLY** |
 | explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY / NO PILOT** |
 | BTF3 G12→G15 unrelated-outcome decision state | **MECHANISTIC ASSET / SUPPORTING ONLY** |
@@ -28,7 +28,7 @@ silently rewritten.
 
 1. V7's sampling-process candidate is killed after direct 2026 work on
    completeness-sensitive negative reasoning and LLM sampling assumptions.
-2. Publicness/common-knowledge closure is now the leading **search shape**, but it has
+2. Publicness/common-knowledge closure is now the leading **intersection search shape**, but it has
    not earned a pilot. The candidate must be about the transition from finite nested
    belief to common-knowledge closure, not public/private access, generic ToM,
    common ground, or generic coordination.
@@ -66,3 +66,23 @@ For established/downgraded old experiments, read:
 3. [EXPERIMENTS.md](EXPERIMENTS.md)
 4. [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md)
 5. files under `stages/`, `results/`, and `preregistrations/`.
+
+
+## Post-V8 exact-threat correction
+
+After V8 was first written, three stronger neighbors were confirmed:
+
+- **MindGames (EMNLP Findings 2023):** S5/public-announcement logic + higher-order belief queries;
+- **Logical Reasoning in Evolving Scenarios (KBS 2026):** Muddy Children / Cheryl's Birthday dynamic epistemic puzzles with public announcements and recursive knowledge updates;
+- **SimpleToM (ICLR 2026):** explicit mental-state inference can dissociate from downstream behavior/judgment application.
+
+Therefore the live question is **not** common-knowledge ability, public/private access,
+public-announcement reasoning, higher-order ToM, or recognition→application.
+
+Only the narrower intersection remains live:
+
+> when first-order knowledge is matched, does public observability induce a
+> qualitatively distinct shortcut to recursive epistemic closure, separable from
+> ordinary finite-depth ToM reasoning?
+
+Still **NO GENERATION**.
