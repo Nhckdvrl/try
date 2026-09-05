@@ -84,3 +84,15 @@ For established/downgraded old experiments, read:
 3. [EXPERIMENTS.md](EXPERIMENTS.md)
 4. [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md)
 5. files under stages/, results/, and preregistrations/.
+
+
+## Long-term research-question standard
+
+Before promoting any future search lead, read:
+[RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md).
+
+This standard adds a hard **Outcome Robustness** gate: prefer durable scientific
+objects for which several qualitatively different outcomes remain informative, rather
+than questions whose value depends on one narrow anomaly existing. CK-P1 remains an
+authorized discovery experiment, but it does not have priority over the continuing
+search for a broader, more durable Hamdi-style research program.
