@@ -15,17 +15,20 @@ authorized.
 Read in this order:
 
 1. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
-2. [STATUS.md](STATUS.md)
-3. [PAPER_FRAME.md](PAPER_FRAME.md)
-4. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
-5. [G22_DESIGN_AUDIT.md](G22_DESIGN_AUDIT.md) — registered G22 design constraints.
-6. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
-7. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
-8. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
-9. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
-10. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
+2. [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md) — latest mainline/novelty-role audit.
+3. [STATUS.md](STATUS.md)
+4. [PAPER_FRAME.md](PAPER_FRAME.md)
+5. [NEXT_EXPERIMENTS_POST_RESET.md](NEXT_EXPERIMENTS_POST_RESET.md)
+6. [G22_DESIGN_AUDIT.md](G22_DESIGN_AUDIT.md) — registered G22 design constraints.
+7. [PAPER_DRAFT_MAINLINE.md](PAPER_DRAFT_MAINLINE.md)
+8. [PAPER_OUTLINE.md](PAPER_OUTLINE.md)
+9. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+10. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
+11. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
 
-Historical reset/audit documents remain for provenance but are not current authority.
+The scientific register remains the evidence ledger; the 2026-09-05 audit is the
+latest interpretation of what should carry novelty. Older reset/audit documents remain
+for provenance.
 
 ---
 
@@ -111,7 +114,7 @@ None is established.
 
 ### G22 — Target Knowledge vs Evidential Instantiation
 
-**Design audit only. Not preregistered. Not frozen. No generation.**
+**Branching discriminator. Design audit only. Not preregistered. Not frozen. No generation.**
 
 Three target states:
 
@@ -128,10 +131,13 @@ asserted evidence(P) → EXCLUDE → future E(P)
 
 The middle condition must be genuinely judgment-neutral before the experiment is valid.
 
-If semantic knowledge alone rescues, the next step is a clean early-vs-late mapping
-composition test.
+If semantic knowledge alone rescues, G22 is a bridge rather than the headline; the next
+novelty-bearing test is clean early-vs-late mapping composition despite correct late
+target understanding.
 
-If only evidential instantiation rescues, the next step is passive gate vs active
+If only evidential instantiation rescues despite neutral, correctly understood target
+knowledge, G22 itself can support the stronger claim that exclusion relies on an
+already-instantiated evidence state; the next step is passive gate vs active
 evidence-state revision/cancellation.
 
 ---
