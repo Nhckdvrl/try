@@ -1,7 +1,8 @@
 # Paper frame — target-state factorization
 
 **Updated:** 2026-09-04 after the third mainline audit.
-**Authoritative ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+**Authoritative ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)  
+**Latest mainline audit:** [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md)
 
 The paper has one scientific identity:
 
@@ -150,7 +151,7 @@ None is established.
 
 ---
 
-# 7. G22 — the next novelty-bearing factorization candidate
+# 7. G22 — the branching discriminator
 
 **G22: Target Knowledge vs Evidential Instantiation**
 
@@ -175,6 +176,12 @@ asserted evidence(P) → EXCLUDE → future E(P)
 ```
 
 The middle condition is the entire point.
+
+**Scientific-role correction (2026-09-05):** G22 is not automatically the
+novelty-bearing experiment. If K rescues, the result is a factorization bridge and the
+novelty must come from a clean late-composition failure. If only I rescues despite
+neutral, correctly understood K, G22 itself becomes a non-obvious law about exclusion
+requiring an already-instantiated evidence state.
 
 Its carrier must:
 - identify P exactly;
