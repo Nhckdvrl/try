@@ -1,125 +1,147 @@
-# Project status — adversarial RQ reconstruction (2026-09-06, post-V9 durable-search update)
+# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V3)
 
 > **There is no approved paper mainline.**
 >
 > **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V2.md](DURABLE_RQ_SEARCH_2026-09-06_V2.md)
+> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V3.md](DURABLE_RQ_SEARCH_2026-09-06_V3.md)
 >
-> **Current frozen experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
+> **Current IF discovery design:** [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md)
+>
+> **CK experiment-priority provenance:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
 
-V9 remains the authority for the experiment authorization it made. V2 does **not**
-promote a new mainline and does **not** revoke CK-P1. It updates the broader
-mainline-selection search and novelty-assassination ledger.
+V3 promotes IF only to **SMALL PILOT / NOT MAINLINE** after a substantially expanded
+conceptual-assassination pass. It does not make a positive probe result novel.
 
-Earlier audits and registers remain provenance.
+Earlier audits, V1/V2, and old registers remain provenance.
 
 ## Current decisions
 
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
-| Agent-event binding / causal authorship (AEB) | **HIGH-RISK / NO PILOT** |
-| Goal-state lifecycle / goal-plan factorization (GPF) | **HIGH-RISK / NO PILOT** |
-| Social commitment lifecycle | **KILL broad RQ** |
+| Institutional / socially constituted status (IF) | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| IF-P0 | **PRE-FREEZE ONLY / NO TARGET OUTPUT YET** |
 | CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| agent-relative causal controllability | **HIGH-RISK / NO PILOT** |
+| agent-event binding / causal authorship | **KILL broad RQ** |
+| goal-state lifecycle / goal-plan factorization | **KILL broad RQ** |
+| goal viability / infeasibility | **KILL broad RQ** |
+| generic path-dependent/history state | **KILL broad RQ** |
+| decision commitment / change-of-mind | **KILL broad RQ** |
+| justification/dependency state | **KILL broad RQ** |
+| capability vs permission / normative power | **KILL broad RQ** |
+| belief/expected-state vs desire/goal | **KILL broad RQ** |
+| epistemic stance / speaker commitment | **KILL broad RQ** |
+| hard constraint vs soft preference | **KILL broad RQ** |
+| observation vs intervention | **KILL broad RQ** |
+| prediction mode vs action/choice mode | **KILL broad RQ** |
+| social commitment lifecycle | **KILL broad RQ** |
 | free-choice permission | **SECONDARY SEARCH ONLY / NO PILOT** |
 | contrary-to-duty / remedy-as-permission | **SECONDARY SEARCH ONLY / NO PILOT** |
 | explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY / NO PILOT** |
 | BTF3 G12→G15 | **MECHANISTIC ASSET / SUPPORTING ONLY** |
 | G0 prospective exclusion | **STRONG EMPIRICAL ASSET / PAPER IDENTITY HIGH-RISK** |
-| observation/sampling-process | **KILL paper identity** |
-| distributed knowledge | **KILL broad RQ** |
-| performative felicity | **DO NOT PROMOTE** |
-| vacuous truth | **KILL on natural-gold grounds** |
 | zero/nonzero | **KILL paper identity** |
 | G18 | **SUPPORTING ONLY** |
 | G21 | **NOT CURRENT MAINLINE** |
 | G22 | **KILL / DO NOT RUN** |
 | ReGround G19 | **CANCELLED** |
 
-## Important V2 IF correction
+## Why IF finally gets a SMALL PILOT
 
-IF remains the strongest durable search lead, but its novelty bar is now higher.
+The broad question is no longer:
 
-Classical normative-agent work already formalized a physical-world → constitutive-rule
-→ institutional-state architecture and dynamic institutional-state tracking. Recent
-2026 LLM-agent security work also treats authorization as durable state with
-creation/consumption/revocation-like transitions.
+> Do LLMs understand institutional facts?
 
-Therefore IF cannot claim:
-- first institutional-state computation;
-- first constitutive-rule reasoning;
-- first dynamic authorization state;
-- first social world state;
-- first relation/role representation.
+The pilot-level question is:
 
-The surviving LLM-specific intersection is narrower:
+> **When physical state and socially constituted status are varied independently, do
+> pretrained language models exhibit a reusable internal update structure for social
+> status that is stronger than generic relation/event tracking?**
 
-> **Does an ordinary language model internally factorize socially constituted status
-> from physical substrate and constitutive rule, dynamically update that status across
-> creation/persistence/transfer/revocation, and causally use it for status-derived
-> consequences across domains?**
+This has now survived direct threats from:
+- classical social ontology / constitutive norms;
+- normative multi-agent institutional-state tracking;
+- generic relational representations;
+- social-role latent geometry;
+- rule-action applicability;
+- 2025–2026 Social World Models;
+- legal-agent simulations;
+- dynamic authorization memory.
 
-This is still **NO PILOT**. See V2.
+These literatures kill weak claims. They do not currently establish the full
+LLM-internal intersection of:
+- physical/status factorization;
+- status-only update;
+- persistence;
+- cross-domain structure;
+- generic-relation control;
+- downstream causal use.
 
-## CK research object
+## IF-P0 success is NOT decodability
 
-Not "LLMs understand common knowledge."
+The following are kill/trivial outcomes:
+- owner/non-owner AUC is high;
+- models answer ownership correctly;
+- status words cluster;
+- sale changes an ownership answer;
+- one domain/model has a clean direction.
 
-The live question is:
+A result earns another audit only if the status-update structure:
+1. survives physical/status nuisance crossing;
+2. transfers across substantially different status domains;
+3. persists across irrelevant physical changes;
+4. differs materially from generic non-institutional relation updates;
+5. appears compatibly in at least two model families.
 
-> **When first-order knowledge is matched, does public observability change the
-> computation of recursive knowledge itself — behaving like a compressed
-> common-knowledge state rather than one more finite layer of nested Theory of Mind?**
+Even then: **fresh post-result novelty assassination is mandatory.**
 
-Direct neighbors already audited:
-- MindGames;
-- dynamic epistemic logic benchmarks;
-- OmniToM;
-- EAST;
-- *Who Knows Who Knows?*;
-- SimpleToM;
-- CoSToM;
-- human common-knowledge work.
+## IF-P0 authorization gate
 
-CK-P1 remains a **side discovery pilot**, not the default research priority.
+Before any target-model output:
 
-## CK-P1 authorization
+1. 24 independent skeletons finalized;
+2. four domains finalized: ownership, office, membership, ticket/credential validity;
+3. physical-only / status-only / neutral trajectories finalized;
+4. deterministic physical/status gold unit-tested;
+5. generic relation controls finalized;
+6. manual naturalness audit completed;
+7. exact neutral representation checkpoint frozen;
+8. exact model revisions frozen;
+9. activation extraction/checkpoints frozen;
+10. held-out-domain splits frozen;
+11. update-geometry metric frozen;
+12. cluster-bootstrap analyzer tested on dummy data;
+13. dedicated preregistration created;
+14. freeze commit/tag created.
 
-Before first target-model generation, all must be frozen:
+No SAE, steering, causal patching, scale sweep, long-horizon benchmark or legal dataset
+is authorized by IF-P0.
 
-1. 24 independent semantic skeletons;
-2. four matched structures K1/K2/K3/CK = 96 contexts;
-3. depth queries d = 1,2,3,4,6;
-4. deterministic TRUE/FALSE gold;
-5. structure-recognition qualification probe;
-6. exact three-model panel/revisions;
-7. analyzer and cluster-bootstrap plan;
-8. unit tests;
-9. dedicated preregistration;
-10. freeze commit/tag.
+## Strategic priority
 
-No mechanism, scale sweep, or result-driven prompt repair is authorized.
+CK-P1 remains scientifically authorized and is not cancelled.
+
+However, **IF-P0 now has higher mainline-selection priority** because IF is a broader,
+outcome-robust scientific object whose value is not conditional on one publicness
+anomaly.
 
 ## Evidence provenance
 
-For established/downgraded old experiments, read:
-1. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md) — **evidence ledger only; its old paper-identity / future-experiment sections are superseded**;
-2. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md);
-3. [EXPERIMENTS.md](EXPERIMENTS.md);
-4. [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md);
-5. files under stages/, results/, and preregistrations/.
+Old prospective-exclusion evidence remains in:
+- [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md);
+- [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md);
+- [EXPERIMENTS.md](EXPERIMENTS.md);
+- [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md).
 
-[ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) is retained as a
-historical old-mainline alignment document. Its prospective-exclusion descent and G22
-logic are **not current authority**.
+The old register is evidence/provenance only.  
+[ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) is historical old-mainline provenance.
 
 ## Governing principle
 
 > **Durable object. Simple question. Simple data. Outcome-robust research program.
 > Non-obvious findings. Deep causal analysis.**
 
-Do not promote a candidate because it is merely decodable, because an exact experiment
-has not been run, or because code/data already exist.
+Rigour does not mean refusing to run forever. Once a candidate survives the gates, the
+correct next move is one tiny frozen experiment with explicit kill rules.
