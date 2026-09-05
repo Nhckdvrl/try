@@ -304,3 +304,131 @@ The current authoritative ledger is:
 [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md).
 
 No new generation was performed during this audit.
+
+
+---
+
+## 11. 2026-09-06 adversarial mainline reconstruction — V5 → V8
+
+The G22 branch was subsequently stopped **before generation**.
+
+The reason was not that its U/K/I distinction was logically incoherent. The problem
+was methodological and scientific: constructing the crucial K state increasingly
+required retrieval manifests, future-record specifications, non-evidential carriers,
+interface/schema metadata, and explicit neutrality checks. The experiment had begun to
+manufacture an unnatural world in order to identify a latent factor.
+
+This triggered a broader reset:
+
+> **Do not manufacture novelty by making the experiment more elaborate. Find a
+> simple research object whose importance survives abstraction.**
+
+### V5 — premature promotion of the zero/nonzero anomaly
+
+A first simple-data audit noticed the old Stage-3 observation that order sensitivity
+appeared concentrated at requested weight 0 and temporarily promoted:
+
+> exact semantic non-use may be qualitatively different from arbitrarily weak use.
+
+That promotion was too fast and is retained as an explicit research-judgment error.
+
+### V6 — adversarial correction
+
+A deeper audit re-read:
+- the formal zero-specific interaction;
+- raw generations without the unstable REI denominator;
+- independent semantic skeleton counts;
+- task-family heterogeneity;
+- the arithmetic control;
+- current 2024–2026 novelty threats.
+
+The formal zero-specific law was not cross-model stable: only 2/6 models had a
+significant positive zero-specific term, Mistral showed a significant reverse effect,
+and the strongest descriptive effects concentrated in small task families.
+
+The correct project state became:
+
+> **no approved new mainline.**
+
+G22 was killed as the next experiment. Zero became a high-risk anomaly rather than a
+law. The explicit-outcome redaction paradox remained a high-risk anomaly.
+
+### V7 — old-anomaly audit plus independent simple-data search
+
+V7 tightened the decision further:
+- zero/nonzero was **killed as a paper identity** and retained only as an archived
+  empirical anomaly;
+- the stopped BTF3 G12→G15 chain was explicitly recovered as a real mechanistic asset:
+  in Gemma, an unrelated verdict-redacted future packet's outcome direction is
+  transformed into a recipient-conditioned late decision coordinate with fresh causal
+  confirmation;
+- that mechanism was **not** promoted to a mainline because the behavioral effect is
+  heterogeneous across Qwen/Gemma/Mistral and neighboring work on irrelevant-context
+  interference, anchoring, and shared decision subspaces crowds the abstraction.
+
+V7 also started a formal kill ledger for simple-data RQs. Multiple natural-looking
+candidates were killed before any model run because current literature already occupied
+their conceptual takeaway.
+
+Its strongest temporary search shape — conditioning evidential value on the sampling /
+observation process — was deliberately left PRE-PILOT.
+
+### V8 — sampling killed; common-knowledge intersection remains only high-risk
+
+Further 2026 search then killed V7's sampling-process candidate:
+- CROWN-QA directly studies when absence can support a negative conclusion as a
+  function of evidence completeness / coverage;
+- 2026 hypothesis-updating work directly studies LLM sampling assumptions and reports
+  strong-sampling bias;
+- generic Bayesian belief updating is already heavily occupied.
+
+The same kill-first search removed additional broad candidates around:
+- source reliability / undercutting;
+- conflict vs ignorance;
+- value of information;
+- disjunctive / set-valued uncertainty;
+- joint commitment;
+- pluralistic ignorance;
+- informational cascades / herding;
+- collective/distributive plurality;
+- screening-off;
+- reversible vs irreversible action / preserving optionality.
+
+The only new shape surviving the current round is an intersection around **publicness
+and common-knowledge closure**:
+
+> when first-order factual knowledge is matched, does public observability induce a
+> qualitatively distinct shortcut to recursive epistemic closure in LLMs, separable
+> from ordinary finite-depth Theory-of-Mind reasoning?
+
+Even this candidate is **not approved**.
+
+Exact threat search found:
+- MindGames (EMNLP Findings 2023) already uses S5/public-announcement logic and
+  higher-order belief queries;
+- a 2026 Knowledge-Based Systems benchmark already evaluates LLMs on Muddy Children
+  and Cheryl's Birthday dynamic epistemic puzzles;
+- OmniToM already labels Private / Shared / Public knowledge access;
+- SimpleToM (ICLR 2026) already establishes an explicit-ToM → applied-ToM gap;
+- common-ground and LLM-coordination literatures are substantial.
+
+Therefore all generic claims about public/private knowledge, public announcements,
+higher-order ToM, common-ground ability, or explicit-vs-applied ToM are unavailable.
+
+The candidate remains alive only as:
+
+> **HIGH-RISK INTERSECTION LEAD: publicness shortcut vs finite recursive mentalizing.**
+
+No target-model generation has been authorized.
+
+Current authority:
+[MAINLINE_AUDIT_2026-09-06_V8.md](MAINLINE_AUDIT_2026-09-06_V8.md).
+
+The project culture after these corrections is:
+
+> **A classic distinction is allowed; a classic conclusion is not.**
+
+and:
+
+> **simple question → conceptual novelty assassination → scale/growth-path test →
+> only then a tiny discovery pilot.**
