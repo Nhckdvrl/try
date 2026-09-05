@@ -1,62 +1,80 @@
-# Project status — adversarial RQ reconstruction (2026-09-06 V8)
+# Project status — adversarial RQ reconstruction (2026-09-06 V9)
 
-> **Current research-question / experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V8.md](MAINLINE_AUDIT_2026-09-06_V8.md)
+> **Current research-question / experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
 >
-> **There is currently no approved new paper mainline.**
+> **There is still no approved paper mainline.**
 >
-> **No new target-model generation is authorized.**
+> **CK-P1 is the only newly authorized small discovery pilot, and may run only after design/material/gold/analyzer freeze.**
 
-V8 supersedes V7 for prioritization. Earlier audits remain provenance and must not be
-silently rewritten.
+V9 supersedes V8 for prioritization. Earlier audits remain immutable provenance.
 
 ## Current decisions
 
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| publicness → common-knowledge closure | **HIGH-RISK INTERSECTION LEAD — current #1 search shape, not approved** |
-| free-choice / semantic–reasoning interface | **SECONDARY SEARCH ONLY** |
+| CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| free-choice permission | **SECONDARY SEARCH ONLY / NO PILOT** |
+| contrary-to-duty / remedy-as-permission | **SECONDARY SEARCH ONLY / NO PILOT** |
 | explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY / NO PILOT** |
-| BTF3 G12→G15 unrelated-outcome decision state | **MECHANISTIC ASSET / SUPPORTING ONLY** |
+| BTF3 G12→G15 | **MECHANISTIC ASSET / SUPPORTING ONLY** |
 | G0 prospective exclusion | **STRONG EMPIRICAL ASSET / PAPER IDENTITY HIGH-RISK** |
-| observation / sampling-process conditioning | **KILL AS PAPER IDENTITY** |
-| zero/nonzero | **KILL AS PAPER IDENTITY / archive anomaly** |
+| observation/sampling-process | **KILL paper identity** |
+| distributed knowledge | **KILL broad RQ** |
+| performative felicity | **DO NOT PROMOTE** |
+| vacuous truth | **KILL on natural-gold grounds** |
+| zero/nonzero | **KILL paper identity** |
 | G18 | **SUPPORTING ONLY** |
 | G22 | **KILL / DO NOT RUN** |
 
-## What V8 changed
+## CK research object
 
-1. V7's sampling-process candidate is killed after direct 2026 work on
-   completeness-sensitive negative reasoning and LLM sampling assumptions.
-2. Publicness/common-knowledge closure is now the leading **intersection search shape**, but it has
-   not earned a pilot. The candidate must be about the transition from finite nested
-   belief to common-knowledge closure, not public/private access, generic ToM,
-   common ground, or generic coordination.
-3. Several independent candidates were killed before generation: undercutting/source
-   reliability, conflict-vs-ignorance, value of information, set-valued/disjunctive
-   uncertainty, joint commitment, pluralistic ignorance, informational cascades,
-   and collective/distributive plurality.
-4. Free-choice permission remains a low-priority semantic/reasoning search shape only.
+Not "LLMs understand common knowledge."
 
-## Authorization
+The live question is:
 
-Allowed:
-- continued novelty assassination;
-- public-dataset / published-output inspection without new target generations;
-- symbolic-gold and dummy material design;
-- independent simple-data RQ search;
-- repository cleanup / historical audit.
+> **When first-order knowledge is matched, does public observability change the
+> computation of recursive knowledge itself — behaving like a compressed
+> common-knowledge state rather than one more finite layer of nested Theory of Mind?**
 
-Not allowed:
-- common-knowledge pilot;
-- free-choice pilot;
-- sampling-process pilot;
-- explicit-outcome pilot;
-- zero replication;
-- G20/G21/G22;
-- G0 rescue controls;
-- new G12/G15 mechanism work;
-- ReGround.
+Direct neighbors now explicitly audited:
+- MindGames (public-announcement / higher-order epistemic logic);
+- KBS 2026 dynamic epistemic puzzles;
+- OmniToM (Private/Shared/Public + order 0–3);
+- EAST (private/mutual epistemic coordination errors);
+- ToM4AI 2026 *Who Knows Who Knows?* (interactive approximate CK);
+- SimpleToM (generic recognition→application gap);
+- CoSToM, ACL 2026 Best Theme (generic causal ToM tracing/steering);
+- human common-knowledge work, especially PNAS 2026.
+
+These kill broad claims, but current search did not find the exact
+**publicness-shortcut vs finite-recursion** computation in base LLMs.
+
+## CK-P1 authorization
+
+Before first target-model generation, all must be frozen:
+
+1. 24 independent semantic skeletons;
+2. four matched structures K1/K2/K3/CK = 96 contexts;
+3. depth queries d = 1,2,3,4,6;
+4. deterministic TRUE/FALSE gold;
+5. structure-recognition qualification probe;
+6. exact three-model panel/revisions;
+7. analyzer and cluster-bootstrap plan;
+8. unit tests;
+9. dedicated preregistration;
+10. freeze commit/tag.
+
+No mechanism, scale sweep, or result-driven prompt repair is authorized.
+
+## CK post-pilot principle
+
+A result only earns another mainline audit if at least 2/3 model families show a
+practically visible, publicness-specific qualitative law that cannot be compressed to
+generic nesting difficulty, access tracking, EAST-style private/mutual confusion, or
+known recognition→application failure.
+
+If not: kill CK and return to RQ search.
 
 ## Evidence provenance
 
@@ -65,24 +83,4 @@ For established/downgraded old experiments, read:
 2. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
 3. [EXPERIMENTS.md](EXPERIMENTS.md)
 4. [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md)
-5. files under `stages/`, `results/`, and `preregistrations/`.
-
-
-## Post-V8 exact-threat correction
-
-After V8 was first written, three stronger neighbors were confirmed:
-
-- **MindGames (EMNLP Findings 2023):** S5/public-announcement logic + higher-order belief queries;
-- **Logical Reasoning in Evolving Scenarios (KBS 2026):** Muddy Children / Cheryl's Birthday dynamic epistemic puzzles with public announcements and recursive knowledge updates;
-- **SimpleToM (ICLR 2026):** explicit mental-state inference can dissociate from downstream behavior/judgment application.
-
-Therefore the live question is **not** common-knowledge ability, public/private access,
-public-announcement reasoning, higher-order ToM, or recognition→application.
-
-Only the narrower intersection remains live:
-
-> when first-order knowledge is matched, does public observability induce a
-> qualitatively distinct shortcut to recursive epistemic closure, separable from
-> ordinary finite-depth ToM reasoning?
-
-Still **NO GENERATION**.
+5. files under stages/, results/, and preregistrations/.
