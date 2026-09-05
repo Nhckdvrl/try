@@ -522,6 +522,36 @@ is not sufficient novelty.
 
 The institutional-status object must generalize beyond speech acts.
 
+## Threat 8 — Social World Models (2025–2026)
+
+Recent work already claims the phrase **social world model**.
+
+- *Social World Models* (2025/2026) introduces S3AP, an explicit representation of
+  agent state, observations, actions and mental states, then uses a model to predict
+  how social interaction evolves.
+- *Building Social World Models with Large Language Models* (ICML 2026) models how
+  aggregate social beliefs change after real-world events.
+- 2026 mechanistic work asks whether Theory of Mind and pragmatic reasoning recruit a
+  shared social-world-model computation.
+
+This kills any broad framing such as:
+
+> "Do LLMs have a social world state/model?"
+
+A direct inspection of the S3AP paper shows that its load-bearing represented states
+are primarily agents' beliefs/intentions, observations, actions and interaction
+dynamics. It does not center institutional statuses such as ownership, office,
+membership, currency/token validity, or constitutive status transitions.
+
+Therefore IF can survive only as a **specific missing component of social world
+modeling**:
+
+> socially constituted state that exists because an entity/person counts as holding a
+> status in a social/institutional context, not merely because of its physical
+> properties or an agent's private mental state.
+
+Do not use "social world model" itself as novelty language.
+
 ## Threat 8 — Generic relational-concept representations
 
 NAACL 2024 **Identifying Linear Relational Concepts in Large Language Models** and
