@@ -1,8 +1,10 @@
-# Project status — takeover reset 2026-09-06
+# Project status — adversarial reset 2026-09-06
 
-> **Current experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V5.md](MAINLINE_AUDIT_2026-09-06_V5.md)
+> **Current experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V6.md](MAINLINE_AUDIT_2026-09-06_V6.md)
 >
-> The 2026-09-04 scientific register below remains the provenance ledger for established results, but its G22 experiment priority is superseded. **Do not run G22.** The current highest-priority candidate is the exact-zero boundary in semantic influence control, pending further novelty assassination and a fresh minimal pilot design. The explicit-outcome paradox is retained as a secondary small-pilot lead.
+> V5 was premature in promoting the zero/nonzero anomaly. V6 corrects that judgment after formal cross-model, raw-output, cluster/skeleton, metric, and literature audits. **There is currently no approved new mainline and no new model generation is authorized.**
+>
+> **Do not run G22.** The zero/nonzero result is now **HIGH-RISK / DATA-AUDIT LEAD**, not KEEP. The explicit-outcome paradox is also **HIGH-RISK** and requires a dedicated novelty audit before any clean pilot.
 
 ---
 
