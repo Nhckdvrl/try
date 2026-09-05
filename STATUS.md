@@ -2,7 +2,8 @@
 
 **As of:** 2026-09-04.
 **Target:** NAACL / ACL / EMNLP Main-level paper.
-**Authoritative scientific ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+**Authoritative scientific ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)  
+**Latest mainline audit:** [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md)
 
 The project is in a **mainline factorization audit**, not an experiment-running phase.
 
@@ -182,8 +183,14 @@ None of these is currently established.
 
 ### G22 — Target Knowledge vs Evidential Instantiation
 
-**Status: DESIGN-AUDIT CANDIDATE ONLY.**
+**Status: BRANCHING DISCRIMINATOR / DESIGN-AUDIT CANDIDATE ONLY.**
 **No generation authorized.**
+
+G22 is not assumed to carry novelty in every outcome. If clean non-evidential target
+knowledge K already rescues exclusion, G22 is a bridge and the novelty-bearing question
+moves to late policy-target composition. If K is fully understood and neutral but only
+an already-instantiated evidential state rescues, G22 itself can support the stronger
+retrospective-revision account.
 
 Core factor:
 
