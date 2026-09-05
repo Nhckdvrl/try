@@ -1,3 +1,9 @@
+> **2026-09-06 supersession notice:** this file began as the related-work map for
+> the G22/prospective-exclusion mainline. That framing is historical. Current research
+> priority is governed by [MAINLINE_AUDIT_2026-09-06_V8.md](MAINLINE_AUDIT_2026-09-06_V8.md).
+> G22 is killed and no new generation is authorized. The V8 addendum at the end records
+> the current novelty threats for simple-data RQ search.
+>
 # Related work — prospective exclusion after scientific register v3
 
 **Updated:** 2026-09-04.
@@ -277,3 +283,108 @@ Future-paper candidate only.
 
 ### ReGround G19
 Cancelled before generation.
+
+
+---
+
+# V8 addendum — current novelty-threat map (2026-09-06)
+
+This addendum does **not** revive the old prospective-exclusion mainline.
+
+## A. Publicness / common-knowledge intersection
+
+### MindGames — EMNLP Findings 2023
+Occupied:
+- controlled dynamic epistemic / S5 reasoning in LMs;
+- public announcements in generated premises;
+- higher-order belief hypotheses.
+
+Kills:
+- first public-announcement benchmark;
+- first recursive epistemic benchmark;
+- generic "LLMs struggle with higher-order knowledge."
+
+### Logical Reasoning in Evolving Scenarios — Knowledge-Based Systems 2026
+Occupied:
+- Muddy Children and Cheryl's Birthday;
+- public announcements;
+- recursive knowledge updating;
+- 2,784 difficulty-controlled instances;
+- answer prediction + role playing;
+- failures attributed to recursive perspective-taking / logical implications.
+
+Kills:
+- "Can LLMs solve common-knowledge puzzles?"
+- benchmark-only modernization of Muddy Children.
+
+### OmniToM — 2026
+Occupied:
+- explicit belief modeling;
+- order 0–3;
+- Private / Shared / Public knowledge-access labels.
+
+Kills:
+- "LLMs cannot distinguish public and private information."
+- "knowledge access is a new ToM factor."
+
+### SimpleToM — ICLR 2026
+Occupied:
+- explicit mental-state inference vs applied ToM;
+- behavior prediction / judgment dissociation.
+
+Kills:
+- generic recognition→application novelty.
+
+### Human common-knowledge work — PNAS 2019 / PNAS 2026
+Establishes the theoretical distinction:
+- finite recursive mentalizing is capacity limited;
+- public salience can license implicit arbitrary-depth common knowledge;
+- humans can also over-extrapolate finite/private knowledge.
+
+Implication:
+the human distinction itself is not novel. A surviving LLM paper needs a new
+LLM-specific **publicness law**, not "models also show the human effect."
+
+### Surviving gap, still HIGH-RISK
+Current search has not found a modern LLM paper whose load-bearing manipulation is:
+
+> matched first-order factual knowledge + finite private/reciprocal nesting vs public
+> joint observability, specifically to test whether publicness recruits a computational
+> shortcut to recursive closure distinct from finite ToM.
+
+This is an **intersection gap**, not a clean empty field.
+
+## B. Sampling / observation-process conditioning — killed
+
+Direct threats:
+- CROWN-QA / *When Absence Is Evidence* (2026): completeness-sensitive negative
+  reasoning;
+- *Hypothesis generation and updating in LLMs* (2026): explicit sampling assumptions /
+  strong-sampling bias;
+- BayesBench / Bayesian-teaching / QUITE / diagnostic evidence updating.
+
+Verdict: KILL as paper identity.
+
+## C. Additional killed broad RQs
+
+Killed before generation:
+- source reliability / undercutting;
+- conflict vs ignorance;
+- value of information / ask-before-act;
+- disjunctive / set-valued uncertainty;
+- joint intention / joint commitment;
+- pluralistic ignorance;
+- informational cascades / herding;
+- screening-off / Markov independence;
+- reversible vs irreversible action / preserving optionality.
+
+## D. Linguistic substrates not promoted
+
+### Free-choice permission
+No exact LLM free-choice paper located in current search, but deontic/modal reasoning is
+crowded. Keep SECONDARY SEARCH ONLY.
+
+### Homogeneity / truth-value gaps
+No exact LLM homogeneity paper located in current search. This is **not** enough for a
+candidate. Presupposition/pragmatics evaluation and reasoning-vs-human-semantics gaps
+are already active 2026 topics. Require a larger new LLM-specific law before any pilot.
