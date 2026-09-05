@@ -1,3 +1,21 @@
+> [!IMPORTANT]
+> **AUTHORITY NOTICE — 2026-09-06**
+>
+> This document is retained as **historical provenance for the old
+> prospective-exclusion paper architecture**. Its requirements that the paper preserve
+> the old prospective-exclusion descent, its G22 fork, and its old figure/method plan
+> are **not current research-question authority**.
+>
+> Current governing documents are:
+> 1. `RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md`;
+> 2. `DURABLE_RQ_SEARCH_2026-09-06_V2.md`;
+> 3. `MAINLINE_AUDIT_2026-09-06_V9.md`;
+> 4. `STATUS.md`.
+>
+> Current state: **NO APPROVED PAPER MAINLINE**; **G22 = KILL / DO NOT RUN**.
+> Use the material below only to understand the earlier alignment logic and research
+> history, not to revive the old paper identity.
+
 # ACL / EMNLP / NAACL alignment standard — scientific register v3
 
 **Updated:** 2026-09-04.
