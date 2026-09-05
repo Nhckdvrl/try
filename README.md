@@ -112,3 +112,19 @@ kill aggressively
 → only then build a paper
 
 CK has reached the discovery-test stage. It is **not yet the paper**.
+
+
+## Research-question promotion standard
+
+The long-term selection criteria are defined in:
+[RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md).
+
+Most important addition: **Outcome Robustness**. A strong topic should remain
+scientifically meaningful under multiple plausible outcomes and should expose a
+durable model variable/computation with room for behavior, representation,
+generalization, causal analysis and intervention. Do not choose a topic mainly because
+one narrow anomaly might exist.
+
+CK-P1 is allowed as a small falsifiable discovery run, but the project continues a
+parallel search for a broader Hamdi-style research object and may supersede CK before
+or after the pilot.
