@@ -1,171 +1,136 @@
 # Research project — mainline and novelty reconstruction
 
-The repository contains a large completed experimental programme around prospective evidence exclusion, but **that old paper identity is no longer assumed to be the correct mainline**.
+This repository contains a large completed experimental program around prospective
+evidence exclusion plus a stopped BTF3/hindsight branch. Those experiments are
+scientific assets and provenance; **they do not determine what the next paper must be**.
 
-The project is currently in an adversarial research-question audit. Existing results remain scientific assets and provenance; they do not determine what the next paper must be.
+The project is currently in an adversarial research-question search for an
+NAACL / ACL / EMNLP Main-level paper.
 
-**No new model generation is authorized.**
+> **No approved new mainline.**
+>
+> **No new model generation is authorized.**
 
 ## Current authority
 
 Read in this order:
 
-1. [MAINLINE_AUDIT_2026-09-06_V6.md](MAINLINE_AUDIT_2026-09-06_V6.md) — current experiment-priority and novelty authority.
-2. [STATUS.md](STATUS.md)
-3. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md) — evidence ledger for established/downgraded results.
+1. [MAINLINE_AUDIT_2026-09-06_V7.md](MAINLINE_AUDIT_2026-09-06_V7.md) — current
+   research-question, novelty, and experiment-priority authority.
+2. [STATUS.md](STATUS.md) — compact current status.
+3. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md) —
+   evidence ledger for established/downgraded results.
 4. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md)
 5. [EXPERIMENTS.md](EXPERIMENTS.md)
 6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
 7. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
-8. Earlier mainline audits / G20–G22 designs — provenance only unless V6 explicitly revives them.
+8. earlier mainline audits and G20–G22 designs — provenance only unless V7 revives
+   them explicitly.
 
-V5 is retained because it documents a premature promotion of the zero/nonzero anomaly. V6 supersedes it for current decisions.
+V5 is retained as the record of a premature promotion of the zero/nonzero anomaly.
+V6 corrected that promotion. V7 further tightens the audit after a second pass over
+BTF3 mechanisms and 2026 literature.
 
-Current decisions:
-- **no approved new mainline**;
-- **G22: do not run**;
-- **zero/nonzero anomaly: HIGH-RISK / data-audit lead, not an established law**;
-- **explicit-outcome paradox: HIGH-RISK; novelty audit required before a pilot**;
-- continue independent simple-data research-question search.
+## Current ranked status
 
----
+| object | current verdict |
+|---|---|
+| new paper mainline | **NONE** |
+| observation / sampling-process conditioning | **PRE-PILOT NOVELTY SEARCH — current best search shape, not approved** |
+| explicit-outcome paradox | **HIGH-RISK ANOMALY — no pilot** |
+| G12→G15 unrelated-outcome decision state | **MECHANISTIC ASSET / SUPPORTING ONLY for now** |
+| G0 prospective exclusion | **STRONG EMPIRICAL ASSET / PAPER IDENTITY HIGH-RISK** |
+| zero/nonzero | **KILL AS PAPER IDENTITY / archive anomaly** |
+| G18 | **SUPPORTING ONLY** |
+| G22 | **KILL / DO NOT RUN** |
+| mental-space / hypothetical-world binding | **KILL broad RQ** |
+| numerical identity | **KILL broad RQ** |
 
-## Stable empirical core
+## Stable old assets
 
 ### G0 — prospective exclusion reversal
 
-- 144 frozen items;
-- five task families;
-- 12 instruction-tuned models / four vendors;
-- two masked diffusion LMs;
-- same exclusion rule before vs after evidence;
-- 12/12 instruct models show the same timing-gap direction;
-- matched Admit control has no analogous order effect.
+Across the frozen controlled suite, models are systematically worse at excluding
+evidence when the exclusion rule is stated before that evidence than when the same
+rule is stated after it. Policy probes often show correct declarative access despite
+residual causal use. This remains a strong empirical result but is not assumed to be
+a novel paper identity because prospective-memory, instruction-position, forgetting,
+and selective-context-control literatures are crowded.
 
-### Policy access vs enforcement
+### G18 / Stage 4 / Stage 5
 
-In Qwen3-8B and Gemma-3-12B, prospective evidence can still affect decisions even on
-trajectories that explicitly state zero weight. Phi-4-mini is more mediated by whether
-zero is expressed.
+G18 confirms that having the target proposition already represented before exclusion
+changes later suppression, but its semantic previews substantively instantiate the
+target and therefore cannot carry the old "target addressability" novelty.
 
-### Arithmetic boundary
+Stage 4 and Stage 5 remain useful causal assets: effective control can be
+content-conditioned, and Qwen3-8B / Mistral-Small-24B contain target-dependent
+rule-time states that causally alter later suppression. These results do not by
+themselves rescue the old paper story.
 
-Future numeric weighting can work exactly. On the verifiable linear task, four of five
-models execute prospective `w=0` exactly on qualified items.
+### BTF3 G12→G15
 
-### Object-existence ladder
+A separate stopped branch contains a serious mechanistic result that should not be
+lost: in Gemma, swapping the outcome direction supported by a verdict-redacted,
+semantically unrelated future packet strongly shifts the reconstructed current
+judgment, and a fresh-confirmed recipient-conditioned late decision coordinate
+causally transfers part of that effect.
 
-A name, identifier, content-pending stub, type, or direction is not enough to reliably
-rescue prospective exclusion. Full target content before the rule is.
+This is retained as a **mechanistic asset**, not a new headline: the behavioral
+magnitude is heterogeneous across Qwen/Gemma/Mistral and 2025–2026 work on
+irrelevant-context interference, anchoring, shared decision subspaces, and causal
+decision states creates substantial conceptual overlap.
 
-### G18 — confirmed, but interpretation narrowed
+## Explicitly retired / killed
 
-G18:
-- 100 fresh items / 30 skeletons / three families;
-- five models / four vendors;
-- 9,000 generations;
-- `Delta_semantic = +8.91 [7.15,+10.76]`, 5/5 positive.
+- **G22:** do not run. Its U/K/I identification requires an overconstructed
+  non-evidential carrier / manifest world.
+- **zero/nonzero as a paper identity:** killed. Keep the empirical anomaly only.
+- **Target Addressability** as headline novelty: retired.
+- **G21 Source–Proposition Scope Entanglement:** not current mainline.
+- **broad hypothetical / mental-space binding:** killed by direct 2026
+  representational/mechanistic work.
+- **broad numerical-identity vs qualitative-sameness RQ:** killed after current
+  entity-identity / continuity literature audit.
+- ReGround G19 remains cancelled.
 
-But semantic previews themselves substantively assert the target proposition. Their
-no-rule later-evidence marginal collapses from ~32 to ~3 points.
+## Current simple-data search
 
-Therefore G18 shows:
+The best surviving *search shape*, not yet an experiment, is:
 
-> **having the target proposition already represented before exclusion strongly changes
-> suppression.**
+> **Does a language model condition the evidential value of an observation on the
+> process that generated, selected, censored, or could have revealed it?**
 
-It does not yet show that non-evidential knowledge of a future target is sufficient.
+Example:
 
-### Stage 4 / Stage 5
+> Two teams both report, "We did not see a fox." One search would detect a present
+> fox 99% of the time; the other only 10%. The first non-detection should be much
+> stronger evidence of absence.
 
-Stage 4:
-effective exclusion can be strongly content-conditioned across document IDs.
+This passes the one-example and simple-gold tests. It has **not** passed conceptual
+novelty: BayesBench, Bayesian-teaching work, QUITE, diagnostic-test studies, and
+2026 evidence-weighting papers could compress a weak result into "another Bayesian
+reasoning failure." A future pilot is justified only if the candidate can support a
+specific new law/dissociation about observation-process reasoning.
 
-Stage 5:
-Qwen3-8B and Mistral-Small-24B show a target-dependent causal rule-time state that
-changes later suppression.
+## Research culture
 
----
-
-## Current scientific fork
-
-The central unresolved question is:
-
-> **What must exist when exclusion is processed for future evidence to become causally
-> inert?**
-
-Live accounts:
-
-1. **Deferred target binding / eager control compilation** — semantic target knowledge
-   is sufficient but must be available when policy is processed.
-2. **Evidential instantiation / retrospective revision** — knowing future content is
-   insufficient; exclusion acts mainly on an already-present evidence state.
-3. **Local semantic control** — successful prospective routing may rely on semantic
-   features available locally at evidence arrival rather than a persistent
-   policy→future-object relation.
-
-None is established.
-
----
-
-## Registered next design
-
-### G22 — Target Knowledge vs Evidential Instantiation
-
-**Branching discriminator. Design audit only. Not preregistered. Not frozen. No generation.**
-
-Three target states:
+The project now follows:
 
 ```
-UNRESOLVED:
-EXCLUDE → future E(P)
-
-KNOWN-BUT-NON-EVIDENTIAL:
-non-evidential target specification(P) → EXCLUDE → future E(P)
-
-EVIDENTIALLY-INSTANTIATED:
-asserted evidence(P) → EXCLUDE → future E(P)
+interesting RQ
+> conceptual novelty
+> natural/simple data
+> strong non-obvious phenomenon
+> explanatory depth
+> breadth
+> defensive completeness
 ```
 
-The middle condition must be genuinely judgment-neutral before the experiment is valid.
+and the operational rule:
 
-If semantic knowledge alone rescues, G22 is a bridge rather than the headline; the next
-novelty-bearing test is clean early-vs-late mapping composition despite correct late
-target understanding.
+> **A classic distinction is allowed; a classic conclusion is not.**
 
-If only evidential instantiation rescues despite neutral, correctly understood target
-knowledge, G22 itself can support the stronger claim that exclusion relies on an
-already-instantiated evidence state; the next step is passive gate vs active
-evidence-state revision/cancellation.
-
----
-
-## Important corrections / downgrades
-
-- **Target Addressability** is not the paper novelty.
-- **G21 Source–Proposition Scope Entanglement** is not current mainline.
-- **G20 v3** is not currently authorized; its composition hypothesis is conditional on
-  G22.
-- G18 below-baseline suppression does not by itself establish scope collapse.
-- Stage 3B tagged routing does not yet prove standing-policy execution because there is
-  no semantic-labels-present/no-policy baseline.
-- ReGround G19 remains cancelled before generation.
-
----
-
-## Current authorization
-
-Allowed:
-- literature search;
-- design audit;
-- material drafting;
-- dummy analyzer/tests;
-- repository cleanup.
-
-Not allowed:
-- G20/G21/G22 generation;
-- tagged-routing diagnostic generation;
-- new mechanism runs;
-- ReGround.
-
-No result-driven prompt repair.
+A candidate can use a simple, established human semantic/cognitive substrate. It
+earns a paper only by revealing a new, memorable, stable LLM-specific law and then
+explaining it deeply.
