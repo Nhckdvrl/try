@@ -418,6 +418,36 @@ until C1/C2 exist behaviorally.
 
 ---
 
+# 5B. Secondary independent search shape — partition / unpacking dependence
+
+## Status: SECONDARY SEARCH ONLY / lower priority
+
+A separate search considered whether LLM probability judgments change when the same
+event space is merely packed or unpacked into more explicitly named alternatives.
+
+This passes the simple-data test, but its theoretical substrate is the classic
+**Support Theory** literature (Tversky & Koehler; Rottenstreich & Tversky), where
+unpacking and partition dependence are already canonical human probability-judgment
+effects.
+
+The current search did not identify a direct systematic LLM paper on this exact
+effect. That absence is not enough.
+
+A weak result would be:
+
+> "LLMs also show the human unpacking effect."
+
+That is a human-bias replication, not the paper we are looking for.
+
+It should only be reconsidered if later evidence suggests a qualitatively new
+LLM-specific law — for example, an unexpected reversal, a sharp dissociation between
+event equivalence recognition and probability invariance, or a causal mechanism that
+predicts when unpacking matters across tasks.
+
+**Decision:** keep below the observation/sampling-process candidate. No pilot.
+
+---
+
 # 6. Pilot authorization gate — tightened
 
 A candidate may enter **SMALL PILOT** only after all six pass:
