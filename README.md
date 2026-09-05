@@ -36,7 +36,7 @@ current leading **pre-pilot search shape**, not a mainline.
 | object | verdict |
 |---|---|
 | new paper mainline | **NONE** |
-| publicness → common-knowledge closure | **HIGH-RISK PRE-PILOT SEARCH / NO GENERATION** |
+| publicness → common-knowledge closure | **HIGH-RISK INTERSECTION LEAD / NO GENERATION** |
 | free-choice / semantic–reasoning interface | **SECONDARY SEARCH ONLY** |
 | G12→G15 unrelated-outcome decision state | **MECHANISTIC ASSET** |
 | G0 prospective exclusion | **STRONG EMPIRICAL ASSET / unsafe paper identity** |
@@ -51,13 +51,18 @@ current leading **pre-pilot search shape**, not a mainline.
 > **Do language models derive common knowledge from public observability through a
 > distinct publicness mechanism, or only through finite nested-belief reasoning?**
 
-The candidate is deliberately **not**:
+After an additional exact-threat audit, this candidate is even narrower. It is deliberately **not**:
 - public vs private information classification;
 - generic higher-order Theory of Mind;
 - generic common ground;
 - generic coordination.
 
-Those areas already have substantial work.
+Those areas already have substantial work. In particular, MindGames (EMNLP Findings
+2023) already uses public-announcement logic with higher-order belief queries; a 2026
+dynamic-epistemic benchmark already uses Muddy Children and Cheryl's Birthday; and
+SimpleToM (ICLR 2026) already establishes explicit-ToM vs applied-ToM dissociation.
+
+The only surviving object is **publicness shortcut vs finite recursive mentalizing**.
 
 The intended scientific object is whether the same proposition becoming publicly
 witnessed produces a qualitatively different recursive-knowledge computation from
