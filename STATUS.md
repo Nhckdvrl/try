@@ -1,3 +1,11 @@
+# Project status — takeover reset 2026-09-06
+
+> **Current experiment-priority authority:** [MAINLINE_AUDIT_2026-09-06_V5.md](MAINLINE_AUDIT_2026-09-06_V5.md)
+>
+> The 2026-09-04 scientific register below remains the provenance ledger for established results, but its G22 experiment priority is superseded. **Do not run G22.** The current highest-priority candidate is the exact-zero boundary in semantic influence control, pending further novelty assassination and a fresh minimal pilot design. The explicit-outcome paradox is retained as a secondary small-pilot lead.
+
+---
+
 # Project status — scientific register v3
 
 **As of:** 2026-09-04.
