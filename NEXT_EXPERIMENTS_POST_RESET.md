@@ -2,7 +2,8 @@
 
 **Status:** design-audit document only.
 **Updated:** 2026-09-04.
-**Authoritative ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+**Authoritative ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)  
+**Latest mainline audit:** [MAINLINE_AUDIT_2026-09-05_V4.md](MAINLINE_AUDIT_2026-09-05_V4.md)
 
 No model generation is authorized by this document.
 
@@ -14,7 +15,7 @@ Do not run a new experiment merely because it is surprising.
 
 ---
 
-# Priority 1 — G22: Target Knowledge vs Evidential Instantiation
+# Priority 1 — G22: Target Knowledge vs Evidential Instantiation (branching discriminator)
 
 ## Scientific question
 
@@ -139,8 +140,10 @@ Prediction:
 - U remains weaker.
 
 Consequence:
-semantic knowledge itself is enough; proceed to a second experiment on when the
-policy-target relation is composed.
+semantic knowledge itself is enough, but **this is not automatically a novelty-bearing
+headline**. G22 becomes the bridge to a second experiment on when the policy-target
+relation is composed. The stronger target is correct late understanding without causal
+reconstruction of the exclusion relation.
 
 ### H-B — evidential instantiation is required
 
@@ -149,9 +152,10 @@ Prediction:
 - I is much stronger.
 
 Consequence:
-the important distinction is not knowing the target but whether a matching evidential
-state already exists. The mechanism story becomes retrospective revision/cancellation,
-not generic deferred binding.
+if K is neutral and correctly understood, this is itself a non-obvious mainline result:
+knowing future evidence is insufficient, while an already-instantiated matching
+evidential state enables exclusion. The mechanism story becomes retrospective
+revision/cancellation, not generic deferred binding.
 
 ### H-C — neither target knowledge nor prior evidence is the whole story
 
