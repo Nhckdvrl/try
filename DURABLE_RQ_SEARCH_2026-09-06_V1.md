@@ -522,7 +522,32 @@ is not sufficient novelty.
 
 The institutional-status object must generalize beyond speech acts.
 
-## Threat 8 — Social ontology philosophy
+## Threat 8 — Generic relational-concept representations
+
+NAACL 2024 **Identifying Linear Relational Concepts in Large Language Models** and
+Findings ACL 2024 **Locating and Extracting Relational Concepts in Large Language
+Models** already show that relation-level hidden representations can be identified,
+causally mediated, transplanted, and rewritten.
+
+This kills a weak mechanistic story such as:
+
+> "ownership / membership / office relations are linearly decodable or causally
+> editable."
+
+That would be a domain instantiation of existing relational-representation work.
+
+Candidate IF survives only if the contribution is specifically social-ontological:
+- status is factorized from the physical/substrate state;
+- creation/revocation events update status while irrelevant physical features stay
+  fixed;
+- analogous structure transfers across multiple institutional domains or novel
+  institutions;
+- status causally mediates downstream rights/powers rather than merely recalling a
+  subject–relation–object fact.
+
+Generic relation vectors are a **methodological baseline/threat**, not novelty.
+
+## Threat 9 — Social ontology philosophy
 
 Searle, Hindriks, Marmor and others have studied institutional facts/status functions
 for decades.
