@@ -808,3 +808,123 @@ fifth. It has **not yet fully passed the second, third, or sixth**.
 Therefore:
 
 > **keep searching, do not run.**
+
+
+---
+
+# 15. Same-day amendment — exact common-knowledge threats found after V8 freeze
+
+**Status correction:** the publicness/common-knowledge candidate remains alive only as
+a **HIGH-RISK INTERSECTION LEAD**. The original V8 wording "current #1" should not be
+read as pilot approval or as evidence that public-announcement reasoning is unstudied.
+
+Three additional direct neighbors were identified after the first V8 write.
+
+## 15.1 MindGames (EMNLP Findings 2023) already uses public-announcement logic
+
+Sileo & Lernould, **MindGames: Targeting Theory of Mind in Large Language Models
+with Dynamic Epistemic Modal Logic**, generates controlled epistemic-reasoning
+problems with SMCDEL / S5 announcement logic.
+
+Its generated premises explicitly include forms such as:
+
+> "It is publicly announced that ..."
+
+and its hypotheses vary higher-order belief depth.
+
+Therefore all of these candidate headlines are dead:
+
+- "first LLM benchmark of public announcements";
+- "first controlled LLM benchmark of recursive epistemic reasoning";
+- "public announcements can be used to test higher-order ToM in LLMs."
+
+The surviving gap, if any, must be about a **publicness-specific computational
+dissociation**, not the underlying logic formalism.
+
+## 15.2 Li, Luo & Liao (Knowledge-Based Systems 2026) directly benchmarks DEL puzzles
+
+**Logical reasoning in evolving scenarios: Evaluating LLMs with dynamic epistemic
+logic puzzles** constructs 2,784 instances from Muddy Children and Cheryl's Birthday.
+The Muddy Children setup centrally relies on public announcements and recursive
+knowledge updates. The paper varies agents / rounds and reports a 20–30% drop as
+complexity rises, attributing failures to recursive perspective-taking and precise
+logical implication.
+
+This kills:
+
+> "Can LLMs solve common-knowledge / Muddy-Children reasoning?"
+
+It also makes a benchmark-only extension with more modern models scientifically weak.
+
+What the paper does **not** appear to orthogonalize is the human-cognition question
+raised by De Freitas, Huang & Pinker (PNAS 2026):
+
+> holding the first-order fact constant, does **public observability itself** produce a
+> qualitatively different route to deep recursive knowledge than finite
+> private/reciprocal nesting?
+
+That intersection is the only reason the candidate remains open.
+
+## 15.3 SimpleToM (ICLR 2026) kills generic recognition→application novelty
+
+SimpleToM establishes a strong explicit-ToM vs applied-ToM gap: models can infer a
+character's mental state yet fail to use that state to predict or judge behavior.
+
+Therefore a future common-knowledge paper cannot claim novelty from:
+
+> "the model recognizes that information is public but fails to use it for
+> coordination."
+
+That would be another instance of the already-established explicit-vs-applied ToM gap.
+
+A surviving contribution must establish a **publicness-specific law** that is not
+predicted by generic ToM application failure.
+
+## 15.4 Revised candidate wording
+
+The only research question still worth assassinating is:
+
+> **When first-order knowledge is matched, does public observability induce a
+> qualitatively distinct shortcut to recursive epistemic closure in LLMs, separable
+> from ordinary finite-depth Theory-of-Mind reasoning?**
+
+This is substantially narrower and higher risk than:
+
+> "Do LLMs understand common knowledge?"
+
+## 15.5 Revised pre-pilot verdict
+
+> **HIGH-RISK INTERSECTION LEAD / NO GENERATION.**
+
+Before authorizing even a 50–100 item discovery run, require one more exact search for:
+- public vs private/reciprocal announcement manipulations in neural/LLM ToM;
+- public-salience heuristics in machine cognition;
+- common-knowledge-specific coordination in LLM agents;
+- mechanistic representations of common knowledge/publicness.
+
+If any modern work already contrasts **finite mutual knowledge vs public common
+knowledge** as the load-bearing variable, kill the candidate.
+
+## 15.6 Additional killed / unpromoted search shapes
+
+### Screening-off / conditional relevance
+**KILL broad RQ.** Recent LLM causal-cognition work already compares 20+ models to
+classic human Markov-violation / explaining-away / screening-off paradigms. A new
+three-node verbal task would be an instance, not a paper.
+
+### Reversible vs irreversible action / preserving optionality
+**KILL broad RQ.** AgentAbstain, streaming-agent reversibility work, commit-point
+safety frameworks, and current proactive-agent decision frameworks already center
+irreversible actions, abstention, waiting and future option value.
+
+### Homogeneity / truth-value gaps
+**UNASSESSED SUBSTRATE, NOT A CANDIDATE.** Exact LLM homogeneity work was not located
+in the current search, but:
+- homogeneity is a classic linguistic phenomenon;
+- generic pragmatics and presupposition evaluation is crowded;
+- CoNLL 2026 Outstanding work already finds a reasoning-vs-human-semantic/pragmatic
+  mismatch on presupposition in conditionals.
+
+Do not run a homogeneity benchmark merely because the exact phenomenon appears
+unoccupied. It must first motivate a larger LLM-specific law that is not generic
+"reasoning models are less human-like."
