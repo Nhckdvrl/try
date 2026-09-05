@@ -1,22 +1,22 @@
 # Research project — mainline and novelty reconstruction
 
 This repository contains a large completed experimental program around prospective
-evidence exclusion plus a stopped BTF3/hindsight branch. These are scientific assets
+evidence exclusion plus a stopped BTF3/hindsight branch. Those are scientific assets
 and provenance; **they do not determine what the next paper must be**.
 
-The project is currently in an adversarial research-question search for an
+The project is in adversarial research-question reconstruction for an
 NAACL / ACL / EMNLP Main-level paper.
 
 > **No approved new mainline.**
 >
-> **No new target-model generation is authorized.**
+> **One small discovery pilot is now authorized: CK-P1, after full pre-generation freeze.**
 
 ## Current authority
 
 Read in this order:
 
-1. [MAINLINE_AUDIT_2026-09-06_V8.md](MAINLINE_AUDIT_2026-09-06_V8.md) — current
-   research-question, novelty, and experiment-priority authority.
+1. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md) — current RQ,
+   novelty, and experiment-priority authority.
 2. [STATUS.md](STATUS.md)
 3. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md) —
    evidence ledger.
@@ -24,72 +24,91 @@ Read in this order:
 5. [EXPERIMENTS.md](EXPERIMENTS.md)
 6. [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
 7. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md)
-8. older mainline audits / G20–G22 designs — provenance only unless V8 revives them.
+8. V1–V8 and G20–G22 designs — provenance unless V9 explicitly revives them.
 
-V5 records a premature promotion of the zero/nonzero anomaly. V6 corrected that
-promotion. V7 broadened simple-data RQ search. V8 kills V7's sampling-process lead
-after direct 2026 literature and records publicness/common-knowledge closure as the
-current leading **pre-pilot search shape**, not a mainline.
+V5 records a premature zero/nonzero promotion; V6 corrected it. V7 broadened
+simple-data search. V8 killed the sampling-process lead and narrowed the
+publicness/common-knowledge intersection. V9 completes another direct-threat audit and
+authorizes one falsifiable small pilot without promoting a paper mainline.
 
-## Current ranked status
+## Current ranking
 
 | object | verdict |
 |---|---|
-| new paper mainline | **NONE** |
-| publicness → common-knowledge closure | **HIGH-RISK INTERSECTION LEAD / NO GENERATION** |
-| free-choice / semantic–reasoning interface | **SECONDARY SEARCH ONLY** |
-| G12→G15 unrelated-outcome decision state | **MECHANISTIC ASSET** |
-| G0 prospective exclusion | **STRONG EMPIRICAL ASSET / unsafe paper identity** |
+| paper mainline | **NONE** |
+| CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| free-choice permission | **SECONDARY SEARCH ONLY** |
+| contrary-to-duty / remedy-as-permission | **SECONDARY SEARCH ONLY** |
+| G12→G15 | **MECHANISTIC ASSET** |
+| G0 | **STRONG EMPIRICAL ASSET / unsafe identity** |
 | explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY** |
-| observation / sampling-process conditioning | **KILL paper identity** |
+| sampling-process | **KILL** |
+| distributed knowledge | **KILL** |
 | zero/nonzero | **KILL paper identity** |
 | G18 | **SUPPORTING ONLY** |
 | G22 | **KILL / DO NOT RUN** |
 
-## Current leading search shape
+## CK in one example
 
-> **Do language models derive common knowledge from public observability through a
-> distinct publicness mechanism, or only through finite nested-belief reasoning?**
+Separate:
 
-After an additional exact-threat audit, this candidate is even narrower. It is deliberately **not**:
-- public vs private information classification;
-- generic higher-order Theory of Mind;
-- generic common ground;
-- generic coordination.
+> Alice privately hears "The meeting is at 3."  
+> Bob separately privately hears the same fact.
 
-Those areas already have substantial work. In particular, MindGames (EMNLP Findings
-2023) already uses public-announcement logic with higher-order belief queries; a 2026
-dynamic-epistemic benchmark already uses Muddy Children and Cheryl's Birthday; and
-SimpleToM (ICLR 2026) already establishes explicit-ToM vs applied-ToM dissociation.
+Joint:
 
-The only surviving object is **publicness shortcut vs finite recursive mentalizing**.
+> Alice and Bob stand together while a speaker announces "The meeting is at 3," and
+> each can see that the other hears it.
 
-The intended scientific object is whether the same proposition becoming publicly
-witnessed produces a qualitatively different recursive-knowledge computation from
-finite explicit nesting.
+First-order factual knowledge is matched. Only the jointly observable event naturally
+licenses arbitrarily deep recursive knowledge.
 
-A future experiment is allowed only if continued literature audit confirms that this
-specific object is not already occupied and the first design stays Figure-1 simple.
+The research object is **not common-knowledge accuracy**. It is whether public
+observability induces a distinct/compressed recursive-knowledge computation compared
+with finite nested-belief reasoning.
 
-See V8 for the six-field audit, novelty threat map, growth path, and kill criteria.
+## Why a pilot is now justified
+
+The candidate has passed the project's six pilot gates:
+- simple/natural RQ;
+- deterministic gold;
+- shallow data;
+- direct conceptual-neighbor audit;
+- clear paper-scale growth path;
+- explicit kill criteria.
+
+Direct threats include MindGames, OmniToM, EAST, dynamic-epistemic benchmarks,
+*Who Knows Who Knows?*, SimpleToM, CoSToM, and human common-knowledge cognition.
+These rule out broad claims but currently do not directly test the
+**publicness shortcut vs finite-recursion** computation.
+
+See V9 for exact threat boundaries and CK-P1 design.
+
+## CK-P1
+
+Planned discovery core:
+- 24 independent semantic skeletons;
+- K1 private, K2 reciprocal, K3 doubly reciprocal, CK jointly observable;
+- 96 contexts;
+- recursion depths 1,2,3,4,6;
+- TRUE/FALSE direct gold;
+- three modern open model families;
+- cluster inference over semantic skeleton;
+- no LLM judge;
+- no mechanism work.
+
+Generation is allowed only after materials, gold, model revisions, analyzer, unit
+tests, preregistration, and freeze tag exist.
 
 ## Research culture
 
-The project follows:
+A classic distinction is allowed; a classic conclusion is not.
 
-```
-interesting RQ
-> conceptual novelty
-> natural/simple data
-> strong non-obvious phenomenon
-> explanatory depth
-> breadth
-> defensive completeness
-```
+Current sequence:
 
-Operational rule:
+kill aggressively
+→ when a question survives, run one tiny falsifiable discovery test
+→ kill again based on the result
+→ only then build a paper
 
-> **A classic distinction is allowed; a classic conclusion is not.**
-
-A classic semantic/cognitive substrate is acceptable only if it reveals a new,
-memorable, stable LLM-specific law.
+CK has reached the discovery-test stage. It is **not yet the paper**.
