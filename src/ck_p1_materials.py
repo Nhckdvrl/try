@@ -79,16 +79,17 @@ def build_story(a: str, b: str, p: str, structure: str, modality: str) -> str:
             )
         if structure == "K2":
             return (
-                f"In a private one-to-one conversation, {a} learns that {p}, and also learns that {b} knows that {p}. "
-                f"In a separate private conversation, {b} learns that {p}, and also learns that {a} knows that {p}. "
-                f"Neither person is present for the other's conversation or learns anything else about it."
+                f'In a private one-to-one conversation, the coordinator tells {a}: “{P}” '
+                f"The coordinator also tells {a} that {b} knows this fact. "
+                f"In a separate private conversation, the coordinator tells {b} the same fact and tells {b} that {a} knows it. "
+                f"Neither person is present for the other's conversation or told anything else about it."
             )
         if structure == "K3":
             return (
-                f"In a private one-to-one conversation, {a} learns that {p}, that {b} knows that {p}, "
-                f"and that {b} knows that {a} knows that {p}. In a separate private conversation, {b} learns that {p}, "
-                f"that {a} knows that {p}, and that {a} knows that {b} knows that {p}. "
-                f"Neither person is present for the other's conversation or learns anything else about it."
+                f'In a private one-to-one conversation, the coordinator tells {a}: “{P}” '
+                f"The coordinator also tells {a} that {b} knows this fact and that {b} knows {a} knows it. "
+                f"In a separate private conversation, the coordinator tells {b} the same fact and tells {b} that {a} knows it "
+                f"and that {a} knows {b} knows it. Neither person is present for the other's conversation or told anything else about it."
             )
         return (
             f"{a} and {b} are standing together with the coordinator. "
@@ -98,22 +99,23 @@ def build_story(a: str, b: str, p: str, structure: str, modality: str) -> str:
 
     if structure == "K1":
         return (
-            f'{a} is privately shown a trusted screen that says: “{P}” '
-            f"Separately, {b} is privately shown a trusted screen with the same fact. "
-            f"Neither person can see the other's screen or knows what was shown there."
+            f'{a} privately reads a trusted message that says: “{P}” '
+            f"Separately, {b} privately reads a trusted message with the same fact. "
+            f"Neither person can see the other's message or knows what was shown there."
         )
     if structure == "K2":
         return (
-            f"{a} privately learns from a trusted screen that {p}, and that {b} knows that {p}. "
-            f"Separately, {b} privately learns from a trusted screen that {p}, and that {a} knows that {p}. "
-            f"Neither person can see the other's screen or learns anything else about it."
+            f'{a} privately reads a trusted message that says: “{P}” '
+            f"The message also tells {a} that {b} knows this fact. "
+            f"Separately, {b} privately reads a trusted message with the same fact and is told that {a} knows it. "
+            f"Neither person can see the other's message or learns anything else about it."
         )
     if structure == "K3":
         return (
-            f"{a} privately learns from a trusted screen that {p}, that {b} knows that {p}, "
-            f"and that {b} knows that {a} knows that {p}. Separately, {b} privately learns from a trusted screen that {p}, "
-            f"that {a} knows that {p}, and that {a} knows that {b} knows that {p}. "
-            f"Neither person can see the other's screen or learns anything else about it."
+            f'{a} privately reads a trusted message that says: “{P}” '
+            f"The message also tells {a} that {b} knows this fact and that {b} knows {a} knows it. "
+            f"Separately, {b} privately reads a trusted message with the same fact and is told that {a} knows it "
+            f"and that {a} knows {b} knows it. Neither person can see the other's message or learns anything else about it."
         )
     return (
         f"{a} and {b} are standing together in front of one trusted screen. "
