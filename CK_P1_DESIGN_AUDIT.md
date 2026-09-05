@@ -346,3 +346,36 @@ The next legitimate engineering steps are:
 9. only then generate target outputs.
 
 CK-P1 remains a discovery experiment, not the paper.
+
+
+---
+
+## 15. Pre-freeze material-length correction (2026-09-06)
+
+A dry generation audit found that the first literal K2/K3 templates repeated the full
+proposition at every embedded level. Before any target-model output, this produced a
+needlessly large context-length gradient:
+
+- CK: about 38–40 words;
+- K1: about 39–44 words;
+- K2: about 67–71 words;
+- K3: about 94 words on average.
+
+This was corrected **before freeze and before any target output** by replacing repeated
+copies of P inside K2/K3 with ordinary anaphora such as "this fact" / "it", while
+preserving the exact finite epistemic structure.
+
+After the correction, the dry material audit is approximately:
+
+- CK: 38–40 words;
+- K1: 39–44 words;
+- K2: 56–59 words;
+- K3: 70–73 words.
+
+No filler was added to force exact token equality. Exact token matching would make the
+stories less natural and is not the research variable. Length remains recorded as a
+possible descriptive nuisance; any apparent law that is fully predicted by story
+length must be killed.
+
+The correction also makes the design more faithful to the project's data rule:
+**remove gratuitous complexity rather than balancing it with more artificial text.**
