@@ -203,6 +203,53 @@ the internal factorization and causal use of the resulting social state.
 
 ---
 
+
+
+---
+
+## 3.6A Decodability is explicitly NOT a discovery criterion
+
+A direct lesson from advisor feedback in Slack `#r_hamdi` is now a hard constraint on
+Candidate IF.
+
+Sasano's comparison was roughly:
+
+- a shared true/false direction across very different domains and statement types can
+  be scientifically interesting because those examples have substantially different
+  surface distributions;
+- by contrast, semantically different frames clustering in representation space is
+  much less surprising, because the manipulation itself changes meaning and prior work
+  already suggests such clustering.
+
+Applied here:
+
+> **A probe that separates owner/non-owner, member/non-member, chair/non-chair, or
+> authorized/unauthorized states is not by itself evidence for a new scientific
+> object.**
+
+Those labels differ semantically and may be trivially decodable from lexical or local
+contextual cues.
+
+For institutional status to become interesting, at least one stronger structural
+property must appear:
+
+1. **Factorization:** status remains decodable when physical substrate is crossed
+   independently with status, rather than when status words differ.
+2. **Cross-domain structure:** a representation learned from one or more status domains
+   predicts structurally analogous states in held-out domains beyond lexical semantics.
+3. **Dynamic persistence:** the status state changes at constituting/revoking events and
+   remains stable across irrelevant physical-state changes.
+4. **Causal mediation:** intervening on the status state changes status-derived
+   consequences while preserving matched physical facts.
+5. **Training dissociation:** pretraining/post-training changes whether the state is
+   used, not merely whether role/status vocabulary is recognized.
+
+If the best result is "status labels are linearly separable," **KILL**.
+
+This criterion is deliberately stronger than ordinary mechanistic-probing work and is
+required to avoid reproducing the exact research mistake the advisor warned about.
+
+
 # 4. Outcome-Robustness Test
 
 The question is intentionally not defined by one desired anomaly.
