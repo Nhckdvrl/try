@@ -172,8 +172,36 @@ factorized / shared / asymmetric / represented-but-unused / systematic negative 
 ## P11 — Strong Inference
 State H1/H2/H3 before pilot and design a test that discriminates them.
 
-## P12 — Data Fit
+## P12 — Data Fit / Data-First Gate
+Data is part of the research question, not an implementation detail.
+
+Prefer, in order:
+- **D0:** existing dataset already measures the construct;
+- **D1:** existing natural dataset, new annotation/readout only;
+- **D2:** independently published human/linguistic experimental materials with minimal adaptation;
+- **D3:** natural-corpus retrieval plus minimal controlled edits;
+- **D4:** new hand-written/template minimal pairs;
+- **D5:** custom synthetic world/ontology created to make the effect exist.
+
+Promotion policy:
+- D0–D2 are strong advantages;
+- D3 is acceptable with auditable local interventions and independent validation;
+- D4 is high risk and requires same-identity high-level precedent, strong human/native validation, lexical/template diversity, and a second substrate;
+- D5 is default KILL for behavioral/scientific-discovery work unless the synthetic formal system is itself the scientific object.
+
 Synthetic material may isolate a natural variable; it may not manufacture the ontology that makes the question exist.
+
+Before compute, record:
+1. exact source/provenance of the data or materials;
+2. why they existed independently of our hypothesis;
+3. what is original vs transformed vs newly generated;
+4. source of gold labels;
+5. expected human disagreement and validation plan;
+6. template/artifact risk;
+7. contamination risk;
+8. second-substrate/generalization plan when the claim requires it.
+
+**Rule:** the question may be deep; the data path must be shallow.
 
 ## P13 — Non-Trivial Result Space
 Write before experiments:
@@ -285,7 +313,7 @@ outcome robustness
 >
 clean identification
 >
-data fit
+**data provenance / naturalness / gold robustness**
 >
 non-obvious finding space
 >
