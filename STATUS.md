@@ -1,10 +1,10 @@
-# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V4)
+# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V5)
 
 > **There is no approved paper mainline.**
 >
 > **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V4.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md)
+> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md)
 >
 > **IF-P0 is SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**
 >
@@ -21,7 +21,7 @@ Earlier durable-search versions and mainline audits remain provenance.
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| CCD: constitutive vs causal dependence | **SERIOUS SEARCH LEAD / NO PILOT** |
+| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -193,3 +193,4 @@ New V4 warning:
 
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the whole project to an established parent computation, the candidate has not passed P4.**
+\n\n## V5 correction to CCD\n\nV4's CCD promotion was itself too fast. A deeper parent-concept audit found that the proposed one-example conflated mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the term does not yet defeat the reviewer compression into causal-vs-noncausal explanation plus definitional semantics, and natural direct gold becomes theory-sensitive. CCD is therefore **HIGH-RISK / NO PILOT**. IF remains the only current SERIOUS SEARCH LEAD, but is still **NO PILOT** and must not win by elimination.\n
