@@ -10,7 +10,7 @@
 > provenance and are **superseded** by:
 >
 > 1. `RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md`;
-> 2. `DURABLE_RQ_SEARCH_2026-09-06_V5.md`;
+> 2. `DURABLE_RQ_SEARCH_2026-09-06_V6.md`;
 > 3. `MAINLINE_AUDIT_2026-09-06_V9.md`;
 > 4. `STATUS.md`.
 >
