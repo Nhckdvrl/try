@@ -1,140 +1,104 @@
-# Project status — 2026-09-06, V16 SASANO-LAB LOCAL-PRIOR RESET
+# Project status — 2026-09-06, V17 CLEAN SLATE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
+> **NO ACTIVE CANDIDATES.**
+>
 > **NO TARGET-MODEL COMPUTE AUTHORIZED.**
 
-Current methodology:
-[ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
-
-Current candidate-generation/search authority:
-[SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md](SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md)
-
-V15 assassination provenance:
-[OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md)
+Current selection standard:
+[NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
 
 Current kill authority:
-[archive/KILLED_RQ_LEDGER_2026-09-06_V15.md](archive/KILLED_RQ_LEDGER_2026-09-06_V15.md)
+[archive/KILLED_RQ_LEDGER_2026-09-06_V17.md](archive/KILLED_RQ_LEDGER_2026-09-06_V17.md)
+
+V16 local-prior provenance:
+[SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md](SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md)
 
 ---
 
-## V16 governing correction
+## V17 governing rule
 
-The V14–V15 search became too global and drifted away from the concrete research ecology of Sasano Lab.
+The previous methodology accumulated too many overlapping gates.
 
-V16 changes the **candidate generator**, not the scientific bar:
+V17 compresses selection into five hard questions:
+
+1. **REAL OBJECT** — Is the NLP/language question naturally important and durable?
+2. **NEW AXIS** — Is there one non-obvious structural relation with at least two plausible accounts?
+3. **GOOD DATA** — Are the data simple/credible and the gold independent?
+4. **NEW PARENT** — Does parent-level novelty survive “This is just X”?
+5. **DECISIVE PAPER** — Are several outcomes informative, and can C1→C2→C3 grow naturally with manageable work?
+
+If any core answer is clearly NO:
+
+> **KILL BEFORE COMPUTE.**
+
+---
+
+## Search prior
 
 > **Search locally, judge globally.**
 
-Use recent Sasano-Lab topics to constrain **where to search**:
-- lexical / semantic / factual knowledge;
-- explicit vs implicit meaning;
-- structured NLP/linguistic resources and relations;
-- representation / generation dynamics;
-- natural efficiency / budget axes.
+Use recent Sasano-Lab work to keep candidate generation near concrete NLP/language objects:
+- lexical / compositional semantics;
+- factual/parametric knowledge;
+- language understanding/inference;
+- structured semantic/NLP resources and relations;
+- stable evaluation/measurement questions;
+- representation/generation only when tied to a concrete language object.
 
-Then use ACL / EMNLP / NAACL Main / Outstanding standards to decide **what survives**.
+Use ACL / EMNLP / NAACL Main / Best / Outstanding to set the scientific bar.
 
-Do **not** copy labmates' exact topics.
-
----
-
-## Recent lab-derived problem shapes
-
-Recent active work shows recurring shapes:
-
-1. **Concrete semantic distinction → behavior/mechanism**
-   - real vs fictional;
-   - literal vs figurative idiom interpretation.
-
-2. **Natural confound split**
-   - entity knowledge vs access through a surface form;
-   - common resource budget for embedding dimensions × precision.
-
-3. **Explicit vs implicit/compositional meaning**
-   - frame-semantic implicit enrichment;
-   - construction meaning;
-   - semantic emergence vs surface emergence.
-
-4. **Structured sub-decision inside a known NLP task**
-   - citation placement;
-   - citation-function transfer;
-   - FrameNet relation inference;
-   - lecture speech vs slide content.
-
-5. **Architecture-enabled observable axis**
-   - diffusion-time semantic formation.
-
-The important unit is:
-
-> **concrete NLP/language object + one overlooked structurally meaningful axis**
-
-not:
-> broad area + LLM wrapper.
+Do not copy labmates' exact topics.
 
 ---
 
-## High-level calibration remains unchanged
+## Data rule
 
-Strong precedents show narrow objects can be Best/Outstanding/Main:
+Strong preference:
+1. existing natural dataset/corpus/resource;
+2. published human/linguistic materials;
+3. small controlled theory-grounded stimuli when necessary.
 
-- ACL 2026 Best: **The Imperfective Paradox in Large Language Models**
-- ACL 2026 Outstanding: **CxMP**
-- ACL 2026 Main: **RedirectQA**
-- EMNLP 2025 Outstanding: **Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions**
-- NAACL 2025 Outstanding: **NLI under the Microscope**
-- ACL 2025 Outstanding: **A New Formulation of Zipf’s Meaning–Frequency Law through Contextual Diversity**
+Strong negative prior:
+- large bespoke synthetic worlds;
+- LLM-generated main datasets;
+- LLM judge as gold;
+- complicated author-created contrasts.
 
-Main-level acceptance still requires:
-- parent novelty;
-- non-obviousness;
-- structural specificity;
-- natural data/gold;
-- outcome robustness;
-- reviewer-compression resistance;
-- Main-scale claim growth.
-
-Local fit never overrides these gates.
+> **Data validity can kill a topic before novelty does.**
 
 ---
 
 ## Current candidate state
 
-| object | V16 status |
+| object | status |
 |---|---|
-| **IFG** | **KILLED in V15** |
-| **DRP** | **KILLED in V15** |
-| **TCR** | **DE-PRIORITIZED / LEGACY SEARCH-ONLY / NO COMPUTE** |
-| **HOM** | **SEARCH-ONLY / NO COMPUTE** |
-| **new registered candidate** | **NONE** |
-| **approved mainline** | **NONE** |
+| IFG | **KILL** |
+| DRP | **KILL** |
+| TCR | **KILL / ARCHIVE** |
+| HOM | **KILL CURRENT FORMULATION** |
+| CK | **KILL** |
+| PD | **ARCHIVE / DO NOT ACTIVATE** |
+| active candidate | **NONE** |
+| approved mainline | **NONE** |
 
-TCR is not declared scientifically impossible; it is removed from the default search path because its typology/documentation/scientific-inference apparatus is too far from the newly established local prior and has high opportunity cost.
+Zero candidates is intentional.
+
+TCR is now killed because too much source auditing/database reconstruction and cross-linguistic inference are required before the scientific estimand is even secured.
+
+HOM is now killed because the current question remains a competence check of an established semantic distinction despite excellent data.
 
 ---
 
-## Immediate bounded search lanes
+## Compute boundary
 
-Search only within these four lanes by default:
-
-### A — Lexical/semantic access under natural form or relation changes
-Existing natural data; one separable confound; no synthetic worlds.
-
-### B — Explicit vs implicit/compositional meaning
-Established linguistic phenomenon; theory-backed prediction; natural/published materials.
-
-### C — Structured relations/sub-decisions in existing NLP resources/tasks
-Existing gold; isolating the relation must change interpretation of end-to-end performance.
-
-### D — Representation/learning efficiency under one natural resource axis
-A real budget/constraint; must yield a regime/law/decision rule, not a grid ablation.
-
-Strong negative prior:
-- broad behavioral economics;
-- generic typology/documentation policy;
-- generic scientific workflow/agents;
-- generic RAG/judge/annotator;
-- mechanism-first phenomenon hunting;
-- bespoke synthetic worlds.
-
-No target-model compute is authorized.
+No target-model compute until a candidate fits the one-page pre-pilot card in V17:
+- one-sentence RQ;
+- why ACL/NLP cares;
+- two plausible accounts;
+- exact data + independent gold;
+- closest parent + reviewer compression;
+- outcome map;
+- C1/C2/C3;
+- minimum decisive pilot.
