@@ -1,8 +1,8 @@
-# IF-P0 Design Audit — Socially Constituted State Update
+> [!WARNING]\n> **SUSPENDED BY DURABLE_RQ_SEARCH_2026-09-06_V5.md**\n>\n> This file is retained as pre-freeze design provenance only. V3's IF-P0 SMALL PILOT\n> authorization was revoked before any target-model output. **Do not freeze materials,\n> preregister, or generate target output from this design unless a newer authority\n> explicitly re-authorizes IF.**\n\n# IF-P0 Design Audit — Socially Constituted State Update
 
 **Created:** 2026-09-06  
-**Authority:** `DURABLE_RQ_SEARCH_2026-09-06_V3.md`  
-**Status:** editable pre-freeze design. **No target-model output yet.**  
+**Historical design authority:** `DURABLE_RQ_SEARCH_2026-09-06_V3.md`; current verdict authority: `DURABLE_RQ_SEARCH_2026-09-06_V5.md`  
+**Status:** **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**  
 **Paper status:** **NOT MAINLINE**.
 
 IF-P0 is a small discovery experiment.
