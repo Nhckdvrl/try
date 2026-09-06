@@ -209,6 +209,20 @@ LLM-assisted test adaptation has already been directly evaluated with large huma
 
 2026 agent-driven corpus-linguistics work already owns the hypothesis→query→analysis→revision loop.
 
+## Generic semantic-map / typological-database automation
+
+**DO NOT ENTER GENERIC VERSION.**
+
+The old bottleneck "expert semantic maps / typological databases are labor-intensive" is already directly occupied:
+- NAACL 2025 proposes automatic graph-based semantic-map construction;
+- 2026 work uses grammar-book RAG for Grambank/typological feature completion;
+- very recent work also studies LLM typological-feature prediction.
+
+Do not revive as:
+> "LLMs can automate linguistic typology."
+
+A future typology direction must change the scientific inference, not just extract more features.
+
 ---
 
 # 5. Search-only lanes — not killed, not candidates
