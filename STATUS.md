@@ -1,102 +1,121 @@
-# Project status — 2026-09-06, V9 FINAL3
+# Project status — 2026-09-06, V12 NON-OBVIOUSNESS-FIRST
 
-> **NO APPROVED PAPER MAINLINE YET.**
+> **NO APPROVED PAPER MAINLINE.**
 >
-> Current methodology:
-> [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
->
-> Current data/experiment authority:
-> [DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md](DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md)
->
-> Current novelty/history provenance:
-> [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
->
-> Kill archive:
-> [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md)
+> **NO TARGET-MODEL COMPUTE AUTHORIZED YET.**
+
+Current methodology:
+[ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
+
+Current candidate/search authority:
+[NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md](NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md)
+
+Current kill authority:
+[archive/KILLED_RQ_LEDGER_2026-09-06_V12.md](archive/KILLED_RQ_LEDGER_2026-09-06_V12.md)
+
+Data-first provenance:
+[DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md](DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md)
 
 ---
 
-## Three V9 survivors under V10 data-first re-audit
+## Governing correction in V12
 
-| rank | object | verdict |
-|---:|---|---|
-| 1 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **CONTINUE / REUSE PNAS HUMAN MATERIALS FIRST** |
-| 2 | **AE — Actuality Entailment / Ability–Actuality Composition** | **DATA-AT-RISK / NO TARGET RUN** |
-| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **DATA-AT-RISK / REPLACEMENT SEARCH** |
+Naturalness + novelty + D0–D2 data are still insufficient when the research question itself is obvious.
 
-There are **no active backup candidates**. V10 explicitly reopens candidate search for D0–D2 data paths rather than forcing all three V9 survivors forward.
+New hard gate:
+
+> **A Main-level scientific question must contain a non-obvious tension before the experiment is run.**
+
+Default weak form:
+
+> “X and Y are theoretically different; does the model distinguish them?”
+
+This correction demotes/kills candidates that previously survived primarily because their scientific objects and data were clean.
+
+High-level calibration:
+- NAACL 2025 **Semantic Leakage** — irrelevant information changes generation;
+- EMNLP 2025 Outstanding **Value–Action Gap** — stated values and actions diverge;
+- ACL 2026 Outstanding **DH Gap** — representation changes risky choice, with reasoning/conversational regime split;
+- ACL 2026 Best **Imperfective Paradox** — Teleological Bias overrides the licensed semantic computation.
 
 ---
 
-## Why these three
+## Current ranking
 
-### AE
+### #1 IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap
 
-Natural formal-semantic object with a current theoretical literature and no located modern LLM paper owning the modality × aspect actuality-entailment RQ.
+**Status:** SERIOUS CANDIDATE / D2 / CONTINUE FRONT-END AUDIT / NO COMPUTE.
 
-Key discriminator:
+RQ:
 
-```
-genuine modality × aspect composition
-vs
-generic teleological completion bias
-```
+> **Does an LLM weight the very same evidence differently depending on whether it is asked what is true now or what will happen next?**
+
+Why it survives:
+- same DGP + same prior + same realized signal;
+- inference and forecast revision are normatively linked by LoIE;
+- human Econometrica 2026 work finds underreaction in inference and overreaction in forecast revision;
+- the replication package and experimental instructions exist independently of our LLM hypothesis;
+- BayesBench is a major neighbor but currently does not appear to run the exact paired same-evidence IFG estimand.
+
+Remaining threat:
+> “This is just Bayesian reasoning / another human cognitive bias.”
+
+Survival requires a within-evidence structural dissociation, not generic Bayesian error or human replication.
+
+### HOM — Plural Homogeneity
+
+**Status:** DEMOTED / SEARCH-ONLY / NO COMPUTE.
+
+Reason:
+current question still risks “known formal-semantic distinction → does the model know it?”
+
+D2 data quality remains good but no longer authorizes a pilot by itself.
+
+### PD — Partition Dependence
+
+**Status:** SCREENED / NOT ACTIVE.
+
+Attractive non-obvious invariance violation, D2 and quantitative, but current neighborhood includes broad cognitive-bias work, choice-set effects and EMNLP 2025 confidence distortion with changing numbers/groupings of answer choices.
 
 ### CK
 
-Common knowledge is qualitatively different from any finite stack of mutual knowledge and matters for coordination.
+**Status:** KILL CURRENT FORMULATION.
 
-Human PNAS 2026 work supplies a strong theory/reference, while current LLM ToM work does not yet own the finite-mutual-vs-common boundary as its load-bearing question.
+Reason:
+the primary RQ reduces too easily to a textbook common-knowledge distinction. PNAS D2 materials are excellent, but **good data cannot rescue an obvious question**.
 
-### GRN
+### AE / GRN
 
-Anankastic / goal-relative necessity is a natural language–planning interface:
-“if you want X, you must Y” expresses Y as a means required for X, not necessarily a global obligation.
-
-Current modal/deontic LLM benchmarks do not isolate whether necessity is dynamically bound to goals and alternative means.
+Remain KILL under V11 reasons.
 
 ---
 
-## Killed / archived
+## Newly killed during V12 search
 
-A, B, L, EPM, HWP, FC, ambiguity, DM, IF, structured-source-model variants, causal-credit variants, prospective-memory variants, and all earlier recorded kills are **not active**.
+- simple LLM hindsight bias — directly included in an existing 30-bias LLM evaluation;
+- dependent/copy-counted evidence in RAG — direct 2026 collision;
+- CK current finite-mutual-vs-common formulation — non-obviousness failure.
 
-No compute. No “reserve” status. No terminology-based resurrection.
+These are not backups.
 
 ---
 
 ## Next work
 
-### CK
-- retrieve/reuse the released 2026 PNAS human stimuli/materials first;
-- preserve the published asymmetric/reciprocal/public and private/reciprocal/doubly-reciprocal/public structure;
-- require an LLM-specific structural law beyond human replication;
-- use CogToM only as independent ToM control/generalization evidence.
+For IFG only:
+1. retrieve/inspect the Econometrica replication package and experimental instructions;
+2. reconstruct exact paired inference↔forecast estimand;
+3. complete BayesBench line-by-line collision matrix;
+4. inspect the 2026 hypothesis-generation/updating evaluation–generation gap;
+5. search forecasting/calibration work for same-evidence task-framing experiments;
+6. only if the axis remains unoccupied, decide whether a minimum pilot is authorized.
 
-### AE
-- do not run target models yet;
-- inventory published AE examples first;
-- search for natural corpus occurrences with overt aspect morphology;
-- require native-speaker/human gold before any controlled secondary pairs;
-- kill if the main evidence still depends on our own newly written 30–60 examples.
-
-### GRN
-- do not construct bespoke action-graph benchmark yet;
-- search for an existing procedural/agent dataset with independently grounded goal/action dependency structure;
-- replace/kill if no such substrate supports the exact estimand.
+In parallel:
+- continue new-topic search from D0–D2 datasets and high-level **question shapes**, not from named human biases;
+- do not force a second or third active candidate.
 
 ---
 
-## Post-result gate
+## Current one-line rule
 
-No positive pilot automatically becomes a paper.
-
-For each:
-
-1. write **“Models …”** without numbers;
-2. novelty-search that exact structural law;
-3. compare it to ACL/EMNLP/NAACL high-level anchors;
-4. kill trivial/already-owned laws;
-5. promote at most one paper mainline.
-
-> **Three strong active questions. Everything else archived.**
+> **Do not ask whether the model knows a distinction; ask whether a natural system-level assumption about how the model should use the same information breaks in a surprising, prediction-changing way.**
