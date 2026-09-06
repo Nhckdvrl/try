@@ -1,8 +1,16 @@
-# Research project — V16 Sasano-Lab local-prior RQ search reset
+# Research project — V17 Natural Main-Level RQ Standard
 
-Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especially Best / Outstanding / Best Theme papers.
+Primary target: **NAACL Main**.
+
+Calibration:
+- ACL Main;
+- EMNLP Main;
+- NAACL Main;
+- especially Best / Outstanding / Best Theme papers.
 
 > **NO APPROVED PAPER MAINLINE.**
+>
+> **NO ACTIVE CANDIDATES.**
 >
 > **NO TARGET-MODEL COMPUTE AUTHORIZED.**
 
@@ -10,47 +18,62 @@ Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especial
 
 ## Current authority
 
-Read in this order:
-
-1. [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
-   — governing scientific gates.
-2. [SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md](SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md)
-   — **current candidate-generation and search authority**.
-3. [OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md)
-   — previous broad-search assassination provenance.
-4. [archive/KILLED_RQ_LEDGER_2026-09-06_V15.md](archive/KILLED_RQ_LEDGER_2026-09-06_V15.md)
-   — current kill / do-not-reactivate authority.
-5. [STATUS.md](STATUS.md)
+1. [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
+   — **current concise selection standard and candidate generator.**
+2. [archive/KILLED_RQ_LEDGER_2026-09-06_V17.md](archive/KILLED_RQ_LEDGER_2026-09-06_V17.md)
+   — **current kill / do-not-reactivate authority.**
+3. [STATUS.md](STATUS.md)
    — compact current state.
+4. [SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md](SASANO_LAB_LOCAL_PRIOR_RQ_SEARCH_2026-09-06_V16.md)
+   — local-lab audit and provenance.
 
-Earlier V9–V14 documents remain provenance, not current candidate authority.
+Older methodology/search documents remain historical provenance, not current authority.
 
 ---
 
-## V16 correction
+## V17 in one sentence
 
-The project had drifted too far into broad:
-- behavioral/cognitive-economic LLM questions;
-- typological science;
-- language-documentation policy;
-- generic old-problem/new-method methodology search.
+> **A natural, durable NLP/language problem; one genuinely new scientific axis inside it; trustworthy simple data and independent gold; a parent-level novel question with multiple informative outcomes; and a small decisive experiment that can naturally grow into a Main paper.**
 
-V16 resets the search order:
+Short form:
+
+> **Real object. New axis. Good data. New parent question. Decisive paper.**
+
+And:
 
 > **Search locally, judge globally.**
 
-Recent Sasano-Lab work is used to constrain the search space toward:
-- lexical / semantic / factual knowledge;
-- explicit vs implicit/compositional meaning;
-- structured linguistic/NLP resources and relations;
-- representation/generation dynamics;
-- natural resource/efficiency trade-offs.
+---
 
-The lab prior determines **where to look**.
+## Five hard gates
 
-ACL / EMNLP / NAACL Main / Outstanding standards determine **whether a question survives**.
+A candidate reaches pilot only if all are YES:
 
-Do not copy labmates' exact topics.
+1. **REAL OBJECT** — naturally important, understandable, durable.
+2. **NEW AXIS** — one non-obvious relation; at least two plausible accounts.
+3. **GOOD DATA** — simple credible data; independent gold.
+4. **NEW PARENT** — parent novelty survives reviewer compression.
+5. **DECISIVE PAPER** — outcome-robust, natural C1→C2→C3, manageable workload.
+
+Any clear failure:
+
+> **KILL BEFORE COMPUTE.**
+
+---
+
+## Data priority
+
+Prefer:
+1. existing natural dataset/corpus/resource;
+2. published human/linguistic materials;
+3. small controlled theory-grounded stimuli.
+
+Avoid by default:
+- large synthetic worlds;
+- template-heavy author-built datasets;
+- LLM-generated main evidence;
+- LLM-as-judge gold;
+- complicated data construction needed only to make the RQ exist.
 
 ---
 
@@ -58,66 +81,59 @@ Do not copy labmates' exact topics.
 
 | object | status |
 |---|---|
-| **IFG** | **KILLED in V15** |
-| **DRP** | **KILLED in V15** |
-| **TCR** | **DE-PRIORITIZED / LEGACY SEARCH-ONLY / NO COMPUTE** |
-| **HOM** | **SEARCH-ONLY / NO COMPUTE** |
-| **new candidate** | **NONE REGISTERED** |
-| **paper mainline** | **NONE APPROVED** |
+| IFG | KILL |
+| DRP | KILL |
+| TCR | KILL / ARCHIVE |
+| HOM | KILL CURRENT FORMULATION |
+| CK | KILL |
+| PD | ARCHIVE / DO NOT ACTIVATE |
+| active candidate | **NONE** |
+| approved mainline | **NONE** |
 
 There is no candidate-count quota.
 
----
-
-## New candidate generator
-
-Prefer questions of the form:
-
-> **concrete NLP/language object + one overlooked structurally meaningful axis**
-
-High-prior shapes:
-
-1. natural confound split;
-2. explicit vs implicit licensed meaning;
-3. competing interpretations with natural ambiguity;
-4. structured sub-decision inside an established task;
-5. architecture-enabled separation of previously entangled processes;
-6. natural shared budget/trade-off with a real regime or law.
-
-Do not begin from:
-- a generic mechanism;
-- a broad LLM bias;
-- a fashionable framework;
-- “old task + GPT”;
-- a giant synthetic benchmark.
+Zero good candidates is better than preserving weak topics.
 
 ---
 
-## Main-level calibration
+## Search region
 
-Recent exemplars:
-- ACL 2026 Best — *The Imperfective Paradox in Large Language Models*
-- ACL 2026 Outstanding — *CxMP*
-- ACL 2026 Main — *RedirectQA*
-- EMNLP 2025 Outstanding — *Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions*
-- NAACL 2025 Outstanding — *NLI under the Microscope*
-- ACL 2025 Outstanding — *A New Formulation of Zipf’s Meaning–Frequency Law through Contextual Diversity*
+Highest prior:
+- lexical semantics / semantic access;
+- compositional and implicit meaning;
+- factual / parametric knowledge;
+- linguistic inference;
+- established linguistic phenomena;
+- structured semantic/NLP relations;
+- stable evaluation/measurement units.
 
-The lesson is not to copy their topics.
+Conditional:
+- causal interpretability;
+- diffusion/generation dynamics;
+- efficiency/compression;
+- Japanese-specific phenomena.
 
-The lesson is:
+Only enter conditional lanes after a strong concrete scientific object is identified.
 
-> **a narrow object can support a top-paper claim when the relation tested is precise, independently motivated, naturally measurable, and scientifically consequential.**
+Low prior:
+- generic agents;
+- generic RAG;
+- prompt tricks;
+- LLM-as-judge/annotator;
+- broad cognitive-bias transplantation;
+- behavioral-economics phenomenon hunting;
+- typology/documentation policy;
+- bespoke synthetic worlds;
+- mechanism-first feature hunting.
 
 ---
 
-## Immediate search lanes
+## Mechanism rule
 
-### A. Lexical/semantic access under natural form/relation changes
-### B. Explicit vs implicit/compositional meaning
-### C. Structured relations/sub-decisions in existing NLP resources/tasks
-### D. Representation/learning efficiency under a natural axis
+Deep evidence is required; activation patching is not.
 
-All previous novelty/data/non-obviousness/structural-specificity/reviewer-compression gates remain active.
+> **Use the simplest evidence strong enough for the claim.**
 
-No target-model compute is authorized.
+Mechanistic causal intervention is required only when the central claim is mechanistic/causal.
+
+Never add mechanism merely to make a weak question look deep.
