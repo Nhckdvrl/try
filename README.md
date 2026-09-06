@@ -38,7 +38,8 @@ V3 records a useful but premature IF pilot promotion. V4 corrected that decision
 | object | verdict |
 |---|---|
 | paper mainline | **NONE** |
-| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |\n| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
+| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |
+| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | IF: socially constituted status | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -152,7 +153,12 @@ Operational warning added in V4:
 
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the project to an established parent computation, P4 has not passed.**
-\n\n## V5 correction\n\nV5 found that CCD itself was too quickly promoted in V4. The word *constitutive* was bundling mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the object leaves a strong causal-vs-noncausal / definitional-semantics reviewer compression and a natural-gold problem. CCD is therefore **HIGH-RISK / NO PILOT**. See the V5 ledger.\n
+
+
+## V5 correction
+
+V5 found that CCD itself was too quickly promoted in V4. The word *constitutive* was bundling mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the object leaves a strong causal-vs-noncausal / definitional-semantics reviewer compression and a natural-gold problem. CCD is therefore **HIGH-RISK / NO PILOT**. See the V5 ledger.
+
 
 ## V6 novelty correction
 
