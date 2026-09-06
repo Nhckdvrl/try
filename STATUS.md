@@ -1,218 +1,278 @@
-# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V5)
+# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V7)
 
 > **There is no approved paper mainline.**
 >
-> **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
+> **Current long-term RQ-selection standard:**
+> [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V6.md](DURABLE_RQ_SEARCH_2026-09-06_V6.md)
+> **Current durable-RQ authority:**
+> [DURABLE_RQ_SEARCH_2026-09-06_V7.md](DURABLE_RQ_SEARCH_2026-09-06_V7.md)
 >
-> **IF-P0 is SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**
->
-> **CK experiment-priority provenance:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
+> **Current discovery-pilot material freeze:**
+> [P0_MATERIAL_AUDIT_2026-09-06_V1.md](P0_MATERIAL_AUDIT_2026-09-06_V1.md)
 
-V4 revoked V3's premature IF small-pilot promotion before any IF target-model output. V5 then downgraded CCD from SERIOUS to HIGH-RISK after a deeper parent-concept audit. These are research-decision corrections, not post-hoc responses to data.
+V7 records the post-V6 literature assassination. It supersedes V6 for current ranking,
+but V1–V6 remain provenance.
 
-Earlier durable-search versions and mainline audits remain provenance.
+The project is **not** returning automatically to CK / IF / DM.
+
+---
 
 ## Current decisions
 
 | object | status |
 |---|---|
-| new paper mainline | **NONE** |
-| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |
-| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
-| Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
-| IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
-| CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| paper mainline | **NONE** |
+| **A: choice-set-conditioned preference evidence** | **SMALL PILOT / P0 MATERIAL BUILD AUTHORIZED** |
+| **B: source competence × reporting fidelity** | **SMALL PILOT / P0 MATERIAL BUILD AUTHORIZED** |
+| **L: source-conditioned confidence semantics** | **SMALL PILOT / P0 MATERIAL BUILD AUTHORIZED** |
+| C: epistemic × deontic authority routing | **KILL — REVIEWER COMPRESSION + DATA FAILURE** |
+| D: coverage-conditioned negative evidence | **KILL — EXACT COVER** |
+| preference drift vs temporary/noisy behavior | **KILL — DIRECT COLLISION** |
+| preference uncertainty / same preference, different certainty | **KILL as replacement** |
+| belief × preference from actions / inverse planning | **KILL** |
+| numerical identity × qualitative sameness | **HIGH-RISK / NO PILOT** |
+| sampling/selection mechanism × observed sample | **HIGH-RISK / NO PILOT** |
+| descriptive × injunctive norms / preference × conformity | **KILL** |
+| habitual × goal-directed control | **KILL** |
+| CK: publicness → common-knowledge compression | **HISTORICAL SMALL PILOT AUTHORIZED / NOT CURRENT PRIORITY / NOT MAINLINE** |
+| IF: socially constituted status | **HISTORICAL SERIOUS SEARCH LEAD / NO PILOT** |
+| DM: disposition / latent potential vs manifestation | **HISTORICAL SERIOUS SEARCH LEAD / NO PILOT** |
+| CCD | **HIGH-RISK / NO PILOT** |
 | AM: truth vs alethic necessity/contingency | **HIGH-RISK / NO PILOT** |
-| agent-relative causal controllability | **HIGH-RISK / NO PILOT** |
 | evidential independence / source lineage | **KILL independent mainline** |
-| agent-event binding / causal authorship | **KILL broad RQ** |
-| goal-state lifecycle / goal-plan factorization | **KILL broad RQ** |
-| goal viability / infeasibility | **KILL broad RQ** |
-| generic path-dependent/history state | **KILL broad RQ** |
-| decision commitment / change-of-mind | **KILL broad RQ** |
-| justification/dependency state | **KILL broad RQ** |
-| capability vs permission / normative power | **KILL broad RQ** |
-| belief/expected-state vs desire/goal | **KILL broad RQ** |
-| epistemic stance / speaker commitment | **KILL broad RQ** |
-| hard constraint vs soft preference | **KILL broad RQ** |
-| observation vs intervention | **KILL broad RQ** |
-| prediction mode vs action/choice mode | **KILL broad RQ** |
-| social commitment lifecycle | **KILL broad RQ** |
-| free-choice permission | **SECONDARY SEARCH ONLY / NO PILOT** |
-| contrary-to-duty / remedy-as-permission | **SECONDARY SEARCH ONLY / NO PILOT** |
-| explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY / NO PILOT** |
-| BTF3 G12→G15 | **MECHANISTIC ASSET / SUPPORTING ONLY** |
+| G12→G15 | **MECHANISTIC ASSET / SUPPORTING ONLY** |
 | G0 prospective exclusion | **STRONG EMPIRICAL ASSET / PAPER IDENTITY HIGH-RISK** |
+| explicit-outcome paradox | **HIGH-RISK ARCHIVE ANOMALY / NO PILOT** |
 | zero/nonzero | **KILL paper identity** |
 | G18 | **SUPPORTING ONLY** |
-| G21 | **NOT CURRENT MAINLINE** |
 | G22 | **KILL / DO NOT RUN** |
 | ReGround G19 | **CANCELLED** |
 
-## Why V3's IF pilot authorization was revoked
+---
 
-V3 correctly strengthened IF beyond ownership accuracy or a status probe, but its P4
-argument still leaned on the absence of one paper covering the full conjunction:
+# Why A/B/L survive
+
+The common scientific design is:
 
 ```
-physical/status factorization
-+ status-only update
-+ persistence
-+ transfer/revocation
-+ cross-domain internal structure
-+ generic relation control
-+ downstream causal use
+same observable behavior/statistics
+but
+different hidden generative structure
+↓
+different future prediction / repair / evidential weighting
 ```
 
-Under the Promotion Standard, that is not enough. The relevant question is whether a
-reviewer can compress the project to an existing parent abstraction.
+### A — choice-set-conditioned preference evidence
 
-The strongest current compression is:
+Within a pair, the user's **selected-item sequence is identical**. Only feasible
+alternatives differ, so the rational preference implication reverses.
 
-> **“This tests whether a pretrained LM realizes the standard institutional-fact state
-> abstraction from social ontology / normative multi-agent systems; the hidden-state
-> effect may simply be generic abstract/social relation updating.”**
+The question is not "do menus matter?" It is whether the model conditions behavioral
+preference evidence on what the user could have chosen.
 
-That compression remains live.
+P0:
+- 40 independent skeletons;
+- 4 shallow domains;
+- 3 model families;
+- primary estimand = paired preference reversal.
 
-Classical normative-agent work already formalizes brute facts → constitutive rules →
-institutional facts → regulative consequences, and current regulation-adaptation work
-gives constitutive facts an explicit activation/deactivation lifecycle.
+### B — source competence × reporting fidelity
 
-The current IF-P0 control class (location / possession / adjacency) also leaves a
-conceptual mismatch: IF updates are abstract/social while the controls are largely
-concrete/physical.
+Within a pair:
+- public report sequence identical;
+- truth sequence identical;
+- total report accuracy identical.
 
-Therefore IF has not securely passed P4/P7.
+Only the error stage changes:
+- world/private-observation error, or
+- private-belief→public-report error.
 
-## IF is not killed
+The decisive signature is a **targeted-repair crossover**:
+better information fixes the first generator; faithful reporting fixes the second.
 
-IF remains a serious lead because:
+P0:
+- 32 paired source histories;
+- 4 shallow domains;
+- 3 model families;
+- primary estimand = targeted-repair crossover.
 
-- the object is durable rather than anomaly-dependent;
-- possession vs ownership gives an immediate one-example factorization;
-- multiple outcomes remain scientifically meaningful;
-- representation, dynamics, causal use, training and intervention form a wide method lattice;
-- no direct modern LLM paper located in this audit already establishes the desired
-  institutional-state computation.
+### L — source-conditioned confidence semantics
 
-But **no IF target output is allowed** until a simple natural law can distinguish
-institutional updating from generic abstract/social relation updating without a control zoo.
+Within a pair:
+- source correctness vector identical;
+- overall accuracy identical;
+- confidence-label counts identical;
+- current confidence identical.
 
-## CCD re-audit: HIGH-RISK, not a serious lead
+Only the source-specific mapping from confidence label to correctness differs.
 
-### Research question
+The decisive question is whether the same "90%" receives different weight because it
+means something different for that source's history.
 
-> **Do language models distinguish what caused a state to come about from what makes
-> that state the kind of state it is?**
+P0:
+- 32 independent histories;
+- mapping-swap matched arms;
+- 4 shallow domains;
+- 3 model families;
+- primary estimand = source-conditioned confidence reversal.
 
-### One example
+---
 
-> A glass is cracked because it fell.  
-> A figure is a triangle because it has three sides.
+# Direct KILL records
 
-The first is causal/diachronic dependence. The second is constitutive/synchronous
-dependence.
+## C — epistemic × deontic authority routing
 
-### Current verdict
+**KILL — REVIEWER COMPRESSION + DATA FAILURE**
 
-**SERIOUS SEARCH LEAD / NO PILOT.**
+Direct reason:
+- modern authority-bias work already studies expertise-conditioned belief overwrite,
+  including mechanism/steering;
+- instruction-hierarchy work already studies command priority, and AAAI 2026
+  *Control Illusion* reports strong effects of societal authority/expertise/consensus
+  on instruction behavior.
 
-Why it survives:
-- fundamental world-model dependency type;
-- one-example is simple;
-- outcome-robust;
-- wide representation → dynamics → counterfactual → mechanism lattice;
-- no direct current LLM paper located on the exact dynamic dependency-type computation.
+Remaining claim compresses to:
 
-Why it is not approved:
-- causal reasoning is crowded;
-- causal vs constitutive explanation is a mature non-LLM distinction;
-- CoNLL 2026 already mechanistically studies definitional semantic structure;
-- a relation-type probe would be completely trivial;
-- the reviewer compression “causal benchmark + definitional benchmark” is still live.
+> **authority bias × instruction hierarchy**
 
-See V4 for the complete Candidate Card and kill criteria.
+Removing role words such as expert/manager requires constructing artificial
+legitimacy/scope institutions, so the data begins to manufacture the object.
 
-## Other new candidate verdicts
+Do not revive by renaming the same cross-product.
 
-### AM — truth vs alethic necessity/contingency
+## D — coverage-conditioned negative evidence
 
-**HIGH-RISK / NO PILOT.**
+**KILL — EXACT COVER**
 
-Deep object, but modal reasoning is already active at EMNLP/ACL/2026 workshops and
-current modal-representation pilots. Clean direct gold also risks collapsing into domain
-or definition cues.
+Collision:
+- Min et al. 2026, *When Absence Is Evidence* / CROWN-QA.
 
-### Evidential independence / source lineage
+Its controlled core already fixes question and observed facts while varying query-relative
+coverage, directly testing:
+- complete evidence → justified negative;
+- partial evidence → unknown.
 
-**KILL independent mainline.**
+Renaming completeness as coverage/closure/negative-evidence gating does not create a new
+axis.
 
-The object is already directly named in 2026 AI/provenance work, sits inside mature
-dependent-evidence research, and overlaps our previously killed provenance /
-observation-mechanism neighborhood.
+## Preference drift vs temporary/noisy behavior
 
-## CK
+**KILL — DIRECT COLLISION**
 
-CK-P1 remains **SMALL PILOT AUTHORIZED / NOT MAINLINE** under V9.
+Collision:
+- CAPTURE, 2026-09-02.
 
-Its engineering readiness does not decide mainline priority.
+It explicitly distinguishes genuine preference drift from temporary context shift,
+ambiguity and memory poisoning with latent-state tracking and counterfactual audit.
 
-## No-target-output rule
+## Preference uncertainty
 
-Until a candidate passes the Promotion Standard:
+**KILL as replacement**
 
-- no target-model generation;
-- no GPU-heavy sweep;
-- no SAE;
-- no steering;
-- no causal patching;
-- no expanded benchmark;
-- no defensive condition zoo.
+OPEN already brings Bayesian uncertainty and active elicitation into LM preference
+learning; personalized distributional preference modeling further crowds the object.
 
-## Evidence provenance
+---
 
-Old prospective-exclusion evidence remains in:
-- [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md);
-- [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md);
-- [EXPERIMENTS.md](EXPERIMENTS.md);
-- [PROSPECTIVE_EXCLUSION_FINDINGS.md](PROSPECTIVE_EXCLUSION_FINDINGS.md).
+# Pilot authorization boundary
 
-The old register is evidence/provenance only.  
-[ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) is historical old-mainline provenance.
+V7 authorizes only the frozen **A/B/L behavioral discovery P0** after final material
+construction, deterministic validation and hash freeze.
 
-## Governing principle
+It does **not** authorize:
+- SAE;
+- activation patching;
+- steering;
+- LoRA / RL;
+- huge benchmark expansion;
+- 10-model sweeps;
+- LLM judges;
+- condition rescue after weak results.
 
-> **Durable object. Simple question. Simple data. Outcome-robust research program.
-> Non-obvious findings. Deep causal analysis.**
+A positive P0 result earns:
+1. one-sentence law;
+2. post-result literature assassination;
+3. cross-family audit;
+4. only then C2 / mechanism design.
 
-New V4 warning:
+A weak/trivial/lexical result is killed rather than rescued.
 
-> **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
-> the whole project to an established parent computation, the candidate has not passed P4.**
+---
 
+# Current authority chain
 
-## V5 correction to CCD
+Read in this order:
 
-V4's CCD promotion was itself too fast. A deeper parent-concept audit found that the proposed one-example conflated mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the term does not yet defeat the reviewer compression into causal-vs-noncausal explanation plus definitional semantics, and natural direct gold becomes theory-sensitive. CCD is therefore **HIGH-RISK / NO PILOT**. IF remains the only current SERIOUS SEARCH LEAD, but is still **NO PILOT** and must not win by elimination.
+1. [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
+   — long-term promotion standard.
+2. [DURABLE_RQ_SEARCH_2026-09-06_V7.md](DURABLE_RQ_SEARCH_2026-09-06_V7.md)
+   — **current search / novelty / KILL authority**.
+3. [P0_MATERIAL_AUDIT_2026-09-06_V1.md](P0_MATERIAL_AUDIT_2026-09-06_V1.md)
+   — **A/B/L P0 freeze and material gates**.
+4. [STATUS.md](STATUS.md)
+   — compact current state.
+5. [README.md](README.md)
+   — repository entry point.
+6. [DURABLE_RQ_SEARCH_2026-09-06_V6.md](DURABLE_RQ_SEARCH_2026-09-06_V6.md)
+   — prior new-axis search provenance.
+7. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
+   — CK authorization / G22 kill provenance.
+8. [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md)
+   — suspended IF-P0 provenance.
+9. [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
+   — old-experiment evidence ledger, not current paper identity.
+10. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md), [EXPERIMENTS.md](EXPERIMENTS.md),
+    [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+   — history / evidence.
+11. older durable-search and mainline-audit versions
+   — provenance only.
 
+---
 
-## V6 conceptual-novelty correction
+# Permanent kill-hygiene rule
 
-V6 corrects an over-tightening in V4/V5:
+Whenever a search lane is killed, record all applicable fields:
 
-> **A candidate does not need a novel parent concept. It needs a novel scientific axis /
-> claim structure that neighboring LLM work has not already isolated.**
+```
+KILL status
++ direct scientific reason
++ collision paper / parent axis
++ reviewer compression
++ data failure
++ explicit note against terminology-based resurrection
+```
 
-The reviewer phrase "X on a new substrate" is a kill only when the proposed axis does
-not change the scientific question, predictions, dissociations, or causal mechanism.
+A future candidate may revisit a killed neighborhood only by introducing a genuinely
+different axis that changes predictions, dissociations, causal structure or intervention.
 
-Current new-axis ranking:
-- IF — **SERIOUS SEARCH LEAD / NO PILOT**;
-- DM (disposition/potential vs manifestation/current state) — **SERIOUS SEARCH LEAD / NO PILOT**;
-- CCD — **HIGH-RISK / NO PILOT**;
-- AM — **HIGH-RISK / NO PILOT**.
+---
 
-No new target-model generation is authorized by V6.
+# Governing principle
+
+> **Durable object. New scientific axis. Simple question. Simple data. Outcome-robust
+> research program. Non-obvious findings. Deep causal analysis.**
+
+```
+interesting scientific question
+>
+new scientific axis / narrative
+>
+core-claim novelty
+>
+outcome robustness
+>
+simple natural data
+>
+non-obvious structural law
+>
+representation / generalization / dissociation
+>
+causal explanation
+>
+mechanism-predicted intervention
+>
+defensive completeness
+```
+
+> **No approved paper mainline. A/B/L are SMALL PILOT candidates only.**
