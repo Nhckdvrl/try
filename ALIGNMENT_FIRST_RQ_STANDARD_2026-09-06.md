@@ -1,0 +1,305 @@
+# Alignment-First Research Question Selection Standard — 2026-09-06
+
+**Target:** NAACL Main, calibrated against ACL / EMNLP / NAACL Main and especially Best / Outstanding / Best Theme papers.  
+**Status:** current project-level RQ-selection standard.  
+**Supersedes for future promotion decisions:** the earlier promotion standard when the two conflict. Older files remain provenance.
+
+---
+
+# 0. Governing rule
+
+Research-question selection must be calibrated against **real high-level papers before experiment design**.
+
+The project must not ask only:
+
+> Has anyone run this exact condition?
+
+It must ask:
+
+> Does the question itself belong naturally beside current high-level ACL / EMNLP / NAACL work, and does the proposed new axis change an observable or causal prediction?
+
+The workflow is:
+
+```
+high-level paper calibration
+→ paper identity
+→ important scientific object
+→ unresolved independent axis / framing / mechanism
+→ prediction-changing contrast
+→ literature assassination
+→ reviewer compression
+→ minimum decisive pilot
+→ actual one-sentence law
+→ post-result literature re-audit
+→ Main-vs-Findings re-calibration
+```
+
+---
+
+# 1. Human cognition / linguistics / philosophy are valid sources of research questions
+
+A concept being old in humans does **not** kill an LLM/NLP paper.
+
+Recent high-level examples make this explicit:
+
+- EMNLP 2025 Outstanding **Mind the Value-Action Gap** studies a classic psychology-style value/action distinction in LLMs.
+- ACL 2026 Outstanding **Mind the (DH) Gap!** transfers a classic description–experience distinction from human risky choice and finds a new reasoning-vs-conversational model regime split.
+- ACL 2026 Best Paper **The Imperfective Paradox in Large Language Models** takes a classic semantic phenomenon and discovers a pervasive LLM-specific Teleological Bias.
+- ACL 2026 Main **CogToM** builds a ToM benchmark directly inspired by 46 human-cognition paradigms and analyzes LLM/human cognitive divergence.
+- ACL 2026 Best Theme **CoSToM** studies ToM with causal intervention.
+
+Therefore:
+
+> **Human-origin phenomenon is a theoretical anchor, not a novelty failure.**
+
+What is weak is only:
+
+> “Humans show X; LLMs also show X.”
+
+A human-origin question becomes strong when the AI study reveals a new system-level law, such as:
+
+- a model-family / training regime split;
+- a systematic divergence from humans or a normative theory;
+- a stable structural failure;
+- a recognition/use or representation/behavior dissociation specific to models;
+- a model-specific causal mechanism;
+- a downstream consequence important for deployed assistants/agents.
+
+References:
+- https://2025.emnlp.org/program/awards/
+- https://aclanthology.org/2025.emnlp-main.154/
+- https://aclanthology.org/2026.acl-long.479/
+- https://2026.aclweb.org/program/best_papers/
+- https://aclanthology.org/2026.acl-long.1448/
+- https://aclanthology.org/2026.acl-long.421/
+
+---
+
+# 2. Mandatory High-Level Calibration Set
+
+Before a serious candidate is experiment-authorized, collect:
+
+- at least 3 high-level same-identity anchors when available;
+- 3–5 strong Main / direct neighboring papers;
+- very recent 2025–2026 assassination papers.
+
+For each anchor record:
+
+| field | required question |
+|---|---|
+| paper identity | behavioral discovery / mechanistic discovery / method / benchmark / audit / use-inspired / theory |
+| one-sentence RQ | what does the paper actually ask? |
+| why important | why care without method or dataset names? |
+| novelty type | new axis / framing / mechanism / method / benchmark / audit |
+| claims | how many load-bearing claims? |
+| data | why this scale/complexity? |
+| models | why this breadth? |
+| decisive evidence | what identifies C1? |
+| mechanism | necessary / optional / irrelevant? |
+| Main case | why is this more than a narrow sound result? |
+
+---
+
+# 3. Paper identity comes before evidence burden
+
+There is no universal Main-paper template.
+
+Possible identities:
+1. Scientific / Behavioral Discovery
+2. Mechanistic Discovery
+3. Method / Algorithm
+4. Benchmark / Resource
+5. Critical Audit / Negative Result
+6. Use-Inspired Scientific Work
+7. Theory / Formalization
+
+Rules:
+- behavioral discovery does not automatically require mechanistic intervention;
+- mechanistic discovery requires causal evidence as load-bearing support;
+- method papers must identify and repair a real limitation;
+- benchmark/resource papers need principled coverage, validity, and usefulness;
+- negative-result papers must change understanding of an important expectation.
+
+Do not invent an experiment burden stricter than comparable successful papers.
+
+---
+
+# 4. Candidate gates
+
+## P1 — High-Level Alignment
+Real high-level same-identity anchors exist and were compared.
+
+## P2 — Interesting Question
+Deleting dataset/method/model names leaves a question the community should care about.
+
+## P3 — One-Minute Intelligibility
+No project ontology is required to explain it.
+
+## P4 — Correct Paper Identity
+The expected contribution type is explicit.
+
+## P5 — Appropriate Scope
+Scope is calibrated against real Main / Outstanding papers, not intuition.
+
+## P6 — Independent Scientific Novelty
+The novelty is not merely an exact benchmark cell.
+
+## P7 — Prediction Difference
+Write:
+
+```
+existing account predicts: ...
+new axis predicts: ...
+decisive case where they disagree: ...
+```
+
+If no prediction or intervention changes, the axis is probably taxonomy rather than contribution.
+
+## P8 — Literature Survival
+Search exact phenomenon, parent abstraction, adjacent construct, same prediction, same causal mechanism, same benchmark family, recent work, and neighboring disciplines.
+
+## P9 — Reviewer Compression Survival
+Write:
+
+> “This is just X.”
+
+A valid rebuttal needs a different prediction, dissociation, causal implication, or intervention—not a different dataset.
+
+## P10 — Outcome Robustness
+For discovery work, several plausible outcomes should teach us something:
+factorized / shared / asymmetric / represented-but-unused / systematic negative / family split.
+
+## P11 — Strong Inference
+State H1/H2/H3 before pilot and design a test that discriminates them.
+
+## P12 — Data Fit
+Synthetic material may isolate a natural variable; it may not manufacture the ontology that makes the question exist.
+
+## P13 — Non-Trivial Result Space
+Write before experiments:
+
+> **What would be trivial even if positive?**
+
+## P14 — Claim-Matched Model Coverage
+`claim breadth → model breadth`. No fixed model count.
+
+## P15 — Realistic Evidence Burden
+Follow actual high-level papers, not imagined reviewer requests.
+
+## P16 — Research-Space Depth
+The scientific object should naturally support a coherent Main-scale story without becoming an experiment zoo.
+
+## P17 — Explicit Kill Rules
+Know before running what would terminate the direction.
+
+---
+
+# 5. Required Candidate Card
+
+Every serious candidate records:
+
+1. Research Question
+2. Paper Identity
+3. Why it matters
+4. One-example explanation
+5. Scientific axis
+6. Generative structure
+7. Competing hypotheses
+8. Decisive prediction
+9. High-Level Calibration Set
+10. Top-Paper Alignment Matrix
+11. Literature-Axis Matrix
+12. Adjacent concepts
+13. Reviewer Kill Sentence
+14. Is that compression valid?
+15. Outcome Robustness
+16. Research-space width
+17. Minimal Discovery Substrate
+18. Data risks
+19. What would be trivial?
+20. Model-coverage rationale
+21. Claim architecture
+22. Pilot Kill Criteria
+23. Post-result re-audit rule
+24. Expected Main-level growth path
+25. Verdict
+
+---
+
+# 6. Pilot rule
+
+Pilot is a **discovery instrument**, not a mini paper.
+
+Its purpose is:
+
+> Is there an actual structural law here worth building a paper around?
+
+Use the minimum experiment that distinguishes the competing accounts.
+
+After the pilot:
+1. write one sentence, without numbers: **“Models …”**
+2. assassinate that exact law against the latest literature;
+3. compare the law again to high-level anchors;
+4. decide Main / Findings / supporting evidence / KILL;
+5. only then design C2/C3.
+
+No SAE / patching / steering / model zoo is authorized merely because a behavioral effect is non-zero.
+
+---
+
+# 7. Kill hygiene
+
+Every killed lane must record:
+- direct scientific reason;
+- collision / parent axis;
+- reviewer compression;
+- data failure when applicable;
+- explicit note against terminology-based resurrection.
+
+A killed neighborhood can return only with a genuinely different prediction-changing axis.
+
+---
+
+# 8. Project-specific warning
+
+This repository has repeatedly over-valued:
+- exact-gap novelty;
+- large effects;
+- elegant matched-observation designs;
+- mechanistic assets;
+- code/data readiness;
+- sunk cost.
+
+Those are not promotion arguments.
+
+Priority is:
+
+```
+high-level-paper-calibrated importance
+>
+clear paper identity
+>
+independent prediction-changing axis / framing
+>
+outcome robustness
+>
+clean identification
+>
+data fit
+>
+non-obvious finding space
+>
+Main-scale depth
+>
+appropriate mechanism
+>
+appropriate model breadth
+>
+defensive completeness
+```
+
+---
+
+# 9. One-sentence authority
+
+> **A candidate earns compute only when real high-level papers establish that its question is appropriately scaled, its novelty is a load-bearing scientific difference rather than an exact gap, its axis changes predictions, multiple outcomes remain informative, its substrate does not manufacture the object, and its evidence burden matches its actual paper identity.**
