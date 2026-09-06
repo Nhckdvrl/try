@@ -21,7 +21,7 @@ NAACL / ACL / EMNLP Main-level paper.
 Read in this order:
 
 1. [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md) — long-term promotion gates.
-2. [DURABLE_RQ_SEARCH_2026-09-06_V4.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
+2. [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
 3. [STATUS.md](STATUS.md) — compact current state.
 4. [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md) — **suspended pre-freeze design provenance; do not generate target output**.
 5. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md) — CK-P1 authorization / G22 kill provenance.
@@ -40,7 +40,7 @@ provenance and corrects the decision before any IF target-model generation occur
 | object | verdict |
 |---|---|
 | paper mainline | **NONE** |
-| CCD: constitutive vs causal dependence | **SERIOUS SEARCH LEAD / NO PILOT** |
+| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | IF: socially constituted status | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -92,7 +92,7 @@ institutional-state computation.
 Do not repair this by building a control zoo. IF can return to SMALL PILOT only if one
 simple natural contrast directly defeats that reviewer compression.
 
-## New serious challenger: CCD
+## CCD re-audit: downgraded to HIGH-RISK
 
 The strongest new independent lead asks:
 
@@ -107,7 +107,7 @@ Example:
 The object is **dependency type**: causal/diachronic versus constitutive/synchronous
 dependence.
 
-CCD is not approved. Existing causal-reasoning, definitional-semantics, discourse-relation
+CCD is not approved and V5 downgrades it from SERIOUS to HIGH-RISK. Existing causal-reasoning, definitional-semantics, discourse-relation
 and philosophical constitution work are real threats. A probe that separates the two
 sentence types is trivial. CCD survives only if dependency type predicts a non-obvious,
 cross-domain dynamic/counterfactual law that generic relation classification does not.
@@ -154,3 +154,4 @@ Operational warning added in V4:
 
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the project to an established parent computation, P4 has not passed.**
+\n\n## V5 correction\n\nV5 found that CCD itself was too quickly promoted in V4. The word *constitutive* was bundling mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the object leaves a strong causal-vs-noncausal / definitional-semantics reviewer compression and a natural-gold problem. CCD is therefore **HIGH-RISK / NO PILOT**. See the V5 ledger.\n
