@@ -1,4 +1,4 @@
-# Project status — 2026-09-06, V14 OLD-PROBLEM / NEW-METHOD
+# Project status — 2026-09-06, V15 PORTFOLIO CONTRACTION
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -8,160 +8,143 @@ Current methodology:
 [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
 
 Current candidate/search authority:
-[OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md)
+[OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V15.md)
 
 Current kill authority:
-[archive/KILLED_RQ_LEDGER_2026-09-06_V14.md](archive/KILLED_RQ_LEDGER_2026-09-06_V14.md)
+[archive/KILLED_RQ_LEDGER_2026-09-06_V15.md](archive/KILLED_RQ_LEDGER_2026-09-06_V15.md)
 
-V13 broadened-search provenance:
-[BROADENED_RQ_SEARCH_2026-09-06_V13.md](BROADENED_RQ_SEARCH_2026-09-06_V13.md)
-
----
-
-## V14 governing correction
-
-The project no longer searches primarily for new LLM mechanisms/gaps.
-
-Advisor-compatible priority:
-
-> **Find old, durable scientific/NLP problems whose load-bearing assumptions, cost models, or measurement limits change in the LLM era.**
-
-Three positive shapes:
-1. **classical-law reassessment**;
-2. **cost / computational-primitive shift**;
-3. **previously-unmeasurable → newly measurable**.
-
-New hard questions:
-- **What exact old assumption no longer holds?**
-- **Would the question remain important if current models/APIs/prompts disappeared in two years?**
-
-Old task + GPT remains weak.
+V14 provenance:
+[OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md)
 
 ---
 
-## Current three-topic front-end set
+## V15 governing correction
 
-### #1 IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap
+V14's three-topic portfolio was a search device, not a quota.
 
-**SERIOUS / D2 / FRONT-END AUDIT / NO COMPUTE.**
+After another parent-level assassination round:
+
+| object | current verdict |
+|---|---|
+| **TCR — Typological Coverage Robustness under Grammar-Book Expansion** | **SERIOUS-SEARCH / FRONT-END COVERAGE-LEVERAGE AUDIT / D0–D1 PATH / NO COMPUTE** |
+| **IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap** | **KILL CURRENT FORMULATION** |
+| **DRP — Documentation Resource Portfolio in the LLM Era** | **KILL CURRENT FORMULATION** |
+| **HOM — Plural Homogeneity** | **SEARCH-ONLY / NO COMPUTE** |
+| replacement candidate | **NONE REGISTERED** |
+
+There is currently **one surviving front-end candidate**, not three.
+
+This is intentional. Candidate count is never a scientific criterion.
+
+---
+
+## Why IFG was killed
+
+2026 work on Bayesian hypothesis updating already measures the same latent posterior through prediction, evaluation and generation probes and explicitly tests cross-probe equivalence.
+
+IFG's exact LoIE mapping remains a cleaner diagnostic, but the strongest reviewer compression is now:
+
+> **“another cross-probe posterior inconsistency paper, with a nicer exact mapping.”**
+
+That fails independent parent novelty.
+
+No pilot.
+
+---
+
+## Why DRP was killed
+
+Recent literature already jointly occupies:
+
+- grammar vs parallel-example resource value and data-collection policy;
+- dictionary / grammar / retrieved-example comparisons;
+- heterogeneous annotation-cost optimization;
+- documentation resource prioritization.
+
+Adding cross-task Pareto frontiers does not create a new parent question, and a defensible common cost unit across grammar/dictionary/parallel/IGT remains unresolved.
+
+No pilot.
+
+---
+
+## TCR — current surviving axis
 
 RQ:
-> **Does an LLM weight the very same evidence differently depending on whether it is asked what is true now or what will happen next?**
 
-Surviving novelty only:
-> same DGP + same prior + same realized signal + exact inference→forecast mapping; does changing only the target statistic change the evidence-weighting rule?
-
-BayesBench already owns broad latent-inference → downstream-prediction dissociation, so IFG dies if an equivalent paired same-evidence structural estimand is found.
-
----
-
-### #2 TCR — Typological Coverage Robustness under Grammar-Book Expansion
-
-**SERIOUS-SEARCH CANDIDATE / D0–D1 PATH / NO COMPUTE.**
-
-RQ:
-> **When grammar books let us fill typological evidence previously missing because of documentation/coding limits, which claimed cross-linguistic universals remain stable and which depend on the historical coverage pattern of the database?**
+> **When existing grammatical descriptions make previously uncoded typological evidence recoverable, which published cross-linguistic conclusions remain stable and which depend on the historical coverage pattern of the database?**
 
 Not:
+
 > use RAG to fill Grambank.
 
-That parent is occupied.
+That extraction parent is occupied.
 
-Surviving scientific axis:
-> **turn database coverage into an intervention and test robustness of published linguistic conclusions, with extraction uncertainty propagated into inference.**
+Surviving estimand:
 
-Main threats:
-- “Grambank RAG + rerun Nature paper” compression;
-- insufficient accessible grammar evidence;
-- extraction error dominates the sensitivity estimate;
-- only confidence intervals shrink.
+> **scientific-inference robustness under real, grammar-backed coverage expansion.**
 
----
+### New V15 threat
 
-### #3 DRP — Documentation Resource Portfolio in the LLM Era
+The released Nature 2026 analysis already has large per-universal samples:
 
-**SERIOUS-SEARCH CANDIDATE / D0–D2 PATH / NO COMPUTE.**
+- 191 simple universals;
+- main_n range roughly **329–2,225**;
+- median roughly **1,678**;
+- mean roughly **1,653**.
 
-RQ:
-> **When one foundation model can consume dictionaries, grammar descriptions, parallel examples and IGT, how should scarce documentation effort be allocated across these resource types to maximize reusable capability across language tasks?**
+Therefore generic expansion may only narrow uncertainty.
 
-Not:
-> which resource helps low-resource MT?
+Typology robustness/error work also already shows that structured annotation mistakes can alter universal estimates.
 
-That is already occupied by recent resource ablations.
-
-Surviving methodological axis:
-> **cross-task marginal/complementary value of independently existing documentation resources under a defensible shared budget.**
-
-Main threats:
-- “large resource ablation” compression;
-- arbitrary cost units;
-- trivial task-specific conclusion;
-- need for a bespoke multilingual collection campaign.
+TCR survives only if **real recoverable omissions** have enough genealogical/geographic/feature leverage to change substantive inference.
 
 ---
 
-## Search-only
+## TCR new hard gate — Coverage Leverage
 
-### HOM
-**SEARCH-ONLY / NO COMPUTE.**
+Before any target LLM:
 
-Current formulation remains vulnerable to textbook-capability compression.
+1. map each of 191 universals to required Grambank features;
+2. identify languages excluded by missing required values;
+3. distinguish unattempted coding from explicit uncertainty;
+4. map missingness by family/area/domain/documentation history;
+5. determine which missing observations have existing grammar/sketch evidence;
+6. estimate realistically attainable new coverage;
+7. compute whether those feasible observations can materially shift effect estimates/support.
 
----
+### KILL before extraction if
 
-## Newly closed in V14
-
-Do not reactivate without a different parent question:
-- evaluation item-vs-generation budget allocation;
-- historical-linguistics agent hypothesis cycle;
-- model-assisted rare-event probability sampling;
-- source-language fixed-budget selection;
-- generic historical/dialect normalization revisit;
-- local-vs-global structured prediction revisit;
-- generic WSI/dynamic sense-inventory modernization;
-- generic universal-schema/schema-mediation replacement;
-- generic corpus/treebank annotation auditing;
-- generic MDL + LLM grammar/rule induction.
-
-All V9–V13 kills remain inherited.
+- feasible additions mostly only narrow CIs;
+- high-leverage missing cells lack decisive source evidence;
+- accessible grammars mostly cover already-coded cells;
+- missingness is diffuse rather than structurally selective;
+- the paper collapses to extraction accuracy or “RAG + rerun Nature.”
 
 ---
 
-## Next work
+## Newly closed / do-not-activate in V15
 
-### IFG
-Complete direct collision audit and reconstruct the exact paired estimand.
+- IFG current formulation;
+- DRP current formulation;
+- generic computational-typologist / schema-free grammar querying;
+- annotation-guidelines-as-LLM-supervision revisit;
+- dependence-aware LLM-judge aggregation;
+- LLM-generated hypotheses → selective inference;
+- gradient/token-based typology as an LLM-era novelty claim;
+- generic semantic corpus-representativeness measurement.
 
-### TCR
-1. map published universals to Grambank missingness;
-2. quantify available uncoded grammar evidence;
-3. audit typological missing-data / database-expansion literature;
-4. design extraction-uncertainty propagation;
-5. determine whether enough claims can actually change to support Main-scale science.
-
-### DRP
-1. audit exact resource-portfolio / documentation-budget literature;
-2. locate languages with independently existing grammar + dictionary + parallel + IGT resources and multiple downstream golds;
-3. obtain defensible resource-cost evidence;
-4. define a portfolio estimand that cannot collapse to ordinary ablation.
-
-No target-model experiment is authorized until these audits survive.
+All V9–V14 kills remain inherited.
 
 ---
 
-## V14 authority
+## Search policy remains
 
-> **The scientific object should exist before us.**
->
-> **The data should exist before our hypothesis.**
->
-> **The scientific tension should exist before the result.**
->
-> **The structural relation should exist before the gap.**
->
-> **The new method should change what science can test, not just who performs the work.**
->
-> **A classic revisit must identify which old assumption breaks in the LLM era.**
->
-> **Prefer questions whose importance survives model/API churn.**
+Continue seeking durable Old-Problem / New-Method questions, but require:
+
+> **old load-bearing assumption → genuinely changed primitive → changed scientific prediction / optimal method / measurement / feasible intervention**
+
+and not:
+
+> **old task + stronger LLM**
+
+No target-model compute is authorized.
