@@ -4,7 +4,7 @@
 >
 > **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V5.md)
+> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V6.md](DURABLE_RQ_SEARCH_2026-09-06_V6.md)
 >
 > **IF-P0 is SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**
 >
@@ -19,7 +19,7 @@ Earlier durable-search versions and mainline audits remain provenance.
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
+| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |\n| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -192,3 +192,21 @@ New V4 warning:
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the whole project to an established parent computation, the candidate has not passed P4.**
 \n\n## V5 correction to CCD\n\nV4's CCD promotion was itself too fast. A deeper parent-concept audit found that the proposed one-example conflated mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the term does not yet defeat the reviewer compression into causal-vs-noncausal explanation plus definitional semantics, and natural direct gold becomes theory-sensitive. CCD is therefore **HIGH-RISK / NO PILOT**. IF remains the only current SERIOUS SEARCH LEAD, but is still **NO PILOT** and must not win by elimination.\n
+
+## V6 conceptual-novelty correction
+
+V6 corrects an over-tightening in V4/V5:
+
+> **A candidate does not need a novel parent concept. It needs a novel scientific axis /
+> claim structure that neighboring LLM work has not already isolated.**
+
+The reviewer phrase "X on a new substrate" is a kill only when the proposed axis does
+not change the scientific question, predictions, dissociations, or causal mechanism.
+
+Current new-axis ranking:
+- IF — **SERIOUS SEARCH LEAD / NO PILOT**;
+- DM (disposition/potential vs manifestation/current state) — **SERIOUS SEARCH LEAD / NO PILOT**;
+- CCD — **HIGH-RISK / NO PILOT**;
+- AM — **HIGH-RISK / NO PILOT**.
+
+No new target-model generation is authorized by V6.
