@@ -235,6 +235,63 @@ Currently high-risk generic neighborhoods include:
 
 Prefer questions whose decisive C1 can be established with a small, principled experiment and which do not require an agent/RL/model-zoo arms race merely to look competitive.
 
+## P3f — Classical-Assumption Rewrite Gate
+
+For a classic-problem / LLM-era revisit, do not ask only:
+
+> “Can an LLM now do old task X?”
+
+Before promotion, write the exact **load-bearing old assumption** that the modern model class invalidates.
+
+Strong forms include:
+- a classical scientific law whose prediction depended on an older model class;
+- an algorithm whose optimality depended on a cost model changed by batching/caching/generative inference;
+- a resource-allocation policy whose tradeoffs change because one model can consume previously separate resource types;
+- a scientific measurement whose historical missingness/proxy constraint becomes manipulable.
+
+Required sentence:
+
+> **Old conclusion/method A depended on assumption B. LLM capability C changes B, so A and alternative D now make different predictions / imply different optimal decisions.**
+
+Weak forms:
+- models are larger;
+- GPT is cheaper;
+- annotation is faster;
+- prompts are convenient;
+- a stronger model improves an old benchmark.
+
+High-level calibration examples:
+- EMNLP 2025 Outstanding *Generative or Discriminative? Revisiting Text Classification in the Era of Transformers*;
+- ACL 2025 *Are Optimal Algorithms Still Optimal? Rethinking Sorting in LLM-Based Pairwise Ranking with Batching and Caching*.
+
+**Rule:** old task + GPT is not a contribution; old assumption + changed prediction/method can be.
+
+## P3g — Durability / Stability Gate
+
+Before promotion, ask:
+
+> **If current frontier model names, APIs, prompting conventions, agent frameworks and proprietary features changed within two years, would the research question and main conclusion still matter?**
+
+Positive priors:
+- linguistic theory;
+- statistical inference;
+- scientific measurement;
+- resource design;
+- language documentation;
+- classical NLP methodology;
+- model-class-independent computational principles.
+
+Negative priors:
+- prompt recipes;
+- current API quirks;
+- transient agent stacks;
+- proprietary feature races;
+- model-zoo arms races with no durable scientific object.
+
+A fast-moving implementation may support a durable question; it must not be the reason the question exists.
+
+**Rule:** prefer model-era changes that rewrite a scientific law, cost model, measurement model, or feasible experimental operation.
+
 ## P4 — Correct Paper Identity
 The expected contribution type is explicit.
 
@@ -430,4 +487,4 @@ defensive completeness
 
 # 9. One-sentence authority
 
-> **A candidate earns compute only when real high-level papers establish that its question is appropriately scaled and non-obvious before results, its novelty is a load-bearing scientific difference rather than an exact gap, its axis exposes a genuine tension and changes predictions, multiple outcomes remain informative, its substrate does not manufacture the object, and its evidence burden matches its actual paper identity.**
+> **A candidate earns compute only when real high-level papers establish that its question is appropriately scaled and non-obvious before results, its novelty is a load-bearing scientific difference rather than an exact gap, its axis exposes a genuine tension and changes predictions, multiple outcomes remain informative, its substrate does not manufacture the object, its evidence burden matches its actual paper identity, any classic-problem revisit names the old assumption that the LLM era changes, and the core question remains important beyond transient model/API details.**
