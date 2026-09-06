@@ -1,4 +1,12 @@
-> [!WARNING]\n> **SUSPENDED BY DURABLE_RQ_SEARCH_2026-09-06_V5.md**\n>\n> This file is retained as pre-freeze design provenance only. V3's IF-P0 SMALL PILOT\n> authorization was revoked before any target-model output. **Do not freeze materials,\n> preregister, or generate target output from this design unless a newer authority\n> explicitly re-authorizes IF.**\n\n# IF-P0 Design Audit — Socially Constituted State Update
+> [!WARNING]
+> **SUSPENDED BY DURABLE_RQ_SEARCH_2026-09-06_V5.md**
+>
+> This file is retained as pre-freeze design provenance only. V3's IF-P0 SMALL PILOT
+> authorization was revoked before any target-model output. **Do not freeze materials,
+> preregister, or generate target output from this design unless a newer authority
+> explicitly re-authorizes IF.**
+
+# IF-P0 Design Audit — Socially Constituted State Update
 
 **Created:** 2026-09-06  
 **Historical design authority:** `DURABLE_RQ_SEARCH_2026-09-06_V3.md`; current verdict authority: `DURABLE_RQ_SEARCH_2026-09-06_V5.md`  
