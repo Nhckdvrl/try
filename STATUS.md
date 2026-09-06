@@ -4,7 +4,7 @@
 >
 > **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md)
+> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V5.md)
 >
 > **IF-P0 is SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**
 >
@@ -102,7 +102,7 @@ IF remains a serious lead because:
 But **no IF target output is allowed** until a simple natural law can distinguish
 institutional updating from generic abstract/social relation updating without a control zoo.
 
-## New serious lead: CCD
+## CCD re-audit: HIGH-RISK, not a serious lead
 
 ### Research question
 
