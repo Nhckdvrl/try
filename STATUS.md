@@ -1,29 +1,33 @@
-# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V3)
+# Project status — adversarial RQ reconstruction (2026-09-06, durable-search V4)
 
 > **There is no approved paper mainline.**
 >
 > **Current long-term RQ-selection standard:** [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md)
 >
-> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V3.md](DURABLE_RQ_SEARCH_2026-09-06_V3.md)
+> **Current durable-RQ search ledger:** [DURABLE_RQ_SEARCH_2026-09-06_V4.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md)
 >
-> **Current IF discovery design:** [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md)
+> **IF-P0 is SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT.**
 >
 > **CK experiment-priority provenance:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
 
-V3 promotes IF only to **SMALL PILOT / NOT MAINLINE** after a substantially expanded
-conceptual-assassination pass. It does not make a positive probe result novel.
+V4 revokes V3's premature IF small-pilot promotion after a deeper conceptual audit.
+No IF target-model output had been generated, so this is a research-decision correction,
+not a post-hoc response to data.
 
-Earlier audits, V1/V2, and old registers remain provenance.
+Earlier durable-search versions and mainline audits remain provenance.
 
 ## Current decisions
 
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| Institutional / socially constituted status (IF) | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
-| IF-P0 | **PRE-FREEZE ONLY / NO TARGET OUTPUT YET** |
+| CCD: constitutive vs causal dependence | **SERIOUS SEARCH LEAD / NO PILOT** |
+| Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
+| IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
+| AM: truth vs alethic necessity/contingency | **HIGH-RISK / NO PILOT** |
 | agent-relative causal controllability | **HIGH-RISK / NO PILOT** |
+| evidential independence / source lineage | **KILL independent mainline** |
 | agent-event binding / causal authorship | **KILL broad RQ** |
 | goal-state lifecycle / goal-plan factorization | **KILL broad RQ** |
 | goal viability / infeasibility | **KILL broad RQ** |
@@ -48,84 +52,126 @@ Earlier audits, V1/V2, and old registers remain provenance.
 | G22 | **KILL / DO NOT RUN** |
 | ReGround G19 | **CANCELLED** |
 
-## Why IF finally gets a SMALL PILOT
+## Why V3's IF pilot authorization was revoked
 
-The broad question is no longer:
+V3 correctly strengthened IF beyond ownership accuracy or a status probe, but its P4
+argument still leaned on the absence of one paper covering the full conjunction:
 
-> Do LLMs understand institutional facts?
+```
+physical/status factorization
++ status-only update
++ persistence
++ transfer/revocation
++ cross-domain internal structure
++ generic relation control
++ downstream causal use
+```
 
-The pilot-level question is:
+Under the Promotion Standard, that is not enough. The relevant question is whether a
+reviewer can compress the project to an existing parent abstraction.
 
-> **When physical state and socially constituted status are varied independently, do
-> pretrained language models exhibit a reusable internal update structure for social
-> status that is stronger than generic relation/event tracking?**
+The strongest current compression is:
 
-This has now survived direct threats from:
-- classical social ontology / constitutive norms;
-- normative multi-agent institutional-state tracking;
-- generic relational representations;
-- social-role latent geometry;
-- rule-action applicability;
-- 2025–2026 Social World Models;
-- legal-agent simulations;
-- dynamic authorization memory.
+> **“This tests whether a pretrained LM realizes the standard institutional-fact state
+> abstraction from social ontology / normative multi-agent systems; the hidden-state
+> effect may simply be generic abstract/social relation updating.”**
 
-These literatures kill weak claims. They do not currently establish the full
-LLM-internal intersection of:
-- physical/status factorization;
-- status-only update;
-- persistence;
-- cross-domain structure;
-- generic-relation control;
-- downstream causal use.
+That compression remains live.
 
-## IF-P0 success is NOT decodability
+Classical normative-agent work already formalizes brute facts → constitutive rules →
+institutional facts → regulative consequences, and current regulation-adaptation work
+gives constitutive facts an explicit activation/deactivation lifecycle.
 
-The following are kill/trivial outcomes:
-- owner/non-owner AUC is high;
-- models answer ownership correctly;
-- status words cluster;
-- sale changes an ownership answer;
-- one domain/model has a clean direction.
+The current IF-P0 control class (location / possession / adjacency) also leaves a
+conceptual mismatch: IF updates are abstract/social while the controls are largely
+concrete/physical.
 
-A result earns another audit only if the status-update structure:
-1. survives physical/status nuisance crossing;
-2. transfers across substantially different status domains;
-3. persists across irrelevant physical changes;
-4. differs materially from generic non-institutional relation updates;
-5. appears compatibly in at least two model families.
+Therefore IF has not securely passed P4/P7.
 
-Even then: **fresh post-result novelty assassination is mandatory.**
+## IF is not killed
 
-## IF-P0 authorization gate
+IF remains a serious lead because:
 
-Before any target-model output:
+- the object is durable rather than anomaly-dependent;
+- possession vs ownership gives an immediate one-example factorization;
+- multiple outcomes remain scientifically meaningful;
+- representation, dynamics, causal use, training and intervention form a wide method lattice;
+- no direct modern LLM paper located in this audit already establishes the desired
+  institutional-state computation.
 
-1. 24 independent skeletons finalized;
-2. four domains finalized: ownership, office, membership, ticket/credential validity;
-3. physical-only / status-only / neutral trajectories finalized;
-4. deterministic physical/status gold unit-tested;
-5. generic relation controls finalized;
-6. manual naturalness audit completed;
-7. exact neutral representation checkpoint frozen;
-8. exact model revisions frozen;
-9. activation extraction/checkpoints frozen;
-10. held-out-domain splits frozen;
-11. update-geometry metric frozen;
-12. cluster-bootstrap analyzer tested on dummy data;
-13. dedicated preregistration created;
-14. freeze commit/tag created.
+But **no IF target output is allowed** until a simple natural law can distinguish
+institutional updating from generic abstract/social relation updating without a control zoo.
 
-No SAE, steering, causal patching, scale sweep, long-horizon benchmark or legal dataset
-is authorized by IF-P0.
+## New serious lead: CCD
 
-## Strategic priority
+### Research question
 
-CK-P1 remains scientifically authorized and is not cancelled.
+> **Do language models distinguish what caused a state to come about from what makes
+> that state the kind of state it is?**
 
-However, **IF-P0 now has higher mainline-selection priority** because IF is a broader,
-outcome-robust scientific object whose value is not conditional on one publicness
-anomaly.
+### One example
+
+> A glass is cracked because it fell.  
+> A figure is a triangle because it has three sides.
+
+The first is causal/diachronic dependence. The second is constitutive/synchronous
+dependence.
+
+### Current verdict
+
+**SERIOUS SEARCH LEAD / NO PILOT.**
+
+Why it survives:
+- fundamental world-model dependency type;
+- one-example is simple;
+- outcome-robust;
+- wide representation → dynamics → counterfactual → mechanism lattice;
+- no direct current LLM paper located on the exact dynamic dependency-type computation.
+
+Why it is not approved:
+- causal reasoning is crowded;
+- causal vs constitutive explanation is a mature non-LLM distinction;
+- CoNLL 2026 already mechanistically studies definitional semantic structure;
+- a relation-type probe would be completely trivial;
+- the reviewer compression “causal benchmark + definitional benchmark” is still live.
+
+See V4 for the complete Candidate Card and kill criteria.
+
+## Other new candidate verdicts
+
+### AM — truth vs alethic necessity/contingency
+
+**HIGH-RISK / NO PILOT.**
+
+Deep object, but modal reasoning is already active at EMNLP/ACL/2026 workshops and
+current modal-representation pilots. Clean direct gold also risks collapsing into domain
+or definition cues.
+
+### Evidential independence / source lineage
+
+**KILL independent mainline.**
+
+The object is already directly named in 2026 AI/provenance work, sits inside mature
+dependent-evidence research, and overlaps our previously killed provenance /
+observation-mechanism neighborhood.
+
+## CK
+
+CK-P1 remains **SMALL PILOT AUTHORIZED / NOT MAINLINE** under V9.
+
+Its engineering readiness does not decide mainline priority.
+
+## No-target-output rule
+
+Until a candidate passes the Promotion Standard:
+
+- no target-model generation;
+- no GPU-heavy sweep;
+- no SAE;
+- no steering;
+- no causal patching;
+- no expanded benchmark;
+- no defensive condition zoo.
 
 ## Evidence provenance
 
@@ -143,5 +189,7 @@ The old register is evidence/provenance only.
 > **Durable object. Simple question. Simple data. Outcome-robust research program.
 > Non-obvious findings. Deep causal analysis.**
 
-Rigour does not mean refusing to run forever. Once a candidate survives the gates, the
-correct next move is one tiny frozen experiment with explicit kill rules.
+New V4 warning:
+
+> **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
+> the whole project to an established parent computation, the candidate has not passed P4.**
