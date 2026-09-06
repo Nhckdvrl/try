@@ -21,7 +21,7 @@ NAACL / ACL / EMNLP Main-level paper.
 Read in this order:
 
 1. [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md) — long-term promotion gates.
-2. [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V4.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
+2. [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V5.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
 3. [STATUS.md](STATUS.md) — compact current state.
 4. [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md) — **suspended pre-freeze design provenance; do not generate target output**.
 5. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md) — CK-P1 authorization / G22 kill provenance.
