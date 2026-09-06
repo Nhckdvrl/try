@@ -1,13 +1,13 @@
-# Research project — Broadened / Structural-Specificity-First RQ reconstruction
+# Research project — V14 Old-Problem / New-Method RQ reconstruction
 
 Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especially Best / Outstanding / Best Theme papers.
 
 > **NO APPROVED PAPER MAINLINE YET.**
 >
 > Current candidate/search authority:
-> **V13 BROADENED RQ SEARCH.**
+> **V14 OLD-PROBLEM / NEW-METHOD SEARCH.**
 >
-> There is **one serious candidate under front-end audit** and **no target-model compute authorization**.
+> There are **three front-end topics under audit** (one established serious candidate + two serious-search candidates) and **no target-model compute authorization**.
 
 ---
 
@@ -17,18 +17,20 @@ Read in this order:
 
 1. [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
    — governing methodology: Alignment-First + Data-First + Non-Obviousness + **Structural Specificity + Old-Problem/New-Method + Crowdedness/Workload gates**.
-2. [BROADENED_RQ_SEARCH_2026-09-06_V13.md](BROADENED_RQ_SEARCH_2026-09-06_V13.md)
-   — **current candidate/search authority**.
-3. [NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md](NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md)
+2. [OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md](OLD_PROBLEM_NEW_METHOD_RQ_SEARCH_2026-09-06_V14.md)
+   — **current candidate/search authority; three-topic front-end set**.
+3. [BROADENED_RQ_SEARCH_2026-09-06_V13.md](BROADENED_RQ_SEARCH_2026-09-06_V13.md)
+   — V13 broadened-search provenance.
+4. [NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md](NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md)
    — V12 provenance and full IFG/CK/HOM reconstruction.
-4. [DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md](DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md)
+5. [DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md](DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md)
    — data-first provenance.
-5. [DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md](DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md)
-6. [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
+6. [DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md](DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md)
+7. [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
    — older novelty/history provenance only.
-7. [archive/KILLED_RQ_LEDGER_2026-09-06_V13.md](archive/KILLED_RQ_LEDGER_2026-09-06_V13.md)
-   — **current kill / do-not-reactivate authority**.
-8. [STATUS.md](STATUS.md)
+8. [archive/KILLED_RQ_LEDGER_2026-09-06_V14.md](archive/KILLED_RQ_LEDGER_2026-09-06_V14.md)
+   — **current kill / do-not-reactivate authority**; V13 ledger remains inherited provenance.
+9. [STATUS.md](STATUS.md)
    — compact current state.
 
 ---
@@ -37,6 +39,15 @@ Read in this order:
 
 | object | status |
 |---|---|
+| **IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap** | **SERIOUS / D2 / FRONT-END AUDIT / NO COMPUTE** |
+| **TCR — Typological Coverage Robustness under Grammar-Book Expansion** | **SERIOUS-SEARCH CANDIDATE / D0–D1 PATH / NO COMPUTE** |
+| **DRP — Documentation Resource Portfolio in the LLM Era** | **SERIOUS-SEARCH CANDIDATE / D0–D2 PATH / NO COMPUTE** |
+| **HOM — Plural Homogeneity** | **SEARCH-ONLY / NO COMPUTE** |
+| **PD / CK / AE / GRN and V14 ledger directions** | **KILL / DO NOT REACTIVATE** |
+
+There is still **no approved paper mainline**. The three-topic set is a front-end research portfolio, not pilot authorization.
+
+---|---|
 | **IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap** | **SERIOUS / D2 / FRONT-END AUDIT / NO COMPUTE** |
 | **HOM — Plural Homogeneity** | **SEARCH-ONLY / NO COMPUTE** |
 | **Target-language-adaptive field elicitation** | **PROMISING SEARCH LANE / NOT A CANDIDATE** |
@@ -73,45 +84,38 @@ Still not approved. Still no pilot.
 
 ---
 
-## V13 methodology correction
+## V14 methodology correction
 
-A generic “gap” is not enough.
+The search now explicitly prioritizes **durable old problems whose load-bearing assumptions change in the LLM era**.
 
-Before promotion ask:
+Two additional questions are mandatory:
 
-> **What object-specific structural relation makes this particular gap scientifically diagnostic?**
+> **What exact old assumption no longer holds?**
 
-And for method papers:
+and
 
-> **What scientific capability becomes newly possible because of LLMs, rather than merely cheaper?**
+> **If model names, APIs, prompts and agent frameworks change in two years, does the research question still matter?**
 
-The project is no longer restricted to behavioral/mechanistic discovery. It explicitly searches:
+High-level positive identities include:
+- **classical-law reassessment**;
+- **cost/primitive shift**;
+- **previously-unmeasurable → newly measurable**.
 
-- methods;
-- measurement/evaluation;
-- human-science workflows;
-- old scientific problems made newly testable by LLMs;
-- resources/benchmarks only when they change scientific inference;
-- critical audits.
+Default KILL:
+> old task + GPT.
 
-But generic crowded directions are deprioritized:
-- LLM annotators;
-- LLM interviewers;
-- generic generated stimuli;
-- generic cognitive-bias benchmarks;
-- generic consistency checks;
-- generic AI-scientist/LLM-judge work.
+Potentially strong:
+> old assumption + new model capability + changed scientific prediction / optimal method / measurement.
 
----
+Structural Specificity, Non-Obviousness, Data-First, Crowdedness and reviewer-compression gates all remain active.
 
 ## Compute boundary
 
 Currently not authorized:
 - IFG pilot until remaining collision/data audit is complete;
+- TCR implementation until direct-parent / missingness / extraction-uncertainty audit is complete;
+- DRP implementation until resource-cost / portfolio-novelty audit is complete;
 - HOM;
-- field-elicitation implementation;
-- historical-linguistics implementation;
-- theory-discriminating stimulus generation;
 - CK / PD / AE / GRN;
 - model-zoo/mechanistic sweeps;
 - synthetic benchmark expansion.
@@ -135,7 +139,7 @@ high-level paper-identity calibration
 
 ---
 
-## Current five-line authority
+## Current V14 authority
 
 > **The scientific object should exist before us.**
 >
@@ -146,3 +150,7 @@ high-level paper-identity calibration
 > **The structural relation should exist before the gap.**
 >
 > **A new method should change what science can test, not just who performs the work.**
+>
+> **A classic revisit must identify which old assumption breaks in the LLM era.**
+>
+> **Prefer questions whose importance survives model/API churn.**
