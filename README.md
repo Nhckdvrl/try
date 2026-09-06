@@ -13,8 +13,7 @@ NAACL / ACL / EMNLP Main-level paper.
 >
 > **CK-P1 remains a separately authorized SMALL PILOT / NOT MAINLINE under V9.**
 >
-> **Current mainline-selection work is durable-RQ search, with CCD and IF both at
-> SERIOUS SEARCH LEAD / NO PILOT.**
+> **Current mainline-selection work is durable-RQ search. IF is SERIOUS SEARCH LEAD / NO PILOT; CCD and AM are HIGH-RISK / NO PILOT.**
 
 ## Current authority
 
@@ -32,8 +31,7 @@ Read in this order:
 10. [ACL_EMNLP_ALIGNMENT_STANDARD.md](ACL_EMNLP_ALIGNMENT_STANDARD.md) — historical old-mainline provenance.
 11. Durable-search V1–V3, mainline V1–V8, and old G20–G22 designs — provenance.
 
-V3 records a useful but premature IF pilot promotion. V4 keeps its reasoning as
-provenance and corrects the decision before any IF target-model generation occurred.
+V3 records a useful but premature IF pilot promotion. V4 corrected that decision before any IF target-model generation occurred. V5 then downgraded CCD after a deeper parent-concept audit.
 
 ## Current ranking
 
