@@ -403,14 +403,32 @@ fail.
 
 The question must survive **conceptual**, not exact-manipulation, assassination.
 
+**Important correction:** conceptual novelty does **not** require inventing a new parent
+concept. A mature concept or crowded neighboring literature can be the starting point.
+
+A valid Hamdi-style route is:
+
+> existing work isolates axis A  
+> → another literature isolates axis B  
+> → we identify a scientifically meaningful orthogonal axis C that has not been
+> separately characterized in language models  
+> → axis C yields new predictions / dissociations / causal structure.
+
+Examples:
+- entity knowledge awareness existed; real-vs-fictional status introduced a different
+  ontological axis;
+- random-sampling interventions existed; arbitrary-choice state vs distribution-writing
+  mechanism introduced a different internal-computation axis.
+
 Required search:
 1. exact phenomenon;
 2. parent abstraction;
 3. neighboring cognitive/linguistic construct;
-4. mechanism literature;
-5. benchmark literature;
-6. 2025–2026 preprints/conference work;
-7. adjacent fields when relevant: cognitive science, logic, HCI, multi-agent systems,
+4. **which axes each neighboring paper actually varies and holds fixed**;
+5. mechanism literature;
+6. benchmark literature;
+7. 2025–2026 preprints/conference work;
+8. adjacent fields when relevant: cognitive science, logic, HCI, multi-agent systems,
    ML, alignment, philosophy of language, statistics.
 
 Required reviewer test:
@@ -418,7 +436,17 @@ Required reviewer test:
 > Could a knowledgeable reviewer summarize our result as "X, already known, on a new
 > substrate"?
 
-If yes, usually fail.
+This is a kill **only if the proposed new axis does not change the scientific question,
+predictions, dissociations, or causal mechanism**.
+
+Do **not** kill a candidate merely because:
+- the parent concept is old;
+- a neighboring benchmark exists;
+- symbolic/cognitive work formalized the distinction;
+- another paper used similar interpretability tools.
+
+Kill it when the *actual load-bearing claim* is already known, or when the proposed
+axis is only terminological / dataset-specific rather than scientifically orthogonal.
 
 ---
 
