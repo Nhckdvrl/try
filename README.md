@@ -13,14 +13,14 @@ NAACL / ACL / EMNLP Main-level paper.
 >
 > **CK-P1 remains a separately authorized SMALL PILOT / NOT MAINLINE under V9.**
 >
-> **Current mainline-selection work is durable-RQ search. IF is SERIOUS SEARCH LEAD / NO PILOT; CCD and AM are HIGH-RISK / NO PILOT.**
+> **Current mainline-selection work is Hamdi-style new-axis search. IF and DM are SERIOUS SEARCH LEAD / NO PILOT; CCD and AM are HIGH-RISK / NO PILOT.**
 
 ## Current authority
 
 Read in this order:
 
 1. [RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md](RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md) — long-term promotion gates.
-2. [DURABLE_RQ_SEARCH_2026-09-06_V5.md](DURABLE_RQ_SEARCH_2026-09-06_V5.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
+2. [DURABLE_RQ_SEARCH_2026-09-06_V6.md](DURABLE_RQ_SEARCH_2026-09-06_V6.md) — current durable-object search and verdict ledger; revokes V3's IF pilot promotion.
 3. [STATUS.md](STATUS.md) — compact current state.
 4. [IF_P0_DESIGN_AUDIT_2026-09-06.md](IF_P0_DESIGN_AUDIT_2026-09-06.md) — **suspended pre-freeze design provenance; do not generate target output**.
 5. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md) — CK-P1 authorization / G22 kill provenance.
@@ -38,7 +38,7 @@ V3 records a useful but premature IF pilot promotion. V4 corrected that decision
 | object | verdict |
 |---|---|
 | paper mainline | **NONE** |
-| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
+| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |\n| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | IF: socially constituted status | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -153,3 +153,23 @@ Operational warning added in V4:
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the project to an established parent computation, P4 has not passed.**
 \n\n## V5 correction\n\nV5 found that CCD itself was too quickly promoted in V4. The word *constitutive* was bundling mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the object leaves a strong causal-vs-noncausal / definitional-semantics reviewer compression and a natural-gold problem. CCD is therefore **HIGH-RISK / NO PILOT**. See the V5 ledger.\n
+
+## V6 novelty correction
+
+Conceptual novelty does **not** require a new parent concept. The current search follows
+the Hamdi pattern: map what axes prior papers isolate, then look for a scientifically
+independent orthogonal axis that changes predictions, dissociations, or causal mechanism.
+
+New serious lead:
+- **DM — disposition / latent potential vs current manifestation**.
+
+Example:
+> The glass is intact, but fragile. The sugar is dry, but soluble.
+
+The candidate asks whether the model separates a latent potential from its actual
+manifestation and selectively uses that latent state when the trigger becomes relevant.
+It is **SERIOUS SEARCH LEAD / NO PILOT** pending a dedicated affordance/disposition
+novelty audit.
+
+IF remains SERIOUS for the same reason: classical institutional facts do not themselves
+kill a potentially new LLM-internal physical-state vs socially-constituted-state axis.
