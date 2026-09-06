@@ -10,7 +10,7 @@
 > provenance and are **superseded** by:
 >
 > 1. `RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md`;
-> 2. `DURABLE_RQ_SEARCH_2026-09-06_V2.md`;
+> 2. `DURABLE_RQ_SEARCH_2026-09-06_V5.md`;
 > 3. `MAINLINE_AUDIT_2026-09-06_V9.md`;
 > 4. `STATUS.md`.
 >
@@ -20,7 +20,7 @@
 
 # Scientific register v3 — 2026-09-04
 
-**Status:** current authoritative scientific ledger.
+**Status:** authoritative historical evidence/provenance ledger; not current RQ or experiment authority.
 **Purpose:** separate established results, retired interpretations, active hypotheses, and
 future experiment authorization after the third mainline audit.
 
