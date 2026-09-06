@@ -135,6 +135,40 @@ Deleting dataset/method/model names leaves a question the community should care 
 ## P3 — One-Minute Intelligibility
 No project ontology is required to explain it.
 
+## P3b — Non-Obviousness / Scientific-Tension Gate
+
+A Main-level behavioral/scientific question must be interesting **before** the model is run.
+
+Default KILL form:
+
+> “Theory says X and Y are different. Does the model know/distinguish X and Y?”
+
+This is usually a textbook-capability check even when the distinction is real, the dataset is excellent, and the exact LLM experiment is novel.
+
+Before compute, every serious candidate must state:
+
+1. **What is the tension?** Which two individually plausible principles, representations, or behaviors make different predictions?
+2. **Why is the answer not obvious from the definition of the construct?**
+3. **What would surprise an informed ACL/EMNLP/NAACL reader?**
+4. **Why does the question matter even if the model gets the textbook distinction correct?**
+5. **What structural model law could the design identify without result-hunting?**
+
+High-level positive shapes include:
+- **invariance violation:** the same relevant information yields different behavior under an ostensibly irrelevant representation/task change;
+- **representation–use / statement–action dissociation:** the model can express the right rule/state yet behavior does not follow it;
+- **irrelevant-information leakage:** information that should not matter systematically changes generation or judgment;
+- **prior–semantics conflict:** a learned model prior overrides a licensed linguistic/semantic computation;
+- **training-regime split:** a natural computation changes qualitatively with post-training/model regime;
+- **unexpected causal dependence:** an intervention reveals that the apparent competence is supported by a different computation.
+
+Calibration examples:
+- NAACL 2025 *Semantic Leakage*: irrelevant information changes generation.
+- EMNLP 2025 Outstanding *Value-Action Gap*: stated values and actions diverge.
+- ACL 2026 Outstanding *Mind the (DH) Gap!*: equivalent risky-choice content behaves differently under description vs experience, with a reasoning/conversational regime split.
+- ACL 2026 Best *Imperfective Paradox*: a model-specific Teleological Bias overrides the compositional distinction.
+
+**Rule:** good data cannot rescue an obvious question.
+
 ## P4 — Correct Paper Identity
 The expected contribution type is explicit.
 
@@ -330,4 +364,4 @@ defensive completeness
 
 # 9. One-sentence authority
 
-> **A candidate earns compute only when real high-level papers establish that its question is appropriately scaled, its novelty is a load-bearing scientific difference rather than an exact gap, its axis changes predictions, multiple outcomes remain informative, its substrate does not manufacture the object, and its evidence burden matches its actual paper identity.**
+> **A candidate earns compute only when real high-level papers establish that its question is appropriately scaled and non-obvious before results, its novelty is a load-bearing scientific difference rather than an exact gap, its axis exposes a genuine tension and changes predictions, multiple outcomes remain informative, its substrate does not manufacture the object, and its evidence burden matches its actual paper identity.**
