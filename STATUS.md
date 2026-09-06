@@ -1,42 +1,47 @@
-# Project status — 2026-09-06, V12 NON-OBVIOUSNESS-FIRST
+# Project status — 2026-09-06, V13 BROADENED SEARCH
 
 > **NO APPROVED PAPER MAINLINE.**
 >
-> **NO TARGET-MODEL COMPUTE AUTHORIZED YET.**
+> **NO TARGET-MODEL COMPUTE AUTHORIZED.**
 
 Current methodology:
 [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
 
 Current candidate/search authority:
-[NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md](NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md)
+[BROADENED_RQ_SEARCH_2026-09-06_V13.md](BROADENED_RQ_SEARCH_2026-09-06_V13.md)
 
 Current kill authority:
-[archive/KILLED_RQ_LEDGER_2026-09-06_V12.md](archive/KILLED_RQ_LEDGER_2026-09-06_V12.md)
+[archive/KILLED_RQ_LEDGER_2026-09-06_V13.md](archive/KILLED_RQ_LEDGER_2026-09-06_V13.md)
 
-Data-first provenance:
-[DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md](DATA_FIRST_RQ_RECONSTRUCTION_2026-09-06_V11.md)
+V12 provenance:
+[NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md](NON_OBVIOUSNESS_FIRST_RQ_SEARCH_2026-09-06_V12.md)
 
 ---
 
-## Governing correction in V12
+## V13 governing corrections
 
-Naturalness + novelty + D0–D2 data are still insufficient when the research question itself is obvious.
+The search is no longer restricted to behavioral/mechanistic LLM phenomena.
 
-New hard gate:
+New legitimate paper identities include:
+- methodological discovery;
+- measurement/evaluation;
+- human-science-at-scale;
+- old scientific workflows newly enabled by LLMs;
+- critical audits/resources when they change scientific inference.
 
-> **A Main-level scientific question must contain a non-obvious tension before the experiment is run.**
+Two new hard gates:
 
-Default weak form:
+### Structural Specificity
 
-> “X and Y are theoretically different; does the model distinguish them?”
+> **A gap/consistency violation is not enough. What object-specific relation makes it diagnostic?**
 
-This correction demotes/kills candidates that previously survived primarily because their scientific objects and data were clean.
+A new readout pair is presumed exact-cell novelty when recent work already owns the parent consistency question.
 
-High-level calibration:
-- NAACL 2025 **Semantic Leakage** — irrelevant information changes generation;
-- EMNLP 2025 Outstanding **Value–Action Gap** — stated values and actions diverge;
-- ACL 2026 Outstanding **DH Gap** — representation changes risky choice, with reasoning/conversational regime split;
-- ACL 2026 Best **Imperfective Paradox** — Teleological Bias overrides the licensed semantic computation.
+### Old Problem / New Method
+
+> **A method is interesting only when LLMs change what science can test—not merely who does the labor.**
+
+Also apply a crowdedness/workload negative prior: avoid entering saturated LLM-as-annotator/interviewer/stimulus-generator/judge/AI-scientist areas without an unusually independent scientific axis.
 
 ---
 
@@ -44,78 +49,119 @@ High-level calibration:
 
 ### #1 IFG — Task-Conditioned Evidence Weighting / Inference–Forecast Gap
 
-**Status:** SERIOUS CANDIDATE / D2 / CONTINUE FRONT-END AUDIT / NO COMPUTE.
+**SERIOUS / D2 / FRONT-END AUDIT / NO COMPUTE.**
 
-RQ:
+Source-level BayesBench audit materially increased collision risk:
+- BayesBench already directly elicits latent-type posterior and downstream held-out prediction from the same history;
+- it tests explicit conditioning and posterior-weighted prediction;
+- it owns the broad law that better latent inference does not reliably transfer to downstream prediction.
 
-> **Does an LLM weight the very same evidence differently depending on whether it is asked what is true now or what will happen next?**
+IFG therefore cannot claim generic inference–prediction inconsistency.
 
-Why it survives:
-- same DGP + same prior + same realized signal;
-- inference and forecast revision are normatively linked by LoIE;
-- human Econometrica 2026 work finds underreaction in inference and overreaction in forecast revision;
-- the replication package and experimental instructions exist independently of our LLM hypothesis;
-- BayesBench is a major neighbor but currently does not appear to run the exact paired same-evidence IFG estimand.
+Surviving axis only:
+> **same DGP + same prior + same realized signal + exact inference→forecast mapping; does changing only target statistic change the evidence-weighting rule?**
 
-Remaining threat:
-> “This is just Bayesian reasoning / another human cognitive bias.”
+LoIE/known-DGP structural mapping is currently the main reason IFG survives.
 
-Survival requires a within-evidence structural dissociation, not generic Bayesian error or human replication.
+Still kill immediately if another paper owns an equivalent paired same-evidence estimand.
 
-### HOM — Plural Homogeneity
+### HOM
 
-**Status:** DEMOTED / SEARCH-ONLY / NO COMPUTE.
+**SEARCH-ONLY / NO COMPUTE.**
 
-Reason:
-current question still risks “known formal-semantic distinction → does the model know it?”
+No change.
 
-D2 data quality remains good but no longer authorizes a pilot by itself.
+### New broadened search lanes
 
-### PD — Partition Dependence
+#### Target-language-adaptive field elicitation
+**PROMISING SEARCH LANE / NOT A CANDIDATE.**
 
-**Status:** SCREENED / NOT ACTIVE.
+Old problem:
+fixed elicitation inventories can suffer source-language bias and informant time is scarce.
 
-Attractive non-obvious invariance violation, D2 and quantitative, but current neighborhood includes broad cognitive-bias work, choice-set effects and EMNLP 2025 confidence distortion with changing numbers/groupings of answer choices.
+Potential LLM-specific method:
+adaptive grammatical hypothesis testing with target-language-specific next queries.
 
-### CK
+Load-bearing unresolved issue:
+**natural query→answer oracle/data.**
+Kill if implementation requires an LLM informant or bespoke grammar simulator.
 
-**Status:** KILL CURRENT FORMULATION.
+#### Comparative-method / historical-linguistics hypothesis cycle
+**PROMISING SEARCH LANE / NOT A CANDIDATE.**
 
-Reason:
-the primary RQ reduces too easily to a textbook common-knowledge distinction. PNAS D2 materials are excellent, but **good data cannot rescue an obvious question**.
+Potential:
+explicit sound-correspondence hypothesis → held-out counterexample search → revision → reconstruction.
 
-### AE / GRN
+Strength:
+mature external expert datasets/cognacy resources.
 
-Remain KILL under V11 reasons.
+Risks:
+- classical computational historical linguistics already automates many modules;
+- reviewer compression: "agent wrapper";
+- severe pretraining contamination.
 
----
+#### LLM-guided theory-discriminating language experiment design
+**SEARCH-ONLY / HIGH HUMAN-VALIDATION RISK.**
 
-## Newly killed during V12 search
+Potential:
+LLM searches structured natural-language stimulus space while a principled competing-theory objective scores expected discrimination.
 
-- simple LLM hindsight bias — directly included in an existing 30-bias LLM evaluation;
-- dependent/copy-counted evidence in RAG — direct 2026 collision;
-- CK current finite-mutual-vs-common formulation — non-obviousness failure.
-
-These are not backups.
-
----
-
-## Next work
-
-For IFG only:
-1. retrieve/inspect the Econometrica replication package and experimental instructions;
-2. reconstruct exact paired inference↔forecast estimand;
-3. complete BayesBench line-by-line collision matrix;
-4. inspect the 2026 hypothesis-generation/updating evaluation–generation gap;
-5. search forecasting/calibration work for same-evidence task-framing experiments;
-6. only if the axis remains unoccupied, decide whether a minimum pilot is authorized.
-
-In parallel:
-- continue new-topic search from D0–D2 datasets and high-level **question shapes**, not from named human biases;
-- do not force a second or third active candidate.
+Risk:
+may require a substantial new human experiment; generic stimulus-generation and BOED pieces already exist.
 
 ---
 
-## Current one-line rule
+## Newly formalized kills / closures
 
-> **Do not ask whether the model knows a distinction; ask whether a natural system-level assumption about how the model should use the same information breaks in a surprising, prediction-changing way.**
+### PD
+**KILL.**
+Later 2026 partition/statistical-consistency collision makes remaining support-theory cell exact-gap novelty.
+
+### Direct/strong kills
+- belief–utility separation;
+- martingale/reflection/future-belief coherence;
+- selection/sampling mechanism neglect;
+- production–comprehension / speaker–listener duality;
+- verbal-vs-numeric uncertainty → action;
+- self-policy contamination / Simulation Theory;
+- probability–quantile forecasting duality.
+
+### Do not activate
+- evidence order / Bayesian commutativity;
+- stopping-rule current formulation;
+- irrelevant-evidence dilution;
+- generic different-probe/different-belief;
+- generic AI-generated stimuli;
+- open-ended survey coding/measurement;
+- AI conversational/cognitive interviewing;
+- generic LLM annotation/group-inference validity;
+- LLM psycholinguistic norming;
+- generic cross-cultural test adaptation;
+- generic autonomous corpus linguistics.
+
+See V13 ledger for anti-resurrection reasons.
+
+---
+
+## Search priority now
+
+1. Continue IFG collision audit independently; do not protect it.
+2. Search **old scientific workflow + historical bottleneck + LLM-specific affordance**.
+3. Prefer under-crowded language-science workflows with existing archives/gold.
+4. Search for replayable-oracle D0–D2 data before designing methods.
+5. Do not force a second serious candidate.
+6. Keep method workload realistic: no giant platform or data-collection campaign before C1 is established.
+
+---
+
+## Current authority
+
+> **The scientific object should exist before us.**
+>
+> **The data should exist before our hypothesis.**
+>
+> **The scientific tension should exist before the result.**
+>
+> **The structural relation should exist before the gap.**
+>
+> **The new method should change what science can test, not just who performs the work.**
