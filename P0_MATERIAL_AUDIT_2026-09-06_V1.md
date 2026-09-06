@@ -1,3 +1,18 @@
+# ARCHIVED NOTICE — superseded by V9 FINAL3
+
+> **A / B / L are all KILLED as active research questions.**
+>
+> All experiment authorization in this historical file is revoked.
+> This file remains only as provenance for material-design history.
+>
+> Current authority:
+> [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
+>
+> Kill reasons:
+> [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md)
+
+---
+
 # P0 Material Audit — 2026-09-06 V1
 
 **Scope:** pre-generation material audit and exact discovery-pilot freeze for the three
