@@ -112,6 +112,8 @@ Possible identities:
 5. Critical Audit / Negative Result
 6. Use-Inspired Scientific Work
 7. Theory / Formalization
+8. Measurement / Evaluation Methodology
+9. Human-Science-at-Scale / Old-Workflow-New-Method
 
 Rules:
 - behavioral discovery does not automatically require mechanistic intervention;
@@ -168,6 +170,70 @@ Calibration examples:
 - ACL 2026 Best *Imperfective Paradox*: a model-specific Teleological Bias overrides the compositional distinction.
 
 **Rule:** good data cannot rescue an obvious question.
+
+## P3c — Structural Specificity Gate
+
+A generic gap, inconsistency, or invariance violation is no longer sufficient novelty by itself.
+
+Before promotion, ask:
+
+> **What object-specific mathematical, causal, linguistic, statistical, or decision-theoretic relation makes this divergence scientifically diagnostic?**
+
+If recent work already owns the parent notion of cross-readout/task consistency, a new readout pair is presumed non-novel unless it provides at least one of:
+
+1. a distinct structural estimand;
+2. a distinct causal law;
+3. a distinct competing-theory diagnostic;
+4. an independently grounded mapping whose violation rules out a plausible account;
+5. a diagnostic subset where competing accounts make different qualitative predictions.
+
+Default weak form:
+
+> “A and B should be consistent; do LLMs violate this?”
+
+That is generally an exact cell.
+
+**Rule:** the structural relation should exist before the gap.
+
+## P3d — Old-Problem / New-Method Gate
+
+Methodological papers are explicitly welcome, including old human/language-science workflows newly enabled by LLMs.
+
+But “LLM automates X” is not enough.
+
+A serious method candidate must state:
+
+1. **Old bottleneck:** what scientifically important workflow/problem existed before LLMs?
+2. **LLM-specific affordance:** what is genuinely newly feasible now?
+3. **Scientific delta:** what experiment, measurement, falsification, or inference becomes possible—not merely cheaper?
+4. **External substrate:** what independently existing data/gold/archive validates the method?
+5. **Reviewer compression:** why is this not “use ChatGPT to do X”?
+6. **Workload realism:** can the load-bearing claim be established without building a giant platform or collecting a bespoke benchmark?
+
+Strong pattern:
+
+> old workflow + explicit historical limitation + new LLM affordance + external data + falsifiable scientific improvement.
+
+Weak pattern:
+
+> old task + LLM substitution.
+
+## P3e — Crowdedness / Workload Gate
+
+Independent novelty is necessary but not sufficient when the surrounding field is already saturated.
+
+Treat heavy 2025–2026 crowding as a negative prior, especially when many papers differ mainly by dataset or prompt.
+
+Currently high-risk generic neighborhoods include:
+- LLM-as-annotator;
+- LLM interviewer / conversational survey;
+- generic AI-generated stimuli;
+- generic cognitive-bias benchmarking;
+- generic prompt/readout consistency;
+- generic agentic scientific discovery;
+- generic LLM-as-judge.
+
+Prefer questions whose decisive C1 can be established with a small, principled experiment and which do not require an agent/RL/model-zoo arms race merely to look competitive.
 
 ## P4 — Correct Paper Identity
 The expected contribution type is explicit.
