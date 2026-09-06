@@ -1,19 +1,18 @@
-# Research project — Alignment-First mainline reconstruction
+# Research project — Alignment-First final-three reconstruction
 
-This repository contains substantial prior experimental work, but **sunk cost, code readiness,
-large effects, elegant matched designs, and existing mechanistic assets do not determine the next
-paper**.
+Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especially Best / Outstanding / Best Theme papers.
 
-Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especially
-Best / Outstanding / Best Theme papers.
-
-> **NO APPROVED PAPER MAINLINE.**
+> **NO APPROVED PAPER MAINLINE YET.**
 >
-> **Current search authority: V8.**
+> **Current candidate authority: V9 FINAL3.**
 >
-> **Human cognition / linguistics → LLM is explicitly allowed.**
-> The gate is whether the LLM study reveals a new model-specific law rather than merely reproducing
-> a known human effect.
+> **Exactly three active research questions. No backups.**
+>
+> 1. **AE — Actuality Entailment / Ability–Actuality Composition**
+> 2. **CK — Finite Mutual Knowledge vs Common Knowledge**
+> 3. **GRN — Goal-Relative Necessity / Anankastic Reasoning**
+
+Everything else is KILL / ARCHIVE unless a later literature-backed audit establishes a genuinely different prediction-changing scientific axis.
 
 ---
 
@@ -22,103 +21,95 @@ Best / Outstanding / Best Theme papers.
 Read in this order:
 
 1. [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
-   — current RQ-selection methodology and promotion gates.
-2. [DURABLE_RQ_SEARCH_2026-09-06_V8.md](DURABLE_RQ_SEARCH_2026-09-06_V8.md)
-   — **current candidate / literature-assassination / experiment-authorization authority**.
-3. [P0_MATERIAL_AUDIT_2026-09-06_V1.md](P0_MATERIAL_AUDIT_2026-09-06_V1.md)
-   — historical A/B/L material freeze. Under V8, only **A** remains authorized from this file.
+   — governing RQ-selection methodology.
+2. [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
+   — **current active-candidate and experiment-priority authority**.
+3. [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md)
+   — killed candidates and direct reasons; these are not reserves.
 4. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
-   — CK-P1 design provenance; V8 restores CK as an active pilot candidate.
+   — CK-P1 provenance.
 5. [STATUS.md](STATUS.md)
-   — compact current decisions.
-6. [DURABLE_RQ_SEARCH_2026-09-06_V7.md](DURABLE_RQ_SEARCH_2026-09-06_V7.md)
-   and earlier versions — provenance / older kills, not current authority.
-7. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md), [EXPERIMENTS.md](EXPERIMENTS.md),
-   [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+   — compact current state.
+6. V1–V8 search/audit files
+   — provenance only, not current authorization.
+7. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md), [EXPERIMENTS.md](EXPERIMENTS.md), [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
    — evidence/history.
 
 ---
 
-## Current ranking
+## Final three
 
-| object | current verdict |
-|---|---|
-| paper mainline | **NONE** |
-| **CK — publicness → common-knowledge compression** | **SMALL PILOT AUTHORIZED / TOP EXISTING COGNITIVE CANDIDATE / NOT MAINLINE** |
-| **EPM — perspective-relative epistemic modality** | **SERIOUS NEW LEAD / NO PILOT YET** |
-| **HWP — hypothetical-world persistence / modal subordination** | **SERIOUS NEW LEAD / NO PILOT YET** |
-| **A — opportunity-conditioned preference evidence** | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
-| **FC — free-choice inference structure** | **SERIOUS SEARCH LEAD / NO PILOT** |
-| B — competence × reporting fidelity | **KILL STANDALONE / B-P0 REVOKED** |
-| L — source-conditioned confidence semantics | **KILL STANDALONE / L-P0 REVOKED** |
-| structured source model vs scalar trust | **HIGH-RISK / NO PILOT** |
-| IF | **SEARCH ONLY / NO PILOT** |
-| DM | **HIGH-RISK / NO PILOT** |
-| C, D, preference drift, preference uncertainty, etc. | **KILL remains under recorded V7 reasons** |
+| rank | research question | status |
+|---:|---|---|
+| 1 | **AE — Actuality Entailment / Ability–Actuality Composition** | **TOP ACTIVE / MATERIAL DESIGN AUTHORIZED** |
+| 2 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **ACTIVE / SMALL DISCOVERY PILOT AUTHORIZED** |
+| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **ACTIVE / MATERIAL DESIGN AUTHORIZED; NO TARGET RUN BEFORE GOLD AUDIT** |
 
----
+### AE
 
-## The human-transfer correction
+> How do LLMs compose modality and grammatical aspect when ability/potential and actual event realization come apart?
 
-The existence of a mature human theory is **not** a kill.
+The key is not generic factuality or generic aspect. The decisive axis is **modality × aspect → actuality inference**, including a direct discrimination against the Teleological Bias found by ACL 2026 Best Paper *The Imperfective Paradox in Large Language Models*.
 
-High-level NLP already contains strong examples in which classic human cognitive or linguistic
-objects become major LLM questions. The required novelty is the **AI-side law**:
+### CK
 
-- systematic LLM/human divergence;
-- reasoning-vs-conversational or training-family regime split;
-- stable structural failure;
-- recognition/use or behavior/representation dissociation;
-- downstream consequence;
-- model-specific causal computation.
+> How do LLMs represent the qualitative boundary between finite mutual knowledge and genuine common knowledge?
 
-Therefore the 2026 PNAS common-knowledge paper does **not** kill CK. It supplies a human reference
-theory and clean competing hypotheses. CK becomes weak only if the LLM result is merely a direct
-replication of the human publicness effect.
+The question is not generic ToM depth. Public common knowledge and arbitrarily deep-but-finite reciprocal knowledge make different coordination predictions.
+
+### GRN
+
+> When language says “If you want X, you must/need Y,” does the model bind necessity to the goal and means structure, or turn it into an unconditional obligation?
+
+Goal cancellation and alternative routes make the accounts diverge.
 
 ---
 
-## Current compute boundary
+## KILL / archive policy
 
-### Authorized discovery pilots
+Not active:
+- A;
+- B;
+- L;
+- EPM;
+- HWP;
+- free-choice;
+- ambiguity;
+- DM;
+- IF;
+- structured-source-model variants;
+- causal-credit-from-experience;
+- prospective-memory variants;
+- all older killed lanes.
 
-- **CK-P1**
-- **A-P0**
+See [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md).
 
-Authorization means permission to discover an actual law, **not** paper promotion.
+**Killed means archived, not backup.**
 
-### Not authorized
+---
 
-- EPM pilot;
-- HWP pilot;
-- free-choice pilot;
-- B-P0;
-- L-P0;
-- IF / DM pilots;
-- SAE / patching / steering;
-- LoRA / RL;
-- model-zoo expansion;
-- rescue-condition experiments after weak output.
+## Compute boundary
 
-For every successful pilot:
+Allowed:
+- AE material construction + native/human gold validation;
+- CK small discovery pilot after V9 re-audit;
+- GRN material construction + human-gold audit.
+
+Not allowed:
+- resurrecting killed candidates;
+- mechanism/SAE/patching/steering before C1;
+- LoRA/RL;
+- broad model-zoo sweeps;
+- rescue conditions after weak results.
+
+For each survivor:
 
 ```
-actual one-sentence law
-→ post-result literature assassination
-→ high-level-paper recalibration
-→ Main / Findings / supporting / KILL decision
-→ only then C2/C3
+minimum decisive pilot
+→ actual one-sentence law
+→ post-result novelty assassination
+→ Best/Outstanding/Main recalibration
+→ KILL or promote one mainline
 ```
 
----
-
-## Current search focus
-
-The next non-compute work is:
-
-1. assassinate **EPM** against modal semantics + ToM + perspectival uncertainty;
-2. assassinate **HWP** against counterfactual / possible-world / discourse-state work;
-3. assassinate **free-choice** against pragmatic alternatives + modal/deontic LLM evaluation;
-4. keep CK/A pilots small and discovery-oriented.
-
-> **High-level-paper-calibrated question quality > experimental elegance > sunk cost.**
+> **Question quality first. Three active questions only.**
