@@ -303,3 +303,110 @@ All V9 killed directions remain archived under their original reasons.
 > **A crowded field is a negative prior when the remaining novelty is an exact cell.**
 
 > **If a classic scientific workflow returns, identify the old bottleneck and the LLM-specific new scientific capability before any implementation.**
+
+
+---
+
+# 8. Additional broadened-search failures after V13 creation
+
+## Target-language-adaptive field elicitation — current formulation
+
+**KILL CURRENT FORMULATION — EVALUABILITY × PARENT-NOVELTY TRADEOFF.**
+
+The old problem is real: field linguists have limited informant time and must decide which forms to elicit.
+
+However:
+- active learning for reducing language-documentation cost was already directly studied in EMNLP 2009;
+- recent targeted/active fieldwork work asks neural models to guide which morphological forms should be elicited next;
+- generic natural-language adaptive elicitation is also occupied by ICML 2025 work.
+
+A new 2026 multilingual field corpus with a shared 2,224-item elicitation inventory makes offline replay more realistic, but exposes the decisive tradeoff:
+
+> fixed-pool replay → externally evaluable, but parent novelty is weak;  
+> genuinely new target-language-specific generated probes → potentially novel, but the counterfactual native-speaker answer is unavailable.
+
+Do not revive by simply replacing the active-learning model with an LLM.
+
+Return only with a scientifically different target-language-specific capability plus an externally grounded oracle.
+
+## Deepfake matched-guise methodology
+
+**KILL — DIRECT OLD-METHOD/NEW-TECH PRECEDENT.**
+
+Matched-guise experiments have a classic confound: manipulating accent/guise while holding speaker identity and other acoustic properties fixed.
+
+Interspeech 2022 already explicitly proposed and tested deepfakes as a solution to these confounds in sociolinguistic matched-guise experiments.
+
+Do not revive as:
+> "generative voice models modernize matched guise."
+
+## Observer's paradox / human-vs-AI interviewer language behavior
+
+**KILL CURRENT FORMULATION.**
+
+The attractive old question was whether replacing a human interviewer with an LLM/voice-AI interviewer changes vernacularity/style and therefore changes what sociolinguistic interviews measure.
+
+But 2026 large-scale randomized field work already assigns tens of thousands of real applicants to human vs AI interviewers and analyzes systematic changes in linguistic/discourse behavior, with additional AI-interviewer literature nearby.
+
+A sociolinguistic-register outcome would be an exact-cell extension of the already occupied parent:
+> interviewer identity changes human language behavior.
+
+## Generic think-aloud scaling/coding with LLMs
+
+**DO NOT ENTER GENERIC VERSION.**
+
+Recent work already explicitly uses LLMs to scale/codify think-aloud methodology.
+
+Do not revive as:
+> "LLMs make verbal-protocol analysis scalable."
+
+## Generic annotation-guideline induction/refinement
+
+**DO NOT ENTER GENERIC VERSION.**
+
+2025–2026 work already automates annotation-guideline improvement/refinement and reuse with LLMs.
+
+A future annotation-method candidate must change the estimand or validity of annotation, not merely improve/rewrite guidelines.
+
+## Old linguistic quantity + contextual-LM operationalization — generic version
+
+**DO NOT USE AS A SEARCH SHORTCUT.**
+
+This is a legitimate high-level paper identity, but already a mature CL pattern.
+
+Examples of occupied lanes found in this search:
+- grammaticalization degree / semantic bleaching: EACL 2026 cross-lingual word-independent quantification;
+- lexical ambiguity vs contextual informativeness: EMNLP 2020 already operationalizes both with contextual LMs across many languages;
+- generic ambiguity handling is extensively occupied.
+
+Rule:
+> a classic linguistic quantity must become newly measurable specifically because of a modern generative/interactive LLM affordance; "BERT gives a representation" is not sufficient novelty.
+
+## Corpus production choice sets via LLM-generated alternatives
+
+**DIRECT KILL — ACL 2026 MAIN COLLISION.**
+
+Proposed idea:
+> corpus data show only the utterance a speaker chose; use an LM to generate semantically/contextually valid counterfactual formulations, approximating the latent choice set so naturalistic production can be modeled as choice over alternatives.
+
+This initially looked like a strong old-problem/new-operationalization direction because variationist methodology explicitly requires reasoning about what a speaker could have said instead.
+
+However ACL 2026 Main:
+> **Surprisal Minimisation over Goal-directed Alternatives Predicts Production Choice in Dialogue**
+
+already:
+- models utterance production as probabilistic choice over contextual alternatives;
+- distinguishes goal-directed and goal-agnostic alternatives;
+- generates both alternative sets using language models;
+- analyzes open-ended naturalistic dialogue production;
+- argues that LM-generated alternative-conditioned optimization is a principled framework for language-production research.
+
+This occupies the central method and production-choice claim.
+
+Do not resurrect as:
+- "variationist envelope" instead of dialogue;
+- a different corpus;
+- a different alternative generator;
+- open-set accountability terminology.
+
+A variationist-specific denominator audit would require a genuinely different scientific estimand, not merely another application of LM-generated alternatives.
