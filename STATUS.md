@@ -19,7 +19,8 @@ Earlier durable-search versions and mainline audits remain provenance.
 | object | status |
 |---|---|
 | new paper mainline | **NONE** |
-| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |\n| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
+| DM: disposition / latent potential vs manifestation | **SERIOUS SEARCH LEAD / NO PILOT** |
+| CCD: constitutive vs causal dependence | **HIGH-RISK / NO PILOT** |
 | Institutional / socially constituted status (IF) | **SERIOUS SEARCH LEAD / NO PILOT** |
 | IF-P0 | **SUSPENDED BEFORE FREEZE / NO TARGET OUTPUT** |
 | CK: publicness → common-knowledge compression | **SMALL PILOT AUTHORIZED / NOT MAINLINE** |
@@ -191,7 +192,12 @@ New V4 warning:
 
 > **A seven-way exact intersection is still exact-gap novelty. If a reviewer can compress
 > the whole project to an established parent computation, the candidate has not passed P4.**
-\n\n## V5 correction to CCD\n\nV4's CCD promotion was itself too fast. A deeper parent-concept audit found that the proposed one-example conflated mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the term does not yet defeat the reviewer compression into causal-vs-noncausal explanation plus definitional semantics, and natural direct gold becomes theory-sensitive. CCD is therefore **HIGH-RISK / NO PILOT**. IF remains the only current SERIOUS SEARCH LEAD, but is still **NO PILOT** and must not win by elimination.\n
+
+
+## V5 correction to CCD
+
+V4's CCD promotion was itself too fast. A deeper parent-concept audit found that the proposed one-example conflated mechanistic constitution, metaphysical grounding, and definitional/essential dependence. Narrowing the term does not yet defeat the reviewer compression into causal-vs-noncausal explanation plus definitional semantics, and natural direct gold becomes theory-sensitive. CCD is therefore **HIGH-RISK / NO PILOT**. IF remains the only current SERIOUS SEARCH LEAD, but is still **NO PILOT** and must not win by elimination.
+
 
 ## V6 conceptual-novelty correction
 
