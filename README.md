@@ -4,7 +4,7 @@ Target: **NAACL Main**, calibrated against ACL / EMNLP / NAACL Main and especial
 
 > **NO APPROVED PAPER MAINLINE YET.**
 >
-> **Current candidate authority: V9 FINAL3.**
+> **Current candidate authority: V10 DATA-FIRST AUDIT + V9 novelty provenance.**
 >
 > **Exactly three active research questions. No backups.**
 >
@@ -22,17 +22,19 @@ Read in this order:
 
 1. [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
    — governing RQ-selection methodology.
-2. [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
-   — **current active-candidate and experiment-priority authority**.
-3. [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md)
+2. [DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md](DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md)
+   — **current data-risk and experiment-priority authority**.
+3. [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
+   — novelty/history provenance for the three V9 candidates.
+4. [archive/KILLED_RQ_LEDGER_2026-09-06_V9.md](archive/KILLED_RQ_LEDGER_2026-09-06_V9.md)
    — killed candidates and direct reasons; these are not reserves.
-4. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
+5. [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
    — CK-P1 provenance.
-5. [STATUS.md](STATUS.md)
+6. [STATUS.md](STATUS.md)
    — compact current state.
-6. V1–V8 search/audit files
+7. V1–V8 search/audit files
    — provenance only, not current authorization.
-7. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md), [EXPERIMENTS.md](EXPERIMENTS.md), [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
+8. [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md), [EXPERIMENTS.md](EXPERIMENTS.md), [RELATED_WORK_2026.md](RELATED_WORK_2026.md)
    — evidence/history.
 
 ---
@@ -41,9 +43,9 @@ Read in this order:
 
 | rank | research question | status |
 |---:|---|---|
-| 1 | **AE — Actuality Entailment / Ability–Actuality Composition** | **TOP ACTIVE / MATERIAL DESIGN AUTHORIZED** |
-| 2 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **ACTIVE / SMALL DISCOVERY PILOT AUTHORIZED** |
-| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **ACTIVE / MATERIAL DESIGN AUTHORIZED; NO TARGET RUN BEFORE GOLD AUDIT** |
+| 1 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **CONTINUE / EXISTING HUMAN MATERIALS FIRST** |
+| 2 | **AE — Actuality Entailment / Ability–Actuality Composition** | **DATA-AT-RISK / NO TARGET RUN** |
+| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **DATA-AT-RISK / REPLACEMENT SEARCH** |
 
 ### AE
 
