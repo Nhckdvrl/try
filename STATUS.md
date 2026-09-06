@@ -5,7 +5,10 @@
 > Current methodology:
 > [ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md](ALIGNMENT_FIRST_RQ_STANDARD_2026-09-06.md)
 >
-> Current authority:
+> Current data/experiment authority:
+> [DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md](DATA_FIRST_RQ_AUDIT_2026-09-06_V10.md)
+>
+> Current novelty/history provenance:
 > [DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md](DURABLE_RQ_SEARCH_2026-09-06_V9_FINAL3.md)
 >
 > Kill archive:
@@ -13,15 +16,15 @@
 
 ---
 
-## Exactly three active questions
+## Three V9 survivors under V10 data-first re-audit
 
 | rank | object | verdict |
 |---:|---|---|
-| 1 | **AE — Actuality Entailment / Ability–Actuality Composition** | **TOP ACTIVE / MATERIAL DESIGN AUTHORIZED** |
-| 2 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **ACTIVE / SMALL DISCOVERY PILOT AUTHORIZED** |
-| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **ACTIVE / MATERIAL DESIGN AUTHORIZED / NO TARGET RUN BEFORE GOLD AUDIT** |
+| 1 | **CK — Finite Mutual Knowledge vs Common Knowledge** | **CONTINUE / REUSE PNAS HUMAN MATERIALS FIRST** |
+| 2 | **AE — Actuality Entailment / Ability–Actuality Composition** | **DATA-AT-RISK / NO TARGET RUN** |
+| 3 | **GRN — Goal-Relative Necessity / Anankastic Reasoning** | **DATA-AT-RISK / REPLACEMENT SEARCH** |
 
-There are **no active backup candidates**.
+There are **no active backup candidates**. V10 explicitly reopens candidate search for D0–D2 data paths rather than forcing all three V9 survivors forward.
 
 ---
 
@@ -64,21 +67,23 @@ No compute. No “reserve” status. No terminology-based resurrection.
 
 ## Next work
 
-### AE
-- construct minimal modality × aspect contrasts;
-- use established examples;
-- native-speaker / human-gold validation;
-- include controls that distinguish actuality entailment from generic telicity/Teleological Bias.
-
 ### CK
-- re-audit existing CK-P1 material against V9;
-- keep finite-depth and public-closure predictions separate;
-- include at most one clean downstream coordination consequence.
+- retrieve/reuse the released 2026 PNAS human stimuli/materials first;
+- preserve the published asymmetric/reciprocal/public and private/reciprocal/doubly-reciprocal/public structure;
+- require an LLM-specific structural law beyond human replication;
+- use CogToM only as independent ToM control/generalization evidence.
+
+### AE
+- do not run target models yet;
+- inventory published AE examples first;
+- search for natural corpus occurrences with overt aspect morphology;
+- require native-speaker/human gold before any controlled secondary pairs;
+- kill if the main evidence still depends on our own newly written 30–60 examples.
 
 ### GRN
-- construct anankastic / near-anankastic matched materials;
-- explicitly manipulate goal cancellation and alternative means;
-- validate semantic gold before target-model contact.
+- do not construct bespoke action-graph benchmark yet;
+- search for an existing procedural/agent dataset with independently grounded goal/action dependency structure;
+- replace/kill if no such substrate supports the exact estimand.
 
 ---
 
