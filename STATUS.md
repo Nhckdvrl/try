@@ -10,9 +10,7 @@
 >
 > **CK experiment-priority provenance:** [MAINLINE_AUDIT_2026-09-06_V9.md](MAINLINE_AUDIT_2026-09-06_V9.md)
 
-V4 revokes V3's premature IF small-pilot promotion after a deeper conceptual audit.
-No IF target-model output had been generated, so this is a research-decision correction,
-not a post-hoc response to data.
+V4 revoked V3's premature IF small-pilot promotion before any IF target-model output. V5 then downgraded CCD from SERIOUS to HIGH-RISK after a deeper parent-concept audit. These are research-decision corrections, not post-hoc responses to data.
 
 Earlier durable-search versions and mainline audits remain provenance.
 
