@@ -29,12 +29,12 @@ Use:
   Final v3 verdict: `zero-amplified`, `Δ_zero = +8.83 [+4.39,+13.33]`, 3/3 model
   deltas positive. Licensed claim: the prospective timing gap is discontinuously
   amplified at `w=0` relative to non-zero weight instructions.
-- PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **frozen next branch**.
-  Design frozen before generation at tag `g23b-gate-vs-cancellation-design-v1`
-  (commit `e7701a9`). Fresh 60-item legal set; U/K/I branch with a prospectively
-  frozen Phase-A proffer-carrier qualification stage. Repository authority currently
-  permits **Phase A only** (`g23b_b/p/e/pe` × 60 × 3 models); Phase B U/K/I remains
-  held until the frozen carrier gate passes and `STATUS.md` is explicitly updated.
+- PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **stopped frozen branch**.
+  Design frozen at `g23b-gate-vs-cancellation-design-v1` (commit `e7701a9`).
+  Phase A was run exactly once and failed the frozen carrier gate:
+  pooled `ProfferLeak = +8.07 [+4.86,+11.23]`; all three model means exceeded the
+  +3-point neutrality floor. Verdict: **carrier-invalid**. Phase B U/K/I was never
+  generated. Do not redesign the carrier inside this preregistered round.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -88,10 +88,9 @@ outputs.
 
 ## Active next rounds
 
-G23A v3 is complete with the frozen `zero-amplified` verdict. G23B design is now
-frozen at `g23b-gate-vs-cancellation-design-v1`. **Phase A carrier generation is
-authorized by `STATUS.md`; Phase B U/K/I generation is not authorized.** If the
-Phase-A carrier gate fails, the branch stops before any U/K/I output exists.
+G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is also
+complete as a **stopped / carrier-invalid** round. Its frozen Phase-A gate failed and
+Phase B U/K/I was never generated. No carrier-redesign round is currently active.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
