@@ -6,7 +6,7 @@ Stage 3E had already solved the same failure by moving to raw points.
 
     ResInf(arm, w) = s · [ Y(g23a_<arm>_<w>) − Y(g23a_base) ]
     Gap(w)         = ResInf(pre, w) − ResInf(post, w)
-    Δ_zero         = Gap(w000) − mean[ Gap(w001), Gap(w025), Gap(w050), Gap(w100) ]
+    Δ_zero         = Gap(w000) − mean[ Gap(w001), Gap(w025), Gap(w050) ]
 
 `Gap(w)` is the evidence influence still reaching the judgment when the rule is
 stated before the evidence, minus the same influence when the rule follows it.
@@ -14,7 +14,8 @@ Positive = the prospective statement of the rule loses more of the evidence's
 effect than the retrospective one, i.e. the G0 reversal at that requested weight.
 
 Inference: cluster bootstrap over independent skeletons, seed 20260923, 10,000
-resamples, percentile intervals, pooled over (model × skeleton) and per model.
+resamples, percentile intervals. Per-model analyses cluster by skeleton; pooled analysis
+also clusters by skeleton, keeping all model observations for the same item together.
 
     PYTHONPATH=src python3 src/analyze_g23a.py
 """
@@ -43,6 +44,7 @@ MIN_MODELS_POSITIVE = 2      # of 3
 PROBE_TOL_PP = 2.0           # stated weight within 2 percentage points of requested
 WEIGHT_FRACTION = {"w000": 0.0, "w001": 0.01, "w025": 0.25,
                    "w050": 0.50, "w100": 1.00}
+ATTEN_WKEYS = ("w001", "w025", "w050")
 
 
 def clustered_ci(by_cluster: dict, seed: int = SEED):
@@ -115,12 +117,17 @@ def rows_for(items: dict, path: str):
         resinf = {(arm, w): s * (cells[f"g23a_{arm}_{w}"] - y0)
                   for w in WKEYS for arm in ARMS}
         gap = {w: resinf[("pre", w)] - resinf[("post", w)] for w in WKEYS}
-        delta = gap["w000"] - st.fmean(gap[w] for w in NONZERO_WKEYS)
+        delta = gap["w000"] - st.fmean(gap[w] for w in ATTEN_WKEYS)
+        target_dev = {
+            (arm, w): resinf[(arm, w)] - WEIGHT_FRACTION[w] * leverage
+            for w in WKEYS for arm in ARMS
+        }
         rows.append({
             "item_id": item_id, "cluster": item.meta["skeleton"],
             "family": item.task_family, "direction": item.critical_direction,
             "leverage": leverage, "resinf": resinf, "gap": gap,
-            "gap_nonzero": st.fmean(gap[w] for w in NONZERO_WKEYS),
+            "gap_atten": st.fmean(gap[w] for w in ATTEN_WKEYS),
+            "target_dev": target_dev,
             "delta": delta,
         })
     return rows, drops
@@ -164,7 +171,7 @@ def verdict_for(delta: dict, nonzero: dict, positive_models: int,
     gate_floor = delta["mean"] >= DELTA_FLOOR
     gate_models = positive_models >= MIN_MODELS_POSITIVE
     if gate_ci and gate_floor:
-        return "zero-specific" if gate_models else "model-dependent"
+        return "zero-amplified" if gate_models else "model-dependent"
     if gate_ci:
         return "sub-threshold"
     return "smooth-timing" if nonzero["ci_low"] > 0 else "no-replication"
@@ -182,17 +189,20 @@ def _ci(stats: dict) -> str:
 
 def main() -> None:
     items = {i.item_id: i for i in load_items(os.path.join(ROOT, "data/items/g23a_v1.jsonl"))}
-    report = {"design_tag": "g23a-zero-gating-design-v1",
+    report = {"design_tag": "g23a-zero-gating-design-v2",
               "estimand": "Gap(w) and Δ_zero in raw sign-aligned rating points",
               "exclusions": ["complete case: all 12 decision cells present",
                              "signed leverage s·[Y(norule) − Y(base)] > 0"],
               "bootstrap": {"seed": SEED, "n_resamples": N_RESAMPLES,
-                            "cluster": "independent skeleton"},
+                            "cluster": "independent skeleton; pooled keeps models sharing a skeleton together"},
               "per_model": {}, "pooled": {}, "drops": {}}
 
     pooled = {k: [] for k in
               (["leverage"] + [f"resinf_{a}_{w}" for w in WKEYS for a in ARMS]
-               + [f"gap_{w}" for w in WKEYS] + ["gap_nonzero", "delta"])}
+               + [f"gap_{w}" for w in WKEYS]
+               + [f"targetdev_{a}_{w}" for w in WKEYS for a in ARMS]
+               + [f"abstargetdev_{a}_{w}" for w in WKEYS for a in ARMS]
+               + ["gap_atten", "delta"])}
     positive_models = 0
     model_delta = {}
 
@@ -209,25 +219,32 @@ def main() -> None:
             continue
         rows, drops = rows_for(items, path)
         report["drops"][tag] = dict(drops)
-        entry = {"n": len(rows), "drops": dict(drops), "gap": {}, "resinf": {}}
+        entry = {"n": len(rows), "drops": dict(drops), "gap": {}, "resinf": {},
+                 "target_deviation": {}, "abs_target_deviation": {}}
 
         line = f"{tag:<20}{len(rows):>4}"
         for w in WKEYS:
             g = [(r["cluster"], r["gap"][w]) for r in rows]
             entry["gap"][w] = summarise(g)
-            pooled[f"gap_{w}"] += [(f"{tag}|{c}", v) for c, v in g]
+            pooled[f"gap_{w}"] += [(c, v) for c, v in g]
             line += f"{entry['gap'][w]['mean']:>+10.2f}"
         for w in WKEYS:
             for arm in ARMS:
                 rr = [(r["cluster"], r["resinf"][(arm, w)]) for r in rows]
                 entry["resinf"][f"{arm}_{w}"] = summarise(rr)
-                pooled[f"resinf_{arm}_{w}"] += [(f"{tag}|{c}", v) for c, v in rr]
-        entry["gap_nonzero"] = summarise([(r["cluster"], r["gap_nonzero"]) for r in rows])
+                pooled[f"resinf_{arm}_{w}"] += [(c, v) for c, v in rr]
+                td = [(r["cluster"], r["target_dev"][(arm, w)]) for r in rows]
+                atd = [(cluster, abs(v)) for cluster, v in td]
+                entry["target_deviation"][f"{arm}_{w}"] = summarise(td)
+                entry["abs_target_deviation"][f"{arm}_{w}"] = summarise(atd)
+                pooled[f"targetdev_{arm}_{w}"] += [(c, v) for c, v in td]
+                pooled[f"abstargetdev_{arm}_{w}"] += [(c, v) for c, v in atd]
+        entry["gap_atten"] = summarise([(r["cluster"], r["gap_atten"]) for r in rows])
         entry["leverage"] = summarise([(r["cluster"], r["leverage"]) for r in rows])
         entry["delta"] = summarise([(r["cluster"], r["delta"]) for r in rows])
-        pooled["gap_nonzero"] += [(f"{tag}|{r['cluster']}", r["gap_nonzero"]) for r in rows]
-        pooled["delta"] += [(f"{tag}|{r['cluster']}", r["delta"]) for r in rows]
-        pooled["leverage"] += [(f"{tag}|{r['cluster']}", r["leverage"]) for r in rows]
+        pooled["gap_atten"] += [(r["cluster"], r["gap_atten"]) for r in rows]
+        pooled["delta"] += [(r["cluster"], r["delta"]) for r in rows]
+        pooled["leverage"] += [(r["cluster"], r["leverage"]) for r in rows]
         model_delta[tag] = entry["delta"]
         positive_models += entry["delta"]["mean"] > 0
         report["per_model"][tag] = entry
@@ -243,12 +260,19 @@ def main() -> None:
         pooled_stats[f"gap_{w}"] = s
         line += f"{s['mean']:>+10.2f}"
     delta_stats = summarise(pooled["delta"])
-    nonzero_stats = summarise(pooled["gap_nonzero"])
+    nonzero_stats = summarise(pooled["gap_atten"])
     pooled_stats["delta"] = delta_stats
-    pooled_stats["gap_nonzero"] = nonzero_stats
+    pooled_stats["gap_atten"] = nonzero_stats
     pooled_stats["leverage"] = summarise(pooled["leverage"])
     pooled_stats["resinf"] = {k: summarise(pooled[f"resinf_{k}"])
                               for w in WKEYS for k in (f"pre_{w}", f"post_{w}")}
+    pooled_stats["target_deviation"] = {
+        k: summarise(pooled[f"targetdev_{k}"])
+        for w in WKEYS for k in (f"pre_{w}", f"post_{w}")
+    }
+    pooled_stats["abs_target_deviation"] = {
+        k: summarise(pooled[f"abstargetdev_{k}"])
+        for w in WKEYS for k in (f"pre_{w}", f"post_{w}")
     print(line + f"{delta_stats['mean']:>+9.2f}")
     report["pooled"] = pooled_stats
 
@@ -261,8 +285,14 @@ def main() -> None:
         print(f"  {w:<7}{_fmt(pre, 14)}{_fmt(post, 14)}   {g['mean']:>+8.2f} {_ci(g)}")
     print(f"\n  mean signed leverage (evidence's own pull, no rule): "
           f"{pooled_stats['leverage']['mean']:+.2f}")
-    print(f"  Gap over the four non-zero weights: {nonzero_stats['mean']:+.2f} "
+    print(f"  Gap over attenuation weights 1/25/50: {nonzero_stats['mean']:+.2f} "
           f"{_ci(nonzero_stats)}")
+    print("\n  raw target-deviation diagnostic — |ResInf - requested_fraction * leverage|")
+    print(f"  {'w':<7}{'PRE MAE':>12}{'POST MAE':>12}")
+    for w in WKEYS:
+        pre = pooled_stats["abs_target_deviation"][f"pre_{w}"]
+        post = pooled_stats["abs_target_deviation"][f"post_{w}"]
+        print(f"  {w:<7}{pre['mean']:>12.2f}{post['mean']:>12.2f}")
 
     # ---- frozen gates -----------------------------------------------------
     gate_ci = delta_stats["ci_low"] > 0
@@ -320,13 +350,13 @@ def main() -> None:
                           for k, v in p["permission_yes"].items())
         print(f"  {tag:<20}{cells}")
 
-    if verdict in ("zero-specific", "model-dependent") and competent:
+    if verdict in ("zero-amplified", "model-dependent") and competent:
         print("\nDISSOCIATION (Outcome D): policy access and quantitative weighting "
               "competence coexist with a timing gap that only zero shows —\n  "
               "policy access + weighting competence ≠ ability to make the semantic "
               "evidence causally inert at w = 0.")
     report["dissociation_outcome_D"] = bool(
-        verdict in ("zero-specific", "model-dependent") and competent)
+        verdict in ("zero-amplified", "model-dependent") and competent)
 
     out = os.path.join(ROOT, "results/g23a_zero_gating_analysis.json")
     with open(out, "w") as handle:
