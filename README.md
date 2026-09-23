@@ -16,9 +16,11 @@ Calibration:
 >
 > **G23C v1 IS COMPLETE:** target-conditioned-policy-state.
 >
-> **G23C-R DESIGN / PREREGISTRATION IS ACTIVE.**
+> **THREE-RQ PAPER EXPANSION IS ACTIVE.**
 >
-> **NO G23C-R COMPUTE IS AUTHORIZED.**
+> **IMMEDIATE NEXT DESIGN: G24A source-grounded natural-evidence confirmation.**
+>
+> **NO NEW TARGET-MODEL COMPUTE IS AUTHORIZED.**
 
 ---
 
@@ -96,8 +98,10 @@ Avoid by default:
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid** |
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
-| Unring the Bell / G23C-R | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23C-R fresh-material replication** |
+| Unring the Bell / G23C-R | **HELD — RQ3 replication component** |
+| Unring the Bell / G24A | **NEXT DESIGN — natural-evidence confirmation** |
+| Unring the Bell / G24B | **PLANNED — donor/recipient causal factorization** |
+| active candidate | **three-RQ Main-paper expansion** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
@@ -203,3 +207,20 @@ from the Stage-5 discovery set.
 
 No G23C-R compute is authorized before its own implementation, tests, tokenizer/site
 audit, design tag and explicit STATUS update.
+
+
+## Paper-scale correction — 2026-09-23
+
+The earlier “G23C-R then write” plan was too narrow.
+
+Current authority:
+`PAPER_SCALE_AUDIT_2026-09-23.md`.
+
+The paper is now evaluated as three one-to-one RQ/finding sections:
+1. generality and natural-data validity of prospective evidence exclusion;
+2. the structural boundary between semantic zero-use control and explicit/verifiable
+   prospective zero;
+3. the causal rule-time mechanism.
+
+G23C-R remains part of RQ3, but **G24A natural-evidence confirmation is the immediate
+next design priority**. No compute is authorized yet.
