@@ -34,10 +34,14 @@ Use:
   Phase A failed the frozen carrier gate:
   pooled `ProfferLeak = +8.07 [+4.86,+11.23]`. Verdict: **carrier-invalid**.
   Phase B U/K/I was never generated.
-- PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md — **current design-only
-  mechanism link**. Reuses the Stage-5 matched chronology and asks whether the
-  rule-time state causally carries the 0-vs-100 policy value more strongly when the
-  semantic target is already available. No compute authorized before its own freeze.
+- PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md — **completed frozen
+  mechanism round**. Design tag `g23c-target-conditioned-policy-state-design-v1`.
+  Frozen verdict: `target-conditioned-policy-state`;
+  L14 `TargetConditioning = +8.15 [+6.91,+9.44]`, with L4/L24 controls near zero.
+- PREREGISTRATION_G23C_R_FRESH_REPLICATION.md — **current design-only final mechanism
+  replication**. Uses 70 frozen G18 legal/inference items (20 skeletons) disjoint from
+  Stage 5 to replicate the exact G23C bridge/interchange on fresh materials. No compute
+  authorized before its own freeze.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -91,10 +95,11 @@ outputs.
 
 ## Active next rounds
 
-G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is complete
-as a **stopped / carrier-invalid** round. G23C design/preregistration is now the only
-active next round; it is a new policy-state mechanism question, not a carrier redesign,
-and has **no compute authorization** yet.
+G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is stopped as
+`carrier-invalid`. G23C v1 is complete with a frozen
+`target-conditioned-policy-state` verdict. The only active next round is G23C-R,
+a fresh-material replication; it has **no compute authorization** yet and is the last
+planned mechanism experiment.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
