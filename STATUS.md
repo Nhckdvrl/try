@@ -1,4 +1,4 @@
-# Project status — 2026-09-23, G23A COMPLETE / G23B v1 STOPPED
+# Project status — 2026-09-23, G23A COMPLETE / G23B STOPPED / G23C DESIGN ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -6,7 +6,10 @@
 >
 > **G23B v1 STOPPED AT THE FROZEN PHASE-A CARRIER GATE:** `carrier-invalid`.
 >
-> **NO G23B PHASE-B (U/K/I) COMPUTE AUTHORIZED. NO CARRIER REDESIGN IS ACTIVE.**
+> **ACTIVE NEXT STEP:** G23C target-conditioned policy-state interchange — design /
+> preregistration only.
+>
+> **NO G23C COMPUTE AUTHORIZED UNTIL ITS OWN FREEZE TAG AND EXPLICIT STATUS UPDATE.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -84,7 +87,8 @@ Strong negative prior:
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
-| active candidate | **NONE — explanation branch under reassessment** |
+| Unring the Bell / G23C | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23C mechanism-link design** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -120,5 +124,22 @@ Not authorized:
 - mechanism runs framed as if G23B had selected cancellation or standing-gate;
 - extra model or prompt robustness runs.
 
-Any future experiment must be justified as a **new question/design**, not as an
-unfrozen rescue of G23B v1.
+The next registered design is G23C:
+`preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
+
+G23C is a new mechanistic question, not a G23B carrier rescue. It asks whether the
+existing Stage-5 rule-time state carries the 0-vs-100 policy value in a
+target-conditioned form.
+
+Authorized now:
+- design/prereg refinement;
+- exact Stage-5 cell reconstruction;
+- implementation and synthetic tests;
+- prompt/token/site audit without model forward passes.
+
+Not authorized:
+- G23C model forward passes;
+- activation capture / patching;
+- new behavioral generation;
+- layer search;
+- carrier redesign.
