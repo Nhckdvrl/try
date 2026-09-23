@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch the pinned first-wave sources into the ignored raw cache.
+"""Fetch the pinned external sources into the ignored raw cache.
 
 Run with the repository's existing environment:
   /home/xiang/miniconda3/envs/fgvd/bin/python scripts/fetch_external_sources.py
@@ -11,6 +11,7 @@ import hashlib
 from pathlib import Path
 import tarfile
 import urllib.request
+import zipfile
 
 
 SOURCES = {
@@ -54,6 +55,29 @@ SOURCES = {
         "https://osf.io/download/u9dbp/",
         "6a7ae91c9e6a583f22a9152228a2492eb34eb7c2691c0c22e501509073e638c4",
     ),
+    # --- G24A natural-evidence sources (added 2026-09-24) ---
+    # FEVER v1.0 official release (fever.ai). Labels: CC-BY-SA-3.0, code GPL-3.0
+    # per the official fever/fever dataset card; wiki-pages.zip ships
+    # license.html (the Wikipedia/FEVER notice) alongside the shards.
+    "fever/shared_task_dev.jsonl": (
+        "https://fever.ai/download/fever/shared_task_dev.jsonl",
+        "e89865bfe1b4dd054e03dd57d7241a6fde24862905f31117cf0cd719f7c78df7",
+    ),
+    "fever/train.jsonl": (
+        "https://fever.ai/download/fever/train.jsonl",
+        "eba7e8f87076753f8494718b9a857827af7bf73e76c9e4b75420207d26e588b6",
+    ),
+    "fever/wiki-pages.zip": (
+        "https://fever.ai/download/fever/wiki-pages.zip",
+        "4b06d95da6adf7fe02d2796176c670dacccb21348da89cba4c50676ab99665f2",
+    ),
+    # SciFact official release (allenai). License CC-BY-NC-2.0 per the
+    # allenai/scifact dataset card. The S3 object has been unchanged since
+    # 2021-01-26 (Last-Modified header); the SHA-256 below pins it regardless.
+    "scifact/data.tar.gz": (
+        "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+        "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+    ),
 }
 
 
@@ -94,6 +118,50 @@ def extract_fantom(root: Path) -> None:
         bundle.extractall(target, filter="data")
 
 
+def extract_fever(root: Path) -> None:
+    """Unpack the FEVER Wikipedia shards (wiki-pages/*.jsonl) plus license.html.
+
+    The zip also contains macOS metadata (__MACOSX/), which is skipped.
+    """
+    archive = root / "fever/wiki-pages.zip"
+    target = root / "fever"
+    if (target / "wiki-pages/wiki-001.jsonl").exists():
+        print(f"verified {target / 'wiki-pages'}")
+        return
+    with zipfile.ZipFile(archive) as bundle:
+        members = [name for name in bundle.namelist()
+                   if (name.startswith("wiki-pages/") or name == "license.html")
+                   and not name.endswith("/")]
+        if not members:
+            raise RuntimeError("wiki-pages.zip: no wiki-pages/ shards found")
+        for member in members:
+            destination = (target / member).resolve()
+            if target.resolve() not in destination.parents and destination != target.resolve():
+                raise RuntimeError(f"unsafe archive member: {member}")
+        bundle.extractall(target, members=members)
+    print(f"extracted {len(members)} members into {target}")
+
+
+def extract_scifact(root: Path) -> None:
+    """Unpack SciFact data/*.jsonl (claims_train/dev/test + corpus)."""
+    archive = root / "scifact/data.tar.gz"
+    target = root / "scifact"
+    if (target / "data/corpus.jsonl").exists():
+        print(f"verified {target / 'data'}")
+        return
+    with tarfile.open(archive) as bundle:
+        members = [member for member in bundle.getmembers()
+                   if member.name.split("/")[0] == "data" and not member.name.endswith("/")]
+        if not members:
+            raise RuntimeError("data.tar.gz: no data/ members found")
+        for member in members:
+            destination = (target / member.name).resolve()
+            if target.resolve() not in destination.parents and destination != target.resolve():
+                raise RuntimeError(f"unsafe archive member: {member.name}")
+        bundle.extractall(target, members=members, filter="data")
+    print(f"extracted {len(members)} members into {target}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default="data/external/raw")
@@ -102,6 +170,8 @@ def main() -> int:
     for relative, (url, expected) in SOURCES.items():
         fetch(root / relative, url, expected)
     extract_fantom(root)
+    extract_fever(root)
+    extract_scifact(root)
     return 0
 
 

@@ -58,3 +58,25 @@ transformation_id
 There is no shared `admit_rule` / `exclude_rule` compiler. Each adapter must
 preserve its source's native task language and freeze a source-specific
 transformation contract before export.
+
+## G24A natural-evidence sources (added 2026-09-24)
+
+Pinned by `scripts/fetch_external_sources.py` (SHA-256 verified on every run):
+
+| file | official source | sha256 |
+| --- | --- | --- |
+| `raw/fever/shared_task_dev.jsonl` | `https://fever.ai/download/fever/shared_task_dev.jsonl` | `e89865bf…78df7` |
+| `raw/fever/train.jsonl` | `https://fever.ai/download/fever/train.jsonl` | `eba7e8f8…e588b6` |
+| `raw/fever/wiki-pages.zip` | `https://fever.ai/download/fever/wiki-pages.zip` | `4b06d95d…9665f2` |
+| `raw/scifact/data.tar.gz` | `https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz` | `11c62128…6d76be` |
+
+Licensing (from the official dataset cards, not inferred):
+
+- **FEVER v1.0** — data CC-BY-SA-3.0, code GPL-3.0 (`fever/fever` card);
+  `raw/fever/wiki-pages/license.html` is the notice shipped inside the archive.
+- **SciFact** — CC-BY-NC-2.0 (`allenai/scifact` card): non-commercial research
+  use only.
+
+Derived G24A artifacts (resolved evidence text, candidate pool, frozen items)
+are produced by audited scripts under `scripts/` + `src/` and reviewed under
+`review/`; the raw cache itself stays ignored by Git.
