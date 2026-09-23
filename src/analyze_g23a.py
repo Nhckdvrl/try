@@ -273,6 +273,7 @@ def main() -> None:
     pooled_stats["abs_target_deviation"] = {
         k: summarise(pooled[f"abstargetdev_{k}"])
         for w in WKEYS for k in (f"pre_{w}", f"post_{w}")
+    }
     print(line + f"{delta_stats['mean']:>+9.2f}")
     report["pooled"] = pooled_stats
 
