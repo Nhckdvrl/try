@@ -1,10 +1,12 @@
-# Project status — 2026-09-23, V17 + G23A PILOT EXCEPTION
+# Project status — 2026-09-23, G23A COMPLETE / G23B DESIGN ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
-> **ACTIVE PILOT:** Unring the Bell / G23A v3.
+> **G23A v3 COMPLETE:** `zero-amplified`, `Δ_zero = +8.83 [+4.39,+13.33]`.
 >
-> **TARGET-MODEL COMPUTE AUTHORIZED ONLY FOR THE FROZEN G23A v3 PILOT.**
+> **ACTIVE NEXT STEP:** G23B design / preregistration only.
+>
+> **NO G23B TARGET-MODEL COMPUTE AUTHORIZED.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -80,8 +82,9 @@ Strong negative prior:
 | HOM | **KILL CURRENT FORMULATION** |
 | CK | **KILL** |
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
-| Unring the Bell / G23A | **PILOT AUTHORIZED — v3 ONLY** |
-| active candidate | **G23A v3 only** |
+| Unring the Bell / G23A | **COMPLETE — zero-amplified** |
+| Unring the Bell / G23B | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23B design branch** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -96,30 +99,31 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-Default rule remains: no target-model compute until a candidate clears the V17 pilot
-bar.
+G23A v3 target-model compute is complete and its outputs are committed.
 
-### Explicit exception — G23A v3
+The only active next step is **G23B design work** under:
+`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`.
 
-**Authorized now:** the exact frozen G23A design at
-`g23a-zero-gating-design-v3`, which resolves exactly to
-`c8a4dc6a48e407fe529c2fb5e35061064a858c5c`.
+Authorized now:
+- fresh-material design;
+- carrier construction / static audit;
+- condition implementation;
+- analyzer implementation;
+- tests;
+- preregistration refinement before any output;
+- dummy / synthetic code tests that do not query target models.
 
-Run exactly:
-- Qwen3-8B;
-- Gemma-3-12B;
-- Mistral-Small-24B;
-- 72 frozen items;
-- 12 decision conditions + 13 probes;
-- 5,400 generations total.
+Not authorized now:
+- any G23B target-model generation;
+- any U/K/I exclusion-rule output;
+- G23B mechanism runs;
+- extra robustness checkpoints;
+- modifications to G23A's frozen results.
 
-Execution discipline:
-1. run all three frozen checkpoints;
-2. do not inspect, interpret, or adapt to a single-model G23A result mid-run;
-3. do not replace a failed checkpoint after seeing outcomes;
-4. after the complete panel finishes, run the frozen `src/analyze_g23a.py` once;
-5. accept the frozen verdict logic as written.
-
-This exception authorizes **G23A only**. It does not authorize G23B, mechanism runs,
-extra checkpoints, material changes, new conditions/probes, or post-generation changes
-to the estimator, exclusions, bootstrap, gates, or verdict logic.
+G23B compute may be authorized only after:
+1. fresh materials exist;
+2. the Phase-A carrier qualification logic is frozen;
+3. the U/K/I estimands and branch classifier are implemented;
+4. tests pass;
+5. a dedicated G23B design tag is created;
+6. repository-level authority is explicitly updated after that freeze.
