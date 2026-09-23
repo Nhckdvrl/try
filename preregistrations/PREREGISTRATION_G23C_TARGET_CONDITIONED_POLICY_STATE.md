@@ -1,9 +1,13 @@
-# G23C preregistration draft — target-conditioned policy-state interchange
+# G23C preregistration — target-conditioned policy-state interchange
 
 **Created:** 2026-09-23, after G23B v1 stopped as `carrier-invalid`.
 
-**Status:** DESIGN / PREREGISTRATION DRAFT ONLY.  
+**Status:** FROZEN DESIGN — committed and tagged
+`g23c-target-conditioned-policy-state-design-v1` on 2026-09-23, before any G23C
+forward pass; §12 records the freeze and the interpretation points settled
+before tagging.
 **NO G23C TARGET-MODEL OR PATCHING COMPUTE IS AUTHORIZED BY THIS FILE.**
+Repository-level authority for any compute lives in `STATUS.md` only.
 
 G23C does **not** attempt another exact-semantic-but-non-evidential K carrier. G23B v1
 showed that this behavioral factorization is not identified by the tested natural-language
@@ -294,3 +298,64 @@ Before any G23C model forward pass or activation patch:
 Until then:
 
 > **NO G23C COMPUTE.**
+
+---
+
+## 12. Freeze checklist and record
+
+Design-audit points settled before tagging (no G23C output of any kind exists:
+no forward pass, no activation capture, no patching):
+
+- **§8 control-layer rule (operationalized):** “absent or substantially
+  weaker” at a frozen negative layer means: `PASS(TargetConditioning)` is false
+  at that layer, **or** the pooled TC mean at L14 exceeds that layer's by
+  ≥ 3.0 (one floor of raw points). Both L4 and L24 must satisfy it.
+- **§8 classifier order (strictly literal):** `generic-policy-state`
+  additionally requires `TargetConditioning` **not** to pass. TC passing while
+  the control clause fails yields `unresolved`, not `generic-policy-state`.
+- **§9.1 identity tolerance:** `IDENTITY_TOL` = 0.5 rating points; a violation
+  aborts the analysis with no scientific verdict.
+- **§7 skeleton key:** the repository-standard `cluster_of`
+  (`src/cluster_robustness.py`): `legal:` + `meta.case` for `legal_judgment`,
+  otherwise task family + `base_context[:60]` (latent problem). The 75 in-scope
+  items give **15 clusters** (10 legal cases + 5 latent problems); the pooled
+  bootstrap keeps both models' observations of one skeleton in a single
+  cluster.
+- **§3 scope:** all **75** frozen items — 45 `legal_judgment` + 30
+  `evidence_inference`, 40 increase / 35 decrease — with no limit and no
+  behavioral-gap preselection (§4, §7).
+- **§5 layers:** `frozen_layers(nL) = (4, 14, min(24, nL-1))`; Qwen3-8B
+  (36 layers) and Mistral-Small-24B (40 layers) both resolve to
+  **(4, 14, 24)**. The runner exposes no layer flag, and the analyzer refuses
+  any input whose design block differs from this configuration.
+- **§11.1 construction by import:** the runner imports `matched_previews`,
+  `build` and `sites_of` from `src/mech/patch_matched.py` (Stage 5) instead of
+  re-implementing them, re-checking §9.2 (pairwise block identity) and §9.3
+  (`rule_end` precedes every evidence token) at runtime, and offers a
+  tokenizer-only `--dry-run` audit (no forward pass).
+- **§4 / §6 / §8 wiring:** runner `src/mech/g23c_policy_state.py
+  --phase bridge|patch` writes `results/mech/g23c_{bridge,patch}_{tag}.json`;
+  frozen analyzer `src/mech/analyze_g23c.py --phase bridge|full` writes
+  `results/mech/g23c_bridge_analysis.json` / `results/mech/g23c_analysis.json`.
+  Two-phase execution is mandatory: the §4 gate is read from `--phase bridge`
+  before `--phase patch` is ever launched.
+
+Freeze checklist (§11):
+
+- [x] §11.1 exact Stage-5 cell reconstruction — by import, plus runtime
+      §9.2/§9.3 assertions and a tokenizer-only dry run over all 75 items × 4
+      cells for both models;
+- [x] §11.2 the four policy-value patch directions — `M_100to0`, `M_0to100`,
+      `U_100to0`, `U_0to100` at `rule_end`, layers (4, 14, 24), both models
+      (Qwen3-8B, Mistral-Small-24B);
+- [x] §11.3 frozen bridge and classifier — the §4 three-gate bridge and the §8
+      five-outcome `classify` in its literal decision order;
+- [x] §11.4 tests — `tests/test_g23c.py`: sign conventions, identity patch,
+      pooled skeleton clustering, fixed layers, stop rule, plus the §3 cell
+      table, all three bridge gates, all five verdicts end to end, drop
+      accounting, the frozen-design guard and the prereg wording lock;
+- [x] §11.5 this document, code and tests committed and tagged
+      `g23c-target-conditioned-policy-state-design-v1` in the design commit,
+      before any forward pass;
+- [ ] §11.6 `STATUS.md` updated in the commit immediately following the tag —
+      only that repository-level authority can permit compute.
