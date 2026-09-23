@@ -24,13 +24,17 @@ Use:
 - PREREGISTRATION_G19_REGROUND.md — **cancelled before generation** after the novelty
   audit. No G19_FREEZE.md was created and no model output exists. Preserve it as a
   pre-run cancelled design; do not execute it.
-- PREREGISTRATION_G23A_ZERO_GATING.md — **current round of the reopened legacy line**
-  (see ../../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6). Fresh 72-item / 72-skeleton
-  set, raw sign-aligned rating points, frozen exclusions and gates; asks whether the
-  pre/post timing gap is discontinuously amplified at `w = 0` relative to non-zero
-  weight instructions. Frozen before any G23A generation at tags
-  g23a-zero-gating-design-v1 (original), -v2 (clustering + wording audit) and
-  -v3 (interpretive-only freeze: claim scoped to instructions, Outcome D downgraded).
+- PREREGISTRATION_G23A_ZERO_GATING.md — **completed frozen round** of the reopened
+  legacy line. Frozen before generation at tags g23a-zero-gating-design-v1 / -v2 / -v3.
+  Final v3 verdict: `zero-amplified`, `Δ_zero = +8.83 [+4.39,+13.33]`, 3/3 model
+  deltas positive. Licensed claim: the prospective timing gap is discontinuously
+  amplified at `w=0` relative to non-zero weight instructions.
+- PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **current design-only next branch**.
+  Separates unresolved target state U, exact semantic knowledge in a non-evidential
+  proffer K, and already-instantiated evidence state I. Includes a Phase-A carrier
+  qualification gate before any U/K/I exclusion-rule outputs. No target-model compute
+  is authorized until materials, analyzer, tests and a dedicated G23B design freeze
+  exist.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -84,10 +88,10 @@ outputs.
 
 ## Active next rounds
 
-G23A is the only design with a frozen preregistration on the reopened line; see
-../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6. G23B (standing gate vs retrospective
-cancellation) is **conditional** on a `zero-amplified` or explicitly scoped
-`model-dependent` G23A verdict and is not authorized by the G23A file.
+G23A v3 is complete and passed its frozen prerequisite with a `zero-amplified`
+verdict. G23B design/preregistration work is therefore active, but **G23B target-model
+generation is not authorized** until its own materials / analyzer / tests are frozen
+and repository-level compute authority is explicitly updated.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
