@@ -385,34 +385,45 @@ Support:
 - delay alone does not explain the effect;
 - explicit arithmetic future-zero control can work.
 
-## C3 — OPEN, immediate priority
+## C3 — ESTABLISHED BY G23A v3
 
 > **The prospective timing gap is discontinuously amplified at `w = 0` relative to
 > non-zero weight instructions.**
 
-Equivalently: the same evidential-weight instruction produces extra prospective timing
-cost only when the requested weight is zero.
+Frozen G23A v3 result:
 
-This is what `Δ_zero = Gap(0) − mean[Gap(1), Gap(25), Gap(50)]` actually identifies, so
-this is the only form C3 may be stated in. The stronger form — *prospective failure is
-specific to categorical gating while ordinary reweighting succeeds* — additionally
-requires evidence that the non-zero arms behaviourally implemented their requested
-weights. G23A does not have that: the numeric probe only shows the model can state which
-weight was requested, and `TargetDeviation` assumes rating points are linear in
-evidential weight. Do not state the stronger form from G23A alone.
+`Δ_zero = +8.83 [+4.39,+13.33]` raw rating points, with all three preregistered
+gates passed and `3/3` model-level `Δ_zero > 0`.
 
-The old data strongly suggest this, but the clean prospectively frozen confirmation is
-still missing.
+The non-zero instruction gap is itself positive:
+`mean[Gap(1),Gap(25),Gap(50)] = +5.03 [+3.16,+6.83]`.
 
-This is the next experiment.
+Therefore the licensed interpretation is:
 
-## C4 — OPEN, conditional on C3
+> **generic prospective timing cost + an additional zero-instruction penalty.**
 
-> **Natural-language exclusion is reactive before it is preventive: complete exclusion
-> depends more on cancelling an instantiated evidence state than on maintaining a
-> standing prospective gate.**
+Do not strengthen this to “ordinary non-zero weighting is correctly implemented while
+gating fails.” G23A does not identify that stronger claim. The numeric probes establish
+requested-policy access; `TargetDeviation` is descriptive only and assumes linearity
+of rating points in evidential weight.
 
-This is the central new explanatory claim to test after C3.
+## C4 — OPEN, NEXT BRANCH
+
+> **Natural-language exclusion may be reactive before it is preventive: complete
+> exclusion may depend more on cancelling / revising an instantiated evidence state
+> than on maintaining a standing prospective gate.**
+
+G23A now justifies testing this explanation, but does not establish it.
+
+The next registered design is G23B
+(`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`), which separates:
+
+- unresolved target state U;
+- exact semantic knowledge in a prospectively qualified non-evidential carrier K;
+- already-instantiated evidence state I.
+
+G23B is **design-authorized only** until its fresh materials, analyzer, tests and design
+freeze exist. No G23B target-model generation is currently authorized.
 
 ## C5 — causal mechanism asset
 
@@ -627,11 +638,13 @@ the distinctive boundary.
 
 ---
 
-# 7. CONDITIONAL FOLLOW-UP — G23B: standing gate vs retrospective cancellation
+# 7. NEXT BRANCH — G23B: standing gate vs retrospective cancellation
 
-**Do not generate yet.**
+**G23A v3 satisfied the frozen prerequisite. G23B design work is now authorized.**
+**Target-model generation is still not authorized.**
 
-Run only if G23A supports C3.
+Current design authority:
+`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`.
 
 Question:
 
