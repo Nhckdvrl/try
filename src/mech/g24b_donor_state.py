@@ -1,20 +1,27 @@
-"""G23C runner — target-conditioned policy-state interchange.
+"""G24B runner — donor-state vs recipient-context factorization.
 
-Frozen design: preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md,
-tag `g23c-target-conditioned-policy-state-design-v1`.  Model forward passes are
+Frozen design: preregistrations/PREREGISTRATION_G24B_DONOR_RECIPIENT_FACTORIZATION.md,
+tag `g24b-donor-recipient-factorization-design-v1`.  Model forward passes are
 authorized only by the repository-level STATUS.md update that follows the tag.
 
-Phases (§4 stop rule: bridge first, interchange only after the gate passes):
+Phases (§4 stop rule: bridge first, patching only after the gate passes):
 
-  bridge — the four Stage-5 cells, direct readout, no hooks;
+  bridge — the four Stage-5 cells, direct readout, no hooks (recomputes the
+           frozen G23C bridge so the §12 gate cross-check runs on this round's
+           own baseline);
   patch  — the same four baselines (capturing each cell's rule-end state at the
-           frozen layers), the four within-preview policy-value interchanges
-           (§6), and the identity patches (§9.1).
+           frozen layers), the eight donor x recipient grid patches (§6), and
+           the identity patches (§9.1).
+
+Only the two policy-0 cells (ME, UE) are recipients (§6 freeze); every cell is
+a donor.  The recipient prompt is byte-identical across the four donors of a
+recipient, so any contrast is carried by the patched donor state alone.
 
 The Stage-5 cell construction is *imported*, not copied: `matched_previews`,
-`build` and `sites_of` come verbatim from `patch_matched.py`, so §11.1 exact
-cell reconstruction holds by construction and is re-checked at runtime by the
-§9.2 (pairwise block identity) and §9.3 (site precedes evidence) assertions.
+`build` and `sites_of` come verbatim from `patch_matched.py`, and the §9.2 /
+§9.3 construction checks are reused by importing `build_cells` from the G23C
+runner (§11.1), so exact cell reconstruction holds by construction and is
+re-checked at runtime.
 """
 import os
 import sys
@@ -28,49 +35,13 @@ sys.path.insert(0, HERE)
 from common import (load_model, digit_ids, digit_expectation, frozen_items,  # noqa: E402
                     span_indices, decoder_layers, ROOT)
 from patch_matched import matched_previews, build, sites_of   # noqa: E402
+from g23c_policy_state import build_cells                     # noqa: E402
 sys.path.insert(0, os.path.join(HERE, ".."))
-from analyze_g23c import (CELLS, CELL_TABLE, DIRECTIONS, FAMILIES,          # noqa: E402
-                          PRIMARY_LAYER, CONTROL_LAYERS, DESIGN_TAG, MODELS,
-                          frozen_layers, IDENTITY_TOL, SEED)
-
-
-def build_cells(tok, item):
-    """The four §3 cells with the frozen construction checks (§9.2, §9.3).
-
-    Imported verbatim from the G23C runner (§11.1): one copy of the Stage-5
-    cell reconstruction, reused by G24B as-is.
-    """
-    match, unrel = matched_previews(tok, item)
-    P = {}
-    for cell, (which, admit) in CELL_TABLE.items():
-        preview = match if which == "match" else unrel
-        prompt, blocks = build(tok, item, preview, admit)
-        P[cell] = {"prompt": prompt, "blocks": blocks,
-                   "sites": sites_of(tok, prompt, blocks)}
-
-    # §9.2: inside a preview pair only the rule block may differ (the policy
-    # value is the sole manipulation when the preview is held fixed).
-    for a, b in (("ME", "MA"), ("UE", "UA")):
-        ba, bb = P[a]["blocks"], P[b]["blocks"]
-        assert (ba[0] == bb[0] and ba[1] == bb[1] and ba[3:] == bb[3:]
-                and ba[2] != bb[2]), (item.item_id, a, b)
-    # §9.2: at a fixed policy only the preview block may differ across M/U.
-    for a, b in (("ME", "UE"), ("MA", "UA")):
-        ba, bb = P[a]["blocks"], P[b]["blocks"]
-        assert (ba[0] == bb[0] and ba[2] == bb[2] and ba[3:] == bb[3:]
-                and ba[1] != bb[1]), (item.item_id, a, b)
-
-    # §9.3: the patch site is the last rule token and precedes any evidence
-    # token, so no evidence has been processed at the site.
-    for cell in P:
-        pos = P[cell]["sites"].get("rule_end")
-        if pos is None:
-            raise RuntimeError(f"{item.item_id}/{cell}: rule_end site missing")
-        ev_lo, _ = span_indices(tok, P[cell]["prompt"], P[cell]["blocks"][3])
-        if not pos < ev_lo:
-            raise RuntimeError(f"{item.item_id}/{cell}: rule_end {pos} does "
-                               f"not precede evidence {ev_lo}")
-    return P
+from analyze_g24b import (CELLS, PATCHES, DONORS, RECIPIENTS,  # noqa: E402
+                          FAMILIES, PRIMARY_LAYER, CONTROL_LAYERS, DESIGN_TAG,
+                          MODELS, G24B_SEED as SEED, frozen_layers,
+                          IDENTITY_TOL)
+from analyze_g23c import MODEL_IDS                             # noqa: E402
 
 
 def main():
@@ -86,7 +57,7 @@ def main():
                          "load, no forward pass")
     args = ap.parse_args()
     out = args.out or os.path.join(ROOT, "results", "mech",
-                                   f"g23c_{args.phase}_{args.tag}.json")
+                                   f"g24b_{args.phase}_{args.tag}.json")
 
     items = frozen_items(FAMILIES)
     if args.limit:
@@ -99,9 +70,9 @@ def main():
         for it in items:
             build_cells(tok, it)
             n_ok += 1
-        print(f"DRY RUN OK — {n_ok} items x 4 cells: previews matched, "
-              f"pairwise block identity holds, rule_end precedes evidence "
-              f"in every cell ({args.model})")
+        print(f"DRY RUN OK — {n_ok} items x 4 cells x 8-grid: previews "
+              f"matched, pairwise block identity holds, rule_end precedes "
+              f"evidence in every cell ({args.model})")
         return
 
     tok, model = load_model(args.model)
@@ -151,8 +122,10 @@ def main():
                 rec["n_tok"][cell] = nt
 
             if args.phase == "patch":
+                # §6: donor state -> fixed recipient; only the patched state
+                # differs across the four donors of one recipient.
                 rec["patch"] = {}
-                for dname, (donor, recip) in DIRECTIONS.items():
+                for name, (donor, recip) in PATCHES.items():
                     prompt, sites = P[recip]["prompt"], P[recip]["sites"]
                     pos = sites["rule_end"]
                     res = {}
@@ -167,7 +140,7 @@ def main():
                         y, _nt = run_plain(prompt)
                         hh.remove()
                         res[str(L)] = y
-                    rec["patch"][dname] = res
+                    rec["patch"][name] = res
 
                 # §9.1 identity: each cell's own rule-end state patched back
                 # into itself, one frozen layer at a time
@@ -196,7 +169,9 @@ def main():
                                                    Ls[-1]],
                   sites=["rule_end"], n_items=len(items),
                   identity_tol=IDENTITY_TOL, families=list(FAMILIES),
-                  seed=SEED)
+                  seed=SEED, model_id=MODEL_IDS[args.tag],
+                  donors=list(DONORS), recipients=list(RECIPIENTS),
+                  patches=sorted(PATCHES))
     os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump({"design": design, "records": recs}, open(out, "w"))
     print(f"wrote {len(recs)} records -> {out}")

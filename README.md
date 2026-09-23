@@ -99,8 +99,8 @@ Avoid by default:
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid** |
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
 | Unring the Bell / G23C-R | **HELD — RQ3 replication component** |
-| Unring the Bell / G24A | **NEXT DESIGN — natural-evidence confirmation** |
-| Unring the Bell / G24B | **PLANNED — donor/recipient causal factorization** |
+| Unring the Bell / G24A | **COMPLETE — prospective-only** |
+| Unring the Bell / G24B | **DESIGN FROZEN — donor/recipient causal factorization** |
 | active candidate | **three-RQ Main-paper expansion** |
 | approved mainline | **NONE** |
 
