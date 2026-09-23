@@ -169,32 +169,43 @@ That missing link is G23C.
 
 ---
 
-## 7. Next experiment — G23C
+## 7. G23C — completed mechanism link
 
-Registered draft:
-[preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md](preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md)
+Frozen verdict: **`target-conditioned-policy-state`**.
 
-Core question:
-
-> **Does the rule-time state encode the policy value in a target-conditioned form?**
-
-Use the existing Stage-5 2×2:
+Key result at the preregistered primary site/layer:
 
 ```text
-M0     matched preview   -> 0% rule   -> evidence
-M100   matched preview   -> 100% rule -> evidence
-U0     unrelated preview -> 0% rule   -> evidence
-U100   unrelated preview -> 100% rule -> evidence
+PolicyTransfer_M = +13.03 [+11.69,+14.31]
+PolicyTransfer_U =  +4.89 [ +3.73, +6.18]
+TargetConditioning = +8.15 [ +6.91, +9.44]
 ```
 
-Instead of again exchanging target availability, exchange the **policy-value state**
-within matched and unrelated preview conditions.
+The same target-conditioning pattern is absent at the frozen negative layers:
+L4 ≈ `-0.03`, L24 ≈ `+0.07`.
 
-If 0↔100 policy-state transfer works strongly when the target is matched, but much less
-when the target is unresolved, then the rule-time state is not merely “target present.”
-It carries a causally executable target-conditioned policy relation.
+Identity patches reproduce the recipient exactly (max absolute delta 0.0).
 
-That is the missing mechanistic link between G23A and Stage 5.
+The strongest safe mechanism statement is:
+
+> **The causal efficacy of the rule-time zero-vs-full policy state is substantially
+> stronger when the target proposition is available during policy processing.**
+
+This closes the main mechanistic link between G23A and Stage 5.
+
+It does **not** prove that the complete target×policy conjunction is localized in one
+token state; downstream context may still participate in the interaction.
+
+### Final replication
+
+The only remaining mechanism round is G23C-R:
+[preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md](preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md)
+
+It repeats the exact G23C intervention on 70 frozen G18 legal/inference items from
+20 skeletons that are disjoint from the Stage-5 discovery materials.
+
+No G23C-R compute is authorized yet. Regardless of its outcome, no automatic G23D
+follows.
 
 ---
 
@@ -259,20 +270,20 @@ claims of one reusable global vector.
 
 ---
 
-## 9. What would make this Main-level
+## 9. Main-level status after G23C
 
-The paper is strongest if G23C succeeds because the final chain becomes:
+The core chain now exists:
 
 1. broad, counterintuitive natural phenomenon;
 2. controls against the obvious explanation;
 3. a preregistered structural law at complete exclusion;
-4. a causal, target-conditioned policy-state mechanism.
+4. a causal policy-state effect whose efficacy is target-conditioned.
 
-That is one question becoming progressively more computational.
+The remaining question is robustness, not a missing story component.
 
-If G23C fails, do not add more mechanism experiments automatically. The paper then
-retains C1–C3, while Stage 5 is reported conservatively as a target-dependent causal
-state whose computational content remains unresolved.
+G23C-R is therefore confirmatory only. If it replicates, close the experimental
+programme and write. If it does not, downgrade the mechanism scope to the original
+Stage-5/G23C materials; do not invent another mechanism branch.
 
 ---
 
