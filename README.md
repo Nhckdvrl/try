@@ -10,9 +10,11 @@ Calibration:
 
 > **NO APPROVED PAPER MAINLINE.**
 >
-> **ONE PILOT EXCEPTION IS ACTIVE:** Unring the Bell / G23A v3.
+> **G23A v3 IS COMPLETE:** zero-amplified.
 >
-> **TARGET-MODEL COMPUTE IS AUTHORIZED ONLY FOR THE FROZEN G23A v3 PILOT.**
+> **G23B DESIGN / PREREGISTRATION IS ACTIVE.**
+>
+> **NO G23B TARGET-MODEL COMPUTE IS AUTHORIZED.**
 
 ---
 
@@ -87,8 +89,9 @@ Avoid by default:
 | HOM | KILL CURRENT FORMULATION |
 | CK | KILL |
 | PD | ARCHIVE / DO NOT ACTIVATE |
-| Unring the Bell / G23A | **PILOT AUTHORIZED — v3 ONLY** |
-| active candidate | **G23A v3 only** |
+| Unring the Bell / G23A | **COMPLETE — zero-amplified** |
+| Unring the Bell / G23B | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23B design branch** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
@@ -144,32 +147,23 @@ Never add mechanism merely to make a weak question look deep.
 
 ---
 
-## G23A pilot authorization — 2026-09-23
+## Reopened Unring line — current authority
 
-Authorized target-model compute is limited to the exact frozen design at
-`g23a-zero-gating-design-v3` / commit
-`c8a4dc6a48e407fe529c2fb5e35061064a858c5c`.
+G23A v3 is complete.
 
-Authorized panel:
-- Qwen3-8B;
-- Gemma-3-12B;
-- Mistral-Small-24B.
+Frozen result:
+- verdict: `zero-amplified`;
+- `Δ_zero = +8.83 [+4.39,+13.33]`;
+- all three preregistered gates passed;
+- 3/3 model-level deltas positive;
+- non-zero instruction gap remains positive, so the licensed story is generic timing
+  cost plus an additional zero-instruction penalty.
 
-Authorized scope:
-- 12 frozen decision conditions;
-- 13 frozen probes;
-- 72 frozen items;
-- 5,400 generations total across the three checkpoints.
+This result authorizes **G23B design work only**.
 
-Run the complete frozen panel before inspecting or interpreting model-specific G23A
-outcomes. Then run the frozen analyzer once over the complete panel.
+Current G23B design authority:
+`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`.
 
-Not authorized by this exception:
-- G23B;
-- new mechanism runs;
-- checkpoint substitution after seeing results;
-- extra models for robustness;
-- changes to materials, conditions, probes, estimand, gates, exclusions, bootstrap,
-  or verdict logic after generation starts.
-
-A checkpoint that fails to load is reported by name and is not replaced.
+No G23B target-model generation is authorized until its own fresh materials, carrier
+qualification gate, analyzer, tests and design tag are frozen and the repository-level
+compute authority is updated again.
