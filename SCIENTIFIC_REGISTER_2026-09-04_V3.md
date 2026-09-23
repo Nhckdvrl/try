@@ -422,14 +422,28 @@ The next registered design is G23B
 - exact semantic knowledge in a prospectively qualified non-evidential carrier K;
 - already-instantiated evidence state I.
 
-G23B is now **design-frozen** at `g23b-gate-vs-cancellation-design-v1`
-(commit `e7701a9`). Fresh materials, conditions, analyzer and tests are frozen.
+G23B v1 was design-frozen at `g23b-gate-vs-cancellation-design-v1`
+(commit `e7701a9`) and ran only its preregistered Phase-A carrier qualification.
 
-Repository authority currently permits **Phase A only**:
-`B/P/E/PE` carrier qualification on the 60 frozen items and the three frozen models,
-followed by one run of the frozen Phase-A analyzer. Phase B `U/K/I` remains held.
+Frozen result:
 
-Hard stop: if the carrier gate fails, G23B stops before any U/K/I output is generated.
+- pooled `ProfferLeak = +8.07 [+4.86,+11.23]`;
+- model means `+6.36 / +8.34 / +9.50`;
+- neutrality gates 1 and 2 failed;
+- leverage gates 3 and 4 passed.
+
+Verdict: **carrier-invalid**.
+
+The hard stop fired exactly as preregistered. No U/K/I exclusion-rule output was
+generated.
+
+Interpretation: G23B does **not** distinguish standing gating from retrospective
+cancellation. Instead it demonstrates the identification problem that motivated the
+carrier gate: exposing the exact semantic payload in a supposedly non-evidential
+natural-language carrier already changes the merits judgment substantially.
+
+Do not treat this as support for either H-GATE or H-CANCEL, and do not revive G18's
+semantic-preview result as if it solved the distinction.
 
 ## C5 — causal mechanism asset
 
@@ -645,10 +659,10 @@ the distinctive boundary.
 
 ---
 
-# 7. NEXT BRANCH — G23B: standing gate vs retrospective cancellation
+# 7. STOPPED BRANCH — G23B: standing gate vs retrospective cancellation
 
-**G23A v3 satisfied the frozen prerequisite. G23B v1 is now design-frozen.**
-**Phase A carrier generation is authorized; Phase B U/K/I is still held.**
+**Status: STOPPED AT PHASE A — carrier-invalid.**
+**Phase B U/K/I was never generated.**
 
 Frozen design authority:
 `preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`  
