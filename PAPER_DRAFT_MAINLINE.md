@@ -111,40 +111,34 @@ But Stage 5 alone does not show that this state carries the policy value itself.
 
 ## 6. G23C closes the mechanism loop
 
-G23C asks whether the Stage-5 state is an **executable target × policy state**.
+G23C prospectively tested whether the Stage-5 rule-time state carries the policy value
+with stronger causal efficacy when the semantic target is available.
 
-The experiment uses the same matched chronology and varies policy value inside the same
-preview:
+Frozen primary result:
 
 ```text
-matched preview:   0% vs 100%
-unrelated preview: 0% vs 100%
+PolicyTransfer_M = +13.03 [+11.69,+14.31]
+PolicyTransfer_U =  +4.89 [ +3.73, +6.18]
+TargetConditioning = +8.15 [ +6.91, +9.44]
 ```
 
-At the previously localized rule-time layer, exchange the policy-value hidden state
-bidirectionally.
+Both model-level target-conditioning means are positive. The same pattern is absent at
+the frozen negative layers L4 and L24, and identity patches are exact.
 
-Critical test:
+Therefore the mechanism statement is:
 
-> **Does 0↔100 policy-state interchange move later evidence use much more strongly when
-> the target proposition was available before the rule?**
+> **The causal efficacy of the rule-time zero-vs-full policy state is
+> target-conditioned.**
 
-If yes:
+This directly connects the broad prospective exclusion failure and the zero-amplified
+behavioral boundary to a mid-network causal state formed before later evidence is read.
 
-> **Target availability enables formation of a rule-time state that causally carries the
-> evidence-use policy for that target.**
-
-This directly connects:
-- the broad prospective exclusion failure;
-- the zero-amplified behavioral boundary;
-- and the mechanism.
-
-If no, Stage 5 remains a target-readiness result and the paper must not overclaim an
-executable policy state.
+The claim is deliberately narrower than “the target×policy conjunction is stored in one
+hidden vector.” Recipient context and downstream computation may still contribute.
 
 ---
 
-## 7. Final intended claims if G23C succeeds
+## 7. Current claims after G23C
 
 ### C1
 Prospective exclusion is systematically weaker than retrospective exclusion.
@@ -156,8 +150,9 @@ The asymmetry is not reducible to simple policy forgetting.
 The prospective timing cost is discontinuously amplified at complete exclusion.
 
 ### C4
-When target semantics are available during policy processing, a mid-network rule-time
-state causally carries the zero-vs-full evidence-use policy for that target.
+When target semantics are available during policy processing, exchanging the mid-network
+rule-time zero-vs-full policy state has a substantially larger causal effect on later
+evidence use.
 
 No stronger claims are needed.
 
@@ -188,8 +183,23 @@ Primary:
 
 > **Can Language Models Commit to Ignore Future Evidence?**
 
-Possible subtitle after mechanism confirmation:
+Possible subtitle:
 
-> **Prospective Evidence Exclusion Requires Target-Conditioned Policy State**
+> **Prospective Evidence Exclusion Depends on Target-Conditioned Policy State**
 
-Do not use the subtitle unless G23C passes.
+Use cautiously until G23C-R finishes; the primary title remains safer.
+
+
+---
+
+## 10. Final confirmatory round — G23C-R
+
+G23C-R repeats only the G23C mechanism result on a fresh frozen material set:
+70 G18 legal/inference items, 20 skeletons, all disjoint from the Stage-5 discovery
+materials.
+
+It uses the same two models, direct readout, rule-end site, L4/L14/L24, bridge and
+target-conditioning gates.
+
+This is a robustness replication, not a new scientific branch. No later mechanism round
+is planned regardless of outcome.
