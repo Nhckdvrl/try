@@ -1,58 +1,33 @@
 > [!IMPORTANT]
-> **AUTHORITY NOTICE — 2026-09-06**
+> **REACTIVATION NOTE — 2026-09-23**
 >
-> This file remains authoritative as an **evidence/provenance ledger for the completed
-> prospective-exclusion program up to 2026-09-04**. It is **not** current
-> paper-identity or future-experiment authority.
+> This file is the evidence/provenance ledger for the legacy **Unring the Bell /
+> prospective evidence exclusion** project and now also records its **reopened research
+> direction**.
 >
-> The statements below in **Section 1 ("Paper identity — unchanged")**, the
-> root-cause/mainline fork, and the G22 future-design sections are retained as historical
-> provenance and are **superseded** by:
+> It does **not** supersede the repository-wide V17 clean-slate authority in
+> `README.md` / `STATUS.md`. The repository as a whole can remain a clean research-
+> question search workspace while this file tracks this one reopened legacy line.
 >
-> 1. `RESEARCH_QUESTION_PROMOTION_STANDARD_2026-09-06.md`;
-> 2. `DURABLE_RQ_SEARCH_2026-09-06_V6.md`;
-> 3. `MAINLINE_AUDIT_2026-09-06_V9.md`;
-> 4. `STATUS.md`.
+> The old G18/G20/G21/G22 paper stories are archived below. They are not current paper
+> centers. ReGround G19 remains cancelled and must not be revived.
 >
-> Current state: **NO APPROVED PAPER MAINLINE**. G0 remains a strong empirical asset
-> with high-risk paper identity. **G22 is KILL / DO NOT RUN.** Nothing in the historical
-> sections below authorizes new generation.
+> **Current legacy-line status:** REOPENED — SERIOUS / PRIORITY PILOT.
+> **No target-model generation is authorized by this file until G23A is preregistered
+> with frozen materials and analyzer.**
 
-# Scientific register v3 — 2026-09-04
+# Unring the Bell — reactivated scientific register
 
-**Status:** authoritative historical evidence/provenance ledger; not current RQ or experiment authority.
-**Purpose:** separate established results, retired interpretations, active hypotheses, and
-future experiment authorization after the third mainline audit.
-
-This file supersedes the interpretive priority in:
-- `NOVELTY_RESET_2026-09-04.md`;
-- `MAINLINE_AUDIT_2026-09-04_V2.md`;
-- earlier versions of `NEXT_EXPERIMENTS_POST_RESET.md`.
-
-Those files remain in the repository as research-history provenance.
-
-No new generation is authorized by this register.
+**Original programme:** through 2026-09-04  
+**Reactivation audit:** 2026-09-23  
+**Target:** ACL / EMNLP / NAACL Main
 
 ---
 
-# 1. Paper identity — unchanged
+# 1. What is actually established
 
-The paper remains about one natural question:
-
-> **Can a language model commit in advance to ignore evidence it has not yet seen?**
-
-The paper must not drift into:
-- a generic instruction-position paper;
-- a generic binding paper;
-- a source/provenance-scope paper;
-- a label-semantics paper;
-- a policy benchmark paper.
-
-Every main experiment must explain the original G0 prospective/retrospective reversal.
-
----
-
-# 2. Established results
+The old project accumulated many stories. Most are not needed. The following empirical
+assets survive the audit.
 
 ## E1 — G0 prospective exclusion reversal
 
@@ -62,59 +37,61 @@ Across:
 - 12 instruction-tuned models / four vendors;
 - two masked diffusion LMs;
 
-the same exclusion rule is less effective when stated before the evidence than after it.
+the same exclusion rule is less effective when stated **before** the evidence than
+**after** it.
 
 The timing-gap direction is the same in 12/12 instruct models; 10/12 intervals exclude
-zero. Matched Admit controls do not show an analogous order effect.
+zero. Matched **Admit** controls do not show the analogous order effect.
 
-Licensed headline:
+Stable headline:
 
 > **Models are systematically worse at pre-committing to evidence exclusion than at
 > excluding the same evidence after it appears.**
 
-Do not reduce this to generic instruction position.
+This is the empirical phenomenon to explain. Do not reduce it to generic instruction
+position.
 
-## E2 — policy access is not sufficient for enforcement
+## E2 — policy access is not sufficient for causal enforcement
 
-A separate policy probe often recovers the intended zero weight at ceiling.
+Separate policy probes often recover the intended zero weight at ceiling.
 
-In Qwen3-8B and Gemma-3-12B, even trajectories that explicitly state zero weight can
-still use prospective evidence. Phi-4-mini does not show the same strong dissociation.
+In Qwen3-8B and Gemma-3-12B, trajectories can explicitly state that the evidence should
+receive zero weight while the prospective evidence still affects the final judgment.
+Phi-4-mini does not show the same strong dissociation.
 
-Licensed statement:
+Safe statement:
 
-> **Explicit policy access is not sufficient for causal enforcement in at least some
-> models.**
+> **Remembering / stating the exclusion policy is not sufficient for making the
+> excluded evidence causally inert, at least in some models.**
 
-Do not claim every model perfectly maintains the rule internally.
+This is evidence against a simple instruction-forgetting account, not proof of a
+universal hidden-state failure.
 
-## E3 — explicit future arithmetic control can work
+## E3 — the timing gap is strongly concentrated at complete exclusion
 
-On the verifiable linear-weighting task, four of five models execute prospective
-`w=0` exactly on qualified items; Qwen3.5-27B tracks all tested weights exactly.
+Across the old requested-weight sweep, the pre/post asymmetry was concentrated at
+exactly `w=0`.
 
-Licensed boundary:
+Pooled descriptive contrast:
 
-> **The failure is not a generic inability to obey future-directed numeric rules.**
+> `gap(w=0) - mean(gap(non-zero weights)) = +0.295 [+0.185,+0.405]`
 
-## E4 — arbitrary future referents are not enough
+The formal kink was not individually identified in every model, so the strongest
+cross-model version of this law is **not yet final**.
 
-The Stage 3A object-existence ladder holds the rule sentence fixed while varying what
-exists before the rule.
+A separate verifiable arithmetic task gives an important boundary: four of five models
+execute prospective `w=0` exactly when the contribution is explicitly arithmetic.
 
-Naming E7, declaring content pending, supplying item type, or even supplying direction
-does not reliably rescue prospective suppression; full content before the rule does.
+Current interpretation:
 
-Licensed statement:
+> **The failure is not a generic inability to remember or execute a future zero rule.
+> It may be specific to making semantic evidence categorically non-causal.**
 
-> **A future identifier or coarse referential description is not sufficient for strong
-> prospective exclusion.**
+This is one of the most valuable old clues and should be cleanly reconfirmed.
 
-Do not yet infer why full content helps.
+## E4 — G18 is a real result, but only a diagnostic
 
-## E5 — G18 semantic-preview effect is real, but its old interpretation is downgraded
-
-G18 is prospectively confirmed on:
+G18 was prospectively confirmed on:
 - 100 fresh items;
 - 30 independent skeletons;
 - three families;
@@ -124,415 +101,582 @@ G18 is prospectively confirmed on:
 Frozen primary:
 `Delta_semantic = +8.91 [7.15,+10.76]`, 5/5 positive.
 
-However, the semantic `para/entail` previews are substantive assertions of almost the
-same proposition as the later evidence. Their no-rule later-evidence marginal collapses
-from roughly 32 points to roughly 3 points.
+However, the semantic `para/entail` previews themselves substantively assert almost
+the same proposition as the later evidence. Their no-rule later-evidence marginal
+collapses from roughly 32 points to roughly 3.
 
-Therefore G18 establishes:
+Therefore G18 establishes only:
 
-> **Having the target proposition already represented before the exclusion rule changes
-> later exclusion strongly.**
+> **Having the target proposition already instantiated before the exclusion rule
+> changes later exclusion strongly.**
 
-It does **not** by itself establish:
+It does **not** establish a paper-level law that “target addressability governs
+prospective exclusion,” and it does not separate semantic knowledge from evidential
+instantiation.
 
-> knowing what a future target will mean is sufficient for prospective binding.
+## E5 — Stage 5 is a genuine causal mechanism asset
 
-The semantic-preview result is now a diagnostic that motivates a missing factorization
-between **target knowledge** and **evidential instantiation**.
+Matched-chronology interchange finds a target-dependent causal state formed around the
+rule span before later evidence is processed:
 
-## E6 — G18 below-baseline suppression is descriptive, not a scope claim
-
-Under semantic previews, the exclusion arm falls roughly 28 rating points below the
-preview-only baseline.
-
-This is a real anomaly and may indicate active semantic cancellation / revision rather
-than literal deletion of one later occurrence.
-
-But because the preview is itself substantively evidence-like, do not infer:
-- source-scope collapse;
-- proposition-wide suppression;
-- phantom exclusion;
-- a general over-binding law.
-
-Those require separate evidence.
-
-## E7 — Stage 4 content transfer is real, but not a standalone novelty
-
-In the system→tool experiment, proposition-targeted policies can follow content across
-D7→D9 while identifier-only protection does not universally follow the proposition.
-
-Licensed statement:
-
-> **Effective exclusion can be strongly content-conditioned rather than purely
-> identifier-conditioned.**
-
-Important qualification:
-the proposition-targeted system policy itself states the proposition in the policy text.
-Thus Stage 4 also does not isolate target knowledge from evidential instantiation.
-
-## E8 — Stage 5 causal target-dependent rule state
-
-Matched chronology finds a target-dependent causal rule-time state before later
-evidence is processed:
 - Qwen3-8B: L14–18 / 36;
 - Mistral-Small-24B: L12–16 / 40.
 
 Causal interchange changes later suppression.
 
-Licensed statement:
+Safe statement:
 
-> **Target availability changes a causal control state formed around exclusion-rule
-> processing.**
+> **What target state is available while the exclusion rule is processed changes a
+> mid-network causal control state that later affects evidence use.**
 
-Do not claim:
-- a universal semantic-binding vector;
-- a TARGET_FOUND neuron;
-- a one-dimensional shared direction;
-- that this state alone explains G0.
+Do not claim a universal binding vector, one-dimensional circuit, or complete
+explanation of G0.
 
-## E9 — tagged routing result is real, but the old policy-execution interpretation is
-not identified
+## E6 — supporting assets that are not paper centers
 
-Stage 3B shows near-zero leakage when reports carry `[verified]/[unverified]` labels
-and a matching standing routing policy is present.
+The following results remain useful but are supporting only:
 
-However, the experiment has no cell with:
-- semantic labels present;
-- no standing policy.
+- arbitrary future identifiers / coarse descriptions do not reliably rescue exclusion;
+- content-conditioned policies can transfer across document identifiers;
+- tagged routing can work prospectively, but old controls do not separate standing
+  policy execution from local semantics of tags such as `[unverified]`;
+- the agent setting reproduces a related policy/evidence-control dissociation.
 
-Its `rt_naive` control removes the labels entirely.
-
-Therefore Stage 3B does **not** identify whether success comes from:
-1. executing the earlier standing policy; or
-2. local pretrained semantics of `[unverified]` at evidence arrival.
-
-The old conclusion
-> class/tag policies prove prospective future gating works
-is **downgraded**.
+None of these should become a new standalone story unless independently justified.
 
 ---
 
-# 3. Retired / downgraded interpretations
+# 2. Archived interpretations — DO NOT REVIVE AS PAPER CENTER
 
-## R1 — “Target Addressability Governs Prospective Exclusion”
+These ideas are preserved as research history, not active narratives.
 
-Retired as paper novelty.
+## A1 — “Target Addressability Governs Prospective Exclusion”
 
-Reason:
-- “more specific semantic target information helps” is too obvious / occupied;
-- G18 semantic previews also instantiate substantive target content.
+**ARCHIVED.**
 
-Keep G18 as diagnostic/factorization evidence only.
+Why it was attractive:
+G18 shows strong semantic-preview effects.
 
-## R2 — G21 Source–Proposition Scope Entanglement as paper center
+Why it is not the paper:
+“knowing more specifically what future evidence will say helps control it” compresses
+too easily to instruction specificity / identify-then-ignore. More importantly, G18's
+semantic preview already instantiates the proposition and therefore confounds target
+knowledge with evidence state.
 
-Downgraded before generation.
+Use G18 as a diagnostic and mechanism clue only.
 
-Reason:
-it asks a new question about the scope precision of successful semantic control and does
-not naturally explain the original G0 reversal.
+## A2 — G20 deferred composition / non-commutative exclusion as the main story
 
-Keep as future-paper / secondary-consequence design provenance.
+**ARCHIVED AS A POSSIBLE LATER MECHANISM TEST.**
 
-## R3 — G20 v3 non-commutative exclusion as current authorized next experiment
+The old G20 designs mixed target semantics, evidential instantiation, distance, and
+composition order. The abstract idea — an exclusion operator may fail to bind when its
+target is resolved later — remains plausible, but it is not independently established
+and should not define the paper before the higher-level computational question is
+settled.
 
-Downgraded back to hypothesis status.
+## A3 — G21 source–proposition scope collapse
 
-Reason:
-the P/U swap design still mixes:
-- target semantic availability;
-- evidential instantiation;
-- target-to-evidence distance / recency.
+**ARCHIVED / SIDE PROJECT.**
 
-The composition-order idea remains a serious candidate, but it must first survive a
-cleaner target-state factorization.
+Potentially interesting, but it does not explain the original G0 reversal. It drifts
+toward provenance and scope precision rather than the central Unring-the-Bell problem.
 
-## R4 — “semantic preview proves future target binding”
+## A4 — old G22 “Target Knowledge vs Evidential Instantiation” as automatic next paper
 
-Retired.
+**ARCHIVED AS A BRANCHING TOOL, NOT CURRENT PAPER IDENTITY.**
 
-The preview itself materially affects the judgment and is nearly redundant with the
-later evidence.
+The U/K/I factorization was scientifically sensible, but the project over-promoted it.
+The hard part is constructing a genuinely semantic but judgment-neutral K state.
+Without that, the experiment recreates G18.
 
-## R5 — “tagged future routing proves standing policies can be prospectively executed”
+A redesigned U/K/I test may return later, but only after the new mainline first
+establishes whether categorical exclusion is computationally different from ordinary
+evidence weighting.
 
-Retired as an identified causal interpretation.
+## A5 — ReGround G19
 
-Stage 3B lacks a labels-present/no-policy baseline.
+**CANCELLED BEFORE GENERATION. DO NOT RUN.**
 
-## R6 — “semantic over-suppression proves scope collapse”
+Resolving a retrieved target and then explicitly restating an exclusion ledger is a
+reasonable engineering mitigation but too obvious to be the scientific contribution.
 
-Retired.
+## A6 — generic prospective-memory story
 
-The semantic preview itself is evidence-like and may legitimately be affected by a
-content-level exclusion computation.
+**DO NOT USE AS PAPER CENTER.**
 
-## R7 — ReGround G19
+The phenomenon is not simply “the model forgot a future instruction.” Policy probes,
+distance tests, Admit controls, and arithmetic future-zero control already make that
+compression inadequate.
 
-Cancelled before freeze and before generation.
+## A7 — generic forgetting / unlearning story
 
-Do not run.
+**DO NOT USE AS PAPER CENTER.**
 
----
-
-# 4. Current unresolved root-cause fork
-
-The next scientific question is not yet “which mechanism is true.”
-
-It is:
-
-> **What must exist when an exclusion policy is processed for future evidence to become
-> causally inert later?**
-
-Three candidate accounts remain live.
-
-## H-A — Deferred target-binding / eager control compilation
-
-The model can represent a standing exclusion operator, but effective exclusion depends
-on target-specific information being present when the operator is processed. If target
-identity/semantics are resolved only later, the model may understand the mapping without
-reconstructing the same causal control state.
-
-Strong prediction:
-- a future target can be semantically known without being evidentially asserted;
-- target knowledge before the rule helps;
-- the same target knowledge revealed only after the rule does not fully help;
-- rule reprocessing after target resolution selectively restores control;
-- post-resolution states remain history-dependent.
-
-## H-B — Evidential-instantiation / retrospective revision
-
-The model does not reliably create a future gate at all. Natural-language exclusion is
-mainly realized by revising/cancelling an already-instantiated evidence representation.
-
-Strong prediction:
-- merely knowing exactly what a future evidence item will say is insufficient;
-- exclusion becomes strong only when the proposition has already entered the
-  evidential/judgment state before the rule;
-- successful exclusion may actively shift the state rather than merely prevent future
-  readout.
-
-## H-C — Local semantic control rather than standing relational control
-
-Prospective control succeeds when an incoming item itself carries a control-relevant
-semantic feature that can be interpreted locally, but fails when the model must preserve
-a novel relation between an earlier policy and an arbitrary future object.
-
-Potentially consistent clues:
-- semantic/content policies outperform nonce identity in some settings;
-- `[unverified]` routing appears successful;
-- arbitrary `Z9`/E7 predicates are much weaker;
-- Stage 5 shared steering direction failed.
-
-This account is **not established** because Stage 3B is confounded by label semantics.
-
-These hypotheses may overlap. The next design must separate them, not select one by
-wording.
+The project is not primarily about erasing information or making it inaccessible.
+The important object is whether information that remains available can be prevented
+from causally affecting a particular decision.
 
 ---
 
-# 5. Registered next experiment candidate
+# 3. New paper identity
 
-## G22 — Target Knowledge vs Evidential Instantiation
+## 3.1 Stable mother question
 
-**Status:** DESIGN-AUDIT CANDIDATE ONLY.
-**Not preregistered. Not frozen. No generation authorized.**
+> **Can language models control the causal use of information independently of
+> remembering and understanding that information?**
 
-Scientific question:
+The information may remain:
+- readable;
+- recallable;
+- semantically understood;
+- even true.
 
-> **Is knowing exactly what future evidence will say enough to pre-exclude it, or does
-> exclusion become effective only after that proposition has already entered the model
-> as evidence?**
+The question is whether it is allowed to influence the current decision.
 
-This is the most direct missing factor in the G0→G18 chain.
+This is **causal eligibility of evidence**, not memory availability.
 
-### Required target-state factor
+## 3.2 Main research question
 
-At minimum:
+> **When an LLM is told not to use a piece of evidence, does it install a persistent
+> prospective gate over future information, or does natural-language exclusion mainly
+> work by cancelling / revising an evidence state that already exists?**
 
-1. **UNRESOLVED**
-   - ordinary prospective exclusion;
-   - policy precedes target content.
+Short form:
 
-2. **KNOWN-BUT-NON-EVIDENTIAL**
-   - before the rule, the model receives exact semantic information sufficient to
-     identify the future target;
-   - the carrier is explicitly non-evidential metadata / interface specification;
-   - crucially, its no-rule effect on the final judgment must be approximately zero.
+> **Prospective gating vs retrospective cancellation.**
 
-3. **EVIDENTIALLY-INSTANTIATED**
-   - before the rule, the same target proposition is asserted as substantive evidence;
-   - analogous to the semantic G18 condition.
+This keeps the original Unring-the-Bell phenomenon and gives it a deeper computational
+interpretation without replacing it with a narrow target-binding story.
 
-The design is not valid unless condition 2 genuinely separates semantic knowledge from
-evidential force.
+## 3.3 Competing accounts
 
-### Mandatory baseline logic
+### H1 — Persistent prospective gate
 
-For every target-state level:
-- target-state only;
-- target-state + future evidence, no rule;
-- target-state + exclusion + future evidence.
+The model can encode an exclusion policy as a standing relation that remains pending
+until matching evidence appears.
 
-Report raw sign-aligned rating points.
+Predictions:
+- prospective exclusion should be possible without first instantiating the evidence;
+- once the future target is recognized, the gate should make its contribution
+  causally inert;
+- categorical exclusion should behave like an extreme case of ordinary prospective
+  weighting rather than a qualitatively different operation.
 
-The known-but-non-evidential carrier must pass a preregistered neutrality gate before it
-can be used to infer anything about target knowledge.
+### H2 — Retrospective cancellation / revision
 
-### Branching interpretation
+Natural-language exclusion is mainly implemented after a target/evidence state exists.
+The rule transforms, cancels, or suppresses an already-instantiated evidence
+representation rather than maintaining a reliable unbound gate over unseen evidence.
 
-If KNOWN-BUT-NON-EVIDENTIAL rescues exclusion:
-- target semantics are sufficient;
-- proceed to a second factorization of **mapping-before vs mapping-after policy**;
-- only then does deferred binding / eager compilation become the central candidate.
+Predictions:
+- Post can outperform Pre even when the policy is remembered;
+- categorical `w=0` should be disproportionately difficult prospectively;
+- knowing what to do is separable from actually making evidence non-causal;
+- successful retrospective exclusion should be associated with target-conditioned
+  state change after evidence instantiation.
 
-If only EVIDENTIALLY-INSTANTIATED rescues:
-- the stronger candidate is retrospective evidence-state revision rather than future
-  target binding;
-- mechanism should test active cancellation/revision vs passive gating.
+### H3 — Hybrid control
 
-If neither cleanly rescues:
-- G18's old semantic explanation is further weakened;
-- reassess the paper rather than invent a new adjacent phenomenon.
+The model may support some prospective weighting/routing but rely on retrospective
+cancellation for complete semantic exclusion.
 
-### No automatic rule replay
+This is not a weak fallback. It predicts a structural boundary:
 
-Rule replay is **not** a primary G22 factor.
+> **weighting can be prospective while gating-to-zero is reactive.**
 
-It becomes informative only if the first factorization shows that semantic target
-knowledge itself is sufficient but timing of target-policy composition matters.
-
-This avoids another generic reminder experiment.
+That boundary is directly testable.
 
 ---
 
-# 6. Registered diagnostic audit
+# 4. Why this is not just “forgetting”
 
-## D22-A — Tagged routing deconfound
+The closest forgetting/unlearning papers are important neighbors, not reasons to rename
+this project.
 
-**Status:** small supporting design candidate; not headline novelty.
+## Takashiro et al., Findings ACL 2025
+**Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context
+Knowledge Unlearning**
 
-On the existing exact numeric routing substrate, compare:
-- semantic labels present, no standing policy;
-- semantic labels + matching policy;
-- semantic labels + policy reversing their natural semantics;
-- nonce labels + explicit standing policy;
-- optionally nonce labels + explicit definitions.
+They study query-conditioned in-context knowledge unlearning and report that target
+knowledge can remain represented until late layers while the final output acts as if it
+were forgotten.
 
-Purpose:
+Their object:
+- availability / output of factual knowledge.
 
-> determine whether Stage 3B success reflects standing-policy execution or local label
-> semantics.
+Our object:
+- causal contribution of evidence to a different judgment.
 
-This diagnostic can inform H-C but must never become the paper's main scientific
-question.
+Their result supports the plausibility of late suppression but does not own the
+prospective-vs-retrospective evidence-control question.
 
----
+## Youssef et al., NAACL 2025
+**How to Make LLMs Forget: On Reversing In-Context Knowledge Edits**
 
-# 7. Mechanism only after behavioral branch resolution
+They show that an already-applied in-context edit can later be reversed using learned
+reversal tokens.
 
-Do not run another generic layer sweep now.
+Their object:
+- reversing an existing in-context behavioral edit.
 
-If G22 supports H-A:
-- use a shared post-resolution checkpoint;
-- migrate Racing-Thoughts-style backpatch / frozen-backpatch logic;
-- test whether a correctly resolved late target fails because the relevant control
-  composition misses a critical window;
-- compare neutral processing buffer vs actual exclusion-operator reprocessing.
+Our object:
+- whether a standing natural-language exclusion policy can prevent future semantic
+  evidence from becoming causally active in the first place.
 
-If G22 supports H-B:
-- test passive gate versus constructive cancellation/revision;
-- use state intervention to ask whether successful exclusion creates an opposing
-  target-specific representation even before later evidence contributes;
-- leverage Stage 5 as the causal entry point.
+This is especially relevant to H2 because it shows that **reactive reversal is a real
+operation**, but it does not test whether natural-language exclusion is itself built
+primarily from that operation.
 
-If D22-A supports H-C:
-- test whether control-relevant semantic features locally select a suppression circuit;
-- do not claim generic semantic labels are novel.
+## Pawelczyk et al., ICML 2024
+**In-Context Unlearning: Language Models as Few-Shot Unlearners**
 
----
+They use in-context examples to approximate removal of **training-data influence**.
 
-# 8. Main-claim register
+Their object:
+- parametric/training-example influence.
 
-Only Claim 1 is currently final.
+Our object:
+- current-context evidence influence on the current decision.
 
-## Claim 1 — established
+## Other key neighbors
 
-> **Language models are systematically worse at pre-committing to evidence exclusion
-> than at excluding the same evidence after it appears.**
+- **Instruction Position Matters in Sequence Generation with Large Language Models**
+  (Findings ACL 2024): generic instruction-position / instruction-forgetting effects.
+- **Belief Revision: The Adaptability of Large Language Models Reasoning**
+  (EMNLP 2024 Main): updating or maintaining beliefs when new premises arrive.
+- **Racing Thoughts: Explaining Contextualization Errors in Large Language Models**
+  (NAACL 2025 Main): dependency-order / critical-window mechanism methodology.
 
-## Claim 2 — open
-
-> What representation must exist before exclusion can become effective?
-
-G22 decides the form of this claim.
-
-## Claim 3 — partially established
-
-> **Policy access and target recognition need not be sufficient for causal
-> enforcement.**
-
-Existing policy-access evidence supports the first half; a clean late-target
-recognition/enforcement dissociation remains to be established if H-A survives.
-
-## Claim 4 — established at limited mechanism scope
-
-> **Target availability changes a causal rule-time state that later affects evidence
-> suppression.**
-
-The computational interpretation of that state remains open.
-
----
-
-# 9. Outstanding-shaped decision rule
-
-Do not promote an experiment because it is:
-- significant;
-- surprising;
-- easy to visualize;
-- mechanism-friendly.
-
-Promote it only if it answers the same descending question:
+The paper must keep three axes separate:
 
 ```
-Why is pre-commitment harder?
-        ↓
-What information/state is missing at policy processing?
-        ↓
-What non-obvious computational law separates success from failure?
-        ↓
-What causal state implements that law?
-        ↓
-What method problem follows naturally?
-```
+forgetting / unlearning:
+    Is information available or output?
 
-A result that opens a new topic without explaining G0 is secondary, even if novel.
+belief revision:
+    What should currently be believed / treated as true?
+
+Unring the Bell:
+    May this information causally contribute to this decision?
+```
 
 ---
 
-# 10. Current authorization
+# 5. New claim architecture
 
-Authorized:
-- repository cleanup;
-- design audit;
-- material drafting that cannot expose model outcomes;
-- literature review;
-- code tests on synthetic/dummy data.
+A strong Main paper should have one phenomenon, one non-obvious computational law, and
+one causal explanation.
 
-Not authorized:
-- G20 generation;
-- G21 generation;
-- G22 model generation;
-- D22-A generation;
-- new mechanism runs;
-- ReGround G19.
+## C1 — established phenomenon
 
-Before any new generation:
-1. complete G22 cell-level design;
-2. audit semantic-neutrality of the known-but-non-evidential carrier;
-3. state competing predictions in advance;
-4. define baselines/estimands/gates;
-5. create a dedicated preregistration;
-6. implement frozen analyzer + tests;
-7. commit/tag;
-8. only then generate.
+> **Language models are systematically worse at pre-committing to exclude unseen
+> evidence than at excluding the same evidence after it appears.**
+
+This is G0.
+
+## C2 — established boundary
+
+> **The asymmetry cannot be reduced to simply forgetting the instruction.**
+
+Support:
+- matched Admit has no analogous order effect;
+- policy access can remain correct while evidence leaks;
+- delay alone does not explain the effect;
+- explicit arithmetic future-zero control can work.
+
+## C3 — OPEN, immediate priority
+
+> **Prospective failure is specific to categorical gating, not ordinary evidence
+> reweighting.**
+
+The old data strongly suggest this, but the clean prospectively frozen confirmation is
+still missing.
+
+This is the next experiment.
+
+## C4 — OPEN, conditional on C3
+
+> **Natural-language exclusion is reactive before it is preventive: complete exclusion
+> depends more on cancelling an instantiated evidence state than on maintaining a
+> standing prospective gate.**
+
+This is the central new explanatory claim to test after C3.
+
+## C5 — causal mechanism asset
+
+> **Target availability changes a mid-network rule-time state that later affects
+> evidence suppression.**
+
+Stage 5 already supports this at limited scope. It should be used to answer the
+C3/C4 mechanism, not expanded into another generic layer sweep.
+
+---
+
+# 6. NEXT EXPERIMENT — G23A: Gating is not merely reweighting
+
+**Status:** NEXT DESIGN TO PREREGISTER.  
+**Purpose:** buy the missing non-obvious law before attempting another complicated
+target-binding experiment.
+
+## 6.1 Question
+
+> **Is the prospective/retrospective asymmetry specific to making evidence completely
+> non-causal (`w=0`), or does the same timing failure occur when the model is merely
+> asked to attenuate evidence by a non-zero amount?**
+
+If the effect is sharply zero-specific, the paper gains a real computational boundary:
+
+> **prospective weighting can work while prospective gating fails.**
+
+That directly motivates the gate-vs-cancellation account.
+
+## 6.2 Materials
+
+Use **fresh items**, not the old G0/G17 materials.
+
+Recommended pilot:
+- 60–90 items;
+- 3 naturalistic task families with continuous judgments;
+- at least 20 independent skeletons per family;
+- mixed evidence directions inside every family;
+- no LLM-as-judge gold.
+
+Prefer families already validated in the old programme:
+- legal judgment;
+- evidence inference;
+- ranking / outcome judgment where a continuous decision is natural.
+
+Do **not** use the old outcome-evaluation family if its known order-independent residue
+would obscure the exclusion-specific effect.
+
+## 6.3 Rule manipulation
+
+Hold wording fixed except for one number:
+
+> “For the final judgment, assign Evidence E exactly **w%** of its normal evidential
+> weight.”
+
+Use a small frozen set such as:
+
+`w ∈ {0, 1, 25, 50, 100}`
+
+The key comparison is not accuracy at each weight. It is the **Pre-vs-Post timing gap**
+as a function of requested weight.
+
+Conditions for each item/weight:
+
+```
+PRE_w:
+Base → weight rule(w) → Evidence E → judgment
+
+POST_w:
+Base → Evidence E → weight rule(w) → judgment
+```
+
+Also include:
+- Base only;
+- Evidence E with no rule;
+- matched `w=100` / Admit anchor;
+- separate policy-comprehension probe.
+
+## 6.4 Primary estimand
+
+Use **raw sign-aligned judgment points**, not REI or another ratio.
+
+For each `w`:
+
+```
+Gap(w) =
+    residual evidence influence in PRE_w
+    − residual evidence influence in POST_w
+```
+
+Primary scientific contrast:
+
+```
+ZeroDiscontinuity =
+    Gap(0)
+    − mean[Gap(1), Gap(25), Gap(50), Gap(100)]
+```
+
+Cluster bootstrap by independent skeleton.
+
+Freeze the exact estimator, exclusion criteria, and bootstrap seed before generation.
+
+## 6.5 Minimal model panel
+
+Pilot on three checkpoints that already have useful historical context:
+
+- Qwen3-8B;
+- Gemma-3-12B;
+- Mistral-Small-24B.
+
+Do not spend compute on a large model zoo before the shape is known.
+
+## 6.6 Interpretation map
+
+### Outcome A — sharp zero-specific timing gap
+
+```
+Gap(0) >> Gap(non-zero)
+```
+
+This is the desired scientific law, but not because it “wins.”
+
+Interpretation:
+
+> **Complete evidence exclusion is computationally different from ordinary prospective
+> reweighting.**
+
+Next step:
+run G23B to distinguish **standing gate** from **retrospective cancellation**.
+
+### Outcome B — timing gap scales smoothly across all weights
+
+Interpretation:
+
+> the problem is more general prospective evidence weighting / instruction timing,
+> not a categorical gating operation.
+
+Consequence:
+the new gate-vs-cancellation paper weakens substantially. Reassess before mechanism.
+
+### Outcome C — fresh `w=0` gap does not replicate
+
+Interpretation:
+
+> the old zero-specific story is not stable enough to carry the new paper.
+
+Consequence:
+do not rescue it with mechanism. Return to the stable G0 phenomenon and reassess the
+mainline.
+
+### Outcome D — model understands the requested weights but only zero leaks
+
+This is especially strong:
+
+> **policy access + quantitative weighting competence can coexist with a selective
+> failure to make semantic evidence causally inert.**
+
+That would connect C2 and C3 cleanly.
+
+## 6.7 Why G23A comes before a redesigned G22
+
+A U/K/I target-state experiment is harder to identify because the K condition must mean:
+
+> “the model knows exactly what the future evidence will say”
+
+while simultaneously having approximately zero evidential effect on the current
+judgment.
+
+That is possible in principle but easy to contaminate.
+
+G23A is simpler, directly tied to an old strong clue, and determines whether the new
+paper really has a **gating** object worth explaining.
+
+Do not run a new U/K/I experiment unless G23A first confirms that categorical gating is
+the distinctive boundary.
+
+---
+
+# 7. CONDITIONAL FOLLOW-UP — G23B: standing gate vs retrospective cancellation
+
+**Do not generate yet.**
+
+Run only if G23A supports C3.
+
+Question:
+
+> **Does successful exclusion require an already-instantiated evidence state, or can a
+> genuinely non-evidential representation of the future target support an effective
+> standing gate?**
+
+Three target states:
+
+```
+U — unresolved
+    future evidence content unknown when the rule is processed
+
+K — known but non-evidential
+    exact future content is known only as metadata / a proffer / interface
+    specification and is verified to be judgment-neutral
+
+I — instantiated evidence
+    the same proposition has entered the judgment as substantive evidence
+```
+
+The K carrier must pass a separate neutrality gate before the experiment is interpretable.
+
+Branching interpretation:
+
+- `K ≈ I > U`:
+  semantic target knowledge can support prospective control; then test **late target
+  resolution / control composition**.
+
+- `K ≈ U < I`:
+  knowing the target is not enough; exclusion becomes effective mainly after the
+  evidence state exists. This directly supports **retrospective cancellation/revision**.
+
+- K cannot be made neutral:
+  the experiment is not identified; do not run it and do not promote G18 again.
+
+---
+
+# 8. Mechanism plan after behavior
+
+Do not run another generic layer sweep.
+
+If G23A confirms categorical gating and G23B favors retrospective cancellation:
+
+1. use the existing Stage-5 models;
+2. locate the post-evidence / post-rule state where retrospective exclusion succeeds;
+3. test whether successful exclusion introduces a target-specific opposing /
+   cancellation component rather than merely lowering attention to the evidence;
+4. causally transfer that state into the prospective failure condition;
+5. ask whether the evidence contribution is selectively removed while evidence recall
+   remains intact.
+
+If G23B instead supports early semantic target knowledge / late composition:
+
+1. compare early-target vs late-target conditions at a shared post-resolution
+   checkpoint;
+2. verify that late target understanding is correct;
+3. test whether replaying only the exclusion operator reconstructs the missing causal
+   control state;
+4. use Stage-5 interchange to test the specific missed-composition window.
+
+Mechanism must answer the selected behavioral branch. No mechanism-first feature search.
+
+---
+
+# 9. Current decision
+
+The reopened project is worth a serious pilot because it already has:
+
+- a broad, replicated, counterintuitive phenomenon;
+- controls against simple instruction-position / memory accounts;
+- a policy-access vs enforcement dissociation;
+- a promising zero-specific boundary;
+- a replicated causal rule-time mechanism asset.
+
+What it still lacks is the one Main-level computational law that explains why
+retrospective exclusion is easier.
+
+Current best path:
+
+```
+G0 temporal reversal
+        ↓
+not simple instruction forgetting
+        ↓
+G23A: weighting vs categorical gating
+        ↓
+if zero-specific:
+G23B: standing prospective gate vs retrospective cancellation
+        ↓
+branch-specific causal mechanism using Stage 5
+```
+
+Do not revive G18/addressability, G20, G21, old G22, or ReGround as independent paper
+stories. They are provenance and supporting evidence, not the center.
