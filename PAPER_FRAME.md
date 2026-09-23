@@ -18,6 +18,40 @@ The paper-level object is:
 
 ---
 
+## Paper-level RQ architecture
+
+The project is no longer judged as a sequence of experimental rounds. The Main-paper
+target is three one-to-one research questions.
+
+### RQ1 — Generality
+
+> **Does prospective evidence exclusion fail broadly and in source-grounded evidence
+> settings, rather than only in authored controlled vignettes?**
+
+Existing evidence: G0 breadth, wording/delay/diffusion controls, Stage-4A agent setting.  
+Missing confirmatory evidence: **G24A natural-evidence confirmation**.
+
+### RQ2 — Structural boundary
+
+> **Is the failure a generic inability to remember/apply a future zero rule, or is
+> semantic evidence exclusion a distinct prospective control problem?**
+
+Existing evidence: G23A zero amplification, explicit exact weighting control,
+policy-access/enforcement dissociation, numeric invalidation boundary.
+
+### RQ3 — Mechanism
+
+> **What rule-time computation makes a future-evidence policy causally executable?**
+
+Existing evidence: Stage 5 and G23C.  
+Missing confirmatory evidence: donor-vs-recipient factorization plus G23C-R
+fresh-material replication.
+
+The three-RQ completion standard is defined in
+`PAPER_SCALE_AUDIT_2026-09-23.md`.
+
+---
+
 ## 1. C1 — the broad phenomenon
 
 Across the original G0 breadth panel, the same exclusion rule is systematically weaker
