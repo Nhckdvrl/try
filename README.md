@@ -14,7 +14,9 @@ Calibration:
 >
 > **G23B v1 IS STOPPED:** Phase-A carrier-invalid.
 >
-> **NO ACTIVE FOLLOW-UP COMPUTE IS AUTHORIZED.**
+> **G23C DESIGN / PREREGISTRATION IS ACTIVE.**
+>
+> **NO G23C COMPUTE IS AUTHORIZED.**
 
 ---
 
@@ -91,7 +93,8 @@ Avoid by default:
 | PD | ARCHIVE / DO NOT ACTIVATE |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid** |
-| active candidate | **NONE** |
+| Unring the Bell / G23C | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23C mechanism-link design** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
@@ -163,3 +166,18 @@ gating or retrospective cancellation.
 
 No immediate carrier redesign is active. A future follow-up must address the
 identification problem explicitly rather than merely rephrase the proffer.
+
+
+## Current next experiment
+
+G23C — **target-conditioned policy-state interchange**.
+
+Rather than searching for another “semantic but non-evidential” carrier, G23C reuses
+the already-established Stage-5 causal state and asks whether it carries the **policy
+value** for the current semantic target.
+
+Design authority:
+`preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
+
+No G23C compute is authorized until implementation, tests, bridge logic and the fixed
+patch sites/layers are frozen under a dedicated tag and `STATUS.md` is updated again.
