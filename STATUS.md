@@ -1,4 +1,4 @@
-# Project status — 2026-09-23, G23A COMPLETE / G23B STOPPED / G23C FROZEN — COMPUTE AUTHORIZED
+# Project status — 2026-09-23, G23C COMPLETE / G23C-R DESIGN ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -6,12 +6,13 @@
 >
 > **G23B v1 STOPPED AT THE FROZEN PHASE-A CARRIER GATE:** `carrier-invalid`.
 >
-> **ACTIVE NEXT STEP:** G23C target-conditioned policy-state interchange — design
-> frozen and tagged `g23c-target-conditioned-policy-state-design-v1`.
+> **G23C v1 COMPLETE:** frozen verdict `target-conditioned-policy-state`,
+> L14 `TargetConditioning = +8.15 [+6.91,+9.44]`.
 >
-> **G23C COMPUTE AUTHORIZED — this is the explicit STATUS update of prereg §11.6:**
-> bridge phase first, both models, 75 frozen items; policy-state interchange only
-> if the §4 bridge gate passes. If it fails, the round stops at `bridge-failed`.
+> **ACTIVE NEXT STEP:** G23C-R fresh-material confirmatory replication — design /
+> preregistration only.
+>
+> **NO G23C-R COMPUTE AUTHORIZED.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -89,8 +90,9 @@ Strong negative prior:
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
-| Unring the Bell / G23C | **FROZEN / AUTHORIZED — §4 stop rule** |
-| active candidate | **G23C target-conditioned policy-state interchange** |
+| Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
+| Unring the Bell / G23C-R | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23C-R fresh-material mechanism replication** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -105,48 +107,48 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-G23A v3 is complete and remains the last successful frozen behavioral result.
+G23A v3 is complete (`zero-amplified`).
 
-G23B v1 Phase A is complete. Frozen carrier result:
+G23B v1 is complete as a stopped `carrier-invalid` round; Phase B was never run.
 
-- pooled `ProfferLeak = +8.07 [+4.86,+11.23]`;
-- model means `+6.36 / +8.34 / +9.50`;
-- gate 1 = FAIL;
-- gate 2 = FAIL;
-- gate 3 = PASS;
-- gate 4 = PASS;
-- frozen verdict: **carrier-invalid**.
+G23C v1 is complete under the frozen design tag
+`g23c-target-conditioned-policy-state-design-v1`:
 
-Therefore the preregistered hard stop is in force.
+- bridge `PolicyEffect_M = +34.08 [+32.16,+36.21]`;
+- bridge `TargetPolicyInteraction = +11.31 [+8.26,+15.04]`;
+- L14 `PolicyTransfer_M = +13.03 [+11.69,+14.31]`;
+- L14 `PolicyTransfer_U = +4.89 [+3.73,+6.18]`;
+- L14 `TargetConditioning = +8.15 [+6.91,+9.44]`;
+- L4 / L24 target-conditioning controls: approximately 0;
+- identity patch max absolute delta: 0.0;
+- verdict: **target-conditioned-policy-state**.
 
-Not authorized:
-- G23B Phase B `U/K/I`;
-- reworded / replacement proffer carrier under the same preregistration;
-- a G23B-v2 carrier search;
-- mechanism runs framed as if G23B had selected cancellation or standing-gate;
-- extra model or prompt robustness runs.
+Design integrity: from the G23C design tag to the result commit, runner, analyzer,
+tests and preregistration were unchanged; only STATUS/result artifacts were added.
 
-The next registered design is G23C:
-`preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
+The licensed synthesis is deliberately:
 
-G23C is a new mechanistic question, not a G23B carrier rescue. It asks whether the
-existing Stage-5 rule-time state carries the 0-vs-100 policy value in a
-target-conditioned form.
+> **the causal efficacy of the rule-time policy state is target-conditioned.**
+
+Do not strengthen this to “the entire target×policy conjunction is explicitly encoded
+in one rule-end token” or “downstream context is irrelevant.”
+
+Current next design:
+`preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md`.
+
+G23C-R uses the already-frozen, Stage-5-disjoint G18 legal + evidence-inference
+materials (70 items / 20 skeletons) to replicate the exact G23C mechanism on fresh
+materials.
 
 Authorized now:
-- design/prereg refinement;
-- exact Stage-5 cell reconstruction;
-- implementation and synthetic tests;
-- prompt/token/site audit without model forward passes;
-- G23C bridge phase — `g23c_policy_state.py --phase bridge` on Qwen3-8B and
-  Mistral-Small-24B, all 75 frozen items, then `analyze_g23c.py --phase bridge`;
-- G23C policy-state interchange — `--phase patch` on both models, **only after**
-  the §4 bridge gate passes on both, then `analyze_g23c.py --phase full`.
+- G23C-R design/prereg refinement;
+- code/tests;
+- tokenizer-only position/site audit;
+- no-model synthetic checks.
 
 Not authorized:
-- any G23C interchange run if the bridge gate fails (stop at `bridge-failed`);
-- layer search, or patching any layer outside the frozen (4, 14, 24);
-- any patch site other than `rule_end`;
-- new behavioral generation;
-- carrier redesign — G23B stays closed;
-- re-interpretation or re-run after a stop-rule verdict without a new design.
+- any G23C-R model forward pass;
+- activation capture or patching;
+- layer/site/model search;
+- any G23B carrier rescue;
+- any new mechanism branch beyond G23C-R without a new paper-level audit.
