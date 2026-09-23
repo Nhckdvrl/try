@@ -1,4 +1,4 @@
-# Project status — 2026-09-23, G23A COMPLETE / G23B STOPPED / G23C DESIGN ACTIVE
+# Project status — 2026-09-23, G23A COMPLETE / G23B STOPPED / G23C FROZEN — COMPUTE AUTHORIZED
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -6,10 +6,12 @@
 >
 > **G23B v1 STOPPED AT THE FROZEN PHASE-A CARRIER GATE:** `carrier-invalid`.
 >
-> **ACTIVE NEXT STEP:** G23C target-conditioned policy-state interchange — design /
-> preregistration only.
+> **ACTIVE NEXT STEP:** G23C target-conditioned policy-state interchange — design
+> frozen and tagged `g23c-target-conditioned-policy-state-design-v1`.
 >
-> **NO G23C COMPUTE AUTHORIZED UNTIL ITS OWN FREEZE TAG AND EXPLICIT STATUS UPDATE.**
+> **G23C COMPUTE AUTHORIZED — this is the explicit STATUS update of prereg §11.6:**
+> bridge phase first, both models, 75 frozen items; policy-state interchange only
+> if the §4 bridge gate passes. If it fails, the round stops at `bridge-failed`.
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -87,8 +89,8 @@ Strong negative prior:
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
-| Unring the Bell / G23C | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23C mechanism-link design** |
+| Unring the Bell / G23C | **FROZEN / AUTHORIZED — §4 stop rule** |
+| active candidate | **G23C target-conditioned policy-state interchange** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -135,11 +137,16 @@ Authorized now:
 - design/prereg refinement;
 - exact Stage-5 cell reconstruction;
 - implementation and synthetic tests;
-- prompt/token/site audit without model forward passes.
+- prompt/token/site audit without model forward passes;
+- G23C bridge phase — `g23c_policy_state.py --phase bridge` on Qwen3-8B and
+  Mistral-Small-24B, all 75 frozen items, then `analyze_g23c.py --phase bridge`;
+- G23C policy-state interchange — `--phase patch` on both models, **only after**
+  the §4 bridge gate passes on both, then `analyze_g23c.py --phase full`.
 
 Not authorized:
-- G23C model forward passes;
-- activation capture / patching;
+- any G23C interchange run if the bridge gate fails (stop at `bridge-failed`);
+- layer search, or patching any layer outside the frozen (4, 14, 24);
+- any patch site other than `rule_end`;
 - new behavioral generation;
-- layer search;
-- carrier redesign.
+- carrier redesign — G23B stays closed;
+- re-interpretation or re-run after a stop-rule verdict without a new design.
