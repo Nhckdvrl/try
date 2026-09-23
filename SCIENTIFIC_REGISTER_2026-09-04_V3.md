@@ -806,3 +806,72 @@ Current authority:
 `preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
 
 **Design only. No G23C compute is authorized yet.**
+
+
+---
+
+# 11. G23C RESULT — target-conditioned policy-state interchange
+
+Frozen design:
+`g23c-target-conditioned-policy-state-design-v1` at `ddaf7ff`.
+
+Design-to-result integrity:
+no G23C runner, analyzer, preregistration or test file changed between the design tag
+and the result commit.
+
+Frozen result:
+
+- `PolicyEffect_M = +34.08 [+32.16,+36.21]`;
+- `TargetPolicyInteraction = +11.31 [+8.26,+15.04]`;
+- L14 `PolicyTransfer_M = +13.03 [+11.69,+14.31]`;
+- L14 `PolicyTransfer_U = +4.89 [+3.73,+6.18]`;
+- L14 `TargetConditioning = +8.15 [+6.91,+9.44]`;
+- model-level L14 TC: Qwen3-8B `+4.82`, Mistral-Small-24B `+11.48`;
+- L4 TC `-0.03`; L24 TC `+0.07`;
+- identity patch max absolute delta `0.0`;
+- no drops;
+- verdict: **target-conditioned-policy-state**.
+
+Licensed mechanism claim:
+
+> **When the target proposition is available during policy processing, exchanging the
+> rule-time zero-vs-full policy state has a substantially larger causal effect on later
+> evidence use.**
+
+Preferred synthesis:
+
+> **the causal efficacy of the rule-time policy state is target-conditioned.**
+
+Do not overcompress this into “the target and policy are fully bound inside one hidden
+vector/token.” The recipient's downstream context can still contribute to the causal
+interaction.
+
+Post-result robustness diagnostics (not part of the frozen verdict):
+- legal family TC ≈ `+7.68`;
+- evidence-inference family TC ≈ `+8.86`;
+- leave-one-skeleton-out pooled TC ≈ `+7.79` to `+8.40`;
+- descriptive transfer/policy-effect fractions are larger in M than U pooled
+  (~0.38 vs ~0.21), but ratio inference is not used.
+
+## Final mechanism replication — G23C-R
+
+One remaining weakness is sample reuse: Stage 5 localized the mechanism on the same
+75 items that G23C later used for its new policy-state property.
+
+G23C-R addresses only that weakness, using the already-frozen G18 legal +
+evidence-inference materials:
+- 70 items;
+- 20 independent skeletons;
+- disjoint from `items_v1` / Stage 5;
+- frozen semantic `para` and `unrel` previews;
+- same two models;
+- same direct readout;
+- same L4 / L14 / L24 and `rule_end`;
+- same bridge and target-conditioning gates.
+
+Authority:
+`preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md`.
+
+**Design only. No compute authorized yet.**
+
+This is the last planned mechanism experiment. No automatic G23D follows any outcome.
