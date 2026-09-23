@@ -100,7 +100,7 @@ Avoid by default:
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
 | Unring the Bell / G23C-R | **HELD — RQ3 replication component** |
 | Unring the Bell / G24A | **COMPLETE — prospective-only** |
-| Unring the Bell / G24B | **DESIGN FROZEN — donor/recipient causal factorization** |
+| Unring the Bell / G24B | **COMPLETE — donor-conditioned-policy-state** |
 | active candidate | **three-RQ Main-paper expansion** |
 | approved mainline | **NONE** |
 

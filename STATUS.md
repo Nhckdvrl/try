@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G23C + G24A COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
+# Project status — 2026-09-24, G23C + G24A + G24B COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -15,6 +15,18 @@
 > integrity ledger 5/5 models × 600 items complete. Report:
 > `results/g24a/g24a_analysis_v1.{md,json}`. Licensed §8 wording applies
 > verbatim; no other claim language is authorized from this round.
+>
+> **G24B v1 COMPLETE (2026-09-24):** frozen verdict
+> `donor-conditioned-policy-state` — L14 primary
+> `DonorTargetInteraction = +4.02 [+2.27,+6.14]` (floor 3.0, positive in
+> 2/2 models: qwen3-8b +3.17, mistral-small-24b +4.88);
+> `DonorPolicy_M = +10.81 [+8.31,+13.41]`, `DonorPolicy_U = +6.79
+> [+5.22,+8.78]` both pass; controls L4 `dti = −0.15` / L24 `dti = +0.07`
+> both absent → clause OK; identity `max |Δ| = 0.0000` over 1,800 checks;
+> bridge PASS with the §12 cross-check against frozen G23C gates; 75/75
+> items × 2 models complete, zero drops. Report:
+> `results/mech/g24b_analysis.json`. Licensed §8 wording applies verbatim;
+> no other claim language is authorized from this round.
 >
 > **ACTIVE:** paper-scale three-RQ expansion under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
@@ -41,7 +53,7 @@
 > before selection — see commit `b3fe84d`) → main pass5 ×4,800 rows =
 > 24,000/24,000 → verdict above.
 >
-> **G24B FROZEN AND AUTHORIZED (single experiment):** donor-state vs
+> **G24B AUTHORIZED EXPERIMENT (record — EXECUTED AND COMPLETE):** donor-state vs
 > recipient-context factorization — prereg
 > `preregistrations/PREREGISTRATION_G24B_DONOR_RECIPIENT_FACTORIZATION.md`,
 > tag `g24b-donor-recipient-factorization-design-v1` (commit `a1c787f`,
@@ -152,7 +164,7 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-G23A v3, G23B v1, G23C v1 and G24A v1 are closed rounds.
+G23A v3, G23B v1, G23C v1, G24A v1 and G24B v1 are closed rounds.
 
 The earlier statement “G23C-R then write” is superseded by
 `PAPER_SCALE_AUDIT_2026-09-23.md`.
@@ -166,15 +178,17 @@ Current paper target:
 - **RQ3 / mechanism:** Stage 5 + G23C + donor-vs-recipient causal factorization +
   fresh-material replication.
 
-Authorized now: the single frozen G24B round exactly as preregistered
-(bridge → gate cross-check → patch → analyze), per the header block above.
+Authorized now: nothing — no target-model compute. The G24B round is
+complete (verdict above); the next authorization must name a single frozen
+experiment and its exact scientific gap (candidates: G23C-R, per
+`PAPER_SCALE_AUDIT_2026-09-23.md`).
 
 Still design only:
 - G23C-R design/finalization (fresh-material replication);
 - paper writing work under `PAPER_SCALE_AUDIT_2026-09-23.md`.
 
 Not authorized:
-- anything beyond the G24B prereg §4/§6/§9 layout named in the header;
+- any further G24B compute (closed round);
 - G23C-R forward passes;
 - new layer/site/model searches;
 - any new carrier rescue;
