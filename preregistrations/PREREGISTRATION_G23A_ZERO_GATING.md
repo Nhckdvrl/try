@@ -211,11 +211,11 @@ for a primary contrast in raw points).
 
 | verdict | rule | consequence |
 |---|---|---|
-| `zero-amplified` | 1a + 1b + 2 | Outcome A. **Categorical gating is the boundary.** This is the only verdict that authorises a G23B preregistration (standing gate vs retrospective cancellation). Write the law as *"complete exclusion carries an additional prospective timing penalty beyond non-zero attenuation."* |
+| `zero-amplified` | 1a + 1b + 2 | Outcome A. **Complete exclusion has an additional timing penalty beyond non-zero attenuation.** This is the only verdict that automatically authorises a G23B preregistration (standing gate vs retrospective cancellation). Non-zero timing gaps may still exist and must be reported. |
 | `model-dependent` | 1a + 1b, not 2 | Outcome A at panel level with a named dissenting model. Reported as a panel regularity with the exception named; G23B may be preregistered only with the dissenting model named **in advance** and retained in the analysis. No checkpoint is dropped after seeing results. |
 | `sub-threshold` | 1a only | Direction correct but below the frozen floor. Report the estimate and the interval honestly; **do not** promote the law and **do not** run G23B. |
-| `smooth-timing` | 1a fails, and the pooled mean of the four non-zero `Gap`s has lower bound > 0 | **Outcome B.** Non-zero weights show a timing gap too: this is generic prospective weighting / instruction-timing failure, not a categorical gate. The gate-vs-cancellation story weakens substantially; reassess before any mechanism work. |
-| `no-replication` | 1a fails and the non-zero gaps are also consistent with zero | **Outcome C.** The fresh `w = 0` gap does not replicate. **Do not rescue it with mechanism.** Return to the stable G0 phenomenon and reassess the mainline. |
+| `smooth-timing` | 1a fails, and the pooled mean of attenuation gaps `Gap(1), Gap(25), Gap(50)` has lower bound > 0 | **Outcome B.** Attenuation itself has a timing gap and there is no identified extra zero penalty. This is generic prospective weighting / instruction-timing failure rather than evidence for a distinct categorical component. Reassess before mechanism work. |
+| `no-replication` | 1a fails and the attenuation gaps are also consistent with zero | **Outcome C.** The fresh `w = 0` gap does not replicate. **Do not rescue it with mechanism.** Return to the stable G0 phenomenon and reassess the mainline. |
 
 No per-cell significance is required in any model. The primary estimand is the pooled
 contrast; per-model effects are reported in full.
