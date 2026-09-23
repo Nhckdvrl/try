@@ -422,8 +422,14 @@ The next registered design is G23B
 - exact semantic knowledge in a prospectively qualified non-evidential carrier K;
 - already-instantiated evidence state I.
 
-G23B is **design-authorized only** until its fresh materials, analyzer, tests and design
-freeze exist. No G23B target-model generation is currently authorized.
+G23B is now **design-frozen** at `g23b-gate-vs-cancellation-design-v1`
+(commit `e7701a9`). Fresh materials, conditions, analyzer and tests are frozen.
+
+Repository authority currently permits **Phase A only**:
+`B/P/E/PE` carrier qualification on the 60 frozen items and the three frozen models,
+followed by one run of the frozen Phase-A analyzer. Phase B `U/K/I` remains held.
+
+Hard stop: if the carrier gate fails, G23B stops before any U/K/I output is generated.
 
 ## C5 — causal mechanism asset
 
@@ -435,11 +441,12 @@ C3/C4 mechanism, not expanded into another generic layer sweep.
 
 ---
 
-# 6. NEXT EXPERIMENT — G23A: Gating is not merely reweighting
+# 6. COMPLETED EXPERIMENT — G23A: zero-instruction amplification
 
-**Status:** NEXT DESIGN TO PREREGISTER.  
-**Purpose:** buy the missing non-obvious law before attempting another complicated
-target-binding experiment.
+**Status:** COMPLETE — frozen v3 verdict `zero-amplified`.  
+**Result:** `Δ_zero = +8.83 [+4.39,+13.33]`, 3/3 model deltas positive.
+
+This section is retained as provenance for the behavioral law that opened G23B.
 
 ## 6.1 Question
 
@@ -640,11 +647,17 @@ the distinctive boundary.
 
 # 7. NEXT BRANCH — G23B: standing gate vs retrospective cancellation
 
-**G23A v3 satisfied the frozen prerequisite. G23B design work is now authorized.**
-**Target-model generation is still not authorized.**
+**G23A v3 satisfied the frozen prerequisite. G23B v1 is now design-frozen.**
+**Phase A carrier generation is authorized; Phase B U/K/I is still held.**
 
-Current design authority:
-`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`.
+Frozen design authority:
+`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`  
+Tag: `g23b-gate-vs-cancellation-design-v1` → `e7701a9`.
+
+Phase A is deliberately non-branching: it contains no exclusion-rule outcome and asks
+only whether K's proffer carrier is behaviorally neutral while preserving later evidence
+leverage. Only a passing frozen carrier report can unlock a separate Phase-B authority
+update.
 
 Question:
 
