@@ -10,9 +10,9 @@ Calibration:
 
 > **NO APPROVED PAPER MAINLINE.**
 >
-> **NO ACTIVE CANDIDATES.**
+> **ONE PILOT EXCEPTION IS ACTIVE:** Unring the Bell / G23A v3.
 >
-> **NO TARGET-MODEL COMPUTE AUTHORIZED.**
+> **TARGET-MODEL COMPUTE IS AUTHORIZED ONLY FOR THE FROZEN G23A v3 PILOT.**
 
 ---
 
@@ -87,12 +87,15 @@ Avoid by default:
 | HOM | KILL CURRENT FORMULATION |
 | CK | KILL |
 | PD | ARCHIVE / DO NOT ACTIVATE |
-| active candidate | **NONE** |
+| Unring the Bell / G23A | **PILOT AUTHORIZED — v3 ONLY** |
+| active candidate | **G23A v3 only** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
 
-Zero good candidates is better than preserving weak topics.
+The G23A exception does not promote Unring the Bell to an approved paper mainline.
+It authorizes one frozen, decisive pilot under
+`g23a-zero-gating-design-v3`; the outcome determines whether the line advances.
 
 ---
 
@@ -137,3 +140,36 @@ Deep evidence is required; activation patching is not.
 Mechanistic causal intervention is required only when the central claim is mechanistic/causal.
 
 Never add mechanism merely to make a weak question look deep.
+
+
+---
+
+## G23A pilot authorization — 2026-09-23
+
+Authorized target-model compute is limited to the exact frozen design at
+`g23a-zero-gating-design-v3` / commit
+`c8a4dc6a48e407fe529c2fb5e35061064a858c5c`.
+
+Authorized panel:
+- Qwen3-8B;
+- Gemma-3-12B;
+- Mistral-Small-24B.
+
+Authorized scope:
+- 12 frozen decision conditions;
+- 13 frozen probes;
+- 72 frozen items;
+- 5,400 generations total across the three checkpoints.
+
+Run the complete frozen panel before inspecting or interpreting model-specific G23A
+outcomes. Then run the frozen analyzer once over the complete panel.
+
+Not authorized by this exception:
+- G23B;
+- new mechanism runs;
+- checkpoint substitution after seeing results;
+- extra models for robustness;
+- changes to materials, conditions, probes, estimand, gates, exclusions, bootstrap,
+  or verdict logic after generation starts.
+
+A checkpoint that fails to load is reported by name and is not replaced.
