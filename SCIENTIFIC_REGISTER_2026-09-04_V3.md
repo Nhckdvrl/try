@@ -238,16 +238,19 @@ This is **causal eligibility of evidence**, not memory availability.
 
 ## 3.2 Main research question
 
-> **When an LLM is told not to use a piece of evidence, does it install a persistent
-> prospective gate over future information, or does natural-language exclusion mainly
-> work by cancelling / revising an evidence state that already exists?**
+> **Why is complete semantic evidence exclusion systematically harder when the policy
+> must be committed before the evidence appears, even when the model can remember and
+> state the policy correctly?**
 
 Short form:
 
-> **Prospective gating vs retrospective cancellation.**
+> **Prospective semantic exclusion under a zero-use policy.**
 
-This keeps the original Unring-the-Bell phenomenon and gives it a deeper computational
-interpretation without replacing it with a narrow target-binding story.
+The paper-level object is now the established prospective/retrospective asymmetry and
+its zero-instruction amplification. “Standing gate” and “retrospective cancellation”
+remain mechanistic hypotheses, not the paper's established binary. G23B v1 failed to
+identify that binary because its exact-semantic non-evidential carrier was not
+behaviorally neutral.
 
 ## 3.3 Competing accounts
 
@@ -407,15 +410,15 @@ gating fails.” G23A does not identify that stronger claim. The numeric probes 
 requested-policy access; `TargetDeviation` is descriptive only and assumes linearity
 of rating points in evidential weight.
 
-## C4 — OPEN, NEXT BRANCH
+## C4 — NOT ESTABLISHED; G23B v1 IDENTIFICATION FAILED
 
-> **Natural-language exclusion may be reactive before it is preventive: complete
-> exclusion may depend more on cancelling / revising an instantiated evidence state
-> than on maintaining a standing prospective gate.**
+> **Standing prospective gating and retrospective cancellation remain plausible
+> mechanistic accounts, but the current behavioral evidence does not distinguish
+> them.**
 
-G23A now justifies testing this explanation, but does not establish it.
+G23A justified testing this explanation but did not establish it.
 
-The next registered design is G23B
+The attempted registered design was G23B
 (`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`), which separates:
 
 - unresolved target state U;
@@ -445,13 +448,20 @@ natural-language carrier already changes the merits judgment substantially.
 Do not treat this as support for either H-GATE or H-CANCEL, and do not revive G18's
 semantic-preview result as if it solved the distinction.
 
-## C5 — causal mechanism asset
+## C5 — ESTABLISHED CAUSAL MECHANISM ASSET
 
 > **Target availability changes a mid-network rule-time state that later affects
 > evidence suppression.**
 
-Stage 5 already supports this at limited scope. It should be used to answer the
-C3/C4 mechanism, not expanded into another generic layer sweep.
+Stage 5 supports this at limited scope. In matched chronology, the rule-span state is
+causally necessary for later suppression in Qwen3-8B and Mistral-Small-24B; successful
+state transfer rescues strongly in Mistral and modestly in Qwen, while failing-state
+transfer robustly breaks suppression in both.
+
+The safe synthesis is therefore a **target-conditioned control-state formation**
+account: successful prospective exclusion depends on what target state is available
+while the rule is processed. This does not decide whether that state should be called a
+standing gate or a retrospective cancellation state.
 
 ---
 
