@@ -1,0 +1,812 @@
+{
+ "generated": "2026-09-24 02:33:19",
+ "elapsed_s": 130.6,
+ "pinned_sha256": {
+  "fever/shared_task_dev.jsonl": "e89865bfe1b4dd054e03dd57d7241a6fde24862905f31117cf0cd719f7c78df7",
+  "fever/train.jsonl": "eba7e8f87076753f8494718b9a857827af7bf73e76c9e4b75420207d26e588b6",
+  "fever/wiki-pages.zip": "4b06d95da6adf7fe02d2796176c670dacccb21348da89cba4c50676ab99665f2",
+  "scifact/data.tar.gz": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be"
+ },
+ "expect": {
+  "fever_dev_lines": 19998,
+  "fever_dev_labels": {
+   "NOT ENOUGH INFO": 6666,
+   "SUPPORTS": 6666,
+   "REFUTES": 6666
+  },
+  "fever_dev_flatten": 37566,
+  "fever_train_lines": 145449,
+  "fever_train_flatten": 311431,
+  "fever_verifiable": 13332,
+  "fever_pool_input": 12884,
+  "fever_pool": 12648,
+  "fever_pool_labels": {
+   "SUPPORTS": 6326,
+   "REFUTES": 6322
+  },
+  "fever_malformed_excluded": 66,
+  "fever_quote_unpaired_excluded": 32,
+  "fever_paren_unbalanced_excluded": 51,
+  "fever_wiki_residue_excluded": 89,
+  "fever_order_sorted_claims": 110,
+  "fever_refs_requested": 3462,
+  "scifact_claims": {
+   "train": 809,
+   "dev": 300,
+   "test": 300
+  },
+  "scifact_corpus": 5183,
+  "scifact_pool": 635,
+  "scifact_pool_labels": {
+   "SUPPORT": 417,
+   "CONTRADICT": 218
+  },
+  "scifact_multi_doc_excluded": 47,
+  "scifact_no_evidence_excluded": 716,
+  "scifact_malformed_excluded": 6,
+  "scifact_text_quality_excluded": 5
+ },
+ "fever": {
+  "dev_lines": 19998,
+  "dev_labels": {
+   "NOT ENOUGH INFO": 6666,
+   "SUPPORTS": 6666,
+   "REFUTES": 6666
+  },
+  "dev_flatten": 37566,
+  "train_lines": 145449,
+  "train_flatten": 311431,
+  "verifiable": 13332,
+  "dup_text_excluded_records": 243,
+  "dup_text_excluded_texts": 205,
+  "label_conflict_texts": [
+   "An island is part of the ABC Islands.",
+   "Janet Leigh was a person.",
+   "The Hundred Years' War includes the Civil War."
+  ],
+  "pool": 12648,
+  "pool_labels": {
+   "SUPPORTS": 6326,
+   "REFUTES": 6322
+  },
+  "resolution": {
+   "pool_input": 12884,
+   "pages_requested": 2022,
+   "refs_requested": 3462,
+   "refs_resolved": 3462,
+   "refs_missing": [],
+   "refs_empty": [],
+   "duplicate_tuples_within_group0": 0,
+   "malformed_excluded": 66,
+   "malformed_examples": [
+    {
+     "fever_id": 91884,
+     "claim": "The Lincoln-Douglas debates happened in Freeport, Illinois.",
+     "sentence": "Freeport on August 27"
+    },
+    {
+     "fever_id": 44512,
+     "claim": "The Lincoln-Douglas debates happened in Quincy, Illinois.",
+     "sentence": "Quincy on October 13"
+    },
+    {
+     "fever_id": 43042,
+     "claim": "Ingushetia was established in the U.S South Peninsula.",
+     "sentence": "The Chechen-Ingush Autonomous Soviet Socialist Republic, or Chechen-Ingush ASSR (Нохч-ГІалгІайн Автономнин Советски Социалистически Республика, Noxç-Ġalġayn Avtonomnin Sovetski Socialistiçeski Respublika"
+    },
+    {
+     "fever_id": 118048,
+     "claim": "The Lincoln-Douglas debates happened in Milton",
+     "sentence": "Ottawa on August 21"
+    },
+    {
+     "fever_id": 69641,
+     "claim": "Youtube is ranked as one of the top three most popular sites in the world.",
+     "sentence": ", the website is ranked as the second most popular site in the world by Alexa Internet, a web traffic analysis company."
+    },
+    {
+     "fever_id": 60351,
+     "claim": "Shinji Mikami is a person who directs.",
+     "sentence": "is a Japanese video game director and producer."
+    },
+    {
+     "fever_id": 202050,
+     "claim": "Tamerlan Tsarnaev was an only child.",
+     "sentence": "was a terrorist who, with his brother Dzhokhar Tsarnaev, planted bombs at the Boston Marathon on April 15, 2013."
+    },
+    {
+     "fever_id": 202054,
+     "claim": "Tamerlan Tsarnaev has always been a completely law abiding citizen.",
+     "sentence": "was a terrorist who, with his brother Dzhokhar Tsarnaev, planted bombs at the Boston Marathon on April 15, 2013."
+    },
+    {
+     "fever_id": 106044,
+     "claim": "The Lincoln-Douglas debates happened in Alton, Illinois.",
+     "sentence": "Alton on October 15"
+    },
+    {
+     "fever_id": 166915,
+     "claim": "Johanna Braddy was in a TV series.",
+     "sentence": ", she is starring as Shelby Wyatt in the ABC thriller Quantico."
+    },
+    {
+     "fever_id": 202051,
+     "claim": "Tamerlan Tsarnaev has been to Boston.",
+     "sentence": "was a terrorist who, with his brother Dzhokhar Tsarnaev, planted bombs at the Boston Marathon on April 15, 2013."
+    },
+    {
+     "fever_id": 115062,
+     "claim": "Sora (Kingdom Hearts) is incapable of being a character in the world of Kingdom Hearts.",
+     "sentence": "is a fictional character and the protagonist of Square Enix's Kingdom Hearts video game series."
+    }
+   ],
+   "quote_unpaired_excluded": 32,
+   "paren_unbalanced_excluded": 51,
+   "wiki_residue_excluded": 89,
+   "quote_examples": [
+    {
+     "fever_id": 75599,
+     "claim": "This is an ethnic group called Lithuanians.",
+     "sentence": "Lithuanians '' ' -LRB- lietuviai , singular lietuvis/lietuv ė '' -RRB- are a Baltic ethnic group , native to Lithuania , where they number around 2,561,300 people ."
+    },
+    {
+     "fever_id": 115185,
+     "claim": "Qui-Gon Jinn is a fictional person in the Star Wars franchise.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 143075,
+     "claim": "Qui-Gon Jinn is a fictitious character.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 153900,
+     "claim": "Qui-Gon Jinn is a nonfiction character.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 142951,
+     "claim": "Qui-Gon Jinn is a real person.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 66005,
+     "claim": "Gordan Ramsay's earnings was reported only on a Canadian business magazine in 2015.",
+     "sentence": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+    },
+    {
+     "fever_id": 5719,
+     "claim": "Qui-Gon Jinn is married to Liam Neeson.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 114538,
+     "claim": "In 2015, Gordan Ramsay was ranked the 21st highest earning celebrity in the world.",
+     "sentence": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+    },
+    {
+     "fever_id": 136093,
+     "claim": "Qui-Gon Jinn is portrayed by an actor.",
+     "sentence": "Qui-Gon Jinn is a fictional character in the Star Wars franchise , portrayed by Liam Neeson as the main protagonist of the 1999 film Star Wars : Episode I -- The Phantom Menace '' ."
+    },
+    {
+     "fever_id": 93991,
+     "claim": "Gordan Ramsay was ranked the 22nd highest earning celebrity in the world in 2015.",
+     "sentence": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+    },
+    {
+     "fever_id": 222042,
+     "claim": "Brubaker is within the genre of prison drama.",
+     "sentence": "When used to define a specific genre or type of film or television programme , drama is usually qualified with additional terms that specify its particular subgenre , such as `` political drama , '' `` courtroom drama , "
+    },
+    {
+     "fever_id": 136594,
+     "claim": "Lithuania is where Lithuanians come from.",
+     "sentence": "Lithuanians '' ' -LRB- lietuviai , singular lietuvis/lietuv ė '' -RRB- are a Baltic ethnic group , native to Lithuania , where they number around 2,561,300 people ."
+    }
+   ],
+   "paren_examples": [
+    {
+     "fever_id": 140691,
+     "claim": "Vietnam is a place.",
+     "block": "Vietnam (ˌ; [vîət nāːm]), officially the Socialist Republic of Vietnam (SRV;, is the easternmost country on the Indochina Peninsula in Southeast Asia."
+    },
+    {
+     "fever_id": 120210,
+     "claim": "Yara Shahidi is a dog.",
+     "block": "Yara Sayeh Shahidi شهیدی [jɑːɾɑː sɑːje ʃæhiːdiː]) (born February 10, 2000) is an American actress and model."
+    },
+    {
+     "fever_id": 36496,
+     "claim": "Vietnam is not a country.",
+     "block": "Vietnam (ˌ; [vîət nāːm]), officially the Socialist Republic of Vietnam (SRV;, is the easternmost country on the Indochina Peninsula in Southeast Asia."
+    },
+    {
+     "fever_id": 143041,
+     "claim": "Augustus died in 140 AD.",
+     "block": "23 September 63 BC -- 19 August 14 AD) was the founder of the Roman Principate and considered the first Roman emperor, controlling the Roman Empire from 27 BC until his death in AD 14."
+    },
+    {
+     "fever_id": 84506,
+     "claim": "Yara Shahidi was born on February 10, 1900.",
+     "block": "Yara Sayeh Shahidi شهیدی [jɑːɾɑː sɑːje ʃæhiːdiː]) (born February 10, 2000) is an American actress and model."
+    },
+    {
+     "fever_id": 10312,
+     "claim": "The 14th Dalai Lama is a leader.",
+     "block": "The 14th Dalai Lama ([ˈdɑːlaɪ_ˈlɑːmə] (US), [ˌdælaɪ_ˈlɑːmə] (UK) (religious name: Tenzin Gyatso, shortened from Jetsun Jamphel Ngawang Lobsang Yeshe Tenzin Gyatso, born Lhamo Thondup, 6 July 1935) is the current Dalai La"
+    },
+    {
+     "fever_id": 136719,
+     "claim": "Yara Shahidi is a cat.",
+     "block": "Yara Sayeh Shahidi شهیدی [jɑːɾɑː sɑːje ʃæhiːdiː]) (born February 10, 2000) is an American actress and model."
+    },
+    {
+     "fever_id": 132990,
+     "claim": "The Republic of Macedonia is in Northern Europe.",
+     "block": "Republika Makedonija), is a country in the Balkan peninsula in Southeast Europe."
+    },
+    {
+     "fever_id": 49171,
+     "claim": "The Republic of Macedonia is far from the Balkan Peninsula.",
+     "block": "Republika Makedonija), is a country in the Balkan peninsula in Southeast Europe."
+    },
+    {
+     "fever_id": 130561,
+     "claim": "The Republic of Macedonia is in Asia.",
+     "block": "Republika Makedonija), is a country in the Balkan peninsula in Southeast Europe."
+    },
+    {
+     "fever_id": 13934,
+     "claim": "The Republic of Macedonia is in the Balkan Peninsula.",
+     "block": "Republika Makedonija), is a country in the Balkan peninsula in Southeast Europe."
+    },
+    {
+     "fever_id": 125185,
+     "claim": "The Republic of Macedonia is located within Europe.",
+     "block": "Republika Makedonija), is a country in the Balkan peninsula in Southeast Europe."
+    }
+   ],
+   "residue_examples": [
+    {
+     "fever_id": 43776,
+     "claim": "Colin Kaepernick is a poker player.",
+     "hit": "`",
+     "block": "Colin Rand Kaepernick ([` kæpərnɪk]; born November 3, 1987) is an American football quarterback who is currently a free agent."
+    },
+    {
+     "fever_id": 18823,
+     "claim": "The Quran is a WWE wrestler..",
+     "hit": "`",
+     "block": "The Quran ([kɔrˈɑːn]; القرآن, literally meaning \"the recitation\"; also romanized Qur ` an or Koran) is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah)."
+    },
+    {
+     "fever_id": 189447,
+     "claim": "Yandex is a newspaper.",
+     "hit": "`",
+     "block": "Yandex ([` yʌndɛks] Яндекс) is a Russian multinational technology company specializing in Internet-related services and products."
+    },
+    {
+     "fever_id": 132865,
+     "claim": "Colin Kaepernick is a person who plays football.",
+     "hit": "`",
+     "block": "Colin Rand Kaepernick ([` kæpərnɪk]; born November 3, 1987) is an American football quarterback who is currently a free agent."
+    },
+    {
+     "fever_id": 98475,
+     "claim": "The Quran is a text central to a religion's belief system.",
+     "hit": "`",
+     "block": "The Quran ([kɔrˈɑːn]; القرآن, literally meaning \"the recitation\"; also romanized Qur ` an or Koran) is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah)."
+    },
+    {
+     "fever_id": 189453,
+     "claim": "Yandex is an application.",
+     "hit": "`",
+     "block": "Yandex ([` yʌndɛks] Яндекс) is a Russian multinational technology company specializing in Internet-related services and products."
+    },
+    {
+     "fever_id": 106288,
+     "claim": "Colin Kaepernick was quarterback backup to Alex Smith.",
+     "hit": "`",
+     "block": "Colin Rand Kaepernick ([` kæpərnɪk]; born November 3, 1987) is an American football quarterback who is currently a free agent. Kaepernick began his professional career as a backup to Alex Smith, but became the 49ers' sta"
+    },
+    {
+     "fever_id": 53062,
+     "claim": "Tim McGraw had a supporting role in a film.",
+     "hit": "`",
+     "block": "McGraw has ventured into acting, with supporting roles in The Blind Side (with Sandra Bullock), Friday Night Lights, The Kingdom, Tomorrowland, and Four Christmases (with Vince Vaughn and Reese Witherspoon), and lead rol"
+    },
+    {
+     "fever_id": 189458,
+     "claim": "Yandex is only a book.",
+     "hit": "`",
+     "block": "Yandex ([` yʌndɛks] Яндекс) is a Russian multinational technology company specializing in Internet-related services and products."
+    },
+    {
+     "fever_id": 2447,
+     "claim": "Colin Kaepernick is a football player.",
+     "hit": "`",
+     "block": "Colin Rand Kaepernick ([` kæpərnɪk]; born November 3, 1987) is an American football quarterback who is currently a free agent."
+    },
+    {
+     "fever_id": 24240,
+     "claim": "The Quran is a religious text.",
+     "hit": "`",
+     "block": "The Quran ([kɔrˈɑːn]; القرآن, literally meaning \"the recitation\"; also romanized Qur ` an or Koran) is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah)."
+    },
+    {
+     "fever_id": 25320,
+     "claim": "The Quran is Buddhist.",
+     "hit": "`",
+     "block": "The Quran ([kɔrˈɑːn]; القرآن, literally meaning \"the recitation\"; also romanized Qur ` an or Koran) is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah)."
+    }
+   ],
+   "order_sorted_claims": 110,
+   "records_emitted": 12648
+  },
+  "block_chars": {
+   "min": 24,
+   "p50": 145,
+   "p90": 274,
+   "p99": 501,
+   "max": 1879
+  },
+  "sentences_per_block": {
+   "1": 11393,
+   "2": 1087,
+   "3": 109,
+   "4": 32,
+   "5": 8,
+   "6": 6,
+   "7": 4,
+   "8": 5,
+   "10": 1,
+   "11": 1,
+   "12": 2
+  },
+  "multi_group_claims": 3413
+ },
+ "scifact": {
+  "claim_counts": {
+   "train": 809,
+   "dev": 300,
+   "test": 300
+  },
+  "corpus": 5183,
+  "pool": 635,
+  "pool_labels": {
+   "CONTRADICT": 218,
+   "SUPPORT": 417
+  },
+  "exclusions": {
+   "claims_total": 1409,
+   "no_evidence": 716,
+   "multi_doc_excluded": 47,
+   "mixed_label_excluded": 0,
+   "missing_doc_excluded": 0,
+   "out_of_bounds_excluded": 0,
+   "malformed_excluded": 6,
+   "text_quality_excluded": 5,
+   "text_quality_examples": [
+    {
+     "scifact_id": 1097,
+     "claim": "Splenomegaly is observed in knockin mouse lacking the SHP-2 MAPK pathway.",
+     "block": "The SHP2 signal-deficient mice (gp130F759/F759 were born normal but displayed splenomegaly and lymphadenopathy and an enhanced acute phase reaction."
+    },
+    {
+     "scifact_id": 528,
+     "claim": "Human T-lymphotropic virus type-I-associated myelopathy / tropical spastic paraparesis (HAM/TSP) patients produce Immunoglobulin G (IgG) antibodies which cross-react with an immunodominant epitope in Tax.",
+     "block": "Antibodies to hnRNP-A1 cross-reacted with HTLV-1-tax, the immune response to which is associated with HAM/TSP (refs."
+    },
+    {
+     "scifact_id": 532,
+     "claim": "Hyperfibrinogenemia decreases rates of femoropopliteal bypass thrombosis.",
+     "block": "RESULTS Markers for smoking (blood carboxyhaemoglobin concentration (p less than 0.05) and plasma thiocyanate concentration (p less than 0.01) and plasma concentrations of fibrinogen (p less than 0.001) and apolipoprotei"
+    },
+    {
+     "scifact_id": 533,
+     "claim": "Hyperfibrinogenemia increases rates of femoropopliteal bypass thrombosis.",
+     "block": "RESULTS Markers for smoking (blood carboxyhaemoglobin concentration (p less than 0.05) and plasma thiocyanate concentration (p less than 0.01) and plasma concentrations of fibrinogen (p less than 0.001) and apolipoprotei"
+    },
+    {
+     "scifact_id": 729,
+     "claim": "Lymphadenopathy is observed in knockin mouse lacking the SHP-2 MAPK pathway.",
+     "block": "The SHP2 signal-deficient mice (gp130F759/F759 were born normal but displayed splenomegaly and lymphadenopathy and an enhanced acute phase reaction."
+    }
+   ],
+   "records_emitted": 635
+  },
+  "blocks_changed_by_normalization": 105,
+  "block_chars": {
+   "min": 43,
+   "p50": 309,
+   "p90": 715,
+   "p99": 1004,
+   "max": 1586
+  },
+  "sentences_per_block": {
+   "1": 318,
+   "2": 186,
+   "3": 88,
+   "4": 35,
+   "5": 7,
+   "6": 1
+  }
+ },
+ "residuals": {
+  "token": 0,
+  "quote": 0,
+  "tab_or_nl": 0,
+  "multispace": 0,
+  "space_before_punct": 0,
+  "not_nfc": 0,
+  "wiki_residue": 0
+ },
+ "paren_mismatch_blocks": [],
+ "quote_mismatch_blocks": [],
+ "samples": [
+  {
+   "kind": "paren + IPA (accented wiki markup)",
+   "source": "fever",
+   "id": 111897,
+   "label": "REFUTES",
+   "claim": "Telemundo is a English-language television network.",
+   "raw": "Telemundo -LRB- -LSB- teleˈmundo -RSB- -RRB- is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises .",
+   "normalized": "Telemundo ([teleˈmundo]) is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises."
+  },
+  {
+   "kind": "quoted nickname",
+   "source": "fever",
+   "id": 137334,
+   "label": "SUPPORTS",
+   "claim": "Fox 2000 Pictures released the film Soul Food.",
+   "raw": "Soul Food is a 1997 American comedy-drama film produced by Kenneth `` Babyface '' Edmonds , Tracey Edmonds and Robert Teitel and released by Fox 2000 Pictures .",
+   "normalized": "Soul Food is a 1997 American comedy-drama film produced by Kenneth \"Babyface\" Edmonds, Tracey Edmonds and Robert Teitel and released by Fox 2000 Pictures."
+  },
+  {
+   "kind": "glued possessive",
+   "source": "fever",
+   "id": 90809,
+   "label": "REFUTES",
+   "claim": "Sean Penn is only ever a stage actor.",
+   "raw": "Following his film debut in the drama Taps -LRB- 1981 -RRB- and a diverse range of film roles in the 1980s , including Fast Times at Ridgemont High -LRB- 1982 -RRB- , Penn garnered critical attention for his roles in the crime dramas At Close Range -LRB- 1986 -RRB- , State of Grace -LRB- 1990 -RRB- , and Carlito 's Way -LRB- 1993 -RRB- .",
+   "normalized": "Following his film debut in the drama Taps (1981) and a diverse range of film roles in the 1980s, including Fast Times at Ridgemont High (1982), Penn garnered critical attention for his roles in the crime dramas At Close Range (1986), State of Grace (1990), and Carlito's Way (1993)."
+  },
+  {
+   "kind": "accented evidence page",
+   "source": "fever",
+   "id": 197381,
+   "label": "REFUTES",
+   "claim": "Simón Bolívar is only known as Simón Bolívar.",
+   "raw": "Simón José Antonio de la Santísima Trinidad Bolívar y Palacios -LRB- -LSB- siˈmon boˈliβar -RSB- ; 24 July 1783 -- 17 December 1830 -RRB- , known as El Libertador , was a Venezuelan military and political leader who played a leading role in the establishment of Venezuela , Bolivia , Colombia , Ecuador , Peru and Panama as sovereign states , independent of Spanish rule .",
+   "normalized": "Simón José Antonio de la Santísima Trinidad Bolívar y Palacios ([siˈmon boˈliβar]; 24 July 1783 -- 17 December 1830), known as El Libertador, was a Venezuelan military and political leader who played a leading role in the establishment of Venezuela, Bolivia, Colombia, Ecuador, Peru and Panama as sovereign states, independent of Spanish rule."
+  },
+  {
+   "kind": "multi-sentence joint evidence set",
+   "source": "fever",
+   "id": 227362,
+   "label": "REFUTES",
+   "claim": "Giada at Home was only available on DVD.",
+   "raw": "It first aired on October 18 , 2008 on the Food Network . Food Network -LRB- legally known as Television Food Network -RRB- is an American basic cable and satellite television channel that is owned by Television Food Network , G.P. , a joint venture between Scripps Networks Interactive -LRB- which owns 70 % of the network -RRB- and the Tribune -LRB- FN -RRB- Cable Ventures Inc. -LRB- which owns the remaining 30 % -RRB- .",
+   "normalized": "It first aired on October 18, 2008 on the Food Network. Food Network (legally known as Television Food Network) is an American basic cable and satellite television channel that is owned by Television Food Network, G.P., a joint venture between Scripps Networks Interactive (which owns 70% of the network) and the Tribune (FN) Cable Ventures Inc. (which owns the remaining 30%)."
+  },
+  {
+   "kind": "plain single sentence",
+   "source": "fever",
+   "id": 89891,
+   "label": "REFUTES",
+   "claim": "Damon Albarn's debut album was released in 2011.",
+   "raw": "His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno , Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley .",
+   "normalized": "His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno, Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley."
+  },
+  {
+   "kind": "REFUTES single page",
+   "source": "fever",
+   "id": 108281,
+   "label": "REFUTES",
+   "claim": "Andrew Kevin Walker is only Chinese.",
+   "raw": "Andrew Kevin Walker -LRB- born August 14 , 1964 -RRB- is an American BAFTA-nominated screenwriter .",
+   "normalized": "Andrew Kevin Walker (born August 14, 1964) is an American BAFTA-nominated screenwriter."
+  },
+  {
+   "kind": "longest block",
+   "source": "fever",
+   "id": 221137,
+   "label": "SUPPORTS",
+   "claim": "Ted Cruz is an American male.",
+   "raw": "Rafael Edward `` Ted '' Cruz -LSB- ˈkruːz -RSB- -LRB- born December 22 , 1970 -RRB- is an American politician and attorney , who has served as the junior United States Senator from Texas since 2013 . He was a candidate for the Republican nomination for President of the United States in the 2016 election . From 1999 to 2003 , he served in various political appointee positions : the Director of the Office of Policy Planning at the Federal Trade Commission -LRB- FTC -RRB- , an Associate Deputy Attorney General at the United States Department of Justice , and a Domestic Policy Advisor to George W. Bush on the 2000 George W. Bush Presidential campaign . He was the first Hispanic , and the longest-serving , Solicitor General in Texas history . From 2004 to 2009 , Cruz was an Adjunct Professor at the University of Texas School of Law in Austin , Texas , where he taught U.S. Supreme Court litigation . He defeated former State Representative Paul Sadler in the November 2012 general election , winning 56 -- 41 % . He is the first Hispanic American to serve as a U.S. Senator representing Texas , and is one of three senators of Cuban descent . He chairs the Senate Judiciary Subcommittee on Oversight , Federal Rights and Agency Activities , and is the Chairman of the Senate Commerce Subcommittee on Space , Science and Competitiveness . In November 2012 , he was appointed Vice-Chairman of the National Republican Senatorial Committee . During the primary campaign , his base of support was strongest with `` women , white evangelical Protestants , people over the age of 50 , and those who identified themselves as conservatives '' , though he had crossover appeal to other factions within his party , including libertarian conservatives and millennials . He eventually emerged as the main challenger to frontrunner Donald Trump . He suspended his campaign for president on May 3 , 2016 , after losing the Republican primary in Indiana to Trump .",
+   "normalized": "Rafael Edward \"Ted\" Cruz [ˈkruːz] (born December 22, 1970) is an American politician and attorney, who has served as the junior United States Senator from Texas since 2013. He was a candidate for the Republican nomination for President of the United States in the 2016 election. From 1999 to 2003, he served in various political appointee positions: the Director of the Office of Policy Planning at the Federal Trade Commission (FTC), an Associate Deputy Attorney General at the United States Department of Justice, and a Domestic Policy Advisor to George W. Bush on the 2000 George W. Bush Presidential campaign. He was the first Hispanic, and the longest-serving, Solicitor General in Texas history. From 2004 to 2009, Cruz was an Adjunct Professor at the University of Texas School of Law in Austin, Texas, where he taught U.S. Supreme Court litigation. He defeated former State Representative Paul Sadler in the November 2012 general election, winning 56 -- 41%. He is the first Hispanic American to serve as a U.S. Senator representing Texas, and is one of three senators of Cuban descent. He chairs the Senate Judiciary Subcommittee on Oversight, Federal Rights and Agency Activities, and is the Chairman of the Senate Commerce Subcommittee on Space, Science and Competitiveness. In November 2012, he was appointed Vice-Chairman of the National Republican Senatorial Committee. During the primary campaign, his base of support was strongest with \"women, white evangelical Protestants, people over the age of 50, and those who identified themselves as conservatives\", though he had crossover appeal to other factions within his party, including libertarian conservatives and millennials. He eventually emerged as the main challenger to frontrunner Donald Trump. He suspended his campaign for president on May 3, 2016, after losing the Republican primary in Indiana to Trump."
+  },
+  {
+   "kind": "SciFact SUPPORT union rationale",
+   "source": "scifact",
+   "id": 12,
+   "label": "SUPPORT",
+   "claim": "40mg/day dosage of folic acid and 2mg/day dosage of vitamin B12 does not affect chronic kidney disease (CKD) progression.",
+   "raw": "RESULTS Mean baseline homocysteine level was 24.0 micromol/L in the vitamin group and 24.2 micromol/L in the placebo group. CONCLUSION Treatment with high doses of folic acid and B vitamins did not improve survival or reduce the incidence of vascular disease in patients with advanced chronic kidney disease or end-stage renal disease.   \n",
+   "normalized": "RESULTS Mean baseline homocysteine level was 24.0 micromol/L in the vitamin group and 24.2 micromol/L in the placebo group. CONCLUSION Treatment with high doses of folic acid and B vitamins did not improve survival or reduce the incidence of vascular disease in patients with advanced chronic kidney disease or end-stage renal disease."
+  },
+  {
+   "kind": "SciFact CONTRADICT union rationale",
+   "source": "scifact",
+   "id": 28,
+   "label": "CONTRADICT",
+   "claim": "A T helper 2 cell (Th2) environment impedes disease development in patients with systemic lupus erythematosus (SLE).",
+   "raw": "We report that activation of basophils by autoreactive IgE causes their homing to lymph nodes, promoting T helper type 2 (T(H)2) cell differentiation and enhancing the production of self-reactive antibodies that cause lupus-like nephritis in mice lacking the Src family protein tyrosine kinase Lyn (Lyn(-/-) mice). Individuals with SLE also have elevated serum IgE, self-reactive IgEs and activated basophils that express CD62 ligand (CD62L) and the major histocompatibility complex (MHC) class II molecule human leukocyte antigen-DR (HLA-DR), parameters that are associated with increased disease activity and active lupus nephritis. Thus, in Lyn(-/-) mice, basophils and IgE autoantibodies amplify autoantibody production that leads to lupus nephritis, and in individuals with SLE IgE autoantibodies and activated basophils are factors associated with disease activity and nephritis.",
+   "normalized": "We report that activation of basophils by autoreactive IgE causes their homing to lymph nodes, promoting T helper type 2 (T(H)2) cell differentiation and enhancing the production of self-reactive antibodies that cause lupus-like nephritis in mice lacking the Src family protein tyrosine kinase Lyn (Lyn(-/-) mice). Individuals with SLE also have elevated serum IgE, self-reactive IgEs and activated basophils that express CD62 ligand (CD62L) and the major histocompatibility complex (MHC) class II molecule human leukocyte antigen-DR (HLA-DR), parameters that are associated with increased disease activity and active lupus nephritis. Thus, in Lyn(-/-) mice, basophils and IgE autoantibodies amplify autoantibody production that leads to lupus nephritis, and in individuals with SLE IgE autoantibodies and activated basophils are factors associated with disease activity and nephritis."
+  }
+ ],
+ "accented_page_demo": {
+  "claim": "Simón Bolívar is only known as Simón Bolívar.",
+  "page": "Simón_Bolívar",
+  "block": "Simón José Antonio de la Santísima Trinidad Bolívar y Palacios ([siˈmon boˈliβar]; 24 July 1783 -- 17 December 1830), known as El Libertador, was a Venezuelan military and political leader who played a leading role in the establishment of Venezuela, Bolivia, Colombia, Ecuador, Peru and Panama as sovereign states, independent of Spanish rule."
+ },
+ "gates": [
+  {
+   "name": "sha256 fever/shared_task_dev.jsonl",
+   "ok": true,
+   "detail": "e89865bfe1b4dd05"
+  },
+  {
+   "name": "sha256 fever/train.jsonl",
+   "ok": true,
+   "detail": "eba7e8f87076753f"
+  },
+  {
+   "name": "sha256 fever/wiki-pages.zip",
+   "ok": true,
+   "detail": "4b06d95da6adf7fe"
+  },
+  {
+   "name": "sha256 scifact/data.tar.gz",
+   "ok": true,
+   "detail": "11c621288d41ac14"
+  },
+  {
+   "name": "fever dev line count",
+   "ok": true,
+   "detail": "19998"
+  },
+  {
+   "name": "fever dev label balance",
+   "ok": true,
+   "detail": "{'NOT ENOUGH INFO': 6666, 'SUPPORTS': 6666, 'REFUTES': 6666}"
+  },
+  {
+   "name": "fever verifiable field consistent with label",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "fever NEI records carry zero sentence refs",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "name": "fever dev flatten == HF card labelled_dev",
+   "ok": true,
+   "detail": "37566"
+  },
+  {
+   "name": "fever train line count",
+   "ok": true,
+   "detail": "145449"
+  },
+  {
+   "name": "fever train flatten == HF card train",
+   "ok": true,
+   "detail": "311431"
+  },
+  {
+   "name": "fever verifiable records",
+   "ok": true,
+   "detail": "13332"
+  },
+  {
+   "name": "fever text-once pool size",
+   "ok": true,
+   "detail": "12884"
+  },
+  {
+   "name": "fever pool label balance (pre text-quality)",
+   "ok": true,
+   "detail": "{'SUPPORTS': 6449, 'REFUTES': 6435}"
+  },
+  {
+   "name": "fever refs requested",
+   "ok": true,
+   "detail": "3462"
+  },
+  {
+   "name": "fever all refs resolved",
+   "ok": true,
+   "detail": "missing=0"
+  },
+  {
+   "name": "fever no empty sentences",
+   "ok": true,
+   "detail": "empty=0"
+  },
+  {
+   "name": "fever pool emitted == pool",
+   "ok": true,
+   "detail": "12648"
+  },
+  {
+   "name": "fever pool labels",
+   "ok": true,
+   "detail": "{'SUPPORTS': 6326, 'REFUTES': 6322}"
+  },
+  {
+   "name": "fever every block non-empty",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "fever text-quality [malformed] excluded",
+   "ok": true,
+   "detail": "66"
+  },
+  {
+   "name": "fever text-quality [quote-unpaired] excluded",
+   "ok": true,
+   "detail": "32"
+  },
+  {
+   "name": "fever text-quality [paren-unbalanced] excluded",
+   "ok": true,
+   "detail": "51"
+  },
+  {
+   "name": "fever text-quality [wiki-residue] excluded",
+   "ok": true,
+   "detail": "89"
+  },
+  {
+   "name": "fever group0 tuples reading-ordered",
+   "ok": true,
+   "detail": "110"
+  },
+  {
+   "name": "conflicts among verifiable claims",
+   "ok": true,
+   "detail": "3"
+  },
+  {
+   "name": "conflicts counting NEI siblings (dev)",
+   "ok": true,
+   "detail": "54"
+  },
+  {
+   "name": "normalization idempotent + self-consistent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "fever kept blocks paren-balanced",
+   "ok": true,
+   "detail": "0 violations"
+  },
+  {
+   "name": "fever kept blocks quote-paired",
+   "ok": true,
+   "detail": "0 violations"
+  },
+  {
+   "name": "fever residual token",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual quote",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual tab_or_nl",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual multispace",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual space_before_punct",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual not_nfc",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "fever residual wiki_residue",
+   "ok": true,
+   "detail": "0 hits"
+  },
+  {
+   "name": "scifact claims_train count",
+   "ok": true,
+   "detail": "809"
+  },
+  {
+   "name": "scifact claims_dev count",
+   "ok": true,
+   "detail": "300"
+  },
+  {
+   "name": "scifact claims_test count",
+   "ok": true,
+   "detail": "300"
+  },
+  {
+   "name": "scifact corpus count",
+   "ok": true,
+   "detail": "5183"
+  },
+  {
+   "name": "scifact pool size",
+   "ok": true,
+   "detail": "635"
+  },
+  {
+   "name": "scifact pool labels",
+   "ok": true,
+   "detail": "{'CONTRADICT': 218, 'SUPPORT': 417}"
+  },
+  {
+   "name": "scifact malformed excluded",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "name": "scifact text-quality excluded",
+   "ok": true,
+   "detail": "5"
+  },
+  {
+   "name": "scifact exclusions",
+   "ok": true,
+   "detail": "{'claims_total': 1409, 'no_evidence': 716, 'multi_doc_excluded': 47, 'mixed_label_excluded': 0, 'missing_doc_excluded': 0, 'out_of_bounds_excluded': 0, 'malformed_excluded': 6, 'text_quality_excluded': 5, 'text_quality_examples': [{'scifact_id': 1097, 'claim': 'Splenomegaly is observed in knockin mouse lacking the SHP-2 MAPK pathway.', 'block': 'The SHP2 signal-deficient mice (gp130F759/F759 were born normal but displayed splenomegaly and lymphadenopathy and an enhanced acute phase reaction.'}, {'scifact_id': 528, 'claim': 'Human T-lymphotropic virus type-I-associated myelopathy / tropical spastic paraparesis (HAM/TSP) patients produce Immunoglobulin G (IgG) antibodies which cross-react with an immunodominant epitope in Tax.', 'block': 'Antibodies to hnRNP-A1 cross-reacted with HTLV-1-tax, the immune response to which is associated with HAM/TSP (refs.'}, {'scifact_id': 532, 'claim': 'Hyperfibrinogenemia decreases rates of femoropopliteal bypass thrombosis.', 'block': 'RESULTS Markers for smoking (blood carboxyhaemoglobin concentration (p less than 0.05) and plasma thiocyanate concentration (p less than 0.01) and plasma concentrations of fibrinogen (p less than 0.001) and apolipoprotei'}, {'scifact_id': 533, 'claim': 'Hyperfibrinogenemia increases rates of femoropopliteal bypass thrombosis.', 'block': 'RESULTS Markers for smoking (blood carboxyhaemoglobin concentration (p less than 0.05) and plasma thiocyanate concentration (p less than 0.01) and plasma concentrations of fibrinogen (p less than 0.001) and apolipoprotei'}, {'scifact_id': 729, 'claim': 'Lymphadenopathy is observed in knockin mouse lacking the SHP-2 MAPK pathway.', 'block': 'The SHP2 signal-deficient mice (gp130F759/F759 were born normal but displayed splenomegaly and lymphadenopathy and an enhanced acute phase reaction.'}], 'records_emitted': 635}"
+  },
+  {
+   "name": "scifact no mixed labels",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "scifact no missing docs / no out-of-bounds",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "scifact every block non-empty",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "scifact normalization idempotent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "scifact residual (tab/nl/space/nfc/residue)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "scifact normalization whitespace-only (content preserved)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no claim-text overlap fever vs scifact",
+   "ok": true,
+   "detail": "0"
+  }
+ ],
+ "failures": []
+}
