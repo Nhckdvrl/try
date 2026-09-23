@@ -12,9 +12,9 @@ Calibration:
 >
 > **G23A v3 IS COMPLETE:** zero-amplified.
 >
-> **G23B DESIGN / PREREGISTRATION IS ACTIVE.**
+> **G23B v1 IS STOPPED:** Phase-A carrier-invalid.
 >
-> **NO G23B TARGET-MODEL COMPUTE IS AUTHORIZED.**
+> **NO ACTIVE FOLLOW-UP COMPUTE IS AUTHORIZED.**
 
 ---
 
@@ -90,8 +90,8 @@ Avoid by default:
 | CK | KILL |
 | PD | ARCHIVE / DO NOT ACTIVATE |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
-| Unring the Bell / G23B | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23B design branch** |
+| Unring the Bell / G23B v1 | **STOPPED — carrier-invalid** |
+| active candidate | **NONE** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
@@ -149,21 +149,17 @@ Never add mechanism merely to make a weak question look deep.
 
 ## Reopened Unring line — current authority
 
-G23A v3 is complete.
+G23A v3 is complete with the frozen `zero-amplified` result.
 
-Frozen result:
-- verdict: `zero-amplified`;
-- `Δ_zero = +8.83 [+4.39,+13.33]`;
-- all three preregistered gates passed;
-- 3/3 model-level deltas positive;
-- non-zero instruction gap remains positive, so the licensed story is generic timing
-  cost plus an additional zero-instruction penalty.
+G23B v1 attempted to identify the next behavioral branch by constructing an exact
+semantic but non-evidential K carrier. The frozen Phase-A qualification failed before
+any U/K/I rule output was generated:
 
-This result authorizes **G23B design work only**.
+`ProfferLeak = +8.07 [+4.86,+11.23]`, with all three model means above the +3-point
+neutrality floor.
 
-Current G23B design authority:
-`preregistrations/PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md`.
+The correct status is **carrier-invalid / stopped**, not evidence for either standing
+gating or retrospective cancellation.
 
-No G23B target-model generation is authorized until its own fresh materials, carrier
-qualification gate, analyzer, tests and design tag are frozen and the repository-level
-compute authority is updated again.
+No immediate carrier redesign is active. A future follow-up must address the
+identification problem explicitly rather than merely rephrase the proffer.
