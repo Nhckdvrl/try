@@ -1,0 +1,691 @@
+{
+ "design": {
+  "seed": 20260923,
+  "resamples": 10000,
+  "floor": 3.0,
+  "bridge_floor": 5.0,
+  "identity_tolerance": 0.5,
+  "layers": [
+   4,
+   14,
+   24
+  ],
+  "primary": 14,
+  "controls": [
+   4,
+   24
+  ],
+  "n_items_expected": 75,
+  "n_complete": {
+   "qwen3-8b": 75,
+   "mistral-small-24b": 75
+  },
+  "n_clusters": 15
+ },
+ "identity": {
+  "n_checked": 1800,
+  "max_abs_delta": 0.0,
+  "tolerance": 0.5,
+  "passed": true
+ },
+ "bridge": {
+  "pooled": {
+   "policy_effect_m": {
+    "n": 150,
+    "n_clusters": 15,
+    "mean": 34.07997374897937,
+    "ci_low": 32.155371795972606,
+    "ci_high": 36.211017373756086
+   },
+   "policy_effect_u": {
+    "n": 150,
+    "n_clusters": 15,
+    "mean": 22.771553693480065,
+    "ci_low": 18.181732683893667,
+    "ci_high": 26.54077132229501
+   },
+   "target_policy_interaction": {
+    "n": 150,
+    "n_clusters": 15,
+    "mean": 11.308420055499301,
+    "ci_low": 8.262105602779414,
+    "ci_high": 15.03756800066969
+   }
+  },
+  "per_model": {
+   "qwen3-8b": {
+    "policy_effect_m": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 24.523418019527988,
+     "ci_low": 18.751797470800383,
+     "ci_high": 30.54721204861384
+    },
+    "policy_effect_u": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 15.357090161376739,
+     "ci_low": 9.749537110428276,
+     "ci_high": 21.10495105065833
+    },
+    "target_policy_interaction": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 9.166327858151247,
+     "ci_low": 5.429513789814603,
+     "ci_high": 13.53321461011448
+    }
+   },
+   "mistral-small-24b": {
+    "policy_effect_m": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 43.636529478430745,
+     "ci_low": 37.18069312354693,
+     "ci_high": 49.459795902745846
+    },
+    "policy_effect_u": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 30.186017225583395,
+     "ci_low": 21.968547665737045,
+     "ci_high": 37.832061164435885
+    },
+    "target_policy_interaction": {
+     "n": 75,
+     "n_clusters": 15,
+     "mean": 13.450512252847354,
+     "ci_low": 9.3296864028824,
+     "ci_high": 17.96227085850004
+    }
+   }
+  },
+  "gates": {
+   "gate1_pooled_policy_effect_m": true,
+   "gate2_pooled_target_policy_interaction": true,
+   "gate3_positive_model_means_2_of_2": true,
+   "passed": true
+  }
+ },
+ "layers": {
+  "4": {
+   "switches": {
+    "M_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.036939589022270715,
+      "ci_low": -0.210091860082211,
+      "ci_high": 0.26508871091116304
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": -0.14500465425119424,
+       "ci_low": -0.5732494475123531,
+       "ci_high": 0.28956157294882146
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.2188838322957357,
+       "ci_low": 0.10932637499524402,
+       "ci_high": 0.32713406615787083
+      }
+     }
+    },
+    "M_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.025185118587948332,
+      "ci_low": -0.0489218051757903,
+      "ci_high": 0.09877985530556543
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.01776461655326178,
+       "ci_low": -0.1307859256078184,
+       "ci_high": 0.15680637548240142
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.03260562062263489,
+       "ci_low": -0.038498242659603846,
+       "ci_high": 0.09731340521212781
+      }
+     }
+    },
+    "U_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.03138833973585861,
+      "ci_low": -0.1551015565480786,
+      "ci_high": 0.1768422608853909
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": -0.0894318367286663,
+       "ci_low": -0.3903233224011036,
+       "ci_high": 0.15715574042424355
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.1522085162003835,
+       "ci_low": 0.03321665355137416,
+       "ci_high": 0.26564113834970876
+      }
+     }
+    },
+    "U_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.0949576349122314,
+      "ci_low": 0.034279954909810555,
+      "ci_high": 0.1582876078359171
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": -0.04563741742313141,
+       "ci_low": -0.13968853289940217,
+       "ci_high": 0.06501876736124482
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.2355526872475942,
+       "ci_low": 0.1415526831150055,
+       "ci_high": 0.33541016119072237
+      }
+     }
+    }
+   },
+   "policy_transfer_m": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 0.031062353805109525,
+     "ci_low": -0.09846629060462267,
+     "ci_high": 0.1427172562768821
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": -0.06362001884896623,
+      "ci_low": -0.2897506669817653,
+      "ci_high": 0.1532678822174412
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.12574472645918527,
+      "ci_low": 0.05619115108210179,
+      "ci_high": 0.19314435412976103
+     }
+    },
+    "pass": false
+   },
+   "policy_transfer_u": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 0.063172987324045,
+     "ci_low": -0.027115872244108427,
+     "ci_high": 0.14021955088967072
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": -0.06753462707589884,
+      "ci_low": -0.2026924758338282,
+      "ci_high": 0.05000201106145724
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.19388060172398885,
+      "ci_low": 0.10726782285115298,
+      "ci_high": 0.2794471568450695
+     }
+    },
+    "pass": false
+   },
+   "target_conditioning": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": -0.03211063351893548,
+     "ci_low": -0.16657025301775946,
+     "ci_high": 0.10939753196025838
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.003914608226932614,
+      "ci_low": -0.22931451557874122,
+      "ci_high": 0.26122825924970683
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": -0.06813587526480357,
+      "ci_low": -0.18063972000177805,
+      "ci_high": 0.04897224446627456
+     }
+    },
+    "pass": false
+   }
+  },
+  "14": {
+   "switches": {
+    "M_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 12.753402824809358,
+      "ci_low": 9.377325737263787,
+      "ci_high": 15.971992940156099
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 10.298060306728294,
+       "ci_low": 8.086618467980607,
+       "ci_high": 12.55502456950882
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 15.208745342890422,
+       "ci_low": 8.627413794801042,
+       "ci_high": 22.40210442603389
+      }
+     }
+    },
+    "M_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 13.314279561405977,
+      "ci_low": 10.5148960469958,
+      "ci_high": 15.60205821395035
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 10.171513000062308,
+       "ci_low": 6.3721855187176,
+       "ci_high": 14.055427143939019
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 16.457046122749645,
+       "ci_low": 10.499293855081001,
+       "ci_high": 22.62127769342911
+      }
+     }
+    },
+    "U_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 5.663770963440547,
+      "ci_low": 4.190912868972144,
+      "ci_high": 7.356340113873181
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 4.340494656742036,
+       "ci_low": 2.9747842673825833,
+       "ci_high": 6.01242357281682
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 6.987047270139058,
+       "ci_low": 4.06733428508463,
+       "ci_high": 10.763987669928206
+      }
+     }
+    },
+    "U_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 4.106676954084226,
+      "ci_low": 2.3896536932388943,
+      "ci_high": 5.9504238857501095
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 6.490428700950918,
+       "ci_low": 3.8928706137033,
+       "ci_high": 9.235453189351489
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 1.7229252072175343,
+       "ci_low": 0.72927843880009,
+       "ci_high": 2.8630841891798706
+      }
+     }
+    }
+   },
+   "policy_transfer_m": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 13.033841193107667,
+     "ci_low": 11.691592624143203,
+     "ci_high": 14.305708183555351
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 10.2347866533953,
+      "ci_low": 7.865506524477655,
+      "ci_high": 12.580200854876331
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 15.832895732820035,
+      "ci_low": 13.323219554377841,
+      "ci_high": 18.285175775807048
+     }
+    },
+    "pass": true
+   },
+   "policy_transfer_u": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 4.885223958762387,
+     "ci_low": 3.7339199888846704,
+     "ci_high": 6.177801626124252
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 5.415461678846477,
+      "ci_low": 3.8218267479355807,
+      "ci_high": 7.10701788766227
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 4.354986238678296,
+      "ci_low": 2.6997770093483466,
+      "ci_high": 6.423423540077092
+     }
+    },
+    "pass": true
+   },
+   "target_conditioning": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 8.14861723434528,
+     "ci_low": 6.913011531492139,
+     "ci_high": 9.443002331076475
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 4.819324974548824,
+      "ci_low": 2.901859310212343,
+      "ci_high": 7.05996213175729
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 11.477909494141738,
+      "ci_low": 9.319592170106867,
+      "ci_high": 13.56390068438146
+     }
+    },
+    "pass": true
+   }
+  },
+  "24": {
+   "switches": {
+    "M_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.2361165983090177,
+      "ci_low": 0.13705516620355315,
+      "ci_high": 0.34531292427901034
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.45348921112405755,
+       "ci_low": 0.26514573588562934,
+       "ci_high": 0.6621157303165931
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.018743985493977863,
+       "ci_low": -0.015613671895619985,
+       "ci_high": 0.05216154685387245
+      }
+     }
+    },
+    "M_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.14291772703243016,
+      "ci_low": 0.05525791376865325,
+      "ci_high": 0.22629095032242444
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.278629452038064,
+       "ci_low": 0.11213943457370365,
+       "ci_high": 0.4304665816203991
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.007206002026796341,
+       "ci_low": -0.019909925952360227,
+       "ci_high": 0.037107713214338645
+      }
+     }
+    },
+    "U_100to0": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.1768179884145017,
+      "ci_low": 0.06746804722523592,
+      "ci_high": 0.30574364026608536
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.35145687273926646,
+       "ci_low": 0.12875674405569,
+       "ci_high": 0.6192712149765599
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.0021791040897369387,
+       "ci_low": -0.04403892363587471,
+       "ci_high": 0.04468188270345911
+      }
+     }
+    },
+    "U_0to100": {
+     "pooled": {
+      "n": 150,
+      "n_clusters": 15,
+      "mean": 0.06992972872125393,
+      "ci_low": -0.0569927484476336,
+      "ci_high": 0.19841561831854562
+     },
+     "per_model": {
+      "qwen3-8b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": 0.1760071230226216,
+       "ci_low": -0.05869566087863253,
+       "ci_high": 0.41133824883064324
+      },
+      "mistral-small-24b": {
+       "n": 75,
+       "n_clusters": 15,
+       "mean": -0.03614766558011373,
+       "ci_low": -0.08185076635134847,
+       "ci_high": 0.0068831279873847965
+      }
+     }
+    }
+   },
+   "policy_transfer_m": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 0.18951716267072394,
+     "ci_low": 0.11283630754456908,
+     "ci_high": 0.258760725522896
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.3660593315810608,
+      "ci_low": 0.2260763892063305,
+      "ci_high": 0.49041380574460974
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.012974993760387103,
+      "ci_low": -0.012689256276457738,
+      "ci_high": 0.038489152900349925
+     }
+    },
+    "pass": false
+   },
+   "policy_transfer_u": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 0.1233738585678778,
+     "ci_low": 0.014827459629425386,
+     "ci_high": 0.23121111988021575
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.26373199788094404,
+      "ci_low": 0.05547030181043266,
+      "ci_high": 0.4774267294374618
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": -0.016984280745188395,
+      "ci_low": -0.05146079969732729,
+      "ci_high": 0.014810535239010322
+     }
+    },
+    "pass": false
+   },
+   "target_conditioning": {
+    "pooled": {
+     "n": 150,
+     "n_clusters": 15,
+     "mean": 0.06614330410284613,
+     "ci_low": -0.0200187696793654,
+     "ci_high": 0.13752034965917628
+    },
+    "per_model": {
+     "qwen3-8b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.10232733370011678,
+      "ci_low": -0.07792236060581224,
+      "ci_high": 0.25172329278205785
+     },
+     "mistral-small-24b": {
+      "n": 75,
+      "n_clusters": 15,
+      "mean": 0.0299592745055755,
+      "ci_low": -0.001733584888279438,
+      "ci_high": 0.06843139665822189
+     }
+    },
+    "pass": false
+   }
+  }
+ },
+ "controls": {
+  "layers": {
+   "4": {
+    "tc_mean": -0.03211063351893548,
+    "tc_pass": false,
+    "pattern_absent": true,
+    "weaker_by_at_least_floor": true,
+    "ok": true
+   },
+   "24": {
+    "tc_mean": 0.06614330410284613,
+    "tc_pass": false,
+    "pattern_absent": true,
+    "weaker_by_at_least_floor": true,
+    "ok": true
+   }
+  },
+  "passed": true
+ },
+ "drops": {
+  "qwen3-8b": {
+   "missing_item": 0,
+   "unknown_item": 0,
+   "incomplete": 0
+  },
+  "mistral-small-24b": {
+   "missing_item": 0,
+   "unknown_item": 0,
+   "incomplete": 0
+  }
+ },
+ "verdict": "target-conditioned-policy-state",
+ "licensed": "When the target proposition is available during policy processing, the rule-time state carries causally exchangeable information about whether that target should have zero or full decision weight."
+}
