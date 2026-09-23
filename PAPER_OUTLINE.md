@@ -99,7 +99,7 @@ successful suppression.
 
 ---
 
-## 7. G23C — does the state carry policy value?
+## 7. G23C — target-conditioned policy-state efficacy
 
 2×2:
 - matched/unrelated target preview;
@@ -108,18 +108,32 @@ successful suppression.
 Primary intervention:
 bidirectional 0↔100 rule-end state interchange at frozen L14.
 
-Primary estimands:
-- `PolicyTransfer_M`;
-- `PolicyTransfer_U`;
-- `TargetConditioning = PolicyTransfer_M - PolicyTransfer_U`.
+Frozen result:
+- `PolicyTransfer_M = +13.03 [+11.69,+14.31]`;
+- `PolicyTransfer_U = +4.89 [+3.73,+6.18]`;
+- `TargetConditioning = +8.15 [+6.91,+9.44]`;
+- L4/L24 controls near zero;
+- identity patch exact.
 
-Desired mechanistic law:
-> policy value becomes causally exchangeable when the semantic target is available
-> during rule processing.
+Mechanistic conclusion:
+> **the causal efficacy of the rule-time policy state is target-conditioned.**
+
+Do not claim a single universal target×policy vector.
 
 ---
 
-## 8. Related work
+## 8. G23C-R — fresh-material replication
+
+Use the frozen G18 legal + evidence-inference materials:
+70 items / 20 skeletons, disjoint from Stage 5.
+
+Replicate the exact G23C bridge and L4/L14/L24 policy-state interchange.
+
+This is the last planned mechanism round. Its job is robustness only.
+
+---
+
+## 9. Related work
 
 Four clean buckets:
 1. instruction position / forgetting;
@@ -133,7 +147,7 @@ eligibility of evidence.
 
 ---
 
-## 9. Discussion
+## 10. Discussion
 
 Implication:
 natural-language policy may not behave as an abstract future constraint simply because
@@ -147,7 +161,7 @@ Limitations:
 
 ---
 
-## 10. Conclusion
+## 11. Conclusion
 
 One sentence:
 
