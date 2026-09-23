@@ -1,4 +1,4 @@
-# Project status — 2026-09-23, G23C COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
+# Project status — 2026-09-24, G23C + G24A COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -9,10 +9,17 @@
 > **G23C v1 COMPLETE:** frozen verdict `target-conditioned-policy-state`,
 > L14 `TargetConditioning = +8.15 [+6.91,+9.44]`.
 >
+> **G24A v1 COMPLETE (2026-09-24):** frozen verdict `prospective-only` —
+> pooled-4 `REI_pre = +0.541 [+0.477,+0.603]` (P1 PASS) vs
+> `REI_post = −0.067 [−0.158,+0.021]` (P2 FAIL); sufficiency gate 595/600;
+> integrity ledger 5/5 models × 600 items complete. Report:
+> `results/g24a/g24a_analysis_v1.{md,json}`. Licensed §8 wording applies
+> verbatim; no other claim language is authorized from this round.
+>
 > **ACTIVE:** paper-scale three-RQ expansion under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
 >
-> **G24A FROZEN AND AUTHORIZED (single experiment):** source-grounded
+> **G24A AUTHORIZED EXPERIMENT (record — EXECUTED AND COMPLETE):** source-grounded
 > natural-evidence confirmation on FEVER + SciFact — prereg
 > `preregistrations/PREREGISTRATION_G24A_NATURAL_EVIDENCE.md`, tag
 > `g24a-natural-evidence-confirmation-design-v1` (commit `25316a9`, tagged
@@ -24,6 +31,15 @@
 > §5 quotas (200/200/100/100, τ=10.0, seed 20260924) → main pass (5 frozen
 > panel models × 8 kinds, reasoned, max-model-len 4096, 4 local GPUs) →
 > `src/analyze_g24a.py`. Nothing else.
+>
+> Executed exactly once per this authority: selection pass
+> `results/raw/g24a_mistral-small-24b_selection.jsonl` (39,849 rows,
+> Base/Admit-only) → selected 600/600
+> `data/items/g24a_v1.jsonl` sha256 `b0d02f7a…`, report
+> `data/items/g24a_selection_report_v1.{md,json}` (shortfall0; a selector
+> early-stop bug was found by structural audit and fixed back to prereg §5.4
+> before selection — see commit `b3fe84d`) → main pass5 ×4,800 rows =
+> 24,000/24,000 → verdict above.
 >
 > **NO OTHER TARGET-MODEL COMPUTE AUTHORIZED.**
 
