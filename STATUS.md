@@ -9,12 +9,23 @@
 > **G23C v1 COMPLETE:** frozen verdict `target-conditioned-policy-state`,
 > L14 `TargetConditioning = +8.15 [+6.91,+9.44]`.
 >
-> **ACTIVE NEXT STEP:** paper-scale three-RQ expansion under
+> **ACTIVE:** paper-scale three-RQ expansion under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
 >
-> **IMMEDIATE DESIGN PRIORITY:** G24A source-grounded natural-evidence confirmation.
+> **G24A FROZEN AND AUTHORIZED (single experiment):** source-grounded
+> natural-evidence confirmation on FEVER + SciFact — prereg
+> `preregistrations/PREREGISTRATION_G24A_NATURAL_EVIDENCE.md`, tag
+> `g24a-natural-evidence-confirmation-design-v1` (commit `25316a9`, tagged
+> before any G24A forward pass), source audit
+> `data/external/review/G24A_SOURCE_DATA_AUDIT_v1` PASS 53/53, candidates
+> `data/items/g24a_candidates_v1.jsonl` (13,283 items). Compute authorized =
+> prereg §11 layout only: selection pass (`base,admit_pre,admit_post`,
+> `mistral-small-24b`, no Exclude/probe rows) → selected ≤600-item file per
+> §5 quotas (200/200/100/100, τ=10.0, seed 20260924) → main pass (5 frozen
+> panel models × 8 kinds, reasoned, max-model-len 4096, 4 local GPUs) →
+> `src/analyze_g24a.py`. Nothing else.
 >
-> **NO NEW TARGET-MODEL COMPUTE AUTHORIZED.**
+> **NO OTHER TARGET-MODEL COMPUTE AUTHORIZED.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
