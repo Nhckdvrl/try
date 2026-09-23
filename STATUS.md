@@ -1,4 +1,4 @@
-# Project status — 2026-09-23, G23C COMPLETE / G23C-R DESIGN ACTIVE
+# Project status — 2026-09-23, G23C COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -9,10 +9,12 @@
 > **G23C v1 COMPLETE:** frozen verdict `target-conditioned-policy-state`,
 > L14 `TargetConditioning = +8.15 [+6.91,+9.44]`.
 >
-> **ACTIVE NEXT STEP:** G23C-R fresh-material confirmatory replication — design /
-> preregistration only.
+> **ACTIVE NEXT STEP:** paper-scale three-RQ expansion under
+> `PAPER_SCALE_AUDIT_2026-09-23.md`.
 >
-> **NO G23C-R COMPUTE AUTHORIZED.**
+> **IMMEDIATE DESIGN PRIORITY:** G24A source-grounded natural-evidence confirmation.
+>
+> **NO NEW TARGET-MODEL COMPUTE AUTHORIZED.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -107,48 +109,33 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-G23A v3 is complete (`zero-amplified`).
+G23A v3, G23B v1 and G23C v1 are closed rounds.
 
-G23B v1 is complete as a stopped `carrier-invalid` round; Phase B was never run.
+The earlier statement “G23C-R then write” is superseded by
+`PAPER_SCALE_AUDIT_2026-09-23.md`.
 
-G23C v1 is complete under the frozen design tag
-`g23c-target-conditioned-policy-state-design-v1`:
+Current paper target:
 
-- bridge `PolicyEffect_M = +34.08 [+32.16,+36.21]`;
-- bridge `TargetPolicyInteraction = +11.31 [+8.26,+15.04]`;
-- L14 `PolicyTransfer_M = +13.03 [+11.69,+14.31]`;
-- L14 `PolicyTransfer_U = +4.89 [+3.73,+6.18]`;
-- L14 `TargetConditioning = +8.15 [+6.91,+9.44]`;
-- L4 / L24 target-conditioning controls: approximately 0;
-- identity patch max absolute delta: 0.0;
-- verdict: **target-conditioned-policy-state**.
+- **RQ1 / generality:** G0 breadth + controls + agent setting + a new source-grounded
+  natural-evidence confirmation;
+- **RQ2 / structural boundary:** G23A zero amplification + explicit/verifiable
+  prospective-zero controls + policy-access/enforcement dissociation;
+- **RQ3 / mechanism:** Stage 5 + G23C + donor-vs-recipient causal factorization +
+  fresh-material replication.
 
-Design integrity: from the G23C design tag to the result commit, runner, analyzer,
-tests and preregistration were unchanged; only STATUS/result artifacts were added.
-
-The licensed synthesis is deliberately:
-
-> **the causal efficacy of the rule-time policy state is target-conditioned.**
-
-Do not strengthen this to “the entire target×policy conjunction is explicitly encoded
-in one rule-end token” or “downstream context is irrelevant.”
-
-Current next design:
-`preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md`.
-
-G23C-R uses the already-frozen, Stage-5-disjoint G18 legal + evidence-inference
-materials (70 items / 20 skeletons) to replicate the exact G23C mechanism on fresh
-materials.
-
-Authorized now:
-- G23C-R design/prereg refinement;
-- code/tests;
-- tokenizer-only position/site audit;
-- no-model synthetic checks.
+Immediate authorized work is **design only**:
+- design G24A on source-grounded evidence datasets;
+- audit dataset licensing/provenance, estimand and selection rules;
+- write implementation/tests without target-model generation;
+- refine G24B and G23C-R only at design level.
 
 Not authorized:
-- any G23C-R model forward pass;
-- activation capture or patching;
-- layer/site/model search;
-- any G23B carrier rescue;
-- any new mechanism branch beyond G23C-R without a new paper-level audit.
+- G24A generation before its own freeze/tag/authority update;
+- G24B patching;
+- G23C-R forward passes;
+- new layer/site/model searches;
+- any new carrier rescue;
+- arbitrary “extra ablations” not tied to RQ1/RQ2/RQ3.
+
+Next compute authorization must name a single frozen experiment and its exact scientific
+gap.
