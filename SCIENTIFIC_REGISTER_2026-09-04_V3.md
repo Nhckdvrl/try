@@ -515,7 +515,12 @@ TargetDeviation(arm,w)
 
 in raw rating points, so order symmetry cannot be mistaken for correct weighting.
 
-Cluster bootstrap by independent skeleton. In the pooled analysis, all model outputs for
+`w=100` is the matched Admit anchor and is reported separately. The v2 analyzer also
+reports raw target-deviation from the requested weight so PRE/POST symmetry is not
+misread as correct weighting.
+
+Cluster bootstrap by independent skeleton; pooled inference keeps all model outputs for
+the same skeleton inside the same resampled cluster. In the pooled analysis, all model outputs for
 the same skeleton remain inside the same resampled cluster.
 
 Freeze the exact estimator, exclusion criteria, and bootstrap seed before generation.
