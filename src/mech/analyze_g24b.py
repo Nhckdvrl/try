@@ -437,9 +437,10 @@ def print_full(rep):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", choices=["bridge", "full"], required=True)
-    ap.add_argument("--bridge-frozen", default=None,
-                    help="override path to the frozen G23C bridge analysis "
-                         "for the §12 cross-check (tests only)")
+    ap.add_argument("--bridge-frozen", default=os.path.join(
+        ROOT, "results", "mech", "g23c_bridge_analysis.json"),
+        help="frozen G23C bridge analysis for the mandatory §12 "
+             "cross-check (default: the frozen file; tests override)")
     args = ap.parse_args()
 
     meta = load_frozen_meta()

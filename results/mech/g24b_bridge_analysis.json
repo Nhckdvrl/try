@@ -1,0 +1,106 @@
+{
+ "design": {
+  "seed": 20260924,
+  "resamples": 10000,
+  "floor": 3.0,
+  "bridge_floor": 5.0,
+  "n_items_expected": 75,
+  "n_complete": {
+   "qwen3-8b": 75,
+   "mistral-small-24b": 75
+  },
+  "n_clusters": 15
+ },
+ "design_tag": "g24b-donor-recipient-factorization-design-v1",
+ "pooled": {
+  "policy_effect_m": {
+   "n": 150,
+   "n_clusters": 15,
+   "mean": 34.07997374897937,
+   "ci_low": 32.155371795972606,
+   "ci_high": 36.211017373756086
+  },
+  "policy_effect_u": {
+   "n": 150,
+   "n_clusters": 15,
+   "mean": 22.771553693480065,
+   "ci_low": 18.181732683893667,
+   "ci_high": 26.54077132229501
+  },
+  "target_policy_interaction": {
+   "n": 150,
+   "n_clusters": 15,
+   "mean": 11.308420055499301,
+   "ci_low": 8.262105602779414,
+   "ci_high": 15.03756800066969
+  }
+ },
+ "per_model": {
+  "qwen3-8b": {
+   "policy_effect_m": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 24.523418019527988,
+    "ci_low": 18.751797470800383,
+    "ci_high": 30.54721204861384
+   },
+   "policy_effect_u": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 15.357090161376739,
+    "ci_low": 9.749537110428276,
+    "ci_high": 21.10495105065833
+   },
+   "target_policy_interaction": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 9.166327858151247,
+    "ci_low": 5.429513789814603,
+    "ci_high": 13.53321461011448
+   }
+  },
+  "mistral-small-24b": {
+   "policy_effect_m": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 43.636529478430745,
+    "ci_low": 37.18069312354693,
+    "ci_high": 49.459795902745846
+   },
+   "policy_effect_u": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 30.186017225583395,
+    "ci_low": 21.968547665737045,
+    "ci_high": 37.832061164435885
+   },
+   "target_policy_interaction": {
+    "n": 75,
+    "n_clusters": 15,
+    "mean": 13.450512252847354,
+    "ci_low": 9.3296864028824,
+    "ci_high": 17.96227085850004
+   }
+  }
+ },
+ "gates": {
+  "gate1_pooled_policy_effect_m": true,
+  "gate2_pooled_target_policy_interaction": true,
+  "gate3_positive_model_means_2_of_2": true,
+  "passed": true
+ },
+ "drops": {
+  "qwen3-8b": {
+   "missing_item": 0,
+   "unknown_item": 0,
+   "incomplete": 0
+  },
+  "mistral-small-24b": {
+   "missing_item": 0,
+   "unknown_item": 0,
+   "incomplete": 0
+  }
+ },
+ "verdict": null,
+ "licensed": null
+}
