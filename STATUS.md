@@ -41,6 +41,22 @@
 > before selection — see commit `b3fe84d`) → main pass5 ×4,800 rows =
 > 24,000/24,000 → verdict above.
 >
+> **G24B FROZEN AND AUTHORIZED (single experiment):** donor-state vs
+> recipient-context factorization — prereg
+> `preregistrations/PREREGISTRATION_G24B_DONOR_RECIPIENT_FACTORIZATION.md`,
+> tag `g24b-donor-recipient-factorization-design-v1` (commit `a1c787f`,
+> tagged before any G24B forward pass). Compute authorized = prereg §4/§6/§9
+> layout only: bridge phase (the four Stage-5 cells, direct readout, no hooks,
+> the two frozen models × 75 items) → gate read with the §12 boolean-triple
+> cross-check against frozen `results/mech/g23c_bridge_analysis.json` (abort on
+> mismatch) → only if the bridge passes, patch phase (four baselines with
+> rule-end state capture + 8 donor×recipient grid patches × layers (4,14,24) +
+> four-cell identity patches, the same two models × 75 items) →
+> `src/mech/analyze_g24b.py --phase bridge|full`. Nothing else. Scientific gap:
+> G23C's within-preview interchange cannot separate state-side target
+> conditioning from matched-recipient sensitivity; this round fixes the
+> recipient prompt and varies only the donor state.
+>
 > **NO OTHER TARGET-MODEL COMPUTE AUTHORIZED.**
 
 Current selection standard:
@@ -136,7 +152,7 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-G23A v3, G23B v1 and G23C v1 are closed rounds.
+G23A v3, G23B v1, G23C v1 and G24A v1 are closed rounds.
 
 The earlier statement “G23C-R then write” is superseded by
 `PAPER_SCALE_AUDIT_2026-09-23.md`.
@@ -150,15 +166,15 @@ Current paper target:
 - **RQ3 / mechanism:** Stage 5 + G23C + donor-vs-recipient causal factorization +
   fresh-material replication.
 
-Immediate authorized work is **design only**:
-- design G24A on source-grounded evidence datasets;
-- audit dataset licensing/provenance, estimand and selection rules;
-- write implementation/tests without target-model generation;
-- refine G24B and G23C-R only at design level.
+Authorized now: the single frozen G24B round exactly as preregistered
+(bridge → gate cross-check → patch → analyze), per the header block above.
+
+Still design only:
+- G23C-R design/finalization (fresh-material replication);
+- paper writing work under `PAPER_SCALE_AUDIT_2026-09-23.md`.
 
 Not authorized:
-- G24A generation before its own freeze/tag/authority update;
-- G24B patching;
+- anything beyond the G24B prereg §4/§6/§9 layout named in the header;
 - G23C-R forward passes;
 - new layer/site/model searches;
 - any new carrier rescue;
