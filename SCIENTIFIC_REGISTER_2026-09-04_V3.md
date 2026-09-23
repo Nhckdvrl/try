@@ -425,9 +425,14 @@ target-binding experiment.
 > non-causal (`w=0`), or does the same timing failure occur when the model is merely
 > asked to attenuate evidence by a non-zero amount?**
 
-If the effect is sharply zero-specific, the paper gains a real computational boundary:
+If complete exclusion carries an additional timing penalty beyond non-zero attenuation,
+the paper gains a real computational boundary:
 
-> **prospective weighting can work while prospective gating fails.**
+> **categorical exclusion has an extra prospective timing cost beyond ordinary
+> attenuation.**
+
+Do not infer from a small PRE/POST gap at a non-zero weight that numerical weighting was
+implemented correctly; G23A v2 reports raw target-deviation diagnostics separately.
 
 That directly motivates the gate-vs-cancellation account.
 
@@ -495,12 +500,23 @@ Gap(w) =
 Primary scientific contrast:
 
 ```
-ZeroDiscontinuity =
+ZeroAmplification =
     Gap(0)
-    − mean[Gap(1), Gap(25), Gap(50), Gap(100)]
+    − mean[Gap(1), Gap(25), Gap(50)]
 ```
 
-Cluster bootstrap by independent skeleton.
+`w=100` is the matched Admit anchor, not an attenuation level, so it is reported
+separately. G23A v2 also reports:
+
+```
+TargetDeviation(arm,w)
+    = ResInf(arm,w) − w · Leverage
+```
+
+in raw rating points, so order symmetry cannot be mistaken for correct weighting.
+
+Cluster bootstrap by independent skeleton. In the pooled analysis, all model outputs for
+the same skeleton remain inside the same resampled cluster.
 
 Freeze the exact estimator, exclusion criteria, and bootstrap seed before generation.
 
@@ -516,18 +532,19 @@ Do not spend compute on a large model zoo before the shape is known.
 
 ## 6.6 Interpretation map
 
-### Outcome A — sharp zero-specific timing gap
+### Outcome A — zero-amplified timing cost
 
 ```
-Gap(0) >> Gap(non-zero)
+Gap(0) > mean Gap({1,25,50})
 ```
-
-This is the desired scientific law, but not because it “wins.”
 
 Interpretation:
 
-> **Complete evidence exclusion is computationally different from ordinary prospective
-> reweighting.**
+> **Complete evidence exclusion carries an additional prospective timing cost beyond
+> non-zero attenuation.**
+
+Non-zero timing gaps may still exist. In that case the correct reading is generic timing
+cost plus an extra categorical-exclusion cost, not “only zero is affected.”
 
 Next step:
 run G23B to distinguish **standing gate** from **retrospective cancellation**.
@@ -546,7 +563,7 @@ the new gate-vs-cancellation paper weakens substantially. Reassess before mechan
 
 Interpretation:
 
-> the old zero-specific story is not stable enough to carry the new paper.
+> the old zero-amplified story is not stable enough to carry the new paper.
 
 Consequence:
 do not rescue it with mechanism. Return to the stable G0 phenomenon and reassess the
@@ -657,7 +674,7 @@ The reopened project is worth a serious pilot because it already has:
 - a broad, replicated, counterintuitive phenomenon;
 - controls against simple instruction-position / memory accounts;
 - a policy-access vs enforcement dissociation;
-- a promising zero-specific boundary;
+- a promising zero-amplified boundary;
 - a replicated causal rule-time mechanism asset.
 
 What it still lacks is the one Main-level computational law that explains why
@@ -672,7 +689,7 @@ not simple instruction forgetting
         ↓
 G23A: weighting vs categorical gating
         ↓
-if zero-specific:
+if zero-amplified:
 G23B: standing prospective gate vs retrospective cancellation
         ↓
 branch-specific causal mechanism using Stage 5
