@@ -13,6 +13,15 @@ stated before the evidence, minus the same influence when the rule follows it.
 Positive = the prospective statement of the rule loses more of the evidence's
 effect than the retrospective one, i.e. the G0 reversal at that requested weight.
 
+Scope of the primary contrast (v3 semantic freeze): `Δ_zero` identifies a
+**discontinuity at the zero-valued instruction** — that complete exclusion carries an
+extra prospective timing cost *relative to non-zero weight instructions*. It does **not**
+establish that the non-zero arms behaviourally implemented their requested weights:
+the numeric probe only shows the model can state which weight was requested
+(`requested_weight_access_ok`), and `TargetDeviation` is a descriptor that cannot alone
+prove linear execution (`ResInf(w) = w·Leverage` assumes rating points are linear in
+evidential weight, which natural judgment need not be).
+
 Inference: cluster bootstrap over independent skeletons, seed 20260923, 10,000
 resamples, percentile intervals. Per-model analyses cluster by skeleton; pooled analysis
 also clusters by skeleton, keeping all model observations for the same item together.
@@ -189,12 +198,18 @@ def _ci(stats: dict) -> str:
 
 def main() -> None:
     items = {i.item_id: i for i in load_items(os.path.join(ROOT, "data/items/g23a_v1.jsonl"))}
-    report = {"design_tag": "g23a-zero-gating-design-v2",
+    report = {"design_tag": "g23a-zero-gating-design-v3",
               "estimand": "Gap(w) and Δ_zero in raw sign-aligned rating points",
               "exclusions": ["complete case: all 12 decision cells present",
                              "signed leverage s·[Y(norule) − Y(base)] > 0"],
               "bootstrap": {"seed": SEED, "n_resamples": N_RESAMPLES,
                             "cluster": "independent skeleton; pooled keeps models sharing a skeleton together"},
+              "claim_scope": "discontinuity at the zero-valued instruction relative to "
+                             "non-zero weight instructions; does not establish that the "
+                             "non-zero arms behaviourally implemented their weights",
+              "targetdev_status": "descriptive only: raw-point deviation from w·Leverage; "
+                                  "assumes linearity of rating points in evidential weight "
+                                  "and never gates the verdict",
               "per_model": {}, "pooled": {}, "drops": {}}
 
     pooled = {k: [] for k in
@@ -286,7 +301,7 @@ def main() -> None:
         print(f"  {w:<7}{_fmt(pre, 14)}{_fmt(post, 14)}   {g['mean']:>+8.2f} {_ci(g)}")
     print(f"\n  mean signed leverage (evidence's own pull, no rule): "
           f"{pooled_stats['leverage']['mean']:+.2f}")
-    print(f"  Gap over attenuation weights 1/25/50: {nonzero_stats['mean']:+.2f} "
+    print(f"  Gap over non-zero weight instructions 1/25/50: {nonzero_stats['mean']:+.2f} "
           f"{_ci(nonzero_stats)}")
     print("\n  raw target-deviation diagnostic — |ResInf - requested_fraction * leverage|")
     print(f"  {'w':<7}{'PRE MAE':>12}{'POST MAE':>12}")
@@ -318,10 +333,13 @@ def main() -> None:
           f"gate 2 (≥ {MIN_MODELS_POSITIVE}/{len(model_delta)} models positive): {gate_models}")
     print(f"VERDICT: {verdict}")
 
-    # ---- policy-access descriptor (Outcome D) -----------------------------
-    print("\npolicy access — stated weight vs requested weight (pooled over both orders)")
+    # ---- requested-weight access descriptor (Outcome D) --------------------
+    # This table shows the model can *state* which weight was requested. It is not
+    # evidence that behaviour implemented that weight; see TargetDeviation below.
+    print("\nrequested-weight access — stated weight vs requested weight "
+          "(pooled over both orders)")
     print(f"  {'w':<7}{'n':>5}{'median |error| (pp)':>22}{'within ±2 pp':>15}")
-    competent = True
+    access_ok = True
     probe_report = {}
     for tag in MODELS:
         p = report["per_model"].get(tag, {}).get("probes")
@@ -340,9 +358,9 @@ def main() -> None:
         if not n:
             continue
         med = st.median(errs)
-        competent = competent and med <= PROBE_TOL_PP
+        access_ok = access_ok and med <= PROBE_TOL_PP
         print(f"  {wkey:<7}{int(n):>5}{med:>22.1f}{within / n:>15.2f}")
-    report["weighting_competent"] = competent
+    report["requested_weight_access_ok"] = access_ok
 
     print("\nyes/no permission probes (mean P(YES); w=0 should be NO, w=100 YES)")
     for tag, p in probe_report.items():
@@ -351,13 +369,16 @@ def main() -> None:
                           for k, v in p["permission_yes"].items())
         print(f"  {tag:<20}{cells}")
 
-    if verdict in ("zero-amplified", "model-dependent") and competent:
-        print("\nDISSOCIATION (Outcome D): policy access and quantitative weighting "
-              "competence coexist with a timing gap that only zero shows —\n  "
-              "policy access + weighting competence ≠ ability to make the semantic "
-              "evidence causally inert at w = 0.")
+    if verdict in ("zero-amplified", "model-dependent") and access_ok:
+        print("\nDISSOCIATION (Outcome D): explicit policy access / requested-weight "
+              "recall coexists with a timing gap that only zero shows —\n  "
+              "explicit policy access / requested-weight recall ≠ causal enforcement "
+              "at w = 0.\n  The probe shows the model knows which numerical policy was "
+              "requested, not that behaviour\n  quantitatively implements it; "
+              "behavioural implementation is reported separately as the\n  descriptive "
+              "TargetDeviation.")
     report["dissociation_outcome_D"] = bool(
-        verdict in ("zero-amplified", "model-dependent") and competent)
+        verdict in ("zero-amplified", "model-dependent") and access_ok)
 
     out = os.path.join(ROOT, "results/g23a_zero_gating_analysis.json")
     with open(out, "w") as handle:

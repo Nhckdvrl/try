@@ -27,8 +27,10 @@ Use:
 - PREREGISTRATION_G23A_ZERO_GATING.md — **current round of the reopened legacy line**
   (see ../../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6). Fresh 72-item / 72-skeleton
   set, raw sign-aligned rating points, frozen exclusions and gates; asks whether the
-  pre/post timing gap is specific to `w = 0`. Frozen at tag
-  g23a-zero-gating-design-v1 before any G23A generation.
+  pre/post timing gap is discontinuously amplified at `w = 0` relative to non-zero
+  weight instructions. Frozen before any G23A generation at tags
+  g23a-zero-gating-design-v1 (original), -v2 (clustering + wording audit) and
+  -v3 (interpretive-only freeze: claim scoped to instructions, Outcome D downgraded).
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -84,7 +86,7 @@ outputs.
 
 G23A is the only design with a frozen preregistration on the reopened line; see
 ../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6. G23B (standing gate vs retrospective
-cancellation) is **conditional** on a `zero-specific` or explicitly scoped
+cancellation) is **conditional** on a `zero-amplified` or explicitly scoped
 `model-dependent` G23A verdict and is not authorized by the G23A file.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in

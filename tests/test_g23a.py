@@ -301,3 +301,30 @@ def test_target_deviation_is_raw_not_ratio(tmp_path):
     assert r["leverage"] == pytest.approx(20.0)
     assert r["target_dev"][("pre", "w025")] == pytest.approx(0.0)
     assert r["target_dev"][("post", "w025")] == pytest.approx(0.0)
+
+
+def test_v3_semantic_freeze_claim_scope_and_probe_naming():
+    """v3 is an interpretive-only freeze.
+
+    The claim must stay scoped to instructions (a discontinuity at w=0 relative to
+    non-zero weight instructions), and the numeric probe must not be labelled
+    "weighting competence": it only shows the model can state the requested weight.
+    """
+    import analyze_g23a
+
+    with open(analyze_g23a.__file__, encoding="utf-8") as handle:
+        src = handle.read()
+    assert "requested_weight_access_ok" in src
+    assert "weighting_competent" not in src
+    assert "quantitative weighting" not in src
+
+    with open(os.path.join(ROOT, "preregistrations/"
+                             "PREREGISTRATION_G23A_ZERO_GATING.md"),
+              encoding="utf-8") as handle:
+        prereg = handle.read()
+    assert "discontinuously amplified at `w = 0`" in prereg
+    assert "explicit policy access / requested-weight recall" in prereg
+    assert "quantitative weighting competence" not in prereg
+    # TargetDeviation stays descriptive: it may contradict an implementation
+    # claim, never confirm one, and never enters a gate.
+    assert "never be promoted into an actionability" in prereg

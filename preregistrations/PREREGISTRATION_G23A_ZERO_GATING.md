@@ -1,11 +1,18 @@
 # G23A preregistration — gating is not merely reweighting
 
 **Created:** 2026-09-23, before any G23A generation.
-**Status:** REVISION PENDING FREEZE.
+**Status:** REVISION 2 PENDING FREEZE (v3).
 The original v1 design was committed/tagged before generation, but a 2026-09-23
 pre-generation audit found two inferential issues: pooled clustering and over-strong
-wording of the zero-vs-nonzero claim. No G23A target-model generation occurred.
-This corrected design must be committed and tagged `g23a-zero-gating-design-v2`
+wording of the zero-vs-nonzero claim. A second pre-generation audit the same day found
+one remaining interpretive gap: the v2 verdict wording and the Outcome D descriptor
+implied that the non-zero arms *behaviourally implemented* their weights, which this
+design does not identify — the numeric probe only shows the model can state which
+weight was requested. No G23A target-model generation occurred under v1 or v2.
+
+This third revision is **interpretive only**: no change to materials, the twelve
+decision cells, the thirteen probes, the primary estimand, the bootstrap, or any gate
+number. It must be committed and tagged `g23a-zero-gating-design-v3`
 before any target model is run.
 
 Governing direction:
@@ -41,15 +48,22 @@ the candidate law survives on fresh items in raw rating points.
 > completely non-causal (`w = 0`), or does the same timing failure appear when the
 > model is merely asked to attenuate the evidence by a non-zero amount?**
 
-If complete exclusion carries an additional timing penalty beyond non-zero attenuation,
-the paper gains a computational boundary that is not a restatement of instruction
-position:
+If the timing gap at complete exclusion is larger than at the non-zero weight
+instructions, the paper gains a computational boundary that is not a restatement of
+instruction position:
 
-> **Categorical exclusion has an extra prospective timing cost beyond ordinary
-> attenuation.**
+> **The prospective timing gap is discontinuously amplified at `w = 0` relative to
+> non-zero weight instructions.**
 
-This is deliberately narrower than “prospective weighting works”: PRE/POST equality at
-a non-zero weight does not prove that either arm numerically implemented that weight.
+Equivalently: *the same evidential-weight instruction produces extra prospective
+timing cost only when the requested weight is zero.*
+
+This is deliberately narrower than “prospective weighting works while gating fails”.
+PRE/POST equality at a non-zero weight does not prove that either arm numerically
+implemented that weight, so this experiment identifies a discontinuity at the
+zero-valued **instruction**, not successful attenuation. The stronger claim requires
+behavioural evidence that the non-zero arms implemented their weights, which G23A
+reports only as the descriptive `TargetDeviation`.
 
 If it is not, the gate-vs-cancellation story weakens before any mechanism work is
 spent on it.
@@ -137,8 +151,8 @@ still computed and reported, because `ResInf(pre, ·)` and `ResInf(post, ·)` ar
 terms a reviewer needs to see to know the gap is not an artefact of one arm sitting at
 a floor.
 
-`Δ_zero` is the primary experiment: does complete gating carry an **additional**
-timing penalty beyond non-zero attenuation?
+`Δ_zero` is the primary experiment: is the timing gap at complete gating **larger than**
+the gap at the non-zero weight instructions?
 
 `w=100` is the matched Admit anchor, not an attenuation level, so it is reported
 separately rather than averaged into `Δ_zero`.
@@ -154,6 +168,13 @@ AbsTargetDeviation(arm,w) = |TargetDeviation(arm,w)|
 These remain raw rating points and use no denominator. They prevent a zero PRE/POST gap
 at 25% from being mis-described as successful 25% weighting when both arms ignore the
 numerical rule. They are descriptive and do not change the primary verdict.
+
+They equally cannot *confirm* implementation. `ResInf(w) = w · Leverage` assumes the
+final 0–100 rating is linear in evidential weight, and natural semantic judgment need
+not be: an internal halving of causal weight need not halve the stated rating. A small
+`AbsTargetDeviation` is therefore **consistent with**, never proof of, correct internal
+weighting — and by the same argument it must never be promoted into an actionability
+gate. The verdict rests only on `Δ_zero` and the gates in §7.
 
 **No REI, no leverage-normalised ratio, no other denominator anywhere in this round.**
 No trimming, no winsorisation, no post-hoc item dropping.
@@ -181,8 +202,8 @@ material units.
 
 ## 6. Frozen prediction
 
-> **Complete exclusion carries an additional timing penalty.** `Gap(0)` is larger
-> than the average gap under true attenuation levels `w ∈ {1,25,50}`.
+> **The timing gap is discontinuously amplified at `w = 0`.** `Gap(0)` is larger
+> than the average gap at the non-zero weight instructions `w ∈ {1,25,50}`.
 
 Non-zero gaps are still reported individually. They are allowed to be non-zero; if they
 are positive, the interpretation is “generic timing cost plus an extra categorical-
@@ -211,11 +232,11 @@ for a primary contrast in raw points).
 
 | verdict | rule | consequence |
 |---|---|---|
-| `zero-amplified` | 1a + 1b + 2 | Outcome A. **Complete exclusion has an additional timing penalty beyond non-zero attenuation.** This is the only verdict that automatically authorises a G23B preregistration (standing gate vs retrospective cancellation). Non-zero timing gaps may still exist and must be reported. |
+| `zero-amplified` | 1a + 1b + 2 | Outcome A. **The prospective timing gap is discontinuously amplified at `w = 0` relative to non-zero weight instructions.** This is a claim about *instructions*: the non-zero arms need not have behaviourally attenuated anything for this verdict to hold. This is the only verdict that automatically authorises a G23B preregistration (standing gate vs retrospective cancellation). Non-zero timing gaps may still exist and must be reported. |
 | `model-dependent` | 1a + 1b, not 2 | Outcome A at panel level with a named dissenting model. Reported as a panel regularity with the exception named; G23B may be preregistered only with the dissenting model named **in advance** and retained in the analysis. No checkpoint is dropped after seeing results. |
 | `sub-threshold` | 1a only | Direction correct but below the frozen floor. Report the estimate and the interval honestly; **do not** promote the law and **do not** run G23B. |
-| `smooth-timing` | 1a fails, and the pooled mean of attenuation gaps `Gap(1), Gap(25), Gap(50)` has lower bound > 0 | **Outcome B.** Attenuation itself has a timing gap and there is no identified extra zero penalty. This is generic prospective weighting / instruction-timing failure rather than evidence for a distinct categorical component. Reassess before mechanism work. |
-| `no-replication` | 1a fails and the attenuation gaps are also consistent with zero | **Outcome C.** The fresh `w = 0` gap does not replicate. **Do not rescue it with mechanism.** Return to the stable G0 phenomenon and reassess the mainline. |
+| `smooth-timing` | 1a fails, and the pooled mean of the non-zero weight gaps `Gap(1), Gap(25), Gap(50)` has lower bound > 0 | **Outcome B.** The non-zero weight instructions themselves carry a timing gap and there is no identified extra zero penalty. This is generic prospective weighting / instruction-timing failure rather than evidence for a distinct categorical component. Reassess before mechanism work. |
+| `no-replication` | 1a fails and the non-zero weight gaps are also consistent with zero | **Outcome C.** The fresh `w = 0` gap does not replicate. **Do not rescue it with mechanism.** Return to the stable G0 phenomenon and reassess the mainline. |
 
 No per-cell significance is required in any model. The primary estimand is the pooled
 contrast; per-model effects are reported in full.
@@ -224,11 +245,17 @@ contrast; per-model effects are reported in full.
 verdict coincides with every requested weight being stated within ±2 percentage points
 (median absolute error), the analysis prints the dissociation explicitly:
 
-> policy access + quantitative weighting competence ≠ ability to make the semantic
-> evidence causally inert at `w = 0`.
+> explicit policy access / requested-weight recall ≠ causal enforcement.
 
-That would connect the register's C2 (policy access ≠ enforcement) to C3 (categorical
-gating) in one dataset.
+The numeric probe shows only that the model knows **which numerical policy was
+requested**; it does not show that behaviour quantitatively implements that policy. The
+analyzer field is deliberately named `requested_weight_access_ok`, **not** “weighting
+competence”: stating “25%” and weighting the evidence at 25% are different claims, and
+only the first is measured here. Behavioural implementation is reported separately and
+descriptively through `TargetDeviation`.
+
+That would connect the register's C2 (policy access ≠ enforcement) to C3 (the zero
+discontinuity) in one dataset.
 
 ## 8. Model panel — frozen, three checkpoints
 
@@ -247,7 +274,7 @@ position), greedy decoding; probes are 1–8 token greedy calls.
 
 | verdict | what may be claimed |
 |---|---|
-| `zero-amplified` | Complete exclusion is computationally different from ordinary prospective reweighting, established on fresh items and skeletons in raw rating points. The new paper story has its law; G23B becomes the next question. |
+| `zero-amplified` | The timing gap is discontinuously amplified at `w = 0` relative to non-zero weight instructions, established on fresh items and skeletons in raw rating points. The new paper story has its law; G23B becomes the next question. **Not** claimed: that non-zero attenuation was behaviourally implemented. |
 | `model-dependent` | The boundary holds at panel level with a named exception, exactly as Mistral's exception is reported elsewhere. |
 | `sub-threshold` | The direction replicates; the magnitude does not reach the frozen floor. Reported as a weak effect, not a law. |
 | `smooth-timing` | The timing failure is general across requested weights. Gating as a distinct object is not established; mechanism work on a gate is not justified. |
@@ -268,6 +295,7 @@ ReGround G19 as paper centres; any mechanism-first feature search.
 - [x] analyzer implemented against the frozen estimator, exclusions, seed and gates —
       `src/analyze_g23a.py`
 - [x] this document, the generator, the materials and the analyzer committed and
-      original v1 committed/tagged before generation; corrected design must be
-      committed and tagged `g23a-zero-gating-design-v2`
+      original v1 committed/tagged before generation; v2 (clustering + wording fix)
+      committed/tagged `g23a-zero-gating-design-v2`; this interpretive-only revision
+      must be committed and tagged `g23a-zero-gating-design-v3`
 - [ ] only then: generation

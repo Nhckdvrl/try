@@ -387,8 +387,19 @@ Support:
 
 ## C3 — OPEN, immediate priority
 
-> **Prospective failure is specific to categorical gating, not ordinary evidence
-> reweighting.**
+> **The prospective timing gap is discontinuously amplified at `w = 0` relative to
+> non-zero weight instructions.**
+
+Equivalently: the same evidential-weight instruction produces extra prospective timing
+cost only when the requested weight is zero.
+
+This is what `Δ_zero = Gap(0) − mean[Gap(1), Gap(25), Gap(50)]` actually identifies, so
+this is the only form C3 may be stated in. The stronger form — *prospective failure is
+specific to categorical gating while ordinary reweighting succeeds* — additionally
+requires evidence that the non-zero arms behaviourally implemented their requested
+weights. G23A does not have that: the numeric probe only shows the model can state which
+weight was requested, and `TargetDeviation` assumes rating points are linear in
+evidential weight. Do not state the stronger form from G23A alone.
 
 The old data strongly suggest this, but the clean prospectively frozen confirmation is
 still missing.
@@ -425,14 +436,17 @@ target-binding experiment.
 > non-causal (`w=0`), or does the same timing failure occur when the model is merely
 > asked to attenuate evidence by a non-zero amount?**
 
-If complete exclusion carries an additional timing penalty beyond non-zero attenuation,
+If the timing gap at `w = 0` exceeds the gap at the non-zero weight instructions,
 the paper gains a real computational boundary:
 
-> **categorical exclusion has an extra prospective timing cost beyond ordinary
-> attenuation.**
+> **the prospective timing gap is discontinuously amplified at `w = 0` relative to
+> non-zero weight instructions.**
 
 Do not infer from a small PRE/POST gap at a non-zero weight that numerical weighting was
-implemented correctly; G23A v2 reports raw target-deviation diagnostics separately.
+implemented correctly; G23A reports raw target-deviation diagnostics separately, as a
+descriptor only — `ResInf(w) = w · Leverage` assumes rating points are linear in
+evidential weight, which natural judgment need not be. Likewise, the numeric probe
+establishes only that the model can state which weight was requested.
 
 That directly motivates the gate-vs-cancellation account.
 
@@ -506,16 +520,19 @@ ZeroAmplification =
 ```
 
 `w=100` is the matched Admit anchor, not an attenuation level, so it is reported
-separately. G23A v2 also reports:
+separately. G23A also reports:
 
 ```
 TargetDeviation(arm,w)
     = ResInf(arm,w) − w · Leverage
 ```
 
-in raw rating points, so order symmetry cannot be mistaken for correct weighting.
+in raw rating points, so order symmetry cannot be mistaken for correct weighting. It is
+descriptive only: it can contradict a claimed implementation but, because it assumes
+linearity of rating points in evidential weight, it can never confirm one and never
+enters a gate.
 
-`w=100` is the matched Admit anchor and is reported separately. The v2 analyzer also
+`w=100` is the matched Admit anchor and is reported separately. The analyzer also
 reports raw target-deviation from the requested weight so PRE/POST symmetry is not
 misread as correct weighting.
 
@@ -545,11 +562,15 @@ Gap(0) > mean Gap({1,25,50})
 
 Interpretation:
 
-> **Complete evidence exclusion carries an additional prospective timing cost beyond
-> non-zero attenuation.**
+> **Complete exclusion instructions carry an additional prospective timing cost
+> relative to non-zero weight instructions.**
 
 Non-zero timing gaps may still exist. In that case the correct reading is generic timing
 cost plus an extra categorical-exclusion cost, not “only zero is affected.”
+
+Scope: this is a discontinuity at the zero-valued *instruction*. It does **not** show
+that the non-zero arms behaviourally implemented their weights — that would require
+`TargetDeviation` plus a linearity assumption G23A does not make.
 
 Next step:
 run G23B to distinguish **standing gate** from **retrospective cancellation**.
@@ -574,12 +595,16 @@ Consequence:
 do not rescue it with mechanism. Return to the stable G0 phenomenon and reassess the
 mainline.
 
-### Outcome D — model understands the requested weights but only zero leaks
+### Outcome D — model can state the requested weights but only zero leaks
 
 This is especially strong:
 
-> **policy access + quantitative weighting competence can coexist with a selective
+> **explicit policy access / requested-weight recall can coexist with a selective
 > failure to make semantic evidence causally inert.**
+
+The probe shows the model knows which numerical policy was requested — not that
+behaviour quantitatively implements it. The analyzer field is
+`requested_weight_access_ok`, deliberately not “weighting competence”.
 
 That would connect C2 and C3 cleanly.
 
