@@ -20,6 +20,7 @@ import conditions_v7 as v7
 import conditions_g17 as g17
 import conditions_g18 as g18
 import conditions_g23a as g23a
+import conditions_g23b as g23b
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -65,6 +66,10 @@ G18_CONDITIONS = g18.G18_CONDITIONS
 
 # G23A: weighting vs categorical gating, on fresh items (g23a_v1.jsonl)
 G23A_CONDITIONS = g23a.G23A_CONDITIONS
+
+# G23B: standing gate vs retrospective cancellation, fresh legal items
+# (g23b_v1.jsonl); 4 carrier cells + 3 rule cells, no probes
+G23B_CONDITIONS = g23b.G23B_CONDITIONS
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
@@ -140,6 +145,8 @@ def _blocks(item: Item, cond: str):
         return ext.ramsey_blocks(item, cond)
     if cond in g23a.G23A_CONDITIONS:
         return g23a.blocks(item, cond, B, E)
+    if cond in g23b.G23B_CONDITIONS:
+        return g23b.blocks(item, cond, B, E)
     if cond in g18.G18_CONDITIONS:
         return g18.blocks(item, cond, B, E)
     if cond in g17.G17_CONDITIONS:

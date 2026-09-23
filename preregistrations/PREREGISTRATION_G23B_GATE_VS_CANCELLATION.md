@@ -1,10 +1,13 @@
-# G23B preregistration draft — standing gate vs retrospective cancellation
+# G23B preregistration — standing gate vs retrospective cancellation
 
 **Created:** 2026-09-23, after the frozen G23A v3 verdict and before any G23B
 target-model generation.
 
-**Status:** DESIGN / PREREGISTRATION DRAFT ONLY.  
-**NO G23B TARGET-MODEL COMPUTE IS AUTHORIZED BY THIS FILE.**
+**Status:** FROZEN DESIGN — committed and tagged
+`g23b-gate-vs-cancellation-design-v1` on 2026-09-23, before any G23B generation.
+§14 records the freeze and the three audit flags settled before tagging.
+**NO G23B TARGET-MODEL COMPUTE IS AUTHORIZED BY THIS FILE.** Repository-level
+authority for any generation lives in `STATUS.md` only.
 
 G23A v3 established the preregistered `zero-amplified` result:
 
@@ -117,13 +120,21 @@ The K condition contains a pre-rule proffer with the same semantic payload:
 ```text
 OFFER OF PROOF — NOT EVIDENCE
 
-For the limited purpose of deciding admissibility, counsel states that the later
-[evidence label] is expected to report the following:
+For the limited purpose of deciding admissibility, counsel states the content
+expected from [evidence label] when that evidence is later presented:
 
     <semantic payload of E>
 
 This proffer is not admitted evidence and must not affect the merits judgment.
 ```
+
+Freeze note (FLAG-3, settled 2026-09-23): the original draft slot — "counsel
+states that the later [evidence label] is expected to report the following" — is
+ungrammatical once plural evidence labels are substituted. Only agreement was
+repaired; the header, purpose sentence, label reference, later-presentation,
+expectation modality, indented payload and closing sentence are unchanged. The
+rendered block in `src/conditions_g23b.py` substitutes `[evidence label]` with the
+item's `critical_label` and the payload with `critical_evidence`.
 
 The later actual evidence block uses the same proposition as evidence, with a different
 role wrapper.
@@ -180,6 +191,20 @@ I      BACKGROUND -> EVIDENCE(E) -> RULE(exclude E) -> judgment
 
 The exclusion rule is byte-identical across U/K/I except for unavoidable block order.
 
+Freeze note (FLAG-2, settled 2026-09-23): `RULE(exclude E)` is the G0 categorical
+inadmissibility ruling with a per-item reason clause, stored without the `RULING`
+header that the condition code prepends:
+
+```text
+RULING
+The court has ruled that [evidence label] [reason]. It is inadmissible:
+you must not let it play any role when you reach your verdict.
+```
+
+The four `exclusion_reason` bands in the materials are `procedural_illegality`,
+`epistemic_invalidation`, `access_control` and `temporal_irrelevance`, 15 items
+each.
+
 No rule replay, reminder, chain-of-thought instruction, target identifier manipulation,
 or mechanism intervention is part of G23B.
 
@@ -207,6 +232,12 @@ E3. `Leverage_K > 0`.
 
 No other item dropping, trimming, winsorisation, ratio normalisation, or post-hoc
 carrier filtering is allowed.
+
+**Gate ordering (FLAG-1, settled 2026-09-23):** gates 1–4 below are computed on
+the **E1 set** — Phase-A rows after E1 only, *before* E2/E3 are applied. E2 and E3
+then define the eligible set for the Phase-B branch estimands (rows entering
+`Supp_*` and the two contrasts). Gates 3/4 are never evaluated after E3 has been
+applied: the mean of strictly positive values would satisfy them by construction.
 
 ### Aggregate carrier gate
 
@@ -470,3 +501,46 @@ This document authorizes **design work only** until all of the following exist:
 Until then:
 
 > **NO G23B TARGET-MODEL GENERATION.**
+
+---
+
+## 14. Freeze checklist and record
+
+Three items were flagged in the pre-compute design audit and settled by decision on
+2026-09-23, before any G23B output exists:
+
+- **FLAG-1 — gate ordering (§6):** carrier gates 1–4 computed on the E1 set before
+  E2/E3; E2/E3 define the Phase-B branch set.
+- **FLAG-2 — rule family (§5):** `RULE(exclude E)` is the G0 categorical
+  inadmissibility ruling with a per-item reason clause.
+- **FLAG-3 — proffer wording (§4):** agreement-safe rendering adopted; every other
+  template element unchanged.
+
+Freeze checklist:
+
+- [x] fresh materials — `data/items/g23b_v1.jsonl`: 60 items / 60 skeletons,
+      30 increase / 30 decrease, disjoint from `items_v1` / `g18_v1` / `linear_v1` /
+      `g23a_v1` asserted at build (id, surface, skeleton), no LLM-generated gold;
+      sha256 `8cb4cfe4dacb0e5f4368c6d1e568083fd38f05b54ae03489d0208b4b7332cda8`
+- [x] conditions — `src/conditions_g23b.py`; cell keys `g23b_b`, `g23b_p`, `g23b_e`,
+      `g23b_pe`, `g23b_u`, `g23b_k`, `g23b_i` realize §5's B / B→P / B→E / B→P→E /
+      B→R→E / B→P→R→E / B→E→R; registered in `src/schema.py`, dispatched by
+      `src/run_model.py`; no probes
+- [x] analyzer — `src/analyze_g23b.py --phase a|b`; raw inputs
+      `results/raw/{model}_g23b_phasea.jsonl` / `..._phaseb.jsonl`; outputs
+      `results/g23b_carrier_analysis.json` / `results/g23b_branch_analysis.json`;
+      seed `20260923`, 10,000 percentile resamples, clusters = skeletons; verdict
+      strings exactly the six of §8 in its decision order
+- [x] tests — `tests/test_g23b.py` plus a full-suite run green at freeze: cell
+      orders, no rule anywhere in Phase A, byte-identical rule across U/K/I,
+      proffer payload identity, `RetrospectiveAdvantage = SemanticRescue +
+      InstantiationPremium` row-level identity, all four carrier gates (including
+      the gate-ordering pin), all six verdicts, seed determinism
+- [x] worst-case prompt = 326 tokens (cell K) under the 2048-token context
+- [x] this document amended (§4, §5, §6 ordering note) and committed/tagged
+      `g23b-gate-vs-cancellation-design-v1` in the same commit, before any
+      generation
+- [ ] only then: Phase A generation (B / P / E / PE) under repository-level
+      authority from `STATUS.md`
+- [ ] Phase B (U / K / I) only if the Phase-A carrier gate passes; otherwise the
+      round stops here per §6
