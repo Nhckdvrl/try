@@ -31,10 +31,13 @@ Use:
   amplified at `w=0` relative to non-zero weight instructions.
 - PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **stopped frozen branch**.
   Design frozen at `g23b-gate-vs-cancellation-design-v1` (commit `e7701a9`).
-  Phase A was run exactly once and failed the frozen carrier gate:
-  pooled `ProfferLeak = +8.07 [+4.86,+11.23]`; all three model means exceeded the
-  +3-point neutrality floor. Verdict: **carrier-invalid**. Phase B U/K/I was never
-  generated. Do not redesign the carrier inside this preregistered round.
+  Phase A failed the frozen carrier gate:
+  pooled `ProfferLeak = +8.07 [+4.86,+11.23]`. Verdict: **carrier-invalid**.
+  Phase B U/K/I was never generated.
+- PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md — **current design-only
+  mechanism link**. Reuses the Stage-5 matched chronology and asks whether the
+  rule-time state causally carries the 0-vs-100 policy value more strongly when the
+  semantic target is already available. No compute authorized before its own freeze.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -88,9 +91,10 @@ outputs.
 
 ## Active next rounds
 
-G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is also
-complete as a **stopped / carrier-invalid** round. Its frozen Phase-A gate failed and
-Phase B U/K/I was never generated. No carrier-redesign round is currently active.
+G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is complete
+as a **stopped / carrier-invalid** round. G23C design/preregistration is now the only
+active next round; it is a new policy-state mechanism question, not a carrier redesign,
+and has **no compute authorization** yet.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
