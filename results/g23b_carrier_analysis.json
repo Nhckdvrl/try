@@ -1,0 +1,147 @@
+{
+ "design_tag": "g23b-gate-vs-cancellation-design-v1",
+ "phase": "a",
+ "estimand": "raw sign-aligned rating points; no ratio, no trimming, no winsorisation",
+ "bootstrap": {
+  "seed": 20260923,
+  "n_resamples": 10000,
+  "cluster": "independent skeleton; pooled keeps models sharing a skeleton together"
+ },
+ "floor_points": 3.0,
+ "exclusions": "E1 complete case for the executed phase; E2 Leverage_U > 0; E3 Leverage_K > 0 (E2/E3 define the Phase-B branch set; the Phase-A carrier gates run on E1 \u2014 FLAG-1)",
+ "per_model": {
+  "qwen3-8b": {
+   "proffer_leak": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 6.35531587466648,
+    "ci_low": 2.223527429549307,
+    "ci_high": 10.603284953028622
+   },
+   "leverage_u": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 11.542631226637761,
+    "ci_low": 6.025711268654588,
+    "ci_high": 17.351089421068995
+   },
+   "leverage_k": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 1.3291604147475091,
+    "ci_low": -1.9708223346920013,
+    "ci_high": 4.724978030396283
+   },
+   "n": 60
+  },
+  "gemma3-12b": {
+   "proffer_leak": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 8.343672224040324,
+    "ci_low": 4.388349608019274,
+    "ci_high": 12.328419983797207
+   },
+   "leverage_u": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 14.487067516923755,
+    "ci_low": 9.731028497123159,
+    "ci_high": 19.424354185705628
+   },
+   "leverage_k": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 3.3518275415114873,
+    "ci_low": 1.216716832553351,
+    "ci_high": 5.568077096360466
+   },
+   "n": 60
+  },
+  "mistral-small-24b": {
+   "proffer_leak": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 9.49640649670466,
+    "ci_low": 4.205066183559966,
+    "ci_high": 14.824884460032274
+   },
+   "leverage_u": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 15.521791179911808,
+    "ci_low": 9.551051770894686,
+    "ci_high": 21.817847386557677
+   },
+   "leverage_k": {
+    "n": 60,
+    "n_clusters": 60,
+    "mean": 1.9802596733061741,
+    "ci_low": -1.5627981551577113,
+    "ci_high": 5.7698816349646584
+   },
+   "n": 60
+  }
+ },
+ "drops": {
+  "qwen3-8b": {
+   "would_drop_nonpositive_leverage_k": 27,
+   "would_drop_nonpositive_leverage_u": 24
+  },
+  "gemma3-12b": {
+   "would_drop_nonpositive_leverage_u": 12,
+   "would_drop_nonpositive_leverage_k": 22
+  },
+  "mistral-small-24b": {
+   "would_drop_nonpositive_leverage_k": 24,
+   "would_drop_nonpositive_leverage_u": 16
+  }
+ },
+ "models_missing": [],
+ "pooled": {
+  "proffer_leak": {
+   "n": 180,
+   "n_clusters": 60,
+   "mean": 8.065131531803821,
+   "ci_low": 4.8604703204719,
+   "ci_high": 11.234787701867804
+  },
+  "leverage_u": {
+   "n": 180,
+   "n_clusters": 60,
+   "mean": 13.850496641157775,
+   "ci_low": 9.512638920752439,
+   "ci_high": 18.16961140961275
+  },
+  "leverage_k": {
+   "n": 180,
+   "n_clusters": 60,
+   "mean": 2.2204158765217232,
+   "ci_low": 0.3288183480563198,
+   "ci_high": 4.113975492167903
+  }
+ },
+ "carrier_gates": {
+  "gate1_pooled_profferleak_ci_high_lt_floor": false,
+  "gate2_no_model_mean_profferleak_ge_floor": false,
+  "gate3_pooled_mean_leverage_k_gt_0": true,
+  "gate4_leverage_k_positive_in_2_of_3_models": true,
+  "floor_points": 3.0,
+  "n_models": 3,
+  "passed": false
+ },
+ "branch_set_would_drop": {
+  "qwen3-8b": {
+   "would_drop_nonpositive_leverage_k": 27,
+   "would_drop_nonpositive_leverage_u": 24
+  },
+  "gemma3-12b": {
+   "would_drop_nonpositive_leverage_u": 12,
+   "would_drop_nonpositive_leverage_k": 22
+  },
+  "mistral-small-24b": {
+   "would_drop_nonpositive_leverage_k": 24,
+   "would_drop_nonpositive_leverage_u": 16
+  }
+ }
+}
