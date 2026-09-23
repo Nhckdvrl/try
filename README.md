@@ -14,9 +14,11 @@ Calibration:
 >
 > **G23B v1 IS STOPPED:** Phase-A carrier-invalid.
 >
-> **G23C DESIGN / PREREGISTRATION IS ACTIVE.**
+> **G23C v1 IS COMPLETE:** target-conditioned-policy-state.
 >
-> **NO G23C COMPUTE IS AUTHORIZED.**
+> **G23C-R DESIGN / PREREGISTRATION IS ACTIVE.**
+>
+> **NO G23C-R COMPUTE IS AUTHORIZED.**
 
 ---
 
@@ -93,8 +95,9 @@ Avoid by default:
 | PD | ARCHIVE / DO NOT ACTIVATE |
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid** |
-| Unring the Bell / G23C | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23C mechanism-link design** |
+| Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
+| Unring the Bell / G23C-R | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
+| active candidate | **G23C-R fresh-material replication** |
 | approved mainline | **NONE** |
 
 There is no candidate-count quota.
@@ -181,3 +184,22 @@ Design authority:
 
 No G23C compute is authorized until implementation, tests, bridge logic and the fixed
 patch sites/layers are frozen under a dedicated tag and `STATUS.md` is updated again.
+
+
+## G23C result and final replication
+
+G23C v1 passed its frozen mechanism verdict:
+`TargetConditioning(L14) = +8.15 [+6.91,+9.44]`, with both frozen negative
+layers near zero and exact identity patches.
+
+Post-result diagnostics on the original materials were also stable:
+- legal family TC ≈ +7.68;
+- evidence-inference TC ≈ +8.86;
+- deleting any one skeleton leaves pooled TC ≈ +7.79 to +8.40.
+
+The final planned mechanism round is **G23C-R**, a fresh-material replication on the
+already-frozen G18 legal + evidence-inference set (70 items / 20 skeletons), disjoint
+from the Stage-5 discovery set.
+
+No G23C-R compute is authorized before its own implementation, tests, tokenizer/site
+audit, design tag and explicit STATUS update.
