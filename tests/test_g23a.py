@@ -245,13 +245,13 @@ def test_probe_reader_reports_stated_weight_and_permission(tmp_path):
 
 
 def test_verdict_rule_is_exhaustive_and_frozen():
-    from analyze_g23a import DELTA_FLOOR, MIN_MODELS_POSITIVE, verdict_for
+    from analyze_g23a import ATTEN_WKEYS, DELTA_FLOOR, MIN_MODELS_POSITIVE, verdict_for
     def stats(mean, lo, hi):
         return {"mean": mean, "ci_low": lo, "ci_high": hi}
 
     # sharp zero-specific gap, all models positive
     assert verdict_for(stats(12.0, 6.0, 18.0), stats(0.5, -2.0, 3.0), 3, 3) == \
-        "zero-specific"
+        "zero-amplified"
     # right shape but only one model agrees
     assert verdict_for(stats(12.0, 6.0, 18.0), stats(0.5, -2.0, 3.0), 1, 3) == \
         "model-dependent"
@@ -265,3 +265,39 @@ def test_verdict_rule_is_exhaustive_and_frozen():
     assert verdict_for(stats(0.4, -3.0, 4.0), stats(0.2, -2.0, 2.5), 0, 3) == \
         "no-replication"
     assert MIN_MODELS_POSITIVE == 2
+    assert ATTEN_WKEYS == ("w001", "w025", "w050")
+
+
+def test_w100_is_admit_anchor_not_part_of_delta(tmp_path):
+    from analyze_g23a import rows_for
+    items = {i.item_id: i for i in ITEMS}
+    path = tmp_path / "raw.jsonl"
+    over = {}
+    for w in WKEYS:
+        over[f"g23a_pre_{w}"] = 60.0
+        over[f"g23a_post_{w}"] = 60.0
+    over["g23a_pre_w000"] = 59.0
+    over["g23a_post_w000"] = 50.0
+    # Deliberately make the 100% Admit anchor order-sensitive. It must not enter Δ_zero.
+    over["g23a_pre_w100"] = 80.0
+    over["g23a_post_w100"] = 50.0
+    _raw(path, _cells(ITEMS[0].item_id, **over))
+    rows, drops = rows_for(items, str(path))
+    assert drops == {} and len(rows) == 1
+    assert rows[0]["gap"]["w100"] == pytest.approx(30.0)
+    assert rows[0]["delta"] == pytest.approx(9.0)
+
+
+def test_target_deviation_is_raw_not_ratio(tmp_path):
+    from analyze_g23a import rows_for
+    items = {i.item_id: i for i in ITEMS}
+    path = tmp_path / "raw.jsonl"
+    # leverage=20; exact 25% implementation is ResInf=5.
+    over = {"g23a_pre_w025": 55.0, "g23a_post_w025": 55.0}
+    _raw(path, _cells(ITEMS[0].item_id, **over))
+    rows, drops = rows_for(items, str(path))
+    assert drops == {} and len(rows) == 1
+    r = rows[0]
+    assert r["leverage"] == pytest.approx(20.0)
+    assert r["target_dev"][("pre", "w025")] == pytest.approx(0.0)
+    assert r["target_dev"][("post", "w025")] == pytest.approx(0.0)
