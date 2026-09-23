@@ -777,3 +777,32 @@ branch-specific causal mechanism using Stage 5
 
 Do not revive G18/addressability, G20, G21, old G22, or ReGround as independent paper
 stories. They are provenance and supporting evidence, not the center.
+
+
+---
+
+# 10. NEXT DESIGN — G23C target-conditioned policy-state interchange
+
+G23B v1 is stopped and must not be rescued by prompt-searching for another K carrier.
+
+The next mechanistic question is instead:
+
+> **Does the Stage-5 rule-time state causally carry the policy value for a semantic
+> target, or does it merely reflect target/context readiness?**
+
+G23C reuses the Stage-5 2×2:
+`matched/unrelated preview × 0%/100% rule` and swaps the rule-time **policy-value
+state** within a fixed preview condition.
+
+Primary contrast:
+
+`TargetConditioning = PolicyTransfer_M - PolicyTransfer_U`.
+
+A positive, preregistered target-conditioning effect would connect the established
+behavioral law (G23A) to the mechanism: target availability during policy processing
+would enable formation of a causally executable target × policy state.
+
+Current authority:
+`preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
+
+**Design only. No G23C compute is authorized yet.**
