@@ -106,11 +106,19 @@ def select(candidates: list[dict], rows: dict,
         st["selected"] += 1
         selected.append(it)                # byte-identical candidate record
         levs.append(lev)
-        if all(st["selected"] >= quotas[k] for k in quotas):
+        # global stop: EVERY stratum at its own quota (each k uses its own
+        # stats — comparing the current stratum against all quotas would
+        # stop as soon as the first stratum reached the largest quota)
+        if all(stats[f"{a}/{b}"]["selected"] >= quotas[(a, b)]
+               for a, b in quotas):
             all_full = True
             break
     for st in stats.values():
         st["shortfall"] = st["quota"] - st["selected"]
+    # the walk may only stop early when it stops for this reason
+    assert (not all_full) or all(
+        stats[f"{a}/{b}"]["selected"] >= quotas[(a, b)] for a, b in quotas), \
+        "early stop without all quotas genuinely full"
     report = {
         "tau": tau,
         "seed_order": SEED,

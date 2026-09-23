@@ -325,6 +325,45 @@ def test_select_first_eligible_quota_boundary_and_shortfall():
     assert rep["tau"] == 10.0 and rep["seed_order"] == 20260924
 
 
+def test_select_real_shape_full_walk_regression():
+    """Real-shaped quotas (200/200/100/100): the first stratum fills its
+    quota before the others are touched — the walk MUST continue (the global
+    stop compares every stratum's own stats). Guards the bug where the
+    current stratum was compared against all quotas, stopping as soon as it
+    reached the largest quota value."""
+    q = dict(sg.QUOTAS)                      # frozen real quotas
+    cands, rows = [], {}
+    shape = [(("fever", "SUPPORTS"), "increase", 300),
+             (("fever", "REFUTES"), "decrease", 200),
+             (("scifact", "SUPPORT"), "increase", 100),
+             (("scifact", "CONTRADICT"), "decrease", 100)]
+    idx = 0
+    for (source, label), direction, n in shape:
+        for j in range(n):
+            iid = f"{source}_{label}_{j}"
+            cands.append(_cand(source, label, idx, direction, iid))
+            idx += 1
+            rows[iid] = {"base": 50.0,
+                         "admit_pre": 50.0 + (15.0 if direction == "increase"
+                                              else -15.0),
+                         "admit_post": 50.0 + (15.0 if direction == "increase"
+                                               else -15.0)}
+    sel, rep = sg.select(cands, rows, quotas=q)
+    st = rep["strata"]
+    # every stratum walked to exhaustion of its candidate list
+    assert [st[k]["pool"] for k in
+            ["fever/SUPPORTS", "fever/REFUTES",
+             "scifact/SUPPORT", "scifact/CONTRADICT"]] == [300, 200, 100, 100]
+    assert sum(x["selected"] for x in st.values()) == 600
+    assert rep["selected_total"] == 600 and rep["all_quotas_filled"] is True
+    # first-eligible in frozen order: FS ranks0..199, then FR starts at300
+    assert [x["meta"]["candidate_rank"] for x in sel[:3]] == [0, 1, 2]
+    assert sel[199]["meta"]["candidate_rank"] == 199     # FS quota filled
+    assert sel[200]["meta"]["candidate_rank"] == 300     # walk reached FR
+    assert sel[599]["meta"]["candidate_rank"] == 699     # last SC candidate
+    assert st["fever/SUPPORTS"]["examined"] == 200      # stops at quota
+
+
 def _write_rows(path, recs):
     with open(path, "w") as fh:
         for r in recs:

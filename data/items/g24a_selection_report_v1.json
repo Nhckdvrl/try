@@ -1,0 +1,60 @@
+{
+ "tau": 10.0,
+ "seed_order": 20260924,
+ "selection_model_tag": "mistral-small-24b",
+ "selection_kinds": [
+  "admit_post",
+  "admit_pre",
+  "base"
+ ],
+ "strata": {
+  "fever/SUPPORTS": {
+   "pool": 6326,
+   "examined": 666,
+   "eligible": 200,
+   "selected": 200,
+   "missing_value": 0,
+   "below_tau": 466,
+   "quota": 200,
+   "shortfall": 0
+  },
+  "fever/REFUTES": {
+   "pool": 6322,
+   "examined": 1338,
+   "eligible": 200,
+   "selected": 200,
+   "missing_value": 0,
+   "below_tau": 1138,
+   "quota": 200,
+   "shortfall": 0
+  },
+  "scifact/SUPPORT": {
+   "pool": 417,
+   "examined": 148,
+   "eligible": 100,
+   "selected": 100,
+   "missing_value": 0,
+   "below_tau": 48,
+   "quota": 100,
+   "shortfall": 0
+  },
+  "scifact/CONTRADICT": {
+   "pool": 216,
+   "examined": 216,
+   "eligible": 100,
+   "selected": 100,
+   "missing_value": 0,
+   "below_tau": 116,
+   "quota": 100,
+   "shortfall": 0
+  }
+ },
+ "selected_total": 600,
+ "quota_total": 600,
+ "all_quotas_filled": true,
+ "leverage_selected_min": 10.03198335753845,
+ "leverage_selected_p50": 40.08264777595363,
+ "leverage_selected_max": 99.82312786941297,
+ "selected_sha256": "b0d02f7ab1ae835149aa0e726dbe4b0c4186256c94f46d03d978632f9c951b34",
+ "candidates_sha256": "91ebad9850d6f7d39a9b26fcf98c1f998d16aa68cde3a480541df13da721f5cd"
+}
