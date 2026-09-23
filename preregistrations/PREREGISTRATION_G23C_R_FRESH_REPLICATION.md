@@ -2,8 +2,10 @@
 
 **Created:** 2026-09-23, after the frozen G23C v1 result.
 
-**Status:** DESIGN / PREREGISTRATION DRAFT ONLY.  
+**Status:** DESIGN / PREREGISTRATION DRAFT ONLY — HELD AS ONE RQ3 REPLICATION
+COMPONENT UNDER `PAPER_SCALE_AUDIT_2026-09-23.md`.  
 **NO G23C-R MODEL FORWARD PASS OR PATCHING COMPUTE IS AUTHORIZED BY THIS FILE.**
+It is no longer the sole next step.
 
 G23C v1 passed its frozen verdict on the Stage-5 discovery materials:
 
@@ -280,7 +282,9 @@ Those diagnostics motivate confidence but do not change any G23C-R gate.
 
 ## 11. Stop rule for the research programme
 
-G23C-R is the **last planned mechanism experiment**.
+G23C-R is one of two remaining RQ3 confirmations. The separate donor-vs-recipient
+factorization defined in the paper-scale audit must also be resolved before the
+strongest mechanism claim is considered paper-complete.
 
 After its frozen outcome:
 
