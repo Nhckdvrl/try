@@ -1,10 +1,10 @@
-# Project status — 2026-09-06, V17 CLEAN SLATE
+# Project status — 2026-09-23, V17 + G23A PILOT EXCEPTION
 
 > **NO APPROVED PAPER MAINLINE.**
 >
-> **NO ACTIVE CANDIDATES.**
+> **ACTIVE PILOT:** Unring the Bell / G23A v3.
 >
-> **NO TARGET-MODEL COMPUTE AUTHORIZED.**
+> **TARGET-MODEL COMPUTE AUTHORIZED ONLY FOR THE FROZEN G23A v3 PILOT.**
 
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
@@ -80,10 +80,13 @@ Strong negative prior:
 | HOM | **KILL CURRENT FORMULATION** |
 | CK | **KILL** |
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
-| active candidate | **NONE** |
+| Unring the Bell / G23A | **PILOT AUTHORIZED — v3 ONLY** |
+| active candidate | **G23A v3 only** |
 | approved mainline | **NONE** |
 
-Zero candidates is intentional.
+The clean-slate policy remains the default. G23A is a single explicit exception after
+the legacy Unring line was re-audited, the old paper stories were archived, and a
+decisive fresh pilot was frozen. This is **not** an approved paper mainline.
 
 TCR is now killed because too much source auditing/database reconstruction and cross-linguistic inference are required before the scientific estimand is even secured.
 
@@ -93,12 +96,30 @@ HOM is now killed because the current question remains a competence check of an 
 
 ## Compute boundary
 
-No target-model compute until a candidate fits the one-page pre-pilot card in V17:
-- one-sentence RQ;
-- why ACL/NLP cares;
-- two plausible accounts;
-- exact data + independent gold;
-- closest parent + reviewer compression;
-- outcome map;
-- C1/C2/C3;
-- minimum decisive pilot.
+Default rule remains: no target-model compute until a candidate clears the V17 pilot
+bar.
+
+### Explicit exception — G23A v3
+
+**Authorized now:** the exact frozen G23A design at
+`g23a-zero-gating-design-v3`, which resolves exactly to
+`c8a4dc6a48e407fe529c2fb5e35061064a858c5c`.
+
+Run exactly:
+- Qwen3-8B;
+- Gemma-3-12B;
+- Mistral-Small-24B;
+- 72 frozen items;
+- 12 decision conditions + 13 probes;
+- 5,400 generations total.
+
+Execution discipline:
+1. run all three frozen checkpoints;
+2. do not inspect, interpret, or adapt to a single-model G23A result mid-run;
+3. do not replace a failed checkpoint after seeing outcomes;
+4. after the complete panel finishes, run the frozen `src/analyze_g23a.py` once;
+5. accept the frozen verdict logic as written.
+
+This exception authorizes **G23A only**. It does not authorize G23B, mechanism runs,
+extra checkpoints, material changes, new conditions/probes, or post-generation changes
+to the estimator, exclusions, bootstrap, gates, or verdict logic.
