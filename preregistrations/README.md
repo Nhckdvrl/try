@@ -24,6 +24,11 @@ Use:
 - PREREGISTRATION_G19_REGROUND.md — **cancelled before generation** after the novelty
   audit. No G19_FREEZE.md was created and no model output exists. Preserve it as a
   pre-run cancelled design; do not execute it.
+- PREREGISTRATION_G23A_ZERO_GATING.md — **current round of the reopened legacy line**
+  (see ../../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6). Fresh 72-item / 72-skeleton
+  set, raw sign-aligned rating points, frozen exclusions and gates; asks whether the
+  pre/post timing gap is specific to `w = 0`. Frozen at tag
+  g23a-zero-gating-design-v1 before any G23A generation.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -77,7 +82,12 @@ outputs.
 
 ## Active next rounds
 
-G20 Binding Deadline and G21 Source-Scope Collapse are currently specified in
-../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**. They are not authorized until
-separate preregistration/freeze files are created. Do not infer a frozen design from
-that planning document.
+G23A is the only design with a frozen preregistration on the reopened line; see
+../SCIENTIFIC_REGISTER_2026-09-04_V3.md §6. G23B (standing gate vs retrospective
+cancellation) is **conditional** on a `zero-specific` or explicitly scoped
+`model-dependent` G23A verdict and is not authorized by the G23A file.
+
+G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
+../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
+stories by the register. They are not authorized until separate preregistration/freeze
+files are created. Do not infer a frozen design from that planning document.

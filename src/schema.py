@@ -19,6 +19,7 @@ import conditions_v6 as v6
 import conditions_v7 as v7
 import conditions_g17 as g17
 import conditions_g18 as g18
+import conditions_g23a as g23a
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -62,14 +63,18 @@ V7_CONDITIONS = v7.ALL_V7
 G17_CONDITIONS = g17.G17_CONDITIONS
 G18_CONDITIONS = g18.G18_CONDITIONS
 
+# G23A: weighting vs categorical gating, on fresh items (g23a_v1.jsonl)
+G23A_CONDITIONS = g23a.G23A_CONDITIONS
+
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
 
 # external held-out materials
 EXT_CONDITIONS = ext.EXT_RAMSEY_CONDITIONS
-PROBES = ["rule_probe_exclude_pre", "rule_probe_exclude_post",
-          "rule_probe_admit_post", "memory_probe_exclude_post",
-          "wprobe_pre", "wprobe_post"]
+PROBES = (["rule_probe_exclude_pre", "rule_probe_exclude_post",
+           "rule_probe_admit_post", "memory_probe_exclude_post",
+           "wprobe_pre", "wprobe_post"]
+          + g23a.G23A_PROBES)
 
 
 @dataclass
@@ -133,6 +138,8 @@ def _blocks(item: Item, cond: str):
                     "removed from this record. It is not available to you.")]
     if cond in ext.EXT_RAMSEY_CONDITIONS and item.task_family == "ext_ramsey":
         return ext.ramsey_blocks(item, cond)
+    if cond in g23a.G23A_CONDITIONS:
+        return g23a.blocks(item, cond, B, E)
     if cond in g18.G18_CONDITIONS:
         return g18.blocks(item, cond, B, E)
     if cond in g17.G17_CONDITIONS:
@@ -227,6 +234,16 @@ def compile_probe(item: Item, probe: str) -> str:
         arm = probe.split("_")[1]
         blocks = _blocks(item, f"nz0000_{arm}")
         q = v3.WEIGHT_PROBE_Q.format(lab=item.critical_label)
+    elif probe.startswith("wprobe_g23a_"):
+        # wprobe_g23a_<arm>_<wkey> — the model states the weight it was asked for
+        _, _, arm, wkey = probe.split("_")
+        blocks = _blocks(item, f"g23a_{arm}_{wkey}")
+        q = v3.WEIGHT_PROBE_Q.format(lab=item.critical_label)
+    elif probe.startswith("rule_probe_g23a_"):
+        # rule_probe_g23a_<wkey>_<arm> — may the evidence influence the judgment?
+        *_, wkey, arm = probe.split("_")
+        blocks = _blocks(item, f"g23a_{arm}_{wkey}")
+        q = item.rule_probe_question
     elif probe == "memory_probe_exclude_post":
         blocks = _blocks(item, "exclude_post")
         q = item.memory_question
