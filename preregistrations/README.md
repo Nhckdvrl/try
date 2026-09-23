@@ -29,12 +29,12 @@ Use:
   Final v3 verdict: `zero-amplified`, `Δ_zero = +8.83 [+4.39,+13.33]`, 3/3 model
   deltas positive. Licensed claim: the prospective timing gap is discontinuously
   amplified at `w=0` relative to non-zero weight instructions.
-- PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **current design-only next branch**.
-  Separates unresolved target state U, exact semantic knowledge in a non-evidential
-  proffer K, and already-instantiated evidence state I. Includes a Phase-A carrier
-  qualification gate before any U/K/I exclusion-rule outputs. No target-model compute
-  is authorized until materials, analyzer, tests and a dedicated G23B design freeze
-  exist.
+- PREREGISTRATION_G23B_GATE_VS_CANCELLATION.md — **frozen next branch**.
+  Design frozen before generation at tag `g23b-gate-vs-cancellation-design-v1`
+  (commit `e7701a9`). Fresh 60-item legal set; U/K/I branch with a prospectively
+  frozen Phase-A proffer-carrier qualification stage. Repository authority currently
+  permits **Phase A only** (`g23b_b/p/e/pe` × 60 × 3 models); Phase B U/K/I remains
+  held until the frozen carrier gate passes and `STATUS.md` is explicitly updated.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -88,10 +88,10 @@ outputs.
 
 ## Active next rounds
 
-G23A v3 is complete and passed its frozen prerequisite with a `zero-amplified`
-verdict. G23B design/preregistration work is therefore active, but **G23B target-model
-generation is not authorized** until its own materials / analyzer / tests are frozen
-and repository-level compute authority is explicitly updated.
+G23A v3 is complete with the frozen `zero-amplified` verdict. G23B design is now
+frozen at `g23b-gate-vs-cancellation-design-v1`. **Phase A carrier generation is
+authorized by `STATUS.md`; Phase B U/K/I generation is not authorized.** If the
+Phase-A carrier gate fails, the branch stops before any U/K/I output exists.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
