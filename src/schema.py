@@ -21,6 +21,7 @@ import conditions_g17 as g17
 import conditions_g18 as g18
 import conditions_g23a as g23a
 import conditions_g23b as g23b
+import conditions_g24a as g24a
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -115,6 +116,11 @@ _SEP = "\n\n"
 
 def _blocks(item: Item, cond: str):
     """Ordered list of context blocks for one condition."""
+    # G24A natural-evidence items re-render the five standard conditions over
+    # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
+    # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
+    if g24a.is_g24a(item):
+        return g24a.blocks(item, cond)
     B = ("BACKGROUND\n" + item.base_context)
     E = ("ADDITIONAL INFORMATION\n" + item.critical_evidence)
     Radm = ("RULING\n" + item.admit_rule)
