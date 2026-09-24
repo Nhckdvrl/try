@@ -45,12 +45,13 @@ Parent documents:
 | O1 | Selector | `mistral-small-24b` computes the gate cells (selection phase), excluded from the pooled four — G24A discipline (no self-conditioning). |
 | O2 | Panel | `qwen3-8b`, `gemma3-12b`, `llama31-8b`, `qwen35-9b` (same pooled-4 as G25A). |
 | O3 | Main-pass cells | **10** per item: `Y0, YA, YB, YAB` (no-rule, all four, so the single-component gates are re-verifiable **on the panel itself**, not only on the selector) + `EXCL × {T0,T1,T2}` + `ADMIT × {T0,T1,T2}`. |
-| O4 | Final n | all gate-passing items in frozen order, **capped at 300**; **split = train, pinned** (§2: 3,642 survivors / 2,320 clusters — 18× the S1 floor *before any gate*); sufficiency gate S1: ≥ 200 final items. |
+| O4 | Final n | all gate-passing items in frozen order, **capped at 300**; **split = train, pinned** (§2: 3,642 structural survivors → **3,640 feasible** after the §0 feasibility exclusions; **2,319 title-pair
+clusters**, count pinned by test — 18× the S1 floor *before any gate*); sufficiency gate S1: ≥ 200 final items. |
 | O5 | Equivalence ROPE — **secondary characterization only; power note done, ruling recorded (2026-09-24)** | δ = 1.5 raw rating points. **Equivalence never decides a branch** (user ruling; the zero-model O5 note §7 showed why: at design n equivalence power is 70%/20% under reasonable noise constants and 0% under the effect-scale analog — an underpowered test must not be a headline classifier). Primary questions are answered **only** by positive-effect gates: cluster-bootstrap CI low > 0 **and** point ≥ the project floor **3.0** (G23A/G24A/G25A discipline). Secondary role of δ: if a primary's CI *happily* fits ⊆ [−1.5, +1.5], the report may add "compatible with negligible gain"; if it does not fit, nothing is said and **no branch changes — never `unresolved`**. Consequently "≈ 0" may be written only under a *satisfied* secondary ROPE, and not-positive is written "no detectable effect", never "equivalent to zero". δ = 1.5 and n ≤ 300 / C ≤ 300 pinned as-is (options of raising δ to 4.19 or the cap to 856 explicitly rejected — statistics must not redefine the scientific semantics of "no load-bearing gain"). |
 | O6 | Panel usability floor | per model: `s·(Y_AB − Y_0) ≥ 5` raw points (chain effect measurable on that model), else unusable for that model only, reported `n/n_total`. |
 | O7 | Distance window | rule→judgment token distance equal across T0/T1/T2 **within ±10 tokens**, realized by **repositioning one shared filler multiset** (§3); asserted by test. |
 | O8 | Cluster key | HoVer decomposition **title path** (page pair) for the bootstrap. |
-| O9 | Seed / Phase A size | seed `20260924`; Phase A pool pinned at **N_A = 3,642** train-split structural survivors (audit `T6_post_rule_funnel.by_split.train`). |
+| O9 | Seed / Phase A size | seed `20260924`; Phase A pool pinned at **N_A = 3,640** = 3,642 train-split structural survivors (audit `T6_post_rule_funnel.by_split.train`) minus the **2 filler-feasibility exclusions** of the §0 feasibility-gate amendment (tokenizer-geometry, zero-model, outcome-blind; pool sha256 `ad0ac715…0a7e2c95c`). |
 
 **O1–O9 signed by the user on 2026-09-24** (v2 wording included; O5 per the
 same-date ruling recorded in §0 O5 / §7 / §8; every item signed unchanged).
@@ -67,6 +68,32 @@ ten; no estimand references an eleventh cell; the "11" carried over
 unchanged from v1); O3 / O6 / §9.9 / §11 / §12B restated to 10 cells and
 Phase B ≤ 14,400 rows (12,000 + 2,400). (b) Rule-probe timing pinned to
 **T0** (§3). Both before the Phase-A tag.
+
+**Filler-feasibility-gate amendment, user-ruled 2026-09-24 (pre-tag,
+zero-model, outcome-blind):** the frozen FILLER_BANK v2 census of O9's
+3,642 structural survivors left **2 items unfurnishable** inside the O7
+±10 window under the frozen deterministic algorithm + frozen search
+budget — uids `3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc` and
+`4b84c748-0cf2-4981-b526-bab6e8759040` (Georgian-script evidence: a
+tokenizer-geometry outlier; best-effort exact distance vector
+`llama31-8b = 13 > 10` on both arms, recorded in the pool report).
+Ruling: **freeze the feasibility criterion, not 100% coverage.** A
+pre-tag, outcome-blind **filler-feasibility gate** now applies: an item
+enters the Phase-A pool only if the frozen bank + frozen search budget
+furnish it within ±10 across 4 tokenizers × both rule arms × T0/T1/T2;
+items that cannot are excluded **deterministically** as
+`tokenizer_geometry_infeasible` with their exact best-effort distance
+vectors recorded, and never enter the pool. Consequences: **O9 / §11 —
+N_A = 3,640** (3,642 structural − 2 excluded), Phase A rows =
+3,640 × 4 = **14,560** (the §11 authorization ceiling becomes
+≤ 14,560 rows). Exclusion depends only on tokenizer geometry: zero model
+forwards exist or were consulted, no Y0/YA/YB/YAB or rule-cell outcome
+is involved or could be, and both excluded IDs are recorded here and in
+`data/items/g26_phasea_pool_report_v1.json`. From the Phase-A tag
+onward the bank **and** the search criterion are frozen — no added
+filler sentences, no ±10 relaxation, no item-specific or per-model
+filler, no post-tag criterion edits. Pool sha256
+`ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c`.
 
 ## 1. Scientific question (construct: load-bearing emergence)
 
@@ -199,6 +226,13 @@ block exists (v1's trailing-PAD T2 layout is retired).
   never LLM-generated; the **multiset (token inventory) is identical across
   T0/T1/T2 — only its placement differs** (tests: multiset equality + ±10
   distance assertion).
+- **Filler feasibility (§0 feasibility-gate amendment, 2026-09-24):** an
+  item enters the pool only if the frozen bank furnishes it within ±10
+  under all 4 tokenizers × both rule arms × T0/T1/T2; the 2
+  unfurnishable structural survivors are excluded as
+  `tokenizer_geometry_infeasible` (zero-model, outcome-blind; uids in §0).
+  Bank + search criterion frozen from the Phase-A tag: no added sentences,
+  no ±10 relaxation, no item-specific or per-model filler — ever.
 - **A/B assignment follows mention direction** (`sf0→sf1`, §2) — never the
   supporting-facts list order (test-asserted).
 - Same question, output spec, answer format, 0–100 readout across all cells
@@ -437,19 +471,24 @@ Five-gate preflight for this design:
 
 **Phase A — selector only:**
 
-- Scope: `Y0, YA, YB, YAB` × **N_A = 3,642** train structural survivors ×
-  1 model (O1) = **14,568 rows**. No rule cell of any kind (blind by
+- Scope: `Y0, YA, YB, YAB` × **N_A = 3,640** train feasible survivors
+  (3,642 structural − 2 filler-feasibility exclusions, §0 amendment) ×
+  1 model (O1) = **14,560 rows**. No rule cell of any kind (blind by
   construction).
-- After the run: **freeze the output file (sha256 recorded)**, compute the
-  §5 gates, record the funnel (n passing 0/1/2/3 gates).
-- **≥ 200 gate-passing →** take items in frozen order, cap 300 (O4),
+- After the run: **freeze the output file (sha256 computed before any
+  gate)**, require exactly the 4 no-rule kinds with **exactly one parsed
+  row per item × kind** (any missing/duplicated/unparsed row is
+  *mechanical* incompleteness → rerun, never analyzed partially), compute
+  the §5 gates, record the funnel (n passing 0/1/2/3 gates).
+- **≥ 200 gate-passing →** take items in **pool-file order** (frozen O9
+  order — never sorted by an outcome or effect size), cap 300 (O4),
   record selected item IDs + sha256 in §12B → then request **STATUS flip
   #2**.
 - **< 200 gate-passing → HARD STOP.** No threshold loosening, no dev-split
   switch, no MuSiQue rescue, no new corpus. Escalate to the user as a
   project-level decision; any change requires a prereg amendment **before**
   any further compute.
-- **STATUS flip #1** authorizes exactly Phase A (≤ 14,568 rows) — nothing
+- **STATUS flip #1** authorizes exactly Phase A (≤ 14,560 rows) — nothing
   else.
 
 **Phase B — the actual RQ3 experiment:** ≤ 300 selected × 10 cells ×
@@ -473,10 +512,11 @@ authorizes exactly them.
 - [x] §0 open items O1–O9 signed off (incl. user sign-off of the v2 wording) — DONE 2026-09-24: user signed all nine items unchanged (O5 per same-date ruling; ledgered in STATUS)
 - [x] **ROPE O5 power note completed (zero-model; §7 + `results/audits/g26a_rope_power_note_v1.json`) and its outcome pinned — per user ruling 2026-09-24: options 1/2/3 rejected; equivalence DEMOTED from primary-branch requirement to secondary characterization ("compatible with negligible gain" only when a CI ⊆ ±1.5); primary gates = CI low > 0 + floor 3.0; δ = 1.5 (secondary role) and n ≤ 300 / C ≤ 300 unchanged; §7 procedure + §8 table rewritten accordingly**
 - [x] HoVer structural audit recorded — sha256 / license / funnel / by-split (done 2026-09-24: `hover_v1.1` manifest, `hover_structural_v1.json`, report §5)
+- [x] **filler-feasibility census + Phase-A pool written** (done 2026-09-24: 3,642 structural → **3,640 feasible**, 2 excluded as `tokenizer_geometry_infeasible` uids recorded in §0; pool `data/items/g26_phasea_pool_v1.jsonl` sha256 `ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c`; report `data/items/g26_phasea_pool_report_v1.json`; zero-model, outcome-blind — §0 amendment)
 - [ ] tests green: rule identity, shared-multiset + ±10 distance, mention-direction orientation, single-split assertion, selection blindness, both sign directions, **positive-gate trichotomy (positive/negative/not-positive) with floor 3.0**, **secondary-ROPE characterization fires wording only — never a branch, never `unresolved`**, outcome-map firing order (`staged`/`load-bearing-bound`/`presence-bound`/`no-stage-gain` + subdivisions, equivalence-failure-is-not-unresolved locked)
 - [ ] full test suite green at updated baseline (334 passed / 849 s, five standard `--ignore` flags)
 - [ ] **Phase A design tag assigned:** ____________ (recorded here + ledger)
-- [ ] **STATUS flip #1 recorded** (ledger: authorizes Phase A ≤ 14,568 rows)
+- [ ] **STATUS flip #1 recorded** (ledger: authorizes Phase A ≤ 14,560 rows)
 
 **§12B — Phase A outputs → Phase B authorization (recording only; no design edits):**
 

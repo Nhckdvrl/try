@@ -1,0 +1,423 @@
+{
+ "design": "g26a_pool_v1",
+ "date": "2026-09-24",
+ "prereg": {
+  "path": "preregistrations/PREREGISTRATION_G26A_LOAD_BEARING.md",
+  "sha256": "079c9e58efc80e68027e17c4488fe18d601063e0bb4b9e00ca61749522a78249"
+ },
+ "audit": {
+  "path": "results/audits/hover_structural_v1.json",
+  "sha256": "7723e8ef5ef6b01ef273749c0b1936be4fe1eb70ad805d9c48e95ce60c1edc05"
+ },
+ "assertions": [
+  {
+   "field": "C2_funnel.train.distinct_titles",
+   "builder": 6153,
+   "audit": 6153,
+   "ok": true
+  },
+  {
+   "field": "C2_funnel.dev.distinct_titles",
+   "builder": 759,
+   "audit": 759,
+   "ok": true
+  },
+  {
+   "field": "T2.idx_invalid(pooled)",
+   "builder": 80,
+   "audit": 80,
+   "ok": true
+  },
+  {
+   "field": "T6.materialized(pooled)",
+   "builder": 6832,
+   "audit": 6832,
+   "ok": true
+  },
+  {
+   "field": "T4.bridge(pooled)",
+   "builder": 4405,
+   "audit": 4405,
+   "ok": true
+  },
+  {
+   "field": "T4.orientation_unique(pooled)",
+   "builder": 4270,
+   "audit": 4270,
+   "ok": true
+  },
+  {
+   "field": "T2.primary_range_8_80_pass(pooled)",
+   "builder": 6643,
+   "audit": 6643,
+   "ok": true
+  },
+  {
+   "field": "T5.primary_rule_recall_lt_0.9_pass(pooled)",
+   "builder": 6755,
+   "audit": 6755,
+   "ok": true
+  },
+  {
+   "field": "T6.leak_ge_0.9_excluded(pooled)",
+   "builder": 77,
+   "audit": 77,
+   "ok": true
+  },
+  {
+   "field": "T6.survivors(pooled)",
+   "builder": 4105,
+   "audit": 4105,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.train.survivors",
+   "builder": 3642,
+   "audit": 3642,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.train.title_pair_clusters",
+   "builder": 2320,
+   "audit": 2320,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.train.hpqa_clusters",
+   "builder": 2339,
+   "audit": 2339,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.dev.survivors",
+   "builder": 463,
+   "audit": 463,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.dev.title_pair_clusters",
+   "builder": 368,
+   "audit": 368,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split.dev.hpqa_clusters",
+   "builder": 371,
+   "audit": 371,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split_label.dev/NOT_SUPPORTED",
+   "builder": 268,
+   "audit": 268,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split_label.dev/SUPPORTED",
+   "builder": 195,
+   "audit": 195,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split_label.train/NOT_SUPPORTED",
+   "builder": 1136,
+   "audit": 1136,
+   "ok": true
+  },
+  {
+   "field": "T6.by_split_label.train/SUPPORTED",
+   "builder": 2506,
+   "audit": 2506,
+   "ok": true
+  },
+  {
+   "field": "T6.title_pair_clusters(pooled)",
+   "builder": 2683,
+   "audit": 2683,
+   "ok": true
+  },
+  {
+   "field": "T6.hpqa_clusters(pooled)",
+   "builder": 2710,
+   "audit": 2710,
+   "ok": true
+  },
+  {
+   "field": "PIN train survivors (O9)",
+   "builder": 3642,
+   "audit": 3642,
+   "ok": true
+  }
+ ],
+ "items": {
+  "path": "data/items/g26_phasea_pool_v1.jsonl",
+  "sha256": "ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c",
+  "n": 3640,
+  "order": "frozen HoVer train file order"
+ },
+ "funnel": {
+  "train": {
+   "candidates": 6153,
+   "materialized": 6082,
+   "bridge": 3902,
+   "oriented": 3782,
+   "fwd_oriented": 3710,
+   "wordpass": 5916,
+   "survivors": 3642,
+   "fwd_survivors": 3573,
+   "reversed_oriented": 72,
+   "reversed_survivors": 69,
+   "idx_oob": 71,
+   "title_pair_clusters": 2320,
+   "hpqa_clusters": 2339
+  },
+  "dev": {
+   "candidates": 759,
+   "materialized": 750,
+   "bridge": 503,
+   "oriented": 488,
+   "fwd_oriented": 485,
+   "wordpass": 727,
+   "survivors": 463,
+   "fwd_survivors": 460,
+   "idx_oob": 9,
+   "reversed_oriented": 3,
+   "reversed_survivors": 3,
+   "title_pair_clusters": 368,
+   "hpqa_clusters": 371
+  },
+  "pooled": {
+   "title_pair_clusters": 2683,
+   "hpqa_clusters": 2710,
+   "singleton_pairs": null,
+   "label_counts": {
+    "train/NOT_SUPPORTED": 1136,
+    "train/SUPPORTED": 2506,
+    "dev/SUPPORTED": 195,
+    "dev/NOT_SUPPORTED": 268
+   },
+   "leak_pass_train_dev": {
+    "train": 6016,
+    "dev": 739
+   },
+   "candidates": 6912,
+   "missing_page": 0,
+   "idx_oob": 80,
+   "materialized": 6832,
+   "bridge": 4405,
+   "oriented": 4270,
+   "fwd_oriented": 4195,
+   "reversed_oriented": 75,
+   "wordpass": 6643,
+   "survivors": 4105,
+   "fwd_survivors": 4033,
+   "reversed_survivors": 72
+  }
+ },
+ "orientation": {
+  "note": "A/B follow mention direction; reversed = sf1_to_sf0 list order (prereg §2 '75 reversed survivors', §9.3)",
+  "train": {
+   "fwd_oriented": 3710,
+   "reversed_oriented": 72,
+   "fwd_survivors": 3573,
+   "reversed_survivors": 69
+  },
+  "dev": {
+   "fwd_oriented": 485,
+   "reversed_oriented": 3,
+   "fwd_survivors": 460,
+   "reversed_survivors": 3
+  },
+  "pooled_reversed_survivors": 72
+ },
+ "labels": {
+  "train/NOT_SUPPORTED": 1136,
+  "train/SUPPORTED": 2506,
+  "dev/SUPPORTED": 195,
+  "dev/NOT_SUPPORTED": 268
+ },
+ "clusters": {
+  "train": {
+   "title_pair": 2320,
+   "hpqa": 2339
+  },
+  "dev": {
+   "title_pair": 368,
+   "hpqa": 371
+  },
+  "pooled": {
+   "title_pair": 2683,
+   "hpqa": 2710
+  }
+ },
+ "fillers": {
+  "bank_sentences": 68,
+  "bank_words": 816,
+  "schedule_ok": true,
+  "tokenizers": {
+   "model_ids": {
+    "llama31-8b": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+    "qwen3-8b": "Qwen/Qwen3-8B",
+    "qwen35-9b": "Qwen/Qwen3.5-9B",
+    "gemma3-12b": "google/gemma-3-12b-it"
+   },
+   "dirs": {
+    "llama31-8b": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+    "qwen3-8b": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+    "qwen35-9b": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "gemma3-12b": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80"
+   }
+  },
+  "max_pairwise_tokens": {
+   "admit_gemma3-12b": 10,
+   "admit_llama31-8b": 10,
+   "admit_qwen3-8b": 10,
+   "admit_qwen35-9b": 9,
+   "excl_gemma3-12b": 10,
+   "excl_llama31-8b": 10,
+   "excl_qwen3-8b": 10,
+   "excl_qwen35-9b": 9
+  },
+  "limit": 10,
+  "deep_rescued": {
+   "n": 26,
+   "ids": [
+    "g26a_17c8ae5d-9819-451e-974a-d2275e27e4db",
+    "g26a_8a94b148-01ef-493b-891f-a045e1b2c7df",
+    "g26a_31a485d6-3de2-4a11-9930-b28ad01d9c22",
+    "g26a_290eac57-a260-4ceb-8f87-e0ede02bbe50",
+    "g26a_08dcf870-66a5-435b-a7e4-38be2eac63c6",
+    "g26a_b411b14a-739e-47b4-8579-27fc8cf159c7",
+    "g26a_6674a62b-7c13-430b-bde2-46e2a1a136d1",
+    "g26a_f5a81c46-c739-4d39-878b-bbe115e775a2",
+    "g26a_4cbb840b-9fc4-45a1-9f07-96c1ab3218dc",
+    "g26a_188b269b-7cb2-477a-a167-2555e18fbcc2",
+    "g26a_ad0193aa-54d2-48af-a05d-9864500b42c4",
+    "g26a_26b30155-7650-46a7-94be-3c829a1a2ea2",
+    "g26a_6a4d497c-114f-4574-b91a-e0ee2c7ec8ee",
+    "g26a_02899198-5032-4a29-83b5-a4a25cef0573",
+    "g26a_56c70b90-38ad-4e4f-86f7-a6e83a9b9c86",
+    "g26a_2a94822f-11ee-4230-9f2f-b818b513dd10",
+    "g26a_2d6e494a-ec20-4f42-8405-f5f7765bdf32",
+    "g26a_cda61b2b-0abe-4c52-a5af-1b63a1de237e",
+    "g26a_ae63b116-b0a8-4ea8-af69-418bf2c69a6a",
+    "g26a_342d7544-5b0f-49b0-9583-7a3cc433cb47",
+    "g26a_18a212d3-f46e-4a5a-bc23-05d5f09be8c0",
+    "g26a_911d0a14-f3d1-47c6-8346-3c91769daeba",
+    "g26a_0f58eb31-dac8-48ad-960b-98af30cd7284",
+    "g26a_e9d96f19-034b-477d-9ee7-2ec8f7e5a61e",
+    "g26a_aec8b5ba-fa7c-4760-a1dc-d55e23de5b96",
+    "g26a_b83cf972-12ce-4e90-ab34-55d6a118a738"
+   ]
+  },
+  "worst": [
+   {
+    "item_id": "g26a_fbe16e44-f81f-41fc-8b51-80bbeaa7da69",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_f41f37b7-fd18-4f29-bc6a-955126bb1433",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_ef6a202b-24ad-42f1-84ee-2bf0536f3003",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_edb30713-eaa7-4631-a235-7bd36dce72df",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_ebdbadda-1a89-415e-bc4e-a0f62557995c",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_e9fe8fbc-518a-4c27-a90c-9d1eae0430e4",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_e7226269-e3c3-43ce-acd5-72a71364dfb9",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_e70ab06f-9d42-4cfb-ae77-a2608b8defc2",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_e62d5eaf-07a9-4105-873b-94f3fd187c73",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   },
+   {
+    "item_id": "g26a_e242630b-e635-4084-a72e-2e20d7386df8",
+    "key": "excl_qwen3-8b",
+    "delta": 10
+   }
+  ]
+ },
+ "feasibility": {
+  "gate": "filler-feasibility (pre-tag, zero-model, outcome-blind)",
+  "ruling": "user-ruled 2026-09-24: freeze criterion, not coverage",
+  "criterion": "deterministic furnishing under frozen FILLER_BANK v2 + frozen search budget must reach max rule->judgment distance spread <= 10 across 4 tokenizers x 2 rule arms x T0/T1/T2",
+  "n_structural_census": 3642,
+  "n_feasible_N_A": 3640,
+  "n_excluded": 2,
+  "excluded": [
+   {
+    "item_id": "g26a_3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+    "uid": "3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+    "reason": "tokenizer_geometry_infeasible",
+    "criterion": "frozen bank v2 + frozen search budget never reached max spread <= 10 across 4 tokenizers x 2 rule arms x T0/T1/T2",
+    "best_effort_max": 13,
+    "best_effort_spreads": {
+     "excl_llama31-8b": 13,
+     "excl_qwen3-8b": 2,
+     "excl_qwen35-9b": 10,
+     "excl_gemma3-12b": 8,
+     "admit_llama31-8b": 13,
+     "admit_qwen3-8b": 2,
+     "admit_qwen35-9b": 10,
+     "admit_gemma3-12b": 8
+    },
+    "search": "fast TOPK grid, then K_MIX deep mix search"
+   },
+   {
+    "item_id": "g26a_4b84c748-0cf2-4981-b526-bab6e8759040",
+    "uid": "4b84c748-0cf2-4981-b526-bab6e8759040",
+    "reason": "tokenizer_geometry_infeasible",
+    "criterion": "frozen bank v2 + frozen search budget never reached max spread <= 10 across 4 tokenizers x 2 rule arms x T0/T1/T2",
+    "best_effort_max": 13,
+    "best_effort_spreads": {
+     "excl_llama31-8b": 13,
+     "excl_qwen3-8b": 2,
+     "excl_qwen35-9b": 10,
+     "excl_gemma3-12b": 8,
+     "admit_llama31-8b": 13,
+     "admit_qwen3-8b": 2,
+     "admit_qwen35-9b": 10,
+     "admit_gemma3-12b": 8
+    },
+    "search": "fast TOPK grid, then K_MIX deep mix search"
+   }
+  ],
+  "outcome_independence": "depends only on tokenizer geometry; no model forward exists or was consulted; cannot depend on Y0/YA/YB/YAB or any rule-cell outcome",
+  "post_tag_rule": "FILLER_BANK and the search criterion are frozen from the Phase-A tag; no bank or criterion edits afterwards"
+ },
+ "disjoint_ids_ok": true,
+ "db": {
+  "path": "data/external/raw/hover/wiki_wo_links.db",
+  "bytes": 2156273664,
+  "lookup_tiers_first_hit": {
+   "nfd": 249,
+   "raw": 8940
+  }
+ }
+}

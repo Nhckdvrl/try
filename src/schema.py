@@ -78,7 +78,7 @@ G23B_CONDITIONS = g23b.G23B_CONDITIONS
 # dispatch on condition name — see conditions_g25)
 G25A_CONDITIONS = g25.G25A_CONDITIONS
 
-# G26A: load-bearing ruling test over fresh HoVer pool (g26a_pool_v1.jsonl;
+# G26A: load-bearing ruling test over fresh HoVer pool (g26_phasea_pool_v1.jsonl;
 # 10 cells = 4 no-rule carriers + 2 rule arms x 3 timings — see
 # conditions_g26a; prereg G26A §3, O3 amendment "11 -> 10")
 G26A_CONDITIONS = g26.G26A_CONDITIONS
@@ -133,7 +133,7 @@ def _blocks(item: Item, cond: str):
     # files keep their current prompts bit-for-bit.
     if g25.is_g25(cond):
         return g25.blocks(item, cond)
-    # G26A load-bearing ruling cells: own item pool (g26a_pool_v1.jsonl) and
+    # G26A load-bearing ruling cells: own item pool (g26_phasea_pool_v1.jsonl) and
     # own 10 cells — dispatch on the condition name first (prereg G26A §3);
     # no existing condition name collides, so every other item file keeps
     # its prompts bit-for-bit.

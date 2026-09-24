@@ -26,8 +26,9 @@ Per train survivor:
   * The filler SENTENCE MULTISET fa u fb is one set per item — only its
     placement moves (prereg §3). Bank schedule {4..20} x 4 = 816 words.
 
-Output: data/items/g26a_pool_v1.jsonl (frozen HoVer train order) +
-data/items/g26a_pool_report_v1.{json,md}.
+Output: data/items/g26_phasea_pool_v1.jsonl (frozen HoVer train order,
+feasible subset per the §0 filler-feasibility gate) +
+data/items/g26_phasea_pool_report_v1.{json,md}.
 
 Usage:
     PYTHONPATH=src HF_HUB_OFFLINE=1 python src/build_g26a.py
@@ -53,8 +54,8 @@ import conditions_g26a as g26     # noqa: E402
 from schema import Item, compile_prompt, rule_char_offset  # noqa: E402
 
 AUDIT_DEFAULT = "results/audits/hover_structural_v1.json"
-OUT_DEFAULT = "data/items/g26a_pool_v1.jsonl"
-REPORT_DEFAULT = "data/items/g26a_pool_report_v1.json"
+OUT_DEFAULT = "data/items/g26_phasea_pool_v1.jsonl"
+REPORT_DEFAULT = "data/items/g26_phasea_pool_report_v1.json"
 DB_REL = "data/external/raw/hover/wiki_wo_links.db"
 PREREG = "preregistrations/PREREGISTRATION_G26A_LOAD_BEARING.md"
 
@@ -91,6 +92,10 @@ MAX_DIST_TOKENS = 10  # O7 / §9.2: equal across t0/t1/t2 within +-10
 
 # O9 pin, asserted independently of the audit citation.
 PIN_TRAIN_SURVIVORS = 3642
+# Builder sanity floor for the feasibility census (NOT a prereg gate — the
+# prereg gates are S1 >= 200 downstream at §8/§11); aborts only if a bank
+# or search regression makes most of the pool un furnishable.
+MIN_FEASIBLE_N_A = 3000
 
 
 def sha256_file(path: str) -> str:
@@ -505,7 +510,15 @@ def furnish(rec: dict, item: Item, fill: Fill, dist_out: dict) -> dict | None:
             item.meta.update(meta_try)
             dists = verify_distances(item, fill.tok)
             tried += 1
-            if max(dists.values()) <= MAX_DIST_TOKENS:
+            m = max(dists.values())
+            if m < dist_out.get("_best_max", m + 1):
+                # best-effort census evidence: kept only on FAILURE so an
+                # excluded item can record exactly how close the frozen
+                # search budget got (feasibility gate, prereg §0 amendment)
+                dist_out["_best_max"] = m
+                dist_out["_best_spreads"] = dict(dists)
+            if m <= MAX_DIST_TOKENS:
+                dist_out.clear()
                 dist_out.update(dists)
                 return meta_try
         # else: next w_a candidate
@@ -581,7 +594,12 @@ def furnish_deep(rec: dict, item: Item, fill: Fill, dist_out: dict) -> dict | No
             }
             item.meta.update(meta_try)
             dists = verify_distances(item, fill.tok)
-            if max(dists.values()) <= MAX_DIST_TOKENS:
+            m = max(dists.values())
+            if m < dist_out.get("_best_max", m + 1):
+                dist_out["_best_max"] = m
+                dist_out["_best_spreads"] = dict(dists)
+            if m <= MAX_DIST_TOKENS:
+                dist_out.clear()
                 dist_out.update(dists)
                 return meta_try
     return None
@@ -686,6 +704,7 @@ def main() -> int:
 
     items: list[Item] = []
     fails: list[str] = []
+    fails_detail: dict = {}
     deep_ok: list[str] = []
     all_dists: list[tuple[str, dict]] = []
     for n, rec in enumerate(train_recs, 1):
@@ -727,6 +746,11 @@ def main() -> int:
                 deep_ok.append(item.item_id)
         if got is None:
             fails.append(item.item_id)
+            fails_detail[item.item_id] = {
+                "best_max": dist.get("_best_max"),
+                "best_spreads": dict(dist.get("_best_spreads", {})),
+                "search": "fast TOPK grid, then K_MIX deep mix search",
+            }
             continue
         meta.update(got)
         meta["dist_max"] = dist
@@ -737,20 +761,46 @@ def main() -> int:
 
     print(f"[build] fast-path: {len(items) - len(deep_ok)} items, "
           f"deep mix-search rescued: {len(deep_ok)}", flush=True)
+    # --- filler-feasibility gate (pre-tag amendment, user-ruled): items the
+    # frozen bank + frozen search budget cannot furnish within the O7 +-10
+    # window are excluded DETERMINISTICALLY and outcome-blind — this is a
+    # tokenizer-geometry property computed with zero model forwards, before
+    # any Y0/YA/YB/YAB or rule-cell outcome exists. Feasible count becomes
+    # N_A; the structural survivor pin still governs the census itself. ----
+    n_excluded = len(fails)
+    excluded = []
+    for iid in fails:
+        det = fails_detail.get(iid, {})
+        excluded.append({
+            "item_id": iid,
+            "uid": iid.removeprefix("g26a_"),
+            "reason": "tokenizer_geometry_infeasible",
+            "criterion": (f"frozen bank v2 + frozen search budget never "
+                          f"reached max spread <= {MAX_DIST_TOKENS} across "
+                          "4 tokenizers x 2 rule arms x T0/T1/T2"),
+            "best_effort_max": det.get("best_max"),
+            "best_effort_spreads": det.get("best_spreads", {}),
+            "search": det.get("search"),
+        })
     if fails:
         fails_path = "logs/g26a_furnish_fails.json"
         with open(fails_path, "w") as f:
-            json.dump({"n": len(fails),
-                       "item_ids": fails,
-                       "uids": [x.removeprefix("g26a_") for x in fails]},
-                      f, indent=1)
-        print(f"  FURNISH FAIL n={len(fails)} (full list -> {fails_path}) "
-              f"e.g. {fails[:5]}",
+            json.dump({"n": n_excluded, "item_ids": fails,
+                       "uids": [x.removeprefix("g26a_") for x in fails],
+                       "gate": "filler feasibility (pre-tag, zero-model, "
+                               "outcome-blind)",
+                       "excluded": excluded}, f, indent=1)
+        print(f"[build] FEASIBILITY EXCLUSION n={n_excluded} "
+              f"(tokenizer-geometry, detail -> {fails_path}): "
+              f"{[e['uid'] for e in excluded]}", flush=True)
+    if len(items) + n_excluded != PIN_TRAIN_SURVIVORS:
+        print(f"  CENSUS FAIL: feasible {len(items)} + excluded {n_excluded} "
+              f"!= structural survivors {PIN_TRAIN_SURVIVORS}",
               file=sys.stderr)
-        return 3
-    if len(items) != PIN_TRAIN_SURVIVORS:
-        print(f"  PIN FAIL: built {len(items)} != {PIN_TRAIN_SURVIVORS}",
-              file=sys.stderr)
+        return 4
+    if len(items) < MIN_FEASIBLE_N_A:
+        print(f"  CENSUS FAIL: feasible N_A={len(items)} < "
+              f"floor {MIN_FEASIBLE_N_A}", file=sys.stderr)
         return 4
 
     dup = [i for i, c in collections.Counter(
@@ -819,6 +869,25 @@ def main() -> int:
             "worst": [{"item_id": iid, "key": k, "delta": v}
                       for v, k, iid in worst[:10]],
         },
+        "feasibility": {
+            "gate": "filler-feasibility (pre-tag, zero-model, outcome-blind)",
+            "ruling": "user-ruled 2026-09-24: freeze criterion, not coverage",
+            "criterion": (f"deterministic furnishing under frozen FILLER_BANK "
+                          f"v2 + frozen search budget must reach max "
+                          f"rule->judgment distance spread <= {MAX_DIST_TOKENS} "
+                          "across 4 tokenizers x 2 rule arms x T0/T1/T2"),
+            "n_structural_census": PIN_TRAIN_SURVIVORS,
+            "n_feasible_N_A": len(items),
+            "n_excluded": n_excluded,
+            "excluded": excluded,
+            "outcome_independence": ("depends only on tokenizer geometry; no "
+                                     "model forward exists or was consulted; "
+                                     "cannot depend on Y0/YA/YB/YAB or any "
+                                     "rule-cell outcome"),
+            "post_tag_rule": ("FILLER_BANK and the search criterion are frozen "
+                              "from the Phase-A tag; no bank or criterion "
+                              "edits afterwards"),
+        },
         "disjoint_ids_ok": True,
         "db": {"path": db_path, "bytes": sz,
                "lookup_tiers_first_hit": dict(tiers)},
@@ -850,6 +919,10 @@ def main() -> int:
         f"- fillers: bank {len(g26.FILLER_BANK)} sentences / 816 words; "
         f"max rule->judgment distance spread per tokenizer: "
         f"{dict(sorted(max_by_key.items()))} (limit {MAX_DIST_TOKENS})",
+        f"- feasibility gate: structural census {PIN_TRAIN_SURVIVORS} -> "
+        f"feasible N_A = {len(items)}, excluded {n_excluded} "
+        f"(tokenizer-geometry, zero-model, outcome-blind): "
+        f"{[e['uid'] for e in excluded]}",
         f"- id disjointness from G0/G23/G24/G25 pools: OK",
         "",
     ]
