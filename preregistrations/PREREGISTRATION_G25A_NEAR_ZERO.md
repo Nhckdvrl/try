@@ -283,8 +283,12 @@ S2 + full abstracts of the two closest neighbors): no owning prior for a
 *weight-ladder boundary under prospective exclusion*. Instruction-position
 work establishes order effects, not weight-ladder shapes; ACL 2026 Main owns
 the generic representation-vs-deployment frame and is **not** repackaged
-here. **Residual:** one manual Anthology/arXiv pass at freeze (session
-websearch unavailable — coverage caveat on record).
+here. **Freeze-time manual pass COMPLETED 2026-09-24 — novelty residual
+closed** (record: `gate5_novelty_search.md` §"Freeze-time manual pass":
+ACL-2026 official event listing 6,422 titles / 6,365 abstracts three-tier
+screened + arXiv 4 phrase-query families (41 hits) + OpenAlex/S2 retries —
+every hit read, no owning or near-owning prior; S2/OpenAlex 429 and
+websearch-down coverage caveats on record).
 
 ## 11. Authorization boundary
 
@@ -305,7 +309,7 @@ probe rows (O3) → **≤ 28,800** rows, four models, no retries-by-outcome.
 ## 12. Freeze checklist and record
 
 - [ ] §0 open items O1–O7 signed off
-- [ ] manual nearest-prior pass (Anthology/arXiv) done and recorded
+- [x] manual nearest-prior pass (Anthology/arXiv) done and recorded (2026-09-24, gate5 §"Freeze-time manual pass")
 - [ ] rule/condition byte-strings pinned; identity tests green
 - [ ] selection determinism test green (`0b38e0837ed9fd60`, n=400, 150/150/100)
 - [ ] items file built; sha256 + strata counts recorded here

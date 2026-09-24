@@ -149,3 +149,57 @@ direct HTTP fetches. Results, verbatim:
   found no owning prior in any reachable channel. Same residual class as
   `PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md` §6: one final manual pass over ACL
   Anthology 2026 + arXiv listing at prereg-freeze time.
+
+## Freeze-time manual pass — COMPLETED 2026-09-24 (closes the residual above)
+
+Executed as the prereg-mandated final pass, over every channel reachable
+this session (websearch tool down all session; Semantic Scholar and one
+OpenAlex query endpoint 429 on repeated retries):
+
+1. **ACL Anthology official ACL-2026 event listing**
+   (`https://aclanthology.org/events/acl-2026/` — 18.9 MB server-rendered
+   HTML: ACL 2026 long/short/demo/srw/industry/findings + the co-located
+   workshop volumes attached to the event): **6,422 papers parsed with
+   titles, 6,365 with abstracts**; three-tier screen, every hit read:
+   - **T1** title strong terms (`weight|exclus|abstain|prospectiv|zero|
+     attenuat|nullif|disregard`): **149 hits — all reviewed**; classes:
+     zero-shot * (TTS/NER/retrieval), lightweight/compression *,
+     ensemble re-weighting * (shared-task systems), model-sparsity *.
+   - **T2** title `eviden|context|information` × action co-terms
+     (`ignor|discard|select|priorit|relevan|overrid|suppress|order|
+     timing|position|attend|...`): **25 hits — all reviewed**; classes:
+     retrieval/context selection, attention position, token pruning.
+   - **T3** abstract claim-phrase patterns (`weight(ed|ing) of evidence`,
+     `zero weight`, `w=0`, `prospective`, `ignore/exclude ... evidence`,
+     `before seeing ...`, `evidence ... ordering|timing|sequence`,
+     `instructed weight`): **91 hits — all reviewed**; classes: ensemble
+     weights, position/attention mechanics, retrieval pipelines.
+   - Named near-objects with one-line verdicts (all **non-owning**):
+     `2026.bionlp-1.50` *When Evidence Conflicts: ... Order Effects* →
+     order-effects class, already non-owning (Table A);
+     `2026.acl-srw.91` *Neglect-Zero Effect* → **numerical** zero handling,
+     not instructed semantic weight;
+     `2026.trustnlp-main.33` *Prospective Memory Failures in LLMs* →
+     prospective **memory** (forgetting intended future actions), not
+     prospective evidence timing;
+     `2026.acl-long.1151` *CUB: Context Utilisation benchmark* → no
+     instructed weight, no w=0;
+     `2026.acl-long.1365` / `2026.findings-acl.985` abstention
+     calibration → output refusal, not evidence weighting;
+     `2026.acl-long.1245` *Attention Weights as an Indicator* → diagnostic
+     attention analysis, not instructed numeric weight.
+2. **arXiv API, 4 phrase-query families, all hits read:** `abs:"evidence
+   weight" AND abs:"language model"` (10), `abs:"prospective exclusion"
+   OR abs:"evidence attenuation" OR abs:"weighted evidence integration"`
+   (2), `abs:"evidence weighting"` (21), `abs:"evidence" AND abs:"zero
+   weight"` (8) — 41 hits with overlap, zero matches on the claim; closest
+   is a 2013 Bayesian-network simulation paper (pre-LLM, different object).
+3. **OpenAlex:** `"prospective evidence"` (2025+) → 10 epidemiology/medical
+   hits, zero NLP; `"evidence weighting" language model` → 429 on 3
+   retries. **S2 paper search** → 429 on 3 retries (unchanged from round 1).
+
+**Verdict: PASS — residual closed.** No owning or near-owning prior for a
+*weight-ladder boundary under prospective exclusion* in any reachable
+channel. Honest coverage caveats: Anthology screen is title+abstract level
+(not full text); S2 / one OpenAlex query unreachable (429); arXiv covered by
+phrase queries (not a full cs.CL enumeration); websearch tool unavailable.
