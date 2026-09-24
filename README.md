@@ -16,9 +16,13 @@ Calibration:
 >
 > **G23C v1 IS COMPLETE:** target-conditioned-policy-state.
 >
+> **G24A v1 IS COMPLETE:** prospective-only.
+>
+> **G24B v1 IS COMPLETE:** donor-conditioned-policy-state.
+>
 > **THREE-RQ PAPER EXPANSION IS ACTIVE.**
 >
-> **IMMEDIATE NEXT DESIGN: G24A source-grounded natural-evidence confirmation.**
+> **NEXT DESIGN: G23C-R fresh-material replication (RQ3 confirmation).**
 >
 > **NO NEW TARGET-MODEL COMPUTE IS AUTHORIZED.**
 
@@ -186,8 +190,9 @@ value** for the current semantic target.
 Design authority:
 `preregistrations/PREREGISTRATION_G23C_TARGET_CONDITIONED_POLICY_STATE.md`.
 
-No G23C compute is authorized until implementation, tests, bridge logic and the fixed
-patch sites/layers are frozen under a dedicated tag and `STATUS.md` is updated again.
+G23C compute was authorized only after implementation, tests, bridge logic and the
+fixed patch sites/layers were frozen under a dedicated tag and `STATUS.md` was
+updated. That round has since executed and completed (see below).
 
 
 ## G23C result and final replication
@@ -222,5 +227,8 @@ The paper is now evaluated as three one-to-one RQ/finding sections:
    prospective zero;
 3. the causal rule-time mechanism.
 
-G23C-R remains part of RQ3, but **G24A natural-evidence confirmation is the immediate
-next design priority**. No compute is authorized yet.
+G23C-R remains part of RQ3. **G24A natural-evidence confirmation is COMPLETE**
+(frozen verdict `prospective-only`, 600 FEVER/SciFact items × 5 models) and
+**G24B donor/recipient factorization is COMPLETE** (frozen verdict
+`donor-conditioned-policy-state`). No further target-model compute is authorized;
+the next design is G23C-R, per `STATUS.md`.
