@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A DESIGN TAGGED (AWAITING FLIP) / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -27,6 +27,32 @@
 > items × 2 models complete, zero drops. Report:
 > `results/mech/g24b_analysis.json`. Licensed §8 wording applies verbatim;
 > no other claim language is authorized from this round.
+>
+> **G25A DESIGN TAGGED (record — NO COMPUTE AUTHORIZED YET):** near-zero
+> sweep — prereg `preregistrations/PREREGISTRATION_G25A_NEAR_ZERO.md`, tag
+> `g25a-near-zero-design-v1` (commit `04a17bb`, tagged before any G25A
+> forward pass). §12 freeze checklist complete with the §11.4 pre-tag
+> clarifications recorded: RuleAcc := pooled within-2pp fraction over the
+> O3 probes (unparsed rows stay in the denominator; probe-absent fails I2
+> → `order-artifact`); CLAIM/RULING/EVIDENCE E block rendering
+> (`g25_norule` has no RULING); cluster key `source/cluster`; §8 top-down
+> row precedence; gradedness can never gate (`classify` signature-locked
+> to its six gate inputs). Frozen materials: `data/items/g25_v1.jsonl`
+> sha256 `7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147`
+> (400 = 150/150/100, byte-identical to candidates, 342 clusters, 126
+> shared with G24A disclosed as-is), selection anchor `0b38e0837ed9fd60`,
+> examined 889/2139/200. Tests: `tests/test_g25a.py` 33/33 green; full
+> suite **418 passed / 953.65 s with zero `--ignore` flags** (supersedes
+> the 334/849 s five-flag baseline). Harness `scripts/run_g25a_main.sh`
+> (16 cells + 2 O3 probes, pooled-4, pinned snapshots, items-sha
+> preflight) refuses to run until the flip entry below appends the
+> concatenated token `G25A-FLIP=` + `RECORDED` — split here on purpose so
+> this design-tag record cannot open the gate it documents as closed.
+> **Step 8 — the STATUS flip authorizing ≤ 28,800 rows (25,600 condition
+> + 3,200 O3 probe rows, 4 pooled models, no retries-by-outcome) — is
+> USER-OWNED and NOT yet recorded.** After the flip: run the harness once
+> per pooled model → `src/analyze_g25.py` → verdict → (only then) the RQ2
+> section draft.
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
