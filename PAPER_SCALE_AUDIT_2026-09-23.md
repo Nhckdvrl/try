@@ -9,15 +9,29 @@ This corrects the earlier over-optimistic conclusion that “G23C-R then write�
 
 # 1. Bottom line
 
-The current project has a potentially Main-level **mother question** and several strong results, but the paper is **not yet experimentally complete**.
+The current project has a potentially Main-level **mother question** and several strong
+results, but novelty must be separated from rigor and robustness.
 
-The problem is not raw GPU count. It is paper structure:
+The previous target of “three main RQs / three main findings” was too rigid. Sasano's
+actual requirement is one-to-one alignment between RQs and findings, with the most
+surprising findings emphasized. It does **not** justify promoting an obvious result just
+to fill a third slot.
 
-> a Main paper needs several clearly motivated research questions / findings that are individually convincing and collectively answer one natural mother question.
+Current classification:
 
-For this project the target is **three main RQs / three main findings**, with each finding owning a substantial experiment section.
+- **Headline Finding 1 — KEEP:** prospective exclusion asymmetry, now including a
+  source-grounded natural-evidence prospective leak.
+- **Headline Finding 2 — KEEP, REFRAME:** semantic causal zero is disproportionately
+  hard prospectively **relative to explicit/verifiable prospective zero**, not merely
+  “zero is harder.”
+- **Mechanism — SUPPORTING:** Stage 5 / G23C / G24B are causally rigorous but their
+  current headline compresses too easily to “target-present states become more
+  target-specific.”
+- **Third headline RQ — OPEN / OPTIONAL:** add only if a genuinely non-obvious question
+  survives the G18 triviality veto.
 
-G23C-R is useful, but it only strengthens RQ3. It does not make RQ1 and RQ2 paper-complete.
+The project is therefore **not compute-ready by default**. More robustness on an
+obvious parent claim does not solve novelty.
 
 ---
 
@@ -34,7 +48,9 @@ For Unring this means:
 
 RQ1 -> Finding 1 -> behavioral/generalization section  
 RQ2 -> Finding 2 -> structural-boundary section  
-RQ3 -> Finding 3 -> causal-mechanism section
+
+A third RQ is added only if it earns its own non-obvious finding. Mechanistic evidence
+may instead sit under RQ1/RQ2 as explanation.
 
 ---
 
@@ -212,10 +228,20 @@ The temporal reversal transfers to an agent-like role structure.
 
 Useful as ecological/architectural generalization, but it still uses authored materials.
 
-### Missing RQ1 evidence
-**A clean source-grounded / natural-data confirmation.**
+### RQ1 natural-data confirmation — COMPLETED
 
-This is the largest current paper-level gap.
+G24A used source-grounded FEVER + SciFact evidence, 600 selected items and five models.
+
+Frozen verdict: `prospective-only`:
+- pooled-4 `REI_pre = +0.541 [+0.477,+0.603]`;
+- pooled-4 `REI_post = -0.067 [-0.158,+0.021]`.
+
+This strengthens the prospective-failure claim, but its consistency clauses failed:
+- C1: only 2/5 individual models had both REIs positive;
+- C2: SciFact passed the source-level condition, FEVER did not.
+
+Therefore RQ1 may claim a strong pooled prospective natural-evidence leak, not uniform
+replication across every model/source.
 
 ---
 
@@ -267,118 +293,107 @@ L14:
 
 L4/L24 controls near zero; exact identity patches; 2/2 model-level target-conditioning positive.
 
-### Remaining RQ3 gaps
-1. **sample reuse** — Stage 5 localized the window and G23C used the same 75 items;
-2. **causal factorization** — stronger matched than unrelated transfer can reflect both donor-state structure and target-dependent sensitivity of the recipient/downstream context.
+### RQ3 reclassification after G24B
 
-Both should be addressed before making the strongest mechanism claim.
+The causal-factorization gap was addressed by G24B:
 
----
+`DonorTargetInteraction(L14) = +4.02 [+2.27,+6.14]`
 
-# 7. Required paper architecture
+with recipient context held fixed, positive in 2/2 models, and L4/L24 controls near zero.
 
-## RQ1 — Does prospective evidence exclusion fail broadly and outside the authored vignette setup?
+This resolves a **technical confound** but does not resolve the more important novelty
+problem. A reviewer can still say:
 
-**Finding 1 target**
+> “The matched donor state was produced after seeing matching target semantics, so it
+> is natural that it contains more target-specific / target-conditioned policy
+> information.”
 
-> The same evidence-exclusion policy is systematically less effective when committed before the evidence arrives, across models, architectures and evidence settings; the effect is not explained by generic instruction position or memory decay.
+That one-line compression is sufficiently strong that the mechanism line is now
+classified as **supporting evidence**, not a headline third finding.
 
-Main evidence:
-- G0 breadth;
-- wording/delay/diffusion controls;
-- Stage-4A system-to-tool setting;
-- **NEW G24A natural-evidence confirmation**.
-
-### G24A — required new experiment
-
-Use existing human/source-grounded evidence datasets rather than author-created stories.
-
-Primary candidates:
-- FEVER: Wikipedia claim verification with verified labels/evidence;
-- SciFact: expert-written scientific claims with annotated supporting/refuting evidence.
-
-Design goal:
-- claim/background gives a base judgment;
-- one annotated evidence block has measurable Admit leverage;
-- the same zero-use rule is placed PRE vs POST relative to that evidence;
-- independent SUPPORT/REFUTE labels remain available;
-- selection uses only Base/Admit, never Exclude outcomes;
-- 4–5 frozen models;
-- several hundred items across the two datasets.
-
-This is the immediate highest-priority design task.
+The remaining fresh-material replication (G23C-R) is therefore HOLD: replication cannot
+make an obvious parent claim novel.
 
 ---
 
-## RQ2 — What is structurally special about the failure?
+# 7. Required paper architecture after novelty re-audit
 
-**RQ**
+## RQ1 — prospective causal eligibility of future evidence
 
-> Is prospective failure a general inability to remember/apply future numerical rules, or is complete semantic evidence exclusion a distinct control problem?
+Question:
 
-**Finding 2 target**
+> **Can language models commit in advance to make future evidence causally irrelevant?**
 
-> Semantic evidence exhibits an extra prospective cost at the zero-use instruction, even though the same models can remember the requested policy and can prospectively execute exact zero when the contribution is explicit and verifiable.
+Finding:
 
-Main evidence:
-- G23A fresh zero-amplification;
-- exact linear weighting control;
-- policy-access/enforcement probes;
-- source-grounded numeric invalidation as a boundary.
+> **Prospective exclusion is systematically weaker than retrospective exclusion, and
+> source-grounded natural evidence can still leak under a prior zero-use ruling.**
 
-Do not say:
-> “non-zero semantic weights are correctly implemented.”
+Main-text evidence:
+- G0 breadth across tasks/models;
+- matched Admit/order control;
+- wording and delay controls;
+- masked-diffusion comparison;
+- agent-like system-policy -> tool-output setting;
+- G24A natural/source-grounded evidence.
 
-G23A does not identify that.
-
-No new compute is automatically required here until the Section-5 draft is written and audited for reviewer compression.
+Do not overstate G24A consistency.
 
 ---
 
-## RQ3 — What computation makes prospective exclusion executable?
+## RQ2 — semantic causal zero versus explicit/verifiable zero
 
-**RQ**
+Question:
 
-> What rule-time state enables a policy to control evidence that has not yet arrived?
+> **Is prospective failure a generic inability to execute a future zero rule, or is
+> making semantic evidence causally zero a distinct control problem?**
 
-**Finding 3 target**
+Finding:
 
-Conservative current form:
+> **Complete semantic evidence exclusion has an additional prospective cost even though
+> prospective zero can be executed exactly when the contribution is explicit and
+> verifiable.**
 
-> the causal efficacy of a rule-time zero-vs-full policy state is target-conditioned.
+Main-text evidence:
+- G23A zero amplification;
+- exact arithmetic / numerical weighting boundary;
+- source-grounded numeric invalidation boundary;
+- policy-access probes as control against forgetting.
 
-Main evidence:
-- Stage 5 target-state interchange;
-- G23C policy-value interchange.
+Do not promote “policy access != enforcement” itself as novelty.
 
-Required confirmatory additions:
+---
 
-### G23C-R — fresh-material replication
-Keep the existing draft:
-- frozen G18 legal + evidence-inference materials;
-- 70 items / 20 disjoint skeletons;
-- same models/site/layers;
-- exact replication, no layer search.
+## Mechanistic explanation — not a third RQ by default
 
-### G24B — donor-state vs recipient-context factorization
+Stage 5 / G23C / G24B show:
+- a rule-time causal window;
+- policy-state interchange at the rule end;
+- donor-side interaction survives with recipient fixed.
 
-Purpose: separate two explanations of G23C:
+These are valuable explanatory results.
 
-A. donor rule-end state itself carries target-conditioned policy information  
-B. the state is generic, but matched recipient context is simply more sensitive to it
+But the current scientific headline
 
-Minimal intervention:
-- keep one recipient prompt fixed;
-- patch rule-end states from M0/M100/U0/U100;
-- compare the donor policy contrast M100-minus-M0 against U100-minus-U0 inside the same recipient;
-- repeat for matched and unrelated recipients;
-- L14 primary, L4/L24 controls;
-- same two models and frozen items;
-- no layer/site search.
+> “target available -> state carries more target-conditioned policy information”
 
-A positive donor-side target-by-policy interaction with the recipient fixed is much stronger evidence that target availability changes what policy information is present in the rule-time state, rather than merely changing downstream susceptibility.
+fails the reviewer-obvious test and therefore cannot be counted as a third novelty
+contribution merely because the patching is causal and preregistered.
 
-This should be prospectively frozen as a new causal test.
+G23C-R is HOLD.
+
+---
+
+## Open third-RQ search
+
+A new third RQ must:
+1. grow naturally from RQ1 or RQ2;
+2. put at least two live explanations against the **same visible task content**;
+3. produce a result not implied by the manipulation itself;
+4. change our scientific understanding rather than merely increase robustness;
+5. survive nearest-prior search before compute.
+
+If no candidate passes, do not force a third RQ.
 
 ---
 
@@ -426,32 +441,30 @@ Only after those three sections are independently convincing should the project 
 
 ---
 
-# 10. Execution order
+# 10. Execution order after novelty re-audit
 
-Do **not** run G23C-R immediately.
-
-Correct order:
-
-1. Freeze the three-RQ paper architecture.
-2. Design G24A natural-evidence confirmation.
-3. Novelty/data audit G24A before generation.
-4. Run G24A if clean.
-5. Design and freeze G24B donor-vs-recipient factorization.
-6. Run G24B.
-7. Finalize/freeze G23C-R and run the fresh replication.
-8. Write complete Sections 4/5/6.
-9. Only then decide whether RQ2 needs one extra confirmatory symbolic round.
-
-G23C-R remains useful, but it is no longer the sole next step.
+1. Freeze the two headline findings and their exact scope.
+2. Keep Stage 5 / G23C / G24B as supporting mechanism evidence.
+3. **Do not run G23C-R.**
+4. Search for a genuinely non-obvious third RQ using the G18 triviality veto before
+   implementation.
+5. For each candidate, write the strongest reviewer one-line dismissal first.
+6. Only candidates that survive that dismissal and nearest-prior audit may be
+   preregistered.
+7. In parallel, draft the RQ1 and RQ2 main-text sections; paper writing is itself an
+   audit of whether a third RQ is necessary.
+8. If no third RQ survives, prefer a coherent two-finding paper over a padded
+   three-finding paper.
 
 ---
 
 # 11. Stop discipline
 
-More experiments are justified only when they fill one of the three named RQ gaps.
+No compute exists merely to make the project “look thicker.”
 
-No “paper looks thin, add another ablation” behavior.
+A new experiment is justified only if it answers a non-obvious scientific question
+that changes one of the paper's headline conclusions.
 
-After G24A, G24B and G23C-R, the default is **WRITE**, not invent G24C/G25.
+Robustness replication of an obvious parent claim is not sufficient justification.
 
-If one fails, update the corresponding finding's scope rather than creating an unbounded rescue chain.
+G23C-R remains parked. There is no automatic G25/G23D.
