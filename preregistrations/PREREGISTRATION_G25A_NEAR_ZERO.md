@@ -34,7 +34,7 @@ of our synthetic rounds.*
 
 ---
 
-## 0. Open items — O1–O6 signed (user, 2026-09-24); O7 mandatory before freeze
+## 0. Open items — O1–O6 signed (user, 2026-09-24); O7 **completed** 2026-09-24 (§7 power note)
 
 | # | Item | Proposal (defaults, until overruled) |
 |---|---|---|
@@ -44,7 +44,7 @@ of our synthetic rounds.*
 | O4 | Floors | Both primary gates: CI low > 0 **and** point ≥ 3.0 (G23A floor). Sufficiency: ≥ 360/400 items usable on ≥ 3/4 pooled models. RuleAcc ≥ 0.8. |
 | O5 | Naming | files `data/items/g25_v1.jsonl`, raw `results/raw/g25_<model>.jsonl`. |
 | O6 | Seed | `20260924` (G23A used `20260923`). |
-| O7 | Power/sensitivity note — **MANDATORY before freeze** (final design audit: "不要 optional") | no-model bootstrap detectable-effect note at 400 items / 342 clusters using G23A resampling constants; the dry-run already implies ≫ G23A's cluster count. Cheap, zero model calls. |
+| O7 | Power/sensitivity note — **DONE 2026-09-24** (was: mandatory before freeze, final design audit "不要 optional") | No-model detectable-effect note at 400 items / 342 clusters from the frozen G23A CI: SE 1.017, MDE80 2.85 pts, floor-3.0 resolvable to ≤1.5× SE inflation, +8 expected effect ≥97.5% at 2× — full table + caveats in §7; reproducible via `src/note_g25a_power.py` → `results/audits/g25a_power_note_v1.json`. |
 
 ---
 
@@ -207,11 +207,29 @@ assumption the sweep exists to test, not a license.
 - No item removed after results exist; reruns only for mechanical
   incompleteness, never selective by outcome.
 
-**Power note (design-stage, no simulation):** dry-run gives 400 items /
-342 clusters with within-item paired contrasts — vs G23A's n=190 / 68
-clusters whose Δ_zero CI was [+4.39, +13.33]. Under replication of the G23A
-shape the expected Δ_local0 is ≈ +8 (plateau ~5 interpolated); the O4 floor
-of 3.0 sits well inside the expected CI. Optional O7 before freeze.
+**O7 power/sensitivity note — COMPLETED 2026-09-24** (design-stage, no
+simulation, zero model calls; reproducible: `src/note_g25a_power.py` →
+`results/audits/g25a_power_note_v1.json`). Frozen input: G23A Δ_zero
+cluster-bootstrap CI [+4.39, +13.33] at n = 190 / 68 clusters →
+SE_G23A = 2.281; per-cluster variance transferred to G25A's 342 clusters →
+**SE_G25A = 1.017** (assumption: equal per-cluster variance across material
+sets — explicitly stress-tested below).
+
+| SE inflation | SE | MDE80 (pts) | P(CI low>0 \| true 3.0) | P(CI low>0 \| true +8) |
+|---|---|---|---|---|
+| 1.0× | 1.017 | **2.85** | 0.84 | ~1.00 |
+| 1.5× | 1.525 | 4.27 | 0.50 | 0.999 |
+| 2.0× | 2.034 | 5.70 | 0.31 | 0.976 |
+
+- **The O4 floor (3.0) is not arbitrary:** it stays CI-resolvable under up
+  to ~1.5× SE inflation (≈2.3× variance). At equal variance, n = 400 / 342
+  clusters is exactly what pulls MDE80 (2.85) *below* the floor — G23A's
+  own 68 clusters would leave MDE80 = 6.39 > floor, i.e. unresolvable.
+- The design-stage expected effect (~+8; Δ_zero +8.83, Gap(0)−Gap(1) = 8.27)
+  is detected with ≥ 97.5% probability even under 2× SE inflation.
+- Honest fallback: if realized variance inflates beyond 2× **and** the true
+  effect is small (< ~5.7 pts), §8's `unresolved` branch exists for exactly
+  this case — reported, never forced.
 
 ## 8. Outcome map
 
@@ -293,7 +311,7 @@ probe rows (O3) → **≤ 28,800** rows, four models, no retries-by-outcome.
 - [ ] items file built; sha256 + strata counts recorded here
 - [ ] analyzer + outcome-map tests green (both-direction sign test)
 - [ ] gradedness diagnostic (`Resp`/`GradedPos`) implemented + tested
-- [ ] **power/sensitivity note recorded (O7 — mandatory, no-model)**
+- [x] **power/sensitivity note recorded (O7 — mandatory, no-model; done 2026-09-24, §7 + `results/audits/g25a_power_note_v1.json`)**
 - [ ] full test suite green at updated baseline
 - [ ] **design tag assigned:** ____________________ (recorded here + ledger)
 - [ ] **STATUS flip recorded** (ledger entry authorizing ≤ 28,800 rows)
