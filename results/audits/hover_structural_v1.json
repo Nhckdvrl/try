@@ -1,0 +1,137 @@
+{
+ "checklist": "claims-level (C1-C6)",
+ "C1_counts": {
+  "train": {
+   "n": 18171,
+   "num_hops": {
+    "2": 9052,
+    "3": 6084,
+    "4": 3035
+   },
+   "label": {
+    "NOT_SUPPORTED": 7148,
+    "SUPPORTED": 11023
+   }
+  },
+  "dev": {
+   "n": 4000,
+   "num_hops": {
+    "2": 1126,
+    "3": 1835,
+    "4": 1039
+   },
+   "label": {
+    "NOT_SUPPORTED": 2000,
+    "SUPPORTED": 2000
+   }
+  },
+  "test": {
+   "n": 4000,
+   "num_hops": {
+    "None": 4000
+   },
+   "label": {
+    "None": 4000
+   }
+  }
+ },
+ "C2_funnel": {
+  "train": {
+   "hop2": 9052,
+   "hop2_nsf2": 6153,
+   "distinct_titles": 6153,
+   "by_label": {
+    "NOT_SUPPORTED": 1674,
+    "SUPPORTED": 4479
+   }
+  },
+  "dev": {
+   "hop2": 1126,
+   "hop2_nsf2": 759,
+   "distinct_titles": 759,
+   "by_label": {
+    "SUPPORTED": 355,
+    "NOT_SUPPORTED": 404
+   }
+  },
+  "test": {
+   "hop2": 0,
+   "hop2_nsf2": 0,
+   "distinct_titles": 0,
+   "by_label": {}
+  }
+ },
+ "C3_clusters": {
+  "train": {
+   "items": 6153,
+   "title_pair_clusters": 4185,
+   "singleton_pairs": 2703,
+   "max_pair_freq": 7,
+   "hpqa_clusters": 4218,
+   "hpqa_size_ge2": 1476
+  },
+  "dev": {
+   "items": 759,
+   "title_pair_clusters": 622,
+   "singleton_pairs": 509,
+   "max_pair_freq": 4,
+   "hpqa_clusters": 625,
+   "hpqa_size_ge2": 113
+  },
+  "pooled": {
+   "items": 6912,
+   "title_pair_clusters": 4798,
+   "singleton_pairs": 3204,
+   "max_pair_freq": 7
+  }
+ },
+ "C4_labels": {
+  "labels_seen": [
+   "NOT_SUPPORTED",
+   "SUPPORTED"
+  ],
+  "sign_map": {
+   "SUPPORTED": 1,
+   "NOT_SUPPORTED": -1
+  },
+  "mapping_stable": true,
+  "unmapped": []
+ },
+ "C5_integrity": {
+  "uid_train_uniq": true,
+  "uid_dev_uniq": true,
+  "uid_cross_overlap": 0,
+  "hpqa_cross_overlap": 77,
+  "claim_cross_overlap": 0,
+  "test_blind": true,
+  "funnel_claim_dups": 2
+ },
+ "C6_comparison_regex": {
+  "matched": 433,
+  "of": 6912,
+  "rate": 0.0626,
+  "note": "rough claim-text proxy only; final topology = T4 (text-level)"
+ },
+ "meta": {
+  "audit": "hover_structural_v1",
+  "zero_model": true,
+  "sources": {
+   "train": {
+    "file": "hover_train_release_v1.1.json"
+   },
+   "dev": {
+    "file": "hover_dev_release_v1.1.json"
+   },
+   "test": {
+    "file": "hover_test_release_v1.1.json"
+   }
+  },
+  "db_expected_bytes": 2156273664,
+  "db_present": true,
+  "db_complete": false
+ },
+ "text": {
+  "skipped": "db absent or incomplete (claims-level only)",
+  "size": 2140979200
+ }
+}
