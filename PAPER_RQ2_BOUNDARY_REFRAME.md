@@ -182,7 +182,12 @@ Open questions to resolve in the prereg draft (deliberately not decided here):
    selector excluded from pooled (recommended for comparability with G24A).
 2. `n` and FEVER/SciFact + label-direction quotas — G24A showed
    label-stratified structure (REFUTES leaks far more than SUPPORTS), so balance
-   evidence direction explicitly.
+   evidence direction explicitly. **Feasibility audited 2026-09-24:** the
+   `scifact/CONTRADICT` cell is exhausted by G24A's own selection (of 218 pool
+   items only 101 ever met τ=10, 100 taken → **1 left**; only 46 at any
+   direction-sane floor) → the sketched 4 strata × 100 is **infeasible**.
+   Options + recommendation in `PAPER_RQ2_SWEEP_STRATUM_AUDIT_2026-09-24.md`;
+   quota decision pending (no tag before it is made).
 3. Gates: propose CI > 0 + a floor (G23A used 3.0 points) + positive model
    means 3/3 or 5/5 — set only after power reasoning, before any forward pass.
 
