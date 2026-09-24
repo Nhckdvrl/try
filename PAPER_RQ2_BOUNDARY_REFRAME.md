@@ -226,8 +226,9 @@ Register §12.3 licensed form (must remain reachable verbatim):
 
 - `PAPER_OUTLINE.md` §4 / `PAPER_FRAME.md` RQ2 subsection get rewritten to this
   frame once accepted.
-- RQ3 candidate = **scope of a prospective exclusion policy** (selective
-  exclusion / leakage vs collateral suppression) — novelty check running; not
-  registrable until that audit returns.
+- RQ3: **superseded twice, honestly logged** — the scope candidate (novelty
+  audit: PROCEED with narrowing) was killed by the same day's broader
+  six-candidate screen (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md` §4); the
+  live third-RQ track is now **relevance emergence**, design stage only.
 - G23C-R remains HOLD / NO COMPUTE (`c051821`); Stage-5 / G23C / G24B stay
   supporting evidence regardless of RQ2's outcome.

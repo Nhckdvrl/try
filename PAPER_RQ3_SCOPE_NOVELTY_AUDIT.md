@@ -1,5 +1,18 @@
 # RQ3 candidate — novelty audit: scope of a prospective exclusion policy
 
+> **SUPERSEDED AS AN RQ3 CANDIDATE (2026-09-24, later the same day).** The
+> six-candidate screen (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md` §1, row E)
+> **KILLED** this candidate as the third headline RQ after a broader
+> nearest-prior pass surfaced closer parents than this file's channel set
+> contained (selective withholding over entangled multi-turn instructions;
+> essential-info retention while withholding sensitive context;
+> authorized/unauthorized provenance; semantic-transformation information
+> flow). The *PROCEED with narrowing* verdict below therefore **no longer
+> stands** for headline use. This file is retained as (i) the audit record for
+> candidate E and (ii) the source of the claim-boundary wording, which still
+> binds any place scope/collateral is discussed (controls/appendix). The live
+> third-RQ track is relevance emergence: `PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`.
+
 **Updated:** 2026-09-24. **Status:** AUDIT RECORD for the candidate third RQ.
 **Not registrable until the residual coverage note (§6) is accepted and the five
 triviality gates are run on the narrowed claim.** No code, no prereg, no compute.

@@ -26,8 +26,12 @@ Current contribution structure:
 
 Stage 5 / G23C / G24B are supporting causal evidence, not a third headline contribution.
 
-A third RQ is optional and remains open. Add it only if it passes the reviewer-obvious
-veto.
+A third RQ passed the six-candidate novelty screen and is in design:
+**relevance emergence** — what an exclusion policy must know when it binds,
+the target's content or its decision relevance (§6;
+`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`). It enters the paper only if its
+prereg design clears the reviewer-obvious veto; otherwise fall back to the
+two-finding paper.
 
 ---
 
@@ -179,13 +183,30 @@ G23C-R is HOLD until a stronger parent question exists.
 
 ---
 
-## 6. Open third question — only if non-trivial
+## 6. Third question — candidate chosen: relevance emergence
 
-Current candidate: **scope of a prospective exclusion policy** — can a model
-exclude one future evidence piece without leaking through it or collaterally
-suppressing related evidence? Systematic novelty audit **complete: PROCEED
-with narrowing, no parent-level prior found** (`PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md`).
-Still **not registrable** — it must survive the gates below first.
+Six-candidate novelty screen complete (2026-09-24), decision record
+`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`:
+
+- **SURVIVOR → prereg-draft track: relevance emergence** —
+
+  > **RQ3: Does prospective exclusion require the target content to be
+  > available, or must its decision relevance already be established when the
+  > policy is processed?**
+
+  HoVer 2-hop, timings T0/T1/T2 (rule before A / between A,B / after B) with
+  identical final context; no-rule gates force a genuine composition
+  (`joint ≥ 15`, singles `≤ 5`); outcome = `ContentGain` /
+  `RelevanceGain` against the `Y_B` counterfactual; distance-matched +
+  admit-timing controls pre-registered. Branches content-bound /
+  relevance-bound / staged / flat — all informative.
+- **BACKUP pilot only:** exclusion vs negation (gold semantics dirty on
+  natural evidence).
+- **KILLED:** hop depth (crowded + trivial), post-training origin (parent
+  collision), scope/collateral suppression (this section's former candidate —
+  superseded after a broader prior pass; see banner in
+  `PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md`), inferential closure (semantic-IFC
+  parent).
 
 Before any new experiment, require:
 

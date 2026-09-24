@@ -107,9 +107,12 @@ Therefore:
 - use the mechanism results only to explain/interpret RQ1–RQ2 unless a stronger,
   genuinely non-trivial question is found.
 
-### Third-RQ slot — OPEN, not mandatory
+### Third-RQ slot — candidate chosen, gates still binding
 
-A third headline RQ is allowed only if it passes the G18 triviality veto:
+The six-candidate screen (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`) chose
+**relevance emergence** (content vs decision-relevance at policy-binding
+time) and killed four others; the former scope candidate is superseded. The
+candidate is allowed into the paper only if it passes the G18 triviality veto:
 1. treatment does not directly contain the answer;
 2. a reviewer cannot dismiss it with one obvious sentence;
 3. at least two live accounts make different predictions under the same visible task
@@ -266,12 +269,12 @@ in later suppression and depends on target context.
 
         ↓
 
-OPEN
-Candidate: scope of a prospective exclusion policy — novelty audit
-complete: no parent-level prior found (PROCEED, narrowed;
-PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md). Still not registrable until the
-five gates pass. If it (or another) fails the triviality veto,
-stop at two headline findings.
+RQ3 (candidate) — relevance emergence
+Six-candidate novelty screen: SURVIVOR (PAPER_RQ3_CANDIDATE_AUDIT_
+2026-09-24.md). What must exist when a policy binds: target content, or
+its decision relevance? Design-level prereg next; still not registrable
+until the five gates pass and STATUS flips. If it fails the triviality
+veto, stop at two headline findings.
 ```
 
 The mechanism line is explanatory evidence, not the third contribution.
@@ -390,7 +393,9 @@ The project currently has two plausible headline findings and one supporting mec
 line.
 
 What is missing is **not** another robustness check. It is either:
-- a genuinely non-obvious third question that grows naturally from RQ1/RQ2; or
+- the candidate third question already found — **relevance emergence**
+  (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`) — clearing its gates and
+  getting designed honestly; or
 - evidence that the two-finding paper is already scientifically complete enough to
   submit without inventing a third contribution.
 
