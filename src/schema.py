@@ -22,6 +22,7 @@ import conditions_g18 as g18
 import conditions_g23a as g23a
 import conditions_g23b as g23b
 import conditions_g24a as g24a
+import conditions_g25 as g25
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -72,6 +73,10 @@ G23A_CONDITIONS = g23a.G23A_CONDITIONS
 # (g23b_v1.jsonl); 4 carrier cells + 3 rule cells, no probes
 G23B_CONDITIONS = g23b.G23B_CONDITIONS
 
+# G25A: near-zero sweep over G24A natural materials (g25_v1.jsonl; 16 cells,
+# dispatch on condition name — see conditions_g25)
+G25A_CONDITIONS = g25.G25A_CONDITIONS
+
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
 
@@ -80,7 +85,7 @@ EXT_CONDITIONS = ext.EXT_RAMSEY_CONDITIONS
 PROBES = (["rule_probe_exclude_pre", "rule_probe_exclude_post",
            "rule_probe_admit_post", "memory_probe_exclude_post",
            "wprobe_pre", "wprobe_post"]
-          + g23a.G23A_PROBES)
+          + g23a.G23A_PROBES + g25.G25A_PROBES)
 
 
 @dataclass
@@ -116,6 +121,12 @@ _SEP = "\n\n"
 
 def _blocks(item: Item, cond: str):
     """Ordered list of context blocks for one condition."""
+    # G25A near-zero sweep: dispatch on the condition name FIRST — the sweep
+    # runs over G24A-family items but owns its own 16 cells (prereg G25A §3);
+    # every existing condition name misses this branch, so all other item
+    # files keep their current prompts bit-for-bit.
+    if g25.is_g25(cond):
+        return g25.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
@@ -257,6 +268,12 @@ def compile_probe(item: Item, probe: str) -> str:
         *_, wkey, arm = probe.split("_")
         blocks = _blocks(item, f"g23a_{arm}_{wkey}")
         q = item.rule_probe_question
+    elif probe.startswith("wprobe_g25_"):
+        # wprobe_g25_<arm>_<wkey> — G23A-style requested-weight-access probe,
+        # pre arm only at w000/w100 (G25A O3); same question text as G23A
+        _, _, arm, wkey = probe.split("_")
+        blocks = _blocks(item, f"g25_{arm}_{wkey}")
+        q = v3.WEIGHT_PROBE_Q.format(lab=item.critical_label)
     elif probe == "memory_probe_exclude_post":
         blocks = _blocks(item, "exclude_post")
         q = item.memory_question
