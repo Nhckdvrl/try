@@ -50,16 +50,16 @@ have=$(sha256sum "$ITEMS" | cut -d' ' -f1)
 test "$have" = "$ITEMS_SHA" || {
   echo "items sha256 mismatch: $have != $ITEMS_SHA (prereg §12)" >&2; exit 1; }
 
-# STATUS-flip check (prereg §11/§12): warn loudly if the ledger flip is not
-# yet recorded. This script must not be *run* before the flip; the comment
-# guard exists so a pre-flip invocation is impossible to do silently.
-if ! grep -qiE 'G25A.{0,40}flip|flip.{0,40}G25A' STATUS.md; then
-  echo "WARNING: STATUS.md records no G25A flip yet (prereg §11)." >&2
-  echo "WARNING: compute is NOT authorized until the ledger flip (user-owned)." >&2
-  if [ "${G25A_REQUIRE_FLIP:-0}" != "1" ]; then
-    echo "refusing to run: set G25A_REQUIRE_FLIP=1 only after the flip is recorded" >&2
-    exit 1
-  fi
+# STATUS-flip check (prereg §0/§11/§12): compute is released ONLY by the
+# user-owned ledger flip, recorded as the exact token G25A-FLIP=RECORDED.
+# Absent the token the script refuses unconditionally — no bypass variable,
+# no way to run this script silently before the flip.
+if ! grep -q "G25A-FLIP=RECORDED" STATUS.md; then
+  echo "WARNING: token G25A-FLIP=RECORDED not found in STATUS.md" >&2
+  echo "WARNING: the G25A STATUS flip (step 8) is user-owned and unrecorded;" >&2
+  echo "WARNING: no forward pass is authorized before it (prereg §0, §11, §12)." >&2
+  echo "refusing to run: record the STATUS flip first, then re-run." >&2
+  exit 1
 fi
 
 mkdir -p logs results/raw
