@@ -11,7 +11,7 @@ Phase A (`--phase a`) — selector only, blind by construction:
         no-rule cells (g26_y0/ya/yb/yab) and no probe row of any kind
         (§5 "no outcome of the experiment exists at selection time");
       * exactly one model_tag and it is the O1 selector;
-      * row budget <= 14,568 (§11).
+      * row budget <= 14,560 (§11 feasibility amendment).
     Violation => exit 3 (structural), never a gate computation.
     Gates (§5, verbatim):
       1. s*(Y_AB - Y_0) >= 15          chain works
@@ -26,12 +26,29 @@ Phase A (`--phase a`) — selector only, blind by construction:
 
 Phase B (`--phase b`) — the actual RQ3 experiment (needs STATUS flip #2):
     Inputs: the four pooled run JSONLs (rows carry `model_tag`; rule-probe
-    rows ride the same files) + the frozen pool.
+    rows ride the same files) + the frozen pool + the FROZEN Phase-A
+    selection JSON (`--selection`: the selected item ids written by
+    Phase A, 200 <= n <= 300).
+
+    Checks run in this exact order (user ruling 2026-09-24, pre-tag):
+      * STRUCTURAL (exit 3, NO report, no verdict): a model tag outside
+        the frozen pooled-4 (extra/unknown model), duplicate
+        (item, model, kind) row, stray kind, any row outside the frozen
+        selection, selection not a subset of the pool or not in
+        [200, 300], budget > 14,400 rows.
+      * MECHANICAL (exit 4, NO report, no verdict): a pooled model absent
+        from the panel; any selected item x 4 models x 10 cells or x 2
+        probes missing; any cell value or probe YES/NO unparsed.  These
+        are rerunnable gaps (§7 mechanical reruns only) — partial data is
+        NEVER analyzed, and a missing row or unparsed probe is NEVER an
+        "order artifact" (§8 mechanical-before-integrity rule).
 
     Usability O6 (per item x model, never outcome-filtered): all 10 cells
     present for that model AND s*(Y_AB - Y_0) >= 5.  S1 counts items
-    usable on >= 3/4 pooled models (G25A S1 lineage, surfaced pre-tag);
-    S1 >= 200 is the §8 sufficiency gate.
+    usable on >= 3 of the frozen pooled-4 models: the threshold is the
+    constant MIN_MODELS_USABLE = 3, never adapted to how many models were
+    actually observed (the exact model-set assertion is what makes
+    ">= 3/4" real); S1 >= 200 is the §8 sufficiency gate.
 
     Estimands (§6), per usable item x model:
         R_t = s * (Y_EXCL_t - Y_B)        leakage of A at timing t
@@ -48,30 +65,40 @@ Phase B (`--phase b`) — the actual RQ3 experiment (needs STATUS flip #2):
     CIs, two-sided bootstrap p, seed 20260924.  `cluster_boot` is imported
     from analyze_g25 (single frozen source; a test pins the keying).
 
-    Integrity gates (§8 order I -> S -> branches):
-        I1 rule bytes identical across timings   (construction; tests —
-            passed in as input, unit-pinned both ways)
+    Integrity gates (§8 taxonomy, user ruling 2026-09-24 — the three
+    failure kinds are distinct verdicts, never conflated):
+        I1 rule bytes identical across timings   (construction; tests)
         I2 shared-filler multiset + distance     recomputed here: every
-            pool item's recorded `dist_max` <= 10 tokens under all four
-            pooled tokenizers and both rule arms (O7)
+            pool item's recorded `dist_max` <= 10 tokens (O7)
+            I1 or I2 fail  => `structural-integrity-failure` (NO CLAIM —
+            an implementation-level violation of the item construction,
+            never a "scientific" order effect)
         I3 admit-timing control                  M_T0 - M_T2 pooled CI
-            contains 0 (else order-artifact)
-        I4 RuleAcc >= 0.8 on both rule types     from probe rows:
-            EXCL probe expects "NO", ADMIT probe expects "YES"; unparsed
-            rows leave the denominator and are counted (G25A convention).
-            Probes absent entirely => I4 fails => order-artifact (G25A
-            lineage: its RuleAcc was I2 with exactly this mapping).
-        Any integrity failure => `order-artifact` (the table's integrity
-        row; G25A's classify mapped I-failures the same way).
+            contains 0; fail => `order-artifact` — the ONLY gate that
+            licenses that verdict (recency/position structure)
+        I4 rule legibility: BOTH probe types present and parsed (a
+            mechanical guarantee above), pooled RuleAcc >= 0.8 (EXCL
+            probe expects "NO", ADMIT probe expects "YES"); fail =>
+            `rule-legibility-failure` (NO CLAIM — the rule was not
+            reliably read/retained; NOT a position artifact).
+            Missing/unparsed probes never reach I4: they abort as
+            mechanical exit 4 before any gate is computed.
+        Label priority when several I-gates fail: structural ->
+        rule-legibility -> order; the report always lists every failed
+        gate.  Absent evaluable rows (all dropped by the preregistered
+        O6 anchor) => `unresolved`, never an integrity verdict (G25A
+        order).
 
     Branch decision (§7 user ruling 2026-09-24 + §8 table): a primary is
     **positive** iff cluster-bootstrap CI low > 0 AND point >= 3.0 (the
     project floor); **negative** iff CI high < 0; else **not positive**
     (only "no detectable effect" is licensed).  Precedence encoded from
     the table + §10 reachability ("every row is reachable a priori"):
-        data absent -> unresolved (not an integrity event, G25A order)
-        integrity fail -> order-artifact
-        S1 fail -> unresolved
+        no evaluable rows    -> unresolved      (not an integrity event)
+        I1 or I2 fail        -> structural-integrity-failure
+        I4 fail (RuleAcc <0.8 with complete probes) -> rule-legibility-failure
+        I3 fail              -> order-artifact
+        S1 fail              -> unresolved
         PG or LG negative -> non-monotone   (a negative primary is also
             "not positive"; without this precedence `non-monotone` would
             be unreachable, contradicting §10 gate 4)
@@ -96,6 +123,7 @@ Usage:
     PYTHONPATH=src python src/analyze_g26a.py --phase b \
         --runs results/raw/g26a_{llama31-8b,qwen3-8b,qwen35-9b,gemma3-12b}.jsonl \
         --items data/items/g26_phasea_pool_v1.jsonl \
+        --selection data/items/g26a_selected_v1.json \
         --report results/g26a/g26a_verdict_v1.json
 """
 from __future__ import annotations
@@ -124,6 +152,7 @@ MIN_MODELS_USABLE = 3       # S1 lineage: usable on >= 3/4 pooled models
 MIN_S1 = 200                # O4 minimum
 CAP_SELECT = 300            # O4 cap
 PHASEA_ROWS_CAP = 14_560    # §11 (feasibility amendment): N_A = 3,640 x 4
+PHASEB_ROWS_CAP = 14_400    # §11: selection <= 300 x 4 models x 12 rows
 CHAIN_MIN = 15.0            # §5 gate 1
 SINGLE_MAX = 5.0            # §5 gates 2-3
 USABLE_ANCHOR_MIN = 5.0     # O6 usability anchor
@@ -386,26 +415,63 @@ C_EXCL = [f"g26_excl_t{t}" for t in (0, 1, 2)]
 C_ADMIT = [f"g26_admit_t{t}" for t in (0, 1, 2)]
 
 
-def read_runs(run_paths: list[str]):
-    """-> y[item][model][kind]=value (decisions), probes list, tags set."""
+def read_runs(run_paths: list[str]) -> dict:
+    """Parse run JSONLs into decisions + probes + checkable tallies.
+
+    Returns a dict (not a tuple — several independent checks consume it):
+      y             item -> model -> kind -> parsed value (10-cell decisions)
+      probes        list of raw probe records (both kinds, every model)
+      tags          set of every model_tag value seen (incl. "" — an empty
+                    tag is NOT in the frozen pooled-4 and trips the
+                    structural model-set assertion)
+      pair_counts   (item, model, kind) -> row count (duplicates = >1)
+      dups          "item:model:kind" for count > 1        [structural]
+      stray         kind_name values outside 10 cells + 2 probes [structural]
+      unparsed_cells  cell rows with value None/"None"       [mechanical]
+      unparsed_probes probe rows with yesno not in (YES, NO) [mechanical]
+      n_rows        total records seen
+
+    Structural/mechanical classification is decided by the caller
+    (phase_b) — this function only collects the evidence.
+    """
     y: dict = collections.defaultdict(lambda: collections.defaultdict(dict))
     probes: list[dict] = []
     tags: set = set()
+    pair_counts: collections.Counter = collections.Counter()
+    unparsed_cells: list[str] = []
+    unparsed_probes: list[str] = []
+    stray: list[str] = []
     n_rows = 0
+    valid = set(ALL_CELLS) | set(G26A_PROBES)
     for path in run_paths:
         with open(path) as handle:
             for line in handle:
                 rec = json.loads(line)
                 n_rows += 1
                 tag = rec.get("model_tag", "")
-                if tag:
-                    tags.add(tag)
+                tags.add(tag)
                 kind = rec.get("kind_name", "")
+                iid = rec.get("item_id", "")
+                if kind not in valid:
+                    stray.append(kind)
+                    continue
+                pair_counts[(iid, tag, kind)] += 1
                 if kind in G26A_PROBES:
                     probes.append(rec)
-                elif kind in ALL_CELLS and rec.get("value") not in (None, "None"):
-                    y[rec["item_id"]][tag][kind] = rec["value"]
-    return y, probes, tags, n_rows
+                    if rec.get("yesno") not in ("YES", "NO"):
+                        unparsed_probes.append(f"{iid}:{tag}:{kind}")
+                elif rec.get("value") in (None, "None"):
+                    unparsed_cells.append(f"{iid}:{tag}:{kind}")
+                else:
+                    y[iid][tag][kind] = rec["value"]
+    dups = [f"{i}:{t}:{k}" for (i, t, k), c in pair_counts.items() if c > 1]
+    return {
+        "y": y, "probes": probes, "tags": tags,
+        "pair_counts": pair_counts, "dups": dups, "stray": stray,
+        "unparsed_cells": unparsed_cells,
+        "unparsed_probes": unparsed_probes,
+        "n_rows": n_rows,
+    }
 
 
 def rows_for(items: dict, y: dict) -> tuple[list[dict], dict]:
@@ -447,8 +513,13 @@ def rows_for(items: dict, y: dict) -> tuple[list[dict], dict]:
 
 
 def ruleacc(probes: list[dict]) -> dict:
-    """I4: per rule type, fraction correct among parsed probes (G25A
-    convention: unparsed leaves the denominator and is counted)."""
+    """I4 diagnostic: per rule type, fraction correct among parsed probes.
+
+    phase_b enforces mechanical completeness FIRST (both probe types
+    present and parsed for every selected item x model, else exit 4), so
+    in the Phase-B path `n_unparsed` is always 0 and absent probes never
+    reach this function — `n_unparsed`/NaN remain here as unit-level
+    diagnostics only (G25A lineage: unparsed leaves the denominator)."""
     out = {}
     for probe, expect in (("rule_probe_g26_excl", "NO"),
                           ("rule_probe_g26_admit", "YES")):
@@ -476,7 +547,24 @@ def summarise(rows: list[dict], key: str, subset=None) -> dict:
 def classify(i1: bool, i2: bool, i3: bool, i4: bool, s1: bool,
              pg: dict | None, lg: dict | None, rbar: dict | None,
              r_ts: dict | None) -> str:
-    """I-gates -> S-gates -> branches, top-down through the §8 table.
+    """§8 outcome map, literal firing order (user ruling 2026-09-24).
+
+    The three integrity failure kinds are DISTINCT verdicts:
+      * I1/I2 construction invariant fails -> `structural-integrity-failure`
+        (implementation-level NO CLAIM — never an order effect);
+      * I4 fails with COMPLETE probes (RuleAcc < 0.8) ->
+        `rule-legibility-failure` (NO CLAIM — the rule was not reliably
+        read; never `order-artifact`);
+      * I3 fails -> `order-artifact` — the ONLY gate licensing that
+        verdict (recency/position structure in the admit-timing control).
+    Missing/unparsed rows or probes never reach classify: phase_b aborts
+    them as mechanical exit 4 before any gate is computed.
+
+    Order: no evaluable data -> unresolved (G25A: absent data is not an
+    integrity event) -> structural -> rule-legibility -> order -> S1 ->
+    branches.  When several I-gates fail the label priority is
+    structural -> rule-legibility -> order; phase_b's report always lists
+    every failed gate.
 
     ``pg``/``lg`` are the pooled Primary/LoadGain cluster summaries; positive
     = gate() (CI low > 0 AND point >= 3.0); negative = CI high < 0.  The
@@ -488,8 +576,12 @@ def classify(i1: bool, i2: bool, i3: bool, i4: bool, s1: bool,
     if pg is None or lg is None or pg["n"] == 0 or lg["n"] == 0 \
             or math.isnan(pg["ci_low"]) or math.isnan(lg["ci_low"]):
         return "unresolved"                  # no evaluable data (not integrity)
-    if not (i1 and i2 and i3 and i4):
-        return "order-artifact"              # integrity first (G25A order)
+    if not (i1 and i2):
+        return "structural-integrity-failure"   # construction violated
+    if not i4:
+        return "rule-legibility-failure"        # complete probes, RuleAcc < 0.8
+    if not i3:
+        return "order-artifact"                 # I3 admit-timing control only
     if not s1:
         return "unresolved"                  # sufficiency second
     pg_pos, lg_pos = gate(pg), gate(lg)
@@ -526,8 +618,16 @@ VERDICT_MEANING = {
     "exclusion-robust": "chains are excluded cleanly at every timing "
                         "(every R_t CI inside the secondary ROPE)",
     "non-monotone": "report as measured; no ordering claim",
-    "order-artifact": "recency/position structure — no claim until "
-                      "explained via R~",
+    "structural-integrity-failure": "construction invariant violated (rule "
+                                    "bytes / shared-filler +-10) — "
+                                    "implementation-level NO CLAIM; never "
+                                    "interpreted as an order effect",
+    "rule-legibility-failure": "complete probes present but RuleAcc < 0.8 — "
+                               "the rule was not reliably read/retained; NO "
+                               "CLAIM (an integrity failure, not a position "
+                               "artifact)",
+    "order-artifact": "recency/position structure in the admit-timing "
+                      "control (I3) — no claim until explained via R~",
     "unresolved": "report everything; no verdict (equivalence failure is "
                   "NOT a path into unresolved)",
 }
@@ -537,10 +637,106 @@ VERDICT_MEANING = {
 # Phase B — the one-shot verdict (§11 Phase B budget: <= 14,400 rows)
 # ---------------------------------------------------------------------------
 def phase_b(run_paths: list[str], items_path: str, report_path: str,
-            md_path: str) -> int:
+            md_path: str, selection_path: str | None = None) -> int:
+    if not selection_path:
+        print("[phase-b] usage: --selection <frozen Phase-A selection JSON>",
+              file=sys.stderr)
+        return 5
+
+    # (0) SHA FIRST: every input hashed before any parse or gate (§11).
+    run_shas = [{"path": p, "sha256": sha256_file(p)} for p in run_paths]
+    items_sha = sha256_file(items_path)
+    selection_sha = sha256_file(selection_path)
     items_list = load_items(items_path)
     items = {it.item_id: it for it in items_list}
-    y, probes, tags, n_rows = read_runs(run_paths)
+
+    # --- frozen selection guards (STRUCTURAL, exit 3) ----------------------
+    try:
+        with open(selection_path) as fh:
+            selection = json.load(fh)
+    except (OSError, ValueError) as exc:
+        print(f"[phase-b] STRUCTURAL: unreadable selection "
+              f"{selection_path}: {exc}", file=sys.stderr)
+        return 3
+    sel_ok = (isinstance(selection, list)
+              and all(isinstance(x, str) for x in selection)
+              and len(selection) == len(set(selection))
+              and MIN_S1 <= len(selection) <= CAP_SELECT
+              and set(selection) <= set(items))
+    if not sel_ok:
+        n_txt = len(selection) if isinstance(selection, list) \
+            else "non-list"
+        print(f"[phase-b] STRUCTURAL VIOLATION — no verdict: the frozen "
+              f"selection must be a deduped list of pool items with "
+              f"{MIN_S1} <= n <= {CAP_SELECT} (got n={n_txt})",
+              file=sys.stderr)
+        return 3
+    sel_set = set(selection)
+    expected_rows = len(selection) * len(POOLED_MODELS) * (
+        len(ALL_CELLS) + len(G26A_PROBES))
+
+    parsed = read_runs(run_paths)
+    y, probes, tags = parsed["y"], parsed["probes"], parsed["tags"]
+    n_rows = parsed["n_rows"]
+
+    # (1) STRUCTURAL — BEFORE any gate: the model-tag set must equal the
+    # frozen pooled-4 exactly (an extra/unknown model is a wrong-run
+    # problem, exit 3), rows are unique per (item, model, kind), kinds are
+    # only the 10 cells + 2 probes, every row belongs to the frozen
+    # selection, budget <= 14,400 (§11). No verdict is ever computed from
+    # a structurally suspect file.
+    expected_models = set(POOLED_MODELS)
+    unknown_models = sorted(t for t in tags if t not in expected_models)
+    all_iids = {i for (i, _t, _k) in parsed["pair_counts"]}
+    outside_sel = sorted(all_iids - sel_set)
+    violations = []
+    if unknown_models:
+        violations.append(f"model tags outside the frozen pooled-4: "
+                          f"{unknown_models} (expected exactly "
+                          f"{sorted(POOLED_MODELS)})")
+    if parsed["dups"]:
+        violations.append(f"duplicate (item, model, kind) rows: "
+                          f"{parsed['dups'][:5]}")
+    if parsed["stray"]:
+        violations.append(f"stray kinds: {sorted(set(parsed['stray']))[:5]}")
+    if outside_sel:
+        not_in_pool = [i for i in outside_sel if i not in items]
+        violations.append(f"rows outside the frozen selection: "
+                          f"{outside_sel[:5]}"
+                          + (f" ({len(not_in_pool)} not in the pool)"
+                             if not_in_pool else ""))
+    if n_rows > PHASEB_ROWS_CAP:
+        violations.append(f"rows={n_rows} > budget cap {PHASEB_ROWS_CAP}")
+    if violations:
+        print("[phase-b] STRUCTURAL VIOLATION — no verdict computed:",
+              " | ".join(violations), file=sys.stderr)
+        return 3
+
+    # (2) MECHANICAL completeness — rerunnable gaps only (§7). The model
+    # panel must be present; every selected item x pooled-4 x 10 cells and
+    # x 2 probes must exist with parsed values. Missing rows, a missing
+    # pooled model, or unparsed decisions/probes => exit 4: partial data
+    # is NEVER analyzed, and a missing row is NEVER an order artifact.
+    missing_models = sorted(expected_models - set(tags))
+    missing: list[str] = []
+    for iid in selection:
+        for model in POOLED_MODELS:
+            for kind in ALL_CELLS:
+                if (iid, model, kind) not in parsed["pair_counts"]:
+                    missing.append(f"{iid}:{model}:{kind}")
+            for kind in G26A_PROBES:
+                if (iid, model, kind) not in parsed["pair_counts"]:
+                    missing.append(f"{iid}:{model}:{kind}")
+    unparsed = parsed["unparsed_cells"] + parsed["unparsed_probes"]
+    if missing_models or missing or unparsed:
+        print(f"[phase-b] INCOMPLETE (mechanical) — missing pooled models: "
+              f"{missing_models or 'none'}; missing rows {len(missing)} "
+              f"first={missing[:3]}; unparsed {len(unparsed)} "
+              f"first={unparsed[:3]}; rows {n_rows}/{expected_rows} "
+              f"(= {len(selection)} selected x 4 models x 12) — rerun the "
+              "gap; no verdict computed.", file=sys.stderr)
+        return 4
+
     rows, drops = rows_for(items, y)
 
     # --- I2: O7 distance assertion over the pool (all items, all arms) ----
@@ -556,11 +752,13 @@ def phase_b(run_paths: list[str], items_path: str, report_path: str,
     i4 = all(not math.isnan(v["acc"]) and v["acc"] >= RULEACC_MIN
              for v in acc.values())
 
-    # --- S1: usable on >= 3/4 pooled models, >= 200 items ------------------
+    # --- S1: usable on >= 3 of the FROZEN pooled-4 models, >= 200 items ---
+    # The threshold is the constant MIN_MODELS_USABLE = 3, never adapted to
+    # how many models were observed (the exact model-set assertion above
+    # makes ">= 3/4" real — no dynamic degradation to 2 of 2, 1 of 1...).
     usable = collections.Counter(r["item_id"] for r in rows)
-    n_models = len(tags) or len(POOLED_MODELS)
     s1_items = [iid for iid, c in usable.items()
-                if c >= min(MIN_MODELS_USABLE, n_models)]
+                if c >= MIN_MODELS_USABLE]
     s1 = len(s1_items) >= MIN_S1
 
     # --- estimand summaries (cluster bootstrap over title pairs, O8) ------
@@ -601,11 +799,27 @@ def phase_b(run_paths: list[str], items_path: str, report_path: str,
     report = {
         "phase": "B", "date": _dt.date.today().isoformat(),
         "prereg": "preregistrations/PREREGISTRATION_G26A_LOAD_BEARING.md",
-        "runs": [{"path": p, "sha256": sha256_file(p)} for p in run_paths],
-        "items": {"path": items_path, "sha256": sha256_file(items_path),
+        "runs": run_shas,          # sha256 computed BEFORE parsing/gates
+        "items": {"path": items_path, "sha256": items_sha,
                   "n": len(items_list)},
-        "budget": {"rows": n_rows, "cap": 14_400, "ok": n_rows <= 14_400},
-        "models": sorted(tags),
+        "selection": {"path": selection_path, "sha256": selection_sha,
+                      "n": len(selection), "ids_sha256": sha256_ids(selection),
+                      "min": MIN_S1, "cap": CAP_SELECT,
+                      "order": "frozen Phase-A selection, as written"},
+        "completeness": {
+            "ok": True, "expected_rows": expected_rows, "rows": n_rows,
+            "kinds": sorted(set(ALL_CELLS) | set(G26A_PROBES)),
+            "contract": "model set == frozen pooled-4 exactly; one parsed "
+                        "row per selected item x model x (10 cells + 2 "
+                        "probes) — a gap is mechanical (exit 4, rerun) and "
+                        "is never analyzed partially",
+            "unparsed": 0,
+        },
+        "budget": {"rows": n_rows, "cap": PHASEB_ROWS_CAP,
+                   "ok": n_rows <= PHASEB_ROWS_CAP},
+        "models": {"expected": sorted(POOLED_MODELS),
+                   "observed": sorted(tags),
+                   "exact": set(tags) == expected_models},
         "n_rows_usable": len(rows), "drops": drops,
         "integrity": {
             "I1_rule_bytes": i1,
@@ -615,7 +829,9 @@ def phase_b(run_paths: list[str], items_path: str, report_path: str,
             "I4_ruleacc_ge_0.8": {"ok": i4, "detail": acc},
         },
         "S1": {"n_usable_ge3of4": len(s1_items), "threshold": MIN_S1,
-               "ok": s1, "models_for_3of4": min(MIN_MODELS_USABLE, n_models)},
+               "ok": s1, "models_for_3of4": MIN_MODELS_USABLE,
+               "fixed": "constant 3 — never adapted to the observed "
+                        "model count (model set asserted == pooled-4)"},
         "estimands": {
             "pooled": pooled,
             "per_model": per_model,
@@ -646,7 +862,11 @@ def phase_b(run_paths: list[str], items_path: str, report_path: str,
     md = [
         "# G26A Phase B — one-shot verdict (frozen analyzer)",
         f"- date: {report['date']}",
-        f"- rows: {n_rows} (cap 14,400); usable item x model rows: {len(rows)}",
+        f"- selection: n={len(selection)} in [{MIN_S1},{CAP_SELECT}], "
+        f"ids sha256 `{report['selection']['ids_sha256']}` — "
+        f"rows {n_rows}/{expected_rows} (= n x 4 x 12, all parsed)",
+        f"- models: pooled-4 exact — {sorted(tags)}",
+        f"- rows: {n_rows} (cap {PHASEB_ROWS_CAP}); usable item x model rows: {len(rows)}",
         f"- drops: {drops}",
         f"- I-gates: I1 {i1} | I2 {'PASS' if i2 else 'FAIL'} "
         f"(dist fails {len(dist_fail)}) | I3 {'PASS' if i3 else 'FAIL'} | "
@@ -683,12 +903,20 @@ def main() -> int:
                     help="default: report path with .md suffix")
     ap.add_argument("--select-out", default=None,
                     help="phase A: JSON array of selected item ids (n<=300)")
+    ap.add_argument("--selection", default=None,
+                    help="phase B (required): the FROZEN Phase-A selection "
+                         "JSON (200..300 selected item ids)")
     args = ap.parse_args()
     md_path = args.md or (os.path.splitext(args.report)[0] + ".md")
     if args.phase == "a":
         return phase_a(args.runs, args.items, args.report,
                        args.select_out, md_path)
-    return phase_b(args.runs, args.items, args.report, md_path)
+    if not args.selection:
+        print("[phase-b] --selection is required (frozen Phase-A selection)",
+              file=sys.stderr)
+        return 5
+    return phase_b(args.runs, args.items, args.report, md_path,
+                   args.selection)
 
 
 if __name__ == "__main__":

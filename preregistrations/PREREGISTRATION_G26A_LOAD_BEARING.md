@@ -376,7 +376,9 @@ regardless. Usability (O6): all 10 cells present for that model and
 ## 8. Outcome map
 
 Order: **mechanical completeness (checked first — produces NO verdict,
-exit 4) → I-gates → S-gates → branches.**
+exit 4) → evaluability (no evaluable rows → `unresolved`; absent data is
+never an integrity verdict, G25A order) → I-gates (structural I1/I2 →
+rule-legibility I4 → order I3) → S-gates → branches.**
 
 - **Mechanical completeness (user ruling 2026-09-24, pre-tag):** the Phase-B
   analyzer asserts the model-tag set **exactly equals the frozen pooled-4**
