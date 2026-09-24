@@ -299,25 +299,63 @@ websearch-down coverage caveats on record).
 1. §0 open items signed off; §12 checklist complete with design tag recorded;
 2. dispatch/conditions module + items build + selection + analyzer + tests
    implemented and green;
-3. full suite green (current baseline: 334 passed / 849 s with the five
-   standard `--ignore` flags).
+3. full suite green (baseline at tag time: **418 passed / 953.65 s with
+   zero `--ignore` flags**, 2026-09-24 — a strict superset of the earlier
+   334 / 849 s five-flag baseline; those five flags only skipped 51 tests
+   that pass unconditionally, so the zero-ignore figure is stated).
 
 **Compute budget (to be authorized by the STATUS flip, stated up front):**
 ≤ 400 items × 16 cells × 4 models = **25,600** condition rows, plus ≤ 3,200
 probe rows (O3) → **≤ 28,800** rows, four models, no retries-by-outcome.
 
+### 11.4 Pre-tag clarifications (recorded 2026-09-24, design-stage; none
+adds compute, cells, models or outcomes)
+
+1. **RuleAcc (I2) is defined operationally**: the pooled fraction of §4
+   requested-weight-access probe rows (`wprobe_g25_pre_w000`,
+   `wprobe_g25_pre_w100`) whose parsed numeric answer lies within
+   `PROBE_TOL_PP = 2.0` percentage points of the requested weight.
+   Unparsed rows stay in the denominator and count against RuleAcc (no
+   silent dropping). Absent probe data fails I2 → verdict `order-artifact`
+   (integrity event), *not* `unresolved`.
+2. **Block headers are `CLAIM` / `EVIDENCE E`** (G24A materials lineage;
+   §3's `BACKGROUND`/`EVIDENCE` notation is schematic). The rule sentence is
+   its own `RULING` block, rendered between `CLAIM` and `EVIDENCE E`; the
+   `g25_norule` control cell renders `CLAIM` + `EVIDENCE E` with no
+   `RULING` block. Prompt-diff tests pin: pre/post cells differ in block
+   order only, all 15 non-base cells share one tail, one number per rule.
+3. **Cluster key = `source/cluster`** (G24A namespacing on `meta.source` +
+   `meta.cluster`). This reproduces the §5 dry-run anchors exactly: 342
+   clusters over the 400 selected items, 126 shared with G24A; the cluster
+   bootstrap resamples whole clusters under this key (seed 20260924,
+   B = 10,000).
+4. **§8 row precedence is top-down**: `boundary-not-replicated` (G1 fails
+   while Gap(0)'s CI lies strictly above 0) is evaluated *before*
+   `partial-boundary`; a precheck that no evaluable data exists yields
+   `unresolved` and is not an integrity event; failed I2 (probe data absent)
+   yields `order-artifact`.
+5. **Gradedness can never gate (user ruling, this session)**: `classify()`
+   takes exactly `(i1, i2, s1, g1, g2, gap0)` — no gradedness input;
+   `Resp(w)`/`GradedPos` are §6 interpretation labels shipped alongside a
+   verdict that is byte-identical under graded vs flat positives. Pinned by
+   an explicit signature-lock test.
+
 ## 12. Freeze checklist and record
 
-- [ ] §0 open items O1–O7 signed off
+- [x] §0 open items O1–O7 signed off (2026-09-24)
 - [x] manual nearest-prior pass (Anthology/arXiv) done and recorded (2026-09-24, gate5 §"Freeze-time manual pass")
-- [ ] rule/condition byte-strings pinned; identity tests green
-- [ ] selection determinism test green (`0b38e0837ed9fd60`, n=400, 150/150/100)
-- [ ] items file built; sha256 + strata counts recorded here
-- [ ] analyzer + outcome-map tests green (both-direction sign test)
-- [ ] gradedness diagnostic (`Resp`/`GradedPos`) implemented + tested
+- [x] rule/condition byte-strings pinned; identity tests green (`tests/test_g25a.py`: rule == `conditions_v3.uniform_weight_rule`, same function object as G23A's, exact one-number wording; only-number-changes; pre/post order-only; single tail)
+- [x] selection determinism test green (`0b38e0837ed9fd60`, n=400, 150/150/100; real full-walk rerun + census regression both green)
+- [x] items file built; sha256 + strata counts recorded here: `data/items/g25_v1.jsonl` sha256 = `7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147`, strata fever/SUPPORTS 150 + fever/REFUTES 150 + scifact/SUPPORT 100 = 400, byte-identical to candidates, 342 `source/cluster` keys, 126 shared with G24A (disclosed as-is, no cluster-disjointness demanded — user decision)
+- [x] analyzer + outcome-map tests green (both-direction sign test; usability drops; RuleAcc; §8 10-branch decision order incl. row precedence)
+- [x] gradedness diagnostic (`Resp`/`GradedPos`) implemented + tested (signature-lock: `classify` has no gradedness input; graded vs flat e2e produce the identical verdict, only the §6 label differs)
 - [x] **power/sensitivity note recorded (O7 — mandatory, no-model; done 2026-09-24, §7 + `results/audits/g25a_power_note_v1.json`)**
-- [ ] full test suite green at updated baseline
-- [ ] **design tag assigned:** ____________________ (recorded here + ledger)
+- [x] full test suite green at updated baseline: **418 passed / 953.65 s,
+  zero `--ignore` flags** (2026-09-24; = 385 pre-existing + 33
+  `tests/test_g25a.py`; supersedes the 334 / 849 s five-flag baseline)
+- [x] **design tag assigned:** `g25a-near-zero-design-v1` (recorded here +
+  ledger; git tag points at this commit — no G25A forward pass exists
+  before it)
 - [ ] **STATUS flip recorded** (ledger entry authorizing ≤ 28,800 rows)
 
 No boxes may be checked after the design tag is set (prereg freeze rule);
