@@ -168,9 +168,14 @@ contrast no "obvious" story settles.
   `R2: 8..80 words`, `R3: leak < 0.9`.
 - **Orientation:** chain order follows supporting-fact **mention direction**
   `sf0→sf1` (61.4% of oriented items); list order equals chain order in
-  98.2% of oriented items but **75 survivors are reversed → A/B orientation
-  is assigned by mention direction, never by list order** (test-asserted,
-  §9.3).
+  98.2% of oriented items — **75 orientation-unique items are
+  list-order-reversed; 72 survive the pooled structural gates; 69 occur in
+  the pinned train / Phase-A feasible pool (both feasibility-excluded
+  Georgian twins are forward)** → A/B assignment is always by mention
+  direction, never by list order (test-asserted, §9.3). *(factual erratum,
+  pre-tag 2026-09-24: the v1 sentence "75 survivors are reversed"
+  conflated the orientation-unique stage with the survivor stage; selection
+  is unchanged.)*
 - **Defect taxonomy** (one-by-one read of a 20-item deterministic sample:
   0 fragments / 0 misalignments in survivors): Class A splitter drift
   (fixed by `smart_sents` v2, e.g. uid `71006039`); Class B DB page shorter
@@ -405,8 +410,10 @@ Every row is reachable a priori; none is the manipulation's built-in answer
    distance assertion ±10 tokens (O7); hand-authored bank only, no LLM
    generation.
 3. **Mention-direction orientation** test: A/B follow `sf0→sf1`; the 75
-   list-order-reversed survivors must construct A/B by mention direction,
-   never list order.
+   orientation-unique list-order-reversed items (72 pooled structural
+   survivors, 69 in the pinned train / Phase-A pool — both feasibility
+   exclusions are forward) must construct A/B by mention direction, never
+   list order.
 4. **Single-split assertion:** every selected item is from `train`
    (O4/O9) — a cross-split draw is structurally impossible.
 5. Admit-timing control (I3) + DiD sensitivity `R̃` reported
@@ -514,7 +521,7 @@ authorizes exactly them.
 - [x] HoVer structural audit recorded — sha256 / license / funnel / by-split (done 2026-09-24: `hover_v1.1` manifest, `hover_structural_v1.json`, report §5)
 - [x] **filler-feasibility census + Phase-A pool written** (done 2026-09-24: 3,642 structural → **3,640 feasible**, 2 excluded as `tokenizer_geometry_infeasible` uids recorded in §0; pool `data/items/g26_phasea_pool_v1.jsonl` sha256 `ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c`; report `data/items/g26_phasea_pool_report_v1.json`; zero-model, outcome-blind — §0 amendment)
 - [x] tests green: rule identity, shared-multiset + ±10 distance, mention-direction orientation, single-split assertion, selection blindness, both sign directions, **positive-gate trichotomy (positive/negative/not-positive) with floor 3.0**, **secondary-ROPE characterization fires wording only — never a branch, never `unresolved`**, outcome-map firing order (`staged`/`load-bearing-bound`/`presence-bound`/`no-stage-gain` + subdivisions, equivalence-failure-is-not-unresolved locked) — DONE 2026-09-24: `tests/test_g26a.py`, 27 passed / 93 s (incl. deterministic re-run of the 2 feasibility exclusions)
-- [ ] full test suite green at updated baseline (334 passed / 849 s, five standard `--ignore` flags)
+- [x] full test suite green at updated baseline (**445 passed / 990.36 s / zero `--ignore` / exit 0** — measured 2026-09-24; supersedes the earlier 334/849/five-ignore figure)
 - [ ] **Phase A design tag assigned:** ____________ (recorded here + ledger)
 - [ ] **STATUS flip #1 recorded** (ledger: authorizes Phase A ≤ 14,560 rows)
 
