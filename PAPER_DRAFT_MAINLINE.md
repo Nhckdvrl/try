@@ -32,7 +32,7 @@ Matched Admit controls do not show the analogous order effect.
 
 ---
 
-## 2. The gap is not just forgetting
+## 2. Controls: the gap is not just forgetting
 
 Several controls make generic instruction forgetting insufficient:
 
@@ -47,7 +47,7 @@ evidence causally inert**.
 
 ---
 
-## 3. Complete exclusion has an extra timing cost
+## 3. Semantic causal zero has an extra prospective cost
 
 G23A freezes the strongest clean behavioral law:
 
@@ -55,13 +55,16 @@ G23A freezes the strongest clean behavioral law:
 
 The non-zero instruction gap is also positive, so this is not “only zero fails.”
 
-The correct result is:
+The frozen G23A result alone is not the novelty claim: a reviewer could reasonably say
+that requesting exactly zero influence is stricter than requesting partial influence.
 
-> **Prospective processing has a generic timing cost, and the cost is discontinuously
-> larger when the requested evidential weight is exactly zero.**
+The non-trivial contrast is with the explicit/verifiable controls:
 
-This makes complete semantic exclusion a distinctive control problem rather than just a
-generic instruction-position effect.
+> **Prospective zero can be executed exactly when the contribution is explicit and
+> verifiable, while complete semantic evidence exclusion still incurs an additional
+> prospective cost.**
+
+The scientific object is therefore **semantic causal zero**, not the numeral 0 itself.
 
 ---
 
@@ -109,7 +112,7 @@ But Stage 5 alone does not show that this state carries the policy value itself.
 
 ---
 
-## 6. G23C closes the mechanism loop
+## 6. Mechanistic support: rule-time policy state
 
 G23C prospectively tested whether the Stage-5 rule-time state carries the policy value
 with stronger causal efficacy when the semantic target is available.
@@ -125,36 +128,55 @@ TargetConditioning = +8.15 [ +6.91, +9.44]
 Both model-level target-conditioning means are positive. The same pattern is absent at
 the frozen negative layers L4 and L24, and identity patches are exact.
 
-Therefore the mechanism statement is:
+G24B subsequently fixes the recipient prompt and still finds a positive donor-side
+interaction at L14:
+`DonorTargetInteraction = +4.02 [+2.27,+6.14]`.
 
-> **The causal efficacy of the rule-time zero-vs-full policy state is
-> target-conditioned.**
+These interventions establish that the rule-time state participates causally in later
+suppression and that target context changes its transportable policy effect.
 
-This directly connects the broad prospective exclusion failure and the zero-amplified
-behavioral boundary to a mid-network causal state formed before later evidence is read.
+However, this is **supporting mechanism evidence**, not a third headline novelty claim:
+the matched condition visibly contains matching target semantics before the rule, so a
+reviewer can reasonably expect the resulting state to be more target-specific.
 
-The claim is deliberately narrower than “the target×policy conjunction is stored in one
-hidden vector.” Recipient context and downstream computation may still contribute.
+Do not present “target present -> more target-conditioned policy state” as an independent
+contribution.
 
 ---
 
-## 7. Current claims after G23C
+## 7. Current contribution structure
 
-### C1
-Prospective exclusion is systematically weaker than retrospective exclusion.
+### Headline Finding 1
 
-### C2
-The asymmetry is not reducible to simple policy forgetting.
+> **Prospective evidence exclusion is systematically weaker than retrospective
+> exclusion, and source-grounded natural evidence can still leak under a prior zero-use
+> ruling.**
 
-### C3
-The prospective timing cost is discontinuously amplified at complete exclusion.
+G24A must be reported with its exact scope: pooled prospective leak passed, while the
+retrospective endpoint did not; cross-model/source consistency was not uniform.
 
-### C4
-When target semantics are available during policy processing, exchanging the mid-network
-rule-time zero-vs-full policy state has a substantially larger causal effect on later
-evidence use.
+### Headline Finding 2
 
-No stronger claims are needed.
+> **Semantic causal zero is disproportionately difficult prospectively even though
+> future zero can be executed exactly for explicit/verifiable contributions.**
+
+G23A provides the zero amplification; exact arithmetic/numeric controls provide the
+critical non-obvious boundary.
+
+### Supporting controls
+
+“Policy access != enforcement” belongs here. It rules out forgetting but is not itself
+novel enough to headline.
+
+### Supporting mechanism
+
+Stage 5 / G23C / G24B provide causal internal evidence. They explain the behavioral
+findings but are not counted as a third contribution under the current novelty audit.
+
+### Open slot
+
+A third headline RQ is optional. Add one only if it survives the reviewer-obvious veto.
+Do not manufacture one to satisfy a preferred section count.
 
 ---
 
@@ -183,23 +205,19 @@ Primary:
 
 > **Can Language Models Commit to Ignore Future Evidence?**
 
-Possible subtitle:
-
-> **Prospective Evidence Exclusion Depends on Target-Conditioned Policy State**
-
-Use cautiously until G23C-R finishes; the primary title remains safer.
+Do not use a subtitle centered on “target-conditioned policy state.” That mechanism
+claim is now supporting evidence rather than the paper's novelty center.
 
 
 ---
 
-## 10. Final confirmatory round — G23C-R
+## 10. Current next step
 
-G23C-R repeats only the G23C mechanism result on a fresh frozen material set:
-70 G18 legal/inference items, 20 skeletons, all disjoint from the Stage-5 discovery
-materials.
+Do **not** run G23C-R yet.
 
-It uses the same two models, direct readout, rule-end site, L4/L14/L24, bridge and
-target-conditioning gates.
+First perform a novelty search for a genuinely non-obvious third question growing from
+RQ1/RQ2. If none survives, write the paper around the two headline findings and use
+Stage 5/G23C/G24B as mechanistic support.
 
-This is a robustness replication, not a new scientific branch. No later mechanism round
-is planned regardless of outcome.
+G23C-R remains a parked replication design and requires a new authority decision before
+compute.
