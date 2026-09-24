@@ -452,12 +452,22 @@ def text_level(funnel, db_path: str) -> dict:
     sp = collections.Counter((x["split"], x["label"]) for x in survivors)
     pairs_s = collections.Counter(tuple(sorted(x["titles"])) for x in survivors)
     hp_s = collections.Counter(x["hpqa_id"] for x in survivors)
+    by_split = {}
+    for s in sorted({x["split"] for x in survivors}):
+        sub = [x for x in survivors if x["split"] == s]
+        by_split[s] = {
+            "survivors": len(sub),
+            "title_pair_clusters":
+                len({tuple(sorted(x["titles"])) for x in sub}),
+            "hpqa_clusters": len({x["hpqa_id"] for x in sub}),
+        }
     out["T6_post_rule_funnel"] = {
         "rules": ["2-hop", "n_sf==2", "distinct titles",
                   "orientation-unique bridge", "8<=words<=80 both",
                   "single-sentence leak recall <0.9"],
         "materialized": n, "survivors": len(survivors),
         "by_split_label": {f"{s}/{l}": v for (s, l), v in sorted(sp.items())},
+        "by_split": by_split,
         "title_pair_clusters": len(pairs_s),
         "hpqa_clusters": len(hp_s),
         "singleton_pairs": sum(1 for v in pairs_s.values() if v == 1),

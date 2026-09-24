@@ -254,6 +254,18 @@
     "train/NOT_SUPPORTED": 1136,
     "train/SUPPORTED": 2506
    },
+   "by_split": {
+    "dev": {
+     "survivors": 463,
+     "title_pair_clusters": 368,
+     "hpqa_clusters": 371
+    },
+    "train": {
+     "survivors": 3642,
+     "title_pair_clusters": 2320,
+     "hpqa_clusters": 2339
+    }
+   },
    "title_pair_clusters": 2683,
    "hpqa_clusters": 2710,
    "singleton_pairs": 1635,
