@@ -232,3 +232,23 @@ G23C-R remains part of RQ3. **G24A natural-evidence confirmation is COMPLETE**
 **G24B donor/recipient factorization is COMPLETE** (frozen verdict
 `donor-conditioned-policy-state`). No further target-model compute is authorized;
 the next design is G23C-R, per `STATUS.md`.
+
+
+## Novelty reclassification — 2026-09-24
+
+The G18 semantic-preview round is the canonical warning: an experiment can be rigorous
+and strongly causal/statistical yet still be scientifically trivial because the
+manipulation already makes the result obvious.
+
+Applying that veto to the current mainline:
+
+- **Headline 1:** prospective exclusion asymmetry / natural-evidence prospective leak;
+- **Headline 2:** semantic causal zero is unusually difficult prospectively relative to
+  explicit/verifiable prospective zero;
+- **Control only:** policy access != enforcement;
+- **Mechanism support only:** Stage 5 / G23C / G24B;
+- **HOLD:** G23C-R;
+- **Open:** a genuinely non-obvious third RQ, if one exists.
+
+Do not resurrect a three-RQ structure by counting a causal but reviewer-obvious
+mechanism statement as novelty.
