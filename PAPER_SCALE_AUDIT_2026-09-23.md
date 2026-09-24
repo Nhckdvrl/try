@@ -138,6 +138,52 @@ It has to be:
 
 ---
 
+
+
+# 5A. Hard veto — reviewer-obvious / treatment-contains-the-answer experiments
+
+The project has one canonical negative example: **G18 semantic targeting**.
+
+G18's `para/entail` preview placed essentially the same proposition as the later
+evidence into context before the rule. The later evidence's no-rule marginal then
+collapsed from roughly 32 rating points to roughly 3.
+
+The numerical result was real, but the original headline interpretation was not a
+novel scientific law. A reviewer can compress the manipulation to:
+
+> “You told the model the evidence content earlier; unsurprisingly the later duplicate
+> evidence no longer changes the judgment much.”
+
+That is a **triviality failure**, even if the experiment is preregistered, statistically
+clean, and the effect is large.
+
+Therefore every future headline experiment must pass all of these gates before compute:
+
+1. **Treatment-does-not-contain-the-answer.** The manipulation may not directly supply
+   the very semantic content, label, solution, or state whose later availability is the
+   claimed explanation.
+2. **Reviewer one-line test.** If the claim compresses to “give X, then X matters”,
+   “repeat X, then the repetition matters less”, or an equally obvious consequence of
+   prompt semantics, it cannot be a paper-center claim.
+3. **Two live accounts.** Before generation, there must be at least two plausible
+   explanations that make meaningfully different predictions under the *same* visible
+   task content. Merely adding/removing an explicit cue is not enough.
+4. **Unexpected result requirement.** The headline must contain something a reasonable
+   reviewer would not predict from the manipulation alone. A large effect size does not
+   substitute for surprise.
+5. **No rescue by mechanism jargon.** Activation patching or hidden-state language does
+   not make an obvious behavioral manipulation novel. The behavioral object must be
+   non-trivial first.
+
+Current interpretation of G18:
+- valid diagnostic/provenance;
+- useful frozen materials;
+- evidence that prior semantic instantiation changes later control;
+- **not** a standalone novelty-bearing law.
+
+G20 was not the offending executed experiment; it remained design provenance and was
+never run as a paper-center result.
+
 # 6. What currently counts as paper-ready evidence
 
 Do not count exploratory rounds merely because they consumed compute.
