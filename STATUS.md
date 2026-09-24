@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A DESIGN TAGGED (AWAITING FLIP) / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A FLIPPED — COMPUTE AUTHORIZED / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -53,6 +53,21 @@
 > USER-OWNED and NOT yet recorded.** After the flip: run the harness once
 > per pooled model → `src/analyze_g25.py` → verdict → (only then) the RQ2
 > section draft.
+>
+> **G25A STATUS FLIP RECORDED (2026-09-24) — COMPUTE AUTHORIZED (step 8,
+> user decision):** token `G25A-FLIP=RECORDED`.
+>
+> Design tag `g25a-near-zero-design-v1` @ `04a17bb` (§12 checklist complete
+> except this box; items sha256 `7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147`
+> locked; `tests/test_g25a.py` 33/33; full suite 418 passed / 953.65 s
+> with zero `--ignore` flags). This entry releases **≤ 28,800 rows** =
+> 400 items × (16 decision cells + 2 O3 probes) × 4 pooled models
+> (qwen3-8b, gemma3-12b, llama31-8b, qwen35-9b), no retries-by-outcome,
+> selector mistral-small-24b never pooled, prereg unchanged from the tag.
+> Order: 4× `scripts/run_g25a_main.sh <gpu> <model-tag>` → all four raws
+> complete (7,200 rows each, 28,800 total) → frozen `src/analyze_g25.py`
+> → outcome-map verdict → **only after the verdict** the RQ2 section
+> draft.
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
