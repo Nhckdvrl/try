@@ -267,8 +267,10 @@ in later suppression and depends on target context.
         ↓
 
 OPEN
-Candidate: scope of a prospective exclusion policy — under novelty
-audit, not registrable. If it (or another) fails the triviality veto,
+Candidate: scope of a prospective exclusion policy — novelty audit
+complete: no parent-level prior found (PROCEED, narrowed;
+PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md). Still not registrable until the
+five gates pass. If it (or another) fails the triviality veto,
 stop at two headline findings.
 ```
 

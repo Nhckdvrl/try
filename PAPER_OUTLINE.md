@@ -181,11 +181,11 @@ G23C-R is HOLD until a stronger parent question exists.
 
 ## 6. Open third question — only if non-trivial
 
-Current candidate (under novelty audit; **not registrable yet**): **scope of a
-prospective exclusion policy** — can a model exclude one future evidence piece
-without leaking through it or collaterally suppressing related evidence?
-Systematic related-work search running; proceed only if it survives the gates
-below.
+Current candidate: **scope of a prospective exclusion policy** — can a model
+exclude one future evidence piece without leaking through it or collaterally
+suppressing related evidence? Systematic novelty audit **complete: PROCEED
+with narrowing, no parent-level prior found** (`PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md`).
+Still **not registrable** — it must survive the gates below first.
 
 Before any new experiment, require:
 

@@ -137,9 +137,12 @@ inferred causal contribution of semantic evidence** — not to numbers.
    (representation learned in-context, struggles to use it) owns the *generic*
    representation-vs-deployment frame, which we must not repackage — our object
    stays **causal eligibility of future evidence under a prior policy**.
-   **Owed before any prereg tag:** one targeted search pass over (a) evidence
-   integration / calibration linearity in LLMs, (b) numeric & graded
-   instruction compliance. Until those return, gate 5 = OPEN.
+   **Searches run and archived** in `gate5_novelty_search.md` (round 1: 30+
+   query families, Tables A/B; round 2: OpenReview, ACL-Anthology
+   site-restricted, Semantic Scholar retry, full abstracts of the two closest
+   neighbors): no owning prior in any reachable channel → **gate 5 = CLOSED
+   (PASS)**, with the wording hazards in that file binding, and one final
+   manual Anthology/arXiv pass at prereg-freeze time (recorded residual).
 
 ## 6. Proposed confirmatory — fresh natural near-zero sweep (design sketch)
 

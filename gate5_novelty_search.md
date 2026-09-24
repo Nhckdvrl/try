@@ -89,3 +89,63 @@ Also screened (not tabulated): scalar-output bunching around arbitrary numbers h
 4. Read-verify (full text, not abstract) the two closest neighbors before prereg wording is frozen: **B1 Semantic Gravity Wells** (https://arxiv.org/abs/2601.08070 ) and **A1 Evidence Integration in LLMs** (https://arxiv.org/abs/2609.04290 ).
 
 If those four come back empty or non-owning → **CLOSE as PASS**, scoped exactly as in the wording-hazards section.
+
+---
+
+## Round-2 coverage follow-ups (2026-09-24, main session, direct fetches)
+
+The `websearch` tool was down for the entire session (`Web search cancelled`
+on every attempt, both agents), so all four named searches were re-run as
+direct HTTP fetches. Results, verbatim:
+
+1. **OpenReview API** (`api2.openreview.net/notes/search?term=prospective
+   evidence exclusion`) → 19 unique titles, all fuzzy-OR noise (runoff-voting
+   "exclusion zones", "prospective learning", social-exclusion neuroscience).
+   Single adjacent title: *A Within-Model Protocol for Auditing LLM Responses
+   under Controlled Evidence Degradation* — TMLR 2026 submission, **Rejected**
+   (abstract behind a bot-check; classified from title/venue: it audits
+   response robustness while evidence quality is degraded, not instructed
+   weights or timing). → **non-owning**.
+2. **ACL Anthology site-restricted** (DuckDuckGo stand-in for the nonexistent
+   public CSE JSON endpoint): `site:aclanthology.org "evidence exclusion"` →
+   **0 results**; `site:aclanthology.org "exclusion policy" evidence exclude` →
+   **0 results**; a third query then hit DDG's bot-CAPTCHA (coverage stops
+   there, recorded below).
+3. **Semantic Scholar retry**: paper **search** endpoint still HTTP 429 twice
+   for both gate-5 queries; the **citations** endpoint did succeed (used for
+   the RQ3 audit: 10 citations of arXiv:2410.00382, none relevant). arXiv's
+   own search UI timed out twice; OpenAlex exact-phrase endpoint 503 once;
+   OpenAlex fuzzy full-text search returned only noise for these phrasings.
+   → phrase-level S2/arXiv coverage remains incomplete (residual, below).
+4. **Full abstract read of the two closest neighbors** (fetched in full from
+   arXiv, not snippets):
+   - **B1 Semantic Gravity Wells** (https://arxiv.org/abs/2601.08070 ):
+     lexical negative constraints ("do not use word X"); violation follows
+     logistic semantic pressure (p = σ(−2.40 + 2.27·P₀), n = 40,000); priming
+     failure 87.5% vs override failure 12.5%; layers 23–27 confirmed by
+     activation patching. **Word-level, no numeric weight, no timing** →
+     non-owning; wording hazard §3.2 unchanged (cite as the lexical neighbor).
+   - **A1 Evidence Integration in LLMs**
+     (https://arxiv.org/abs/2609.04290 ): receiver prior weight × candidate
+     evidence tilt, 10M trials, 12 LLMs / 4 families / 8 domains; models
+     integrate gradedly *and* keep integrating after internally verifying
+     invalidity; verification is decodable but causally inert (late-network
+     candidate-integration sequence). **Establishes smooth/graded integration
+     with no w=0 condition and no instructed weight** → non-owning — and it
+     *raises the prior expectation of smoothness*, which our flat-then-jump
+     ladder contradicts (strengthens the surprise). New hazard note: do not
+     claim their verification-vs-action dissociation as ours; our object stays
+     timing + semantic zero.
+
+## Final gate-5 verdict
+
+**CLOSED as PASS**, scoped exactly as in the wording-hazards section above.
+
+- All four named searches completed; none owns the claim.
+- **Residual (recorded honestly):** S2 phrase search (429), arXiv search UI
+  (timeouts), DDG beyond two queries (CAPTCHA), and ACL Anthology's JS search
+  box were not covered; multi-channel convergence (30+ query-family abstract
+  screening, OpenReview, DDG site ×2, Crossref/OpenAlex/S2 citation chasing)
+  found no owning prior in any reachable channel. Same residual class as
+  `PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md` §6: one final manual pass over ACL
+  Anthology 2026 + arXiv listing at prereg-freeze time.
