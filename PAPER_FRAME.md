@@ -18,37 +18,89 @@ The paper-level object is:
 
 ---
 
-## Paper-level RQ architecture
+## Paper-level novelty architecture
 
-The project is no longer judged as a sequence of experimental rounds. The Main-paper
-target is three one-to-one research questions.
+Do **not** force the project into three headline RQs merely because three sections are
+convenient.
 
-### RQ1 — Generality
+Sasano's relevant criterion is:
+- each RQ should map one-to-one to a finding;
+- the paper should emphasize the most surprising finding;
+- technically valid but obvious results should not be inflated into contributions.
 
-> **Does prospective evidence exclusion fail broadly and in source-grounded evidence
-> settings, rather than only in authored controlled vignettes?**
+At present the project has **two novelty-bearing research questions**.
 
-Existing evidence: G0 breadth, wording/delay/diffusion controls, Stage-4A agent setting.  
-Missing confirmatory evidence: **G24A natural-evidence confirmation**.
+### RQ1 — prospective causal eligibility of future evidence
 
-### RQ2 — Structural boundary
+> **Can an LLM commit in advance to make future evidence causally irrelevant to a
+> later decision?**
 
-> **Is the failure a generic inability to remember/apply a future zero rule, or is
-> semantic evidence exclusion a distinct prospective control problem?**
+Finding target:
 
-Existing evidence: G23A zero amplification, explicit exact weighting control,
-policy-access/enforcement dissociation, numeric invalidation boundary.
+> **Prospective exclusion is systematically weaker than retrospective exclusion, and
+> source-grounded natural evidence can still leak under a prior zero-use ruling.**
 
-### RQ3 — Mechanism
+Main evidence:
+- G0 controlled breadth;
+- Admit / wording / delay / diffusion controls;
+- agent-like system-policy -> tool-output setting;
+- G24A natural/source-grounded FEVER + SciFact round.
 
-> **What rule-time computation makes a future-evidence policy causally executable?**
+Important scope:
+G24A's frozen verdict is `prospective-only`; its cross-model and cross-source
+consistency clauses did **not** both pass. Do not rewrite it as uniform replication
+across all models/datasets.
 
-Existing evidence: Stage 5 and G23C.  
-Missing confirmatory evidence: donor-vs-recipient factorization plus G23C-R
-fresh-material replication.
+### RQ2 — semantic causal zero versus explicit/verifiable zero
 
-The three-RQ completion standard is defined in
-`PAPER_SCALE_AUDIT_2026-09-23.md`.
+> **Is prospective failure a generic inability to execute a future zero rule, or is
+> making semantic evidence causally zero a distinct control problem?**
+
+Finding target:
+
+> **Complete semantic evidence exclusion shows an additional prospective cost, even
+> though prospective zero can be executed exactly when the contribution is explicit
+> and verifiable.**
+
+Main evidence:
+- G23A zero amplification;
+- exact arithmetic / explicit weighting boundary;
+- source-grounded numeric invalidation boundary;
+- policy-access probes only as controls.
+
+The standalone claim “models can state a policy but fail to follow it” is not novel
+enough to be a contribution.
+
+### Mechanistic evidence — supporting layer, not RQ3
+
+Stage 5, G23C and G24B provide valid causal evidence about the rule-time state.
+
+However, the current mechanism headline is vulnerable to the reviewer-obvious
+compression:
+
+> “If target semantics were present before the rule, the resulting hidden state can
+> naturally carry more target-specific policy information.”
+
+G24B removes the recipient-sensitivity confound, but does not make that scientific
+statement non-obvious.
+
+Therefore:
+- do not count Stage 5/G23C/G24B as a third novelty-bearing finding;
+- do not run G23C-R merely to make the same claim more robust;
+- use the mechanism results only to explain/interpret RQ1–RQ2 unless a stronger,
+  genuinely non-trivial question is found.
+
+### Third-RQ slot — OPEN, not mandatory
+
+A third headline RQ is allowed only if it passes the G18 triviality veto:
+1. treatment does not directly contain the answer;
+2. a reviewer cannot dismiss it with one obvious sentence;
+3. at least two live accounts make different predictions under the same visible task
+   content;
+4. the expected headline contains a genuinely non-obvious relation.
+
+If no such RQ is found, write a strong two-finding paper rather than adding an obvious
+third finding.
 
 ---
 
@@ -155,17 +207,19 @@ Qwen.
 
 Safe current claim:
 
-> **What target state is available while the exclusion rule is processed changes a
-> causal rule-time state that later affects evidence suppression.**
+> **The rule-time hidden state is causally involved in later suppression, and its
+> transportable policy effect depends on the preceding target context.**
 
-What remains unresolved is whether this state actually carries the **policy value for
-that target**, or merely a generic target/context readiness state.
+This is useful mechanistic evidence, but not by itself a novelty-bearing headline.
+The visible manipulation already differs in whether matching target semantics were
+present, so “the state becomes more target-conditioned” is too close to the default
+expectation to carry a contribution on its own.
 
 ---
 
 ## 6. Current paper spine
 
-The paper should now read:
+The paper should currently read:
 
 ```text
 Natural problem:
@@ -173,73 +227,75 @@ Can an LLM commit now to ignore evidence that arrives later?
 
         ↓
 
-C1 — G0
-Prospective exclusion is systematically weaker than retrospective exclusion.
+RQ1 / Finding 1
+Prospective exclusion is systematically weaker than retrospective exclusion,
+including a source-grounded natural-evidence prospective leak.
 
         ↓
 
-C2 — controls
-The gap is not reducible to simple instruction forgetting or inability to represent 0.
+RQ2 / Finding 2
+The hard part is not future zero in general:
+semantic causal zero shows an additional prospective cost,
+while explicit/verifiable prospective zero can be executed exactly.
 
         ↓
 
-C3 — G23A
-The timing cost is discontinuously amplified at w=0.
-Generic timing cost + extra complete-exclusion cost.
+Mechanistic support
+Stage 5 / G23C / G24B show that rule-time internal state participates causally
+in later suppression and depends on target context.
 
         ↓
 
-C5 — Stage 5
-Target availability during rule processing changes a mid-network causal state
-before later evidence is read.
-
-        ↓
-
-Missing link
-Does that state carry an executable target × policy relation?
+OPEN
+Find a genuinely non-obvious third question, or stop at two headline findings.
 ```
 
-That missing link is G23C.
+The mechanism line is explanatory evidence, not the third contribution.
 
 ---
 
-## 7. G23C — completed mechanism link
+## 7. Mechanism evidence — valid but novelty-limited
 
-Frozen verdict: **`target-conditioned-policy-state`**.
+### Stage 5
 
-Key result at the preregistered primary site/layer:
+Matched chronology localizes a rule-time causal window in Qwen3-8B and
+Mistral-Small-24B before later evidence is processed.
 
-```text
-PolicyTransfer_M = +13.03 [+11.69,+14.31]
-PolicyTransfer_U =  +4.89 [ +3.73, +6.18]
-TargetConditioning = +8.15 [ +6.91, +9.44]
-```
+### G23C
 
-The same target-conditioning pattern is absent at the frozen negative layers:
-L4 ≈ `-0.03`, L24 ≈ `+0.07`.
+Frozen L14:
+- `PolicyTransfer_M = +13.03 [+11.69,+14.31]`;
+- `PolicyTransfer_U = +4.89 [+3.73,+6.18]`;
+- `TargetConditioning = +8.15 [+6.91,+9.44]`.
 
-Identity patches reproduce the recipient exactly (max absolute delta 0.0).
+### G24B
 
-The strongest safe mechanism statement is:
+With recipient context fixed:
+- `DonorPolicy_M = +10.81 [+8.31,+13.41]`;
+- `DonorPolicy_U = +6.79 [+5.22,+8.78]`;
+- `DonorTargetInteraction = +4.02 [+2.27,+6.14]`.
 
-> **The causal efficacy of the rule-time zero-vs-full policy state is substantially
-> stronger when the target proposition is available during policy processing.**
+This resolves the donor-vs-recipient technical confound.
 
-This closes the main mechanistic link between G23A and Stage 5.
+### Interpretation
 
-It does **not** prove that the complete target×policy conjunction is localized in one
-token state; downstream context may still participate in the interaction.
+These are real causal results. They support the interpretation that target context
+affects what policy-relevant information is available in the rule-time state.
 
-### Final replication
+They do **not** currently earn an independent headline contribution because a reviewer
+can still reasonably say:
 
-The only remaining mechanism round is G23C-R:
-[preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md](preregistrations/PREREGISTRATION_G23C_R_FRESH_REPLICATION.md)
+> “A state produced after seeing matching target semantics can naturally carry more
+> target-specific policy information than one produced after unrelated content.”
 
-It repeats the exact G23C intervention on 70 frozen G18 legal/inference items from
-20 skeletons that are disjoint from the Stage-5 discovery materials.
+No amount of fresh replication changes that novelty problem by itself.
 
-No G23C-R compute is authorized yet. Regardless of its outcome, no automatic G23D
-follows.
+### G23C-R
+
+`PREREGISTRATION_G23C_R_FRESH_REPLICATION.md` is **HOLD / NO COMPUTE**.
+
+Fresh-material replication is valuable only after a non-trivial parent mechanistic
+question is identified. Do not run it by roadmap inertia.
 
 ---
 
@@ -304,20 +360,17 @@ claims of one reusable global vector.
 
 ---
 
-## 9. Main-level status after G23C
+## 9. Main-level status after novelty re-audit
 
-The core chain now exists:
+The project currently has two plausible headline findings and one supporting mechanism
+line.
 
-1. broad, counterintuitive natural phenomenon;
-2. controls against the obvious explanation;
-3. a preregistered structural law at complete exclusion;
-4. a causal policy-state effect whose efficacy is target-conditioned.
+What is missing is **not** another robustness check. It is either:
+- a genuinely non-obvious third question that grows naturally from RQ1/RQ2; or
+- evidence that the two-finding paper is already scientifically complete enough to
+  submit without inventing a third contribution.
 
-The remaining question is robustness, not a missing story component.
-
-G23C-R is therefore confirmatory only. If it replicates, close the experimental
-programme and write. If it does not, downgrade the mechanism scope to the original
-Stage-5/G23C materials; do not invent another mechanism branch.
+Do not use experiment count as a substitute for novelty.
 
 ---
 
