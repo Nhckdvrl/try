@@ -78,6 +78,26 @@ SOURCES = {
         "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
         "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
     ),
+    # --- VitaminC official release (added 2026-09-25) ---
+    # Get Your Vitamin C! (Schuster et al., NAACL 2021); official release by
+    # the first author, HF dataset tals/vitaminc. URLs are pinned to the
+    # dataset repo commit be6febb761b0b2807687e61e0b5282e459df2fa0 (verified
+    # byte-identical to the main-branch download). License: annotations
+    # CC-BY-SA-3.0 (Wikipedia-derived), per the release LICENSE file.
+    # Zero-model triplet audit uses revision_type=="real" rows only;
+    # synthetic FEVER-derived rows are excluded by rule at census time.
+    "vitaminc/train.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/train.jsonl",
+        "7461c6fd1a13459590317c5ccdc8651dd2daf7c1ad8ae4b10ccd88d164fccd5a",
+    ),
+    "vitaminc/dev.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/dev.jsonl",
+        "544934677f5d133873e6d38f4557f8966f4efa5d3d70874ffe6913f2091b86b5",
+    ),
+    "vitaminc/test.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/test.jsonl",
+        "7ad1808dbc30c62e0a1427a53022d0dfaff668a1fde3c4b612a2d266edd753ad",
+    ),
 }
 
 

@@ -77,6 +77,30 @@ Licensing (from the official dataset cards, not inferred):
 - **SciFact** — CC-BY-NC-2.0 (`allenai/scifact` card): non-commercial research
   use only.
 
+## VitaminC real-revision source (added 2026-09-25)
+
+Pinned by `scripts/fetch_external_sources.py` (SHA-256 verified on every run);
+URLs pin dataset-repo commit `be6febb761b0b2807687e61e0b5282e459df2fa0`
+(verified byte-identical to the main-branch download):
+
+| file | official source | sha256 |
+| --- | --- | --- |
+| `raw/vitaminc/train.jsonl` | `https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb…/train.jsonl` | `7461c6fd…cd5a` |
+| `raw/vitaminc/dev.jsonl` | `https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb…/dev.jsonl` | `54493467…86b5` |
+| `raw/vitaminc/test.jsonl` | `https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb…/test.jsonl` | `7ad1808d…53ad` |
+
+Purpose: zero-model contrastive-triplet audit for the "Exclusion ≠ Negation"
+candidate. Acceptance criteria were pre-registered before download in
+`results/audits/vitaminc_triplet_audit_criteria_v1.md`; the census keeps
+`revision_type=="real"` rows only (synthetic FEVER-derived rows excluded by
+rule, never by content inspection).
+
+Licensing (from the release LICENSE file, not inferred):
+
+- **VitaminC annotations** — CC-BY-SA-3.0, incorporating Wikipedia material
+  under the Wikipedia Copyright Policy; the synthetic annotations are based on
+  FEVER (release LICENSE).
+
 Derived G24A artifacts (resolved evidence text, candidate pool, frozen items)
 are produced by audited scripts under `scripts/` + `src/` and reviewed under
 `review/`; the raw cache itself stays ignored by Git.
