@@ -38,11 +38,11 @@ Use:
   mechanism round**. Design tag `g23c-target-conditioned-policy-state-design-v1`.
   Frozen verdict: `target-conditioned-policy-state`;
   L14 `TargetConditioning = +8.15 [+6.91,+9.44]`, with L4/L24 controls near zero.
-- PREREGISTRATION_G23C_R_FRESH_REPLICATION.md — **current design-only final RQ3
-  replication**. Uses 70 frozen G18 legal/inference items (20 skeletons) disjoint from
-  Stage 5 and jointly replicates the completed G23C within-preview TargetConditioning
-  result and the completed G24B fixed-recipient DonorTargetInteraction result in one
-  frozen round. No compute authorized before its own harness/tests/tag/STATUS flip.
+- PREREGISTRATION_G23C_R_FRESH_REPLICATION.md — **HOLD / NO COMPUTE**.
+  The design is technically valid and would jointly replicate G23C/G24B on fresh
+  materials, but the parent mechanism claim is no longer treated as a headline
+  novelty contribution after the G18-style triviality audit. Fresh replication cannot
+  by itself repair that scientific-novelty problem.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
@@ -98,9 +98,9 @@ outputs.
 
 G23A v3 is complete with the frozen `zero-amplified` verdict. G23B v1 is stopped as
 `carrier-invalid`. G23C v1 is complete with a frozen
-`target-conditioned-policy-state` verdict. The only active next round is G23C-R,
-a fresh-material replication; it has **no compute authorization** yet and is the last
-planned mechanism experiment.
+`target-conditioned-policy-state` verdict. There is **no active compute round**. G23C-R is HOLD. Active work is paper
+restructuring and search for a genuinely non-obvious third RQ; a third RQ is optional,
+not mandatory.
 
 G20 Binding Deadline and G21 Source-Scope Collapse remain specified in
 ../NEXT_EXPERIMENTS_POST_RESET.md as **designs only**, and are archived as paper
