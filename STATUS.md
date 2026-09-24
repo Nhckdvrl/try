@@ -149,7 +149,7 @@ Strong negative prior:
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
 | Unring the Bell / G23C-R | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23C-R fresh-material mechanism replication** |
+| active candidate | **G23C-R fresh-material joint G23C+G24B replication** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -184,7 +184,8 @@ experiment and its exact scientific gap (candidates: G23C-R, per
 `PAPER_SCALE_AUDIT_2026-09-23.md`).
 
 Still design only:
-- G23C-R design/finalization (fresh-material replication);
+- G23C-R design/finalization: one fresh-material round jointly replicating the completed
+  G23C TargetConditioning and G24B DonorTargetInteraction properties;
 - paper writing work under `PAPER_SCALE_AUDIT_2026-09-23.md`.
 
 Not authorized:
