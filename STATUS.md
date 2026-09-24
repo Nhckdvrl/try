@@ -209,9 +209,17 @@
 > the new semantics (the old missing-probes→order-artifact test was
 > replaced by the 33-test taxonomy battery); §12A records the measured
 > numbers. **Zero Phase-A rows run (no g26a file under results/raw);
-> the flip-1 token is ABSENT from this file (gate closed); the Phase-A
-> design tag is BLOCKED pending the user's review of `ecac51e` — no
-> tag, no flip #1, no compute until that review passes.**
+> the flip-1 token is ABSENT from this file (gate closed). User review
+> of the test-sync `ecac51e` PASSED 2026-09-25 (rulings 1–4 accepted;
+> pre-tag scientific/design audit PASS; remaining blocker was this
+> ledger's own stale-authority cleanup, done in `f8173f0`). Phase-A
+> design tag `g26a-load-bearing-phasea-design-v1` assigned — the
+> annotated tag is created on this exact record commit (SHA bound in
+> the tag object). After the tag: NO design/code/test changes; the only
+> permitted change before Phase A is the user-owned STATUS flip #1 —
+> and before running, verify `git diff
+> g26a-load-bearing-phasea-design-v1..HEAD -- . ':(exclude)STATUS.md'`
+> is EMPTY. No flip #1 and no compute yet.**
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
