@@ -1,6 +1,7 @@
 # Paper outline — prospective semantic exclusion
 
-**Updated:** 2026-09-24 after the G18-style triviality re-audit.
+**Updated:** 2026-09-24 after the G18-style triviality re-audit; RQ2 reframed
+same day per `PAPER_RQ2_BOUNDARY_REFRAME.md`.
 
 ## Working title
 
@@ -19,7 +20,9 @@ Mother question:
 Current contribution structure:
 
 1. **Prospective exclusion asymmetry / natural-evidence leak.**
-2. **Semantic causal zero vs explicit/verifiable prospective zero.**
+2. **Sharp exact-zero boundary vs smooth weighting in semantic prospective
+   control** (pending the natural-evidence confirmatory; see
+   `PAPER_RQ2_BOUNDARY_REFRAME.md`).
 
 Stage 5 / G23C / G24B are supporting causal evidence, not a third headline contribution.
 
@@ -84,35 +87,67 @@ Report exact scope:
 
 ---
 
-## 4. RQ2 — What is special about semantic causal zero?
+## 4. RQ2 — Smooth weighting problem, or an exact-zero control boundary?
 
-### 4.1 G23A zero sweep
+Reframed per `PAPER_RQ2_BOUNDARY_REFRAME.md` (2026-09-24). The old form
+(“what is special about `w=0`”) dies to the one-liner *“zero is a stricter
+requirement than partial use.”*
 
-Report:
-- `Gap(0)=+13.86 [+8.54,+19.18]`;
-- attenuation-gap mean `+5.03 [+3.16,+6.83]`;
-- `Delta_zero=+8.83 [+4.39,+13.33]`;
-- 3/3 model deltas positive.
+> **RQ2: Is prospective exclusion a smooth evidence-weighting problem, or is
+> exact semantic zero a qualitatively different control boundary?**
 
-Do not sell “zero is harder” by itself.
+### 4.1 The weight ladder — flat, then a jump at exactly zero
 
-### 4.2 Explicit/verifiable zero boundary
+G23A pooled ladder (raw sign-aligned points, cluster bootstrap):
 
-Show that prospective zero can be executed exactly in arithmetic / explicit numerical
-weighting where contribution is directly specified and checkable.
+- `Gap(100)=−0.27 [−2.26,+1.86]` — admit anchor: no generic order effect;
+- `Gap(50)=+4.51 [+2.47,+6.50]`, `Gap(25)=+4.99 [+3.09,+6.95]`,
+  `Gap(1)=+5.59 [+2.77,+8.36]` — flat plateau;
+- `Gap(0)=+13.86 [+8.54,+19.18]` — decisive contrast is **0 vs 1**:
+  one point of demanded suppression, **8.27 points of gap**;
+- `Delta_zero=+8.83 [+4.39,+13.33]`; attenuation mean `+5.03 [+3.16,+6.83]`;
+  3/3 model means positive (mistral model-level CI crosses 0 — claim pooled only).
 
-### 4.3 Policy-access controls
+Step sizes do not track suppression demand (100→50 costs 50 points of
+suppression for ≈+4.8; 1→0 costs 1 point for +8.27) → the graded-demand
+account fails descriptively. Do not sell “zero is harder”.
+
+### 4.2 Exact zero is not intrinsically difficult — arithmetic boundary
+
+Stage-3C: contribution stated explicitly as `base + w·delta`. **4/5 models
+execute prospective `w=0` exactly**; Qwen3.5-27B exact at every weight in both
+arms. This refutes the prohibition-cost account and pins the object: the
+failure emerges when zero applies to the *inferred causal contribution* of
+semantic evidence.
+
+### 4.3 Confirmatory — fresh natural near-zero sweep (planned, STATUS-gated)
+
+Held-out items from the frozen G24A candidate pool, **disjoint from the
+selected 600**, reusing existing Base/Admit-only selection outputs (no new
+selection compute; selector blind to Exclude). `w ∈ {0,1,2,5,10,25,100} ×
+{PRE,POST}`; primary estimands `Gap(0)−mean[Gap(1),Gap(2),Gap(5)]` and
+`Gap(0)−Gap(1)`. Both outcomes informative: sharp jump → boundary headline;
+smooth curve → boundary downgraded and folded into RQ1. Design only until the
+five gates close and STATUS flips. Details: `PAPER_RQ2_BOUNDARY_REFRAME.md` §6.
+
+### 4.4 Policy-access controls
 
 Correct rule recall / requested-weight access shows that simple forgetting is
-insufficient.
+insufficient. Supporting evidence only.
 
-This is supporting evidence only.
+### Finding 2 (draft — pending confirmatory)
 
-### Finding 2
+> **Semantic prospective control exhibits a sharp exact-zero boundary rather
+> than a smooth difficulty curve: the pre/post timing gap is flat across
+> requested weights from 1% to 50% but jumps discontinuously at exactly 0% —
+> although 0% and 1% require nearly identical suppression — and exact zero is
+> executed perfectly when the contribution is explicitly arithmetic.**
 
-> **The hard part is not a future zero instruction per se: complete semantic evidence
-> exclusion incurs an extra prospective cost even when explicit/verifiable prospective
-> zero is executable.**
+Licensed form that must stay reachable (register §12.3):
+
+> **Complete semantic causal exclusion shows an additional prospective cost
+> even though prospective zero can be executed exactly when the contribution is
+> explicit and verifiable.**
 
 ---
 
@@ -145,6 +180,12 @@ G23C-R is HOLD until a stronger parent question exists.
 ---
 
 ## 6. Open third question — only if non-trivial
+
+Current candidate (under novelty audit; **not registrable yet**): **scope of a
+prospective exclusion policy** — can a model exclude one future evidence piece
+without leaking through it or collaterally suppressing related evidence?
+Systematic related-work search running; proceed only if it survives the gates
+below.
 
 Before any new experiment, require:
 

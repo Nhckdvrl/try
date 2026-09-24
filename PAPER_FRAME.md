@@ -1,6 +1,7 @@
 # Paper frame — prospective semantic exclusion
 
-**Updated:** 2026-09-23 after G23A success and G23B carrier failure.  
+**Updated:** 2026-09-23 after G23A success and G23B carrier failure;
+**RQ2 reframed 2026-09-24** — see `PAPER_RQ2_BOUNDARY_REFRAME.md`.  
 **Target:** ACL / EMNLP / NAACL Main.  
 **Authoritative evidence ledger:** [SCIENTIFIC_REGISTER_2026-09-04_V3.md](SCIENTIFIC_REGISTER_2026-09-04_V3.md)
 
@@ -51,25 +52,41 @@ G24A's frozen verdict is `prospective-only`; its cross-model and cross-source
 consistency clauses did **not** both pass. Do not rewrite it as uniform replication
 across all models/datasets.
 
-### RQ2 — semantic causal zero versus explicit/verifiable zero
+### RQ2 — smooth weighting problem versus exact-zero control boundary
 
-> **Is prospective failure a generic inability to execute a future zero rule, or is
-> making semantic evidence causally zero a distinct control problem?**
+(Reframed 2026-09-24; full argument, hypotheses and confirmatory design in
+`PAPER_RQ2_BOUNDARY_REFRAME.md`.)
 
-Finding target:
+> **Is prospective exclusion a smooth evidence-weighting problem, or is exact
+> semantic zero a qualitatively different control boundary?**
+
+Finding target (draft, pending the natural-evidence confirmatory):
+
+> **Semantic prospective control exhibits a sharp exact-zero boundary rather than a
+> smooth difficulty curve: the timing gap is flat across requested weights from 1%
+> to 50% but jumps at exactly 0% — although 0% and 1% require nearly identical
+> suppression — and exact zero is executed perfectly when the contribution is
+> explicitly arithmetic.**
+
+Licensed §12.3 form must remain reachable verbatim:
 
 > **Complete semantic evidence exclusion shows an additional prospective cost, even
 > though prospective zero can be executed exactly when the contribution is explicit
 > and verifiable.**
 
 Main evidence:
-- G23A zero amplification;
-- exact arithmetic / explicit weighting boundary;
+- G23A weight ladder (flat 1–50, jump at 0; `Gap(0)−Gap(1) = 8.27` points for one
+  point of demanded suppression; `Delta_zero=+8.83 [+4.39,+13.33]`);
+- exact arithmetic / explicit weighting boundary (4/5 models prospective-zero exact);
+- planned confirmatory: fresh natural near-zero sweep from the frozen G24A candidate
+  pool (design only; STATUS-gated);
 - source-grounded numeric invalidation boundary;
 - policy-access probes only as controls.
 
 The standalone claim “models can state a policy but fail to follow it” is not novel
-enough to be a contribution.
+enough to be a contribution. The generic representation-versus-deployment framing is
+owned by ACL 2026 Main; keep every sentence on **causal eligibility of future
+evidence**.
 
 ### Mechanistic evidence — supporting layer, not RQ3
 
@@ -234,9 +251,12 @@ including a source-grounded natural-evidence prospective leak.
         ↓
 
 RQ2 / Finding 2
-The hard part is not future zero in general:
-semantic causal zero shows an additional prospective cost,
-while explicit/verifiable prospective zero can be executed exactly.
+Smooth weighting problem, or exact-zero control boundary?
+The timing gap is flat from 1% to 50% and jumps at exactly 0%
+(0 vs 1 differs by one point of demanded suppression but by
+8.27 rating points), while arithmetic prospective zero is
+executed exactly. Pending the natural-evidence near-zero
+confirmatory.
 
         ↓
 
@@ -247,7 +267,9 @@ in later suppression and depends on target context.
         ↓
 
 OPEN
-Find a genuinely non-obvious third question, or stop at two headline findings.
+Candidate: scope of a prospective exclusion policy — under novelty
+audit, not registrable. If it (or another) fails the triviality veto,
+stop at two headline findings.
 ```
 
 The mechanism line is explanatory evidence, not the third contribution.
