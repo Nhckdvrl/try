@@ -10,6 +10,37 @@ recorded, (iii) STATUS flips explicitly in the ledger.
 **Proposed experiment id:** `G26A` / `g26` (name only; the G-series has no
 other claim past G24B/G25A).
 
+> ### ⛔ REVISION REQUIRED — DO NOT FREEZE (user design audit, 2026-09-24)
+>
+> 1. **Construct fix (the critical one):** `decision relevance established`
+>    overclaims. The gates show `|Y_A − Y_0| ≤ 5` — *A alone is not
+>    behaviorally effective* — **not** that the model is unaware of A's
+>    relevance (the claim is visible from the start, so topical relevance may
+>    be recognized while A still cannot move the verdict). Reframe the RQ to
+>    **load-bearing emergence / compositional activation**: *must the target
+>    evidence already be **decision-effective through composition**
+>    (load-bearing) when the policy is processed, or is presence enough?*
+>    T0 = absent / T1 = present, not load-bearing / T2 = load-bearing → claims
+>    then match observables, and the T1-vs-T2 contrast still defeats the
+>    one-liner "present is obviously easier" (**both** are present there).
+> 2. **HoVer zero-model structural audit FIRST** (§2) — 2-hop counts, sentences
+>    per hop, unique A/B constructability, reasoning topology, label
+>    organization, gold-sign mapping stability, title-path cluster uniqueness,
+>    single-evidence lexical leak, post-rule funnel size. If not clean: **do
+>    not rescue HoVer — evaluate MuSiQue directly.**
+> 3. **Padding:** the three timings must use the **same filler multiset** —
+>    only positions move; no timing-unique PAD block (T2's layout above must
+>    change accordingly).
+> 4. **ROPE δ=1.5 power note** mandatory before freeze (an unpowered 1.5 is an
+>    arbitrary threshold waiting for a reviewer).
+> 5. **Two-phase authority:** **Phase A** = selector `Y0/YA/YB/YAB` only →
+>    funnel ≥ 200 or **hard stop**; **Phase B** = `EXCL/ADMIT × T0/T1/T2`.
+>    Two separate STATUS flips — one flip does not authorize both (§11 must be
+>    rewritten accordingly).
+>
+> Full rewrite happens **after** the HoVer audit PASS, per the ordered
+> sequence (audit → rewrite → power note → freeze). G25A goes first.
+
 Parent documents:
 
 - `PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md` — six-candidate screen; this is
