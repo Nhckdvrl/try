@@ -10,6 +10,14 @@ design tag recorded, and (iii) STATUS flips explicitly in the ledger.
 **Proposed experiment id:** `G25A` / `g25` (name only — the repo reserves no
 other G25; `PAPER_SCALE_AUDIT_2026-09-23.md` §"no automatic G25/G23D").
 
+**Final design audit (user, 2026-09-24):** O1–O6 **signed**; O7 upgraded to
+**mandatory** (no-model power/sensitivity note before tag); a
+**positive-weight gradedness diagnostic added** (§6 — zero new cells, not a
+gate); H0/interpretation wording corrected so H0 stays live on the semantic
+domain (§1/§8). Cleared for **implementation → tests → freeze/tag → STATUS
+flip** once O7's note and §12 are complete. This is the designated **first
+compute of the project** after the STATUS flip.
+
 Parent documents (all frozen or closed):
 
 - `PAPER_RQ2_BOUNDARY_REFRAME.md` — question, H1/H2/H3/H0, decision table;
@@ -26,7 +34,7 @@ of our synthetic rounds.*
 
 ---
 
-## 0. Open items to sign off before freeze
+## 0. Open items — O1–O6 signed (user, 2026-09-24); O7 mandatory before freeze
 
 | # | Item | Proposal (defaults, until overruled) |
 |---|---|---|
@@ -36,7 +44,7 @@ of our synthetic rounds.*
 | O4 | Floors | Both primary gates: CI low > 0 **and** point ≥ 3.0 (G23A floor). Sufficiency: ≥ 360/400 items usable on ≥ 3/4 pooled models. RuleAcc ≥ 0.8. |
 | O5 | Naming | files `data/items/g25_v1.jsonl`, raw `results/raw/g25_<model>.jsonl`. |
 | O6 | Seed | `20260924` (G23A used `20260923`). |
-| O7 | Power check (optional, pre-freeze) | bootstrap-based detectable-effect note using G23A resampling constants; dry-run below already implies ≫ G23A's cluster count. |
+| O7 | Power/sensitivity note — **MANDATORY before freeze** (final design audit: "不要 optional") | no-model bootstrap detectable-effect note at 400 items / 342 clusters using G23A resampling constants; the dry-run already implies ≫ G23A's cluster count. Cheap, zero model calls. |
 
 ---
 
@@ -54,10 +62,24 @@ asks whether that shape survives on source-grounded natural evidence.
 | H1 | Smooth suppression-demand | `Gap(w)` graded with `w`; biggest step 100→50, smallest 1→0 |
 | H2 | Generic prohibition cost | jump at 0 vs any non-zero, **also** at arithmetic zero (refuted already by Stage-3C: 4/5 models exact at prospective `w=0`) |
 | H3 | Semantic-nullification boundary | flat plateau 1–50, discontinuous jump exactly at 0; `Gap(100)≈0`; arithmetic zero exact |
-| H0 | Models don't grade intermediate weights at all | any `w>0` ≈ admit — separated from H3 by the arithmetic task (grading exists there) |
+| H0 | Models don't grade intermediate weights at all — or parse the semantic rule **categorically** (zero vs nonzero) | any `w>0` ≈ admit, or all positive `w` collapse to one common response. **Stays live for the semantic domain:** the arithmetic task proves only *capability under explicit, verifiable contributions* — it cannot show that semantic 1/2/5/25% are quantitatively executed. H0 vs H3 is decided by the §6 gradedness diagnostic, **not** by arithmetic. |
 
-Both outcomes informative (reframe §3 decision table): sharp jump → boundary
-headline; smooth → boundary downgraded honestly and RQ2 re-audited (see §8).
+Both outcomes informative (reframe §3 decision table), now with the
+**three-way interpretation split mandated by the final design audit** — a
+replicated zero-jump is read *through the §6 gradedness diagnostic*:
+
+1. **boundary + graded positive-weight response** → strong claim: a sharp
+   zero boundary *over graded* semantic weighting;
+2. **boundary + flat positive-weight response** → discontinuity still
+   licensed, but the mechanism sentence **downgrades to a categorical
+   zero-vs-nonzero semantic-control regime** — never "a dedicated semantic
+   nullification operation" (blocks the reviewer one-liner: *"you only found
+   that models treat 0 and nonzero as two linguistic categories"*);
+3. **smooth response** → boundary claim killed; RQ2 downgraded and
+   re-audited (reframe §3).
+
+The split uses **no new cells** — it is computed from conditions already in
+this design (§6).
 
 ## 2. Data (audited and frozen; nothing new is built)
 
@@ -147,6 +169,22 @@ L        = mean(w100_pre, w100_post) − base            anchor leverage (w=100)
 Context curve (reported, not gated): `Gap(10), Gap(25), Gap(100)`.
 Secondary: `REI_c = s·(value_c − base)/|L|` (winsorised ±3, G0/G24A
 convention), for continuity with the G24A headline.
+
+**Secondary gradedness diagnostic (added by the final design audit; zero new
+cells; not a gate):**
+
+```text
+Resp(w)   = mean(ResInf_pre_w, ResInf_post_w)              level at weight w
+GradedPos = Resp(100) − mean[ Resp(1), Resp(2), Resp(5) ]   low-end attenuation
+```
+
+Report `Resp(w)` for all seven weights with cluster-bootstrap CIs (per-arm
+table in the supplement) and describe monotonicity — **never assume
+rating-point linearity in weight** (register §8 discipline; the
+`TargetDeviation` precedent is descriptive only). `GradedPos` CI strictly
+above 0 = low weights genuinely carry less influence → graded control exists
+on semantic materials; `GradedPos` ≈ 0 with a flat `Resp(w)` = categorical
+zero-vs-nonzero parsing. Feeds the §1/§8 interpretation split directly.
 Usability: all 16 values present and `sL > 0` for that model, else unusable
 **for that model only**, reported `n/n_total` — never filtered post hoc on an
 outcome. Note: `w ∈ {2,5,10}%` are new cells by design (G23A measured
@@ -188,7 +226,7 @@ Order of evaluation: **integrity → sufficiency → co-primaries.**
 
 | Verdict | Conditions | Required action |
 |---|---|---|
-| `exact-zero-boundary` | I1 I2 S1 **G1 G2** (+G3 for cross-model sentence) | Finding 2 upgrade licensed; register §12.3 form remains the verbatim licensed claim; word strictly to the object (causal eligibility of future evidence). |
+| `exact-zero-boundary` | I1 I2 S1 **G1 G2** (+G3 for cross-model sentence) | Finding 2 upgrade licensed, **interpretation split by §6 GradedPos**: graded positives → "sharp zero boundary over graded semantic weighting"; flat positives → discontinuity licensed but mechanism wording = **categorical zero-vs-nonzero semantic control** (never "nullification operation"); ship the `Resp(w)` table either way. Register §12.3 form remains the verbatim licensed claim; word strictly to the object (causal eligibility of future evidence). |
 | `boundary-not-replicated` | I ok, S1 ok, **G1 fails** while `Gap(0)>0` | Boundary claim **withdrawn for natural materials**; RQ2 re-audited as "smooth semantic weighting failure under prospective control" (possibly folded into RQ1); §12.3 sentence re-scoped to its actual evidence base or withdrawn pending register revision. Same question, honest answer. |
 | `partial-boundary` | I ok, S1 ok, exactly one of G1/G2 passes | Claim strictly the passing contrast; the word "boundary" only if G1 passes; no plateau sentence unless the full curve supports it. |
 | `no-natural-gap` | I ok, S1 ok, `Gap(0)` CI contains 0 | G23A timing gap does not manifest on natural materials at zero (G24A measured levels, not this timing shape); Finding 2 rescoped to synthetic; report as-is. |
@@ -254,6 +292,8 @@ probe rows (O3) → **≤ 28,800** rows, four models, no retries-by-outcome.
 - [ ] selection determinism test green (`0b38e0837ed9fd60`, n=400, 150/150/100)
 - [ ] items file built; sha256 + strata counts recorded here
 - [ ] analyzer + outcome-map tests green (both-direction sign test)
+- [ ] gradedness diagnostic (`Resp`/`GradedPos`) implemented + tested
+- [ ] **power/sensitivity note recorded (O7 — mandatory, no-model)**
 - [ ] full test suite green at updated baseline
 - [ ] **design tag assigned:** ____________________ (recorded here + ledger)
 - [ ] **STATUS flip recorded** (ledger entry authorizing ≤ 28,800 rows)
