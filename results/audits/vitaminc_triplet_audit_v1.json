@@ -1,0 +1,133 @@
+{
+  "audit": "VitaminC zero-model contrastive-triplet census",
+  "date": "2026-09-25",
+  "criteria": "results/audits/vitaminc_triplet_audit_criteria_v1.md",
+  "zero_model": true,
+  "source": {
+    "dataset": "https://huggingface.co/datasets/tals/vitaminc",
+    "pinned_commit": "be6febb761b0b2807687e61e0b5282e459df2fa0",
+    "files": {
+      "train": {
+        "path": "data/external/raw/vitaminc/train.jsonl",
+        "sha256": "7461c6fd1a13459590317c5ccdc8651dd2daf7c1ad8ae4b10ccd88d164fccd5a"
+      },
+      "dev": {
+        "path": "data/external/raw/vitaminc/dev.jsonl",
+        "sha256": "544934677f5d133873e6d38f4557f8966f4efa5d3d70874ffe6913f2091b86b5"
+      },
+      "test": {
+        "path": "data/external/raw/vitaminc/test.jsonl",
+        "sha256": "7ad1808dbc30c62e0a1427a53022d0dfaff668a1fde3c4b612a2d266edd753ad"
+      }
+    },
+    "license": "annotations CC-BY-SA-3.0 (Wikipedia-derived), per release LICENSE"
+  },
+  "purity": {
+    "rows_total": 488904,
+    "revision_types": {
+      "real": 325724,
+      "synthetic": 163180
+    },
+    "real_rows": 325724,
+    "malformed_real": {},
+    "malformed_rate_vs_real": 0.0,
+    "kept_rows": 325724,
+    "fever_id_leak_rows": 0,
+    "fever_id_leak_rate_vs_kept": 0.0,
+    "A1_pass": true,
+    "A2_kill": false
+  },
+  "structure": {
+    "cases": 106954,
+    "cases_straddling_splits": 0,
+    "groups_case_claim": 163485,
+    "rows_per_case_hist": {
+      "1": 1302,
+      "2": 49088,
+      "3": 10,
+      "4": 56554
+    },
+    "evidences_per_case_hist": {
+      "1": 1302,
+      "2": 105652
+    },
+    "claims_per_case_hist": {
+      "1": 50423,
+      "2": 56531
+    },
+    "rows_per_group_hist": {
+      "1": 1312,
+      "2": 162140,
+      "4": 33
+    },
+    "evidences_per_group_hist": {
+      "1": 1312,
+      "2": 162173
+    },
+    "label_marginal_kept_rows": {
+      "SUPPORTS": 163272,
+      "NOT ENOUGH INFO": 69291,
+      "REFUTES": 93161
+    }
+  },
+  "sr_pairs": {
+    "n_sr": 92764,
+    "by_split": {
+      "train": 70911,
+      "dev": 11978,
+      "test": 9875
+    },
+    "canonical_1S1R": 92735,
+    "anomalous_multi_row": 29,
+    "same_text_label_contradictions": 1,
+    "distinct_claim_texts": 91240,
+    "claims_reused_across_cases": 1254,
+    "template_claim_hits": 43057,
+    "template_claim_rate": 0.46415635375792336,
+    "template_regex": "(less than|more than|fewer than|over|under|at least|at most)\\b[^.]{0,20}\\d",
+    "n_pages": 15029,
+    "top_page_share": 0.02640032771333707,
+    "duplicate_claim_evidence_label_rows": 1609,
+    "claim_words_p50": 13,
+    "claim_words_p90": 22,
+    "evidence_pair_words_p50": 53,
+    "evidence_pair_words_p90": 90
+  },
+  "minimality": {
+    "n_scored": 92735,
+    "statistic": "difflib.SequenceMatcher ratio over whitespace tokens (autojunk off), median over canonical SR-pairs",
+    "median": 0.9333333333333333,
+    "p10": 0.8148148148148148,
+    "min": 0.0,
+    "max": 0.9973474801061007
+  },
+  "criteria_evaluation": {
+    "A1_malformed_rate_le_5pct": {
+      "value": 0.0,
+      "pass": true
+    },
+    "A2_fever_leak_lt_1pct": {
+      "value": 0.0,
+      "kill": false
+    },
+    "B_volume": {
+      "n_sr": 92764,
+      "kill_lt": 300,
+      "marginal_lt": 1000,
+      "pass": true
+    },
+    "C_minimality": {
+      "median": 0.9333333333333333,
+      "marginal_below": 0.8,
+      "clean_at": 0.9,
+      "pass": true
+    }
+  },
+  "verdict": "CLEAN",
+  "verdict_rule": "KILL > CLEAN > MARGINAL; KILL if A1/A2 fail or N_SR<300 or median sim<0.80; CLEAN if N_SR>=1000 and median sim>=0.90; else MARGINAL",
+  "y0_note": "Y0 = claim alone is constructible for free for every claim (no data row needed).",
+  "limitations": [
+    "pre- vs post-edit evidence ordering is not identifiable from the release schema (D6); recorded, not gated",
+    "minimality statistic is computed over canonical 1S+1R groups only; anomalous multi-row groups are counted separately"
+  ]
+}
