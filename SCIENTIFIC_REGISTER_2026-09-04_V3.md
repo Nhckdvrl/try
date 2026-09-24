@@ -875,3 +875,142 @@ Authority:
 **Design only. No compute authorized yet.**
 
 This is the last planned mechanism experiment. No automatic G23D follows any outcome.
+
+
+---
+
+# 12. NOVELTY RECLASSIFICATION AFTER G18-STYLE TRIVIALITY AUDIT — 2026-09-24
+
+This section supersedes any earlier narrative that automatically promoted the
+Stage-5/G23C/G24B mechanism line to the paper's third headline contribution.
+
+## 12.1 Canonical negative lesson: G18
+
+G18 is statistically real and useful as provenance, but its original headline was
+scientifically weak because the matched semantic preview already supplied essentially
+the later proposition.
+
+The lesson is general:
+
+> **causal rigor, preregistration, replication and large effect size do not rescue a
+> finding whose visible manipulation already makes the conclusion obvious.**
+
+This is now a hard veto for future paper-center claims.
+
+## 12.2 Headline Finding 1 — RETAIN
+
+> **Prospective evidence exclusion is systematically weaker than retrospective
+> exclusion, and source-grounded natural evidence can still remain influential under a
+> prior zero-use ruling.**
+
+Evidence:
+- G0 breadth and controls;
+- Stage-4A role-structured setting;
+- G24A natural evidence.
+
+G24A scope must remain exact:
+- pooled prospective endpoint passed;
+- retrospective endpoint did not;
+- C1/C2 consistency clauses failed.
+
+Do not claim uniform natural-evidence replication across all models/sources.
+
+## 12.3 Headline Finding 2 — RETAIN ONLY IN CONTRASTIVE FORM
+
+Do not headline:
+
+> “w=0 is harder.”
+
+That is too easily compressed to “zero is a stricter requirement than partial use.”
+
+The non-trivial finding is:
+
+> **Complete semantic causal exclusion shows an additional prospective cost even though
+> prospective zero can be executed exactly when the contribution is explicit and
+> verifiable.**
+
+G23A supplies the semantic zero amplification.
+Arithmetic / explicit weighting / numeric boundaries supply the crucial contrast.
+
+The policy-access/enforcement dissociation is supporting control, not novelty.
+
+## 12.4 Stage 5 / G23C / G24B — VALID CAUSAL EVIDENCE, DOWNGRADED AS NOVELTY
+
+These completed results remain fully valid.
+
+Stage 5:
+- rule-time causal window before later evidence processing;
+- replicated in Qwen3-8B and Mistral-Small-24B.
+
+G23C:
+- L14 TargetConditioning `+8.15 [+6.91,+9.44]`;
+- frozen controls and identity checks passed.
+
+G24B:
+- fixed-recipient L14 DonorTargetInteraction
+  `+4.02 [+2.27,+6.14]`;
+- positive in 2/2 models;
+- L4/L24 controls absent;
+- identity exact.
+
+G24B resolves a real technical alternative:
+the G23C difference is not only because a matched recipient is more sensitive.
+
+However, the remaining paper-level compression is still strong:
+
+> **the matched donor was produced after matching target semantics were already visible,
+> so it is natural that the resulting state carries more target-specific policy
+> information.**
+
+Therefore the safe role of this line is:
+
+> **mechanistic explanation / internal evidence supporting the behavioral findings.**
+
+It is not currently counted as a third novelty-bearing claim.
+
+## 12.5 G23C-R — HOLD
+
+The fresh-material joint replication design is preserved for provenance.
+
+Do not run it now.
+
+Reason:
+- it would improve robustness of G23C/G24B;
+- it would not by itself answer the novelty objection above.
+
+It may be reactivated only if a stronger, non-obvious parent mechanistic question first
+makes fresh replication scientifically necessary.
+
+## 12.6 Current paper novelty state
+
+Current headline RQs:
+
+### RQ1
+> Can an LLM commit in advance to make future evidence causally irrelevant?
+
+### RQ2
+> Is the failure generic future-zero execution failure, or a distinctive failure of
+> semantic causal exclusion?
+
+There is **no approved RQ3**.
+
+A third RQ is optional and must pass:
+1. treatment-does-not-contain-the-answer;
+2. reviewer one-line obviousness veto;
+3. two live accounts under the same visible task content;
+4. unexpected-result requirement;
+5. nearest-prior novelty audit.
+
+Do not manufacture a third RQ to match a preferred paper template.
+
+## 12.7 Current compute authority
+
+No target-model compute is authorized.
+
+Active work:
+- paper restructuring;
+- writing RQ1/RQ2 sections;
+- novelty search for a non-obvious third RQ.
+
+Any new experiment must first identify the exact scientific gap it closes and pass the
+triviality veto before preregistration.
