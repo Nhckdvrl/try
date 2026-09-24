@@ -19,18 +19,22 @@ post-training, irrelevant-evidence filtering.
 
 | # | Candidate | Nearest prior / reviewer compression | Verdict |
 |---|---|---|---|
-| **A** | **Relevance emergence** — must an exclusion policy see the target's *content*, or must the target's *decision relevance* already be established when the policy is processed? | latent multi-hop composition (ACL 2024); weakest-link locate-vs-integrate (ACL 2026); deferred semantic drift reinterprets an earlier word after later clarification (Findings ACL 2026). **None asks whether a prior policy can bind a target whose relevance does not yet exist.** | **SURVIVOR → prereg-draft track** |
+| **A** | **Load-bearing emergence** (renamed 2026-09-24 from "relevance emergence" per design audit; RQ wording owned by prereg v2 §1) — must the target evidence already be *decision-effective through composition* when the policy is processed, or is mere presence enough? | latent multi-hop composition (ACL 2024); weakest-link locate-vs-integrate (ACL 2026); deferred semantic drift reinterprets an earlier word after later clarification (Findings ACL 2026). **None asks whether a prior policy can bind a target that is present but not yet load-bearing.** | **SURVIVOR → prereg-draft track** |
 | **B** | **Exclusion vs negation** — is "do not use E" executed as removing E's contribution, or as distorting belief about E? | Belief-R / belief revision (EMNLP 2024) studies whether new evidence updates beliefs *correctly*; it does not distinguish an exclusion operator from an epistemic-negation operator. | **BACKUP pilot only** — gold semantics of "assume E is false" is dirty on natural evidence (no reason claim-likelihood should move in a fixed direction); needs a resource with a natural clean complement before prereg. |
 | C | Hop depth (1/2/3-hop → exclusion degrades) | multi-hop failure literature is crowded; ACL 2026 already systematizes hop / recognition / synthesis failures; "more hops = harder" is obvious. | **KILL** |
 | D | Post-training origin (does base→instruct *create* prospective-exclusion failure) | ACL 2025 instruction-tuning × misinformation susceptibility; ACL 2026 base-vs-instruct context-following. Parent collision; model-zoo shaped. | **KILL** |
 | E | **Scope / collateral suppression** — exclude A without leaking through it or collaterally suppressing related B (the previous candidate, `PAPER_RQ3_SCOPE_NOVELTY_AUDIT.md`) | broader pass surfaced closer parents than that audit's 12-row table contained: selective withholding over entangled multi-turn instructions (Findings EMNLP 2025), retaining essential information while withholding sensitive context (CI-Work), authorized/unauthorized competing-evidence provenance, and semantic-transformation / source→sink information flow (arXiv 2604.23374 neighborhood). | **KILL as RQ3** — see §4 supersession |
 | F | Inferential closure — does a conclusion *derived* from excluded A still influence the decision? | arXiv 2604.23374 ("Ghost in the Agent") explicitly extends LLM information-flow tracking to semantic transformation, causal influence, source→sink propagation. Easy reviewer re-parenting into security / IFC. | **KILL (HOLD)** |
 
-## 2. Survivor A — relevance emergence (what the prereg draft must encode)
+## 2. Survivor A — load-bearing emergence (what the prereg draft must encode)
 
-> **RQ3: Does prospective exclusion require the target content to be
-> available, or must its decision relevance already be established when the
-> policy is processed?**
+> **RQ3 (v2 wording — authoritative): Does prospective exclusion require
+> the target evidence merely to be present, or must it already be
+> load-bearing through composition when the policy is processed?**
+>
+> (v1 wording superseded the same day by the user design audit; construct
+> and T0/T1/T2 observables are defined in prereg v2 §1 —
+> `PREREGISTRATION_G26A_LOAD_BEARING.md`.)
 
 Two-hop evidence chain `A + B ⇒ claim`, each component individually
 insufficient (gates below). The final context is **identical** across
@@ -68,10 +72,10 @@ Target ≈ 200–300 items surviving gates, 4 models.
 remains admissible:
 
 - `Residual_t = s · (Y_ExcludeA,t − Y_B)` — perfect exclusion = 0;
-- `ContentGain = Residual_T0 − Residual_T1`;
-- `RelevanceGain = Residual_T1 − Residual_T2`.
+- `PresenceGain = Residual_T0 − Residual_T1`;
+- `LoadGain = Residual_T1 − Residual_T2`.
 
-All four branches (content-bound / relevance-bound / staged / flat) are
+All four branches (presence-bound / load-bearing-bound / staged / flat) are
 informative; no branch is the manipulation's built-in answer.
 
 **Required pre-registered control.** T2 places the rule closest to the
@@ -128,9 +132,11 @@ the later, broader search wins; the earlier PROCEED no longer stands.
   (G23A ladder + arithmetic boundary + **natural near-zero confirmatory,
   quotas frozen at Option B**; `PAPER_RQ2_BOUNDARY_REFRAME.md`,
   stratum audit `PAPER_RQ2_SWEEP_STRATUM_AUDIT_2026-09-24.md`).
-- **RQ3** — what must be known when an exclusion policy binds: the evidence
-  content, or its decision relevance (**relevance emergence**, HoVer 2-hop;
-  design stage — this file).
+- **RQ3** — must an exclusion policy's target already be decision-effective
+  through composition when the policy is processed (**load-bearing
+  emergence**, HoVer 2-hop; design stage — prereg v2,
+  `PREREGISTRATION_G26A_LOAD_BEARING.md`; this screen records the
+  candidate).
 - If RQ3's gates fail: **accept the two-finding paper** — "如果找不到第三题，
   就不要凑".
 

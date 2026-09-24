@@ -27,8 +27,8 @@ Current contribution structure:
 Stage 5 / G23C / G24B are supporting causal evidence, not a third headline contribution.
 
 A third RQ passed the six-candidate novelty screen and is in design:
-**relevance emergence** — what an exclusion policy must know when it binds,
-the target's content or its decision relevance (§6;
+**load-bearing emergence** — must an exclusion policy's target already be
+decision-effective through composition when the policy is processed (§6;
 `PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`). It enters the paper only if its
 prereg design clears the reviewer-obvious veto; otherwise fall back to the
 two-finding paper.
@@ -183,21 +183,21 @@ G23C-R is HOLD until a stronger parent question exists.
 
 ---
 
-## 6. Third question — candidate chosen: relevance emergence
+## 6. Third question — candidate chosen: load-bearing emergence
 
 Six-candidate novelty screen complete (2026-09-24), decision record
 `PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`:
 
-- **SURVIVOR → prereg-draft track: relevance emergence** —
+- **SURVIVOR → prereg-draft track: load-bearing emergence** —
 
-  > **RQ3: Does prospective exclusion require the target content to be
-  > available, or must its decision relevance already be established when the
-  > policy is processed?**
+  > **RQ3: Does prospective exclusion require the target evidence merely to
+  > be present, or must it already be load-bearing through composition when
+  > the policy is processed?**
 
   HoVer 2-hop, timings T0/T1/T2 (rule before A / between A,B / after B) with
   identical final context; no-rule gates force a genuine composition
-  (`joint ≥ 15`, singles `≤ 5`); outcome = `ContentGain` /
-  `RelevanceGain` against the `Y_B` counterfactual; distance-matched +
+  (`joint ≥ 15`, singles `≤ 5`); outcome = `PresenceGain` /
+  `LoadGain` against the `Y_B` counterfactual; distance-matched +
   admit-timing controls pre-registered. Branches content-bound /
   relevance-bound / staged / flat — all informative.
 - **BACKUP pilot only:** exclusion vs negation (gold semantics dirty on

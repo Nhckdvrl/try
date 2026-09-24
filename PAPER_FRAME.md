@@ -110,8 +110,9 @@ Therefore:
 ### Third-RQ slot — candidate chosen, gates still binding
 
 The six-candidate screen (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`) chose
-**relevance emergence** (content vs decision-relevance at policy-binding
-time) and killed four others; the former scope candidate is superseded. The
+**load-bearing emergence** (mere presence vs already decision-effective
+through composition when the policy binds; renamed 2026-09-24 per design
+audit) and killed four others; the former scope candidate is superseded. The
 candidate is allowed into the paper only if it passes the G18 triviality veto:
 1. treatment does not directly contain the answer;
 2. a reviewer cannot dismiss it with one obvious sentence;
@@ -269,12 +270,13 @@ in later suppression and depends on target context.
 
         ↓
 
-RQ3 (candidate) — relevance emergence
+RQ3 (candidate) — load-bearing emergence
 Six-candidate novelty screen: SURVIVOR (PAPER_RQ3_CANDIDATE_AUDIT_
-2026-09-24.md). What must exist when a policy binds: target content, or
-its decision relevance? Design-level prereg next; still not registrable
-until the five gates pass and STATUS flips. If it fails the triviality
-veto, stop at two headline findings.
+2026-09-24.md). When an exclusion policy is processed, must its target
+already be decision-effective through composition, or is mere presence
+enough? Design-level prereg v2 written (HoVer audit PASS); still not
+registrable until the five gates pass and the two STATUS flips. If it
+fails the triviality veto, stop at two headline findings.
 ```
 
 The mechanism line is explanatory evidence, not the third contribution.
@@ -393,7 +395,7 @@ The project currently has two plausible headline findings and one supporting mec
 line.
 
 What is missing is **not** another robustness check. It is either:
-- the candidate third question already found — **relevance emergence**
+- the candidate third question already found — **load-bearing emergence**
   (`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`) — clearing its gates and
   getting designed honestly; or
 - evidence that the two-finding paper is already scientifically complete enough to
