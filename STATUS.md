@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A FLIPPED — COMPUTE AUTHORIZED / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A RUN COMPLETE — verdict `order-artifact`, NO claim (integrity investigated) / G26A O5 RULED / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -68,6 +68,42 @@
 > complete (7,200 rows each, 28,800 total) → frozen `src/analyze_g25.py`
 > → outcome-map verdict → **only after the verdict** the RQ2 section
 > draft.
+>
+> **G25A RUN RECORDED (2026-09-24) — VERDICT `order-artifact` (frozen §8
+> map; NO claim licensed; RQ2 section NOT drafted):** flip `8a33722` →
+> 4× `scripts/run_g25a_main.sh` all EXIT=0 (7,200 rows each = 28,800
+> total, unparsed 0, 18 kinds × 400 verified per model) → frozen
+> `src/analyze_g25.py` → `results/g25a/g25a_analysis_v1.{md,json}`
+> (`f15ce35`). Gates: **I1 FAIL** Gap(100) −1.06 [−1.93, −0.21] · I2 PASS
+> RuleAcc 0.949 over 3,200 probes · **S1 FAIL** 354/400 (need 360) ·
+> **G1 PASS** Δ_local0 +3.58 [+1.33, +5.79] (boot_p 0.0014) · **G2 FAIL
+> on floor** Gap01 2.83 < 3.0 [+0.49, +5.11] · G3 PASS 3/4 both.
+> Gradedness descriptive only: `graded`, GradedPos +20.81 [+19.12,
+> +22.50]. §8's required action executed — integrity investigation
+> `src/audit_g25a_integrity.py` →
+> `results/audits/g25a_integrity_investigation_v1.json` (`ad27bb5`; all
+> citation asserts 1e-9 vs analysis v1): the offset is tail-concentrated
+> (median −0.00; non-argmax-flip rows −0.14; **217/1391 = 15.6% argmax
+> digit flips at the inert anchor** carry mean −6.04; |gap|≥50 = 48 rows
+> = 3.5% → −0.547 of −1.061, buckets sum exactly), 4/4 models negative
+> and leave-one-out all negative (not one model), readout valid
+> (digit-mass<0.5 = 0/2,782; G0–G24A `digit_expectation_0_100` lineage
+> asserted), anchor parse w100 0.9375 / w000 0.9606 within ±2pp; rule→
+> answer distance pre median 133 [98, 345] vs post 89.5 [86, 92]. S1
+> anatomy {0:4, 1:10, 2:32, 3:99, 4:255}, drops exclusively
+> nonpositive_anchor (llama 78 / qwen3 50 / qwen35 57 / gemma 24).
+> **No correction, no re-run, no reclassification — verdict unchanged.
+> Pending: user remediation decision for RQ2** (accept no-claim / prereg
+> amendment / register rescoping; any new compute = new authorization).
+>
+> **G26A O5 RULED (2026-09-24, `4eeb7e2`):** options 1/2/3 rejected;
+> equivalence demoted from primary-branch requirement to **secondary
+> characterization only** (CI ⊆ ±1.5 → may add "compatible with
+> negligible gain"; never a branch, never `unresolved`); primaries
+> answered by positive gates (CI low > 0 **and** point ≥ 3.0); δ = 1.5
+> secondary / n ≤ 300 pinned unchanged; §7 procedure + §8 table
+> rewritten; §12A O5 box ticked. **Phase A still NOT tagged, NO compute
+> authority** (O1–O9 full sign-off, harness + tests remain open).
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
