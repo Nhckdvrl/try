@@ -25,11 +25,23 @@ records only:
   300 with ids sha256 — never sorted by an outcome;
 * §5 gate funnel on synthetic values (chain >= 15, singles <= 5);
 * analyzer outcome map: positive-gate floor 3.0 trichotomy, negatives
-  before not-positive (non-monotone reachable), integrity first
-  (I1-I4 -> order-artifact, G25A lineage), data-absent -> unresolved,
-  equivalence/ROPE never a branch input and never `unresolved`;
+  before not-positive (non-monotone reachable), the SPLIT integrity
+  taxonomy (I1/I2 -> structural-integrity-failure; complete probes but
+  RuleAcc < 0.8 -> rule-legibility-failure; I3 -> order-artifact, the
+  ONLY gate licensing it; label priority structural -> legibility ->
+  order), data-absent -> unresolved, equivalence/ROPE never a branch
+  input and never `unresolved`;
+* analyzer Phase-B mechanical/structural discipline: frozen selection
+  guards, exact pooled-4 model-set assertion (extra/unknown model ->
+  exit 3, missing pooled model -> exit 4), one parsed row per selected
+  item x model x (10 cells + 2 probes) — missing/unparsed rows or
+  probes -> mechanical exit 4 with NO verdict, duplicates/stray kinds/
+  rows outside the selection -> structural exit 3, S1 threshold fixed
+  at >= 3 (never adapted to the observed model count);
 * end-to-end Phase B wiring on synthetic rows over real pool ids:
-  staged verdict with probes, order-artifact when probes are absent;
+  staged verdict with probes, mechanical exit 4 when probes are absent,
+  rule-legibility-failure on complete-but-wrong probes,
+  order-artifact on an admit-timing slope with perfect probes;
 * cluster bootstrap: identity with the frozen analyze_g25 implementation,
   determinism under seed 20260924, whole-cluster bookkeeping;
 * run harness: scripts/run_g26a_phasea.sh kinds are exactly the 4 no-rule
@@ -582,18 +594,29 @@ def test_outcome_map_order_and_reachability():
     r_null = {t: nul for t in (0, 1, 2)}
     rope = _S(0.2, -1.0, 1.4)
     integ = (True, True, True, True)
-    # integrity first, S1 second, then branches
+    # split integrity taxonomy (user ruling 2026-09-24), then S1, branches
     assert ag.classify(False, True, True, True, True, pos, pos,
-                       r_pos, r_null) == "order-artifact"     # I1
+                       r_pos, r_null) == "structural-integrity-failure"  # I1
     assert ag.classify(True, False, True, True, True, pos, pos,
-                       r_pos, r_null) == "order-artifact"     # I2
+                       r_pos, r_null) == "structural-integrity-failure"  # I2
     assert ag.classify(True, True, False, True, True, pos, pos,
-                       r_pos, r_null) == "order-artifact"     # I3
+                       r_pos, r_null) == "order-artifact"     # I3 (only gate)
     assert ag.classify(True, True, True, False, True, pos, pos,
-                       r_pos, r_null) == "order-artifact"     # I4
+                       r_pos, r_null) == "rule-legibility-failure"       # I4
+    # label priority when several I-gates fail:
+    # structural -> rule-legibility -> order (prereg §8)
+    assert ag.classify(False, True, True, False, True, pos, pos,
+                       r_pos, r_null) == "structural-integrity-failure"
+    assert ag.classify(True, True, False, False, True, pos, pos,
+                       r_pos, r_null) == "rule-legibility-failure"
+    assert ag.classify(False, True, False, True, True, pos, pos,
+                       r_pos, r_null) == "structural-integrity-failure"
     assert ag.classify(*integ, False, pos, pos, r_pos, r_null) == "unresolved"
-    # no evaluable data is unresolved even with integrity flags false
+    # no evaluable data is unresolved, even with integrity flags false
+    # (evaluability fires before the I-gates — G25A order)
     assert ag.classify(True, True, True, True, True, None, pos,
+                       None, {}) == "unresolved"
+    assert ag.classify(False, True, False, False, True, None, pos,
                        None, {}) == "unresolved"
     # branches
     assert ag.classify(*integ, True, pos, pos, r_pos, r_null) == "staged"
@@ -659,7 +682,8 @@ def test_ruleacc_unparsed_leaves_denominator():
     assert acc["rule_probe_g26_excl"]["n_correct"] == 8
     assert acc["rule_probe_g26_excl"]["acc"] == pytest.approx(8 / 9)
     assert acc["rule_probe_g26_admit"]["acc"] == 1.0
-    # absent probes -> NaN -> I4 fails (G25A lineage: absent data fails)
+    # absent probes -> NaN at the unit level; in phase_b absent probes
+    # are mechanical exit 4 and never reach I4 (2026-09-24 ruling)
     empty = ag.ruleacc([])
     import math
     assert math.isnan(empty["rule_probe_g26_excl"]["acc"])
@@ -729,17 +753,25 @@ def test_cluster_boot_identity_determinism_and_whole_clusters():
 # ---------------------------------------------------------------------------
 # analyzer Phase B end-to-end wiring (synthetic rows over REAL pool ids)
 # ---------------------------------------------------------------------------
-def _phase_b_fixture(tmp_path, n_items=210, with_probes=True, pg_spread=1.0):
+def _phase_b_fixture(tmp_path, n_items=210, with_probes=True, pg_spread=1.0,
+                     probe_fn=None, admit_slope=0.0, drop_model=None):
+    """Synthetic Phase-B rows over real pool ids.
+
+    probe_fn(kind_name, item_id, model) -> yesno override (else the
+    correct answer); admit_slope adds s*slope*t to ADMIT cell t so that
+    M_t = slope*t (an I3 timing signal); drop_model omits one pooled
+    model entirely (a mechanical panel gap).
+    """
     import random
     rng = random.Random(7)
     ids = [it.item_id for it in POOL_ITEMS[:n_items]]
     dirs = {it.item_id: it.critical_direction for it in POOL_ITEMS[:n_items]}
-    runs = {m: [] for m in ag.POOLED_MODELS}
+    runs = {m: [] for m in ag.POOLED_MODELS if m != drop_model}
     for iid in ids:
         s = 1.0 if dirs[iid] == "increase" else -1.0
         jitter = lambda: rng.uniform(-pg_spread, pg_spread)  # noqa: E731
         r0, r1, r2 = 9.0 + jitter(), 1.0 + jitter(), -7.0 + jitter()
-        for m in ag.POOLED_MODELS:
+        for m in runs:
             def val(kind, s=s, r0=r0, r1=r1, r2=r2):
                 rs = (r0, r1, r2)
                 if kind == "g26_y0":
@@ -752,17 +784,16 @@ def _phase_b_fixture(tmp_path, n_items=210, with_probes=True, pg_spread=1.0):
                 t = int(tm)
                 if arm == "g26_excl":
                     return 50.0 + s * rs[t]        # R_t = s*(excl-YB) = rs[t]
-                return 50.0 + s * 10.0             # admit == YAB -> M = 0
+                return 50.0 + s * 10.0 + s * admit_slope * t  # M_t = slope*t
             for kind in ag.ALL_CELLS:
                 runs[m].append({"item_id": iid, "kind_name": kind,
                                 "model_tag": m, "value": val(kind)})
             if with_probes:
-                runs[m].append({"item_id": iid,
-                                "kind_name": "rule_probe_g26_excl",
-                                "model_tag": m, "yesno": "NO"})
-                runs[m].append({"item_id": iid,
-                                "kind_name": "rule_probe_g26_admit",
-                                "model_tag": m, "yesno": "YES"})
+                for pk, expect in (("rule_probe_g26_excl", "NO"),
+                                   ("rule_probe_g26_admit", "YES")):
+                    yesno = probe_fn(pk, iid, m) if probe_fn else expect
+                    runs[m].append({"item_id": iid, "kind_name": pk,
+                                    "model_tag": m, "yesno": yesno})
     paths = []
     for m, rows in runs.items():
         p = tmp_path / f"b_{m}.jsonl"
@@ -771,33 +802,237 @@ def _phase_b_fixture(tmp_path, n_items=210, with_probes=True, pg_spread=1.0):
     return paths
 
 
+def _sel_ids(n=210):
+    """The first n pool ids — mirrors a 210-item frozen selection."""
+    return [it.item_id for it in POOL_ITEMS[:n]]
+
+
+def _write_selection(tmp_path, ids, name="selection.json"):
+    p = tmp_path / name
+    p.write_text(json.dumps(list(ids)))
+    return str(p)
+
+
 def test_phase_b_end_to_end_staged(tmp_path, monkeypatch):
     monkeypatch.setattr(ag, "B", 400)         # fast CIs; B=10000 pinned above
     paths = _phase_b_fixture(tmp_path, with_probes=True, pg_spread=1.0)
+    ids = _sel_ids(210)
+    sel = _write_selection(tmp_path, ids)
     rep_path = str(tmp_path / "verdict.json")
-    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md")
+    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md", sel)
     assert rc == 0
     rep = json.load(open(rep_path))
     assert rep["integrity"]["I2_distance_le_10"]["ok"]
     assert rep["integrity"]["I3_admit_control_contains_0"]
     assert rep["integrity"]["I4_ruleacc_ge_0.8"]["ok"]
     assert rep["S1"]["n_usable_ge3of4"] >= 210 - 0 and rep["S1"]["ok"]
+    assert rep["S1"]["models_for_3of4"] == 3        # fixed threshold (ruling 3)
     assert rep["positive_gates"]["PG"] and rep["positive_gates"]["LG"]
     assert rep["verdict"] == "staged"
     assert rep["estimands"]["pooled"]["PG"]["mean"] == pytest.approx(
         8.0, abs=0.5)
     assert rep["budget"]["rows"] <= 14_400 and rep["budget"]["ok"]
     assert rep["secondary_rope"]["role"].startswith("wording only")
+    # frozen-input record: sha-first, exact model set, selection contract
+    assert rep["completeness"]["ok"]
+    assert rep["completeness"]["rows"] == 210 * 4 * 12 == \
+        rep["completeness"]["expected_rows"]
+    assert rep["models"]["exact"] and rep["models"]["observed"] == \
+        sorted(ag.POOLED_MODELS)
+    assert rep["selection"]["n"] == 210
+    assert rep["selection"]["ids_sha256"] == ag.sha256_ids(ids)
+    assert rep["runs"][0]["sha256"] == _sha(paths[0])
 
 
-def test_phase_b_missing_probes_is_order_artifact(tmp_path, monkeypatch):
+def test_phase_b_missing_probes_is_mechanical_exit_4(tmp_path, monkeypatch):
+    """Ruling 4: probe rows missing -> mechanical incomplete, exit 4,
+    NO report and NO verdict — never `order-artifact`."""
     monkeypatch.setattr(ag, "B", 400)
     paths = _phase_b_fixture(tmp_path, with_probes=False, pg_spread=1.0)
+    sel = _write_selection(tmp_path, _sel_ids(210))
     rep_path = str(tmp_path / "verdict.json")
-    ag.phase_b(paths, POOL, rep_path, rep_path + ".md")
+    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md", sel)
+    assert rc == 4
+    assert not os.path.exists(rep_path)          # no report => no verdict
+    assert not os.path.exists(rep_path + ".md")
+
+
+def test_phase_b_missing_pooled_model_aborts(tmp_path, monkeypatch):
+    """Ruling 3: the model set must be the frozen pooled-4 — a missing
+    model is a mechanical panel gap (exit 4), aborting before any
+    estimand or verdict is computed."""
+    monkeypatch.setattr(ag, "B", 400)
+    paths = _phase_b_fixture(tmp_path, drop_model="gemma3-12b")
+    sel = _write_selection(tmp_path, _sel_ids(210))
+    rep_path = str(tmp_path / "verdict.json")
+    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md", sel)
+    assert rc == 4
+    assert not os.path.exists(rep_path)
+
+
+def test_phase_b_structural_model_dup_stray_outside(tmp_path, monkeypatch):
+    """Extra/unknown model, duplicate rows, stray kinds and rows outside
+    the frozen selection are STRUCTURAL (exit 3), never a verdict."""
+    monkeypatch.setattr(ag, "B", 400)
+    ids = _sel_ids(210)
+    cases, reports = {}, {}
+    # extra/unknown model row (item IS selected -> only the model is wrong)
+    d = tmp_path / "extra_model"
+    d.mkdir()
+    paths = _phase_b_fixture(d)
+    with open(paths[0], "a") as fh:
+        fh.write(json.dumps({"item_id": ids[0], "kind_name": "g26_y0",
+                             "model_tag": SELECTOR, "value": 50.0}) + "\n")
+    sel = _write_selection(d, ids)
+    cases["extra_model"] = ag.phase_b(
+        paths, POOL, str(d / "r.json"), str(d / "r.md"), sel)
+    # duplicate (item, model, kind) row
+    d = tmp_path / "dup"
+    d.mkdir()
+    paths = _phase_b_fixture(d)
+    with open(paths[0], "a") as fh:
+        fh.write(json.dumps({"item_id": ids[0], "kind_name": "g26_y0",
+                             "model_tag": "llama31-8b", "value": 50.0}) + "\n")
+    sel = _write_selection(d, ids)
+    cases["dup"] = ag.phase_b(
+        paths, POOL, str(d / "r.json"), str(d / "r.md"), sel)
+    # stray kind
+    d = tmp_path / "stray"
+    d.mkdir()
+    paths = _phase_b_fixture(d)
+    with open(paths[0], "a") as fh:
+        fh.write(json.dumps({"item_id": ids[0], "kind_name": "memory",
+                             "model_tag": "llama31-8b", "value": 1.0}) + "\n")
+    sel = _write_selection(d, ids)
+    cases["stray"] = ag.phase_b(
+        paths, POOL, str(d / "r.json"), str(d / "r.md"), sel)
+    # rows outside the frozen selection (209 selected, 210 rows exist)
+    d = tmp_path / "outside"
+    d.mkdir()
+    paths = _phase_b_fixture(d)
+    sel = _write_selection(d, ids[:-1])
+    cases["outside_selection"] = ag.phase_b(
+        paths, POOL, str(d / "r.json"), str(d / "r.md"), sel)
+    assert cases == {"extra_model": 3, "dup": 3, "stray": 3,
+                     "outside_selection": 3}, cases
+    for name in ("extra_model", "dup", "stray", "outside_selection"):
+        assert not os.path.exists(str(tmp_path / name / "r.json")), name
+
+
+def test_phase_b_selection_guards(tmp_path, monkeypatch):
+    """The frozen selection is guarded: deduped pool subset in [200,300].
+    A selected item with no rows is mechanical (4); a wrong selection
+    file is structural (3); missing --selection is usage (5)."""
+    monkeypatch.setattr(ag, "B", 400)
+    paths = _phase_b_fixture(tmp_path)
+    ids210 = _sel_ids(210)
+
+    # (a) selected item with NO rows -> mechanical exit 4
+    sel = _write_selection(tmp_path, ids210 + [POOL_ITEMS[300].item_id],
+                           name="sel_extra.json")
+    rep = str(tmp_path / "a.json")
+    rc = ag.phase_b(paths, POOL, rep, rep + ".md", sel)
+    assert (rc, os.path.exists(rep)) == (4, False)
+
+    # (b) n > 300 -> structural exit 3 (guard fires before row checks)
+    sel = _write_selection(tmp_path, _sel_ids(350), name="sel_big.json")
+    rep = str(tmp_path / "b.json")
+    rc = ag.phase_b(paths, POOL, rep, rep + ".md", sel)
+    assert (rc, os.path.exists(rep)) == (3, False)
+
+    # (c) n < 200 -> structural exit 3
+    sel = _write_selection(tmp_path, _sel_ids(150), name="sel_small.json")
+    rep = str(tmp_path / "c.json")
+    rc = ag.phase_b(paths, POOL, rep, rep + ".md", sel)
+    assert (rc, os.path.exists(rep)) == (3, False)
+
+    # (d) duplicate ids in the selection -> structural exit 3
+    sel = _write_selection(tmp_path, ids210 + [ids210[0]],
+                           name="sel_dup.json")
+    rep = str(tmp_path / "d.json")
+    rc = ag.phase_b(paths, POOL, rep, rep + ".md", sel)
+    assert (rc, os.path.exists(rep)) == (3, False)
+
+    # (e) an id outside the pool -> structural exit 3
+    sel = _write_selection(tmp_path, ids210 + ["zz_not_a_pool_item"],
+                           name="sel_foreign.json")
+    rep = str(tmp_path / "e.json")
+    rc = ag.phase_b(paths, POOL, rep, rep + ".md", sel)
+    assert (rc, os.path.exists(rep)) == (3, False)
+
+    # (f) no selection at all -> usage exit 5
+    rc = ag.phase_b(paths, POOL, str(tmp_path / "f.json"), "f.md")
+    assert rc == 5
+
+
+def test_phase_b_ruleacc_below_floor_is_rule_legibility_failure(
+        tmp_path, monkeypatch):
+    """Complete probes but RuleAcc 0.75 -> rule-legibility-failure
+    (NO CLAIM), explicitly NOT order-artifact (ruling 4)."""
+    monkeypatch.setattr(ag, "B", 400)
+    ids = _sel_ids(210)
+    pos = {iid: i for i, iid in enumerate(ids)}
+
+    def wrong_excl(kind, iid, m):
+        if kind == "rule_probe_g26_excl" and pos[iid] % 4 == 0:
+            return "YES"                       # wrong: expected NO, 25%
+        return "NO" if kind == "rule_probe_g26_excl" else "YES"
+
+    paths = _phase_b_fixture(tmp_path, probe_fn=wrong_excl)
+    sel = _write_selection(tmp_path, ids)
+    rep_path = str(tmp_path / "verdict.json")
+    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md", sel)
+    assert rc == 0
     rep = json.load(open(rep_path))
+    assert rep["verdict"] == "rule-legibility-failure"
+    assert rep["verdict"] != "order-artifact"
     assert not rep["integrity"]["I4_ruleacc_ge_0.8"]["ok"]
-    assert rep["verdict"] == "order-artifact"      # probes absent (G25A line)
+    acc = rep["integrity"]["I4_ruleacc_ge_0.8"]["detail"]
+    # probes pool over item x model: 210 x 4 = 840 rows per rule type;
+    # positions 0,4,...,208 = 53 of 210 items x 4 models = 212 wrong
+    assert acc["rule_probe_g26_excl"]["n_rows"] == 840
+    assert acc["rule_probe_g26_excl"]["n_correct"] == 628
+    assert acc["rule_probe_g26_excl"]["acc"] == pytest.approx(628 / 840)
+    assert acc["rule_probe_g26_excl"]["acc"] < ag.RULEACC_MIN
+    assert acc["rule_probe_g26_excl"]["n_unparsed"] == 0   # probes complete
+    assert acc["rule_probe_g26_admit"]["acc"] == 1.0
+    # I3 passes: this is legibility, not position structure
+    assert rep["integrity"]["I3_admit_control_contains_0"]
+
+
+def test_phase_b_admit_slope_is_order_artifact(tmp_path, monkeypatch):
+    """Perfect probes + perfect construction, but an admit-timing slope
+    (I3 fail) -> order-artifact — the only gate licensing it (ruling 4)."""
+    monkeypatch.setattr(ag, "B", 400)
+    ids = _sel_ids(210)
+    paths = _phase_b_fixture(tmp_path, admit_slope=4.0)
+    sel = _write_selection(tmp_path, ids)
+    rep_path = str(tmp_path / "verdict.json")
+    rc = ag.phase_b(paths, POOL, rep_path, rep_path + ".md", sel)
+    assert rc == 0
+    rep = json.load(open(rep_path))
+    assert rep["verdict"] == "order-artifact"
+    assert not rep["integrity"]["I3_admit_control_contains_0"]
+    assert rep["integrity"]["I4_ruleacc_ge_0.8"]["ok"]     # probes perfect
+    assert rep["integrity"]["I2_distance_le_10"]["ok"]
+    # M_t = 4t  =>  M_T0 - M_T2 = -8 exactly, row by row
+    assert rep["estimands"]["pooled"]["Mcontrast"]["mean"] == \
+        pytest.approx(-8.0)
+
+
+def test_s1_threshold_is_fixed_pooled4_three():
+    """Ruling 3: the S1 usability threshold is the constant 3 — the old
+    dynamic min(3, observed-models) degradation must not exist anywhere,
+    and phase_b asserts the model set against the frozen pooled-4."""
+    import inspect
+    src = inspect.getsource(ag)
+    assert "min(MIN_MODELS_USABLE" not in src
+    assert "n_models = len(tags)" not in src
+    assert ag.MIN_MODELS_USABLE == 3
+    phase_b_src = inspect.getsource(ag.phase_b)
+    assert "expected_models = set(POOLED_MODELS)" in phase_b_src
+    assert "missing_models" in phase_b_src
+    assert "unknown_models" in phase_b_src
 
 
 # ---------------------------------------------------------------------------
@@ -819,7 +1054,9 @@ def test_phasea_run_script_gates():
 
 def test_constants_match_prereg_amendments():
     assert ag.PHASEA_ROWS_CAP == 14_560            # 3,640 x 4 (amended)
+    assert ag.PHASEB_ROWS_CAP == 14_400            # <=300 x 4 x 12
     assert ag.MIN_S1 == 200 and ag.CAP_SELECT == 300
+    assert ag.MIN_MODELS_USABLE == 3               # fixed ">= 3/4" (ruling 3)
     assert ag.SELECTOR_TAG == SELECTOR
     assert ag.POOLED_MODELS == ["llama31-8b", "qwen3-8b", "qwen35-9b",
                                 "gemma3-12b"]
@@ -830,3 +1067,13 @@ def test_constants_match_prereg_amendments():
     assert "filler-feasibility" in prereg or "feasibility" in prereg
     for uid in EXCLUDED:
         assert uid in prereg or uid in open(POOL_REPORT).read()
+    # pre-tag ruling 1: baseline box ticked at the measured suite values
+    assert "- [x] full test suite green at updated baseline" in prereg
+    assert "zero `--ignore`" in prereg
+    # pre-tag ruling 2: the reversed-count factual erratum is recorded
+    assert "75 orientation-unique items" in prereg
+    assert "69 occur in" in prereg
+    # pre-tag ruling 4: the split integrity taxonomy is preregistered
+    assert "rule-legibility-failure" in prereg
+    assert "structural-integrity-failure" in prereg
+    assert "mechanical completeness" in prereg
