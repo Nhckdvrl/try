@@ -271,6 +271,27 @@
 >
 > **NO OTHER TARGET-MODEL COMPUTE AUTHORIZED.**
 
+> **AUTHORITY NOTE (2026-09-25): the CURRENT authoritative story is the
+> header line, the G26A ledger blocks and `CURRENT HEADLINE STRUCTURE`
+> above. Everything below this note is retained historical/operational
+> governance; where it conflicts, the above wins.** Specifically
+> superseded: (a) "Headline finding 2 — KEEP" → G23A exact-zero
+> amplification is controlled-material SUPPORTING structural analysis
+> only, never a headline; (b) "active candidate = paper restructure +
+> search for a genuinely non-obvious third RQ" → that third RQ exists
+> and is frozen as G26A (load-bearing vs mere presence), the SOLE
+> active headline candidate; (c) blanket "Not authorized: any new
+> target-model generation" → G26A Phase A ≤ 14,560 rows IS authorized,
+> but ONLY after the Phase-A design tag + the user-owned STATUS flip #1
+> (Phase B likewise only after flip #2). Current story, restated:
+> **RQ1 = sole standing headline (prospective exclusion
+> leak/asymmetry) · G23A = supporting only · G25A natural exact-zero
+> headline = WITHDRAWN / NO RESCUE · Stage 5 / G23C / G24B = supporting
+> mechanism only · G26A = sole active headline candidate (the repo
+> historically labels it RQ3) · no target-model compute before tag +
+> flip #1.** Pinned historical G25A/G23A/G24A/G24B records below are
+> NOT modified — only their authority precedence is clarified here.
+
 Current selection standard:
 [NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md](NATURAL_MAIN_RQ_STANDARD_2026-09-06_V17.md)
 
@@ -345,11 +366,11 @@ Strong negative prior:
 | HOM | **KILL CURRENT FORMULATION** |
 | CK | **KILL** |
 | PD | **ARCHIVE / DO NOT ACTIVATE** |
-| Unring the Bell / G23A | **COMPLETE — zero-amplified** |
+| Unring the Bell / G23A | **COMPLETE — zero-amplified** (SUPPORTING structural analysis only — never a headline; see CURRENT HEADLINE STRUCTURE RQ2) |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
 | Unring the Bell / G23C-R | **HOLD — parent mechanism claim is not headline novelty** |
-| active candidate | **paper restructure + search for a genuinely non-obvious third RQ** |
+| active candidate | **G26A — load-bearing vs mere presence (sole active headline candidate; Phase A only after the design tag `g26a-load-bearing-phasea-design-v1` + user flip #1)** — SUPERSEDED 2026-09-25: the earlier "paper restructure + search for a genuinely non-obvious third RQ" entry was stale; the third RQ was found and frozen as G26A |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -371,7 +392,11 @@ superseded by the novelty audit.
 
 ### Current paper state
 
-**Headline finding 1 — KEEP**
+*(2026-09-25: pre-novelty-audit snapshot retained as history; superseded
+wherever it conflicts with `CURRENT HEADLINE STRUCTURE` above — RQ1 is
+the sole standing headline and Headline finding 2 is withdrawn.)*
+
+**Headline finding 1 — KEEP (= RQ1, the sole standing headline finding)**
 
 > Prospective evidence exclusion is systematically weaker than retrospective exclusion,
 > and natural/source-grounded evidence still leaks under a prior zero-use ruling.
@@ -384,7 +409,14 @@ Evidence:
 
 Do not overclaim model/dataset uniformity: G24A C1 and C2 failed.
 
-**Headline finding 2 — KEEP, but only in contrastive form**
+**Headline finding 2 — SUPERSEDED 2026-09-25 (previously "KEEP, but
+only in contrastive form"): WITHDRAWN as a headline.** G23A exact-zero
+amplification + arithmetic-zero executability = controlled-material
+SUPPORTING structural analysis only (CURRENT HEADLINE STRUCTURE RQ2);
+the natural-data confirmatory returned `order-artifact` NO-CLAIM and
+the G25A natural exact-zero headline is withdrawn with NO RESCUE — see
+the pinned RQ2/G25A RULING above. Historical text retained below for
+the record only:
 
 > Complete semantic causal exclusion has an additional prospective cost, even though
 > the same models can execute prospective zero exactly when the contribution is
@@ -421,17 +453,26 @@ G23C-R may be reconsidered only if:
 1. a non-trivial parent mechanistic question is first identified; and
 2. the fresh replication becomes necessary evidence for that question.
 
-### Active work
+### Active work *(updated 2026-09-25 — the earlier blanket target-model
+ban is superseded by the tagged two-phase G26A plan)*
 
 Authorized now:
 - paper restructuring and writing;
 - novelty audit / literature search;
-- search for a genuinely non-obvious third RQ;
-- design-only thought experiments and no-model checks.
+- G26A zero-model work (design, analyzer, tests, records) — the third RQ
+  question was found and frozen as G26A; no further "search for a
+  genuinely non-obvious third RQ" is pending;
+- design-only thought experiments and no-model checks;
+- **G26A Phase A ≤ 14,560 rows (mistral-small-24b selector) — ONLY after
+  the Phase-A design tag `g26a-load-bearing-phasea-design-v1` AND the
+  user-owned STATUS flip #1; G26A Phase B likewise ONLY after flip #2.**
 
 Not authorized:
 - G23C-R forward passes;
-- any new target-model generation;
+- any target-model generation outside the tagged, flipped G26A plan
+  (explicitly supersedes the earlier blanket "any new target-model
+  generation" ban, which would have wrongly refused the approved G26A
+  Phase A);
 - new layer/site/model sweeps;
 - carrier redesign;
 - experiments whose headline reduces to “give target semantics, then the state is more
