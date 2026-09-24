@@ -1,0 +1,40 @@
+{
+  "stage": "a",
+  "raw": {
+    "path": "results/pilots/vitaminc_pilot_r1/raw_r1a.jsonl",
+    "sha256": "0d7ac001afbcb30ccd762d15a466e0b5a79bf8fbe4acf0b546ed6a02508e33ea",
+    "rows": 600
+  },
+  "readout_health": {
+    "mass_lt_05": 0,
+    "truncated": 0,
+    "unparsed": 0,
+    "rows": 600
+  },
+  "n_items": 200,
+  "n_complete": 200,
+  "incomplete_ids": [],
+  "A_S": {
+    "n": 200,
+    "mean": 42.809626228350794,
+    "median": 41.15272598806028,
+    "p10": -0.47215076663580646,
+    "p90": 97.9146964233089,
+    "min": -92.52716580013731,
+    "max": 99.83287901187671
+  },
+  "A_R": {
+    "n": 200,
+    "mean": 21.95167812635297,
+    "median": 10.701521164152327,
+    "p10": -25.44100209770852,
+    "p90": 95.41071301559353,
+    "min": -92.36391884117157,
+    "max": 99.86262623513126
+  },
+  "usable_rule": "usable iff A_S >= 10.0 and A_R >= 10.0",
+  "n_usable": 55,
+  "gate": "continue iff n_usable >= 120 of 200",
+  "n_positive_both_strict": 122,
+  "verdict": "KILL"
+}
