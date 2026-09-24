@@ -199,6 +199,23 @@
       "reuse_status": "EXISTING_REPOSITORY_DATA_ARE_ADAPTATIONS_NOT_SOURCE_STIMULI",
       "adapter": "src/gen_external.py",
       "status": "EXISTING_CONTRAST_NEEDS_RECLASSIFICATION"
+    },
+    {
+      "source_id": "hover_v1.1",
+      "boundary_type": "benchmark",
+      "canonical_url": "https://github.com/hover-nlp/hover",
+      "source_revision": "release v1.1 data/hover files; hf mirror hover-nlp/hover",
+      "license_or_terms": "CC BY-SA 4.0 (official HF card); Wikipedia-derived page text under CC BY-SA 4.0",
+      "reuse_status": "LOCAL_ZERO_MODEL_AUDIT_WITH_ATTRIBUTION_SHAREALIKE",
+      "independent_unit_rule": "hpqa_id or title-pair cluster; never claim uid alone (train: 6,109 unique hpqa_id for 18,171 claims; 77 hpqa_id shared across train/dev)",
+      "files": [
+        {"path": "hover/hover_train_release_v1.1.json", "sha256": "1f1cd57abd616fa00c70bdc575ce77c16fc6cf1a6cffd5ff87c208030a336bb6", "bytes": 9205582, "url": "https://raw.githubusercontent.com/hover-nlp/hover/main/data/hover/hover_train_release_v1.1.json"},
+        {"path": "hover/hover_dev_release_v1.1.json", "sha256": "67c14858f2d7fcdb96b6fe3d538ffcd6f76e3ba594aa2c0cd4359f601101e89d", "bytes": 2153439, "url": "https://raw.githubusercontent.com/hover-nlp/hover/main/data/hover/hover_dev_release_v1.1.json"},
+        {"path": "hover/hover_test_release_v1.1.json", "sha256": "c58e7fc59b4962213a5a6d41d746384ee88a7645e36cb3a439969cf762c8ec24", "bytes": 898814, "url": "https://raw.githubusercontent.com/hover-nlp/hover/main/data/hover/hover_test_release_v1.1.json", "note": "blind test: no labels/num_hops/supporting_facts — unusable for selection"},
+        {"path": "hover/wiki_wo_links.db", "sha256": "c37ee397916ec0bffacfe8902db454a5cda88a7a188409217b2e15231fe5ee2f", "bytes": 2156273664, "url": "https://nlp.cs.unc.edu/data/hover/wiki_wo_links.db", "note": "official evidence-sentence SQLite, frozen 2020-11-03; stores unsplit prose; ids NFD-normalized"}
+      ],
+      "structural_audit": "HOVER_STRUCTURAL_AUDIT_2026-09-24.md + results/audits/hover_structural_v1.json (src/audit_hover.py, zero model calls)",
+      "status": "STRUCTURAL_AUDIT_PASSED_PENDING_PREREG"
     }
   ]
 }
