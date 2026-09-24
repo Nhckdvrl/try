@@ -2,7 +2,10 @@
 
 **Date:** 2026-09-24
 **Status:** FACT-FINDING ONLY — no prereg, no design tag, no compute (STATUS
-still authorizes paper writing + novelty audit only). Quota decision pending.
+still authorizes paper writing + novelty audit only).
+**Quota decision: Option B adopted (user, 2026-09-24)** — 3 strata
+`fever/SUPPORTS 150 + fever/REFUTES 150 + scifact/SUPPORT 100 = 400`,
+τ = 10 unchanged (see §4).
 **Trigger:** the design sketch in `PAPER_RQ2_BOUNDARY_REFRAME.md` §6 proposes
 ≈400 items stratified `FEVER SUPPORT / FEVER REFUTE / SciFact SUPPORT /
 SciFact CONTRADICT`. Standing rule: verify the data line by line **before**
