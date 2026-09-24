@@ -20,7 +20,9 @@ other claim past G24B/G25A).
    compositional activation** — §1;
 2. HoVer zero-model structural audit FIRST → **DONE, PASS** — §2;
 3. padding = identical filler multiset across the three timings — §3;
-4. ROPE δ=1.5 power note mandatory before freeze — §0 O5 + §7;
+4. ROPE δ=1.5 power note mandatory before freeze — §0 O5 + §7; **DONE →
+   ruled 2026-09-24: equivalence demoted to secondary characterization,
+   primary branches answered by positive gates (CI low > 0 + floor 3.0)**;
 5. two-phase authority (selector funnel ≥ 200 or hard stop) — §11.
 
 Parent documents:
@@ -44,7 +46,7 @@ Parent documents:
 | O2 | Panel | `qwen3-8b`, `gemma3-12b`, `llama31-8b`, `qwen35-9b` (same pooled-4 as G25A). |
 | O3 | Main-pass cells | **11** per item: `Y0, YA, YB, YAB` (no-rule, all four, so the single-component gates are re-verifiable **on the panel itself**, not only on the selector) + `EXCL × {T0,T1,T2}` + `ADMIT × {T0,T1,T2}`. |
 | O4 | Final n | all gate-passing items in frozen order, **capped at 300**; **split = train, pinned** (§2: 3,642 survivors / 2,320 clusters — 18× the S1 floor *before any gate*); sufficiency gate S1: ≥ 200 final items. |
-| O5 | Equivalence ROPE — **power note mandatory before freeze** | δ = 1.5 raw rating points for "≈ 0 / no gain" claims (branch labels need one primary *equivalent* within ±δ, not merely CI-straddling 0). An unpowered 1.5 is an arbitrary threshold (v1 banner item 4): the O5 note (zero-model, G25A-O7 pattern) must establish a declarable-equivalence half-width at the design n — method + standing algebra in §7. |
+| O5 | Equivalence ROPE — **secondary characterization only; power note done, ruling recorded (2026-09-24)** | δ = 1.5 raw rating points. **Equivalence never decides a branch** (user ruling; the zero-model O5 note §7 showed why: at design n equivalence power is 70%/20% under reasonable noise constants and 0% under the effect-scale analog — an underpowered test must not be a headline classifier). Primary questions are answered **only** by positive-effect gates: cluster-bootstrap CI low > 0 **and** point ≥ the project floor **3.0** (G23A/G24A/G25A discipline). Secondary role of δ: if a primary's CI *happily* fits ⊆ [−1.5, +1.5], the report may add "compatible with negligible gain"; if it does not fit, nothing is said and **no branch changes — never `unresolved`**. Consequently "≈ 0" may be written only under a *satisfied* secondary ROPE, and not-positive is written "no detectable effect", never "equivalent to zero". δ = 1.5 and n ≤ 300 / C ≤ 300 pinned as-is (options of raising δ to 4.19 or the cap to 856 explicitly rejected — statistics must not redefine the scientific semantics of "no load-bearing gain"). |
 | O6 | Panel usability floor | per model: `s·(Y_AB − Y_0) ≥ 5` raw points (chain effect measurable on that model), else unusable for that model only, reported `n/n_total`. |
 | O7 | Distance window | rule→judgment token distance equal across T0/T1/T2 **within ±10 tokens**, realized by **repositioning one shared filler multiset** (§3); asserted by test. |
 | O8 | Cluster key | HoVer decomposition **title path** (page pair) for the bootstrap. |
@@ -236,12 +238,22 @@ regardless. Usability (O6): all 11 cells present for that model and
 - **Cluster bootstrap** over title paths (O8): resample K clusters with
   replacement, all their rows (items × models) move together; `B = 10,000`,
   percentile 95% CIs, two-sided `boot_p`, `seed = 20260924`.
-- **Branch decision procedure (union logic, not intersection–union):** a
-  primary is *positive* iff CI low > 0; *equivalent* iff CI ⊆ [−δ, +δ]
-  (O5 = 1.5); otherwise *undetermined*. Branch table §8 evaluated in order
-  integrity → sufficiency → branches. Claims never exceed the branch that
-  actually fired; "≈" in any published sentence maps to the ROPE, not to
-  "p > .05".
+- **Branch decision procedure (user ruling 2026-09-24 — positive gates
+  decide; equivalence never does):** a primary is **positive** iff its
+  cluster-bootstrap CI low > 0 **and** its point estimate ≥ the project
+  substantive floor **3.0 raw points**; **negative** iff CI high < 0;
+  otherwise **not positive** — a complete three-way for *claims*, where
+  not-positive licenses only "no detectable effect". Equivalence
+  (CI ⊆ [−δ, +δ], O5 δ = 1.5) is a **secondary characterization**: when a
+  CI *happily* fits, the report may add "compatible with negligible
+  gain"; it never selects a branch, never vetoes one, and its failure
+  never yields `unresolved` (the O5 power note established exactly this:
+  equivalence at design n is underpowered, so it cannot be a headline
+  classifier). Branch table §8 is evaluated in order integrity →
+  sufficiency → branches **on the positive gates alone**. Claims never
+  exceed the branch that actually fired; "≈" in any published sentence
+  maps to a *satisfied* secondary ROPE — never to "p > .05" and never to
+  a straddling CI.
 - Strata reported: pooled-4, per model, label direction (establish/refute),
   per timing. No item removed after results exist; reruns only for
   mechanical incompleteness.
@@ -286,8 +298,17 @@ regardless. Usability (O6): all 11 cells present for that model and
     "≈0" sentence to a 4.2-point band and δ=1.5 never appears in a claim;
     (3) raise the cap to C=856 for declarability alone — 80% power still
     needs C=2340, infeasible, priced here only for honesty. **δ/n
-    outcome: USER DECISION before the Phase A tag — the §12 O5 box stays
-    open until it is made.**
+    outcome — USER DECISION MADE (2026-09-24): options (1), (2), (3) all
+    REJECTED.** (2) was rejected on semantic grounds — inflating δ to 4.19
+    would let "no load-bearing gain" mean "a 4.2-point gain still counts
+    as none", i.e. statistics redefining the scientific claim, which a
+    reviewer catches more easily than underpower. The note's real product
+    is therefore a prereg correction: **equivalence is demoted out of the
+    primary branch** (§7 procedure, §8 table — rewritten this date);
+    primaries are answered by positive gates (CI low > 0 + floor 3.0);
+    δ = 1.5 stays pinned at its secondary characterization role;
+    n ≤ 300 / C ≤ 300 unchanged (no δ inflation, no cap inflation).
+    §12 O5 box hereby closable.**
 
 ## 8. Outcome map
 
@@ -299,16 +320,22 @@ Order: **I-gates → S-gates → branches.**
 - **I4** RuleAcc ≥ 0.8 on the rule probes (both rule types);
 - **S1** ≥ O4-min items (200) after panel usability (O6).
 
-| Verdict | Conditions | Meaning / required action |
+| Verdict | Conditions (**positive gates only**: CI low > 0 **and** point ≥ 3.0) | Meaning / required action |
 |---|---|---|
-| `presence-bound` | I✓ S✓; **PG positive**; **LG equivalent** | presence suffices for binding; composition state irrelevant → RQ3 answer = presence |
-| `load-bearing-bound` | I✓ S✓; **LG positive**; **PG equivalent** | content present is not enough — A must already be decision-effective through composition → **the non-obvious headline** |
-| `staged` | I✓ S✓; PG > 0 **and** LG > 0 | binding builds in stages; both layers matter |
-| `timing-insensitive / flat-leaky` | I✓ S✓; PG, LG both equivalent **and** pooled `R` > 0 | composition erases the timing structure while leakage persists |
-| `exclusion-robust` | I✓ S✓; PG, LG equivalent **and** all `R_t` equivalent to 0 | chains are excluded cleanly at every timing — sharp contrast with single-hop G24A leak; equally publishable, honestly unexpected |
-| `non-monotone` | any primary negative | report as measured; no ordering claim |
+| `staged` | I✓ S✓; **PG positive** **and** **LG positive** | binding builds in stages; both layers matter |
+| `load-bearing-bound` | I✓ S✓; **LG positive**; PG not positive | **the non-obvious headline:** mere presence is insufficient — making A load-bearing through composition further improves prospective binding. PG's own sentence stays "no detectable presence-stage gain" |
+| `presence-bound` | I✓ S✓; **PG positive**; LG not positive | presence adds a benefit; no detectable additional load-bearing effect (never "composition state irrelevant" — that would need a satisfied ROPE, not a null) |
+| `no-stage-gain` | I✓ S✓; PG and LG both not positive | no detectable stage-specific gain. Subdivided by leakage state below; each not-positive label is written "no detectable …", never "equivalent to zero" |
+| ↳ `timing-insensitive / flat-leaky` | `no-stage-gain` + pooled `R` **positive** | composition erases the timing structure while leakage persists |
+| ↳ `exclusion-robust` | `no-stage-gain` + **every `R_t` CI ⊆ [−1.5, +1.5]** — the secondary ROPE must be *satisfied* because the label's "excluded cleanly" sentence is an equivalence claim (user ruling: "equivalent to zero" only when the CI really fits the secondary ROPE). `R_t` non-positive but CI ⊈ ±1.5 → stays plain `no-stage-gain` + "no detectable leakage at any timing" | chains are excluded cleanly at every timing — sharp contrast with single-hop G24A leak; equally publishable, honestly unexpected |
+| `non-monotone` | any primary **negative** (CI high < 0) | report as measured; no ordering claim |
 | `order-artifact` | I3 (or I2) fails | recency/position structure — no claim until explained via `R̃` |
-| `unresolved` | S1 fails, or a needed label is neither positive nor equivalent | report everything; no verdict |
+| `unresolved` | S1 fails, or evaluable data/labels absent | report everything; no verdict. **Equivalence failure is NOT a path into `unresolved`** (user ruling 2026-09-24 — the old "neither positive nor equivalent" row condition is deleted) |
+
+**Secondary characterization line (ships alongside any verdict, never
+changes it):** any estimand whose CI ⊆ [−1.5, +1.5] may additionally be
+described as "compatible with negligible gain"; a CI that does not fit
+ licenses no wording at all — a straddling CI is silence, not equivalence.
 
 Every row is reachable a priori; none is the manipulation's built-in answer
 (gates 3–4, §10).
@@ -421,9 +448,9 @@ authorizes exactly them.
 **§12A — Phase A tag:**
 
 - [ ] §0 open items O1–O9 signed off (incl. user sign-off of the v2 wording)
-- [ ] **ROPE O5 power note completed (zero-model; §7) and its outcome (δ, n) pinned**
+- [x] **ROPE O5 power note completed (zero-model; §7 + `results/audits/g26a_rope_power_note_v1.json`) and its outcome pinned — per user ruling 2026-09-24: options 1/2/3 rejected; equivalence DEMOTED from primary-branch requirement to secondary characterization ("compatible with negligible gain" only when a CI ⊆ ±1.5); primary gates = CI low > 0 + floor 3.0; δ = 1.5 (secondary role) and n ≤ 300 / C ≤ 300 unchanged; §7 procedure + §8 table rewritten accordingly**
 - [x] HoVer structural audit recorded — sha256 / license / funnel / by-split (done 2026-09-24: `hover_v1.1` manifest, `hover_structural_v1.json`, report §5)
-- [ ] tests green: rule identity, shared-multiset + ±10 distance, mention-direction orientation, single-split assertion, selection blindness, both sign directions, ROPE trichotomy, outcome-map firing order
+- [ ] tests green: rule identity, shared-multiset + ±10 distance, mention-direction orientation, single-split assertion, selection blindness, both sign directions, **positive-gate trichotomy (positive/negative/not-positive) with floor 3.0**, **secondary-ROPE characterization fires wording only — never a branch, never `unresolved`**, outcome-map firing order (`staged`/`load-bearing-bound`/`presence-bound`/`no-stage-gain` + subdivisions, equivalence-failure-is-not-unresolved locked)
 - [ ] full test suite green at updated baseline (334 passed / 849 s, five standard `--ignore` flags)
 - [ ] **Phase A design tag assigned:** ____________ (recorded here + ledger)
 - [ ] **STATUS flip #1 recorded** (ledger: authorizes Phase A ≤ 14,568 rows)
