@@ -19,8 +19,19 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 from pathlib import Path
-import sys
+
+# Engine env — mirrors scripts/run_g26a_phasea.sh byte-for-byte. Without
+# VLLM_USE_FLASHINFER_SAMPLER=0 the vLLM engine warmup dies on this machine
+# (flashinfer JIT check_cuda_arch: "SM 12.x requires CUDA >= 12.9" ->
+# "FlashInfer requires sm75 or higher"), which is output-neutral: greedy
+# argmax and the forced-token logits are identical either way.
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("VLLM_LOGGING_LEVEL", "WARNING")
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+os.environ.setdefault("VLLM_USE_FLASHINFER_SAMPLER", "0")
 
 # G0/G24A lineage constants, byte-identical to spec v2 (src/schema.py values,
 # imported as literals so no frozen file is modified or load-order dependent).
@@ -89,6 +100,9 @@ def main() -> int:
     ap.add_argument("--gpu-frac", type=float, default=0.85)
     ap.add_argument("--max-model-len", type=int, default=2048)
     ap.add_argument("--reason-tokens", type=int, default=110)
+    ap.add_argument("--enforce-eager", action=argparse.BooleanOptionalAction,
+                    default=True,
+                    help="skip CUDA graph capture (G26A harness parity)")
     args = ap.parse_args()
 
     cells = args.cells.split(",")
@@ -129,7 +143,8 @@ def main() -> int:
 
     llm = LLM(model=args.model, tensor_parallel_size=args.tp,
               gpu_memory_utilization=args.gpu_frac, max_model_len=args.max_model_len,
-              dtype="bfloat16", max_logprobs=40, disable_log_stats=True)
+              dtype="bfloat16", max_logprobs=40, disable_log_stats=True,
+              enforce_eager=args.enforce_eager)
 
     # Stage 1: greedy rationale, stopped at the answer cue.
     sp1 = SamplingParams(temperature=0.0, max_tokens=args.reason_tokens,

@@ -98,7 +98,15 @@ exclpre_minus` (+400). `EXCL_post` is OUT of scope for this pilot.
 ## Engine (frozen — identical to spec v1)
 
 - `LLM(model="data/mistral_small_24b_hf", tp=1, gpu_memory_utilization=0.85,
-  max_model_len=2048, dtype=bfloat16, max_logprobs=40, disable_log_stats=True)`.
+  max_model_len=2048, dtype=bfloat16, max_logprobs=40, disable_log_stats=True,
+  enforce_eager=True)`.
+- Engine env mirrors `scripts/run_g26a_phasea.sh` exactly
+  (`HF_HUB_OFFLINE=1, VLLM_LOGGING_LEVEL=WARNING,
+  PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True,
+  TOKENIZERS_PARALLELISM=false, VLLM_USE_FLASHINFER_SAMPLER=0`). Infra note
+  added pre-output after a failed launch (engine init died in flashinfer JIT
+  on this machine; zero model output was produced): the flag is
+  output-neutral for greedy argmax + forced-token logits.
 - Stage 1: `temp=0, max_tokens=110, stop=["ANSWER:"]`.
 - Stage 2: append `rationale.rstrip() + "\nANSWER: "`, `temp=0, max_tokens=1,
   logprobs=40` → digit expectation over 0–9 tokens ×100/9.
