@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A COMPLETE — `order-artifact` NO-CLAIM ACCEPTED, NO RESCUE, headline withdrawn / G26A POOL WRITTEN 3,640 (feasibility gate) — SUITE 445 GREEN — AWAITING 4 WORDING RULINGS → PHASE-A TAG → FLIP #1 / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-25, G24A/G24B COMPLETE / G25A COMPLETE — `order-artifact` NO-CLAIM ACCEPTED, NO RESCUE, headline withdrawn / G26A RULINGS 1–4 IMPLEMENTED — SUITE 451 GREEN — AWAITING USER REVIEW OF THE TEST-SYNC COMMIT → PHASE-A TAG → FLIP #1 / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -178,18 +178,40 @@
 > cell/probe/stray/duplicate/unknown/wrong-model/budget → mechanical
 > exit 4 for missing/unparsed → gates → < 200 HARD STOP exit 2; ≥ 200 =
 > frozen pool order cap 300, ids sha256, never effect-sorted). Harness
-> `scripts/run_g26a_phasea.sh`: token gate `G26A-FLIP1=RECORDED`,
-> kinds locked to the 4 no-rule cells, pool-sha pin, exact 14,560-row
-> assert, refuses overwrites. Tests `tests/test_g26a.py` **27/27 green
-> (93 s)**; full suite **445 passed / 990.36 s / zero `--ignore` /
-> exit 0** (= 418 baseline + 27, zero regressions). Manual spot-check:
-> 20 ordinary items × 12 invariants = 240 checks, 0 failures; reversed
-> census consistent. **4 pre-tag wording/ledger rulings still pending
-> with the user** (§12A baseline line 334/849/5-ignore → measured
-> 445/990/0; §2 "75 reversed survivors" → measured 75 oriented /
-> 69 train / 72 pooled survivors; S1 ≥ 3/4 lineage confirm; I4-failure →
-> `order-artifact` confirm). **No Phase A row has been run; tag +
-> STATUS flip #1 remain ahead.**
+> `scripts/run_g26a_phasea.sh`: runtime gate greps THIS file for the
+> flip-1 marker token — **the token literal is deliberately NOT written
+> in this ledger** (2026-09-25 audit: the literal had been embedded in
+> this very block's prose, which would have opened the gate while
+> flip #1 was NOT recorded — fixed here; re-verify with `grep -c` on
+> the token before any Phase-A run); kinds locked to the 4 no-rule
+> cells, pool-sha pin, exact 14,560-row assert, refuses overwrites.
+> Tests `tests/test_g26a.py` **33/33 green (98.33 s)**; full suite
+> **451 passed / 1043.99 s / zero `--ignore` / exit 0** (= 418
+> pre-G26A + 33, zero regressions). Manual spot-check: 20 ordinary
+> items × 12 invariants = 240 checks, 0 failures; reversed census
+> consistent.
+>
+> **G26A PRE-TAG RULINGS 1–4 IMPLEMENTED (2026-09-24/25, commits
+> `19f7d89`/`01766ff`/`41426ce`/`ecac51e`/`915021e`, pushed):**
+> (1) §12A baseline → measured 451/1043.99/zero-ignore, box ticked;
+> (2) §2/§9.3 reversed erratum — 75 orientation-unique / 72 pooled
+> survivors / 69 train + Phase-A pool, both feasibility exclusions
+> forward, A/B always by mention direction; (3) S1 confirmed ≥ 200
+> items usable on ≥ 3 of the fixed pooled-4 + hardening: exact
+> pooled-4 model-set assertion (extra/unknown model → structural exit
+> 3; missing pooled model → mechanical exit 4), dynamic
+> `min(3, n_models)` DELETED (threshold is the constant 3); (4)
+> integrity taxonomy split — missing/incomplete/unparsed rows or probes
+> → **mechanical exit 4, NO verdict**, complete probes + RuleAcc < 0.8
+> → `rule-legibility-failure` (NO CLAIM), I3 fail → `order-artifact`
+> (only gate licensing it), I1/I2 fail → `structural-integrity-failure`
+> (label priority structural → legibility → order). Tests re-synced to
+> the new semantics (the old missing-probes→order-artifact test was
+> replaced by the 33-test taxonomy battery); §12A records the measured
+> numbers. **Zero Phase-A rows run (no g26a file under results/raw);
+> the flip-1 token is ABSENT from this file (gate closed); the Phase-A
+> design tag is BLOCKED pending the user's review of `ecac51e` — no
+> tag, no flip #1, no compute until that review passes.**
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
