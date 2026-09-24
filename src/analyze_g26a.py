@@ -90,12 +90,12 @@ Phase B (`--phase b`) — the actual RQ3 experiment (needs STATUS flip #2):
 Usage:
     PYTHONPATH=src python src/analyze_g26a.py --phase a \
         --runs results/raw/g26a_phasea_mistral-small-24b.jsonl \
-        --items data/items/g26a_pool_v1.jsonl \
+        --items data/items/g26_phasea_pool_v1.jsonl \
         --report results/g26a/g26a_phasea_report_v1.json \
         --select-out data/items/g26a_selected_v1.json
     PYTHONPATH=src python src/analyze_g26a.py --phase b \
         --runs results/raw/g26a_{llama31-8b,qwen3-8b,qwen35-9b,gemma3-12b}.jsonl \
-        --items data/items/g26a_pool_v1.jsonl \
+        --items data/items/g26_phasea_pool_v1.jsonl \
         --report results/g26a/g26a_verdict_v1.json
 """
 from __future__ import annotations
@@ -123,7 +123,7 @@ ROPE = 1.5                  # secondary characterization band (O5)
 MIN_MODELS_USABLE = 3       # S1 lineage: usable on >= 3/4 pooled models
 MIN_S1 = 200                # O4 minimum
 CAP_SELECT = 300            # O4 cap
-PHASEA_ROWS_CAP = 14_568    # §11: 3,642 x 4 no-rule cells
+PHASEA_ROWS_CAP = 14_560    # §11 (feasibility amendment): N_A = 3,640 x 4
 CHAIN_MIN = 15.0            # §5 gate 1
 SINGLE_MAX = 5.0            # §5 gates 2-3
 USABLE_ANCHOR_MIN = 5.0     # O6 usability anchor
@@ -190,12 +190,19 @@ def rope_fits(summary: dict | None) -> bool:
 # ---------------------------------------------------------------------------
 def phase_a(run_paths: list[str], items_path: str, report_path: str,
             select_out: str, md_path: str) -> int:
+    # (0) SHA FIRST: the output file is hashed before it is parsed and
+    # before any gate is computed (§11: freeze the output, then gates).
+    run_shas = [{"path": p, "sha256": sha256_file(p)} for p in run_paths]
     items_list = load_items(items_path)
     items = {it.item_id: it for it in items_list}
+    items_sha = sha256_file(items_path)
+    expected_rows = 4 * len(items_list)   # exactly one row per item x kind
 
     y: dict = collections.defaultdict(dict)
     kinds_seen: collections.Counter = collections.Counter()
     tags_seen: collections.Counter = collections.Counter()
+    pair_seen: collections.Counter = collections.Counter()
+    unparsed: list[str] = []
     n_rows = 0
     for path in run_paths:
         with open(path) as handle:
@@ -203,27 +210,60 @@ def phase_a(run_paths: list[str], items_path: str, report_path: str,
                 rec = json.loads(line)
                 n_rows += 1
                 kind = rec.get("kind_name", "")
+                iid = rec.get("item_id", "")
                 kinds_seen[kind] += 1
                 tags_seen[rec.get("model_tag", "")] += 1
+                pair_seen[(iid, kind)] += 1
                 if kind in (ALL_CELLS + list(G26A_PROBES)):
                     if rec.get("value") not in (None, "None"):
-                        y[rec["item_id"]][kind] = rec["value"]
+                        y[iid][kind] = rec["value"]
+                    else:
+                        unparsed.append(f"{iid}:{kind}")
 
-    # --- structural assertions BEFORE any gate (§5 blindness, §11 budget) --
+    # (1) STRUCTURAL assertions BEFORE any gate — selection blindness (§5:
+    # no rule cell / no probe may exist in a Phase-A file), selector-only
+    # (O1), uniqueness (exactly one row per item x kind), item-set identity,
+    # row budget (§11). Any violation aborts with exit 3 and NO gate is
+    # computed from partial or suspect data.
     rule_rows = sum(kinds_seen[k] for k in RULE_CELLS)
     probe_rows = sum(kinds_seen[k] for k in G26A_PROBES)
-    stray = [k for k in kinds_seen if k not in ALL_CELLS and k not in G26A_PROBES]
-    blindness_ok = (rule_rows == 0 and probe_rows == 0 and not stray
-                    and set(k for k in kinds_seen) <= set(NORULE_CELLS))
+    stray = [k for k in kinds_seen if k not in ALL_CELLS
+             and k not in G26A_PROBES]
+    kinds_subset_ok = set(kinds_seen) <= set(NORULE_CELLS)
+    dup = [f"{i}:{k}" for (i, k), c in pair_seen.items() if c > 1]
+    unknown = sorted({i for (i, _k) in pair_seen if i not in items})
     budget_ok = n_rows <= PHASEA_ROWS_CAP
-    single_model = [t for t in tags_seen if t]
-    selector_ok = len(single_model) == 1 and single_model[0] == SELECTOR_TAG
-    if not blindness_ok or not budget_ok or not selector_ok:
+    models_ok = set(tags_seen) == {SELECTOR_TAG}
+    violations = []
+    if rule_rows or probe_rows or stray or not kinds_subset_ok:
+        violations.append(f"blindness: rule_cell_rows={rule_rows} "
+                          f"probe_rows={probe_rows} stray_kinds={stray}")
+    if dup:
+        violations.append(f"duplicate (item, kind) rows: {dup[:5]}")
+    if unknown:
+        violations.append(f"rows for unknown item_ids: {unknown[:5]}")
+    if not models_ok:
+        violations.append(f"models={dict(tags_seen)} != "
+                          f"{{'{SELECTOR_TAG}'}}")
+    if not budget_ok:
+        violations.append(f"rows={n_rows} > budget cap {PHASEA_ROWS_CAP}")
+    if violations:
         print("[phase-a] STRUCTURAL VIOLATION — no gates computed:",
-              f"rule_cell_rows={rule_rows} probe_rows={probe_rows}",
-              f"stray_kinds={stray} rows={n_rows} cap={PHASEA_ROWS_CAP}",
-              f"models={dict(tags_seen)}", file=sys.stderr)
+              " | ".join(violations), file=sys.stderr)
         return 3
+
+    # (2) COMPLETENESS — exactly the 4 no-rule kinds, exactly one row per
+    # item x kind, every value parsed. Missing rows or unparsed decisions
+    # are MECHANICAL incompleteness: rerun the affected rows first (§7
+    # reruns are mechanical only); a partial file is never analyzed.
+    if not (n_rows == expected_rows and not unparsed
+            and set(kinds_seen) == set(NORULE_CELLS)):
+        print(f"[phase-a] INCOMPLETE (mechanical) — rows {n_rows} / "
+              f"expected {expected_rows} (= {len(items_list)} items x 4), "
+              f"kinds={sorted(kinds_seen)}, unparsed={unparsed[:5]} — "
+              "rerun the missing/unparsed rows; no gates computed.",
+              file=sys.stderr)
+        return 4
 
     # --- §5 gates, item by item, in FROZEN POOL ORDER (items file order) --
     funnel: collections.Counter = collections.Counter()
@@ -260,9 +300,17 @@ def phase_a(run_paths: list[str], items_path: str, report_path: str,
     report = {
         "phase": "A", "date": _dt.date.today().isoformat(),
         "prereg": "preregistrations/PREREGISTRATION_G26A_LOAD_BEARING.md",
-        "runs": [{"path": p, "sha256": sha256_file(p)} for p in run_paths],
-        "items": {"path": items_path, "sha256": sha256_file(items_path),
+        "runs": run_shas,          # sha256 computed BEFORE parsing/gates
+        "items": {"path": items_path, "sha256": items_sha,
                   "n": len(items_list)},
+        "completeness": {
+            "ok": True, "expected_rows": expected_rows,
+            "rows": n_rows, "kinds": sorted(kinds_seen),
+            "contract": "exactly the 4 no-rule kinds, exactly one parsed "
+                        "row per item x kind (mechanical gap => exit 4, "
+                        "rerun, never analyzed partially)",
+            "unparsed": 0,
+        },
         "blindness": {"ok": True, "rule_cell_rows": rule_rows,
                       "probe_rows": probe_rows, "kinds": dict(kinds_seen),
                       "assertion": "Phase A contains only the 4 no-rule cells"},
@@ -299,7 +347,8 @@ def phase_a(run_paths: list[str], items_path: str, report_path: str,
         "# G26A Phase A — selector gate funnel",
         f"- date: {report['date']}",
         f"- run sha256: `{report['runs'][0]['sha256']}` "
-        f"(rows {n_rows}/{PHASEA_ROWS_CAP}, selector {single_model[0]})",
+        f"(rows {n_rows}/{PHASEA_ROWS_CAP}, selector {SELECTOR_TAG}, "
+        f"exactly one parsed row per item x kind)",
         f"- items: `{items_path}` n={len(items_list)} "
         f"sha256=`{report['items']['sha256'][:16]}`",
         f"- blindness: PASS — {rule_rows} rule-cell rows, {probe_rows} probe rows",
