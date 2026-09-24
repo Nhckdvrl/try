@@ -1,0 +1,795 @@
+{
+ "anchor_parse": {
+  "per_model": {
+   "gemma3-12b": {
+    "n_probe_parsed": 800,
+    "n_probe_rows": 800,
+    "n_unparsed": 0,
+    "rule_acc": 1.0,
+    "stated_weight": {
+     "w000": {
+      "frac_within_tol": 1.0,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 400
+     },
+     "w100": {
+      "frac_within_tol": 1.0,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 400
+     }
+    }
+   },
+   "llama31-8b": {
+    "n_probe_parsed": 800,
+    "n_probe_rows": 800,
+    "n_unparsed": 0,
+    "rule_acc": 0.98875,
+    "stated_weight": {
+     "w000": {
+      "frac_within_tol": 1.0,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 400
+     },
+     "w100": {
+      "frac_within_tol": 0.9775,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 391
+     }
+    }
+   },
+   "qwen3-8b": {
+    "n_probe_parsed": 800,
+    "n_probe_rows": 800,
+    "n_unparsed": 0,
+    "rule_acc": 0.96,
+    "stated_weight": {
+     "w000": {
+      "frac_within_tol": 1.0,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 400
+     },
+     "w100": {
+      "frac_within_tol": 0.92,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 368
+     }
+    }
+   },
+   "qwen35-9b": {
+    "n_probe_parsed": 800,
+    "n_probe_rows": 800,
+    "n_unparsed": 0,
+    "rule_acc": 0.8475,
+    "stated_weight": {
+     "w000": {
+      "frac_within_tol": 0.8425,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 337
+     },
+     "w100": {
+      "frac_within_tol": 0.8525,
+      "median_abs_error_pp": 0.0,
+      "n": 400,
+      "within_tol": 341
+     }
+    }
+   }
+  },
+  "pooled_by_weight": {
+   "w000": {
+    "frac_within_tol": 0.960625,
+    "n_parsed": 1600,
+    "tol_pp": 2.0,
+    "within_tol": 1537
+   },
+   "w100": {
+    "frac_within_tol": 0.9375,
+    "n_parsed": 1600,
+    "tol_pp": 2.0,
+    "within_tol": 1500
+   }
+  },
+  "pooled_ruleacc_recomputed": 0.9490625,
+  "question": "was the inert 'exactly 100%' sentence (and the w=0 sentence) read as intended, per probe?",
+  "ruleacc_min": 0.8
+ },
+ "citations": {
+  "analysis_json_sha256": "ab2a88cb51f5336f1c753e1196048f75c234db517a21efd3f90ddd21c1a1acb6",
+  "bootstrap": {
+   "cluster": "source/cluster",
+   "n_resamples": 10000,
+   "seed": 20260924
+  },
+  "items_sha256": "7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147",
+  "runs_sha256": {
+   "gemma3-12b": "5b317d3f29985c5e7fd590d971845ad8dac94840bc60a0449058164dbd0b798f",
+   "llama31-8b": "79beeccf5f720bfa92bbffca7c04ae8e994b0e3b3befb8837e880393359814c5",
+   "qwen3-8b": "5bdcd169682259fa3da52f9be349a9b6fc30021c8c39c425dc589399ee3b0644",
+   "qwen35-9b": "41c8934565d5dab2c72c2dcb5462843ab2863e3a15677f6d060285989c9eb724"
+  }
+ },
+ "design_tag": "g25a-near-zero-design-v1",
+ "distance": {
+  "field": "rule_to_answer_tokens as recorded by the harness (structural property of the layout, not an outcome)",
+  "note": "pre places the rule ahead of the evidence block and post places it adjacent to the judgment; the asymmetry is the manipulation's own geometry and is what an inert-sentence anchor (I1) is designed to expose.",
+  "per_model": {
+   "gemma3-12b": {
+    "all_rule_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 91,
+      "mean": 89.57142857142857,
+      "median": 89.0,
+      "min": 89,
+      "n": 2800,
+      "stdev": 0.7285614709655256
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 340,
+      "mean": 144.52642857142857,
+      "median": 134.0,
+      "min": 100,
+      "n": 2800,
+      "stdev": 37.11348164176081
+     }
+    },
+    "anchor_w100_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 91,
+      "mean": 91.0,
+      "median": 91.0,
+      "min": 91,
+      "n": 400,
+      "stdev": 0.0
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 340,
+      "mean": 145.955,
+      "median": 135.0,
+      "min": 102,
+      "n": 400,
+      "stdev": 37.14616492886319
+     }
+    }
+   },
+   "llama31-8b": {
+    "all_rule_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 86,
+      "mean": 86.0,
+      "median": 86.0,
+      "min": 86,
+      "n": 2800,
+      "stdev": 0.0
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 322,
+      "mean": 140.3075,
+      "median": 128.5,
+      "min": 98,
+      "n": 2800,
+      "stdev": 37.3013386985388
+     }
+    },
+    "anchor_w100_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 86,
+      "mean": 86.0,
+      "median": 86.0,
+      "min": 86,
+      "n": 400,
+      "stdev": 0.0
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 322,
+      "mean": 140.3075,
+      "median": 128.5,
+      "min": 98,
+      "n": 400,
+      "stdev": 37.341383088705264
+     }
+    }
+   },
+   "qwen3-8b": {
+    "all_rule_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 88,
+      "mean": 86.57142857142857,
+      "median": 86.0,
+      "min": 86,
+      "n": 2800,
+      "stdev": 0.7285614709655256
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 340,
+      "mean": 143.42892857142857,
+      "median": 131.0,
+      "min": 98,
+      "n": 2800,
+      "stdev": 39.08533484654251
+     }
+    },
+    "anchor_w100_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 88,
+      "mean": 88.0,
+      "median": 88.0,
+      "min": 88,
+      "n": 400,
+      "stdev": 0.0
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 340,
+      "mean": 144.8575,
+      "median": 132.5,
+      "min": 100,
+      "n": 400,
+      "stdev": 39.12049624962652
+     }
+    }
+   },
+   "qwen35-9b": {
+    "all_rule_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 92,
+      "mean": 90.57142857142857,
+      "median": 90.0,
+      "min": 90,
+      "n": 2800,
+      "stdev": 0.7285614709655256
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 345,
+      "mean": 148.33642857142857,
+      "median": 136.0,
+      "min": 102,
+      "n": 2800,
+      "stdev": 39.07045643473437
+     }
+    },
+    "anchor_w100_cells": {
+     "post": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 92,
+      "mean": 92.0,
+      "median": 92.0,
+      "min": 92,
+      "n": 400,
+      "stdev": 0.0
+     },
+     "pre": {
+      "frac_neg": 0.0,
+      "frac_pos": 1.0,
+      "frac_zero": 0.0,
+      "max": 345,
+      "mean": 149.765,
+      "median": 137.0,
+      "min": 104,
+      "n": 400,
+      "stdev": 39.10559927602238
+     }
+    }
+   }
+  },
+  "pooled_anchor_w100": {
+   "post": {
+    "frac_neg": 0.0,
+    "frac_pos": 1.0,
+    "frac_zero": 0.0,
+    "max": 92,
+    "mean": 89.25,
+    "median": 89.5,
+    "min": 86,
+    "n": 1600,
+    "stdev": 2.3855936180684894
+   },
+   "pre": {
+    "frac_neg": 0.0,
+    "frac_pos": 1.0,
+    "frac_zero": 0.0,
+    "max": 345,
+    "mean": 145.22125,
+    "median": 133.0,
+    "min": 98,
+    "n": 1600,
+    "stdev": 38.30281307382469
+   }
+  }
+ },
+ "frozen_gates": {
+  "floor_points": 3.0,
+  "g1_delta_local0": true,
+  "g2_gap01": false,
+  "g3_models_positive": {
+   "delta_local0": {
+    "models": [
+     "llama31-8b",
+     "qwen3-8b",
+     "gemma3-12b"
+    ],
+    "n": 3,
+    "pass": true
+   },
+   "gap01": {
+    "models": [
+     "llama31-8b",
+     "qwen3-8b",
+     "gemma3-12b"
+    ],
+    "n": 3,
+    "pass": true
+   }
+  },
+  "i1_gap_w100_ci_contains_0": false,
+  "i2_ruleacc_ge_min": true,
+  "probe_rows": {
+   "gemma3-12b": 800,
+   "llama31-8b": 800,
+   "qwen3-8b": 800,
+   "qwen35-9b": 800
+  },
+  "probe_unparsed": {
+   "gemma3-12b": 0,
+   "llama31-8b": 0,
+   "qwen3-8b": 0,
+   "qwen35-9b": 0
+  },
+  "ruleacc_min": 0.8,
+  "ruleacc_per_model": {
+   "gemma3-12b": 1.0,
+   "llama31-8b": 0.98875,
+   "qwen3-8b": 0.96,
+   "qwen35-9b": 0.8475
+  },
+  "ruleacc_pooled": 0.9490625,
+  "s1_usable_items_ge_min": false,
+  "usable_items_ge_3of4": 354
+ },
+ "frozen_verdict": "order-artifact",
+ "g2": {
+  "co_primaries": {
+   "delta_local0": {
+    "ci_high": 5.788645108993553,
+    "ci_low": 1.3294700955043672,
+    "ci_low_gt_0": true,
+    "mean": 3.5752730031646194,
+    "n": 1391,
+    "n_clusters": 339,
+    "p": 0.0014,
+    "point_ge_floor": true
+   },
+   "gap01": {
+    "ci_high": 5.111108703606093,
+    "ci_low": 0.4867595236653051,
+    "ci_low_gt_0": true,
+    "mean": 2.8263800106865773,
+    "n": 1391,
+    "n_clusters": 339,
+    "p": 0.014,
+    "point_ge_floor": false
+   }
+  },
+  "floor_points": 3.0,
+  "gap01_shortfall": 0.1736199893134227,
+  "note": "G2 fails the preregistered 3.0 floor by this much while its CI low stays > 0 \u2014 recorded as measured; no re-grading, no rounding toward the gate."
+ },
+ "i1": {
+  "argmax_digit_flips": {
+   "argmax_flips": 217,
+   "both_digit_rows": 1391,
+   "frac_flips": 0.15600287562904386,
+   "gap_mean_flip": -6.035031057074542,
+   "gap_mean_noflip": -0.14144590463207227,
+   "missing_raw": 0
+  },
+  "cluster_means": {
+   "frac_clusters_negative": 0.616519174041298,
+   "frac_neg": 0.616519174041298,
+   "frac_pos": 0.3834808259587021,
+   "frac_zero": 0.0,
+   "max": 99.99999994518848,
+   "mean": -1.101314505201209,
+   "median": -0.14983558892370277,
+   "min": -51.934449354403846,
+   "n": 339,
+   "n_clusters": 339,
+   "stdev": 10.742306667871386
+  },
+  "extreme_rows_abs_top5": [
+   {
+    "base": 0.00011374888360152061,
+    "cluster": "fever/Far_from_the_Madding_Crowd_-LRB-1967_film-RRB-",
+    "gap_w100": -99.99999999983048,
+    "item_id": "g24a_fever_182907",
+    "model": "qwen3-8b",
+    "post_w100": 99.99999999999656,
+    "pre_w100": 1.6607653649900327e-10,
+    "s": 1.0,
+    "stratum": "fever/SUPPORTS"
+   },
+   {
+    "base": 59.97928751297486,
+    "cluster": "fever/Diana,_Princess_of_Wales",
+    "gap_w100": 99.99999994518848,
+    "item_id": "g24a_fever_187324",
+    "model": "qwen3-8b",
+    "post_w100": 99.99999999984351,
+    "pre_w100": 5.4655030426411114e-08,
+    "s": -1.0,
+    "stratum": "fever/REFUTES"
+   },
+   {
+    "base": 99.99999999999777,
+    "cluster": "fever/Jeb_Bush",
+    "gap_w100": 99.999999870577,
+    "item_id": "g24a_fever_194183",
+    "model": "qwen3-8b",
+    "post_w100": 99.99999999853064,
+    "pre_w100": 1.2795364454845033e-07,
+    "s": -1.0,
+    "stratum": "fever/REFUTES"
+   },
+   {
+    "base": 1.040520701276367e-07,
+    "cluster": "fever/Wentworth_Miller",
+    "gap_w100": -99.99999718838635,
+    "item_id": "g24a_fever_179743",
+    "model": "qwen3-8b",
+    "post_w100": 99.99999999807665,
+    "pre_w100": 2.8096902967309656e-06,
+    "s": 1.0,
+    "stratum": "fever/SUPPORTS"
+   },
+   {
+    "base": 5.164897642959154e-09,
+    "cluster": "fever/Fortunes_of_War_-LRB-TV_series-RRB-",
+    "gap_w100": 99.9998868247638,
+    "item_id": "g24a_fever_194800",
+    "model": "qwen3-8b",
+    "post_w100": 6.149847302391314e-07,
+    "pre_w100": 99.99988743974853,
+    "s": 1.0,
+    "stratum": "fever/SUPPORTS"
+   }
+  ],
+  "gap100_dropped_nonpositive_anchor": {
+   "per_model": {
+    "gemma3-12b": {
+     "frac_neg": 0.5,
+     "frac_pos": 0.5,
+     "frac_zero": 0.0,
+     "max": 99.96343721961898,
+     "mean": 4.233304025074559,
+     "median": 0.00022809408103569918,
+     "min": -23.45968278288727,
+     "n": 24,
+     "stdev": 21.680383242362353
+    },
+    "llama31-8b": {
+     "frac_neg": 0.48717948717948717,
+     "frac_pos": 0.5128205128205128,
+     "frac_zero": 0.0,
+     "max": 88.87615895611737,
+     "mean": -4.626226038832731,
+     "median": 0.01190049783551217,
+     "min": -98.62863045723992,
+     "n": 78,
+     "stdev": 38.873115864149376
+    },
+    "qwen3-8b": {
+     "frac_neg": 0.56,
+     "frac_pos": 0.44,
+     "frac_zero": 0.0,
+     "max": 99.99999851038679,
+     "mean": 1.7020302605527144,
+     "median": -4.7087814143095506e-11,
+     "min": -99.99999999124198,
+     "n": 50,
+     "stdev": 26.96980218153492
+    },
+    "qwen35-9b": {
+     "frac_neg": 0.543859649122807,
+     "frac_pos": 0.45614035087719296,
+     "frac_zero": 0.0,
+     "max": 93.85944798879574,
+     "mean": -6.002064107373372,
+     "median": -0.02300696111427832,
+     "min": -99.72611913104521,
+     "n": 57,
+     "stdev": 33.26931445225822
+    }
+   },
+   "pooled": {
+    "frac_neg": 0.5215311004784688,
+    "frac_pos": 0.4784688995215311,
+    "frac_zero": 0.0,
+    "max": 99.99999851038679,
+    "mean": -2.4701553852622493,
+    "median": -1.3555839196576908e-09,
+    "min": -99.99999999124198,
+    "n": 209,
+    "stdev": 33.094715705906836
+   }
+  },
+  "gap100_usable_per_model": {
+   "gemma3-12b": {
+    "frac_neg": 0.5,
+    "frac_pos": 0.5,
+    "frac_zero": 0.0,
+    "max": 88.88833508763331,
+    "mean": -0.5686760495555998,
+    "median": -2.6149492547874563e-07,
+    "min": -99.72750260995295,
+    "n": 376,
+    "stdev": 10.303401791497992
+   },
+   "llama31-8b": {
+    "frac_neg": 0.6894409937888198,
+    "frac_pos": 0.3105590062111801,
+    "frac_zero": 0.0,
+    "max": 88.87624507610006,
+    "mean": -1.970679431410176,
+    "median": -1.278432157792274,
+    "min": -97.24247083594597,
+    "n": 322,
+    "stdev": 17.635198263097294
+   },
+   "qwen3-8b": {
+    "frac_neg": 0.6028571428571429,
+    "frac_pos": 0.3942857142857143,
+    "frac_zero": 0.002857142857142857,
+    "max": 99.99999994518848,
+    "mean": -1.5280092944913606,
+    "median": -5.363272415061657e-11,
+    "min": -99.99999999983048,
+    "n": 350,
+    "stdev": 17.728654904846863
+   },
+   "qwen35-9b": {
+    "frac_neg": 0.4839650145772595,
+    "frac_pos": 0.5160349854227405,
+    "frac_zero": 0.0,
+    "max": 96.59878071479031,
+    "mean": -0.26960643383169075,
+    "median": 0.00038537400061500193,
+    "min": -99.030165665517,
+    "n": 343,
+    "stdev": 17.599007099728865
+   }
+  },
+  "gap100_usable_pooled": {
+   "frac_neg": 0.5657800143781452,
+   "frac_pos": 0.43350107836089147,
+   "frac_zero": 0.0007189072609633358,
+   "max": 99.99999994518848,
+   "mean": -1.0608621361777342,
+   "median": -1.8389552224831849e-09,
+   "min": -99.99999999983048,
+   "n": 1391,
+   "stdev": 16.00153633876903
+  },
+  "gate": "Gap(w100) 95% CI contains 0 (order symmetry at the anchor)",
+  "leave_one_model_out_pooled_mean": {
+   "without_gemma3-12b": -1.2431891988081998,
+   "without_llama31-8b": -0.7868105280721718,
+   "without_qwen3-8b": -0.9038001713268512,
+   "without_qwen35-9b": -1.3198322753997693
+  },
+  "models_negative_point": 4,
+  "per_model_recomputed": {
+   "gemma3-12b": {
+    "ci_high": 0.46299894607608577,
+    "ci_low": -1.6351720674619579,
+    "mean": -0.5686760495555998,
+    "n": 376,
+    "n_clusters": 321,
+    "p": 0.2722
+   },
+   "llama31-8b": {
+    "ci_high": -0.14177943667184426,
+    "ci_low": -3.8911935794106167,
+    "mean": -1.970679431410176,
+    "n": 322,
+    "n_clusters": 279,
+    "p": 0.0354
+   },
+   "qwen3-8b": {
+    "ci_high": 0.35917183153783544,
+    "ci_low": -3.3985303860514233,
+    "mean": -1.5280092944913606,
+    "n": 350,
+    "n_clusters": 304,
+    "p": 0.1106
+   },
+   "qwen35-9b": {
+    "ci_high": 1.391241124538939,
+    "ci_low": -1.9859386626837572,
+    "mean": -0.2696064338316905,
+    "n": 343,
+    "n_clusters": 300,
+    "p": 0.755
+   }
+  },
+  "pooled_recomputed": {
+   "ci_high": -0.20614298324101496,
+   "ci_low": -1.9274504192138315,
+   "mean": -1.0608621361777342,
+   "n": 1391,
+   "n_clusters": 339,
+   "p": 0.0162
+  },
+  "saturation_decomposition": {
+   "buckets": {
+    "abs_10_to_50": {
+     "mean": -4.449127504844293,
+     "mean_contribution": -0.25907931552292435,
+     "n": 81,
+     "share": 0.058231488138030196
+    },
+    "abs_ge_50": {
+     "mean": -15.856058507692504,
+     "mean_contribution": -0.5471537083891015,
+     "n": 48,
+     "share": 0.03450754852624011
+    },
+    "abs_lt_10": {
+     "mean": -0.28065696922472294,
+     "mean_contribution": -0.2546291122657084,
+     "n": 1262,
+     "share": 0.9072609633357297
+    }
+   },
+   "meaning": "share \u00d7 bucket-mean reproduces the overall mean (asserted); this explains where the failed gate's -1.06 lives and corrects nothing.",
+   "per_model_abs_ge_50": {
+    "gemma3-12b": 4,
+    "llama31-8b": 14,
+    "qwen3-8b": 18,
+    "qwen35-9b": 12
+   }
+  },
+  "stratum_points": {
+   "fever/REFUTES": {
+    "frac_neg": 0.5822784810126582,
+    "frac_pos": 0.4177215189873418,
+    "frac_zero": 0.0,
+    "max": 99.99999994518848,
+    "mean": -2.0520045615461404,
+    "median": -2.3788849432691515e-08,
+    "min": -99.99959539094549,
+    "n": 474,
+    "stdev": 21.880668151419684
+   },
+   "fever/SUPPORTS": {
+    "frac_neg": 0.5363636363636364,
+    "frac_pos": 0.4618181818181818,
+    "frac_zero": 0.0018181818181818182,
+    "max": 99.9998868247638,
+    "mean": -0.7304976322633213,
+    "median": -1.4807710613240488e-11,
+    "min": -99.99999999983048,
+    "n": 550,
+    "stdev": 12.570835885591514
+   },
+   "scifact/SUPPORT": {
+    "frac_neg": 0.5885558583106267,
+    "frac_pos": 0.4114441416893733,
+    "frac_zero": 0.0,
+    "max": 94.32344190298606,
+    "mean": -0.27584569892515254,
+    "median": -7.1915562926960774e-06,
+    "min": -65.38166061365278,
+    "n": 367,
+    "stdev": 10.705327767879787
+   }
+  }
+ },
+ "identifiability": {
+  "anchor_estimates": "Gap(w100) isolates the pre/post position effect of the one sentence that carries no restriction content ('exactly 100%').",
+  "not_done_here": "No baseline subtraction, no bias-corrected Gap, no item exclusion, no reclassification. Any such change would be a design change, which the tag forbids without a prereg amendment and a user decision.",
+  "verdict_status": "order-artifact stands exactly as frozen: no claim licensed from this run.",
+  "what_it_does_not_identify": "All other weights (0\u202625) carry rule content, so their position effect = inert-sentence geometry + content\u00d7position interaction. The design contains no cell that separates the two; the anchor identifies the offset ONLY at w=100. A constant-across-w additive offset would cancel inside both co-primary contrasts (\u0394_local0, Gap01 are differences of Gaps) \u2014 but constancy across w is NOT testable in this design."
+ },
+ "purpose": "\u00a78 order-artifact required action: integrity investigation before any interpretation. Diagnostic only \u2014 nothing corrected, nothing re-run, no claim licensed, verdict unchanged.",
+ "readout": {
+  "anchor_rows": 2782,
+  "anchor_rows_mass_lt_0_5": 0,
+  "anchor_w100_digit_mass": {
+   "frac_neg": 0.0,
+   "frac_pos": 1.0,
+   "frac_zero": 0.0,
+   "max": 1.0000001578781983,
+   "mean": 0.9999869036777006,
+   "median": 0.9999999381225,
+   "min": 0.999229555062636,
+   "n": 2782,
+   "stdev": 2.8369204784720433e-05
+  },
+  "g24a_first_row_readout": "digit_expectation_0_100",
+  "lineage": "identical readout as G0/G23A/G24A \u2014 asserted on the first row of a tracked g24a raw",
+  "mechanism": "run_model.digit_expectation: value = 100/9 \u00d7 E[digit] over the first-generated-token distribution restricted to tokens '0'..'9' and renormalised by digit mass; `raw` holds the decoded first token (argmax view) and `mass` the digit-token probability mass. An |anchor gap| near 100 therefore means the digit distribution collapsed toward opposite ends in the two arms \u2014 a behavioral flip under the house readout, not a parse artifact (values like 1.66e-10 are E[d]\u22480, not malformed numbers)."
+ },
+ "s1": {
+  "drop_reason": "s\u00b7L <= 0 with L = mean(w100_pre, w100_post) \u2212 base \u2014 the anchor row itself shows no positive evidence leverage for that item on that model (\u00a76 rule; no outcome-dependent filtering).",
+  "items_by_usable_model_count": {
+   "0": 4,
+   "1": 10,
+   "2": 32,
+   "3": 99,
+   "4": 255
+  },
+  "passes": false,
+  "per_model_drops": {
+   "gemma3-12b": {
+    "nonpositive_anchor": 24
+   },
+   "llama31-8b": {
+    "nonpositive_anchor": 78
+   },
+   "qwen3-8b": {
+    "nonpositive_anchor": 50
+   },
+   "qwen35-9b": {
+    "nonpositive_anchor": 57
+   }
+  },
+  "per_model_usable": {
+   "gemma3-12b": 376,
+   "llama31-8b": 322,
+   "qwen3-8b": 350,
+   "qwen35-9b": 343
+  },
+  "requirement": ">= 360 items usable on >= 3/4 pooled models",
+  "usable_ge_3of4": 354,
+  "usable_ge_3of4_frozen": 354
+ }
+}
