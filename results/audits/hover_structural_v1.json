@@ -128,10 +128,172 @@
   },
   "db_expected_bytes": 2156273664,
   "db_present": true,
-  "db_complete": false
+  "db_complete": true
  },
  "text": {
-  "skipped": "db absent or incomplete (claims-level only)",
-  "size": 2140979200
+  "checklist": "text-level (T1-T7)",
+  "db": "/home/xiang/research_hun/try_clone/data/external/raw/hover/wiki_wo_links.db",
+  "schema": {
+   "table": "documents",
+   "id_col": "id",
+   "text_col": "text",
+   "tables": [
+    "documents"
+   ]
+  },
+  "T1_coverage": {
+   "unique_titles": 9189,
+   "found": 9189,
+   "missing": 0,
+   "lookup_tiers_first_hit": {
+    "raw": 8940,
+    "nfd": 249,
+    "nfc": 0
+   },
+   "missing_sample": [],
+   "note": "raw-miss resolved by NFD/NFC is a false missing (encoding), not a data gap"
+  },
+  "T2_sentences": {
+   "idx_invalid": 80,
+   "materialized": 6832,
+   "words_A": {
+    "n": 6832,
+    "min": 1,
+    "p5": 11,
+    "median": 22.0,
+    "p95": 47,
+    "max": 152,
+    "mean": 24.77,
+    "le8": 78,
+    "gt80": 21
+   },
+   "words_B": {
+    "n": 6832,
+    "min": 2,
+    "p5": 10,
+    "median": 23.0,
+    "p95": 44,
+    "max": 128,
+    "mean": 24.28,
+    "le8": 99,
+    "gt80": 10
+   },
+   "words_pooled": {
+    "n": 13664,
+    "min": 1,
+    "p5": 10,
+    "median": 23.0,
+    "p95": 45,
+    "max": 152,
+    "mean": 24.53,
+    "le8": 177,
+    "gt80": 31
+   },
+   "primary_range_8_80_pass": 6643
+  },
+  "T3_orientation": {
+   "rates": {
+    "both": 135,
+    "neither": 2427,
+    "sf0_to_sf1": 4195,
+    "sf1_to_sf0": 75
+   },
+   "rate_frac": {
+    "both": 0.0198,
+    "neither": 0.3552,
+    "sf0_to_sf1": 0.614,
+    "sf1_to_sf0": 0.011
+   },
+   "by_label": {
+    "NOT_SUPPORTED": {
+     "both": 46,
+     "neither": 558,
+     "sf0_to_sf1": 1427,
+     "sf1_to_sf0": 23
+    },
+    "SUPPORTED": {
+     "both": 89,
+     "neither": 1869,
+     "sf0_to_sf1": 2768,
+     "sf1_to_sf0": 52
+    }
+   }
+  },
+  "T4_topology": {
+   "bridge": 4405,
+   "parallel_or_unresolved": 2427,
+   "orientation_unique": 4270,
+   "bridge_rate": 0.6448
+  },
+  "T5_leak": {
+   "mean_max_single_sentence_recall": 0.5214,
+   "median": 0.5,
+   "max": 1.0,
+   "threshold_counts": {
+    ">=0.7": 893,
+    ">=0.8": 322,
+    ">=0.9": 77,
+    ">=1.0": 36
+   },
+   "primary_rule_recall_lt_0.9_pass": 6755
+  },
+  "T6_post_rule_funnel": {
+   "rules": [
+    "2-hop",
+    "n_sf==2",
+    "distinct titles",
+    "orientation-unique bridge",
+    "8<=words<=80 both",
+    "single-sentence leak recall <0.9"
+   ],
+   "materialized": 6832,
+   "survivors": 4105,
+   "by_split_label": {
+    "dev/NOT_SUPPORTED": 268,
+    "dev/SUPPORTED": 195,
+    "train/NOT_SUPPORTED": 1136,
+    "train/SUPPORTED": 2506
+   },
+   "title_pair_clusters": 2683,
+   "hpqa_clusters": 2710,
+   "singleton_pairs": 1635,
+   "leak_ge_0.9_excluded": 77
+  },
+  "T7_reuse": {
+   "unique_title_sent_pairs": 9232,
+   "distinct_used": 9232,
+   "max_reuse": 7,
+   "reused_ge5": 63
+  },
+  "T8_alignment_controls": {
+   "method": "gold vs rotated-neighbour index, reconstruction = smart_sents (v2)",
+   "NOT_SUPPORTED": {
+    "n": 2054,
+    "recall_gold": 0.4884,
+    "recall_rotated": 0.2644,
+    "bridge_gold": 0.7283,
+    "bridge_rotated": 0.2025
+   },
+   "SUPPORTED": {
+    "n": 4778,
+    "recall_gold": 0.5356,
+    "recall_rotated": 0.2828,
+    "bridge_gold": 0.6088,
+    "bridge_rotated": 0.1656
+   },
+   "v1_naive_baseline": {
+    "oob": 76,
+    "mat": 6836,
+    "S_gold": {
+     "recall": 0.5199,
+     "bridge": 0.5539
+    },
+    "NS_gold": {
+     "recall": 0.4746,
+     "bridge": 0.6642
+    },
+    "note": "v2 must beat v1 on gold recall/bridge to be the reconstruction of record"
+   }
+  }
  }
 }

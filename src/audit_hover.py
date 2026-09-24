@@ -39,6 +39,7 @@ import re
 import sqlite3
 import statistics
 import sys
+import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "external", "raw", "hover")
@@ -90,6 +91,54 @@ def entity_variants(title: str) -> list[str]:
     if stripped and stripped != title:
         out.append(stripped)
     return [v for v in out if v]
+
+
+# --- sentence reconstruction (T2) -------------------------------------------
+# The official DB stores UNSPLITTED prose; gold supporting_facts indices were
+# annotated against a CoreNLP-style split (HoVer README: "We use Corenlp to
+# split the sentences"). We reconstruct with a deterministic regex splitter
+# that refuses to break after single-letter name initials ("Robert W. Derminer"
+# / "William S. Hart") and common abbreviations — validated empirically in
+# T8_alignment_controls (gold vs rotated-index recall/bridge, and v1-naive
+# vs v2-abbrev-aware). It is an APPROXIMATION of the official segmentation:
+# pages whose stored text is shorter than at annotation time still go out of
+# bounds (T2 idx_invalid) and are excluded by rule.
+ABBREV = {w.lower() for w in
+          "mr mrs ms dr prof st vs etc jr sr inc ltd co fig no vol dept est "
+          "approx cf a.m p.m u.s u.k e.g i.e".split()}
+
+
+def smart_sents(text: str) -> list[str]:
+    """Abbreviation-aware deterministic sentence split of page prose."""
+    text = text.strip()
+    if not text:
+        return []
+    out: list[str] = []
+    start = 0
+    for m in re.finditer(r'[.!?]+["\'）)\]]?(?=\s)', text):
+        run = re.search(r"([A-Za-z.]+)$", text[:m.start()])
+        tok = run.group(1) if run else ""
+        nxt = m.end()
+        while nxt < len(text) and text[nxt].isspace():
+            nxt += 1
+        if nxt >= len(text):
+            continue
+        if not (text[nxt].isupper() or text[nxt] in '"“(“'):
+            continue
+        if re.search(r"\b[A-Z]$", tok):        # middle initial / "U.S."
+            continue
+        if tok.lower().rstrip(".") in ABBREV:  # "Vol." / "e.g." ...
+            continue
+        out.append(text[start:m.end()])
+        start = m.end()
+    out.append(text[start:])
+    return [s for s in out if s]
+
+
+def naive_sents(text: str) -> list[str]:
+    """v1 baseline (no abbreviation guard); only used by T8 for comparison."""
+    return [p for p in re.split(r'(?<=[.!?])\s+(?=[A-Z"“(])', text.strip())
+            if p]
 
 
 def mentions(sentence: str, title: str) -> bool:
@@ -213,7 +262,7 @@ def open_db(path: str):
 
 
 def find_page_store(conn, tables):
-    """Locate (table, id_col, text_col) holding page title -> sentences."""
+    """Locate (table, id_col, text_col) holding page title -> prose."""
     for t in tables:
         cols = [r[1] for r in conn.execute(f'PRAGMA table_info("{t}")')]
         lower = {c.lower(): c for c in cols}
@@ -224,40 +273,6 @@ def find_page_store(conn, tables):
                         None)
         if id_col and text_col and id_col != text_col:
             return t, id_col, text_col
-    return None
-
-
-def parse_sentences(cell) -> list[str] | None:
-    """Return the page's ordered sentence list, or None if not recoverable."""
-    if cell is None:
-        return None
-    if isinstance(cell, (bytes, bytearray)):
-        try:
-            cell = cell.decode("utf-8")
-        except UnicodeDecodeError:
-            return None
-    if isinstance(cell, list):
-        return cell if all(isinstance(x, str) for x in cell) else None
-    if not isinstance(cell, str):
-        return None
-    try:
-        obj = json.loads(cell)
-    except json.JSONDecodeError:
-        return None  # raw prose: indices not recoverable -> fail loudly
-    if isinstance(obj, dict):
-        for key in ("sentences", "sents"):
-            if isinstance(obj.get(key), list):
-                v = obj[key]
-                if v and isinstance(v[0], list):  # sections -> flatten in order
-                    flat = [s for sec in v for s in sec]
-                    return flat if all(isinstance(x, str) for x in flat) else None
-                return v if all(isinstance(x, str) for x in v) else None
-        if isinstance(obj.get("text"), list):
-            v = obj["text"]
-            if v and isinstance(v[0], list):
-                flat = [s for sec in v for s in sec]
-                return flat if all(isinstance(x, str) for x in flat) else None
-            return v if all(isinstance(x, str) for x in v) else None
     return None
 
 
@@ -273,24 +288,52 @@ def text_level(funnel, db_path: str) -> dict:
     out["schema"] = {"table": t, "id_col": id_col, "text_col": text_col,
                      "tables": tables}
 
-    # cache: title -> sentences | None
-    cache: dict[str, list[str] | None] = {}
+    # cache: title -> raw prose | None.
+    # DB ids are NFD-normalized while JSON titles are NFC — a naive exact
+    # match reports ~249 false missings on this funnel (all diacritic names).
+    raw_cache: dict[str, str | None] = {}
+    tier_counts = {"raw": 0, "nfd": 0, "nfc": 0}
+
+    def raw_text(title: str):
+        if title not in raw_cache:
+            found = None
+            for name, key in (
+                    ("raw", title),
+                    ("nfd", unicodedata.normalize("NFD", title)),
+                    ("nfc", unicodedata.normalize("NFC", title))):
+                row = conn.execute(
+                    f'SELECT "{text_col}" FROM "{t}" WHERE "{id_col}" = ?',
+                    (key,)).fetchone()
+                if row:
+                    found = row[0]
+                    tier_counts[name] += 1
+                    break
+            raw_cache[title] = found
+        return raw_cache[title]
 
     def page(title: str):
-        if title not in cache:
-            row = conn.execute(
-                f'SELECT "{text_col}" FROM "{t}" WHERE "{id_col}" = ?',
-                (title,)).fetchone()
-            cache[title] = parse_sentences(row[0]) if row else None
-        return cache[title]
+        txt = raw_text(title)
+        if txt is None:
+            return None
+        if isinstance(txt, (bytes, bytearray)):
+            txt = txt.decode("utf-8")
+        if not isinstance(txt, str):
+            return None
+        return smart_sents(txt)
 
-    # T1 coverage
+    # T1 coverage: row existence by normalization tier.
     titles = {tt for _, r in funnel for tt, _ in r["supporting_facts"]}
-    present = sum(1 for ti in titles if page(ti) is not None)
+    for ti in titles:
+        raw_text(ti)  # populate tiers
+    missing = [ti for ti in titles if raw_cache[ti] is None]
     out["T1_coverage"] = {
-        "unique_titles": len(titles), "found": present,
-        "missing": len(titles) - present,
-        "missing_rate": round(1 - present / len(titles), 4) if titles else None,
+        "unique_titles": len(titles),
+        "found": len(titles) - len(missing),
+        "missing": len(missing),
+        "lookup_tiers_first_hit": dict(tier_counts),
+        "missing_sample": sorted(missing)[:10],
+        "note": "raw-miss resolved by NFD/NFC is a false missing (encoding), "
+                "not a data gap",
     }
 
     items = []          # materialized funnel items
@@ -301,6 +344,7 @@ def text_level(funnel, db_path: str) -> dict:
     leak_max = []       # T5
     leak_thresh = collections.Counter()
     reused = collections.Counter()   # T7
+    ctrl = collections.defaultdict(list)  # T8: (rec_g, brg_g, rec_rot, brg_rot)
 
     for split, r in funnel:
         (t0, i0), (t1, i1) = r["supporting_facts"]
@@ -338,6 +382,22 @@ def text_level(funnel, db_path: str) -> dict:
         for th in (0.7, 0.8, 0.9, 1.0):
             if mx >= th:
                 leak_thresh[f">={th}"] += 1
+
+        # T8 rotated control: each page's neighbour index ((i+1) mod n,
+        # falling back to i-1 for 1-sentence pages). If gold indices were
+        # unaligned with our reconstruction, gold ~= rotated.
+        # NOTE: p0/p1 are the SENTENCE LISTS; s0/s1 are the selected strings.
+        j0, j1 = (i0 + 1) % len(p0), (i1 + 1) % len(p1)
+        if j0 == i0:
+            j0 = (i0 - 1) % len(p0)
+        if j1 == i1:
+            j1 = (i1 - 1) % len(p1)
+        wj0, wj1 = words(p0[j0]), words(p1[j1])
+        rec_rot = ((max(len(cw & set(wj0)), len(cw & set(wj1))) / len(cw))
+                   if cw else 0.0)
+        brg_rot = int(mentions(p0[j0], t1) or mentions(p1[j1], t0))
+        ctrl[r["label"]].append(
+            (mx, int(m01 or m10), rec_rot, brg_rot))
 
         items.append({
             "split": split, "uid": r["uid"], "label": r["label"],
@@ -411,6 +471,53 @@ def text_level(funnel, db_path: str) -> dict:
         "max_reuse": max(reused.values()) if reused else 0,
         "reused_ge5": sum(1 for v in reused.values() if v >= 5),
     }
+
+    # T8 alignment controls (the evidence that gold indices are aligned with
+    # our reconstruction): gold vs rotated, per label, under smart_sents;
+    # plus the v1-naive splitter as baseline (oob + gold stats).
+    t8: dict = {"method": "gold vs rotated-neighbour index, "
+                          "reconstruction = smart_sents (v2)"}
+    for lab, rows in sorted(ctrl.items()):
+        if not rows:
+            continue
+        n_r = len(rows)
+        t8[lab] = {
+            "n": n_r,
+            "recall_gold": round(statistics.mean(x[0] for x in rows), 4),
+            "recall_rotated": round(statistics.mean(x[2] for x in rows), 4),
+            "bridge_gold": round(statistics.mean(x[1] for x in rows), 4),
+            "bridge_rotated": round(statistics.mean(x[3] for x in rows), 4),
+        }
+    v1 = {"oob": 0, "mat": 0, "S": [], "NS": []}
+    for _split, r in funnel:
+        (a0, k0), (a1, k1) = r["supporting_facts"]
+        ta, tb = raw_text(a0), raw_text(a1)
+        if ta is None or tb is None:
+            continue
+        s0, s1 = naive_sents(ta), naive_sents(tb)
+        if k0 >= len(s0) or k1 >= len(s1):
+            v1["oob"] += 1
+            continue
+        v1["mat"] += 1
+        cc = set(content_words(r["claim"]))
+        rec = (max(len(cc & set(words(s0[k0]))),
+                   len(cc & set(words(s1[k1])))) / len(cc)) if cc else 0.0
+        brg = int(mentions(s0[k0], a1) or mentions(s1[k1], a0))
+        v1["S" if r["label"] == "SUPPORTED" else "NS"].append((rec, brg))
+    t8["v1_naive_baseline"] = {
+        "oob": v1["oob"], "mat": v1["mat"],
+        "S_gold": {"recall": round(statistics.mean(x[0] for x in v1["S"]), 4)
+                   if v1["S"] else None,
+                   "bridge": round(statistics.mean(x[1] for x in v1["S"]), 4)
+                   if v1["S"] else None},
+        "NS_gold": {"recall": round(statistics.mean(x[0] for x in v1["NS"]), 4)
+                    if v1["NS"] else None,
+                    "bridge": round(statistics.mean(x[1] for x in v1["NS"]), 4)
+                    if v1["NS"] else None},
+        "note": "v2 must beat v1 on gold recall/bridge to be the "
+                "reconstruction of record",
+    }
+    out["T8_alignment_controls"] = t8
     return out
 
 
