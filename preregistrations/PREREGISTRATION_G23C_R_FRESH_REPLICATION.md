@@ -2,11 +2,14 @@
 
 **Created:** 2026-09-23; revised 2026-09-24 after G24B completed.
 
-**Status:** DESIGN / PREREGISTRATION DRAFT ONLY.  
-**NO G23C-R MODEL FORWARD PASS, ACTIVATION CAPTURE, OR PATCHING COMPUTE IS AUTHORIZED BY THIS FILE.**
+**Status:** **HOLD — DESIGN PRESERVED, NO COMPUTE.**  
+The design is technically valid, but the parent G23C/G24B mechanism claim was
+downgraded from headline novelty after a G18-style reviewer-obvious audit.
+**NO G23C-R MODEL FORWARD PASS, ACTIVATION CAPTURE, OR PATCHING COMPUTE IS AUTHORIZED.**
 
-G23C-R is the final planned RQ3 mechanism round. It does **not** introduce a new
-mechanistic story. It jointly replicates, on a material set frozen before Stage 5/G23C/G24B:
+G23C-R was designed as the final RQ3 mechanism replication. It is now parked.
+It does **not** introduce a new mechanistic story, and replication of the same
+reviewer-obvious parent claim is not sufficient reason to execute it. It jointly replicates, on a material set frozen before Stage 5/G23C/G24B:
 
 1. **G23C:** the causal efficacy of the rule-time zero-vs-full policy state is larger
    when the semantic target is available during policy processing;
