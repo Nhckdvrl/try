@@ -23,6 +23,7 @@ import conditions_g23a as g23a
 import conditions_g23b as g23b
 import conditions_g24a as g24a
 import conditions_g25 as g25
+import conditions_g26a as g26
 import conditions_agent as ag
 import external_blocks as ext
 
@@ -77,6 +78,11 @@ G23B_CONDITIONS = g23b.G23B_CONDITIONS
 # dispatch on condition name — see conditions_g25)
 G25A_CONDITIONS = g25.G25A_CONDITIONS
 
+# G26A: load-bearing ruling test over fresh HoVer pool (g26a_pool_v1.jsonl;
+# 10 cells = 4 no-rule carriers + 2 rule arms x 3 timings — see
+# conditions_g26a; prereg G26A §3, O3 amendment "11 -> 10")
+G26A_CONDITIONS = g26.G26A_CONDITIONS
+
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
 
@@ -85,7 +91,7 @@ EXT_CONDITIONS = ext.EXT_RAMSEY_CONDITIONS
 PROBES = (["rule_probe_exclude_pre", "rule_probe_exclude_post",
            "rule_probe_admit_post", "memory_probe_exclude_post",
            "wprobe_pre", "wprobe_post"]
-          + g23a.G23A_PROBES + g25.G25A_PROBES)
+          + g23a.G23A_PROBES + g25.G25A_PROBES + g26.G26A_PROBES)
 
 
 @dataclass
@@ -127,6 +133,12 @@ def _blocks(item: Item, cond: str):
     # files keep their current prompts bit-for-bit.
     if g25.is_g25(cond):
         return g25.blocks(item, cond)
+    # G26A load-bearing ruling cells: own item pool (g26a_pool_v1.jsonl) and
+    # own 10 cells — dispatch on the condition name first (prereg G26A §3);
+    # no existing condition name collides, so every other item file keeps
+    # its prompts bit-for-bit.
+    if g26.is_g26(cond):
+        return g26.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
@@ -274,6 +286,12 @@ def compile_probe(item: Item, probe: str) -> str:
         _, _, arm, wkey = probe.split("_")
         blocks = _blocks(item, f"g25_{arm}_{wkey}")
         q = v3.WEIGHT_PROBE_Q.format(lab=item.critical_label)
+    elif probe in g26.G26A_PROBES:
+        # G26A legibility probes, layout pinned to own rule type's T0 cell
+        # (one probe per rule type per item per model — §0 amendment c)
+        arm = "excl" if probe.endswith("excl") else "admit"
+        blocks = _blocks(item, f"g26_{arm}_t0")
+        q = item.rule_probe_question
     elif probe == "memory_probe_exclude_post":
         blocks = _blocks(item, "exclude_post")
         q = item.memory_question

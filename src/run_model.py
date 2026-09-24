@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 FORCED_LINE = "ITEM DECISION WEIGHT: 0%\nFINAL DECISION: "
 
 from schema import (load_items, compile_prompt, compile_probe, SYSTEM, CONDITIONS,
-                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, V6_CONDITIONS, V7_CONDITIONS, G17_CONDITIONS, G18_CONDITIONS, G23A_CONDITIONS, G23B_CONDITIONS, G25A_CONDITIONS, AGENT_CONDITIONS, EXT_CONDITIONS, PROBES,
+                    EXTRA_CONDITIONS, V2_CONDITIONS, V3_CONDITIONS, V4_CONDITIONS, V5_CONDITIONS, ROUTING_CONDITIONS, LINEAR_CONDITIONS, V6_CONDITIONS, V7_CONDITIONS, G17_CONDITIONS, G18_CONDITIONS, G23A_CONDITIONS, G23B_CONDITIONS, G25A_CONDITIONS, G26A_CONDITIONS, AGENT_CONDITIONS, EXT_CONDITIONS, PROBES,
                     compile_messages,
                     ANSWER_CUE,
                     rule_char_offset)
@@ -149,7 +149,7 @@ def main():
                     or k in LINEAR_CONDITIONS or k in V6_CONDITIONS \
                     or k in V7_CONDITIONS or k in G17_CONDITIONS or k in G18_CONDITIONS \
                     or k in G23A_CONDITIONS or k in G23B_CONDITIONS \
-                    or k in G25A_CONDITIONS \
+                    or k in G25A_CONDITIONS or k in G26A_CONDITIONS \
                     or k in EXT_CONDITIONS:
                 user = compile_prompt(it, k, mode=args.mode)
                 kind = "digit" if digit_scale else "openreal"
