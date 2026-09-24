@@ -129,7 +129,7 @@
 > rewritten; §12A O5 box ticked. Phase A still NOT tagged at that point.
 >
 > **G26A O1–O9 ALL SIGNED (2026-09-24, user sign-off, v2 wording incl.,
-> no item changed):** O1 mistral selector · O2 pooled-4 · O3 11 cells ·
+> no item changed):** O1 mistral selector · O2 pooled-4 · O3 10 cells ·
 > O4 train-only / cap 300 / S1 ≥ 200 · O5 positive gates (CI low > 0 +
 > point ≥ 3.0) with δ = 1.5 secondary-characterization-only · O6
 > per-model chain-effect usability ≥ 5 · O7 shared filler multiset ±10 ·
@@ -141,10 +141,19 @@
 > cluster bootstrap, outcome-map order) → full suite green → **Phase-A
 > design tag** → **STATUS flip #1** → Phase A mistral ≤ 14,568 rows →
 > raw sha256 freeze + gate funnel → **≥ 200** → frozen-order cap 300,
-> lock selected IDs + sha256, **flip #2** → Phase B ≤ 15,600 rows → frozen
+> lock selected IDs + sha256, **flip #2** → Phase B ≤ 14,400 rows → frozen
 > analyzer one-shot RQ3 verdict ; **< 200 → HARD STOP** (no 15/5/5
 > loosening, no dev split, no MuSiQue — project-level escalation).
 > **RQ3 = sole active headline candidate; next compute = G26A Phase A.**
+>
+> **Pre-tag corrections (user-ruled 2026-09-24, implementation audit):**
+> O3's "11 cells" was a **typo for 10** — the enumeration
+> (`Y0/YA/YB/YAB + EXCL×3 + ADMIT×3`) is complete (every §5/§6/O6
+> quantity computable; no estimand named an 11th cell); Phase B restated
+> 300 × 10 × 4 = 12,000 + 2,400 probes = **≤ 14,400 rows** (the old
+> 13,200/15,600 figures are void). **Rule-probe timing pinned to T0**
+> (one probe per rule type, 2,400 rows). Both recorded in prereg
+> §0/§3/§11/§12B before any tag.
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.

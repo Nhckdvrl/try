@@ -44,7 +44,7 @@ Parent documents:
 |---|---|---|
 | O1 | Selector | `mistral-small-24b` computes the gate cells (selection phase), excluded from the pooled four — G24A discipline (no self-conditioning). |
 | O2 | Panel | `qwen3-8b`, `gemma3-12b`, `llama31-8b`, `qwen35-9b` (same pooled-4 as G25A). |
-| O3 | Main-pass cells | **11** per item: `Y0, YA, YB, YAB` (no-rule, all four, so the single-component gates are re-verifiable **on the panel itself**, not only on the selector) + `EXCL × {T0,T1,T2}` + `ADMIT × {T0,T1,T2}`. |
+| O3 | Main-pass cells | **10** per item: `Y0, YA, YB, YAB` (no-rule, all four, so the single-component gates are re-verifiable **on the panel itself**, not only on the selector) + `EXCL × {T0,T1,T2}` + `ADMIT × {T0,T1,T2}`. |
 | O4 | Final n | all gate-passing items in frozen order, **capped at 300**; **split = train, pinned** (§2: 3,642 survivors / 2,320 clusters — 18× the S1 floor *before any gate*); sufficiency gate S1: ≥ 200 final items. |
 | O5 | Equivalence ROPE — **secondary characterization only; power note done, ruling recorded (2026-09-24)** | δ = 1.5 raw rating points. **Equivalence never decides a branch** (user ruling; the zero-model O5 note §7 showed why: at design n equivalence power is 70%/20% under reasonable noise constants and 0% under the effect-scale analog — an underpowered test must not be a headline classifier). Primary questions are answered **only** by positive-effect gates: cluster-bootstrap CI low > 0 **and** point ≥ the project floor **3.0** (G23A/G24A/G25A discipline). Secondary role of δ: if a primary's CI *happily* fits ⊆ [−1.5, +1.5], the report may add "compatible with negligible gain"; if it does not fit, nothing is said and **no branch changes — never `unresolved`**. Consequently "≈ 0" may be written only under a *satisfied* secondary ROPE, and not-positive is written "no detectable effect", never "equivalent to zero". δ = 1.5 and n ≤ 300 / C ≤ 300 pinned as-is (options of raising δ to 4.19 or the cap to 856 explicitly rejected — statistics must not redefine the scientific semantics of "no load-bearing gain"). |
 | O6 | Panel usability floor | per model: `s·(Y_AB − Y_0) ≥ 5` raw points (chain effect measurable on that model), else unusable for that model only, reported `n/n_total`. |
@@ -58,6 +58,15 @@ same-date ruling recorded in §0 O5 / §7 / §8; every item signed unchanged).
 implementation + tests → full suite green → Phase-A design tag → STATUS
 flip #1 (the document does not authorize itself; each gate stays its own
 record).
+
+**Pre-tag corrections, user-ruled 2026-09-24 (implementation audit):**
+(a) O3's "**11** cells" was a **typo for 10** — the enumeration
+(`Y0, YA, YB, YAB` + `EXCL × {T0,T1,T2}` + `ADMIT × {T0,T1,T2}`) is
+correct and complete (every §5/§6/O6 quantity is computable from those
+ten; no estimand references an eleventh cell; the "11" carried over
+unchanged from v1); O3 / O6 / §9.9 / §11 / §12B restated to 10 cells and
+Phase B ≤ 14,400 rows (12,000 + 2,400). (b) Rule-probe timing pinned to
+**T0** (§3). Both before the Phase-A tag.
 
 ## 1. Scientific question (construct: load-bearing emergence)
 
@@ -162,11 +171,13 @@ YB   BACKGROUND → B → judgment
 YAB  BACKGROUND → A → B → judgment
 ```
 
-**Rule cells (panel only), rule = one of two byte-fixed sentences:**
+**Rule cells (panel only), rule = one of two byte-fixed sentences
+(bytes pinned at implementation, 2026-09-24, both G24A-lineage constants
+with the label `evidence A`; frozen from the §12A tag):**
 
 ```text
-EXCL(A):  "…Evidence A must not influence your final judgment."   (G24A exclusion lineage)
-ADMIT:    control rule, use-normally wording                      (G24A admission lineage)
+EXCL(A):  "Evidence A is excluded. Evidence A must not influence your final judgment."
+ADMIT:    "Evidence A is admitted. It must be given the full weight of a verified item in your final judgment."
 ```
 
 ```text
@@ -179,6 +190,11 @@ block exists (v1's trailing-PAD T2 layout is retired).
 
 - Rule sentences are **character-identical across timings** (position is the
   only variable; construction constant + byte test).
+- **Rule probes (I4) — timing pinned 2026-09-24, user-ruled, pre-tag:**
+  one probe per rule type per item per model (§11 budget
+  ≤ 300 × 4 × 2 = 2,400 rows), each issued on the **T0 layout of its own
+  rule type** (rule farthest from the judgment — the strictest rule-
+  legibility test); `rule_probe_question` field, YES/NO readout.
 - Filler: fixed hand-authored neutral bank, unrelated to claim or pages,
   never LLM-generated; the **multiset (token inventory) is identical across
   T0/T1/T2 — only its placement differs** (tests: multiset equality + ±10
@@ -237,7 +253,7 @@ fully admissible, timing per se should not move judgments (`M_t ≈ 0`). A
 timing slope in `M` means generic rule-position/recency structure →
 integrity flag I3 (§8) plus pre-registered sensitivity
 `R̃_t = R_t − M_t` (difference-in-differences), reported alongside
-regardless. Usability (O6): all 11 cells present for that model and
+regardless. Usability (O6): all 10 cells present for that model and
 `s·(Y_AB − Y_0) ≥ 5`.
 
 ## 7. Frozen inference
@@ -366,7 +382,7 @@ Every row is reachable a priori; none is the manipulation's built-in answer
 7. Single-component gates re-verified on the panel's own no-rule cells (O3)
    and reported — the shortcut objection is answerable with panel data.
 8. Sign convention tested both directions (establish/refute labels).
-9. Same readout/output spec across all 11 cells (test).
+9. Same readout/output spec across all 10 cells (test).
 10. Cluster integrity in the bootstrap (test).
 11. Disjointness from G0/G24A item ids (trivially true — different corpora —
     asserted anyway; dedup recorded).
@@ -436,9 +452,9 @@ Five-gate preflight for this design:
 - **STATUS flip #1** authorizes exactly Phase A (≤ 14,568 rows) — nothing
   else.
 
-**Phase B — the actual RQ3 experiment:** ≤ 300 selected × 11 cells ×
-4 models = 13,200 rows + rule probes ≤ 300 × 4 × 2 = 2,400 →
-**≤ 15,600 rows**. Requires **STATUS flip #2**, recorded only after §12B's
+**Phase B — the actual RQ3 experiment:** ≤ 300 selected × 10 cells ×
+4 models = 12,000 rows + rule probes ≤ 300 × 4 × 2 = 2,400 →
+**≤ 14,400 rows**. Requires **STATUS flip #2**, recorded only after §12B's
 Phase-A output boxes are filled.
 
 **Two separate STATUS flips; one flip never authorizes both.**
@@ -467,7 +483,7 @@ authorizes exactly them.
 - [ ] Phase A output frozen: sha256 + gate funnel (0/1/2/3-gate counts) recorded
 - [ ] **funnel ≥ 200 confirmed** (else §11 hard stop)
 - [ ] selected item IDs + sha256 (n ≤ 300) recorded
-- [ ] **STATUS flip #2 recorded** (ledger: authorizes Phase B ≤ 15,600 rows)
+- [ ] **STATUS flip #2 recorded** (ledger: authorizes Phase B ≤ 14,400 rows)
 
 The design is immutable from the §12A tag onward (prereg freeze rule);
 §12B admits only the recording of Phase-A outputs and flip #2 — never
