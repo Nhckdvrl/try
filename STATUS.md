@@ -139,7 +139,7 @@
 > shared filler, ±10 distance, Phase-A blindness to rule cells, the
 > three selection gates, floor 3.0, ROPE wording-only-never-branch,
 > cluster bootstrap, outcome-map order) → full suite green → **Phase-A
-> design tag** → **STATUS flip #1** → Phase A mistral ≤ 14,568 rows →
+> design tag** → **STATUS flip #1** → Phase A mistral ≤ 14,560 rows →
 > raw sha256 freeze + gate funnel → **≥ 200** → frozen-order cap 300,
 > lock selected IDs + sha256, **flip #2** → Phase B ≤ 14,400 rows → frozen
 > analyzer one-shot RQ3 verdict ; **< 200 → HARD STOP** (no 15/5/5
@@ -179,11 +179,11 @@
 > exit 4 for missing/unparsed → gates → < 200 HARD STOP exit 2; ≥ 200 =
 > frozen pool order cap 300, ids sha256, never effect-sorted). Harness
 > `scripts/run_g26a_phasea.sh`: runtime gate greps THIS file for the
-> flip-1 marker token — **the token literal is deliberately NOT written
-> in this ledger** (2026-09-25 audit: the literal had been embedded in
-> this very block's prose, which would have opened the gate while
-> flip #1 was NOT recorded — fixed here; re-verify with `grep -c` on
-> the token before any Phase-A run); kinds locked to the 4 no-rule
+> flip-1 marker token — after FLIP #1 below, `grep -c` reads **exactly
+> 1** (the flip record itself; never passing prose). 2026-09-25 audit:
+> the literal had once been embedded in this block's own description,
+> which would have opened the gate while flip #1 was NOT recorded —
+> removed then; kinds locked to the 4 no-rule
 > cells, pool-sha pin, exact 14,560-row assert, refuses overwrites.
 > Tests `tests/test_g26a.py` **33/33 green (98.33 s)**; full suite
 > **451 passed / 1043.99 s / zero `--ignore` / exit 0** (= 418
@@ -208,18 +208,25 @@
 > (label priority structural → legibility → order). Tests re-synced to
 > the new semantics (the old missing-probes→order-artifact test was
 > replaced by the 33-test taxonomy battery); §12A records the measured
-> numbers. **Zero Phase-A rows run (no g26a file under results/raw);
-> the flip-1 token is ABSENT from this file (gate closed). User review
-> of the test-sync `ecac51e` PASSED 2026-09-25 (rulings 1–4 accepted;
-> pre-tag scientific/design audit PASS; remaining blocker was this
-> ledger's own stale-authority cleanup, done in `f8173f0`). Phase-A
-> design tag `g26a-load-bearing-phasea-design-v1` assigned — the
-> annotated tag is created on this exact record commit (SHA bound in
-> the tag object). After the tag: NO design/code/test changes; the only
-> permitted change before Phase A is the user-owned STATUS flip #1 —
-> and before running, verify `git diff
-> g26a-load-bearing-phasea-design-v1..HEAD -- . ':(exclude)STATUS.md'`
-> is EMPTY. No flip #1 and no compute yet.**
+> numbers. User review of the test-sync `ecac51e` PASSED 2026-09-25
+> (rulings 1–4 accepted; pre-tag scientific/design audit PASS; the
+> ledger's stale-authority cleanup landed in `f8173f0`). Phase-A
+> design tag `g26a-load-bearing-phasea-design-v1` (annotated; tag
+> object `8b941e0ae3bf07b530d80416d2700a2dfa11c7f4`) created 2026-09-25
+> on commit `61d0eaf`. At flip time: tag→HEAD diff excluding this file
+> verified EMPTY (this flip commit touches STATUS.md only), Phase-A
+> rows = 0, design/code/tests immutable from the tag onward.
+>
+> **FLIP #1 (user-signed 2026-09-25, verbatim authorization: "批准
+> G26A Phase A flip #1。"): G26A-FLIP1=RECORDED.** Gate open BY DESIGN
+> for Phase A only. Authorizes EXACTLY: `scripts/run_g26a_phasea.sh`
+> one-shot — mistral-small-24b selector, the frozen 4 no-rule cells
+> (Y0/YA/YB/YAB) × the 3,640 frozen pool items = ≤ 14,560 rows, pool
+> sha256 `ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c`
+> pinned by the harness (prereg §12A line: "STATUS flip #1 recorded
+> (ledger: authorizes Phase A ≤ 14,560 rows)" — this ledger record is
+> that entry). Nothing else is authorized; Phase B stays blocked on
+> funnel ≥ 200 → §12B recording → flip #2. Rows at flip time: 0.**
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
