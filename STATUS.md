@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A RUN COMPLETE — verdict `order-artifact`, NO claim (integrity investigated) / G26A O5 RULED / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A COMPLETE — `order-artifact` NO-CLAIM ACCEPTED, NO RESCUE, headline withdrawn / G26A O1–O9 SIGNED — PHASE-A IMPLEMENTATION PATH / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -93,8 +93,32 @@
 > anatomy {0:4, 1:10, 2:32, 3:99, 4:255}, drops exclusively
 > nonpositive_anchor (llama 78 / qwen3 50 / qwen35 57 / gemma 24).
 > **No correction, no re-run, no reclassification — verdict unchanged.
-> Pending: user remediation decision for RQ2** (accept no-claim / prereg
-> amendment / register rescoping; any new compute = new authorization).
+> Remediation decision received same day: ACCEPTED no-claim, no rescue —
+> see the pinned RQ2/G25A RULING below.**
+>
+> **RQ2/G25A RULING (2026-09-24, user decision — PINNED; future agents:
+> do not reopen):** G25A frozen verdict `order-artifact` **ACCEPTED**.
+> **No rerun, no correction, no bias-subtraction, no G25B, no
+> remediation compute — ever, absent a fresh explicit user decision.**
+> The natural-data headline *"natural semantic control has a sharp
+> exact-zero boundary"* is **WITHDRAWN**. Rationale of record: the
+> observed natural ladder is smooth (Gap(w) = 10.58 → 7.76 → 6.90 →
+> 6.36 → 5.60 → 3.59 → −1.06 over w = 0…100%) with graded
+> GradedPos +20.81 [+19.12, +22.50]; even setting I1 aside, S1
+> (354/400 < 360) and G2 (2.83 < floor 3.0) independently block
+> `exact-zero-boundary` — so this is not "almost passed, patch and
+> rerun"; fixing the anchor/readout/floor/n now would be post-hoc
+> story-saving. **G23A survives as controlled-material SUPPORTING
+> structural analysis** (on controlled materials zero carries extra
+> prospective amplification, Δ_zero +8.83 [+4.39, +13.33], and explicit
+> arithmetic prospective zero is exactly executable) — demoted from
+> second headline RQ to supporting evidence. Honest reporting plan for
+> paper/appendix: a preregistered natural-data confirmation that became
+> non-interpretable under its own frozen integrity criterion (100%
+> anchor showed a small but systematic order effect); local contrasts
+> suggestive (G1 PASS +3.58 [+1.33, +5.79]) but did not satisfy the
+> complete preregistered gate set. The RQ2 section = that no-claim
+> report, drafted whenever the paper reaches it — no other RQ2 prose.
 >
 > **G26A O5 RULED (2026-09-24, `4eeb7e2`):** options 1/2/3 rejected;
 > equivalence demoted from primary-branch requirement to **secondary
@@ -102,16 +126,40 @@
 > negligible gain"; never a branch, never `unresolved`); primaries
 > answered by positive gates (CI low > 0 **and** point ≥ 3.0); δ = 1.5
 > secondary / n ≤ 300 pinned unchanged; §7 procedure + §8 table
-> rewritten; §12A O5 box ticked. **Phase A still NOT tagged, NO compute
-> authority** (O1–O9 full sign-off, harness + tests remain open).
+> rewritten; §12A O5 box ticked. Phase A still NOT tagged at that point.
+>
+> **G26A O1–O9 ALL SIGNED (2026-09-24, user sign-off, v2 wording incl.,
+> no item changed):** O1 mistral selector · O2 pooled-4 · O3 11 cells ·
+> O4 train-only / cap 300 / S1 ≥ 200 · O5 positive gates (CI low > 0 +
+> point ≥ 3.0) with δ = 1.5 secondary-characterization-only · O6
+> per-model chain-effect usability ≥ 5 · O7 shared filler multiset ±10 ·
+> O8 title-pair clusters · O9 Phase A = 3,642 train survivors. G26A
+> **enters the implementation/freeze path now**: builder + selector
+> harness + analyzer + tests (train-only 3642, mention-direction A/B,
+> shared filler, ±10 distance, Phase-A blindness to rule cells, the
+> three selection gates, floor 3.0, ROPE wording-only-never-branch,
+> cluster bootstrap, outcome-map order) → full suite green → **Phase-A
+> design tag** → **STATUS flip #1** → Phase A mistral ≤ 14,568 rows →
+> raw sha256 freeze + gate funnel → **≥ 200** → frozen-order cap 300,
+> lock selected IDs + sha256, **flip #2** → Phase B ≤ 15,600 rows → frozen
+> analyzer one-shot RQ3 verdict ; **< 200 → HARD STOP** (no 15/5/5
+> loosening, no dev split, no MuSiQue — project-level escalation).
+> **RQ3 = sole active headline candidate; next compute = G26A Phase A.**
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
 >
-> **CURRENT NOVELTY-BEARING FINDINGS: TWO.**
-> RQ1 = prospective exclusion asymmetry / natural-evidence prospective leak.
-> RQ2 = semantic causal zero is disproportionately hard prospectively despite
-> exact/verifiable prospective zero being executable.
+> **CURRENT HEADLINE STRUCTURE (re-ruled 2026-09-24 after G25A):**
+> **RQ1 — sole standing headline finding:** prospective exclusion
+> asymmetry / natural-evidence prospective leak.
+> **RQ2 — controlled-material supporting structural analysis only:**
+> G23A zero amplification + arithmetic-zero executability; the
+> natural-data confirmatory returned `order-artifact` NO-CLAIM and the
+> natural exact-zero-boundary headline is WITHDRAWN (no rescue — see the
+> pinned RQ2/G25A RULING above).
+> **RQ3 — sole active headline candidate:** load-bearing vs mere
+> presence (G26A, O1–O9 signed); next compute = G26A Phase A after the
+> Phase-A tag + STATUS flip #1.
 >
 > **Stage 5 / G23C / G24B are SUPPORTING MECHANISTIC EVIDENCE, not a third
 > headline novelty claim. G23C-R is HOLD / NO COMPUTE.**

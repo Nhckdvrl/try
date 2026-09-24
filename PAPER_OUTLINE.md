@@ -1,7 +1,11 @@
 # Paper outline — prospective semantic exclusion
 
 **Updated:** 2026-09-24 after the G18-style triviality re-audit; RQ2 reframed
-same day per `PAPER_RQ2_BOUNDARY_REFRAME.md`.
+same day per `PAPER_RQ2_BOUNDARY_REFRAME.md`; **G25A ruling recorded later
+2026-09-24 — natural confirmatory verdict `order-artifact` accepted as
+NO-CLAIM (no rerun / no correction / no G25B), natural exact-zero-boundary
+headline WITHDRAWN; RQ2 = controlled-material supporting analysis; RQ3
+(G26A, O1–O9 signed) = sole active headline candidate.**
 
 ## Working title
 
@@ -17,21 +21,27 @@ Mother question:
 
 > **Can an LLM commit now to make future evidence causally irrelevant?**
 
-Current contribution structure:
+Current contribution structure (post-G25A ruling, 2026-09-24):
 
-1. **Prospective exclusion asymmetry / natural-evidence leak.**
-2. **Sharp exact-zero boundary vs smooth weighting in semantic prospective
-   control** (pending the natural-evidence confirmatory; see
-   `PAPER_RQ2_BOUNDARY_REFRAME.md`).
+1. **Prospective exclusion asymmetry / natural-evidence leak.** — sole
+   standing headline finding.
+2. ~~Sharp exact-zero boundary vs smooth weighting in semantic prospective
+   control~~ — **WITHDRAWN as a headline.** The preregistered natural
+   confirmatory (G25A) returned the frozen verdict `order-artifact`
+   (no-claim; smooth ladder + graded response observed; S1 and G2 also
+   independently failed) and no rescue is authorized. G23A's zero
+   amplification + arithmetic-zero executability survive as
+   **controlled-material supporting structural analysis** (§4).
 
 Stage 5 / G23C / G24B are supporting causal evidence, not a third headline contribution.
 
-A third RQ passed the six-candidate novelty screen and is in design:
-**load-bearing emergence** — must an exclusion policy's target already be
-decision-effective through composition when the policy is processed (§6;
-`PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`). It enters the paper only if its
-prereg design clears the reviewer-obvious veto; otherwise fall back to the
-two-finding paper.
+**RQ3 — load-bearing emergence (G26A) — is now the sole active headline
+candidate** (§6; `PAPER_RQ3_CANDIDATE_AUDIT_2026-09-24.md`): must an
+exclusion policy's target already be decision-effective through
+composition when the policy is processed. O1–O9 signed 2026-09-24;
+implementation/freeze path active (Phase A = mistral selector, ≤ 14,568
+rows, STATUS-gated). It enters the paper only if its prereg gates clear;
+otherwise fall back to the one-finding + supporting-analysis paper.
 
 ---
 
@@ -93,7 +103,10 @@ Report exact scope:
 
 ## 4. RQ2 — Smooth weighting problem, or an exact-zero control boundary?
 
-Reframed per `PAPER_RQ2_BOUNDARY_REFRAME.md` (2026-09-24). The old form
+**Status after G25A (ruling 2026-09-24): CONTROLLED-MATERIAL SUPPORTING
+ANALYSIS — the natural-data boundary headline is withdrawn and this
+section sells no boundary.** Reframed per `PAPER_RQ2_BOUNDARY_REFRAME.md`
+(2026-09-24). The old form
 (“what is special about `w=0`”) dies to the one-liner *“zero is a stricter
 requirement than partial use.”*
 
@@ -124,30 +137,51 @@ arms. This refutes the prohibition-cost account and pins the object: the
 failure emerges when zero applies to the *inferred causal contribution* of
 semantic evidence.
 
-### 4.3 Confirmatory — fresh natural near-zero sweep (planned, STATUS-gated)
+### 4.3 Confirmatory — natural near-zero sweep: EXECUTED, VERDICT `order-artifact`, NO CLAIM
 
-Held-out items from the frozen G24A candidate pool, **disjoint from the
-selected 600**, reusing existing Base/Admit-only selection outputs (no new
-selection compute; selector blind to Exclude). `w ∈ {0,1,2,5,10,25,100} ×
-{PRE,POST}`; primary estimands `Gap(0)−mean[Gap(1),Gap(2),Gap(5)]` and
-`Gap(0)−Gap(1)`. Both outcomes informative: sharp jump → boundary headline;
-smooth curve → boundary downgraded and folded into RQ1. Design only until the
-five gates close and STATUS flips. Details: `PAPER_RQ2_BOUNDARY_REFRAME.md` §6.
+Ran exactly once as preregistered (G25A, tag `g25a-near-zero-design-v1`,
+STATUS flip recorded; 400 disjoint held-out items × 7 weights × pre/post ×
+pooled-4 = 28,800 rows; frozen analyzer, seed 20260924, B = 10,000,
+cluster bootstrap). Frozen verdict: **`order-artifact`** —
+
+- **I1 FAIL**: Gap(100) = −1.06 [−1.93, −0.21] — the 100% anchor showed a
+  small but systematic order effect (4/4 models negative; integrity
+  investigation: tail-concentrated in 15.6% argmax-digit flips, digit-mass
+  valid, G0–G24A readout lineage — a real position effect, not a bug);
+- **S1 FAIL** 354/400 < 360 and **G2 FAIL** on the 3.0 floor
+  (2.83 [+0.49, +5.11]) — each independently blocking
+  `exact-zero-boundary`; G1 passed (+3.58 [+1.33, +5.79]), I2 RuleAcc
+  0.949, G3 3/4;
+- the natural ladder came out **smooth** — 10.58 → 7.76 → 6.90 → 6.36 →
+  5.60 → 3.59 → −1.06 across w = 0…100% — with graded
+  GradedPos +20.81 [+19.12, +22.50] (descriptive; never a gate).
+
+**Ruling (2026-09-24): accepted as no-claim. No rerun, no correction, no
+bias subtraction, no G25B.** Reported honestly: a preregistered
+natural-data confirmation that became non-interpretable under its own
+frozen integrity criterion; local contrasts suggestive but incomplete
+against the preregistered gate set. §4.1–4.2 (G23A + Stage-3C) remain as
+controlled-material supporting analysis.
 
 ### 4.4 Policy-access controls
 
 Correct rule recall / requested-weight access shows that simple forgetting is
 insufficient. Supporting evidence only.
 
-### Finding 2 (draft — pending confirmatory)
+### Finding 2 — WITHDRAWN as a natural-data headline (ruling 2026-09-24)
 
-> **Semantic prospective control exhibits a sharp exact-zero boundary rather
-> than a smooth difficulty curve: the pre/post timing gap is flat across
-> requested weights from 1% to 50% but jumps discontinuously at exactly 0% —
-> although 0% and 1% require nearly identical suppression — and exact zero is
-> executed perfectly when the contribution is explicitly arithmetic.**
+> ~~**Semantic prospective control exhibits a sharp exact-zero boundary
+> rather than a smooth difficulty curve: the pre/post timing gap is flat
+> across requested weights from 1% to 50% but jumps discontinuously at
+> exactly 0% — although 0% and 1% require nearly identical suppression —
+> and exact zero is executed perfectly when the contribution is
+> explicitly arithmetic.**~~
 
-Licensed form that must stay reachable (register §12.3):
+**Withdrawn** — the natural confirmatory (§4.3) returned
+`order-artifact` NO-CLAIM with a smooth graded ladder; no natural-boundary
+sentence ships. What survives is the register §12.3 licensed form,
+**scoped to its actual evidence base (controlled materials + arithmetic
+executability)**:
 
 > **Complete semantic causal exclusion shows an additional prospective cost
 > even though prospective zero can be executed exactly when the contribution is

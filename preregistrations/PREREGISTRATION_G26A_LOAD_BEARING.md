@@ -52,6 +52,13 @@ Parent documents:
 | O8 | Cluster key | HoVer decomposition **title path** (page pair) for the bootstrap. |
 | O9 | Seed / Phase A size | seed `20260924`; Phase A pool pinned at **N_A = 3,642** train-split structural survivors (audit `T6_post_rule_funnel.by_split.train`). |
 
+**O1–O9 signed by the user on 2026-09-24** (v2 wording included; O5 per the
+same-date ruling recorded in §0 O5 / §7 / §8; every item signed unchanged).
+§12A box 1 is ticked accordingly — from here the freeze path is
+implementation + tests → full suite green → Phase-A design tag → STATUS
+flip #1 (the document does not authorize itself; each gate stays its own
+record).
+
 ## 1. Scientific question (construct: load-bearing emergence)
 
 > **RQ3: Does prospective exclusion require the target evidence merely to be
@@ -447,7 +454,7 @@ authorizes exactly them.
 
 **§12A — Phase A tag:**
 
-- [ ] §0 open items O1–O9 signed off (incl. user sign-off of the v2 wording)
+- [x] §0 open items O1–O9 signed off (incl. user sign-off of the v2 wording) — DONE 2026-09-24: user signed all nine items unchanged (O5 per same-date ruling; ledgered in STATUS)
 - [x] **ROPE O5 power note completed (zero-model; §7 + `results/audits/g26a_rope_power_note_v1.json`) and its outcome pinned — per user ruling 2026-09-24: options 1/2/3 rejected; equivalence DEMOTED from primary-branch requirement to secondary characterization ("compatible with negligible gain" only when a CI ⊆ ±1.5); primary gates = CI low > 0 + floor 3.0; δ = 1.5 (secondary role) and n ≤ 300 / C ≤ 300 unchanged; §7 procedure + §8 table rewritten accordingly**
 - [x] HoVer structural audit recorded — sha256 / license / funnel / by-split (done 2026-09-24: `hover_v1.1` manifest, `hover_structural_v1.json`, report §5)
 - [ ] tests green: rule identity, shared-multiset + ±10 distance, mention-direction orientation, single-split assertion, selection blindness, both sign directions, **positive-gate trichotomy (positive/negative/not-positive) with floor 3.0**, **secondary-ROPE characterization fires wording only — never a branch, never `unresolved`**, outcome-map firing order (`staged`/`load-bearing-bound`/`presence-bound`/`no-stage-gain` + subdivisions, equivalence-failure-is-not-unresolved locked)
