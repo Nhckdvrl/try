@@ -38,10 +38,11 @@ Use:
   mechanism round**. Design tag `g23c-target-conditioned-policy-state-design-v1`.
   Frozen verdict: `target-conditioned-policy-state`;
   L14 `TargetConditioning = +8.15 [+6.91,+9.44]`, with L4/L24 controls near zero.
-- PREREGISTRATION_G23C_R_FRESH_REPLICATION.md — **current design-only final mechanism
+- PREREGISTRATION_G23C_R_FRESH_REPLICATION.md — **current design-only final RQ3
   replication**. Uses 70 frozen G18 legal/inference items (20 skeletons) disjoint from
-  Stage 5 to replicate the exact G23C bridge/interchange on fresh materials. No compute
-  authorized before its own freeze.
+  Stage 5 and jointly replicates the completed G23C within-preview TargetConditioning
+  result and the completed G24B fixed-recipient DonorTargetInteraction result in one
+  frozen round. No compute authorized before its own harness/tests/tag/STATUS flip.
 
 The Stage 2–5 controlled rounds were designed and frozen through their stage documents
 rather than all receiving separate preregistration files. See ../stages/README.md.
