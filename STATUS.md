@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A COMPLETE — `order-artifact` NO-CLAIM ACCEPTED, NO RESCUE, headline withdrawn / G26A O1–O9 SIGNED — PHASE-A IMPLEMENTATION PATH / NOVELTY RESTRUCTURE ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / G25A COMPLETE — `order-artifact` NO-CLAIM ACCEPTED, NO RESCUE, headline withdrawn / G26A POOL WRITTEN 3,640 (feasibility gate) — SUITE 445 GREEN — AWAITING 4 WORDING RULINGS → PHASE-A TAG → FLIP #1 / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -154,6 +154,42 @@
 > 13,200/15,600 figures are void). **Rule-probe timing pinned to T0**
 > (one probe per rule type, 2,400 rows). Both recorded in prereg
 > §0/§3/§11/§12B before any tag.
+>
+> **G26A FILLER-FEASIBILITY GATE + PHASE-A POOL WRITTEN (2026-09-24,
+> user ruling: "freeze the feasibility criterion, not 100% coverage" —
+> zero-model, outcome-blind, commits `17dfcac`/`6ab4a7e`/`7ac6b49`/
+> `c911e79`, pushed):** deterministic census of the 3,642 structural
+> survivors under frozen FILLER_BANK v2 + frozen search budget →
+> **N_A = 3,640 feasible**; exactly 2 excluded as
+> `tokenizer_geometry_infeasible` (uids `3dbe1a3e-…-2e3a2ada88bc`,
+> `4b84c748-…-b6bab6e8759040` — Georgian-evidence twins, funnel-passed,
+> best effort **13 > 10 on llama31-8b both arms, other 3 tokenizers
+> ≤ 10**; deterministic re-run reproduces the failure in
+> `tests/test_g26a.py`). Pool `data/items/g26_phasea_pool_v1.jsonl`
+> sha256 `ad0ac715a609f49f9ad98af5cf6a3022a1b1e6f904d7a1f22ae2d490a7e2c95c`
+> (n = 3,640 = 3,571 fwd + 69 reversed; 2,319 title-pair clusters = the
+> twins' shared pair removed from 2,320). Prereg amended pre-tag: §0
+> feasibility-gate bullet (excluded uids + vectors + outcome-independence
+> + post-tag freeze: no added sentences, no ±10 relaxation, no
+> item-specific/per-model filler, no criterion edits), O9 → 3,640, O4 →
+> 2,319 clusters, §3 cross-ref, §11 → **≤ 14,560 rows** + SHA-before-
+> gates + exactly-one-parsed-row-per-item-kind, §12A census box ticked.
+> Analyzer Phase A hardened (sha first → structural exit 3 for rule
+> cell/probe/stray/duplicate/unknown/wrong-model/budget → mechanical
+> exit 4 for missing/unparsed → gates → < 200 HARD STOP exit 2; ≥ 200 =
+> frozen pool order cap 300, ids sha256, never effect-sorted). Harness
+> `scripts/run_g26a_phasea.sh`: token gate `G26A-FLIP1=RECORDED`,
+> kinds locked to the 4 no-rule cells, pool-sha pin, exact 14,560-row
+> assert, refuses overwrites. Tests `tests/test_g26a.py` **27/27 green
+> (93 s)**; full suite **445 passed / 990.36 s / zero `--ignore` /
+> exit 0** (= 418 baseline + 27, zero regressions). Manual spot-check:
+> 20 ordinary items × 12 invariants = 240 checks, 0 failures; reversed
+> census consistent. **4 pre-tag wording/ledger rulings still pending
+> with the user** (§12A baseline line 334/849/5-ignore → measured
+> 445/990/0; §2 "75 reversed survivors" → measured 75 oriented /
+> 69 train / 72 pooled survivors; S1 ≥ 3/4 lineage confirm; I4-failure →
+> `order-artifact` confirm). **No Phase A row has been run; tag +
+> STATUS flip #1 remain ahead.**
 >
 > **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
