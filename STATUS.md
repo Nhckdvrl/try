@@ -1,4 +1,4 @@
-# Project status — 2026-09-24, G23C + G24A + G24B COMPLETE / THREE-RQ PAPER EXPANSION ACTIVE
+# Project status — 2026-09-24, G24A/G24B COMPLETE / NOVELTY RESTRUCTURE ACTIVE
 
 > **NO APPROVED PAPER MAINLINE.**
 >
@@ -28,8 +28,16 @@
 > `results/mech/g24b_analysis.json`. Licensed §8 wording applies verbatim;
 > no other claim language is authorized from this round.
 >
-> **ACTIVE:** paper-scale three-RQ expansion under
+> **ACTIVE:** novelty-first paper restructure under
 > `PAPER_SCALE_AUDIT_2026-09-23.md`.
+>
+> **CURRENT NOVELTY-BEARING FINDINGS: TWO.**
+> RQ1 = prospective exclusion asymmetry / natural-evidence prospective leak.
+> RQ2 = semantic causal zero is disproportionately hard prospectively despite
+> exact/verifiable prospective zero being executable.
+>
+> **Stage 5 / G23C / G24B are SUPPORTING MECHANISTIC EVIDENCE, not a third
+> headline novelty claim. G23C-R is HOLD / NO COMPUTE.**
 >
 > **G24A AUTHORIZED EXPERIMENT (record — EXECUTED AND COMPLETE):** source-grounded
 > natural-evidence confirmation on FEVER + SciFact — prereg
@@ -148,8 +156,8 @@ Strong negative prior:
 | Unring the Bell / G23A | **COMPLETE — zero-amplified** |
 | Unring the Bell / G23B v1 | **STOPPED — carrier-invalid at Phase A** |
 | Unring the Bell / G23C | **COMPLETE — target-conditioned-policy-state** |
-| Unring the Bell / G23C-R | **DESIGN / PREREG ACTIVE — NO COMPUTE** |
-| active candidate | **G23C-R fresh-material joint G23C+G24B replication** |
+| Unring the Bell / G23C-R | **HOLD — parent mechanism claim is not headline novelty** |
+| active candidate | **paper restructure + search for a genuinely non-obvious third RQ** |
 | approved mainline | **NONE** |
 
 The clean-slate policy remains the default. G23A is a single explicit exception after
@@ -166,34 +174,77 @@ HOM is now killed because the current question remains a competence check of an 
 
 G23A v3, G23B v1, G23C v1, G24A v1 and G24B v1 are closed rounds.
 
-The earlier statement “G23C-R then write” is superseded by
-`PAPER_SCALE_AUDIT_2026-09-23.md`.
+The previous “three-RQ paper expansion” and “G23C-R as next compute” roadmap is
+superseded by the novelty audit.
 
-Current paper target:
+### Current paper state
 
-- **RQ1 / generality:** G0 breadth + controls + agent setting + a new source-grounded
-  natural-evidence confirmation;
-- **RQ2 / structural boundary:** G23A zero amplification + explicit/verifiable
-  prospective-zero controls + policy-access/enforcement dissociation;
-- **RQ3 / mechanism:** Stage 5 + G23C + donor-vs-recipient causal factorization +
-  fresh-material replication.
+**Headline finding 1 — KEEP**
 
-Authorized now: nothing — no target-model compute. The G24B round is
-complete (verdict above); the next authorization must name a single frozen
-experiment and its exact scientific gap (candidates: G23C-R, per
-`PAPER_SCALE_AUDIT_2026-09-23.md`).
+> Prospective evidence exclusion is systematically weaker than retrospective exclusion,
+> and natural/source-grounded evidence still leaks under a prior zero-use ruling.
 
-Still design only:
-- G23C-R design/finalization: one fresh-material round jointly replicating the completed
-  G23C TargetConditioning and G24B DonorTargetInteraction properties;
-- paper writing work under `PAPER_SCALE_AUDIT_2026-09-23.md`.
+Evidence:
+- G0 breadth / wording / delay / Admit / diffusion controls;
+- Stage-4A system-policy -> tool-output setting;
+- G24A source-grounded FEVER + SciFact round, with its frozen
+  `prospective-only` verdict.
+
+Do not overclaim model/dataset uniformity: G24A C1 and C2 failed.
+
+**Headline finding 2 — KEEP, but only in contrastive form**
+
+> Complete semantic causal exclusion has an additional prospective cost, even though
+> the same models can execute prospective zero exactly when the contribution is
+> explicit/verifiable.
+
+Evidence:
+- G23A zero amplification;
+- explicit exact arithmetic / numerical weighting boundaries;
+- policy-access probes as controls.
+
+Do not promote generic “policy access != enforcement” as novelty.
+
+**Mechanism evidence — SUPPORTING, NOT HEADLINE**
+
+Stage 5, G23C and G24B are valid causal results, but the obvious-reviewer compression
+
+> “if target semantics are already present, the resulting rule state can naturally be
+> more target-specific / carry more target-conditioned policy information”
+
+makes the current mechanism finding too obvious to serve as the third headline
+contribution.
+
+G24B resolves the donor-vs-recipient technical confound; it does not by itself defeat
+that novelty compression.
+
+### G23C-R status
+
+**HOLD. NO COMPUTE.**
+
+A fresh replication would improve robustness of the same parent mechanism claim but
+would not repair its novelty if the parent claim remains reviewer-obvious.
+
+G23C-R may be reconsidered only if:
+1. a non-trivial parent mechanistic question is first identified; and
+2. the fresh replication becomes necessary evidence for that question.
+
+### Active work
+
+Authorized now:
+- paper restructuring and writing;
+- novelty audit / literature search;
+- search for a genuinely non-obvious third RQ;
+- design-only thought experiments and no-model checks.
 
 Not authorized:
-- any further G24B compute (closed round);
 - G23C-R forward passes;
-- new layer/site/model searches;
-- any new carrier rescue;
-- arbitrary “extra ablations” not tied to RQ1/RQ2/RQ3.
+- any new target-model generation;
+- new layer/site/model sweeps;
+- carrier redesign;
+- experiments whose headline reduces to “give target semantics, then the state is more
+  target-specific.”
 
-Next compute authorization must name a single frozen experiment and its exact scientific
-gap.
+Any future compute must first pass the G18 triviality veto:
+treatment-does-not-contain-the-answer, reviewer one-line test, two live accounts under
+the same visible task content, and an unexpected-result requirement.
