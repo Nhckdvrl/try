@@ -1,0 +1,104 @@
+{
+ "tau": 10.0,
+ "seed_order": 20260924,
+ "selection_model_tag": "mistral-small-24b",
+ "selection_kinds": [
+  "admit_post",
+  "admit_pre",
+  "base"
+ ],
+ "quota_strata": [
+  "fever/SUPPORTS",
+  "fever/REFUTES",
+  "scifact/SUPPORT"
+ ],
+ "dropped_stratum": "scifact/CONTRADICT",
+ "strata": {
+  "fever/SUPPORTS": {
+   "pool": 6326,
+   "excluded": 200,
+   "examined": 889,
+   "eligible": 150,
+   "selected": 150,
+   "missing_value": 0,
+   "below_tau": 739,
+   "quota": 150,
+   "shortfall": 0
+  },
+  "fever/REFUTES": {
+   "pool": 6322,
+   "excluded": 200,
+   "examined": 2139,
+   "eligible": 150,
+   "selected": 150,
+   "missing_value": 0,
+   "below_tau": 1989,
+   "quota": 150,
+   "shortfall": 0
+  },
+  "scifact/SUPPORT": {
+   "pool": 300,
+   "excluded": 100,
+   "examined": 200,
+   "eligible": 100,
+   "selected": 100,
+   "missing_value": 0,
+   "below_tau": 100,
+   "quota": 100,
+   "shortfall": 0
+  }
+ },
+ "selected_total": 400,
+ "quota_total": 400,
+ "all_quotas_filled": true,
+ "clusters": 342,
+ "leverage_selected_min": 10.032405056139869,
+ "leverage_selected_p50": 36.83314883337089,
+ "leverage_selected_max": 99.87730390015466,
+ "selected_ids_sha16": "0b38e0837ed9fd60",
+ "anchor_expected_sha16": "0b38e0837ed9fd60",
+ "anchor_ok": true,
+ "census": {
+  "fever/SUPPORTS": {
+   "pool": 6326,
+   "excluded": 200,
+   "missing_value": 0,
+   "below_tau": 4255,
+   "eligible": 1871,
+   "remaining": 6126
+  },
+  "fever/REFUTES": {
+   "pool": 6322,
+   "excluded": 200,
+   "missing_value": 0,
+   "below_tau": 5318,
+   "eligible": 804,
+   "remaining": 6122
+  },
+  "scifact/SUPPORT": {
+   "pool": 417,
+   "excluded": 100,
+   "missing_value": 0,
+   "below_tau": 148,
+   "eligible": 169,
+   "remaining": 317
+  },
+  "scifact/CONTRADICT": {
+   "pool": 218,
+   "excluded": 100,
+   "missing_value": 0,
+   "below_tau": 117,
+   "eligible": 1,
+   "remaining": 118
+  }
+ },
+ "clusters_shared_with_g24a": 126,
+ "candidates_sha256": "91ebad9850d6f7d39a9b26fcf98c1f998d16aa68cde3a480541df13da721f5cd",
+ "rows_sha256": {
+  "/home/xiang/research_hun/try_clone/src/../results/raw/g24a_mistral-small-24b_selection.jsonl": "55900a5d6d27a89fcc1456d7b0157b31f533d2fbc8a8e6978ddd7e7325d459e3"
+ },
+ "g24a_items_sha256": {
+  "/home/xiang/research_hun/try_clone/src/../data/items/g24a_v1.jsonl": "b0d02f7ab1ae835149aa0e726dbe4b0c4186256c94f46d03d978632f9c951b34"
+ },
+ "selected_sha256": "7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147"
+}
