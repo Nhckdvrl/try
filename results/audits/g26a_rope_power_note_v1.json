@@ -1,0 +1,211 @@
+{
+ "prereg": "PREREGISTRATION_G26A_LOAD_BEARING.md §0 O5 / §7",
+ "zero_model": true,
+ "inputs": {
+  "g23a": "results/g23a_zero_gating_analysis.json",
+  "g24a": "results/g24a/g24a_analysis_v1.json",
+  "g23a_delta_ci": [
+   4.385,
+   13.327
+  ],
+  "g23a_clusters": 68,
+  "g24a_cell_clusters": 469,
+  "g24a_median_absL": 32.693
+ },
+ "design": {
+  "delta": 1.5,
+  "c_cap": 300,
+  "n_cap": 300,
+  "power_target": 0.8
+ },
+ "four_cell_reference": {
+  "constant": "delta_zero",
+  "hw_at_68": 4.471,
+  "C_needed_hw_lt_delta": 605,
+  "note": "reproduces §7's '> 604 clusters, impossible at cap 300'"
+ },
+ "two_cell_constants": [
+  {
+   "constant": "gap_w000",
+   "ci_at_68": [
+    8.541,
+    19.179
+   ],
+   "hw_at_68": 5.319,
+   "se_at_68": 2.714,
+   "hw_at_C200": 3.102,
+   "declarable_at_C200": false,
+   "equiv_power_m0_at_C200": 0.0,
+   "equiv_power_m075_at_C200": 0.0,
+   "hw_at_C300": 2.532,
+   "declarable_at_C300": false,
+   "equiv_power_m0_at_C300": 0.0,
+   "equiv_power_m075_at_C300": 0.0,
+   "C_needed_hw_lt_delta": 856,
+   "C_needed_power80": 2340
+  },
+  {
+   "constant": "gap_w001",
+   "ci_at_68": [
+    2.769,
+    8.358
+   ],
+   "hw_at_68": 2.794,
+   "se_at_68": 1.426,
+   "hw_at_C200": 1.629,
+   "declarable_at_C200": false,
+   "equiv_power_m0_at_C200": 0.0,
+   "equiv_power_m075_at_C200": 0.0,
+   "hw_at_C300": 1.33,
+   "declarable_at_C300": true,
+   "equiv_power_m0_at_C300": 0.197,
+   "equiv_power_m075_at_C300": 0.109,
+   "C_needed_hw_lt_delta": 236,
+   "C_needed_power80": 646
+  },
+  {
+   "constant": "gap_w025",
+   "ci_at_68": [
+    3.093,
+    6.947
+   ],
+   "hw_at_68": 1.927,
+   "se_at_68": 0.983,
+   "hw_at_C200": 1.124,
+   "declarable_at_C200": true,
+   "equiv_power_m0_at_C200": 0.488,
+   "equiv_power_m075_at_C200": 0.232,
+   "hw_at_C300": 0.918,
+   "declarable_at_C300": true,
+   "equiv_power_m0_at_C300": 0.787,
+   "equiv_power_m075_at_C300": 0.358,
+   "C_needed_hw_lt_delta": 113,
+   "C_needed_power80": 308
+  },
+  {
+   "constant": "gap_w050",
+   "ci_at_68": [
+    2.468,
+    6.499
+   ],
+   "hw_at_68": 2.015,
+   "se_at_68": 1.028,
+   "hw_at_C200": 1.175,
+   "declarable_at_C200": true,
+   "equiv_power_m0_at_C200": 0.412,
+   "equiv_power_m075_at_C200": 0.203,
+   "hw_at_C300": 0.959,
+   "declarable_at_C300": true,
+   "equiv_power_m0_at_C300": 0.73,
+   "equiv_power_m075_at_C300": 0.33,
+   "C_needed_hw_lt_delta": 123,
+   "C_needed_power80": 336
+  },
+  {
+   "constant": "gap_w100",
+   "ci_at_68": [
+    -2.258,
+    1.861
+   ],
+   "hw_at_68": 2.059,
+   "se_at_68": 1.051,
+   "hw_at_C200": 1.201,
+   "declarable_at_C200": true,
+   "equiv_power_m0_at_C200": 0.375,
+   "equiv_power_m075_at_C200": 0.188,
+   "hw_at_C300": 0.98,
+   "declarable_at_C300": true,
+   "equiv_power_m0_at_C300": 0.701,
+   "equiv_power_m075_at_C300": 0.317,
+   "C_needed_hw_lt_delta": 129,
+   "C_needed_power80": 351
+  },
+  {
+   "constant": "gap_atten",
+   "ci_at_68": [
+    3.159,
+    6.827
+   ],
+   "hw_at_68": 1.834,
+   "se_at_68": 0.936,
+   "hw_at_C200": 1.069,
+   "declarable_at_C200": true,
+   "equiv_power_m0_at_C200": 0.57,
+   "equiv_power_m075_at_C200": 0.264,
+   "hw_at_C300": 0.873,
+   "declarable_at_C300": true,
+   "equiv_power_m0_at_C300": 0.841,
+   "equiv_power_m075_at_C300": 0.39,
+   "C_needed_hw_lt_delta": 102,
+   "C_needed_power80": 279
+  }
+ ],
+ "natural_materials_cross_check": {
+  "cells": {
+   "REI_pre": {
+    "ci_rei": [
+     0.4774,
+     0.6028
+    ],
+    "hw_rei": 0.0627,
+    "hw_raw_at_C469": 2.051,
+    "hw_raw_at_C300": 2.564,
+    "declarable_at_C300": false
+   },
+   "REI_post": {
+    "ci_rei": [
+     -0.1583,
+     0.0211
+    ],
+    "hw_rei": 0.0897,
+    "hw_raw_at_C469": 2.934,
+    "hw_raw_at_C300": 3.668,
+    "declarable_at_C300": false
+   }
+  },
+  "assumption": "REI units -> raw points via recorded median |L| (per-row |L| varies; treat as stress-test, not the binding constant)"
+ },
+ "binding": {
+  "closest_analog": "gap_w000",
+  "hw_at_cap_effect_scale": 2.532,
+  "largest_two_cell_constant": "gap_w000",
+  "at_null_constant": "gap_w100",
+  "hw_at_cap_at_null": 0.98
+ },
+ "verdict_b": {
+  "declarable_under_closest_analog": false,
+  "hw_closest_analog_at_cap": 2.532,
+  "declarable_under_at_null": true,
+  "hw_at_null_at_cap": 0.98,
+  "equiv_power_m0_closest_analog": 0.0,
+  "equiv_power_m0_at_null": 0.701,
+  "power80_reachable_under": [
+   "gap_atten"
+  ],
+  "statement": "delta=1.5 is DECLARABLE (hw < 1.5) at C=300 under every two-cell constant except the effect-scale closest analog gap_w000 (hw=2.53 raw pts, needs C=856 > cap 300) and except under the natural-materials cell-level cross-check. Declarability is not sufficient: 80% equivalence power at a true zero is reachable only under the smallest constants; under the closest analog it is unreachable at any C <= 300 (would need C=2340). The at-null constant gives power 70% at C=300 — declarable, honestly under-80%."
+ },
+ "options_c_user_decision": [
+  {
+   "option": "keep_delta_1.5_at_null_binding",
+   "delta": 1.5,
+   "c_cap": 300,
+   "meaning": "equivalence branches may fire only under the at-null/local two-cell constants (hw 0.98-1.33 < 1.5; power 70%-20% at true 0); the effect-scale constant stays reserved for positive-claim CIs (no equivalence declared there).",
+   "cost": "equivalence underpowered vs the 80% target; a reviewer asking 'powered for equivalence?' gets a <80% answer."
+  },
+  {
+   "option": "raise_delta_to_80pct_under_closest_analog",
+   "delta": 4.19,
+   "c_cap": 300,
+   "meaning": "delta moves from 1.5 to 4.19 raw points so that hw < delta with >=80% equivalence power at true 0 even under the effect-scale constant gap_w000.",
+   "cost": "a 'no gain' claim now tolerates a 4.2-point band — weakens the ≈0 sentence; delta 1.5 never appears in any claim."
+  },
+  {
+   "option": "raise_c_cap_for_delta_1.5_closest_analog",
+   "delta": 1.5,
+   "c_cap": 856,
+   "meaning": "keep delta=1.5 and expand clusters until the closest-analog constant is declarable (C=856).",
+   "cost": "exceeds the prereg cap 300 by 556 clusters; 80% power still needs C=2340 — infeasible; shown only to price the infeasibility honestly."
+  }
+ ],
+ "decision_owner": "user, BEFORE the Phase A tag (never after outcomes exist); this script decides nothing"
+}

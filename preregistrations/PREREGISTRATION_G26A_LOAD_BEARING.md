@@ -258,6 +258,36 @@ regardless. Usability (O6): all 11 cells present for that model and
   declarable half-width at n ≤ 300 / C ≤ 300 under the two-cell constants,
   (b) the verdict on δ=1.5 vs the noise floor, (c) if δ or n must move:
   **user decision before the Phase A tag — never after outcomes exist.**
+  - **O5 note RECORDED (2026-09-24, zero-model; `src/note_g26a_rope_power.py`
+    → `results/audits/g26a_rope_power_note_v1.json`).** Inputs are
+    citation-asserted at runtime against the frozen files: G23A Δ_zero
+    [4.385, 13.327] @68 clusters (half-width 4.471 → the ">604" citation
+    above reproduces at C=605), the two-cell Gap CIs @68, G24A pooled-4
+    cell CIs @469 clusters (median |L| = 32.693).
+    **(a)** Declarable half-width at the C ≤ 300 cap (SE ∝ C^-1/2):
+    gap_atten 0.87 ✓ / gap_w025 0.92 ✓ / gap_w050 0.96 ✓ / gap_w100
+    0.98 ✓ / gap_w001 1.33 ✓ / **gap_w000 2.53 ✗** (declarability alone
+    needs C=856); natural-materials cross-check (G24A REI cells → raw
+    points via median |L|, assumption-flagged): 2.56–3.67 ✗. At the
+    S1-min scale C=200 only gap_atten…gap_w100 stay declarable
+    (1.07–1.20); gap_w001 is 1.63 ✗.
+    **(b)** Verdict on δ=1.5: declarable at cap-300 under the at-null and
+    local constants, but equivalence **power at a true zero** is
+    84% / 79% / 73% / 70% / 20% (gap_atten / gap_w025 / gap_w050 /
+    gap_w100 / gap_w001) and **0%** under the effect-scale closest analog
+    gap_w000 and under the G24A cross-check — only gap_atten clears the
+    80% target. Mapping PG/LG → a specific weight-cell constant is not
+    one-to-one; the grid deliberately spans effect-scale (gap_w000) to
+    at-null (gap_w100) so the binding choice is visible, not smuggled.
+    **(c)** Options priced, NO decision taken: (1) keep δ=1.5 with
+    at-null/local binding — power 70%–20%, under the 80% target, so a
+    reviewer's "powered for equivalence?" answer stays <80%; (2) raise δ
+    to 4.19 raw points for ≥80% under the closest analog — weakens any
+    "≈0" sentence to a 4.2-point band and δ=1.5 never appears in a claim;
+    (3) raise the cap to C=856 for declarability alone — 80% power still
+    needs C=2340, infeasible, priced here only for honesty. **δ/n
+    outcome: USER DECISION before the Phase A tag — the §12 O5 box stays
+    open until it is made.**
 
 ## 8. Outcome map
 
