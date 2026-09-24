@@ -88,10 +88,21 @@ def words(text: str) -> list[str]:
 
 # --- hand-authored neutral filler bank (prereg §3: never LLM-generated at
 # item time, unrelated to any claim or page, fixed forever from this tag).
-# Word counts follow the schedule {4..20} x 4 (68 sentences, 816 words) so
-# any build-time target word total in [4, 816] is packable (verified by
-# tests). Content is generic architecture/furniture observation — no proper
-# nouns, no claim content, no page entities. -------------------------------
+# Word schedule {4..20} x 4 = 68 sentences / 816 words — the GLOBAL histogram
+# is exact and asserted (per-block size comments below are indicative groupings
+# only), so any build-time target word total in [4, 816] is packable. Content
+# is neutral common-noun observation — no proper nouns, no claim content, no
+# page entities.
+#
+# v2 (pre-tag §0 amendment, 2026-09-24): 13 of the 68 slots deliberately carry
+# cross-tokenizer divergence so the ±10-token rule→judgment gate (O7) stays
+# reachable for evidence whose tokenization splits differently across the pooled
+# panel (v1 was zero-divergence on the qwen3/qwen35 axes → 29/3642 items could
+# not be furnished): 7 number-dense sentences (3–4-digit quantities; qwen3,
+# qwen35 and gemma each add ≈+2 tokens per number vs llama → F = (≈+6..+8)) and
+# 6 accent/Latinate sentences (French loanwords + Latinate compounds that gemma
+# /qwen35 merge — e.g. "résumé" (d35,dg) = (−2,−2), "chrysanthemum" dg = −4 →
+# F ≈ (0, −1..−3, −3..−9)). All remain hand-authored and neutral. ---------
 FILLER_BANK: tuple[str, ...] = (
     # 4 words x4
     "The kettle boiled dry.",
@@ -114,57 +125,57 @@ FILLER_BANK: tuple[str, ...] = (
     "Someone stacked the boxes by the wall.",
     "The old floorboards creak under light steps.",
     # 8 x4
-    "The meeting room still smells strongly of paint.",
+    "The crème and chrysanthemum sat by the door.",
     "A low hedge runs along the eastern fence.",
     "The printer jammed again on the lower tray.",
     "Someone repainted the bench a slightly darker green.",
     # 9 x4
     "The narrow stairs curve gently toward the second landing.",
-    "A delivery truck idled outside for almost an hour.",
+    "Two crates and 128 cartons wait by the door.",
     "The faucet drips more loudly during the early morning.",
     "Nobody noticed the small crack near the window frame.",
     # 10 x4
     "The hallway notice board lists errands for the whole week.",
     "A pair of sparrows built a nest under the awning.",
-    "The elevator pauses briefly between the third and fourth floors.",
+    "Her résumé and the quiet façade both looked quite plain.",
     "Volunteers rearranged the small chairs before the evening talk began.",
     # 11 x4
-    "The lobby wall clock runs two minutes ahead of every other.",
+    "The stock sheet lists 248 tins and 36 spare gray spools.",
     "A cold draft slips under the door whenever the wind shifts.",
     "The janitor leaves all the western lights on until late evening.",
     "Each wide shelf near the entrance holds only identical brown boxes.",
     # 12 x4
-    "The heavy side door sticks whenever the weather turns damp and cold.",
+    "The old voilà and a dried chrysanthemum rested by the wide window.",
     "A parked maintenance cart blocks half of the long narrow service corridor.",
     "The small water fountain near the wooden stairs barely trickles all winter.",
     "Nobody ever signed the paper sheet that circulates with the weekly clipboard.",
     # 13 x4
-    "The handwritten notice by the slow elevator mentions repairs scheduled for next Tuesday.",
+    "Someone recorded 128 lamps, 392 plugs, and 47 small fuses on the sheet.",
     "Two quiet volunteers swept the wide entrance steps long before the doors opened.",
     "The old broken radiator clicks loudly whenever the heavy pipes carry heat upstairs.",
     "Every single window on the long second floor faces the very same quiet courtyard.",
     # 14 x4
     "A tall stack of old unclaimed letters sits quietly beside the main front reception desk in the lobby hall.",
-    "The single fluorescent light above the narrow rear stairs flickers steadily through the afternoon.",
+    "Beside the stair the stratosphere poster and the résumé hung above the low shelf.",
     "Someone keeps quietly moving the tall shared step ladder to yet another corner.",
     "The paper bulletin near the quiet stairwell simply announces nothing of any real importance.",
     # 15 x4
     "Fresh deliveries arrive at the small loading bay most weekday mornings before the entire main office actually opens each day.",
-    "The slightly loose iron railing on the far eastern stair has wobbled for many months.",
+    "The quiet inventory tally reads 512 chairs, 248 tables, and 96 tall plain floor lamps.",
     "A small radio in the far back office always plays softly during the entire workday.",
     "The wide cork bulletin board near the small kitchen still carries menus from last month.",
     # 16 x4
-    "Nobody at all knows who quietly unplugged the round wall clock above the long main front reception counter downstairs.",
+    "Every slow afternoon the side counter counts 248 bolts, 617 washers, 36 cracked tiles, and 128 plain spare hooks.",
     "The carpet in the outer waiting room shows one worn path to the side door.",
     "Every single Tuesday morning someone wheels a cart of old magazines into the lobby.",
-    "The steady quiet hum of the old ventilation system continues right through the entire winter night.",
+    "The spare encyclopaedia, the dried chrysanthemum, and a folded voilà sat unnoticed on the low bench.",
     # 17 x4
     "A single pigeon sometimes lands on the wide second windowsill and watches the long empty corridor below.",
-    "The narrow back stairwell on this floor always stays much colder than the bright front hall no matter the season.",
+    "Throughout the week the back office stored 128 ledgers, 456 paper clips, 24 rubber bands, 617 tins, and 36 folders.",
     "Most weekday afternoons the shared upstairs printer quietly runs out of toner before anyone refills it.",
     "The wide glass panel above the small side entrance slowly gathers dust that nobody ever bothers to wipe clean.",
     # 18 x4
-    "Each upper floor has its own separate wooden cupboard that holds nothing but spare round light bulbs.",
+    "During the day the front desk logs 128 parcels, 392 envelopes, and 617 late forms every week.",
     "The long upstairs hallway always smells faintly of fresh coffee whenever the morning meeting finishes early.",
     "Nobody here can clearly recall exactly when the small table by the window first appeared here.",
     "The faded schedule taped inside the small kitchen window has still not changed since the early spring.",
@@ -176,7 +187,7 @@ FILLER_BANK: tuple[str, ...] = (
     # 20 x4
     "During the cold winter months the old radiators in the far west wing click constantly throughout the night.",
     "The quiet volunteer who carefully waters the plants each Friday always forgets the ones sitting near the stairs.",
-    "Every single corridor on this whole floor connects to the next one through a low painted brick archway.",
+    "The heavy encyclopaedia, the old oesophagus chart, and a matinée notice lay neatly stacked by the wide window.",
     "Nobody at all has carefully opened the chipped small cabinet under the back sink since the last inspection.",
 )
 
