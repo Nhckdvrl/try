@@ -1,0 +1,814 @@
+{
+ "design_tag": "g23c-r-fresh-joint-replication-design-v1",
+ "audit": "tokenizer-only",
+ "items": 70,
+ "cells": [
+  "ME",
+  "MA",
+  "UE",
+  "UA"
+ ],
+ "models": [
+  "qwen3-8b",
+  "mistral-small-24b"
+ ],
+ "per_model": {
+  "qwen3-8b": {
+   "n_items": 70,
+   "failures": {
+    "compile": [],
+    "rule_end_missing": [],
+    "rule_before_evidence": [],
+    "M_pair_differs_outside_rule": [],
+    "U_pair_differs_outside_rule": [],
+    "M_vs_U_differs_outside_preview": []
+   },
+   "positions": {
+    "g18_legal_pharmacy_recording": {
+     "d_policy0": 9,
+     "d_policy100": 9,
+     "pair": 9
+    },
+    "g18_legal_pharmacy_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_pharmacy_identification": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_pharmacy_analysis": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_wildfire_recording": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_wildfire_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_wildfire_identification": {
+     "d_policy0": 6,
+     "d_policy100": 6,
+     "pair": 6
+    },
+    "g18_legal_wildfire_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_bribery_recording": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_bribery_premises": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_bribery_identification": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_bribery_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_doping_recording": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_doping_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_doping_identification": {
+     "d_policy0": 8,
+     "d_policy100": 8,
+     "pair": 8
+    },
+    "g18_legal_doping_analysis": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_counterfeit_recording": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_counterfeit_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_counterfeit_identification": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_counterfeit_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_poaching_recording": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_poaching_premises": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_poaching_identification": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_poaching_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_datatheft_recording": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_datatheft_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_datatheft_identification": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_datatheft_analysis": {
+     "d_policy0": 5,
+     "d_policy100": 5,
+     "pair": 5
+    },
+    "g18_legal_foodsafety_recording": {
+     "d_policy0": 5,
+     "d_policy100": 5,
+     "pair": 5
+    },
+    "g18_legal_foodsafety_premises": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_foodsafety_identification": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_foodsafety_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_arttheft_recording": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_arttheft_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_arttheft_identification": {
+     "d_policy0": 6,
+     "d_policy100": 6,
+     "pair": 6
+    },
+    "g18_legal_arttheft_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_taxevasion_recording": {
+     "d_policy0": 5,
+     "d_policy100": 5,
+     "pair": 5
+    },
+    "g18_legal_taxevasion_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_taxevasion_identification": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_taxevasion_analysis": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_turbine_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_turbine_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_turbine_t3": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_greenhouse_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_greenhouse_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_greenhouse_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_backhaul_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_backhaul_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_backhaul_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_brewery_t1": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_brewery_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_brewery_t3": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_hull_t1": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_hull_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_hull_t3": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_kiln_t1": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_kiln_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_kiln_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t1": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_press_t1": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_press_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_press_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_hvac_t1": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_hvac_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_hvac_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_titration_t1": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_titration_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_titration_t3": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    }
+   },
+   "n_checked_cells": 280,
+   "gate": {
+    "n_pairs": 70,
+    "n_over": 7,
+    "frac_over": 0.1,
+    "tol_tokens": 4,
+    "max_frac": 0.05,
+    "over": [
+     "g18_legal_arttheft_identification",
+     "g18_legal_datatheft_analysis",
+     "g18_legal_doping_identification",
+     "g18_legal_foodsafety_recording",
+     "g18_legal_pharmacy_recording",
+     "g18_legal_taxevasion_recording",
+     "g18_legal_wildfire_identification"
+    ],
+    "passed": false
+   },
+   "checks_passed": true,
+   "passed": false
+  },
+  "mistral-small-24b": {
+   "n_items": 70,
+   "failures": {
+    "compile": [],
+    "rule_end_missing": [],
+    "rule_before_evidence": [],
+    "M_pair_differs_outside_rule": [],
+    "U_pair_differs_outside_rule": [],
+    "M_vs_U_differs_outside_preview": []
+   },
+   "positions": {
+    "g18_legal_pharmacy_recording": {
+     "d_policy0": 10,
+     "d_policy100": 10,
+     "pair": 10
+    },
+    "g18_legal_pharmacy_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_pharmacy_identification": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_pharmacy_analysis": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_wildfire_recording": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_wildfire_premises": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_wildfire_identification": {
+     "d_policy0": 7,
+     "d_policy100": 7,
+     "pair": 7
+    },
+    "g18_legal_wildfire_analysis": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_bribery_recording": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_bribery_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_bribery_identification": {
+     "d_policy0": 7,
+     "d_policy100": 7,
+     "pair": 7
+    },
+    "g18_legal_bribery_analysis": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_doping_recording": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_doping_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_doping_identification": {
+     "d_policy0": 7,
+     "d_policy100": 7,
+     "pair": 7
+    },
+    "g18_legal_doping_analysis": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_counterfeit_recording": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_counterfeit_premises": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_counterfeit_identification": {
+     "d_policy0": 5,
+     "d_policy100": 5,
+     "pair": 5
+    },
+    "g18_legal_counterfeit_analysis": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_poaching_recording": {
+     "d_policy0": 5,
+     "d_policy100": 5,
+     "pair": 5
+    },
+    "g18_legal_poaching_premises": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_poaching_identification": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_poaching_analysis": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_datatheft_recording": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_datatheft_premises": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_datatheft_identification": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_datatheft_analysis": {
+     "d_policy0": 6,
+     "d_policy100": 6,
+     "pair": 6
+    },
+    "g18_legal_foodsafety_recording": {
+     "d_policy0": 6,
+     "d_policy100": 6,
+     "pair": 6
+    },
+    "g18_legal_foodsafety_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_foodsafety_identification": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_foodsafety_analysis": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_legal_arttheft_recording": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_legal_arttheft_premises": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_arttheft_identification": {
+     "d_policy0": 9,
+     "d_policy100": 9,
+     "pair": 9
+    },
+    "g18_legal_arttheft_analysis": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_legal_taxevasion_recording": {
+     "d_policy0": 6,
+     "d_policy100": 6,
+     "pair": 6
+    },
+    "g18_legal_taxevasion_premises": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_legal_taxevasion_identification": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_legal_taxevasion_analysis": {
+     "d_policy0": 4,
+     "d_policy100": 4,
+     "pair": 4
+    },
+    "g18_infer_turbine_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_turbine_t2": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_turbine_t3": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_greenhouse_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_greenhouse_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_greenhouse_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_backhaul_t1": {
+     "d_policy0": 3,
+     "d_policy100": 3,
+     "pair": 3
+    },
+    "g18_infer_backhaul_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_backhaul_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_brewery_t1": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_brewery_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_brewery_t3": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_hull_t1": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_hull_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_hull_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_kiln_t1": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_kiln_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_kiln_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t1": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_orchard_t3": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_press_t1": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_press_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_press_t3": {
+     "d_policy0": 0,
+     "d_policy100": 0,
+     "pair": 0
+    },
+    "g18_infer_hvac_t1": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_hvac_t2": {
+     "d_policy0": 2,
+     "d_policy100": 2,
+     "pair": 2
+    },
+    "g18_infer_hvac_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_titration_t1": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_titration_t2": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    },
+    "g18_infer_titration_t3": {
+     "d_policy0": 1,
+     "d_policy100": 1,
+     "pair": 1
+    }
+   },
+   "n_checked_cells": 280,
+   "gate": {
+    "n_pairs": 70,
+    "n_over": 10,
+    "frac_over": 0.14285714285714285,
+    "tol_tokens": 4,
+    "max_frac": 0.05,
+    "over": [
+     "g18_legal_arttheft_identification",
+     "g18_legal_bribery_identification",
+     "g18_legal_counterfeit_identification",
+     "g18_legal_datatheft_analysis",
+     "g18_legal_doping_identification",
+     "g18_legal_foodsafety_recording",
+     "g18_legal_pharmacy_recording",
+     "g18_legal_poaching_recording",
+     "g18_legal_taxevasion_recording",
+     "g18_legal_wildfire_identification"
+    ],
+    "passed": false
+   },
+   "checks_passed": true,
+   "passed": false
+  }
+ },
+ "gate_all_models": {
+  "n_pairs": 140,
+  "n_over": 17,
+  "frac_over": 0.12142857142857143,
+  "tol_tokens": 4,
+  "max_frac": 0.05,
+  "over": [
+   "g18_legal_arttheft_identification|mistral-small-24b",
+   "g18_legal_arttheft_identification|qwen3-8b",
+   "g18_legal_bribery_identification|mistral-small-24b",
+   "g18_legal_counterfeit_identification|mistral-small-24b",
+   "g18_legal_datatheft_analysis|mistral-small-24b",
+   "g18_legal_datatheft_analysis|qwen3-8b",
+   "g18_legal_doping_identification|mistral-small-24b",
+   "g18_legal_doping_identification|qwen3-8b",
+   "g18_legal_foodsafety_recording|mistral-small-24b",
+   "g18_legal_foodsafety_recording|qwen3-8b",
+   "g18_legal_pharmacy_recording|mistral-small-24b",
+   "g18_legal_pharmacy_recording|qwen3-8b",
+   "g18_legal_poaching_recording|mistral-small-24b",
+   "g18_legal_taxevasion_recording|mistral-small-24b",
+   "g18_legal_taxevasion_recording|qwen3-8b",
+   "g18_legal_wildfire_identification|mistral-small-24b",
+   "g18_legal_wildfire_identification|qwen3-8b"
+  ],
+  "passed": false
+ },
+ "passed": false
+}
