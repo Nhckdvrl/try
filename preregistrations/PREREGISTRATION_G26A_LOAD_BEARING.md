@@ -311,8 +311,9 @@ regardless. Usability (O6): all 10 cells present for that model and
   gain"; it never selects a branch, never vetoes one, and its failure
   never yields `unresolved` (the O5 power note established exactly this:
   equivalence at design n is underpowered, so it cannot be a headline
-  classifier). Branch table §8 is evaluated in order integrity →
-  sufficiency → branches **on the positive gates alone**. Claims never
+  classifier). Branch table §8 is evaluated in order mechanical
+  completeness (no verdict on partial data) → integrity → sufficiency →
+  branches **on the positive gates alone**. Claims never
   exceed the branch that actually fired; "≈" in any published sentence
   maps to a *satisfied* secondary ROPE — never to "p > .05" and never to
   a straddling CI.
@@ -374,13 +375,35 @@ regardless. Usability (O6): all 10 cells present for that model and
 
 ## 8. Outcome map
 
-Order: **I-gates → S-gates → branches.**
+Order: **mechanical completeness (checked first — produces NO verdict,
+exit 4) → I-gates → S-gates → branches.**
 
+- **Mechanical completeness (user ruling 2026-09-24, pre-tag):** the Phase-B
+  analyzer asserts the model-tag set **exactly equals the frozen pooled-4**
+  (`qwen3-8b / gemma3-12b / llama31-8b / qwen35-9b`) and that every selected
+  item × 4 models × 10 cells exists with parsed values, both probe rows exist
+  per item × model with parsed YES/NO readout, and the item set equals the
+  frozen selection (an extra/unknown model or duplicate row is *structural*,
+  exit 3; a missing pooled model or missing/unparsed required rows or probes
+  is *mechanical*, exit 4). Mechanical gaps are rerunnable (§7); **no
+  scientific verdict is ever computed from partial data.**
 - **I1** rule sentences byte-identical across timings; **I2** shared-filler
-  multiset equality + distance assertion (±10 tokens); **I3**
-  admit-timing control: `M_T0 − M_T2` CI contains 0 (else `order-artifact`);
-- **I4** RuleAcc ≥ 0.8 on the rule probes (both rule types);
-- **S1** ≥ O4-min items (200) after panel usability (O6).
+  multiset equality + distance assertion (±10 tokens) — construction
+  invariants: a failure is a **`structural-integrity-failure`** (NO CLAIM —
+  an implementation violation, never a "scientific" effect);
+- **I3** admit-timing control: `M_T0 − M_T2` CI contains 0 (else
+  `order-artifact` — the only gate that licenses that verdict: recency/
+  position structure);
+- **I4** rule legibility: probes complete on both rule types but RuleAcc
+  < 0.8 on either → **`rule-legibility-failure`** (NO CLAIM — the rule was
+  not reliably read; this is an integrity failure, NOT a position artifact;
+  missing/unparsed probes never reach here — they are mechanical, exit 4).
+  When several I-gates fail together the report lists all of them and the
+  verdict label priority is **structural → rule-legibility → order**;
+- **S1** ≥ O4-min items (200) usable on **≥ 3 of the frozen pooled-4**
+  models (O6). The threshold is fixed at **3** — never adapted to the
+  number of models actually observed (Phase B asserts the model set is the
+  pooled-4, so "3 of 4" cannot silently degrade).
 
 | Verdict | Conditions (**positive gates only**: CI low > 0 **and** point ≥ 3.0) | Meaning / required action |
 |---|---|---|
@@ -391,7 +414,9 @@ Order: **I-gates → S-gates → branches.**
 | ↳ `timing-insensitive / flat-leaky` | `no-stage-gain` + pooled `R` **positive** | composition erases the timing structure while leakage persists |
 | ↳ `exclusion-robust` | `no-stage-gain` + **every `R_t` CI ⊆ [−1.5, +1.5]** — the secondary ROPE must be *satisfied* because the label's "excluded cleanly" sentence is an equivalence claim (user ruling: "equivalent to zero" only when the CI really fits the secondary ROPE). `R_t` non-positive but CI ⊈ ±1.5 → stays plain `no-stage-gain` + "no detectable leakage at any timing" | chains are excluded cleanly at every timing — sharp contrast with single-hop G24A leak; equally publishable, honestly unexpected |
 | `non-monotone` | any primary **negative** (CI high < 0) | report as measured; no ordering claim |
-| `order-artifact` | I3 (or I2) fails | recency/position structure — no claim until explained via `R̃` |
+| `structural-integrity-failure` | I1 or I2 fails | construction invariant violated (rule bytes / shared-filler ±10) — implementation-level NO CLAIM; never interpreted as an order effect |
+| `rule-legibility-failure` | probes complete, RuleAcc < 0.8 on either rule type | integrity NO CLAIM — the rule was not reliably read; never `order-artifact`, never a branch |
+| `order-artifact` | I3 fails | recency/position structure (admit-timing control) — no claim until explained via `R̃` |
 | `unresolved` | S1 fails, or evaluable data/labels absent | report everything; no verdict. **Equivalence failure is NOT a path into `unresolved`** (user ruling 2026-09-24 — the old "neither positive nor equivalent" row condition is deleted) |
 
 **Secondary characterization line (ships alongside any verdict, never
