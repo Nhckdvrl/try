@@ -1,0 +1,83 @@
+{"seed_rank": 334, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 335, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 336, "source": "fever", "call": "S", "note": "site hosts the plant, so site is not identical to plant"}
+{"seed_rank": 337, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 338, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 339, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 340, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 341, "source": "fever", "call": "R", "note": "March 1979 is within, not after, 1979"}
+{"seed_rank": 342, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 343, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 344, "source": "fever", "call": "S", "note": "Stone is one of the three named heavy revisers"}
+{"seed_rank": 345, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 346, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 347, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 348, "source": "fever", "call": "R", "note": "E's 'second divorce' establishes at least two marriages"}
+{"seed_rank": 349, "source": "fever", "call": "R", "note": "E: local graveyards, not parks"}
+{"seed_rank": 350, "source": "fever", "call": "R", "note": "E: sentenced to death"}
+{"seed_rank": 351, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 352, "source": "fever", "call": "S", "note": "E: scheduled 2017 release; actual 2017 release is fact"}
+{"seed_rank": 353, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 354, "source": "fever", "call": "R", "note": "E's nominations are at the GLAMOUR Awards; claim misattributes them to BAFTA"}
+{"seed_rank": 355, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 356, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 357, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 358, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 359, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 360, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 361, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 362, "source": "fever", "call": "R", "note": "governorship is an official status"}
+{"seed_rank": 363, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 364, "source": "fever", "call": "R", "note": "syndication on MeTV = it does appear on television"}
+{"seed_rank": 365, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 366, "source": "fever", "call": "R", "note": "E: father, not mother"}
+{"seed_rank": 367, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 368, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 369, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 370, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 371, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 372, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 373, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 166, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 167, "source": "scifact", "call": "R", "note": "E locates microglia in the CNS; claim asserts the peripheral nervous system"}
+{"seed_rank": 168, "source": "scifact", "call": "R", "note": "enhanced LTP/learning in chimeras implies functional integration of human glia with host neurons"}
+{"seed_rank": 169, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 170, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 171, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 172, "source": "scifact", "call": "N", "note": "E addresses HGPS point mutation and splice correction in fibroblasts; claim's 'progerin-only allele' abundance in Lmna knock-in models unaddressed"}
+{"seed_rank": 173, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 174, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 175, "source": "scifact", "call": "S", "note": "E carries energy-metabolism control; carbon regulation is Snf1's established function"}
+{"seed_rank": 176, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 177, "source": "scifact", "call": "N", "note": "E addresses replication timing-profile determinants (origin firing kinetics); Okazaki-fragment termination scale not addressed"}
+{"seed_rank": 178, "source": "scifact", "call": "N", "note": "E describes an analytical capability (Okazaki-seq enables termination analysis); no statement on sequence-specificity"}
+{"seed_rank": 179, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 180, "source": "scifact", "call": "S", "note": "E's OR (least vs most deprived = 0.63) implies most-deprived have higher odds of the outcome"}
+{"seed_rank": 181, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 182, "source": "scifact", "call": "S", "note": "VgrG spike as the penetrative tip; parenthetical alias unaddressed but compatible"}
+{"seed_rank": 183, "source": "scifact", "call": "S", "note": "E carries involvement; mitochondria's major apoptotic role is textbook fact"}
+{"seed_rank": 184, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 185, "source": "scifact", "call": "S", "note": "E carries RecQ-helicase encoding; BLM's identity as that candidate gene is established fact"}
+{"seed_rank": 186, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 187, "source": "scifact", "call": "R", "note": "E: Deltex1 serves as a bridging factor recruiting eIF3f, i.e. an interaction exists"}
+{"seed_rank": 188, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 189, "source": "scifact", "call": "N", "note": "E's subject is mouse model systems for therapy testing; claim asserts metastasis aberrations provide therapeutic information - neither entailed nor refuted"}
+{"seed_rank": 190, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 191, "source": "scifact", "call": "S", "note": "core (free histones, Rad53-dependent degradation) fully E-backed; temporal clause compatible"}
+{"seed_rank": 192, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 193, "source": "scifact", "call": "N", "note": "E's population is subjective memory impairment; claim asserts Alzheimer's - different population"}
+{"seed_rank": 194, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 195, "source": "scifact", "call": "S", "note": "E: BCL-2 sustains cell survival, i.e. its activation antagonizes apoptosis"}
+{"seed_rank": 196, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 197, "source": "scifact", "call": "S", "note": "core TCR-CD3 requirement for activation E-backed; synapse/microdomain gloss elaborative"}
+{"seed_rank": 198, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 199, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 200, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 201, "source": "scifact", "call": "N", "note": "E's utility of haplotype definition is identifying outcome genes; claim asserts match prediction - different application"}
+{"seed_rank": 202, "source": "scifact", "call": "R", "note": "E: specific (scapula-stabiliser) exercise outperformed general control exercise"}
+{"seed_rank": 203, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 204, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 205, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 206, "source": "scifact", "call": "N", "note": "E addresses RP expression regulation and developmental specificity, not disease pathology degree - same indirectness as active rank 45"}
+{"seed_rank": 207, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 208, "source": "scifact", "call": "S", "note": "E carries cholesterol-treated SMCs with active KLF4 program; KLF4 induction by cholesterol is the established finding"}

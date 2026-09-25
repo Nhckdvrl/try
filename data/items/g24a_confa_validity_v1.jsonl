@@ -1,0 +1,500 @@
+{"seed_rank": 0, "source": "fever", "call": "N", "note": "evidence (Yugoslav successor state) does not address the claim's predicate 'is a region'"}
+{"seed_rank": 1, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 2, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 3, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 4, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 5, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 6, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 7, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 8, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 9, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 10, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 11, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 12, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 13, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 14, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 15, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 16, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 17, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 18, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 19, "source": "fever", "call": "N", "note": "evidence establishes directing, claim asserts producing - role mismatch, compatibility only"}
+{"seed_rank": 20, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 21, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 22, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 23, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 24, "source": "fever", "call": "N", "note": "claim adds birth-year 1616 which the evidence never addresses (author given only as Spanish, novel dated 1605) - unsupported clause"}
+{"seed_rank": 25, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 26, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 27, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 28, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 29, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 30, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 31, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 32, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 33, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 34, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 35, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 36, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 37, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 38, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 39, "source": "fever", "call": "N", "note": "claim says five billionaires, evidence says twenty - number mismatch with compatible superset reading, non-unique"}
+{"seed_rank": 40, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 41, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 42, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 43, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 44, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 45, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 46, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 47, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 48, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 49, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 50, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 51, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 52, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 53, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 54, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 55, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 56, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 57, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 58, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 59, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 60, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 61, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 62, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 63, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 64, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 65, "source": "fever", "call": "N", "note": "evidence establishes co-director role; claim asserts singing - role mismatch, compatibility only, E does not exclude the claimed role"}
+{"seed_rank": 66, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 67, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 68, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 69, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 70, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 71, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 72, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 73, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 74, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 75, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 76, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 77, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 78, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 79, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 80, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 81, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 82, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 83, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 84, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 85, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 86, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 87, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 88, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 89, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 90, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 91, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 92, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 93, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 94, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 95, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 96, "source": "fever", "call": "N", "note": "evidence's only Roman reference is temporal (post-withdrawal settling); no assertion bearing on 'unconnected' - neither direction"}
+{"seed_rank": 97, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 98, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 99, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 100, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 101, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 102, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 103, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 104, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 105, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 106, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 107, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 108, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 109, "source": "fever", "call": "S", "note": "Best Director nomination belongs to the film's only director"}
+{"seed_rank": 110, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 111, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 112, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 113, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 114, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 115, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 116, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 117, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 118, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 119, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 120, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 121, "source": "fever", "call": "S", "note": "claim asserts an origin that is a subset of E's list; no exclusive marker"}
+{"seed_rank": 122, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 123, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 124, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 125, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 126, "source": "fever", "call": "R", "note": "E's design-scope list reads definitional/exhaustive for the company's product line; buildings conflicts with the stated scope"}
+{"seed_rank": 127, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 128, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 129, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 130, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 131, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 132, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 133, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 134, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 135, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 136, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 137, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 138, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 139, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 140, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 141, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 142, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 143, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 144, "source": "fever", "call": "N", "note": "evidence is a bare bio line; nothing bearing on appearing in Black Sheep - neither direction"}
+{"seed_rank": 145, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 146, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 147, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 148, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 149, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 150, "source": "fever", "call": "S", "note": "E concedes psychoactive properties exist (only exaggeration of magnitude)"}
+{"seed_rank": 151, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 152, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 153, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 154, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 155, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 156, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 157, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 158, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 159, "source": "fever", "call": "R", "note": "same superlative slot: E gives the county's Cascade claim-to-fame as tallest"}
+{"seed_rank": 160, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 161, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 162, "source": "fever", "call": "S", "note": "real-figure story (Milk/Moscone assassination) establishes biographical basis"}
+{"seed_rank": 163, "source": "fever", "call": "N", "note": "claim contains non-word 'sparrow destination' (template corruption); not evaluable as written"}
+{"seed_rank": 164, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 165, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 166, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 167, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 168, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 169, "source": "fever", "call": "N", "note": "claim asserts a three-person co-EP roster with Espenson; E lists six LATER co-EPs including Espenson - count clause unsupported and in tension; entity relation alone would support"}
+{"seed_rank": 170, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 171, "source": "fever", "call": "R", "note": "born 2007 cannot graduate in 2007"}
+{"seed_rank": 172, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 173, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 174, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 175, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 176, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 177, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 178, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 179, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 180, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 181, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 182, "source": "fever", "call": "S", "note": "Franklin identified as American and as producer, and as the director"}
+{"seed_rank": 183, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 184, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 185, "source": "fever", "call": "R", "note": "E's IS-definition list of occupations excludes novelist"}
+{"seed_rank": 186, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 187, "source": "fever", "call": "N", "note": "E establishes FILMING location (Dili), claim asserts story setting - compatibility only, not entailed"}
+{"seed_rank": 188, "source": "fever", "call": "N", "note": "E establishes prequel relation to the original TV series; claim's target is 'the books', unaddressed by E - neither direction"}
+{"seed_rank": 189, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 190, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 191, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 192, "source": "fever", "call": "S", "note": "typo 'conversion pizzas' for 'rates'; intent fully recoverable from parallel structure, direction clean"}
+{"seed_rank": 193, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 194, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 195, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 196, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 197, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 198, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 199, "source": "fever", "call": "S", "note": "cast membership established by E; 'American actress' descriptor true as a matter of fact"}
+{"seed_rank": 200, "source": "fever", "call": "N", "note": "claim inserts 'Russian' qualifier; E's clause is unqualified 'army laws' in a Soviet frame - qualifier neither entailed nor cleanly refuted"}
+{"seed_rank": 201, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 202, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 203, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 204, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 205, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 206, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 207, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 208, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 209, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 210, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 211, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 212, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 213, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 214, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 215, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 216, "source": "fever", "call": "R", "note": "full-credits 2002 lead establishes it as a released film"}
+{"seed_rank": 217, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 218, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 219, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 220, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 221, "source": "fever", "call": "R", "note": "murderer identity in E (Catholic fanatic) conflicts with claim's descriptor (secularist reading group)"}
+{"seed_rank": 222, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 223, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 224, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 225, "source": "fever", "call": "N", "note": "E discusses population share, not citizenship; 'only' exclusivity unsupported - neither direction"}
+{"seed_rank": 226, "source": "fever", "call": "S", "note": "E's own gross chain puts BvS as highest-grossing Superman film, where Cavill reprised Superman"}
+{"seed_rank": 227, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 228, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 229, "source": "fever", "call": "R", "note": "E's 2014 ATP ranking chains to Micke via local coref, contradicting last-played-2008"}
+{"seed_rank": 230, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 231, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 232, "source": "fever", "call": "N", "note": "E addresses his illness's cause only; no assertion bearing on whether his son killed him - claim false in fact but not refuted by E"}
+{"seed_rank": 233, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 234, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 235, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 236, "source": "fever", "call": "S", "note": "Best Supporting Actress / BAFTA acting awards entail she acts"}
+{"seed_rank": 237, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 238, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 239, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 240, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 241, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 242, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 243, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 244, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 245, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 246, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 247, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 248, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 249, "source": "fever", "call": "S", "note": "stray token 'marble' in apposition (likely 'wife'); propositional content (rumors Livia poisoned him) recoverable and supported"}
+{"seed_rank": 250, "source": "fever", "call": "N", "note": "E establishes only the address; demolition (the claim's predicate) unaddressed - neither direction"}
+{"seed_rank": 251, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 252, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 253, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 254, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 255, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 256, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 257, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 258, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 259, "source": "fever", "call": "N", "note": "E gives nationality and birth date but no birthplace; claim's Spain unaddressed - false in fact but not refuted by E"}
+{"seed_rank": 260, "source": "fever", "call": "R", "note": "direct count assertion (fifteen) vs E's sixteen"}
+{"seed_rank": 261, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 262, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 263, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 264, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 265, "source": "fever", "call": "R", "note": "claim misattributes the Atlantic Division/Eastern Conference to the National Press Club; E's frame attributes it to the NBA"}
+{"seed_rank": 266, "source": "fever", "call": "R", "note": "direct count assertion (twelve) vs E's eleven"}
+{"seed_rank": 267, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 268, "source": "fever", "call": "R", "note": "definitional nationality slot: E says American"}
+{"seed_rank": 269, "source": "fever", "call": "R", "note": "E establishes conviction + execution; E's own appended murder definition (unlawful killing without justification) excludes it"}
+{"seed_rank": 270, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 271, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 272, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 273, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 274, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 275, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 276, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 277, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 278, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 279, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 280, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 281, "source": "fever", "call": "R", "note": "FBI's declaration in E is suspects, claim asserts victim"}
+{"seed_rank": 282, "source": "fever", "call": "R", "note": "cathedral wedding with stated date/place is the opposite of eloping"}
+{"seed_rank": 283, "source": "fever", "call": "S", "note": "E's story anchor (invasion of 1975) sets the narrative year"}
+{"seed_rank": 284, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 285, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 286, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 287, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 288, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 289, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 290, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 291, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 292, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 293, "source": "fever", "call": "R", "note": "E calls Phoenix a city within a state; claim calls it a state"}
+{"seed_rank": 294, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 295, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 296, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 297, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 298, "source": "fever", "call": "R", "note": "claim's 60% figure misattributed to TV popularity; E's 60% is student origin from Mississippi"}
+{"seed_rank": 299, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 300, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 301, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 302, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 303, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 304, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 305, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 306, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 307, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 308, "source": "fever", "call": "S", "note": "loose paraphrase: river's drainage basin system"}
+{"seed_rank": 309, "source": "fever", "call": "S", "note": "E's pronoun 'He' establishes sex"}
+{"seed_rank": 310, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 311, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 312, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 313, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 314, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 315, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 316, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 317, "source": "fever", "call": "R", "note": "E licenses Photoshop as software (software as a service)"}
+{"seed_rank": 318, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 319, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 320, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 321, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 322, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 323, "source": "fever", "call": "N", "note": "claim's 'After Nehru' relation ambiguous (succession vs chronology); E only establishes the 2004-2014 tenure - non-unique reading"}
+{"seed_rank": 324, "source": "fever", "call": "S", "note": "free trade / tariff changes are economic policy changes"}
+{"seed_rank": 325, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 326, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 327, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 328, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 329, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 330, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 331, "source": "fever", "call": "R", "note": ""}
+{"seed_rank": 332, "source": "fever", "call": "R", "note": "definitional scope: E's 'opportunities' object is player development"}
+{"seed_rank": 333, "source": "fever", "call": "S", "note": ""}
+{"seed_rank": 0, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 1, "source": "scifact", "call": "S", "note": "eczema subgroup lower in LCPUFA arm (descriptive association)"}
+{"seed_rank": 2, "source": "scifact", "call": "R", "note": "E: FAK inhibition BLOCKS strain-to-scar conversion; claim says it enables"}
+{"seed_rank": 3, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 4, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 5, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 6, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 7, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 8, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 9, "source": "scifact", "call": "R", "note": "active participation in calcium signaling contradicts 'trivial'"}
+{"seed_rank": 10, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 11, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 12, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 13, "source": "scifact", "call": "R", "note": "E: common Flk-1+ progenitor in mesoderm specification, not exclusively endodermal"}
+{"seed_rank": 14, "source": "scifact", "call": "N", "note": "E documents BOTH shared initiating signatures and divergent non-shared mutations; 'very similar' magnitude neither established nor refuted"}
+{"seed_rank": 15, "source": "scifact", "call": "S", "note": "G-CSF is the stated mediator of tumor-driven MDSC accumulation"}
+{"seed_rank": 16, "source": "scifact", "call": "N", "note": "E describes study design on birthweight/neonatal hypoglycemia; no statement bearing on diabetes risk by age 14"}
+{"seed_rank": 17, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 18, "source": "scifact", "call": "R", "note": "E: without dynein axons lose uniform orientation; dynein presence maintains plus-end-distal - upregulation cannot increase toward-cell-body plus-ends"}
+{"seed_rank": 19, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 20, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 21, "source": "scifact", "call": "S", "note": "core relation (granulomas form without TNF) E-backed; model-organism descriptor true as matter of fact"}
+{"seed_rank": 22, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 23, "source": "scifact", "call": "S", "note": "core requirement (TCR-CD3 change required for activation) E-backed; synapse/microdomain gloss elaborative"}
+{"seed_rank": 24, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 25, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 26, "source": "scifact", "call": "N", "note": "E presents an imaging technique for myelinated axons; no assertion bearing on action-potential propagation"}
+{"seed_rank": 27, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 28, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 29, "source": "scifact", "call": "S", "note": "CK-2017357 = tirasemtiv (fact); E establishes fast-skeletal-troponin targeting"}
+{"seed_rank": 30, "source": "scifact", "call": "R", "note": "E: carnitine-TMAO axis accelerates atherosclerosis - direction opposes claim's negative correlation"}
+{"seed_rank": 31, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 32, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 33, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 34, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 35, "source": "scifact", "call": "R", "note": "E: no difference at 4h, significantly LESS morphine at 6h in iNO arm - no increase anywhere"}
+{"seed_rank": 36, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 37, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 38, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 39, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 40, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 41, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 42, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 43, "source": "scifact", "call": "S", "note": "novel-fold SSB = an alternative SSB class; organism true as matter of fact"}
+{"seed_rank": 44, "source": "scifact", "call": "N", "note": "E establishes the mechanism for PODOSOMES in Src-transformed fibroblasts; claim asserts INVADOPODIA - related but distinct structure, mechanism not transferred by E"}
+{"seed_rank": 45, "source": "scifact", "call": "N", "note": "E addresses RP expression regulation in embryos, not disease-level pathology specificity - indirect only"}
+{"seed_rank": 46, "source": "scifact", "call": "S", "note": "Kat8 = Mof (alias); E: Mof required for Wdr5 recruitment"}
+{"seed_rank": 47, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 48, "source": "scifact", "call": "R", "note": "E: caspase-11 dispensable for phagosome-lysosome fusion (scope: nonpathogenic cargo); claim's general regulating role gets no support and the studied case contradicts it"}
+{"seed_rank": 49, "source": "scifact", "call": "N", "note": "E's population is subjective memory impairment, claim's is Alzheimer's - different populations, neither direction transfers"}
+{"seed_rank": 50, "source": "scifact", "call": "N", "note": "E's cell-cycle variation is of Cnn1 ACTIVITY (peaks in anaphase); claim asserts RECRUITMENT variation - compatible but not entailed"}
+{"seed_rank": 51, "source": "scifact", "call": "S", "note": "artemisinin-treated infection context = P. falciparum (fact); E gives the asexual blood stage"}
+{"seed_rank": 52, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 53, "source": "scifact", "call": "N", "note": "E induces aging in iPSC-DERIVED differentiated cells; claim locates it in stem cells - related frame, distinct cell type"}
+{"seed_rank": 54, "source": "scifact", "call": "R", "note": "respirable-size spores reaerosolizing under common activities contradict easy disposal"}
+{"seed_rank": 55, "source": "scifact", "call": "N", "note": "E's diagnostic accuracy covers glucose/WBC/lactate; cultures unaddressed - true in fact but not carried by E"}
+{"seed_rank": 56, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 57, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 58, "source": "scifact", "call": "S", "note": "lineage-restricted expression = the feature suggesting a platelet role"}
+{"seed_rank": 59, "source": "scifact", "call": "S", "note": "E establishes glycolysis as an ATP-providing metabolic route; 'primary' status is certain fact"}
+{"seed_rank": 60, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 61, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 62, "source": "scifact", "call": "S", "note": "study's control arm = curli-deficient bacteria"}
+{"seed_rank": 63, "source": "scifact", "call": "S", "note": "intervention-lowering-GWG-improving-outcomes carries the GWG-outcome association"}
+{"seed_rank": 64, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 65, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 66, "source": "scifact", "call": "S", "note": "E's '10% or more' includes 10%; UK scope true as matter of fact"}
+{"seed_rank": 67, "source": "scifact", "call": "N", "note": "E concerns Sir2-FOXO longevity/apoptosis balance; no mention of ROS, FoxO3a-specific activation, or neuronal death"}
+{"seed_rank": 68, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 69, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 70, "source": "scifact", "call": "N", "note": "E only claims insight into specificity; no statement on rapid phosphotransfer rates or fidelity governing"}
+{"seed_rank": 71, "source": "scifact", "call": "S", "note": "E names CCL19 as 'the second CCR7 ligand'"}
+{"seed_rank": 72, "source": "scifact", "call": "R", "note": "E: screening associated with DECLINE in rates"}
+{"seed_rank": 73, "source": "scifact", "call": "R", "note": "CK-2017357 = tirasemtiv (fact); E: fast-skeletal-troponin activator with clear muscle effects"}
+{"seed_rank": 74, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 75, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 76, "source": "scifact", "call": "S", "note": "E carries the PTEN-levels relation; miRNA-decoy mechanism is the established finding (fact)"}
+{"seed_rank": 77, "source": "scifact", "call": "N", "note": "E's knockout is Slc23a1; claim's transporter is SVCT2 (Slc23a2 under standard nomenclature) - also E gives no brain/adrenals specificity"}
+{"seed_rank": 78, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 79, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 80, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 81, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 82, "source": "scifact", "call": "S", "note": "core mechanism (stiff, integrin-dependent beta-catenin degradation, inhibited differentiation) fully E-backed; mesodermal scope gloss compatible"}
+{"seed_rank": 83, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 84, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 85, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 86, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 87, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 88, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 89, "source": "scifact", "call": "N", "note": "E's protease is RHBDL4 (rhomboid); claim's is signal peptide peptidase - distinct proteases, mechanism not transferred by E"}
+{"seed_rank": 90, "source": "scifact", "call": "N", "note": "same content as rank 67 - E has no ROS/FoxO3a-specific/neuronal content; claim direction opposite to 67, neither carried"}
+{"seed_rank": 91, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 92, "source": "scifact", "call": "S", "note": "SLE listed among the CVD risk factors evaluated"}
+{"seed_rank": 93, "source": "scifact", "call": "R", "note": "CR -> methylation age 7 years YOUNGER, i.e. lower"}
+{"seed_rank": 94, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 95, "source": "scifact", "call": "N", "note": "E reports only severe/very-severe admission episodes (11.9M + 3.0M); the claim's total-cases figure (30M) is not reported by E"}
+{"seed_rank": 96, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 97, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 98, "source": "scifact", "call": "S", "note": "CMA = chaperone-mediated autophagy, a form of autophagy"}
+{"seed_rank": 99, "source": "scifact", "call": "S", "note": "E carries mechanism and direction; human positive association is the study's established finding (fact)"}
+{"seed_rank": 100, "source": "scifact", "call": "N", "note": "E reports a resistance mechanism (PD-L1 upregulation with T-cell exhaustion); anti-CTLA-4 reinvigoration of the named subset unaddressed"}
+{"seed_rank": 101, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 102, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 103, "source": "scifact", "call": "S", "note": "E itself links Lrh-1 and NR5A2 transcript as the same gene; RNAi abrogated decidualization"}
+{"seed_rank": 104, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 105, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 106, "source": "scifact", "call": "R", "note": "restriction capacity saturating with dose implies low doses are within innate capacity"}
+{"seed_rank": 107, "source": "scifact", "call": "R", "note": "word flip: E's ROS generation contributes; claim asserts removal"}
+{"seed_rank": 108, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 109, "source": "scifact", "call": "R", "note": "'modestly reduce weight' contradicts 'highly effective'"}
+{"seed_rank": 110, "source": "scifact", "call": "R", "note": "E: eliminating BCL-2 causes cell loss, i.e. BCL-2 blocks apoptosis rather than promotes it"}
+{"seed_rank": 111, "source": "scifact", "call": "N", "note": "E addresses fork-level replication termination (passive, sequence-independent); claim asserts Okazaki-fragment termination zones - different scale, not addressed"}
+{"seed_rank": 112, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 113, "source": "scifact", "call": "S", "note": "E carries YAP-TEAD interaction and transcription regulation; nuclear translocation is established fact"}
+{"seed_rank": 114, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 115, "source": "scifact", "call": "N", "note": "claim is internally self-contradictory (asserts an interaction and denies it in the same string) - not evaluable"}
+{"seed_rank": 116, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 117, "source": "scifact", "call": "N", "note": "E gives caspase-11 dispensability for caspase-1 activation and requiredness for restriction; no pyroptosis measurement - claim is true in fact but neither direction is carried by E"}
+{"seed_rank": 118, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 119, "source": "scifact", "call": "S", "note": "synergy implies MEK-inhibitor contribution to shrinking RAS-driven cancers; monotherapy efficacy established fact"}
+{"seed_rank": 120, "source": "scifact", "call": "S", "note": "core (initial benefit then refractory) E-backed; 'several mechanisms' is established fact"}
+{"seed_rank": 121, "source": "scifact", "call": "R", "note": "E shows markedly reduced/undetectable ascorbic acid in the knockout; claim asserts greatly increased - knockout-increases is wrong as matter of fact regardless of gene symbol"}
+{"seed_rank": 122, "source": "scifact", "call": "N", "note": "E reports impaired fasting glucagon/gluconeogenic gene induction; no bearing on hypothalamic glutamate neurotransmission"}
+{"seed_rank": 123, "source": "scifact", "call": "R", "note": "E: eliminating BCL-2 kills tumor cells - tumors require BCL-2, not its silencing, for maintenance"}
+{"seed_rank": 124, "source": "scifact", "call": "S", "note": "E carries the large-effect rare-variant content; 1000G's mapping role is its established purpose (fact)"}
+{"seed_rank": 125, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 126, "source": "scifact", "call": "R", "note": "girls' neonatal mortality (69) ~2.4x boys (29) contradicts a hospitable environment"}
+{"seed_rank": 127, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 128, "source": "scifact", "call": "N", "note": "E mimics aging via progerin expression (genetic route); claim asserts environmentally-induced senescence mimicked by adding molecules to culture - route mismatch"}
+{"seed_rank": 129, "source": "scifact", "call": "S", "note": "E: TNF maintains granuloma integrity in its presence; zebrafish context true as matter of fact"}
+{"seed_rank": 130, "source": "scifact", "call": "S", "note": "E gives the 16-24 prevalence figures; 'most prevalent' comparative and UK scope established fact"}
+{"seed_rank": 131, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 132, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 133, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 134, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 135, "source": "scifact", "call": "N", "note": "E's outcomes are GDM/pre-eclampsia/SGA/BV/birthweight/C-section; gestational term not reported - neither direction"}
+{"seed_rank": 136, "source": "scifact", "call": "S", "note": "E establishes persistence (reaerosolization) of weaponized spores; lethality-until-decontamination frame true as matter of fact"}
+{"seed_rank": 137, "source": "scifact", "call": "N", "note": "E compares homozygous nulls to heterozygotes and wild-type; standard reading of 'carriers' (heterozygotes) vs non-carriers is not given by E - non-unique"}
+{"seed_rank": 138, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 139, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 140, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 141, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 142, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 143, "source": "scifact", "call": "S", "note": "E carries the replication-timing/transcription/nuclear-position co-changes; ESC-differentiation context is the study setting (fact)"}
+{"seed_rank": 144, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 145, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 146, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 147, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 148, "source": "scifact", "call": "N", "note": "E studies allogeneic vs autologous MSC injections in ischemic cardiomyopathy; claim concerns mechanical circulatory support in AMI - different intervention; E also shows no allogeneic inferiority"}
+{"seed_rank": 149, "source": "scifact", "call": "R", "note": "nutrition-related risks (sodium diet, undernutrition, cholesterol) are among E's top DALY contributors - claim's negation unsupported"}
+{"seed_rank": 150, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 151, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 152, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 153, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 154, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 155, "source": "scifact", "call": "R", "note": "E casts IL-18 as driver of plaque destabilization; repressing it would be beneficial, not negative"}
+{"seed_rank": 156, "source": "scifact", "call": "R", "note": "E's OR (least vs most deprived = 0.63) implies most-deprived have HIGHER odds of the outcome; claim says deprived are less likely"}
+{"seed_rank": 157, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 158, "source": "scifact", "call": "R", "note": ""}
+{"seed_rank": 159, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 160, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 161, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 162, "source": "scifact", "call": "S", "note": "microglia as CNS innate immune cells is established fact; E carries microglia + neuroinflammation in the CNS"}
+{"seed_rank": 163, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 164, "source": "scifact", "call": "S", "note": ""}
+{"seed_rank": 165, "source": "scifact", "call": "S", "note": ""}
