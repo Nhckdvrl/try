@@ -215,6 +215,21 @@ def main() -> int:
         assert schema.compile_prompt(arms["minus"], "base") == \
             schema.compile_prompt(arms["plus"], "base"), p2_id
 
+    # the run script itself carries the frozen kind lists: parse them and
+    # bind the "base never issued on arm-" contract to scripts/run_g24a_p2.sh
+    run_sh = os.path.join(ROOT, "scripts", "run_g24a_p2.sh")
+    text = open(run_sh, encoding="utf-8").read()
+    import re
+    m_plus = re.search(r"^KINDS_PLUS=(\S+)$", text, re.M)
+    m_minus = re.search(r"^KINDS_MINUS=(\S+)$", text, re.M)
+    assert m_plus and m_minus, "run script kind lists not found"
+    assert m_plus.group(1).split(",") == KINDS_PLUS, "run script KINDS_PLUS drift"
+    assert m_minus.group(1).split(",") == KINDS_MINUS, "run script KINDS_MINUS drift"
+    assert "base" not in m_minus.group(1).split(","), "base issued on arm- in run script"
+    for arm in ("plus", "minus"):
+        rel = f"data/items/g24a_p2_ids_{arm}.json"
+        assert rel in text, f"run script does not use {rel}"
+
     print(f"OK: {n} prompts verified (400 items x {len(KINDS_PLUS)} conditions), "
           f"wordings verbatim, G24A conditions untouched, whitelist passes")
     print(f"arm matrix: 200 claims x 2 arms; shared claim block; base "
