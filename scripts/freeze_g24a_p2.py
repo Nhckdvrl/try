@@ -26,9 +26,13 @@ Filter chain (in first-encounter order train -> dev -> test):
   F7  freshness: drop any case_id OR normalized claim present in the prior
       VitaminC pilot pools (pool_v1/pool_v2 - 200 claims already run).
   S   seeded sample: candidates in source order -> seeded shuffle ->
-      seed_rank 0..N-1 -> active 200 + reserve 40 (same-source replacements
+      seed_rank 0..N-1 -> active 200 + reserve 80 (same-source replacements
       for zero-model validity swaps only, decided after review; never by
-      "looks good for the hypothesis").
+      "looks good for the hypothesis").  Reserve was 40 at first freeze;
+      extended to 80 after the active-200 review found 44 invalid pairs
+      (= the full original reserve).  The extension is provably inert for
+      the active set: same seed + same candidate list -> same shuffle ->
+      ranks 0..239 byte-identical, only the tail grows (zero model).
 
 Outputs:
   data/items/g24a_p2_pool_v1.csv    - active 200 + reserve 40, seed ranks
@@ -64,7 +68,7 @@ LABELS = {"SUPPORTS", "REFUTES", "NOT ENOUGH INFO"}
 TEMPLATE_RE = re.compile(
     r"(?i)(less than|more than|fewer than|over|under|at least|at most)\b[^.]{0,20}\d")
 SEED = 20260927          # fixed before any inspection; documented in commit
-N_ACTIVE, N_RESERVE = 200, 40
+N_ACTIVE, N_RESERVE = 200, 80     # reserve: 40 at first freeze, 80 after review
 POOL_CSV = "data/items/g24a_p2_pool_v1.csv"
 REVIEW_MD = "data/items/g24a_p2_review_v1.md"
 

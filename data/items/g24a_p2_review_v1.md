@@ -1,6 +1,6 @@
 # G24A P2 active-200 zero-model data-validity review material
 
-Seed 20260927; 200 active pairs (+ 40 reserve, same source, next seed order) sampled from the VitaminC real-revision canonical SR pool after F1/F2/F4/F5/F6/F7.
+Seed 20260927; 200 active pairs (+ 80 reserve, same source, next seed order) sampled from the VitaminC real-revision canonical SR pool after F1/F2/F4/F5/F6/F7.
 
 Review criterion (data integrity ONLY), per pair: exactly one of Evidence A / Evidence B supports the claim as a matter of fact, and the other contradicts it as a matter of fact. Also judge: is the claim a self-contained proposition a reader can evaluate from the claim + evidence alone? Invalid pairs (wrong orientation, neither direction works, broken/elliptical text, claim not self-contained) are replaced by the next pair of the same pool in frozen seed order. No stylistic / hypothesis-based selection.
 
