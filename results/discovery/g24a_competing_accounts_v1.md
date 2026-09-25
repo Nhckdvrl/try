@@ -184,3 +184,32 @@ Purpose (single question): **why does the claim drop below its own Base after su
 - **Per cell**: read *both* claims' rationales at Base, Admit, Exclude, Strong, CF (10 rationale readings/cell → 600 total).
 - **Labels (behavioral description only — explicitly NOT mechanism)**: `still_uses_evidence`, `no_evidence=>uncertain`, `no_evidence=>claim_less_likely`, `exclusion_implies_distrust`, `reconstructs_prior/world_knowledge`, `other`.
 - **Diagnostic payoff**: if support-overshoot rationales say “without E supporting, the claim is less likely”, the model is executing `remove support ⇒ penalize claim` rather than counterfactual belief restoration — explaining Y_CF < Y0.
+
+## 11. Pilot P3 — operator-only control (spec as ruled; wording frozen pre-run; user 2026-09-26)
+
+**Motivation (post-P2 reading, user 2026-09-26)**: the structure that grew out of P2 is not “refute is harder to retract” but a more basic one — retraction largely erases evidence polarity (56.32 → 12.01 separation) yet does **not** restore Y0; it lands the judgment at a **claim-dependent but strongly compressed** center (artifact `results/g24a/g24a_p2_compression_v1.md`: corr(M_CF, Y0) = 0.701, M_CF ≈ 25.84 + 0.385·Y0, mean|Y0−50| = 22.55 → mean|M_CF−50| = 12.57) — *retraction-induced confidence contraction*. P3 asks the one question this leaves open: **is the compressed attractor a state trace of the processed evidence, or does the retraction / evidence-unavailable language frame itself recalibrate confidence?**
+
+**Design (no new dataset, no fresh sample — still explaining the discovery phenomenon)**: the same **200 discovery claims** (discovery-only lineage, `g24a_p2_figures_v1.md` §0), 5 panel models, **no arms** (support/refute evidence never rendered). **5 conditions × 200 claims × 5 models = 5,000 decision rows.**
+
+**Conditions (wording FROZEN here before any output; exact literals live in `src/conditions_g24p3.py`, verified verbatim by `scripts/verify_g24a_p3_prompts.py`):**
+
+1. **base (Base-rerun)** — byte-identical to the P2 Base prompt (claim only). Re-run absorbs temp-0 variation instead of comparing against last round's Base.
+2. **prior_only** — no Evidence E block; one note block, exactly: `No additional evidence is available. Judge the claim using only your existing/background knowledge.` — does merely *instructing* prior-only judgment contract the score?
+3. **withheld_only** — `EVIDENCE E` / `[Content unavailable.]` block, then the original question, **no ruling** — does “an evidence exists but you cannot see it” frame induce uncertainty?
+4. **withheld_strong** — same `[Content unavailable.]` block + the P1/P2 **StrongExcludePost** ruling verbatim (`conditions_g24p1.STRONG_EXCLUDE_RULE`).
+5. **withheld_cf** — same `[Content unavailable.]` block + the P1/P2 **CounterfactualDeletePost** ruling verbatim (`conditions_g24p1.CF_DELETE_RULE`).
+
+**Safety invariants (verifier-enforced)**: the base prompt is byte-identical to the P2 base prompt for every claim; the two rulings are byte-identical to the P1 module constants; **no real evidence text appears in any P3 prompt** (asserted against all 200 source evidence pairs); the withheld block is byte-identical across the three withheld conditions.
+
+**Core comparisons (descriptive; no gates, no claim selection, no evidence cell may ever be added)**:
+
+- **C1**: Y_prior_only − Y_base — if this alone contracts substantially, bare `Base` and “explicitly use prior knowledge” are not calibration-equivalent and RQ2 wording must account for it.
+- **C2**: Y_withheld_only − Y_base — if this contracts toward 50, merely *knowing* an evidence exists but is unavailable induces uncertainty contraction.
+- **C3**: Y_withheld_cf vs **M_CF^actual** (the P2 claim-level center) — if the two coincide, the attractor needs no actual evidence: **operator-induced recalibration, not persistent evidence content**; if withheld_cf ≈ Y0 while actual-evidence CF stays off Y0, processed evidence leaves a state-dependent trace.
+- Also read descriptively: withheld_strong vs M_strong^actual, and the base rerun vs P2 base (temp-0 drift calibrates C1/C2).
+
+*(These are interpretation branches with no decision role — explicitly not gates.)*
+
+**Candidate finding wording (not frozen, not an RQ, no prereg)**: “Natural-language retraction largely removes evidence-specific direction but does not restore the pre-evidence judgment; it contracts beliefs toward a more uncertain, claim-dependent state” — upgraded only if C3 lands as above.
+
+**Run**: 5 panel models, full 5,000 rows, one invocation per model, same runner args as P2 (mode reasoned, reason-tokens 110, max-model-len 4096, temp-0 digit expectation). Integrity via `check_g24a_p3_raws.py --require5`; analysis reports the three comparisons + the 5-condition trajectory, per-model, nothing else. **No freeze of any RQ. Run, report, stop (user: 跑完停).**
