@@ -26,6 +26,8 @@ Checks, for all 500 items x 5 conditions = 2,500 prompts:
      item file
  10. regression: a G24A discovery item still compiles all five conditions
      unchanged; no dispatch collision with g24p1 / g25 / g26
+ 11. run contract bound to scripts/run_g24a_confa.sh: the parsed KINDS
+     line equals the five cells, and the item/id paths match
 
 Usage: python scripts/verify_g24a_confa_prompts.py   (exit 0 = all pass)
 """
@@ -58,6 +60,7 @@ RESERVE_VALIDITY = os.path.join(
 DISCOVERY = os.path.join(ROOT, "data", "items", "g24a_v1.jsonl")
 CANDIDATES = os.path.join(ROOT, "data", "items",
                           "g24a_candidates_v1.jsonl")
+RUN = os.path.join(ROOT, "scripts", "run_g24a_confa.sh")
 KINDS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 PRE = {"admit_pre", "exclude_pre"}
 
@@ -181,6 +184,14 @@ def main() -> int:
     for k in KINDS:
         assert schema._blocks(disc[0], k) == g24a.blocks(disc[0], k), k
         schema.compile_prompt(disc[0], k)
+
+    # ---- run contract bound to scripts/run_g24a_confa.sh ------------------
+    text = open(RUN, encoding="utf-8").read()
+    m = re.search(r"^KINDS=(\S+)$", text, re.M)
+    assert m, "run script KINDS line missing"
+    assert m.group(1).split(",") == KINDS, "run script KINDS drift"
+    assert "data/items/g24a_confa_ids.json" in text, "run script id path drift"
+    assert "data/items/g24a_confa_v1.jsonl" in text, "run script items path drift"
 
     print(f"OK: {n} prompts verified (500 items x {len(KINDS)} conditions); "
           "wordings verbatim, G24A module untouched, pre/post arms "
