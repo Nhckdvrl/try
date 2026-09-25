@@ -23,6 +23,7 @@ import conditions_g23a as g23a
 import conditions_g23b as g23b
 import conditions_g24a as g24a
 import conditions_g24p1 as g24p1
+import conditions_g24p3 as g24p3
 import conditions_g25 as g25
 import conditions_g26a as g26
 import conditions_agent as ag
@@ -88,6 +89,11 @@ G26A_CONDITIONS = g26.G26A_CONDITIONS
 # (g24a_p1_v1.jsonl; dispatch on condition name — see conditions_g24p1)
 G24P1_CONDITIONS = g24p1.G24P1_CONDITIONS
 
+# Pilot P3: operator-only control, evidence content never rendered
+# (g24a_p3_v1.jsonl; dispatch on condition name — see conditions_g24p3;
+# registration §11)
+G24P3_CONDITIONS = g24p3.G24P3_CONDITIONS
+
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
 
@@ -152,6 +158,15 @@ def _blocks(item: Item, cond: str):
     # the G24A branch below and stay character-identical to G24A.
     if g24p1.is_g24p1(cond):
         return g24p1.blocks(item, cond)
+    # Pilot P3 operator-only control: dispatch on the condition name FIRST —
+    # the four frame-only cells run over the same g24a_vitaminc items (no
+    # arms; the withheld block reads a module constant, never the item's
+    # evidence).  Every existing condition name misses this branch, so every
+    # other item file keeps its prompts bit-for-bit; `base` falls through to
+    # the G24A branch below and is byte-identical to P2's Base by
+    # construction (registration §11).
+    if g24p3.is_g24p3(cond):
+        return g24p3.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
