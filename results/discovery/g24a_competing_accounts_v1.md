@@ -33,11 +33,11 @@ Prereg gates are recorded as-is and are not re-read here: P1 PASS, **P2 FAIL** (
 
 - **A — Contradiction persistence / belief-state irreversibility.** Once E was integrated as a negative belief update, un-integrating is harder. Key prediction: post asymmetry ≫ pre asymmetry, and the asymmetry survives matched prior and matched leverage; it may still persist under explicit counterfactual deletion.
 - **B — Claim-form / prior asymmetry.** Decrease claims are intrinsically more false-looking (negation-ish phrasing, odd content, lower parametric prior); once evidence is withdrawn the score reverts to prior, which mimics "evidence not withdrawn". Already weakened in discovery: byte-exact same evidence; non-negation subset *stronger* (−55.67/91.2% vs −29.40/85.3%); ΔY0 common support (|ΔY0|≤5/10/20 → dC_post −37~−40, 86.7–88.4%); joint |ΔY0|≤10 & |ΔA_post|≤10 → −29.90/83.3% (n=12). Confirmatory design must still pin it down.
-- **C — Uncertainty-reset heuristic / instruction semantics.** The model does not execute `remove contribution of E`; it executes "express less certainty / return to uncertainty". For an evidence-supported claim 90→50 looks like successful removal; for a claim already at ~10 the same heuristic never lifts it back to baseline, so it displays as contradiction persistence. An instruction-interpretation artifact — no negative-belief irreversibility required. **The next experiment should primarily separate A from C.**
+- **C — Operator / instruction-semantics account (broadened 2026-09-25, pre-P1).** The model does not interpret an ordinary "exclude/disregard" ruling as a genuine counterfactual deletion of E; it executes some approximate, direction-asymmetric linguistic operation instead (the original *uncertainty-reset heuristic* is one special case of this class: "express less certainty" → 90→50 looks like successful removal for a supported claim, while an already-refuted claim at ~10 never rises back to baseline and thus displays as contradiction persistence). An instruction-interpretation artifact — no negative-belief irreversibility required. **The next experiment should primarily separate A from C.**
 
 ## 3. Prediction table (the one page)
 
-| Manipulation / observation | A contradiction persistence | B claim prior/form | C uncertainty-reset heuristic | discovery status (already observed?) |
+| Manipulation / observation | A contradiction persistence | B claim prior/form | C operator / instruction semantics | discovery status (already observed?) |
 |---|---|---|---|---|
 | pre exclusion | asymmetry weak | asymmetry possible | asymmetry possible | **observed**: dC_pre −3.03, 69.4% negative (weak) |
 | post exclusion | asymmetry strong | similar pre/post unless timing interacts | strong directional artifact | **observed**: dC_post −42.28, 89.1% negative (strong) |
@@ -48,12 +48,36 @@ Prereg gates are recorded as-is and are not re-read here: P1 PASS, **P2 FAIL** (
 
 Readout logic: ExcludePost vs CounterfactualDeletePost (same admissible information) on matched pairs — if counterfactual deletion returns **both** polarities to baseline, the asymmetry was instruction semantics (C, with B's prior contributing); if contradiction still fails to return, A gains direct support; B is pinned by the prior/leverage-matched subsets (rows 4) plus any baseline differences in Y_base itself.
 
-## 4. Candidate pilot (design sketch only — NOT run, NOT prereg, awaiting user decision)
+## 4. Pilot P1 — spec as ruled (frozen pre-run; user, 2026-09-25)
 
-- Conditions: `Base`, `Admit`, `ExcludePost`, `CounterfactualDeletePost` ("Evaluate the claim exactly as you would have if Evidence E had never been shown"). ExcludePost and CounterfactualDeletePost are informationally identical.
-- Items: natural fresh pairs from the census — 1,582 groups / 10,119 items, of which **243 are (1,1)**; 1,340 groups have evidence never seen in discovery (strictly-unseen subset selectable from `g24a_fresh_pair_census_v1_groups.csv`). No synthetic construction, no rarity funnel, no model-conditioned selection.
-- Primary discriminator: Δ(CounterfactualDeletePost − ExcludePost) by polarity.
-- Explicitly deferred: sampling choice, model panel, gates, prereg — user decides after census + this table.
+**Material** (frozen at `1497c63`, seed 20260926, zero model output): **96 strictly-unseen (1,1) exact-evidence groups = 64 FEVER + 32 SciFact**, drawn only from `evidence_seen_in_discovery600=False` (pool verified 224 = 168+56). Zero-model data-integrity review only (does E actually support the increase claim and undermine the decrease claim?); semantic errors replaced by the **next group of the same source in frozen seed order** — never by hypothesis-flattering criteria. **128 strict-fresh (1,1) groups remain untouched as holdout.**
+
+**Conditions (5)** — no selector, no Phase A, no funnel, no gates, no staged stopping:
+1. `Base` — claim only.
+2. `AdmitPost` — G24A post-admit, unchanged.
+3. `ExcludePost` — **original G24A wording, character-identical**.
+4. `StrongExcludePost` — *strong wording control* (pre-empts "you just wrote a stronger instruction"): "Evidence E is inadmissible. Completely disregard it when judging the claim. It must have no influence on your judgment in either direction, directly or indirectly. Judge the claim using only information available without relying on Evidence E."
+5. `CounterfactualDeletePost` — "Evaluate the claim exactly as you would have if Evidence E had never been shown. Reconstruct the judgment you would have made before encountering Evidence E. Evidence E must have no influence on the answer in either direction, directly or indirectly."
+
+`ExcludePost` and `CounterfactualDeletePost` are informationally identical. Lengths roughly comparable — **no ±2-token filler** (exploratory discriminator, not final confirmatory design).
+
+**Run**: 5-model full panel (mistral-small-24b, llama31-8b, gemma3-12b, qwen3-8b, qwen35-9b) × 192 claims × 5 conditions = **4,800 decision rows**.
+
+**Readout — four quantities, no KILL gate** (polarity s = +1 increase claim, −1 decrease claim):
+
+A = s(Y_Admit − Y_Base) — leverage · C_k = s(Y_k − Y_Admit) — intervention effect · R_k = s(Y_k − Y_Base) — residual · D_k = |Y_k − Y_Base| — "did it return to pre-evidence?"
+
+Ideal counterfactual removal: **R_k = 0, C_k = −A**. Within-pair: dC_k = C_k^inc − C_k^dec. No model-conditioned usable selection: small-A items are kept and displayed as leverage; leverage regions may be described post hoc, never used to filter.
+
+**Outcome map (pre-run interpretation guide)**:
+- **P**: Exclude asymmetry large, StrongExclude still large, CounterfactualDelete → Base with decrease side rescued → *ordinary exclusion does not implement counterfactual deletion* → paper: **"disregard" and "act as if unseen" are behaviorally different evidence-control operators.**
+- **Q**: StrongExclude and CounterfactualDelete both improve a lot → generic instruction-strength / compliance, weaker scientific depth but explains the mechanism.
+- **R**: neither rescues (especially decrease: Y_intervention ≈ Y_Admit) while support returns → **contradictory evidence genuinely persists after integration** → Account A strongly supported.
+- **S**: CounterfactualDelete brings both sides to Base while ordinary exclusion overshoots/sticky → **the exclusion operator is semantically misimplemented** (not "negative evidence is stronger").
+
+Any pattern answers the already-observed question (why retrospective exclusion behaves asymmetrically by polarity) — this is explanation-driven progression, not a lottery ticket.
+
+**Deferred by ruling**: no full rationale coding this round — numerical trajectories first (Base→Admit→k per operator), matched qualitative reading only from discriminating patterns.
 
 ## 5. Novelty first pass (user-run 2026-09-25): SERIOUS PASS, no direct owner found yet
 
@@ -68,4 +92,4 @@ Readout logic: ExcludePost vs CounterfactualDeletePost (same admissible informat
 
 - All numbers in §1–§3 are discovery-layer observations from the post-fix full rerun; `e3e954d` lineage is discovery-only, not a strict prereg-confirmatory rerun (selection pass ran on the old claims) — carry this caveat in any write-up.
 - Any item-level claim must carry the temp-0 retest caveat (selection vs main pass, identical prompts, 548 non-rewritten items / 1,644 rows: exact-equal 71.8% of rows, argmax flips 6.4%, pearson 0.981 — `g24a_data_quality_audit_v1.md` §E).
-- No models run, no prereg created, no gates added by this document. Next step is the user's decision on the discriminating pilot.
+- No models run, no prereg created, no gates added by this document. Pilot P1 was ruled by the user on 2026-09-25 and is executed per §4 (spec frozen pre-run at `1497c63`).
