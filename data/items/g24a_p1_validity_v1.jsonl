@@ -1,0 +1,104 @@
+{"source": "fever", "seed_rank": 0, "role": "initial", "group_sha": "0c6800fb98", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 1, "role": "initial", "group_sha": "8ab41d7c96", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 2, "role": "initial", "group_sha": "b03a779396", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 3, "role": "initial", "group_sha": "862d663bdc", "reviewed": true, "verdict": "valid", "note": "inc weak: actress -> 'on a television show' (weak positive, direction ok)"}
+{"source": "fever", "seed_rank": 4, "role": "initial", "group_sha": "7bc1d63c46", "reviewed": true, "verdict": "valid", "note": "inc weak: actor -> 'is famous' (weak positive, direction ok)"}
+{"source": "fever", "seed_rank": 5, "role": "initial", "group_sha": "d90f0f36bc", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 6, "role": "initial", "group_sha": "01df2d47f2", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 7, "role": "initial", "group_sha": "080a6c2bd0", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 8, "role": "initial", "group_sha": "0aa4aeed0f", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 9, "role": "initial", "group_sha": "3af0580f9b", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 10, "role": "initial", "group_sha": "b05287b62f", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 11, "role": "initial", "group_sha": "c8e543ff59", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 12, "role": "initial", "group_sha": "2295b52ec4", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 13, "role": "initial", "group_sha": "234717bc1f", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 14, "role": "initial", "group_sha": "8062eda8e9", "reviewed": true, "verdict": "invalid", "note": "inc labeled increase but E refutes it (E: teams up with Iron Fist; claim: did not team up) - negation rewrite on the increase side", "replaced_by_rank": 64, "replaced_by_sha": "a1d49f957c"}
+{"source": "fever", "seed_rank": 15, "role": "initial", "group_sha": "6da30661c0", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 16, "role": "initial", "group_sha": "e059650125", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 17, "role": "initial", "group_sha": "2c34b2565b", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 18, "role": "initial", "group_sha": "f360f8b694", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 19, "role": "initial", "group_sha": "8216ed3c31", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 20, "role": "initial", "group_sha": "57dd206baa", "reviewed": true, "verdict": "valid", "note": "dec weak: cricketer vs musician (wiki closed-world refutation)"}
+{"source": "fever", "seed_rank": 21, "role": "initial", "group_sha": "494e225216", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 22, "role": "initial", "group_sha": "f81d4310d0", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 23, "role": "initial", "group_sha": "b0f96d949b", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 24, "role": "initial", "group_sha": "f0196dc603", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 25, "role": "initial", "group_sha": "d63fe9fc86", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 26, "role": "initial", "group_sha": "ab892e0591", "reviewed": true, "verdict": "invalid", "note": "inc 'technical writer' vs E 'novelist and essayist' - E does not make the claim more likely (profession substitution)", "replaced_by_rank": 65, "replaced_by_sha": "13bbced4e0"}
+{"source": "fever", "seed_rank": 27, "role": "initial", "group_sha": "b180197526", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 28, "role": "initial", "group_sha": "f0174765dd", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 29, "role": "initial", "group_sha": "1d71e1b002", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 30, "role": "initial", "group_sha": "fb37cb9aa9", "reviewed": true, "verdict": "valid", "note": "paraphrase: resignation effective 2010-01-01 == retirement from WWE"}
+{"source": "fever", "seed_rank": 31, "role": "initial", "group_sha": "2a3255de71", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 32, "role": "initial", "group_sha": "33f8620216", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 33, "role": "initial", "group_sha": "f7547bfefb", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 34, "role": "initial", "group_sha": "e3f49ec377", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 35, "role": "initial", "group_sha": "cf29f7401a", "reviewed": true, "verdict": "valid", "note": "agent 'he' supplied by claim context (dataset anaphora style)"}
+{"source": "fever", "seed_rank": 36, "role": "initial", "group_sha": "e30b1f6fa0", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 37, "role": "initial", "group_sha": "62554839bb", "reviewed": true, "verdict": "invalid", "note": "dec claim (PM in 2009 after the first PM of India) is consistent with E (PM 2004-2014) - decrease side not undermined", "replaced_by_rank": 66, "replaced_by_sha": "9edc7a0d5b"}
+{"source": "fever", "seed_rank": 38, "role": "initial", "group_sha": "2d03f3662c", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 39, "role": "initial", "group_sha": "6cbe0db683", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 40, "role": "initial", "group_sha": "4ea809259a", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 41, "role": "initial", "group_sha": "93ab4ab661", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 42, "role": "initial", "group_sha": "dcd7c79741", "reviewed": true, "verdict": "valid", "note": "'eponymous actor': film subject listed as actor in E"}
+{"source": "fever", "seed_rank": 43, "role": "initial", "group_sha": "634a5a7bf7", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 44, "role": "initial", "group_sha": "d12dd79259", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 45, "role": "initial", "group_sha": "9f5081e9a1", "reviewed": true, "verdict": "valid", "note": "dec weak: actor vs dancer (wiki closed-world refutation)"}
+{"source": "fever", "seed_rank": 46, "role": "initial", "group_sha": "00246702d1", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 47, "role": "initial", "group_sha": "a736c80e61", "reviewed": true, "verdict": "valid", "note": "inc weak: third series commissioned -> 'has three series'"}
+{"source": "fever", "seed_rank": 48, "role": "initial", "group_sha": "92b07c2b9d", "reviewed": true, "verdict": "valid", "note": "dec weak: profession-stated vs singer (wiki closed-world refutation)"}
+{"source": "fever", "seed_rank": 49, "role": "initial", "group_sha": "3ac4b52efa", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 50, "role": "initial", "group_sha": "279980b841", "reviewed": true, "verdict": "invalid", "note": "inc 'Wales is an island' vs E 'country that is part of ... the island of Great Britain' - E undercuts the claim", "replaced_by_rank": 67, "replaced_by_sha": "7400f170ab"}
+{"source": "fever", "seed_rank": 51, "role": "initial", "group_sha": "4c8f926d12", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 52, "role": "initial", "group_sha": "fa15646b91", "reviewed": true, "verdict": "valid", "note": "dec weak: album vs song (category refutation)"}
+{"source": "fever", "seed_rank": 53, "role": "initial", "group_sha": "a78e3bd7d1", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 54, "role": "initial", "group_sha": "de842ad87f", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 55, "role": "initial", "group_sha": "85a06caaee", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 56, "role": "initial", "group_sha": "742089df5a", "reviewed": true, "verdict": "invalid", "note": "inc 'did not experience the defeat' vs E 'Early in his reign, Great Britain defeated France' - direction reversed", "replaced_by_rank": 68, "replaced_by_sha": "76bbac307e"}
+{"source": "fever", "seed_rank": 57, "role": "initial", "group_sha": "d2994cae2a", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 58, "role": "initial", "group_sha": "e739546b88", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 59, "role": "initial", "group_sha": "81facdbc5e", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 60, "role": "initial", "group_sha": "70f3bba212", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 61, "role": "initial", "group_sha": "2c627de16c", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 62, "role": "initial", "group_sha": "00138ae21b", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "fever", "seed_rank": 63, "role": "initial", "group_sha": "7ecdf4d163", "reviewed": true, "verdict": "invalid", "note": "inc 'landlocked' vs E 'deepwater offshore' - direction reversed", "replaced_by_rank": 69, "replaced_by_sha": "6032d38b5a"}
+{"source": "fever", "seed_rank": 64, "role": "replacement", "group_sha": "a1d49f957c", "reviewed": true, "verdict": "valid", "note": "ok", "replaces_rank": 14, "replaces_sha": "8062eda8e9"}
+{"source": "fever", "seed_rank": 65, "role": "replacement", "group_sha": "13bbced4e0", "reviewed": true, "verdict": "valid", "note": "ok", "replaces_rank": 26, "replaces_sha": "ab892e0591"}
+{"source": "fever", "seed_rank": 66, "role": "replacement", "group_sha": "9edc7a0d5b", "reviewed": true, "verdict": "valid", "note": "claim name typo 'Morse Corde' ~ 'Morse code'; direction intact", "replaces_rank": 37, "replaces_sha": "62554839bb"}
+{"source": "fever", "seed_rank": 67, "role": "replacement", "group_sha": "7400f170ab", "reviewed": true, "verdict": "valid", "note": "predicate looseness: E says distributed, claim says produced; same-studio involvement weak positive, direction ok", "replaces_rank": 50, "replaces_sha": "279980b841"}
+{"source": "fever", "seed_rank": 68, "role": "replacement", "group_sha": "76bbac307e", "reviewed": true, "verdict": "valid", "note": "inc weak: power ballad -> 'is single'", "replaces_rank": 56, "replaces_sha": "742089df5a"}
+{"source": "fever", "seed_rank": 69, "role": "replacement", "group_sha": "6032d38b5a", "reviewed": true, "verdict": "valid", "note": "ok", "replaces_rank": 63, "replaces_sha": "7ecdf4d163"}
+{"source": "scifact", "seed_rank": 0, "role": "initial", "group_sha": "af4a78996c", "reviewed": true, "verdict": "valid", "note": "knockout-mice detail not in E; main clause supported"}
+{"source": "scifact", "seed_rank": 1, "role": "initial", "group_sha": "c3e97b1e49", "reviewed": true, "verdict": "valid", "note": "modality: E projects reduction ('could mitigate'), claim in past tense; direction ok"}
+{"source": "scifact", "seed_rank": 2, "role": "initial", "group_sha": "fd26d2a715", "reviewed": true, "verdict": "valid", "note": "'premenopausal' clause not in E; main association supported"}
+{"source": "scifact", "seed_rank": 3, "role": "initial", "group_sha": "76badcd0c8", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 4, "role": "initial", "group_sha": "32723d938a", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 5, "role": "initial", "group_sha": "5465d3e996", "reviewed": true, "verdict": "invalid", "note": "inc (FoxO3a activation mediated by ROS) not addressed by E (Sir2/FOXO longevity, no ROS, no neuronal death) - no bearing", "replaced_by_rank": 32, "replaced_by_sha": "e0d5b1943f"}
+{"source": "scifact", "seed_rank": 6, "role": "initial", "group_sha": "62a595ceec", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 7, "role": "initial", "group_sha": "876b208bcc", "reviewed": true, "verdict": "invalid", "note": "dec (normal granulomas form in the presence of TNF) is consistent with E (TNF maintains granuloma integrity) - decrease side not undermined; presence/absence are not contradictories here", "replaced_by_rank": 33, "replaced_by_sha": "b99675450c"}
+{"source": "scifact", "seed_rank": 8, "role": "initial", "group_sha": "87f335a320", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 9, "role": "initial", "group_sha": "c5cc829617", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 10, "role": "initial", "group_sha": "cae3e50ea1", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 11, "role": "initial", "group_sha": "76f5fdd9ef", "reviewed": true, "verdict": "valid", "note": "exercise-specific attribution from lifestyle composite; direction ok"}
+{"source": "scifact", "seed_rank": 12, "role": "initial", "group_sha": "f3361096a8", "reviewed": true, "verdict": "valid", "note": "association (recruitment under inflammation) -> capacity; direction ok"}
+{"source": "scifact", "seed_rank": 13, "role": "initial", "group_sha": "9615cd2c7e", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 14, "role": "initial", "group_sha": "20bf6fbf70", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 15, "role": "initial", "group_sha": "bccffa8b40", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 16, "role": "initial", "group_sha": "c63f9eaa78", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 17, "role": "initial", "group_sha": "ab20774181", "reviewed": true, "verdict": "valid", "note": "ND3/ND6 detail not in E; main clause supported"}
+{"source": "scifact", "seed_rank": 18, "role": "initial", "group_sha": "d75b4f2510", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 19, "role": "initial", "group_sha": "1b69f798c8", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 20, "role": "initial", "group_sha": "e66817f338", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 21, "role": "initial", "group_sha": "e77efdb9ab", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 22, "role": "initial", "group_sha": "a1314c14e5", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 23, "role": "initial", "group_sha": "5752dcb782", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 24, "role": "initial", "group_sha": "a27cec9ad0", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 25, "role": "initial", "group_sha": "428b3ea1c3", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 26, "role": "initial", "group_sha": "00b32b76ab", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 27, "role": "initial", "group_sha": "efe9530c55", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 28, "role": "initial", "group_sha": "ea9c605f0e", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 29, "role": "initial", "group_sha": "c5788fbeb2", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 30, "role": "initial", "group_sha": "e8e11aaf0e", "reviewed": true, "verdict": "valid", "note": "ok"}
+{"source": "scifact", "seed_rank": 31, "role": "initial", "group_sha": "767933a013", "reviewed": true, "verdict": "valid", "note": "therapy components not in E; superiority direction supported"}
+{"source": "scifact", "seed_rank": 32, "role": "replacement", "group_sha": "e0d5b1943f", "reviewed": true, "verdict": "valid", "note": "agent (Microcin J25) supplied by claim context; E describes the inhibition itself", "replaces_rank": 5, "replaces_sha": "5465d3e996"}
+{"source": "scifact", "seed_rank": 33, "role": "replacement", "group_sha": "b99675450c", "reviewed": true, "verdict": "valid", "note": "weak bearing: E has insulin-maintenance, claims have myeloid skew; mirror structure keeps both directions correct", "replaces_rank": 7, "replaces_sha": "876b208bcc"}
