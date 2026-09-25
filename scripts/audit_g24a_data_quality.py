@@ -224,6 +224,40 @@ def main() -> int:
     if len(items) != 600 or len(by_id) != 600:
         stop("C-items", f"item file expected 600 unique, got n={len(items)} uniq={len(by_id)}")
 
+    # ---- manual-review dispositions applied to the item file (2026-09-25) ---
+    # The600-item manual review produced 52 fix_claim rewrites (field
+    # base_context) + 4 flip_direction sign corrections (field
+    # critical_direction), applied in commit 92d8cd0 after the selection pass
+    # had already run on the pre-fix candidates pool. Sections C and E assert
+    # that drift versus the candidates pool equals EXACTLY this documented
+    # set, field by field: any OTHER drift still hard-stops the audit, and a
+    # documented edit that is absent from the item file also hard-stops it.
+    DISP_PATH = "results/discovery/g24a_item_manual_review/dispositions.jsonl"
+    disp_fields: dict[str, set] = {}   # item_id -> set of edited fields
+    disp_dir: dict[str, str] = {}      # item_id -> recorded direction_new (flip)
+    if os.path.exists(DISP_PATH):
+        for _l in open(DISP_PATH):
+            if not _l.strip():
+                continue
+            _d = json.loads(_l)
+            if _d.get("action") == "fix_claim":
+                disp_fields.setdefault(_d["item_id"], set()).add("base_context")
+            elif _d.get("action") == "flip_direction":
+                disp_fields.setdefault(_d["item_id"], set()).add("critical_direction")
+                disp_dir[_d["item_id"]] = _d["direction_new"]
+    report["dispositions_applied"] = {
+        "path": DISP_PATH,
+        "fix_claim_items": sum(1 for f in disp_fields.values() if "base_context" in f),
+        "flip_direction_items": len(disp_dir),
+    }
+    for _iid in sorted(disp_fields):
+        if _iid not in by_id:
+            stop("C-items", f"disposition references unknown item: {_iid}")
+    _n_fix = sum(1 for f in disp_fields.values() if "base_context" in f)
+    if (_n_fix, len(disp_dir)) != (52, 4):
+        stop("C-items", f"disposition record counts changed: fix={_n_fix} (expected 52), "
+                        f"flip={len(disp_dir)} (expected 4)")
+
     # ---- A: row integrity --------------------------------------------------
     rows_by_model: dict[str, dict[tuple, dict]] = {}
     rows_sha = {}
@@ -480,6 +514,7 @@ def main() -> int:
                 field_missing.append(f"{it.item_id}.{f}")
     mapping = collections.Counter()
     bad_map = []
+    documented_flip_dir = []
     label_by_stratum = {}
     for it in items:
         meta = it.meta if isinstance(it.meta, dict) else {}
@@ -489,9 +524,19 @@ def main() -> int:
         src = meta.get("source")
         want_dir = {"fever/SUPPORTS": "increase", "fever/REFUTES": "decrease",
                     "scifact/SUPPORT": "increase", "scifact/CONTRADICT": "decrease"}.get(s)
-        ok = (want_dir is not None and it.critical_direction == want_dir
-              and (it.task_family == "g24a_fever") == (src == "fever"))
-        if not ok:
+        fam_ok = (it.task_family == "g24a_fever") == (src == "fever")
+        if it.item_id in disp_dir:
+            # Manual review overturned the label-derived direction for this
+            # item (upstream label/evidence decoupling, batch 1/3/4 verdicts):
+            # assert instead that the direction equals the recorded
+            # disposition value byte-exactly, and that family/source still hold.
+            if fam_ok and it.critical_direction == disp_dir[it.item_id]:
+                documented_flip_dir.append(it.item_id)
+            else:
+                bad_map.append(f"{it.item_id} stratum={s} dir={it.critical_direction} "
+                               f"documented_flip_expects={disp_dir[it.item_id]} "
+                               f"src={src} fam={it.task_family}")
+        elif not (want_dir is not None and it.critical_direction == want_dir and fam_ok):
             bad_map.append(f"{it.item_id} stratum={s} dir={it.critical_direction} src={src} fam={it.task_family}")
     identical_rules = cnt(lambda it: it.admit_rule == PREREG_ADMIT_RULE)
     identical_exc = cnt(lambda it: it.exclude_rule == PREREG_EXCLUDE_RULE)
@@ -518,6 +563,7 @@ def main() -> int:
         "stratum_counts": dict(mapping),
         "stratum_gold_labels": {k: sorted(v, key=str) for k, v in label_by_stratum.items()},
         "mapping_violations": bad_map[:20],
+        "direction_flips_documented": sorted(documented_flip_dir),
         "ground_truth_values": gt_values,
         "evidence_equals_claim": ev_eq_claim,
         "task_family_counts": dict(collections.Counter(it.task_family for it in items)),
@@ -574,25 +620,38 @@ def main() -> int:
                 sel[(r["item_id"], r["kind_name"])] = r
         m = rows_by_model["mistral-small-24b"]
 
-        # E1: item drift ruled out? (selection ran over candidates; main ran g24a_v1)
+        # E1: item drift vs candidates must equal EXACTLY the documented
+        # disposition set (the selection pass ran the pre-fix pool BY DESIGN;
+        # the item file was corrected afterwards in commit 92d8cd0). Any
+        # undocumented drift - or a documented edit absent from the item file
+        # - hard-stops the audit.
         cand = {}
         if os.path.exists(CANDIDATES_PATH):
             for l in open(CANDIDATES_PATH):
                 r = json.loads(l)
                 if r["item_id"] in by_id:
                     cand[r["item_id"]] = r
-        item_drift = []
+        drift_fields: dict[str, list] = {}
+        e1_problems = []
         for it in items:
             c = cand.get(it.item_id)
             if c is None:
-                item_drift.append(f"{it.item_id}: missing in candidates")
-            else:
-                a = json.dumps(c, sort_keys=True, ensure_ascii=False)
-                b = json.dumps(json.loads(it.to_json()), sort_keys=True, ensure_ascii=False)
-                if a != b:
-                    item_drift.append(f"{it.item_id}: field differs")
-        if item_drift:
-            stop("E-retest", f"selection vs main item text drift: {item_drift[:5]}")
+                e1_problems.append(f"{it.item_id}: missing in candidates")
+                continue
+            cur = json.loads(it.to_json())
+            diffs = sorted(k for k in set(c) | set(cur) if c.get(k) != cur.get(k))
+            if diffs:
+                drift_fields[it.item_id] = diffs
+        for iid, fields in sorted(disp_fields.items()):
+            if drift_fields.get(iid, []) != sorted(fields):
+                e1_problems.append(f"{iid}: drift={drift_fields.get(iid, [])} "
+                                   f"documented={sorted(fields)}")
+        for iid, fields in sorted(drift_fields.items()):
+            if iid not in disp_fields:
+                e1_problems.append(f"{iid}: UNDOCUMENTED drift in {fields}")
+        item_drift = e1_problems[:5]
+        if e1_problems:
+            stop("E-retest", f"selection vs main item drift mismatch: {e1_problems[:5]}")
 
         # E2: decode-relevant runner args identical between the two pass scripts?
         # (--out/--kinds/--items differ BY DESIGN: pass-specific.)
@@ -627,7 +686,16 @@ def main() -> int:
         worst = []
         vsel, vmain = [], []
         worst_key, worst_rec, max_d = None, None, -1.0
+        # Retest scope: items whose claim was rewritten after the selection
+        # pass ran different prompts in the two passes BY DESIGN -> excluded.
+        # Flip items stay IN (direction is scoring metadata, not prompt
+        # text); the n_prompt_tokens equality stop below would catch it if
+        # that assumption were wrong.
+        fix_items = {i for i, f in disp_fields.items() if "base_context" in f}
+        retest_items = [it.item_id for it in items if it.item_id not in fix_items]
         for key, sr in sel.items():
+            if key[0] in fix_items:
+                continue
             mr = m.get(key)
             if mr is None:
                 continue
@@ -692,13 +760,22 @@ def main() -> int:
              "runner_args_equal": args_equal,
              "decode_flags_selection": decode_sel, "decode_flags_main": decode_main,
              "item_text_drift_vs_candidates": item_drift[:5],
-             "diagnosis": ("prompts identical (n_prompt_tokens 1800/1800, item text byte-identical, "
-                           "runner args identical) yet values differ -> temp-0 vLLM is not "
-                           "batch-composition invariant; the divergence amplifies through the "
-                           "two-stage greedy decode (rationale flips)"),
+             "documented_drift_items": len(drift_fields),
+             "drift_fields_by_item": drift_fields,
+             "retest_items": len(retest_items),
+             "retest_rows_expected": 3 * len(retest_items),
+             "diagnosis": (f"prompts identical across passes on all {len(retest_items)} non-rewritten "
+                           f"items (n_prompt_tokens {ntok_eq}/{joined}, prompt-relevant item text "
+                           "byte-identical, runner args identical) yet values differ -> temp-0 vLLM "
+                           "is not batch-composition invariant; the divergence amplifies through the "
+                           "two-stage greedy decode (rationale flips). The 52 claim-rewritten items "
+                           "ran pre-rewrite prompts in the selection pass and are excluded from the "
+                           "retest; single-cell values remain run-specific near boundaries."),
              }
-        if joined != 1800:
-            stop("E-crossrun", f"selection join expected 1800 rows, got {joined}")
+        expected_join = 3 * len(retest_items)
+        if joined != expected_join:
+            stop("E-crossrun", f"selection join expected {expected_join} rows "
+                               f"({len(retest_items)} items x 3 kinds), got {joined}")
         if ntok_eq != joined:
             stop("E-crossrun", f"selection vs main n_prompt_tokens mismatch on {joined - ntok_eq} rows")
     else:
@@ -778,6 +855,8 @@ def main() -> int:
           f"- strata: {C['stratum_counts']}",
           f"- directions: {C['direction_counts']}; families: {C['task_family_counts']}",
           f"- mapping violations: {len(C['mapping_violations'])}",
+          f"- documented direction flips (manual review; label-derived mapping overridden): "
+          f"{C['direction_flips_documented']}",
           f"- ground_truth values: {C['ground_truth_values']}",
           f"- evidence == claim: {len(C['evidence_equals_claim'])}",
           f"- empty required fields: {len(C['empty_required_fields'])}", ""]
@@ -800,9 +879,13 @@ def main() -> int:
     L += [
         f"- decode-relevant runner args identical: {E.get('runner_args_equal')}  "
         f"(selection: {E.get('decode_flags_selection')}; main: {E.get('decode_flags_main')})",
-        f"- item text drift vs candidates: {len(E.get('item_text_drift_vs_candidates') or [])} "
-        "(600/600 byte-identical when present)",
-        f"- joined {E.get('joined_rows')} rows; n_prompt_tokens equal {E.get('n_prompt_tokens_equal')}/"
+        f"- item drift vs candidates: {E.get('documented_drift_items')} items — exactly the documented "
+        "52 claim rewrites (base_context) + 4 direction flips (critical_direction); "
+        f"{600 - (E.get('documented_drift_items') or 0)}/600 items byte-identical, "
+        "undocumented drift = 0 (anything else hard-stops)",
+        f"- retest scope: {E.get('retest_items')}/600 items (the 52 rewritten-claim items are excluded: "
+        "their selection-pass prompts differ by design); "
+        f"joined {E.get('joined_rows')} rows; n_prompt_tokens equal {E.get('n_prompt_tokens_equal')}/"
         f"{tot} — prompts identical across passes",
         f"- value bands: ==0 {b.get('==0', 0)} ({b.get('==0', 0) / tot:.1%}), "
         f"<=1 {b.get('<=1', 0)}, <=10 {b.get('<=10', 0)}, 10-50 {b.get('10-50', 0)}, >50 {b.get('>50', 0)}",
@@ -831,6 +914,11 @@ def main() -> int:
           "- `25316a9` 09-24 03:16 — g24a harness frozen (conditions/builder/selector/analyzer)",
           "- `b3fe84d` 09-24 04:22 — selection pass + selector early-stop fix (selector script only)",
           "- `1ffd52d`/`59ec3c4`/`6eb405a`/`c661db0` 09-24 04:27–04:36 — five main-pass raws committed at creation",
+          "- `92d8cd0` 09-25 12:31 — manual-review dispositions applied to the item file "
+          "(52 claim rewrites + 4 direction flips; 56 lines); `52b583f` — all pre-rerun analyses "
+          "discarded; `e4319cb` 09-25 12:47 — full 600-item x 5-model main-pass re-run on the "
+          "corrected item file (selection pass intentionally NOT rerun: candidate pool unchanged; "
+          "this audit is computed on the regenerated raws)",
           "- `git diff c661db0..HEAD -- src/schema.py src/conditions_g24a.py src/run_model.py` — only additive "
           "G25A/G26A dispatch; the G24A path is bit-for-bit unchanged (audited separately)",
           "- source provenance: `data/external/review/G24A_SOURCE_DATA_AUDIT_v1` (09-24 02:33) — pinned SHA-256 "
