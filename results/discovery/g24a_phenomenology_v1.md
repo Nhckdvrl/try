@@ -9,8 +9,12 @@ Unit: item x model. Definitions (G0-compatible):
 - `L_pre = s*(Y_exclude_pre - Y_base)` — prospective residual
 - `L_post = s*(Y_exclude_post - Y_base)` — retrospective residual
 - `gain = L / E` (ratio; unbounded as E -> 0, so medians/strata are used, never the mean)
+- `A_pre = s*(Y_admit_pre - Y_base)`, `A_post = s*(Y_admit_post - Y_base)` — admitted effect per phase (baseline Y_base)
+- `C_pre = s*(Y_exclude_pre - Y_admit_pre)`, `C_post = s*(Y_exclude_post - Y_admit_post)` — retraction from the admitted judgment after the exclude ruling; its baseline is the corresponding Y_admit_* phase, NOT Y_base (`C = 0`: no change; `C = -A`: exactly back to baseline; `C < -A`: overshoot)
 
 Identity reference lines: `L = E` (residual equals the full admitted effect = as-if-not-excluded), `L = 0` (removal), `L < 0` (opposite to the annotated direction).
+
+**Standing caveat (2026-09-25): `rho(E, L*)` shares `Y_base` mechanically and is DEMOTED to non-primary — treat it as description, not evidence. The primary cross-baseline quantities are `A*`/`C*` (section 3 note; matched-pair audit in `g24a_reversibility_v1`).**
 
 ## 0. Data and integrity
 
@@ -38,6 +42,10 @@ Duplicate (item, kind) rows: 0.
 | `E` | 3000 | +32.21 | -0.7 | +2.7 | +26.4 | +55.6 | +89.0 |
 | `L_pre` | 3000 | +19.20 | -26.5 | -0.1 | +11.1 | +44.4 | +81.5 |
 | `L_post` | 3000 | +6.62 | -53.4 | -17.6 | +2.4 | +33.7 | +66.7 |
+| `A_pre` | 3000 | +32.33 | -0.3 | +2.5 | +26.5 | +56.0 | +89.7 |
+| `A_post` | 3000 | +32.08 | -0.5 | +2.2 | +25.5 | +55.6 | +89.9 |
+| `C_pre` | 3000 | -13.13 | -57.7 | -30.5 | -0.7 | +0.0 | +5.6 |
+| `C_post` | 3000 | -25.46 | -85.9 | -54.9 | -16.4 | -0.0 | +9.0 |
 | `Y_base` | 3000 | +53.89 | +2.4 | +21.9 | +55.6 | +88.7 | +99.1 |
 | `Y_admit` | 3000 | +55.39 | +0.0 | +4.7 | +79.0 | +98.5 | +100.0 |
 | `gain_pre_Egt0`  (mean poisoned by E->0 tails; use quantiles) | 2592 | +3098646266.98 | -1.3 | +0.0 | +0.9 | +1.0 | +1.2 |
@@ -56,6 +64,10 @@ Duplicate (item, kind) rows: 0.
 ## 3. E vs residual structure (binned; identity = full leak)
 
 Pooled: spearman(E, L_pre) = +0.643, spearman(E, L_post) = +0.542 (n=3000).
+
+**Status of these rho values: DEMOTED (2026-09-25). `E` and `L*` both contain `Y_base`, so `rho(E, L*)` is mechanically inflated by the shared baseline — descriptive only, NOT primary evidence.**
+
+Non-shared-baseline cross-correlations (Spearman, all complete rows, n=3000): rho(A_post, C_pre) = -0.206, rho(A_pre, C_post) = -0.174, rho(C_pre, C_post) = +0.405.
 
 Note: bins with E < 0 are rows where the admitted evidence moved against its annotated direction; for them `gain = L/E` is pure (E, L) geometry — a positive gain means L shares E's negative sign, not 'leakage in the annotated sense'.
 

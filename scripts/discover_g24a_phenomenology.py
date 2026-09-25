@@ -185,6 +185,14 @@ def build_rows(items, runs):
                 rec.update({
                     "s": s, "Y_admit": ya, "E": e, "L_pre": lpre,
                     "L_post": lpost,
+                    # non-shared-baseline estimands (C's baseline is
+                    # Y_admit_*, not Y_base): A = admitted effect per phase,
+                    # C = retraction from the admitted judgment (C=0: no
+                    # change; C=-A: back to baseline; C<-A: overshoot)
+                    "A_pre": s * (vals["admit_pre"] - vals["base"]),
+                    "A_post": s * (vals["admit_post"] - vals["base"]),
+                    "C_pre": s * (vals["exclude_pre"] - vals["admit_pre"]),
+                    "C_post": s * (vals["exclude_post"] - vals["admit_post"]),
                     "gain_pre": None if e == 0 else lpre / e,
                     "gain_post": None if e == 0 else lpost / e,
                     "e_pos": e > 0,
@@ -461,7 +469,8 @@ def write_csv(rows, path):
     cols = (["model", "item_id", "task_family", "source", "stratum",
              "direction", "s", "Y_base", "Y_admit_pre", "Y_admit_post",
              "Y_admit", "Y_exclude_pre", "Y_exclude_post", "E", "L_pre",
-             "L_post", "gain_pre", "gain_post", "e_pos", "claim"])
+             "L_post", "A_pre", "A_post", "C_pre", "C_post",
+             "gain_pre", "gain_post", "e_pos", "claim"])
     with open(path, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(cols)
@@ -507,10 +516,23 @@ def write_md(report, path, fig_info):
     add("- `L_post = s*(Y_exclude_post - Y_base)` — retrospective residual")
     add("- `gain = L / E` (ratio; unbounded as E -> 0, so medians/strata "
         "are used, never the mean)")
+    add("- `A_pre = s*(Y_admit_pre - Y_base)`, `A_post = s*(Y_admit_post - "
+        "Y_base)` — admitted effect per phase (baseline Y_base)")
+    add("- `C_pre = s*(Y_exclude_pre - Y_admit_pre)`, `C_post = "
+        "s*(Y_exclude_post - Y_admit_post)` — retraction from the admitted "
+        "judgment after the exclude ruling; its baseline is the "
+        "corresponding Y_admit_* phase, NOT Y_base (`C = 0`: no change; "
+        "`C = -A`: exactly back to baseline; `C < -A`: overshoot)")
     add("")
     add("Identity reference lines: `L = E` (residual equals the full "
         "admitted effect = as-if-not-excluded), `L = 0` (removal), "
         "`L < 0` (opposite to the annotated direction).")
+    add("")
+    add("**Standing caveat (2026-09-25): `rho(E, L*)` shares `Y_base` "
+        "mechanically and is DEMOTED to non-primary — treat it as "
+        "description, not evidence. The primary cross-baseline quantities "
+        "are `A*`/`C*` (section 3 note; matched-pair audit in "
+        "`g24a_reversibility_v1`).**")
     add("")
 
     it = report["integrity"]
@@ -541,7 +563,8 @@ def write_md(report, path, fig_info):
     add("")
     d = report["distributions"]
     rows = []
-    for key in ("E", "L_pre", "L_post", "Y_base", "Y_admit",
+    for key in ("E", "L_pre", "L_post", "A_pre", "A_post", "C_pre",
+                "C_post", "Y_base", "Y_admit",
                 "gain_pre_Egt0", "gain_post_Egt0"):
         s = d[key]
         note = "  (mean poisoned by E->0 tails; use quantiles)" \
@@ -573,6 +596,17 @@ def write_md(report, path, fig_info):
         f"{_fm(st['overall']['spearman_E_Lpre'], 3)}, "
         f"spearman(E, L_post) = {_fm(st['overall']['spearman_E_Lpost'], 3)} "
         f"(n={st['overall']['n']}).")
+    add("")
+    add("**Status of these rho values: DEMOTED (2026-09-25). `E` and `L*` "
+        "both contain `Y_base`, so `rho(E, L*)` is mechanically inflated by "
+        "the shared baseline — descriptive only, NOT primary evidence.**")
+    add("")
+    ac = report["ac_cross_baseline"]
+    add("Non-shared-baseline cross-correlations (Spearman, all complete "
+        f"rows, n={ac['n_complete']}): rho(A_post, C_pre) = "
+        f"{_fm(ac['spearman_Apost_Cpre'], 3)}, rho(A_pre, C_post) = "
+        f"{_fm(ac['spearman_Apre_Cpost'], 3)}, rho(C_pre, C_post) = "
+        f"{_fm(ac['spearman_Cpre_Cpost'], 3)}.")
     add("")
     add("Note: bins with E < 0 are rows where the admitted evidence moved "
         "against its annotated direction; for them `gain = L/E` is pure "
@@ -805,7 +839,8 @@ def main() -> int:
     }
     distributions = {
         k: quantiles([r[k] for r in complete])
-        for k in ("E", "L_pre", "L_post", "gain_pre", "gain_post",
+        for k in ("E", "L_pre", "L_post", "A_pre", "A_post", "C_pre",
+                  "C_post", "gain_pre", "gain_post",
                   "Y_base", "Y_admit")}
     distributions["gain_pre_Egt0"] = quantiles(
         [r["gain_pre"] for r in ep])
@@ -831,12 +866,33 @@ def main() -> int:
             "L_pre": "s*( exclude_pre - base )",
             "L_post": "s*( exclude_post - base )",
             "gain_pre": "L_pre / E (undefined iff E == 0)",
+            "A_pre": "s*( admit_pre - base )  (non-shared-baseline)",
+            "A_post": "s*( admit_post - base )  (non-shared-baseline)",
+            "C_pre": "s*( exclude_pre - admit_pre )  (retraction; "
+                     "baseline is admit_pre, NOT base)",
+            "C_post": "s*( exclude_post - admit_post )  (retraction; "
+                      "baseline is admit_post, NOT base)",
         },
         "integrity": integrity_block(runs, rows, items),
         "duplicate_rows": integrity["duplicates"],
         "definition_cross_check_vs_g24a_analysis_v1": {
             "recomputed": xcheck, "checks": checks},
         "distributions": distributions,
+        "ac_cross_baseline": {
+            "note": (
+                "rho(E, L*) shares Y_base mechanically (both anchored on "
+                "Y_base) -> DEMOTED to non-primary on 2026-09-25. These "
+                "Spearman cross-correlations use non-overlapping baselines "
+                "(each C's baseline is its own Y_admit_* phase); Spearman "
+                "over all complete rows."),
+            "n_complete": len(complete),
+            "spearman_Apost_Cpre": spearman([r["A_post"] for r in complete],
+                                             [r["C_pre"] for r in complete]),
+            "spearman_Apre_Cpost": spearman([r["A_pre"] for r in complete],
+                                             [r["C_post"] for r in complete]),
+            "spearman_Cpre_Cpost": spearman([r["C_pre"] for r in complete],
+                                             [r["C_post"] for r in complete]),
+        },
         "structure_E_vs_L": structure,
         "regions_vs_L0_and_LE": {"legend": REGION_LEGEND, **regions},
         "region_histograms": {
@@ -889,6 +945,11 @@ def main() -> int:
     print(f"  spearman(E,L_pre)={fmt_rho(ov['spearman_E_Lpre'])} "
           f"spearman(E,L_post)={fmt_rho(ov['spearman_E_Lpost'])} "
           f"spearman(L_pre,L_post)={fmt_rho(rho_pp)}")
+    acv = report["ac_cross_baseline"]
+    print(f"  ac cross-baseline (demoted-sharedY0 fix): "
+          f"rho(A_post,C_pre)={fmt_rho(acv['spearman_Apost_Cpre'])} "
+          f"rho(A_pre,C_post)={fmt_rho(acv['spearman_Apre_Cpost'])} "
+          f"rho(C_pre,C_post)={fmt_rho(acv['spearman_Cpre_Cpost'])}")
     print("  per-model spearman(E,L_pre):",
           {m: (round(v['spearman_E_Lpre'], 3) if v['spearman_E_Lpre'] is not None else None)
            for m, v in structure["per_model"].items()})
