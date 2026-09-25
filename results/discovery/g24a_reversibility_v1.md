@@ -109,9 +109,39 @@ Non-explicit-negation subset, per model (recurrence check):
 | qwen3-8b | 34 | -1.74 | 79.4% | -43.02 | 85.3% |
 | qwen35-9b | 34 | -0.17 | 58.8% | -90.73 | 97.1% |
 
-## 4. Rationale paired coding
+## 4. Rationale paired coding (behavioral description)
 
-PENDING: `_coding_*.jsonl` not present yet.
+Cells coded: 265/265 (group x model, exclude_post, both sides). Labels are behavioral descriptions of the rationale text, NOT mechanism evidence.
+
+| side | label counts |
+|---|---|
+| inc | {"reset_to_uncertainty": 200, "still_cites_for_falsity": 54, "other": 10, "unclear": 1} |
+| dec | {"still_cites_for_falsity": 136, "reset_to_uncertainty": 121, "other": 8} |
+
+Per model x side (recurrence check):
+
+| model | inc reset | inc still-cites | inc other/unclear | dec reset | dec still-cites | dec other/unclear |
+|---|---|---|---|---|---|---|
+| gemma3-12b | 26 | 27 | 0 | 12 | 41 | 0 |
+| llama31-8b | 39 | 5 | 9 | 33 | 13 | 7 |
+| mistral-small-24b | 52 | 0 | 1 | 40 | 13 | 0 |
+| qwen3-8b | 33 | 20 | 0 | 11 | 41 | 1 |
+| qwen35-9b | 50 | 2 | 1 | 25 | 28 | 0 |
+
+Combined patterns (top):
+
+| pattern (inc / dec) | n |
+|---|---|
+| inc=reset_to_uncertainty / dec=reset_to_uncertainty | 111 |
+| inc=reset_to_uncertainty / dec=still_cites_for_falsity | 84 |
+| inc=still_cites_for_falsity / dec=still_cites_for_falsity | 47 |
+| inc=still_cites_for_falsity / dec=reset_to_uncertainty | 6 |
+| inc=reset_to_uncertainty / dec=other | 5 |
+| inc=other / dec=still_cites_for_falsity | 5 |
+| inc=other / dec=reset_to_uncertainty | 3 |
+| inc=other / dec=other | 2 |
+| inc=unclear / dec=reset_to_uncertainty | 1 |
+| inc=still_cites_for_falsity / dec=other | 1 |
 
 ## 5. Baseline / leverage common support
 

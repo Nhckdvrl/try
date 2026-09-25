@@ -295,7 +295,7 @@ def main() -> int:
             by_side["dec"][dl] += 1
             by_model[c["model"]]["inc"][il] += 1
             by_model[c["model"]]["dec"][dl] += 1
-            pattern[f"inc={il} | dec={dl}"] += 1
+            pattern[f"inc={il} / dec={dl}"] += 1
         code_block = {
             "cells": len(coding),
             "by_side": {k: dict(v) for k, v in by_side.items()},
@@ -513,9 +513,25 @@ def main() -> int:
                         [[s, json.dumps(code_block["by_side"][s])]
                          for s in ("inc", "dec")]),
               "",
+              "Per model x side (recurrence check):",
+              "",
+              *md_table(["model", "inc reset", "inc still-cites",
+                         "inc other/unclear", "dec reset", "dec still-cites",
+                         "dec other/unclear"],
+                        [[m,
+                          sd["inc"].get("reset_to_uncertainty", 0),
+                          sd["inc"].get("still_cites_for_falsity", 0),
+                          sd["inc"].get("other", 0)
+                          + sd["inc"].get("unclear", 0),
+                          sd["dec"].get("reset_to_uncertainty", 0),
+                          sd["dec"].get("still_cites_for_falsity", 0),
+                          sd["dec"].get("other", 0)
+                          + sd["dec"].get("unclear", 0)]
+                         for m, sd in code_block["by_model"].items()]),
+              "",
               "Combined patterns (top):",
               "",
-              *md_table(["pattern (inc | dec)", "n"],
+              *md_table(["pattern (inc / dec)", "n"],
                         [[k, v] for k, v in
                          list(code_block["pattern_counts"].items())[:12]]),
               ""]

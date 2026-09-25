@@ -402,5 +402,89 @@
    "no": 34
   }
  },
- "rationale_coding": null
+ "rationale_coding": {
+  "cells": 265,
+  "by_side": {
+   "inc": {
+    "reset_to_uncertainty": 200,
+    "still_cites_for_falsity": 54,
+    "other": 10,
+    "unclear": 1
+   },
+   "dec": {
+    "still_cites_for_falsity": 136,
+    "reset_to_uncertainty": 121,
+    "other": 8
+   }
+  },
+  "pattern_counts": {
+   "inc=reset_to_uncertainty / dec=reset_to_uncertainty": 111,
+   "inc=reset_to_uncertainty / dec=still_cites_for_falsity": 84,
+   "inc=still_cites_for_falsity / dec=still_cites_for_falsity": 47,
+   "inc=still_cites_for_falsity / dec=reset_to_uncertainty": 6,
+   "inc=reset_to_uncertainty / dec=other": 5,
+   "inc=other / dec=still_cites_for_falsity": 5,
+   "inc=other / dec=reset_to_uncertainty": 3,
+   "inc=other / dec=other": 2,
+   "inc=unclear / dec=reset_to_uncertainty": 1,
+   "inc=still_cites_for_falsity / dec=other": 1
+  },
+  "by_model": {
+   "gemma3-12b": {
+    "inc": {
+     "reset_to_uncertainty": 26,
+     "still_cites_for_falsity": 27
+    },
+    "dec": {
+     "still_cites_for_falsity": 41,
+     "reset_to_uncertainty": 12
+    }
+   },
+   "llama31-8b": {
+    "inc": {
+     "reset_to_uncertainty": 39,
+     "still_cites_for_falsity": 5,
+     "other": 8,
+     "unclear": 1
+    },
+    "dec": {
+     "reset_to_uncertainty": 33,
+     "other": 7,
+     "still_cites_for_falsity": 13
+    }
+   },
+   "mistral-small-24b": {
+    "inc": {
+     "reset_to_uncertainty": 52,
+     "other": 1
+    },
+    "dec": {
+     "reset_to_uncertainty": 40,
+     "still_cites_for_falsity": 13
+    }
+   },
+   "qwen3-8b": {
+    "inc": {
+     "reset_to_uncertainty": 33,
+     "still_cites_for_falsity": 20
+    },
+    "dec": {
+     "still_cites_for_falsity": 41,
+     "reset_to_uncertainty": 11,
+     "other": 1
+    }
+   },
+   "qwen35-9b": {
+    "inc": {
+     "reset_to_uncertainty": 50,
+     "still_cites_for_falsity": 2,
+     "other": 1
+    },
+    "dec": {
+     "still_cites_for_falsity": 28,
+     "reset_to_uncertainty": 25
+    }
+   }
+  }
+ }
 }
