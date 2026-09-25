@@ -6,10 +6,13 @@ Inputs this document quotes (all recomputed/verified before quoting): `results/g
 
 ## 0. Registered candidate RQ (wording; not frozen)
 
+> **Superseded 2026-09-25 post-P1 (user ruling) — retained for provenance, see §7.3.**
+> The old analytic reading ("contradictory evidence is harder to un-integrate") was withdrawn as insufficiently supported (A_dec = 2.63; 363/960 claim×model cells with A<0). The live candidate RQ2 is now the counterfactual-reconstruction question in §7.3.
+
 - **RQ (analytic)**: Is retrospective evidence exclusion genuinely effective, or does apparent success mask a polarity-dependent asymmetry in evidence reversibility?
 - **RQ (experiment)**: Can LLMs retract supporting and contradicting evidence symmetrically once instructed to disregard it?
 - **中文**: LLM 在已经使用一条 evidence 后，能否对支持性证据和反驳性证据进行对称的撤销？
-- **Candidate finding (NOT a claim)**: Retrospective exclusion appears successful in aggregate because opposite errors cancel: supporting evidence is often over-retracted, whereas contradicting evidence remains behaviorally active.
+- **Candidate finding (NOT a claim)**: Retrospective exclusion appears successful in aggregate because opposite errors cancel: supporting evidence is often over-retracted, whereas contradicting evidence remains behaviorally active. *(This cancellation sentence survives P1 — see §7.3 — but its old mechanistic gloss does not.)*
 
 Story arc (user, 2026-09-25): RQ1 — future evidence is hard to exclude (REI_pre +0.541 [+0.478,+0.604] p=0.0000, P1 PASS) → RQ2 — after the fact, aggregate removal looks like it works (REI_post pooled −0.072 [−0.161,+0.017] p=0.1170) → **Layer 2 — the retrospective "success" is itself an artifact**: the near-zero pooled value is arithmetic cancellation of two large opposite-signed errors. RQ2 does **not** need to explain prospective failure.
 
@@ -79,6 +82,8 @@ Any pattern answers the already-observed question (why retrospective exclusion b
 
 **Deferred by ruling**: no full rationale coding this round — numerical trajectories first (Base→Admit→k per operator), matched qualitative reading only from discriminating patterns.
 
+**Executed 2026-09-25**: 4,800 rows, integrity PASS (`c4c930f`), frozen readout `results/g24a/g24a_p1_analysis_v1.{md,json,_cells.csv}` (`e7800bc`); interpretation and RQ2 reframing in §7.
+
 ## 5. Novelty first pass (user-run 2026-09-25): SERIOUS PASS, no direct owner found yet
 
 - Belief-R (EMNLP 2024): revision after *new* evidence — not deletion of an already-used evidence with polarity comparison.
@@ -87,9 +92,95 @@ Any pattern answers the already-observed question (why retrospective exclusion b
 - Over-Searching (EACL 2026): negative evidence especially affects abstention — a related signal (negative evidence has strong behavioral effect), but not reversibility.
 - Human-judgment parent (1990, professional auditors update more from negative evidence): the *broad* positive/negative evidence asymmetry is NOT claimed as novel.
 - **Scope discipline**: novelty must land on *LLM inference-time evidence control / explicit retrospective exclusion / same-evidence reversibility*. A wider search is still required before any freeze (pending).
+- **Second pass (same day, post-P1)**: see §8 — CAP (ACL 2026), In-Context Knowledge Unlearning (Findings ACL 2025), EMNLP 2025 misinformation correction, human continued-influence effect. Scope narrowed to *counterfactual correctness of evidence-control operators*.
 
 ## 6. Governance
 
 - All numbers in §1–§3 are discovery-layer observations from the post-fix full rerun; `e3e954d` lineage is discovery-only, not a strict prereg-confirmatory rerun (selection pass ran on the old claims) — carry this caveat in any write-up.
 - Any item-level claim must carry the temp-0 retest caveat (selection vs main pass, identical prompts, 548 non-rewritten items / 1,644 rows: exact-equal 71.8% of rows, argmax flips 6.4%, pearson 0.981 — `g24a_data_quality_audit_v1.md` §E).
 - No models run, no prereg created, no gates added by this document. Pilot P1 was ruled by the user on 2026-09-25 and is executed per §4 (spec frozen pre-run at `1497c63`).
+- Post-P1 update (2026-09-25): RQ2 reframing (§7), novelty second pass (§8), Pilot P2 spec (§9), and matched qualitative reading spec (§10) all ruled by the user after P1 results; this document still creates no prereg, no gates, and no model runs by itself — P2 material selection is zero-model and the A≥10-style gates stay permanently dead (§9).
+
+## 7. P1 outcome + RQ2 reframing (user ruling, 2026-09-25, post-P1)
+
+P1 executed per §4: 4,800 rows, integrity PASS (`c4c930f`), frozen readout `results/g24a/g24a_p1_analysis_v1.{md,json,_cells.csv}` (`e7800bc`). No gates, no p-values, no bootstrap, no selection.
+
+### 7.1 The four quantities (pooled, 5 models × 192 claims)
+
+| quantity | ExcludePost | StrongExcludePost | CounterfactualDeletePost |
+|---|---|---|---|
+| A (leverage) | 7.99 | 7.99 | 7.99 |
+| C_k | −19.71 | −18.15 | −18.86 |
+| R_k | −11.72 | −10.16 | −10.87 |
+| D_k = abs(Y_k − Y_base) | 28.26 | 22.64 | 23.64 |
+| C_k / −A (display) | 2.47 | 2.27 | 2.36 |
+
+A by polarity: increase 13.35, decrease 2.63. **363/960 claim×model cells have A<0** (kept and displayed as leverage; never filtered).
+
+Trajectories (mean Y, pooled): increase **79.09 → 92.44 → 50.24 / 60.12 / 60.62**; decrease 22.78 → 20.15 → 17.36 / 24.14 / 26.06 (Base → Admit → Exclude / Strong / CF).
+
+Per polarity: inc C_k −42.20 / −32.32 / −31.82, inc R_k −28.85 / −18.97 / −18.47, inc C/−A 3.16 / 2.42 / 2.38; dec C_k +2.79 / −3.99 / −5.91, dec R_k +5.42 / −1.36 / −3.27.
+
+Within-pair dC_k = C_inc − C_dec: ExcludePost **−44.98 (86.7% negative)** → Strong **−28.33 (71.0%)** → CF **−25.91 (69.8%)**; mean negative in all 15 model×operator cells (discovery replicate: −42.28 / 89.1%).
+
+Descriptive reading vs the §4 map: closest to **Q** — Strong and CF improve similarly and a lot; not P/S in full (increase side never returns to Base under any operator: R_inc −28.85/−18.97/−18.47, C/−A 3.16/2.42/2.38, i.e. overshoot below Base); not R (both new operators are effective); residual polarity asymmetry persists under both new operators → instruction strength explains a large part, not all.
+
+### 7.2 Withdrawn reading
+
+**"Contradictory evidence is harder to un-integrate" / "negative belief persistence" is withdrawn as a candidate finding.** Grounds: A_dec = 2.63 (admit effect at floor) and 363/960 cells with A<0 — many decrease claims already score low at Base, so retraction-era low scores cannot be interpreted as persistence of a negative update. Any reviewer would reject it on those numbers.
+
+### 7.3 Reframed candidate RQ2 (supersedes §0; wording as ruled by user, 2026-09-25)
+
+- **RQ2 (analytic)**: Can language models recover the counterfactual no-evidence judgment after evidence has already been observed?
+- **RQ2 (中文)**: LLM 看过一条 evidence 后，能否通过自然语言撤销指令，恢复到“如果从未看过这条 evidence”时本应有的判断？
+- **Ideal target**: Y_retract ≈ Y_base. P1 answer: **usually not** — D_k = 28.26 / 22.64 / 23.64, including under the explicit wording “exactly as you would have if Evidence E had never been shown”.
+- **Core observation**: **Natural-language retraction is not counterfactual deletion.** remove(E) ≠ return to the pre-E state; retraction can **overcorrect**: support side 79.09 → 92.44 → 60.62 — after deleting E the claim sits ≈18 points below its own pre-evidence baseline (admit was worth +13; deletion costs −18 relative to Base).
+- **Strong ≈ CF** (dC −44.98 → −28.33 → −25.91): “act as if unseen” did **not** provide a special deletion operator; the gain is generic instruction strength/compliance, and a large direction-dependent distortion remains.
+- **Cancellation reading preserved**: REI_post ≈ 0 does not mean retrospective exclusion works — it can be **support over-correction + contradiction-side under-correction ≈ 0**.
+- **Candidate finding (NOT a claim)**: “Retrospective exclusion does not reconstruct the no-evidence counterfactual. Stronger exclusion instructions reduce some of the apparent polarity asymmetry, but judgments remain systematically displaced from their pre-evidence baseline, including substantial over-correction after supporting evidence.”
+- **Paper layer**: RQ1 prospective exclusion → no, substantial prospective leakage; RQ2 retrospective → does not necessarily restore the no-evidence judgment; aggregate success conceals non-neutral retraction behavior.
+
+## 8. Novelty second pass (user-run 2026-09-25; scope narrowed)
+
+Prior work to address positively:
+
+- **CAP (ACL 2026)** — prompt-driven unlearning: RL optimizes prompts to suppress target knowledge; knowledge recovers after prompt removal. → We do **not** package as prompt unlearning (no parametric deletion, no optimized prompts).
+- **In-Context Knowledge Unlearning (Findings ACL 2025)** — test-time selective forgetting via fine-tuning; the “forgetting” may be last-layer output suppression. → Different object: fine-tuned suppression vs. causal removal of a *just-observed context evidence* that already changed judgment.
+- **EMNLP 2025 (misinformation in reasoning)** — LLMs contaminated during reasoning correct poorly when later explicitly asked; earlier correction works better. → “LLM 看过东西以后改不回来” is **not** novel by itself.
+- **Continued influence effect (human cognition)** — retracted misinformation keeps influencing reasoning even when the retraction is believed. → The broad phenomenon is old; **not claimed**.
+
+**Scope discipline (what we claim)**: not parametric knowledge deletion, not optimized forget scores, not “first to observe retracted information still influences reasoning”. The object is a specific evidence just admitted into context that already changed a judgment, removed by a natural-language ruling, scored by **counterfactual correctness** — restoring the exact no-evidence judgment. The novelty target: *evidence-control operators exhibit residual, overshoot, and polarity-dependent distortion* (incl. support-side over-correction), i.e. removal ≠ counterfactual deletion.
+
+Verdict: **SERIOUS, no direct owner found.** Wider search with this narrowed scope still required before any freeze (pending).
+
+## 9. Pilot P2 — same-claim counterfactual reconstruction (spec as ruled; frozen pre-run; user 2026-09-25)
+
+**Why**: P1's largest confound — increase and decrease are *two different claims* (parametric prior, linguistic form, credibility differ); A_dec ≈ 0 exposes it. P2 **locks the claim**: same claim, same Y0, opposite evidence polarities.
+
+**Material**: VitaminC real-revision SR pairs — same claim + one natural SUPPORT evidence + one natural REFUTE evidence (zero-model audit `results/audits/vitaminc_triplet_audit_v1.md`: CLEAN, N_SR = 92,764, 1S+1R canonical 92,735). **G27A removal-vs-negation hypothesis stays KILL — this reuses material only, not the hypothesis and none of its gates.**
+
+**Selection (zero-model data validity only; fixed seed in the freeze script)**: 200 brand-new real-revision same-claim pairs. Criteria: real revision; same claim; one natural SUPPORT evidence; one natural REFUTE evidence; dedup; as non-template as practical. **No model-conditioned filtering of any kind. The old “both directions A≥10” gate is permanently dead and must not be resurrected.** A is displayed as a continuous variable only.
+
+**Cells (9 per claim)**: `Base` (claim only — evidence-free, renders byte-identical for both arms, so Y0 is *the same number* by construction) + {AdmitPost, ExcludePost, StrongExcludePost, CounterfactualDeletePost} × {arm+ (E_support), arm− (E_refute)}. G24A `AdmitPost`/`ExcludePost` wording character-identical; Strong/CF verbatim as in §4.
+
+**Run**: 5 panel models × 200 claims × 9 cells = **9,000 decision rows**; full panel, no scientific stop, no gates, no staged running. (Runner mechanics: arm+ items × all 5 kinds, arm− items × 4 kinds — verified base prompt evidence-free.)
+
+**Estimands** (evidence polarity e ∈ {+1 support, −1 refute}, shared Y0):
+- A_e = e · (Y_admit,e − Y0) — leverage, displayed continuous, never filtered
+- R_{k,e} = e · (Y_k,e − Y0) — polarity-aligned residual
+- **Ideal deletion: R_{k,+} = R_{k,−} = 0** (and the between-polarity gap R_{k,+} − R_{k,−} = 0)
+
+**Both outcomes informative (not a lottery)**: (a) same-claim asymmetry persists → evidence polarity itself affects reversibility; (b) asymmetry largely disappears → P1/G24A asymmetry was mainly claim prior/form (Account B), not evidence polarity.
+
+## 10. Matched qualitative reading — one small precise round (user 2026-09-25)
+
+Purpose (single question): **why does the claim drop below its own Base after support evidence is retracted?** Not a full 4,800-row coding.
+
+- **Sample**: 12 group×model cells per model × 5 models = **60 cells**, mechanically covering three trajectory strata. Strata (all computed on the increase/support-side trajectory of one (group, model) cell from `g24a_p1_analysis_v1_cells.csv`; thresholds fixed here pre-reading; first match wins):
+  1. **overshoot** — R_CF ≤ −10 (CFDelete pushes the support claim below its own Base);
+  2. **exclude-bad-improved** — R_Exc ≤ −15 and R_Strong ≥ R_Exc + 10 and R_CF ≥ R_Exc + 10;
+  3. **near-base** — |R_CF| ≤ 5.
+  4/stratum/model, fixed-seed sample within stratum (all available if <4; report shortfalls). No hypothesis-flattering substitutions.
+- **Per cell**: read *both* claims' rationales at Base, Admit, Exclude, Strong, CF (10 rationale readings/cell → 600 total).
+- **Labels (behavioral description only — explicitly NOT mechanism)**: `still_uses_evidence`, `no_evidence=>uncertain`, `no_evidence=>claim_less_likely`, `exclusion_implies_distrust`, `reconstructs_prior/world_knowledge`, `other`.
+- **Diagnostic payoff**: if support-overshoot rationales say “without E supporting, the claim is less likely”, the model is executing `remove support ⇒ penalize claim` rather than counterfactual belief restoration — explaining Y_CF < Y0.
