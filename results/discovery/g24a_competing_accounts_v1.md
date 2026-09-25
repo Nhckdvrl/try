@@ -253,3 +253,59 @@ Purpose (single question): **why does the claim drop below its own Base after su
 - **Confirmation B (RQ2+RQ3)**: **200 fresh VitaminC same-claim pairs** from the unused pool (fresh seed; blind zero-model validity review exactly as in P2). Cells ≈ 7: `Base`, `Admit+`, `CF+`, `Admit−`, `CF−`, `WithheldCF`, and `IrrelevantCF` **only if P4 shows it earns the cell (user decides post-P4)**. Confirms: admission moves judgment; retraction does not restore Y0; the contraction / operator-control pattern replicates on fresh claims.
 - **Model**: add **≥ 1 ~30B modern strong model** (Qwen3-32B if present in the local cache) **to the confirmation runs only** — to answer "does this survive on a substantially stronger model?"; no mechanical 70B chase.
 - **After P4 + confirmation: stop experiments; enter the paper narrative phase.**
+
+## 13. Final confirmation freeze (user ruling, 2026-09-26, post-P4) — SUPERSEDES §12's confirmation sketch
+
+**Discovery is DONE.** P4 was the last discovery pilot (§12 honored: no P5/P6, no new RQ, no new finding-hunting). The story is fixed at **3 RQs / 3 findings**; everything else stays supporting evidence. Risk acknowledged: all pretty results are discovery-lineage — fresh confirmation now outranks any fourth finding.
+
+**F3 final wording (refined by P4):**
+> *Retraction does not undo an evidence update. Behaviorally, it induces a new inference state: generic evidence-control framing recenters judgments, visible evidence-like content largely determines the landing point, while decision-relevant evidence produces additional confidence compression.*
+
+`IrrelVisible = 14.94` is **explicitly demoted to supporting evidence** — NOT a headline, NOT its own section claim (risk: reviewer rabbit-hole on the EVIDENCE E header pragmatics). Headlines remain **retraction ≠ restoration** and **new compressed state**.
+
+### 13.1 The final 3 RQ / 3 findings (frozen)
+
+- **RQ1 — Prospective control**: Can a model commit in advance not to use evidence it has not yet seen?
+  **F1 — Prospective exclusion leaks.** The model understands the ruling, yet future evidence still enters the judgment.
+- **RQ2 — Counterfactual restoration**: After evidence has been observed, can retraction recover the judgment that would have existed had the evidence never appeared?
+  **F2 — Suppression is not restoration.** P2: support/refute separation 56.3 → 12.0 (~79% of the evidence-direction effect erased), yet few claims return to their original no-evidence state (11/200 both arms near Y0). *forget evidence direction ≠ recover prior judgment*.
+- **RQ3 — What does retraction do instead?**: If it does not undo the update, what behavioral operation does it perform?
+  **F3 — Retraction produces a new, compressed inference state.** P2/P3/P4 chained: claim prior is compressed (M_CF ≈ 25.84 + 0.385·Y0); `PriorOnly` alone does not do this; control/retraction framing produces clear recentering; visible irrelevant content followed by retraction lands close to the actual mean (IrrelCF − M_CF = +0.87, within the 1.84 floor); decision-relevant evidence adds further compression (mean|Y−50|: WithheldCF 26.80 → IrrelCF 19.44 → M_CF 12.57).
+
+No RQ4/RQ5, ever. After both confirmations run: **stop experiments regardless of outcome**; enter paper narrative phase.
+
+### 13.2 Confirmation A — RQ1/F1 replication (frozen)
+
+- **Material**: **500 completely fresh FEVER/SciFact natural items** from `g24a_candidates_v1.jsonl` (13,283 frozen candidates), freshness = (a) item_id in **no** item file ever rendered by any model run in this repo, AND (b) `critical_evidence` byte-disjoint from the evidence of every item file ever rendered (currently 8,985 qualify: 8,776 fever + 209 scifact).
+- **Strata**: mirror discovery/P1's 2:1 — **334 fever + 166 scifact**. Per-source order: candidate ids sorted, seeded shuffle `Random("20260930:<source>")`, first 334/166 = active, remainder of the source stays in seed order as the **same-source reserve** (data-validity swaps only, decided by the zero-model review below; never by hypothesis-fitting). Normalized-claim dedup inside the sample (first seed-rank wins).
+- **Cells (5, per §12 amendment — AdmitPre added as the timing-matched control)**: `base, admit_pre, admit_post, exclude_pre, exclude_post` — all wordings already frozen (G24A standard five, registered prereg §3/§9.3); items render through the **unmodified G24A module**.
+- **Rows**: 500 × 5 cells × **6 models** = **15,000**.
+- **Audit**: zero-model blind review — claim + evidence shown **without labels**; reviewer judges from text whether E as a matter of fact SUPPORTS or REFUTES the claim (fixed decision rule; entailment/omission/compatibility/non-unique/reversed/NEITHER → invalid), then the build compares against the official direction: agreement = keep, mismatch/NEITHER = data error → swap from same-source reserve in seed order. No model output is read at any point (asserted by the freeze/build scripts).
+- **No mechanism cells.**
+
+### 13.3 Confirmation B — RQ2/F2 + RQ3/F3 replication (frozen)
+
+- **Material**: **200 completely fresh VitaminC real-revision same-claim support/refute pairs**, case/claim **disjoint from everything P2/P3/P4 used**. Same filter chain as `freeze_g24a_p2.py` (F1 purity, F2 canonical 1S+1R, F4 claim dedup, F5 non-template, F6 one claim per case, F7 freshness) with F7 **extended**: additionally drop any `case_id` OR normalized claim in `data/items/g24a_p2_pool_v1.csv` (all 280 P2 rows — active+reserve, covers P2/P3/P4) plus the prior VitaminC pools already in the script. **New seed `20260929`** (P2's 20260927 untouched). Active 200 + reserve 80, same-source replacement rule as P2.
+- **Cells (7, frozen)**: `base`, `admit_post` (arm+), `counterfactual_delete_post` (arm+), `admit_post` (arm−), `counterfactual_delete_post` (arm−), `withheld_cf`, `irrelevant_cf`.
+  - **`irrelevant_cf` IS in** (user: P4 proved it is F3's key evidence, not a pad control); **`irrelevant_visible` is OUT** (the 14.94 down-pull stays discovery/supporting).
+  - Arms render through the unmodified G24A/P1 modules (byte-frozen wordings); `withheld_cf` via conditions_g24p3 (content-free); `irrelevant_cf` via conditions_g24p4 reading the **control arm** item's `critical_evidence`, which carries an irrelevant text sampled by §12's frozen material rule (page-disjoint + len≥5 token-disjoint + `Random("20260929:<p2_id>")`).
+  - Three items per claim: `plus` (support evidence), `minus` (refute evidence), `control` (irrelevant text) — 600 items; `base` issued on `plus` only.
+- **Rows**: 200 × 7 cells × **6 models** = **8,400**.
+- **Audit**: P2's blind protocol exactly — claim + Evidence A + Evidence B **unlabeled**; one must as a matter of fact support and the other refute the claim (fixed decision rule); invalid → same-source reserve swap in seed order. Zero model output.
+
+### 13.4 Model + run args (frozen)
+
+- **Panel**: the existing 5 (mistral-small-24b, llama31-8b, qwen3-8b, qwen35-9b, gemma3-12b) **+ Qwen3-32B ONLY** (`models--Qwen--Qwen3-32B/snapshots/9216db5781bf21249d130ec9da846c4624c16137`, 62G complete in cache). **No Qwen3.5-27B, no model-zoo expansion.** The single goal: one reviewer-proof sentence — *"the findings also hold on a substantially stronger 32B model."*
+- **Runner args**: identical to P2–P4 (mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, gpu-frac 0.85, eager, temp-0 digit expectation). Qwen3-32B runs at the same args; tp 1 on one A100.
+
+### 13.5 Primary estimands + expected directions (registered pre-run; reporting, NOT gates)
+
+**No KILL gates, no thresholds, no "must pass" lines — nothing like 70% / 10 points may be introduced.** What is frozen here is only *what gets reported* and the *expected direction*; results are reported with **paired bootstrap 95% CIs (over claims)** and **per-model consistency (n/6)** — this CI reporting is the user's explicit order for confirmation and supersedes the standing no-bootstrap rule *for these two reports only* (still: no p-values, no selection).
+
+- **ConfA (RQ1)** — sign-normalize every effect by `critical_direction` (+1 increase, −1 decrease; signed effect = d × (Y_cell − Y_base)). Report all five cell means, then:
+  - **E1** `signed(ExcludePre − Base)` — prospective leakage; **E2** `signed(ExcludePost − Base)` — retrospective leakage; **E3** `signed(AdmitPre − Base)` and **E4** `signed(AdmitPost − Base)` — timing-matched admitted baselines; leak fractions E1/E3 and E2/E4.
+  - **Expected**: E1 ≫ E2 (prospective leaks ≫ retrospective); E2/E4 close to 0 (retrospective ≈ removal); E1/E3 substantially > 0. CIs + per-model consistency for E1−E2, E1/E3, E2/E4.
+- **ConfB (RQ2)** — (i) **separation_admit** = mean(Y_Admit+ − Y_Admit−) vs **separation_cf** = mean(Y_CF+ − Y_CF−): expected separation_cf ≪ separation_admit (direction erased); (ii) **reconstruction error** = mean|Y0 − M_CF| and mean(Y0 − M_CF) with M_CF = (Y_CF+ + Y_CF−)/2: expected still large (≠ ~0) — suppression without restoration. CIs + per-model consistency on both.
+- **ConfB (RQ3)** — claim-level contraction: corr(M_CF, Y0) > 0 with OLS slope < 1 (discovery: 0.701 / 0.385); center ordering expected `WithheldCF > IrrelCF ≈ M_CF` in mean and `WithheldCF > IrrelCF > M_CF` in mean|Y−50| (discovery: 49.18 / 46.07 / 45.20 and 26.80 / 19.44 / 12.57). CIs on the ordering gaps; per-model consistency.
+
+**Interpretation rule**: whatever comes back — full replication, shrunk effects, or a reversed detail — gets reported as-is. **After ConfA + ConfB run and report: experiments stop.** Paper structure stands (exclude future evidence → No; undo observed evidence → not by restoring; what instead → a new, compressed inference state).
