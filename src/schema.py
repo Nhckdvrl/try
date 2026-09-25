@@ -22,6 +22,7 @@ import conditions_g18 as g18
 import conditions_g23a as g23a
 import conditions_g23b as g23b
 import conditions_g24a as g24a
+import conditions_g24p1 as g24p1
 import conditions_g25 as g25
 import conditions_g26a as g26
 import conditions_agent as ag
@@ -83,6 +84,10 @@ G25A_CONDITIONS = g25.G25A_CONDITIONS
 # conditions_g26a; prereg G26A §3, O3 amendment "11 -> 10")
 G26A_CONDITIONS = g26.G26A_CONDITIONS
 
+# Pilot P1: two new post-admit retraction operators over G24A-family items
+# (g24a_p1_v1.jsonl; dispatch on condition name — see conditions_g24p1)
+G24P1_CONDITIONS = g24p1.G24P1_CONDITIONS
+
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
 
@@ -139,6 +144,14 @@ def _blocks(item: Item, cond: str):
     # its prompts bit-for-bit.
     if g26.is_g26(cond):
         return g26.blocks(item, cond)
+    # Pilot P1 retraction operators: dispatch on the condition name FIRST —
+    # the pilot runs over G24A-family items (same CLAIM / EVIDENCE E /
+    # RULING layout) but owns its two new post-admit cells; every existing
+    # condition name misses this branch, so every other item file keeps its
+    # prompts bit-for-bit.  base / admit_post / exclude_post fall through to
+    # the G24A branch below and stay character-identical to G24A.
+    if g24p1.is_g24p1(cond):
+        return g24p1.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
