@@ -213,3 +213,43 @@ Purpose (single question): **why does the claim drop below its own Base after su
 **Candidate finding wording (not frozen, not an RQ, no prereg)**: “Natural-language retraction largely removes evidence-specific direction but does not restore the pre-evidence judgment; it contracts beliefs toward a more uncertain, claim-dependent state” — upgraded only if C3 lands as above.
 
 **Run**: 5 panel models, full 5,000 rows, one invocation per model, same runner args as P2 (mode reasoned, reason-tokens 110, max-model-len 4096, temp-0 digit expectation). Integrity via `check_g24a_p3_raws.py --require5`; analysis reports the three comparisons + the 5-condition trajectory, per-model, nothing else. **No freeze of any RQ. Run, report, stop (user: 跑完停).**
+
+## 12. Paper shape + P4 + fresh confirmation (user ruling, 2026-09-26, post-P3)
+
+**Structure (frozen): 3 RQs ↔ 3 headline findings, 1:1. No RQ4/RQ5, ever.** (Sasano taste: parent question a reviewer gets in one glance, most surprising finding first, no RQ/count inflation, no control-count inflation.)
+
+- **RQ1 → F1**: *Can LLMs commit in advance to exclude evidence they have not yet seen?* **No — prospective exclusion systematically leaks.** Correct rule paraphrase at probe time, yet future evidence still enters the decision; retrospective exclusion is significantly more effective.
+- **RQ2 → F2**: *After evidence has been observed, can natural-language retraction restore the counterfactual no-evidence judgment?* **No — retraction suppresses much of the evidence effect but does not reconstruct the no-evidence state.** Same-claim P2: polarity separation 56.3 → 12.0 (~79% erased) while both arms land back near Y0 in only **11/200 claims**. Headline paradox: *the model forgets the evidence's direction but not the judgment.*
+- **RQ3 → F3 (promoted from candidate to headline)**: *What does retraction do instead of restoring the prior judgment?* **It behaves as a new inference operation — a confidence-compressed / recalibrated judgment state, not an undo.** P2: M_CF ≈ 25.84 + 0.385·Y0 (claim ordering kept, strongly compressed). P3: prior-only does not re-calibrate (−0.47, ≈ noise floor 1.84); the withheld frame alone moves judgments (−12.64); zero-content CF reproduces most of the attractor (WithheldCF − M_CF = +3.97, OLS slope 0.969); actual processed evidence adds extra distortion (~4 points lower, more compressed).
+- **Everything else is supporting evidence, explicitly NOT an RQ**: rule-probe near-perfection; pooled REI_post ≈ 0 = cancellation; polarity asymmetry; stronger wording helps; §10 rationale CF still-use rarity; withheld-only down-pull; actual-vs-zero-content extra distortion; model heterogeneity.
+
+**Paper experiment shape**: Exp1 prospective exclusion (**No**) → Exp2 retrospective reconstruction (**No** — direction erased, judgment not restored) → Exp3 what retraction does instead (**compressed/recalibrated state: operator/frame component + processed-evidence component**) → held-out replication (fresh items + stronger model).
+
+### P4 — irrelevant-visible evidence control (completes RQ3; NOT a defensive confound control)
+
+**Purpose**: decompose the post-retraction state into (i) operator/frame, (ii) having seen *any* visible decision-irrelevant content, (iii) having seen decision-relevant evidence.
+
+**Cells (exactly 2; wording frozen here pre-run)**:
+
+1. **`irrelevant_visible`** — CLAIM + `EVIDENCE E` (a natural but decision-irrelevant text, material rule below) + the original question; **NO ruling**. Block layout byte-mirrors P3's `withheld_only` with content present.
+2. **`irrelevant_cf`** — the same evidence block + the **CounterfactualDeletePost ruling verbatim** (`conditions_g24p1.CF_DELETE_RULE`). Block layout byte-mirrors P3's `withheld_cf`.
+
+**Material rule (mechanical, zero-model, FROZEN here pre-run)**: for each of the 200 discovery claims, the irrelevant text is drawn from the *other* rows of the audited P2 pool (`data/items/g24a_p2_pool_v1.csv`, both arms' evidence texts). Candidates must (a) come from a **different Wikipedia page** than the claim, and (b) share **no content token** — lowercased alphabetic tokens of length ≥ 5 — with the claim text or the claim's page name. Deterministic pick: per-claim RNG seeded `Random("20260928:<p2_id>")` shuffling the pool-ordered candidates, first hit wins. Screens re-asserted per item by the verifier; the target's own two evidence texts asserted absent from every P4 prompt.
+
+**Run**: 200 claims × 2 cells × 5 panel models = **2,000 rows**, same snapshots/runner args as P2/P3.
+
+**Read (frozen comparisons; branches have no decision role — no gates, no claim selection)**:
+
+- `IrrelCF ≈ WithheldCF` → only decision-relevant evidence leaves the extra trace;
+- `IrrelCF ≈ M_CF^actual` → seeing any evidence-like content and then retracting produces the distortion;
+- in between → frame + visible-content + relevance contribute in three layers.
+- Plus `IrrelVisible` vs `WithheldOnly` / `Base` (does visible irrelevant content move judgments beyond the frame alone?).
+
+**After P4: discovery stops. No P5/P6.**
+
+### Fresh confirmation (required before Main submission; both parts ruled)
+
+- **Confirmation A (RQ1)**: 400–600 FEVER/SciFact natural items that **never entered discovery**; cells **Base, AdmitPost, ExcludePre, ExcludePost only**; directly confirm prospective leakage ≫ retrospective leakage. No mechanism cells, no new gates.
+- **Confirmation B (RQ2+RQ3)**: **200 fresh VitaminC same-claim pairs** from the unused pool (fresh seed; blind zero-model validity review exactly as in P2). Cells ≈ 7: `Base`, `Admit+`, `CF+`, `Admit−`, `CF−`, `WithheldCF`, and `IrrelevantCF` **only if P4 shows it earns the cell (user decides post-P4)**. Confirms: admission moves judgment; retraction does not restore Y0; the contraction / operator-control pattern replicates on fresh claims.
+- **Model**: add **≥ 1 ~30B modern strong model** (Qwen3-32B if present in the local cache) **to the confirmation runs only** — to answer "does this survive on a substantially stronger model?"; no mechanical 70B chase.
+- **After P4 + confirmation: stop experiments; enter the paper narrative phase.**
