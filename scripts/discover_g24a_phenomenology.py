@@ -46,10 +46,12 @@ OUT_PREFIX = "results/discovery/g24a_phenomenology_v1"
 SELECTOR = "mistral-small-24b"
 # published confirmatory numbers for the definition cross-check (informational
 # only — reproducing them proves the E/L plumbing matches G0; nothing gates on
-# them): results/g24a/g24a_analysis_v1.md pooled-4 block.
+# them): results/g24a/g24a_analysis_v1.md pooled-4 block. Refreshed 2026-09-25
+# from the full re-run output (commit e3e954d) after the 52 claim rewrites +
+# 4 direction flips were applied and all raws regenerated.
 PUBLISHED = {
-    "alignment": 0.84, "n_usable": 2014, "median_absL": 32.7,
-    "REI_pre": 0.541, "REI_post": -0.067, "frac_post_gt_pre": 0.32,
+    "alignment": 0.84, "n_usable": 2007, "median_absL": 32.7,
+    "REI_pre": 0.541, "REI_post": -0.072, "frac_post_gt_pre": 0.32,
 }
 FLOOR, CEIL = 5.0, 95.0          # descriptive scale endpoints (0-100 readout)
 E_BIN_WIDTH = 10.0               # fixed-width E bins, no thresholds implied
