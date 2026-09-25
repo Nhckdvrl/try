@@ -32,6 +32,7 @@ RAW3 = "results/raw/{tag}_g24a_p3.jsonl"
 P2_CELLS = "results/g24a/g24a_p2_analysis_v1_cells.csv"
 P3_JSON = "results/g24a/g24a_p3_analysis_v1.json"
 ITEMS = "data/items/g24a_p4_v1.jsonl"
+ITEMS3 = "data/items/g24a_p3_v1.jsonl"
 OUT_MD = "results/g24a/g24a_p4_analysis_v1.md"
 OUT_JSON = "results/g24a/g24a_p4_analysis_v1.json"
 OUT_CSV = "results/g24a/g24a_p4_analysis_v1_cells.csv"
@@ -66,11 +67,12 @@ def ols(x, y):
 def main() -> int:
     # --- claim keys + P4 raws ---------------------------------------------
     item2claim = {}
-    for line in open(ITEMS, encoding="utf-8"):
-        d = json.loads(line)
-        item2claim[d["item_id"]] = d["meta"]["p2_id"]
+    for path in (ITEMS, ITEMS3):           # p4 cells + p3 anchor cells
+        for line in open(path, encoding="utf-8"):
+            d = json.loads(line)
+            item2claim[d["item_id"]] = d["meta"]["p2_id"]
     claims = sorted(set(item2claim.values()))
-    assert len(claims) == 200
+    assert len(claims) == 200, len(claims)
 
     y4 = {}  # (model, claim, cond) -> value
     n4 = 0
