@@ -1,0 +1,55 @@
+{
+ "definition": "M_k = (Y_{k,+} + Y_{k,-})/2, claim-level, 5-model means",
+ "input_csv": "results/g24a/g24a_p2_analysis_v1_cells.csv",
+ "mean_Y0": 50.242336455605475,
+ "mean_abs_Y0_minus_50": 22.553451442251113,
+ "n_claims": 200,
+ "n_models": 5,
+ "operators": {
+  "counterfactual_delete_post": {
+   "compressed_claim_fraction": 0.725,
+   "corr_M_Y0": 0.7008103122823968,
+   "mean_M": 45.20485746991823,
+   "mean_abs_M_minus_50": 12.567004688518512,
+   "ols_intercept": 25.84324930262602,
+   "ols_slope": 0.385364406458292,
+   "per_model_corr": {
+    "gemma3-12b": 0.43582710678130787,
+    "llama31-8b": 0.3082954129121725,
+    "mistral-small-24b": 0.5854156867582453,
+    "qwen3-8b": 0.5038289028427139,
+    "qwen35-9b": 0.5700042952688195
+   }
+  },
+  "exclude_post": {
+   "compressed_claim_fraction": 0.6,
+   "corr_M_Y0": 0.5258751436966934,
+   "mean_M": 37.96197811956877,
+   "mean_abs_M_minus_50": 15.584640752995686,
+   "ols_intercept": 23.771733062834002,
+   "ols_slope": 0.28243601030126014,
+   "per_model_corr": {
+    "gemma3-12b": 0.32042991809907173,
+    "llama31-8b": 0.4457511535763561,
+    "mistral-small-24b": 0.25379198526588337,
+    "qwen3-8b": 0.38099267597983116,
+    "qwen35-9b": 0.2156223826317491
+   }
+  },
+  "strong_exclude_post": {
+   "compressed_claim_fraction": 0.68,
+   "corr_M_Y0": 0.7125272080846694,
+   "mean_M": 43.01883388701163,
+   "mean_abs_M_minus_50": 14.87996564187058,
+   "ols_intercept": 20.81788280245474,
+   "ols_slope": 0.44187736181763415,
+   "per_model_corr": {
+    "gemma3-12b": 0.5428567452089951,
+    "llama31-8b": 0.33669960085733824,
+    "mistral-small-24b": 0.6251947491271921,
+    "qwen3-8b": 0.48825374629088375,
+    "qwen35-9b": 0.49142508440150234
+   }
+  }
+ }
+}
