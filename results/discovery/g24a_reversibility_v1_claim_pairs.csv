@@ -1,0 +1,54 @@
+gnum,group_sha,contradiction_type,negation_present,inc_item_ids,dec_item_ids,source,notes
+1,02a240f095,explicit_negation,yes,g24a_fever_193540,g24a_fever_193532,fever,DEC negated by negative quantifier 'zero recognition'
+2,02c269369d,numeric_value,no,g24a_fever_223774,g24a_fever_223771,fever,"DEC wrong birth year (1993 = death year vs born 1911); pair surface unrelated, conflict is date-vs-evidence"
+3,0ad89d58b1,antonym_opposite,no,g24a_scifact_1035,g24a_scifact_1034,scifact,improves/decreases polarity antonym; subjects differ (KDM4E vs other demethylases)
+4,0bab0a612e,antonym_opposite,no,g24a_scifact_1136,g24a_scifact_1137,scifact,tumor enhancer/suppressor field antonym (also mutually exclusive)
+5,0f5ba488f4,numeric_value,no,g24a_scifact_1185,g24a_scifact_1184,scifact,$750M vs $5B
+6,130ca6d4a1,antonym_opposite,no,g24a_scifact_1000,g24a_scifact_990,scifact,DEC mirrors evidence (increases vs decreases fragility); INC on G4-stabilization dimension - cross-dimension pair
+7,16327e7b59,antonym_opposite,no,g24a_scifact_805,g24a_scifact_802,scifact,inhibits/encourages metastasis
+8,167f30ddc2,explicit_negation,yes,g24a_scifact_39,g24a_scifact_40,scifact,INC carries 'does not solely indicate'; DEC asserts strong indicator
+9,191c8c6d12,explicit_negation,yes,g24a_scifact_912,g24a_scifact_910,scifact,DEC 'does not have a large impact'
+10,206f9579ad,antonym_opposite,no,g24a_scifact_1348,"g24a_scifact_1347,g24a_scifact_379",scifact,DEC1 enhance/diminish; DEC2 'damages viral control' vs evidence 'early control' (antonym); group primary antonym
+11,23e2026256,explicit_negation,yes,g24a_scifact_1125,g24a_scifact_1126,scifact,negation on SUPPORTED side (INC 'does not enhance'); DEC positive
+12,2872aac67b,antonym_opposite,no,g24a_scifact_681,g24a_scifact_683,scifact,"'Lack of' shared in both claims (subject marker, not carrier); carrier is leads-to vs slows"
+13,295d1e6d1a,explicit_negation,yes,g24a_fever_16224,g24a_fever_47403,fever,DEC 'incapable of delivering unchanged'
+14,2af684783a,exclusive_alternative,no,"g24a_fever_120681,g24a_fever_112438",g24a_fever_45374,fever,DEC 'only sailed the Russian coast' vs circumnavigation; INC has 2 near-duplicate items
+15,2ef7066db4,numeric_value,no,g24a_fever_43041,g24a_fever_101716,fever,date value: June 4 vs 'the 2nd'
+16,3784e1e225,antonym_opposite,no,g24a_scifact_222,g24a_scifact_221,scifact,UCP1-independent/dependent morphological antonym
+17,3c940c4ab6,antonym_opposite,no,g24a_scifact_120,g24a_scifact_119,scifact,reduce/increase severity
+18,418c9c7ded,indirect_contradiction,no,g24a_fever_137414,"g24a_fever_99144,g24a_fever_110276",fever,DEC1 whole-life-Cuba vs LA-active life; DEC2 college-student-2017 vs died-2005 - both need inference chain
+19,46ea5012c1,explicit_negation,yes,g24a_fever_5972,g24a_fever_104021,fever,DEC 'lacked a budget of $160 million'
+20,4763290d52,explicit_negation,yes,g24a_fever_2739,g24a_fever_96710,fever,DEC 'does not have a deep voice' directly negates evidence; pair surface differs (INC 'can speak')
+21,4bc72d9ea8,explicit_negation,yes,g24a_scifact_235,g24a_scifact_233,scifact,DEC 'does not occur'
+22,4c0fc60923,exclusive_alternative,no,g24a_fever_211775,g24a_fever_211799,fever,'2006 film only' - only-scope; also wrong year (2005)
+23,53ae76df8c,numeric_value,no,g24a_fever_93273,g24a_fever_32505,fever,wrong count: 'nine American actors' (evidence lists 7 names)
+24,5cd5ff81d8,antonym_opposite,no,g24a_scifact_217,g24a_scifact_216,scifact,promotes/impairs survival
+25,5d3d709fe5,antonym_opposite,no,g24a_scifact_55,g24a_scifact_54,scifact,reduces/increases fibrosis
+26,6cc40aed98,explicit_negation,yes,g24a_scifact_668,g24a_scifact_669,scifact,DEC 'not required'
+27,6e220295f9,exclusive_alternative,no,g24a_fever_154542,g24a_fever_106478,fever,'airs only drama' vs programming list
+28,730b3fd4b4,antonym_opposite,no,g24a_scifact_1231,g24a_scifact_1232,scifact,less/more severe symptoms
+29,7686390b19,exclusive_alternative,no,g24a_fever_18752,g24a_fever_787,fever,'only German' - nationality alternative vs American + only-scope
+30,76b97884b2,explicit_negation,yes,g24a_fever_201095,g24a_fever_201114,fever,DEC 'incapable of being a voice-over artist'
+31,816626b7c4,explicit_negation,yes,g24a_scifact_1367,g24a_scifact_1370,scifact,DEC 'unrelated to' - un- prefix negation
+32,82a409f17e,numeric_value,no,"g24a_fever_183417,g24a_fever_183411",g24a_fever_183420,fever,"$87,894 vs $69,723; INC has 2 duplicate items"
+33,83377b6d9a,explicit_negation,yes,g24a_scifact_399,g24a_scifact_400,scifact,DEC 'unrelated to' - un- prefix negation
+34,8ac8ca9fc8,explicit_negation,yes,g24a_fever_33739,g24a_fever_78778,fever,DEC 'unmarried' - un- prefix negation of married (borderline morphological antonym)
+35,8c9981f4b9,antonym_opposite,no,g24a_scifact_536,g24a_scifact_537,scifact,induce/suppress panicprone state
+36,8cc84fdc4b,exclusive_alternative,no,g24a_fever_166919,g24a_fever_166951,fever,'only dubbed into English' vs 3 languages
+37,9909d08591,exclusive_alternative,no,g24a_fever_23198,g24a_fever_40778,fever,mother vs sister - incompatible family relation
+38,a19309c246,exclusive_alternative,no,g24a_fever_203627,g24a_fever_203614,fever,alternative film identity for debut (Duel vs Sugarland; years 1976 vs 1974)
+39,a1d8bd2633,numeric_value,no,g24a_scifact_5,g24a_scifact_2,scifact,1/2000 (evidence 493/million) vs 1 in 5 million
+40,a8fc3392e2,antonym_opposite,no,g24a_scifact_1040,g24a_scifact_1041,scifact,destabilizes vs stabilizing; DEC extends scope to gene activation (cross-dimension element)
+41,b4210ea945,exclusive_alternative,no,g24a_fever_214973,g24a_fever_214989,fever,'only on SBS TV' vs ABC TV - wrong channel + only-scope
+42,b659bb4463,antonym_opposite,no,g24a_scifact_779,g24a_scifact_778,scifact,"increased susceptibility vs 'immune to' - lexical opposition; immune is negative-polarity word, not linguistic negation"
+43,c048fb5c27,explicit_negation,yes,g24a_fever_216389,g24a_fever_216390,fever,DEC 'incapable of writing anything'
+44,c598c8dbb1,numeric_value,no,g24a_fever_124341,"g24a_fever_47792,g24a_fever_141838",fever,DEC1 began May vs June; DEC2 'ended January 2016' - value conflict vs evidence + temporal conflict with INC (began 2016)
+45,c963114af9,explicit_negation,yes,g24a_fever_66842,g24a_fever_68337,fever,DEC 'never missed the playoffs'
+46,ce47287f7f,explicit_negation,yes,g24a_fever_105216,g24a_fever_148263,fever,INC carries 'is not a series of seven...'; DEC asserts alternative category - negation on supported side
+47,e6af48c413,explicit_negation,yes,g24a_scifact_137,g24a_scifact_138,scifact,INC 'does not lead to improved vision'; DEC positive mirror - negation on supported side
+48,ec9e00037c,exclusive_alternative,no,g24a_fever_102540,g24a_fever_103545,fever,alternative location (Museum of Natural History vs Warrens' Occult Museum)
+49,efe5c764ce,explicit_negation,yes,g24a_fever_224369,g24a_fever_224370,fever,DEC 'zero FA Cups' - negative quantifier
+50,f320cab67b,exclusive_alternative,no,g24a_fever_208414,g24a_fever_208433,fever,'only a single' vs debut album - type mismatch + only-scope
+51,f4d0aa5c71,explicit_negation,yes,g24a_scifact_501,g24a_scifact_500,scifact,INC 'not correlated'; DEC positive mirror - negation on supported side
+52,fa68f098d6,numeric_value,no,g24a_fever_161222,g24a_fever_94603,fever,rank order: DEC 'ahead of Bar Rafaeli' (rank 1) vs evidence 2nd behind Refaeli
+53,fe39679ee7,numeric_value,no,g24a_fever_204015,g24a_fever_203996,fever,2010 vs Feb 2007 (2000s)

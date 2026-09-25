@@ -81,9 +81,33 @@ Context: median C_post by model x source x direction (all rows):
 
 Reading: negative dC_post = the SUPPORTED (increase) side is retracted MORE than the CONTRADICTED (decrease) side under the same evidence text; a contradicted claim's post-retraction residual stays near zero (C_dec ~ 0 = `seen and never comes back`) while the supported side overshoots negative.
 
-## 3. Claim-pair contradiction taxonomy
+## 3. Claim-pair contradiction taxonomy (hand-classified)
 
-PENDING: `_claim_pairs.csv` not present yet.
+Classified pairs: 53/53. Types: {"explicit_negation": 19, "numeric_value": 9, "antonym_opposite": 14, "exclusive_alternative": 10, "indirect_contradiction": 1}
+
+| type | n pairs | median dC_pre | % neg pre | median dC_post | % neg post |
+|---|---|---|---|---|---|
+| explicit_negation | 95 | -1.10 | 66.3% | -29.40 | 85.3% |
+| numeric_value | 45 | -11.43 | 62.2% | -37.56 | 86.7% |
+| antonym_opposite | 70 | -11.95 | 75.7% | -73.25 | 97.1% |
+| exclusive_alternative | 50 | -2.07 | 72.0% | -42.81 | 90.0% |
+| indirect_contradiction | 5 | -0.32 | 80.0% | -0.95 | 60.0% |
+
+**Non-explicit-negation subset** (the user's key question):
+
+| n pairs | median dC_pre | % neg pre | median dC_post | % neg post |
+|---|---|---|---|---|
+| 170 | -6.22 | 71.2% | -55.67 | 91.2% |
+
+Non-explicit-negation subset, per model (recurrence check):
+
+| model | n | median dC_pre | % neg pre | median dC_post | % neg post |
+|---|---|---|---|---|---|
+| gemma3-12b | 34 | -0.37 | 55.9% | -30.75 | 88.2% |
+| llama31-8b | 34 | -1.81 | 64.7% | -40.03 | 85.3% |
+| mistral-small-24b | 34 | -44.17 | 97.1% | -65.81 | 100.0% |
+| qwen3-8b | 34 | -1.74 | 79.4% | -43.02 | 85.3% |
+| qwen35-9b | 34 | -0.17 | 58.8% | -90.73 | 97.1% |
 
 ## 4. Rationale paired coding
 

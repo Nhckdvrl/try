@@ -269,6 +269,10 @@ def main() -> int:
                                            for t in tax)),
             "by_type": {k: v["summary"] for k, v in by_type.items()},
             "non_explicit_negation": paired_summary(sub_nonneg),
+            "non_explicit_negation_by_model": {
+                m: paired_summary([p for p in sub_nonneg
+                                   if p["model"] == m])
+                for m in MODELS},
             "n_classified": len(tax),
             "negation_present_counts": dict(Counter(
                 t.get("negation_present", "") for t in tax)),
@@ -480,6 +484,17 @@ def main() -> int:
                           pct(tax_block["non_explicit_negation"]["dC_pre_neg_frac"]),
                           fm(tax_block["non_explicit_negation"]["dC_post_median"]),
                           pct(tax_block["non_explicit_negation"]["dC_post_neg_frac"])]]),
+              "",
+              "Non-explicit-negation subset, per model (recurrence check):",
+              "",
+              *md_table(["model", "n", "median dC_pre", "% neg pre",
+                         "median dC_post", "% neg post"],
+                        [[m, v["n"], fm(v["dC_pre_median"]),
+                          pct(v["dC_pre_neg_frac"]),
+                          fm(v["dC_post_median"]),
+                          pct(v["dC_post_neg_frac"])]
+                         for m, v in
+                         tax_block["non_explicit_negation_by_model"].items()]),
               ""]
     else:
         L += ["## 3. Claim-pair contradiction taxonomy",
