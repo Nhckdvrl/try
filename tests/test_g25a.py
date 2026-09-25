@@ -50,7 +50,13 @@ G25_SHA = "7c6993244d7808d8e65696c00a55f4fc14c7f3011f34f0266e450f1367173147"
 CAND = os.path.join(ROOT, "data/items/g24a_candidates_v1.jsonl")
 CAND_SHA = "91ebad9850d6f7d39a9b26fcf98c1f998d16aa68cde3a480541df13da721f5cd"
 G24A_ITEMS = os.path.join(ROOT, "data/items/g24a_v1.jsonl")
-G24A_SHA = "b0d02f7ab1ae835149aa0e726dbe4b0c4186256c94f46d03d978632f9c951b34"
+# pin: was b0d02f7a... (written at 44f0eed, 09-24) and went stale when
+# 92d8cd0 (09-25, "G24A: apply review fixes to item file: 52 claim
+# rewrites + 4 direction flips") rewrote g24a_v1.jsonl without updating
+# this line.  Repinned to the current committed file; every other
+# assertion in this test (item-level disjointness, G25<->candidates byte
+# identity, 472-cluster anchor) re-verified against it.
+G24A_SHA = "6dfe6dd4cdcb58d80f3679b6ea0896e0f20486d6c5144ab7fdbe2a51476c35f1"
 SELECTION_ROWS = os.path.join(
     ROOT, "results/raw/g24a_mistral-small-24b_selection.jsonl")
 PREREG = os.path.join(ROOT, "preregistrations",
