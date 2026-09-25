@@ -98,7 +98,7 @@ Topology (n_inc, n_dec): cells with >=4 groups listed individually, remaining ce
 
 Both numbers are reported for the user to choose from when designing a held-out confirmation; the census itself excludes only the 53, per instruction.
 
-## 3. Automatic contradiction taxonomy (descriptive; blind audit pending)
+## 3. Automatic contradiction taxonomy (deterministic tags + blind audit)
 
 Deterministic rules with precedence: explicit_negation > exclusive_alternative > numeric_value (number-token sets differ between claim sides) > antonym_opposite (lexical pair across sides) > indirect_contradiction (default).
 
@@ -112,7 +112,39 @@ Deterministic rules with precedence: explicit_negation > exclusive_alternative >
 
 negation_present: {"no": 1092, "yes": 490}
 
-STATUS: automatic labels are a landscape description, NOT verified judgments. A blind sample audit (coders never see the auto labels) is the next step before any sampling decision.
+### 3b. Blind sample audit (seed 20260925; 100 fever + 20 scifact; 3 blind coders, zero access to auto labels)
+
+| metric | value |
+|---|---|
+| 5-way exact agreement (auto vs blind) | 62/120 = 51.7% |
+| — fever | 57/100 = 57.0% |
+| — scifact | 5/20 = 25.0% |
+| negation-flag agreement | 108/120 = 90.0% |
+| validity (validator exit 0) | manifest 120; batches 40/40/40; coded 120; sha sets match; label domains ok |
+
+Confusion matrix (rows = auto rules, cols = blind coders):
+
+| auto \ blind | neg | anti | excl | num | ind |
+|---|---|---|---|---|---|
+| neg | 20 | 0 | 2 | 1 | 7 |
+| anti | 0 | 3 | 0 | 0 | 0 |
+| excl | 1 | 0 | 7 | 3 | 8 |
+| num | 0 | 4 | 0 | 12 | 6 |
+| ind | 8 | 17 | 0 | 1 | 20 |
+
+Proportions (population = all 1,582 fresh groups):
+
+| type | auto % of groups | auto in sample | blind in sample | blind weighted % (audited) |
+|---|---|---|---|---|
+| explicit_negation | 31.0% | 30/120 | 29/120 | 27.0% |
+| antonym_opposite | 1.2% | 3/120 | 24/120 | 11.0% |
+| exclusive_alternative | 21.4% | 19/120 | 9/120 | 8.6% |
+| numeric_value | 19.7% | 22/120 | 17/120 | 15.5% |
+| indirect_contradiction | 26.7% | 46/120 | 41/120 | 37.8% |
+
+negation_present (blind): sample {'no': 80, 'yes': 40} -> weighted {'no': 63.2, 'yes': 36.8} (discovery's 53 pairs were 19/53 = 35.8% yes; different population, description only)
+
+Reading (descriptions, no gates): auto antonym badly under-detects paraphrase antonyms (1.2% of groups vs audited 11.0% — the lexical-pair rules are a LOWER BOUND); auto exclusive over-calls incidental 'only' (blind confirmed 7/19); the negation flag is the most reliable tag (90.0% agreement). Per-group auto tags in groups.csv remain rough navigation tags — use the audited weighted proportions for any landscape statement. Borderline coder rationales are preserved verbatim in the batch jsonl `note` fields; no reconciliation pass was run (a second coder round was not authorized).
 
 ## 4. Claim similarity and entity overlap (description only)
 

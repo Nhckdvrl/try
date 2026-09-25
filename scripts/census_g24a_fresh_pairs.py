@@ -299,6 +299,92 @@ def main() -> int:
         "no_model_output_read": True,
     }
 
+    # --- optional blind audit (from scripts/validate_g24a_census_taxonomy_audit.py)
+    audit_p = Path(OUT_PREFIX + "_taxaudit_summary.json")
+    audit = json.loads(audit_p.read_text(encoding="utf-8")) \
+        if audit_p.exists() else None
+    report["auto_taxonomy"]["blind_audit"] = audit or {"status": "pending"}
+    report["auto_taxonomy"]["status"] = (
+        "deterministic rules (rough per-group tags); landscape proportions "
+        "audited blind (see blind_audit)" if audit else
+        "deterministic rules, blind sample audit PENDING")
+    SHORT = {"explicit_negation": "neg", "antonym_opposite": "anti",
+             "exclusive_alternative": "excl", "numeric_value": "num",
+             "indirect_contradiction": "ind"}
+    TORDER = ["explicit_negation", "antonym_opposite",
+              "exclusive_alternative", "numeric_value", "indirect_contradiction"]
+    if audit:
+        agr = audit["agreement"]
+        dist = audit["distributions"]
+        fx = agr["five_way_exact"]
+        conf = agr["confusion_auto_rows_blind_cols"]
+        ex_total = sum(conf["exclusive_alternative"].values())
+        ex_ok = conf["exclusive_alternative"].get("exclusive_alternative", 0)
+        anti_auto_pct = 100 * types.get("antonym_opposite", 0) / n_groups
+        anti_blind_pct = dist["blind_population_weighted_pct"]["antonym_opposite"]
+        audit_block = [
+            "### 3b. Blind sample audit (seed 20260925; 100 fever + 20 "
+            "scifact; 3 blind coders, zero access to auto labels)",
+            "",
+            *md_table(["metric", "value"], [
+                ["5-way exact agreement (auto vs blind)",
+                 f"{fx['overall']}/{fx['n']} = {fx['pct']}%"],
+                ["— fever",
+                 f"{fx['fever']['exact']}/{fx['fever']['n']} = {fx['fever']['pct']}%"],
+                ["— scifact",
+                 f"{fx['scifact']['exact']}/{fx['scifact']['n']} = {fx['scifact']['pct']}%"],
+                ["negation-flag agreement",
+                 f"{agr['negation_flag']['exact']}/{agr['negation_flag']['n']}"
+                 f" = {agr['negation_flag']['pct']}%"],
+                ["validity (validator exit 0)",
+                 "manifest 120; batches 40/40/40; coded 120; sha sets match; "
+                 "label domains ok"],
+            ]),
+            "",
+            "Confusion matrix (rows = auto rules, cols = blind coders):",
+            "",
+            *md_table(["auto \\ blind"] + [SHORT[t] for t in TORDER],
+                      [[SHORT[a]] + [conf.get(a, {}).get(t, 0)
+                                     for t in TORDER] for a in TORDER]),
+            "",
+            "Proportions (population = all 1,582 fresh groups):",
+            "",
+            *md_table(["type", "auto % of groups", "auto in sample",
+                       "blind in sample", "blind weighted % (audited)"],
+                      [[t, f"{100 * types.get(t, 0) / n_groups:.1f}%",
+                        f"{dist['auto_on_sample'].get(t, 0)}/120",
+                        f"{dist['blind_on_sample'].get(t, 0)}/120",
+                        f"{dist['blind_population_weighted_pct'][t]}%"]
+                       for t in TORDER]),
+            "",
+            f"negation_present (blind): sample {dist['negation_flag']['blind']}"
+            f" -> weighted {dist['negation_flag']['blind_population_weighted_pct']}"
+            " (discovery's 53 pairs were 19/53 = 35.8% yes; different "
+            "population, description only)",
+            "",
+            f"Reading (descriptions, no gates): auto antonym badly "
+            f"under-detects paraphrase antonyms ({anti_auto_pct:.1f}% of "
+            f"groups vs audited {anti_blind_pct}% — the lexical-pair rules "
+            f"are a LOWER BOUND); auto exclusive over-calls incidental "
+            f"'only' (blind confirmed {ex_ok}/{ex_total}); the negation flag "
+            f"is the most reliable tag ({agr['negation_flag']['pct']}% "
+            f"agreement). Per-group auto tags in groups.csv remain rough "
+            f"navigation tags — use the audited weighted proportions for "
+            f"any landscape statement. Borderline coder rationales are "
+            f"preserved verbatim in the batch jsonl `note` fields; no "
+            f"reconciliation pass was run (a second coder round was not "
+            f"authorized).",
+            "",
+        ]
+    else:
+        audit_block = [
+            "STATUS: automatic labels are a landscape description, NOT "
+            "verified judgments. A blind sample audit (coders never see "
+            "the auto labels) is the next step before any sampling "
+            "decision.",
+            "",
+        ]
+
     # --- csv ---------------------------------------------------------------
     cols = ["group_sha", "source", "n_inc", "n_dec", "n_items", "auto_type",
             "negation_present", "jaccard_mean", "entity_overlap_mean",
@@ -372,8 +458,8 @@ def main() -> int:
          "designing a held-out confirmation; the census itself excludes "
          "only the 53, per instruction.",
          "",
-         "## 3. Automatic contradiction taxonomy (descriptive; blind audit "
-         "pending)",
+         "## 3. Automatic contradiction taxonomy (deterministic tags + "
+         "blind audit)",
          "",
          "Deterministic rules with precedence: explicit_negation > "
          "exclusive_alternative > numeric_value (number-token sets differ "
@@ -386,10 +472,7 @@ def main() -> int:
          "",
          f"negation_present: {json.dumps(dict(negs))}",
          "",
-         "STATUS: automatic labels are a landscape description, NOT "
-         "verified judgments. A blind sample audit (coders never see the "
-         "auto labels) is the next step before any sampling decision.",
-         "",
+         *audit_block,
          "## 4. Claim similarity and entity overlap (description only)",
          "",
          "Per group: mean over all inc x dec claim pairs of (a) token "

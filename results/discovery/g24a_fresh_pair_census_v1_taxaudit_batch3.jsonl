@@ -1,0 +1,40 @@
+{"group_sha": "ec9ceadbb9", "type": "indirect_contradiction", "negation_present": "no", "note": "Wrong-place claims (Globe/Prague/Schwabing) dominate; Jan vs May 1891 date pairs also numeric; 'zero' not a listed marker"}
+{"group_sha": "c1007fe577", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'is not a wrestler' directly negates the wrestling claims; 'is a balloon' is a loose category error"}
+{"group_sha": "834907b420", "type": "explicit_negation", "negation_present": "yes", "note": "Two DEC claims verbatim-negate INC ('does not derive...', 'is not a spirit'); other two are flavour swaps"}
+{"group_sha": "7610adaf66", "type": "numeric_value", "negation_present": "no", "note": "Identical frame, differing genome size: 7489 vs 2140 base pairs"}
+{"group_sha": "489b15b6d8", "type": "numeric_value", "negation_present": "no", "note": "Ranks sixth vs ninth and second vs third-largest; also smaller/larger antonym and 'only an asteroid'"}
+{"group_sha": "dd91e1fa69", "type": "indirect_contradiction", "negation_present": "no", "note": "Capital of Maharashtra vs Kerala: wrong state resolvable only via evidence, no lexical trigger"}
+{"group_sha": "a4f72f7736", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'unrelated to The Beatles' (listed marker) carries the conflict with the Beatles/tourist INC claims"}
+{"group_sha": "a658b8dc16", "type": "indirect_contradiction", "negation_present": "yes", "note": "'do not' present but the claims (mirror UTRs vs no peptides) clash only via the shared evidence"}
+{"group_sha": "83952e3102", "type": "antonym_opposite", "negation_present": "no", "note": "sexiest vs ugliest is a direct polarity clash; 2015 vs 2016 claims are compatible so date is not carrier"}
+{"group_sha": "9c9b8e997b", "type": "indirect_contradiction", "negation_present": "yes", "note": "3 DEC are wrong-location swaps; 'known by no other name' negation present but minority mechanism"}
+{"group_sha": "e77efdb9ab", "type": "antonym_opposite", "negation_present": "no", "note": "prevents vs worsens the pathology: opposite outcome poles, no negation"}
+{"group_sha": "f3361096a8", "type": "antonym_opposite", "negation_present": "no", "note": "higher vs lower inflammatory capacity: textbook antonym pair"}
+{"group_sha": "ea8f63b767", "type": "indirect_contradiction", "negation_present": "no", "note": "3 DEC swap human for dog/antelope/frog entity errors; one 'impeded' antonym is minority"}
+{"group_sha": "0f75314153", "type": "indirect_contradiction", "negation_present": "no", "note": "Wrong state/names (Massachusetts, Vermont, Brethren) dominate; former vs current cult leader antonym"}
+{"group_sha": "aecedf3c2d", "type": "indirect_contradiction", "negation_present": "no", "note": "'is a truck' and 'has yet to be made' clash only via evidence; 'yet to be' not a listed marker"}
+{"group_sha": "d81bb3dfe4", "type": "indirect_contradiction", "negation_present": "no", "note": "'all-female cast' vs male cast (Sean Penn et al.) needs evidence to see the conflict"}
+{"group_sha": "5adef5423d", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'is unable to write' (un- negation) directly negates the writer INC claims"}
+{"group_sha": "76f5fdd9ef", "type": "antonym_opposite", "negation_present": "no", "note": "reduces vs increases cancer mortality: directional antonym"}
+{"group_sha": "2c8997d469", "type": "indirect_contradiction", "negation_present": "no", "note": "Wrong medium/program/status claims outnumber 1930s/1970s vs 1960s clash; indirect plurality"}
+{"group_sha": "f5da43e40c", "type": "indirect_contradiction", "negation_present": "no", "note": "'lost every bid' vs being PM conflicts only via evidence; 'lost' not a listed marker"}
+{"group_sha": "3173d92130", "type": "antonym_opposite", "negation_present": "yes", "note": "retreat vs expansion/maintain are exact antonym pairs; 'unaffected' negation present but minority"}
+{"group_sha": "45702fbb74", "type": "indirect_contradiction", "negation_present": "no", "note": "Lakers vs Clippers team mismatch is resolvable only from the evidence"}
+{"group_sha": "4dbf7e8d3d", "type": "exclusive_alternative", "negation_present": "no", "note": "'distributed exclusively by a Czech studio' - scoping word makes sides exclusive; TV-studio claim loose"}
+{"group_sha": "2a3255de71", "type": "antonym_opposite", "negation_present": "no", "note": "signature vs most obscure: opposite prominence poles, no negation/number/exclusive trigger"}
+{"group_sha": "afc8355d00", "type": "antonym_opposite", "negation_present": "no", "note": "increase vs reduce survival of neurons: directional antonym"}
+{"group_sha": "a442ff0b62", "type": "indirect_contradiction", "negation_present": "no", "note": "3 wrong distributor/entity claims outnumber two 'only produced by' exclusives and 1930 vs 1997"}
+{"group_sha": "d1e7110d86", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'is not a season of a TV series' negates INC; Australian claim is an origin swap"}
+{"group_sha": "252ec64d13", "type": "antonym_opposite", "negation_present": "no", "note": "promotes vs slows the transition to invasion: antonym poles"}
+{"group_sha": "37c6427257", "type": "antonym_opposite", "negation_present": "no", "note": "inhibit vs encourage mesodermal differentiation: antonym poles"}
+{"group_sha": "0bb87e11b6", "type": "indirect_contradiction", "negation_present": "no", "note": "Remake-source swaps (poem, Spielberg film) need evidence; no lexical trigger present"}
+{"group_sha": "663a0f0655", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'refused to use scalable multicore processing' negates the INC use claim; software claim loose"}
+{"group_sha": "537392041e", "type": "indirect_contradiction", "negation_present": "yes", "note": "2 cause swaps (brain/nicotine vs alcohol) outnumber 'did not die at 27' and 27 vs 31"}
+{"group_sha": "7bfcfe375c", "type": "indirect_contradiction", "negation_present": "no", "note": "4 location/role errors (White House, Neptune, Vietnam, MVP) outnumber 50th vs 42nd and date clashes"}
+{"group_sha": "9d61837d2a", "type": "numeric_value", "negation_present": "no", "note": "born in May vs December 26, 1970: date mismatch"}
+{"group_sha": "5db112a93e", "type": "antonym_opposite", "negation_present": "no", "note": "'subject to influence' vs 'isolated from influence' opposite poles; 'isolated' not a listed marker"}
+{"group_sha": "e83435f8a3", "type": "explicit_negation", "negation_present": "yes", "note": "'incapable of working with electronica' negates INC; eleven vs twelve albums numeric also present"}
+{"group_sha": "65f1f45c93", "type": "indirect_contradiction", "negation_present": "no", "note": "university vs American film-company parent swaps need evidence to resolve"}
+{"group_sha": "374057e887", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'unable to be handheld' (un- negation) negates the handheld INC; 'wheeled' is loose"}
+{"group_sha": "1e0b5cb1ed", "type": "indirect_contradiction", "negation_present": "yes", "note": "2 wrong-fact claims (Olivia Dunham, Massachusetts) outnumber exact 'not Shawn Spencer' negation"}
+{"group_sha": "0371d7058c", "type": "exclusive_alternative", "negation_present": "yes", "note": "two 'only'-scoped claims dominate; 'nonfictional' prefixal negation also present"}

@@ -1,0 +1,40 @@
+{"group_sha": "dcfb5c9b8a", "type": "antonym_opposite", "negation_present": "no", "note": "INC 'reduces proliferation' vs DEC 'encourages proliferation': antonym poles, no negation marker."}
+{"group_sha": "c1a3138125", "type": "indirect_contradiction", "negation_present": "no", "note": "Core clashes (TV show/cancelled vs motion picture) have no trigger; only-a-comic-book and date claims secondary."}
+{"group_sha": "2d6e47739f", "type": "indirect_contradiction", "negation_present": "no", "note": "10/15 dec claims are wrong-state/direction mismatches with no trigger; 5 'only' claims don't dominate."}
+{"group_sha": "7fb8cff259", "type": "indirect_contradiction", "negation_present": "no", "note": "'someone other than X' conflicts with 'is X' but 'other than' isn't in the marker list; differing names dominate."}
+{"group_sha": "a8e1c43172", "type": "exclusive_alternative", "negation_present": "no", "note": "4/6 dec claims start with 'only' (candy/posters/cars) carrying the clash; nationality/building mismatches tie."}
+{"group_sha": "1fbc88c092", "type": "exclusive_alternative", "negation_present": "no", "note": "Mixed: only-Australia vs worldwide sales (exclusive), worst-selling (antonym), stocks error; exclusive by precedence."}
+{"group_sha": "87f335a320", "type": "antonym_opposite", "negation_present": "no", "note": "'decreases' vs 'increases' in-hospital mortality: antonym poles, no negation."}
+{"group_sha": "727e412419", "type": "antonym_opposite", "negation_present": "no", "note": "'enhances' vs 'represses' weak ligand signalling: antonym poles, no negation."}
+{"group_sha": "540d5d0edb", "type": "indirect_contradiction", "negation_present": "no", "note": "Dec give wrong genre (French Revolution) and wrong nationality (Russian vs American); no lexical trigger."}
+{"group_sha": "b6d5c2a224", "type": "indirect_contradiction", "negation_present": "no", "note": "'is in Denmark'/'far away from England' vs 'is English': wrong-place values, no listed marker."}
+{"group_sha": "f1a3ac1f42", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'refused to work as an Inspector' negates INC 'worked as an inspector'; 'refused' carries."}
+{"group_sha": "d39e5de6af", "type": "indirect_contradiction", "negation_present": "no", "note": "Two dec claims give wrong work/author (Harry Potter, Steven King); 'exclusively from film' is runner-up trigger."}
+{"group_sha": "76755c263e", "type": "exclusive_alternative", "negation_present": "no", "note": "'released through online sale only' vs 'released through a record label': 'only' makes them exclusive."}
+{"group_sha": "fc194aedb7", "type": "numeric_value", "negation_present": "no", "note": "4/5 dec claims give conflicting percentages (30/5/44/11%) vs inc 'more than 50%' and evidence; one nationality error."}
+{"group_sha": "7f6d5f9bd8", "type": "explicit_negation", "negation_present": "yes", "note": "Both dec claims use 'refused' ('refused any role'/'refused to work with') against inc participation claims."}
+{"group_sha": "9ede29b5dd", "type": "indirect_contradiction", "negation_present": "yes", "note": "Value mismatches (Jews/Turkish/outside) dominate; 'fails to be known' marker present but its claim has no inc pair."}
+{"group_sha": "428b3ea1c3", "type": "antonym_opposite", "negation_present": "no", "note": "'repairs' vs 'worsens' axonal transport interference: antonym poles, no negation."}
+{"group_sha": "cae3e50ea1", "type": "antonym_opposite", "negation_present": "no", "note": "'suppresses' vs 'increases' BBB breakdown: antonym poles, no negation."}
+{"group_sha": "70abb33f26", "type": "indirect_contradiction", "negation_present": "no", "note": "Dec are wrong name/medium/type/partner values; in 'only comedy-drama radio' the radio-vs-TV clash, not 'only', carries."}
+{"group_sha": "c8bbf16b70", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'Scandinavia does not include territory' negates inc inclusion; 'does not' is the carrier."}
+{"group_sha": "01df2d47f2", "type": "indirect_contradiction", "negation_present": "no", "note": "'Royal Navy' vs 'navy of the Russian Empire': wrong-value mismatch with no lexical trigger."}
+{"group_sha": "12eac1d2fd", "type": "indirect_contradiction", "negation_present": "yes", "note": "5/10 dec claims are wrong values (dogs/Mario/British/NE Asia); 'never' and 'unofficially' negation claims only 2."}
+{"group_sha": "828b973030", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'crossover hit without any features' negates inc featured-rapper claims; 'without' carries."}
+{"group_sha": "68eee42d27", "type": "indirect_contradiction", "negation_present": "no", "note": "7 dec claims give wrong county/state/country; 'outside of any named county' not on the marker list."}
+{"group_sha": "43e9793d81", "type": "explicit_negation", "negation_present": "yes", "note": "Both dec claims begin 'did not perform', directly negating the inc performance claims."}
+{"group_sha": "4bca426c65", "type": "explicit_negation", "negation_present": "yes", "note": "All 3 dec claims use 'incapable of' against inc currency/writing claims; negation marker carries."}
+{"group_sha": "f2894bdc91", "type": "antonym_opposite", "negation_present": "no", "note": "'is a miser' vs 'gives money' are opposite poles; bulldog claim is wrong-value, judge claim has no inc pair."}
+{"group_sha": "9f31ced723", "type": "indirect_contradiction", "negation_present": "no", "note": "DEC 'starred in an American song' vs inc film claims: medium mismatch, no lexical trigger."}
+{"group_sha": "b32341abe6", "type": "antonym_opposite", "negation_present": "no", "note": "'always banned' vs 'practiced' burials and 'least important' vs 'chief' deity are antonym poles; Zeus is a value error."}
+{"group_sha": "a0ac204db5", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'did not direct music videos' directly negates inc directed-videos claims."}
+{"group_sha": "918ac3db37", "type": "numeric_value", "negation_present": "no", "note": "DEC 'built before 1915' contradicts inc 'built/designed in 1915': date conflict."}
+{"group_sha": "2cf137560e", "type": "numeric_value", "negation_present": "no", "note": "Dec give 12 episodes vs inc over 20, and under 1M vs over 1M/14.3B viewers: counts differ."}
+{"group_sha": "e8f0ed13cb", "type": "indirect_contradiction", "negation_present": "no", "note": "Only inc-dec pair is 'current name is Newton Heath' vs 'first name was Newton Heath'; needs evidence."}
+{"group_sha": "c8185c1167", "type": "exclusive_alternative", "negation_present": "yes", "note": "Two dec claims use 'only' (stripper/newspaper) vs the photographed claim; third carries 'incapable' marker."}
+{"group_sha": "52dd946655", "type": "numeric_value", "negation_present": "no", "note": "Three dec claims give conflicting years (1979/1958/1964) vs inc 1977/1966; dates dominate."}
+{"group_sha": "9a8e4ffa1e", "type": "numeric_value", "negation_present": "no", "note": "Dec give 50,000/600,000/three hundred fifty and a 1999 source vs inc 145,170/600,000+/2010 census."}
+{"group_sha": "3ae70069d7", "type": "antonym_opposite", "negation_present": "no", "note": "'positively correlated' vs 'negatively correlated': antonym poles; 'negatively' not a negation marker."}
+{"group_sha": "87a4d1344c", "type": "exclusive_alternative", "negation_present": "no", "note": "DEC 'spent life solely in Germany' vs inc ranch claims: 'solely' scoping word makes them exclusive."}
+{"group_sha": "eea5f2f62e", "type": "explicit_negation", "negation_present": "yes", "note": "No strict inc-dec pair conflict; contain-vs-lack opposition carried by 'without' (marker) and 'devoid'."}
+{"group_sha": "f0a99e9777", "type": "explicit_negation", "negation_present": "yes", "note": "DEC 'refused to cast David Duchovny' negates inc starred-Duchovny claims; eight-season claim has no inc pair."}

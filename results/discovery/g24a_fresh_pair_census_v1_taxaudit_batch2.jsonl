@@ -1,0 +1,40 @@
+{"group_sha": "b99675450c", "type": "antonym_opposite", "negation_present": "no", "note": "suppressed vs activated insulin signaling are opposite poles; no negation marker in claims"}
+{"group_sha": "675acfbb99", "type": "indirect_contradiction", "negation_present": "no", "note": "wrong values (HBO/Netflix, film/TV, wrong people); 'only' present but not the carrier of conflict"}
+{"group_sha": "45f9ffc364", "type": "indirect_contradiction", "negation_present": "no", "note": "conflicting founder values (Simon Cowell vs Paula Abdul); no lexical trigger"}
+{"group_sha": "d84ceb7a18", "type": "explicit_negation", "negation_present": "yes", "note": "'incapable of being a tunnel' negates INC 'is a tunnel'; incapable is a marker"}
+{"group_sha": "53a20dbb54", "type": "numeric_value", "negation_present": "no", "note": "date mismatch: DEC July 2004 vs evidence June 30 2004; also a 'yet to be released' claim"}
+{"group_sha": "6e10b92216", "type": "numeric_value", "negation_present": "no", "note": "date conflicts: ended Aug 18 2009 vs began/ended June 14 2009/2008 claims"}
+{"group_sha": "377a728f42", "type": "explicit_negation", "negation_present": "yes", "note": "'refused/declined to ever work with' negates INC worked-with claims"}
+{"group_sha": "7490acfad6", "type": "explicit_negation", "negation_present": "yes", "note": "INC 'no male heirs' vs DEC 'only male heirs': the word 'no' carries the conflict"}
+{"group_sha": "af496ae104", "type": "explicit_negation", "negation_present": "yes", "note": "two direct 'not' claims (not host, not born Nov 20) negate INC; date/alive pairs secondary"}
+{"group_sha": "20bf6fbf70", "type": "antonym_opposite", "negation_present": "no", "note": "more likely vs less likely to be cited = antonym poles, no negation marker"}
+{"group_sha": "3f3b9e0456", "type": "explicit_negation", "negation_present": "yes", "note": "only trigger present is 'did not write their own songs'; negation carries (pairing odd)"}
+{"group_sha": "cf7e9bb554", "type": "exclusive_alternative", "negation_present": "no", "note": "'only ever played golf' / 'exclusively played for' scoping words make sides exclusive"}
+{"group_sha": "23932af5cf", "type": "explicit_negation", "negation_present": "yes", "note": "'uninvolved in apoptosis' (un- prefix) negates INC 'major role in apoptosis'"}
+{"group_sha": "4eff190056", "type": "explicit_negation", "negation_present": "yes", "note": "'not a superhero' and 'did not appear' directly negate INC claims"}
+{"group_sha": "b62f6b8de8", "type": "indirect_contradiction", "negation_present": "no", "note": "Bond vs Kingsman franchise values; no negation/antonym/numeric/scoping trigger"}
+{"group_sha": "cb115af84d", "type": "numeric_value", "negation_present": "no", "note": "launch years 1900/2011 contradict 2004; part vs separate claim secondary"}
+{"group_sha": "c7bbdb5c50", "type": "indirect_contradiction", "negation_present": "no", "note": "office/nationality value swaps (PM vs president, Pakistani vs German); no trigger"}
+{"group_sha": "1073df0316", "type": "explicit_negation", "negation_present": "yes", "note": "four 'unaffected by development' claims negate INC 'affected'; similarities vs differences secondary"}
+{"group_sha": "f13fab2c9a", "type": "explicit_negation", "negation_present": "yes", "note": "'has not died' and 'did not end the dynasty' negate INC claims"}
+{"group_sha": "e8e11aaf0e", "type": "antonym_opposite", "negation_present": "no", "note": "successful vs ineffective = antonym pair (cf. dependent/independent); in- not in marker list"}
+{"group_sha": "03e66e8384", "type": "antonym_opposite", "negation_present": "no", "note": "cruel vs kind are antonym poles, no negation marker"}
+{"group_sha": "b7fcf008e5", "type": "indirect_contradiction", "negation_present": "no", "note": "different director/source values (Pakula vs Burton, novel vs commercial); no trigger"}
+{"group_sha": "b866a34452", "type": "indirect_contradiction", "negation_present": "yes", "note": "contract vs declining WEC only conflicts via evidence; 'declined' counted as refusal marker"}
+{"group_sha": "baafac4882", "type": "numeric_value", "negation_present": "yes", "note": "date pairs 2016 vs 2018/2011 dominate; also direct 'did not premiere in 2016'"}
+{"group_sha": "52ebe20278", "type": "indirect_contradiction", "negation_present": "no", "note": "actor vs director/athlete value swaps; no lexical trigger"}
+{"group_sha": "96db2ad3f1", "type": "indirect_contradiction", "negation_present": "no", "note": "poem vs novel/short story work-type mismatch; 'exclusively' not the carrier (would conflict anyway)"}
+{"group_sha": "2f90d68a27", "type": "explicit_negation", "negation_present": "yes", "note": "INC 'does not include Greenland' vs DEC 'includes Greenland': the negation carries"}
+{"group_sha": "bcf9e51f82", "type": "exclusive_alternative", "negation_present": "no", "note": "'appears exclusively in Harry Potter' exclusivity word is the carrier; non-fiction/poem pairs secondary"}
+{"group_sha": "af04f7ab1e", "type": "antonym_opposite", "negation_present": "no", "note": "'in defiance of' vs 'in favor of' opposition carries; North/South, Tuscaloosa pairs secondary"}
+{"group_sha": "8cb5d4161c", "type": "numeric_value", "negation_present": "no", "note": "marriage count 2+ vs only once: the differing number is the carrier, not 'only'"}
+{"group_sha": "3c3a4a37dc", "type": "numeric_value", "negation_present": "no", "note": "DEC start year 2009 vs evidence 343 BC date mismatch; Philip vs Alexander pair secondary"}
+{"group_sha": "2181470ed3", "type": "indirect_contradiction", "negation_present": "no", "note": "song vs epic novel work-type mismatch; no lexical trigger"}
+{"group_sha": "63adfa578a", "type": "numeric_value", "negation_present": "no", "note": "membership counts/years differ (417 vs 15,882,417; 2017 vs 2007)"}
+{"group_sha": "d75b4f2510", "type": "indirect_contradiction", "negation_present": "no", "note": "reversed transfer direction A-to-B vs B-to-A; no true antonym lexeme, no other trigger"}
+{"group_sha": "903b219e48", "type": "antonym_opposite", "negation_present": "no", "note": "generation vs removal of ROS are antonym poles, no negation marker"}
+{"group_sha": "c531cffa93", "type": "explicit_negation", "negation_present": "yes", "note": "'is not in Greek mythology' negates INC 'appears in Greek mythology'"}
+{"group_sha": "99decfff13", "type": "explicit_negation", "negation_present": "yes", "note": "three 'not' claims negate INC musician/American/actress claims"}
+{"group_sha": "b15f27ecc4", "type": "indirect_contradiction", "negation_present": "no", "note": "location value swaps (London borough vs Wales/New York); no lexical trigger"}
+{"group_sha": "1fe6ccdd11", "type": "numeric_value", "negation_present": "no", "note": "birth year 1903 vs 1908 mismatch; American vs British nationality swap secondary"}
+{"group_sha": "b89871904b", "type": "numeric_value", "negation_present": "no", "note": "soldier count four vs six is an exact count mismatch; setting swaps secondary"}

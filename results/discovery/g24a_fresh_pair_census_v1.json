@@ -123,7 +123,7 @@
   "groups_with_evidence_never_seen_in_discovery": 1340
  },
  "auto_taxonomy": {
-  "status": "deterministic rules, blind sample audit PENDING",
+  "status": "deterministic rules (rough per-group tags); landscape proportions audited blind (see blind_audit)",
   "precedence": "explicit_negation > exclusive_alternative > numeric_value (token-set differs) > antonym_opposite > indirect_contradiction",
   "counts": {
    "indirect_contradiction": 422,
@@ -135,6 +135,139 @@
   "negation_present": {
    "no": 1092,
    "yes": 490
+  },
+  "blind_audit": {
+   "design": {
+    "seed": 20260925,
+    "n": 120,
+    "strata": {
+     "fever": 100,
+     "scifact": 20
+    },
+    "population": {
+     "fresh_groups": 1582,
+     "fever": 1515,
+     "scifact": 67
+    },
+    "coders": "3 local agents, blind to auto labels, 1 batch each"
+   },
+   "validity": {
+    "manifest_rows": 120,
+    "batch_headers": [
+     40,
+     40,
+     40
+    ],
+    "coded_records": 120,
+    "sha_sets_match": true,
+    "label_domains_ok": true
+   },
+   "agreement": {
+    "five_way_exact": {
+     "overall": 62,
+     "n": 120,
+     "pct": 51.7,
+     "fever": {
+      "exact": 57,
+      "n": 100,
+      "pct": 57.0
+     },
+     "scifact": {
+      "exact": 5,
+      "n": 20,
+      "pct": 25.0
+     }
+    },
+    "negation_flag": {
+     "exact": 108,
+     "n": 120,
+     "pct": 90.0,
+     "fever_pct": 89.0,
+     "scifact_pct": 95.0
+    },
+    "confusion_auto_rows_blind_cols": {
+     "explicit_negation": {
+      "indirect_contradiction": 7,
+      "explicit_negation": 20,
+      "exclusive_alternative": 2,
+      "numeric_value": 1
+     },
+     "antonym_opposite": {
+      "antonym_opposite": 3
+     },
+     "exclusive_alternative": {
+      "indirect_contradiction": 8,
+      "exclusive_alternative": 7,
+      "explicit_negation": 1,
+      "numeric_value": 3
+     },
+     "numeric_value": {
+      "antonym_opposite": 4,
+      "indirect_contradiction": 6,
+      "numeric_value": 12
+     },
+     "indirect_contradiction": {
+      "antonym_opposite": 17,
+      "indirect_contradiction": 20,
+      "explicit_negation": 8,
+      "numeric_value": 1
+     }
+    }
+   },
+   "distributions": {
+    "auto_on_sample": {
+     "numeric_value": 22,
+     "exclusive_alternative": 19,
+     "antonym_opposite": 3,
+     "indirect_contradiction": 46,
+     "explicit_negation": 30
+    },
+    "blind_on_sample": {
+     "antonym_opposite": 24,
+     "indirect_contradiction": 41,
+     "exclusive_alternative": 9,
+     "explicit_negation": 29,
+     "numeric_value": 17
+    },
+    "blind_sample_by_source": {
+     "scifact": {
+      "antonym_opposite": 16,
+      "explicit_negation": 1,
+      "indirect_contradiction": 2,
+      "numeric_value": 1
+     },
+     "fever": {
+      "indirect_contradiction": 39,
+      "exclusive_alternative": 9,
+      "explicit_negation": 28,
+      "numeric_value": 16,
+      "antonym_opposite": 8
+     }
+    },
+    "blind_population_weighted_pct": {
+     "explicit_negation": 27.0,
+     "antonym_opposite": 11.0,
+     "exclusive_alternative": 8.6,
+     "numeric_value": 15.5,
+     "indirect_contradiction": 37.8
+    },
+    "auto_population_pct": null,
+    "negation_flag": {
+     "auto": {
+      "no": 90,
+      "yes": 30
+     },
+     "blind": {
+      "no": 80,
+      "yes": 40
+     },
+     "blind_population_weighted_pct": {
+      "no": 63.2,
+      "yes": 36.8
+     }
+    }
+   },
+   "notes": "auto labels are deterministic tags; blind proportions are the audited landscape estimate. Agreement is reported, not silently reconciled."
   }
  },
  "similarity_description_only": {
