@@ -24,6 +24,7 @@ import conditions_g23b as g23b
 import conditions_g24a as g24a
 import conditions_g24p1 as g24p1
 import conditions_g24p3 as g24p3
+import conditions_g24p4 as g24p4
 import conditions_g25 as g25
 import conditions_g26a as g26
 import conditions_agent as ag
@@ -93,6 +94,9 @@ G24P1_CONDITIONS = g24p1.G24P1_CONDITIONS
 # (g24a_p3_v1.jsonl; dispatch on condition name — see conditions_g24p3;
 # registration §11)
 G24P3_CONDITIONS = g24p3.G24P3_CONDITIONS
+# Pilot P4 irrelevant-visible cells (g24a_p4_v1.jsonl; dispatch on condition
+# name — see conditions_g24p4; registration §12).
+G24P4_CONDITIONS = g24p4.G24P4_CONDITIONS
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
@@ -167,6 +171,14 @@ def _blocks(item: Item, cond: str):
     # construction (registration §11).
     if g24p3.is_g24p3(cond):
         return g24p3.blocks(item, cond)
+    # Pilot P4 irrelevant-visible control: dispatch on the condition name
+    # FIRST — the two cells run over the same g24a_vitaminc items but render
+    # a screened decision-irrelevant EVIDENCE E (item.critical_evidence,
+    # filled by the build script per registration §12's frozen material rule).
+    # Every existing condition name misses this branch, so every other item
+    # file keeps its prompts bit-for-bit (registration §12).
+    if g24p4.is_g24p4(cond):
+        return g24p4.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
