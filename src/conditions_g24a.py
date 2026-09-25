@@ -9,9 +9,10 @@ The five standard conditions re-rendered over natural materials:
   only difference between arms is the position of the rule relative to the
   evidence (preregistration §3).
 
-Dispatch happens on ``item.task_family`` (``g24a_fever`` / ``g24a_scifact``)
-inside ``schema._blocks``; condition names are the G0 five, so the runner,
-the rule probes and the G0 estimand plumbing are inherited unchanged.
+Dispatch happens on ``item.task_family`` (``g24a_fever`` / ``g24a_scifact``
+/ ``g24a_vitaminc`` — Pilot P2's VitaminC pairs) inside ``schema._blocks``;
+condition names are the G0 five, so the runner, the rule probes and the G0
+estimand plumbing are inherited unchanged.
 """
 
 ADMIT_RULE = ("Evidence E is admitted. It must be given the full weight of a "
@@ -35,7 +36,12 @@ RULE_PROBE_QUESTION = ("According to the ruling above, are you permitted to use 
 # No memory probe in G24A (prereg §3): field kept for schema completeness only.
 MEMORY_QUESTION = ""
 
-G24A_TASK_FAMILIES = ("g24a_fever", "g24a_scifact")
+# "g24a_vitaminc" was added for Pilot P2 (Layer 2, same-claim counterfactual
+# round): P2 items re-render the identical CLAIM / EVIDENCE E / RULING layout
+# over VitaminC natural revisions.  Additive only - dispatch is per item
+# (item.task_family in this tuple), so every existing g24a_fever / g24a_scifact
+# item's prompts stay bit-for-bit unchanged and no G24A wording constant moves.
+G24A_TASK_FAMILIES = ("g24a_fever", "g24a_scifact", "g24a_vitaminc")
 G24A_CONDITIONS = ["base", "admit_pre", "admit_post", "exclude_pre", "exclude_post"]
 
 
