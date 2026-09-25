@@ -46,17 +46,17 @@ PANEL = ["mistral-small-24b", "llama31-8b", "qwen3-8b", "qwen35-9b", "gemma3-12b
 KINDS_PLUS = ["base", "admit_post", "exclude_post",
               "strong_exclude_post", "counterfactual_delete_post"]
 KINDS_MINUS = KINDS_PLUS[1:]
-N_ROWS = {"plus": 1000, "minus": 800}
 
 
 def load(path):
     return [json.loads(l) for l in open(path, encoding="utf-8")]
 
 
-def check_arm(rows, arm, ids_expect, tag, p2_by_item):
+def check_arm(rows, arm, ids_expect, tag):
     label = f"{tag}/{arm}"
-    assert len(rows) == N_ROWS[arm], f"{label}: {len(rows)} rows != {N_ROWS[arm]}"
     kinds = KINDS_PLUS if arm == "plus" else KINDS_MINUS
+    want_rows = len(ids_expect) * len(kinds)
+    assert len(rows) == want_rows, f"{label}: {len(rows)} rows != {want_rows}"
 
     # 2. unique pairs + grid coverage
     pairs = [(r["item_id"], r["kind_name"]) for r in rows]
@@ -72,7 +72,8 @@ def check_arm(rows, arm, ids_expect, tag, p2_by_item):
             f"{label}: base rows present on arm-"
     else:
         n_base = sum(1 for r in rows if r["kind_name"] == "base")
-        assert n_base == 200, f"{label}: {n_base} base rows != 200 (shared Y0)"
+        assert n_base == len(ids_expect), \
+            f"{label}: {n_base} base rows != {len(ids_expect)} (shared Y0)"
 
     unparsed = lowmass = 0
     for r in rows:
@@ -87,7 +88,9 @@ def check_arm(rows, arm, ids_expect, tag, p2_by_item):
             unparsed += 1
         else:
             assert 0.0 <= v <= 100.0, (label, r["item_id"], r["kind_name"], v)
-            assert 0.0 < m <= 1.0 + 1e-9, (label, r["item_id"], m)
+            # mass is a sum of exp(logprobs): float error can push it a
+            # few 1e-8 above 1.0
+            assert 0.0 < m <= 1.0 + 1e-6, (label, r["item_id"], m)
             if m < 0.5:
                 lowmass += 1
         # 8. rule distance present iff a ruling block exists
@@ -109,11 +112,19 @@ def main() -> int:
     args = ap.parse_args()
 
     suffix = "_smoke" if args.smoke else ""
-    items = {i.item_id: i.meta["p2_id"] for i in
+    items = {d["item_id"]: d["meta"]["p2_id"] for d in
              (json.loads(l) for l in open(ITEMS, encoding="utf-8"))}
-    ids_plus = json.load(open(IDS_PLUS))
-    ids_minus = json.load(open(IDS_MINUS))
-    assert len(ids_plus) == len(ids_minus) == 200
+    if args.smoke:
+        # the smoke runner wrote first-N id lists to logs/
+        ids_plus = json.load(open(os.path.join(ROOT, "logs",
+                                               "g24a_p2_smoke_ids_plus.json")))
+        ids_minus = json.load(open(os.path.join(ROOT, "logs",
+                                                "g24a_p2_smoke_ids_minus.json")))
+        assert len(ids_plus) == len(ids_minus) == 4, (len(ids_plus), len(ids_minus))
+    else:
+        ids_plus = json.load(open(IDS_PLUS))
+        ids_minus = json.load(open(IDS_MINUS))
+        assert len(ids_plus) == len(ids_minus) == 200
     assert not (set(ids_plus) & set(ids_minus))
 
     pat = os.path.join(ROOT, "results", "raw", f"*_g24a_p2{suffix}_plus.jsonl")
@@ -131,27 +142,40 @@ def main() -> int:
         assert os.path.exists(mfile), f"missing arm- file for {tag}: {mfile}"
         rows_p = load(pfile)
         rows_m = load(mfile)
-        up, lp = check_arm(rows_p, "plus", set(ids_plus), tag, items)
-        um, lm = check_arm(rows_m, "minus", set(ids_minus), tag, items)
+        up, lp = check_arm(rows_p, "plus", set(ids_plus), tag)
+        um, lm = check_arm(rows_m, "minus", set(ids_minus), tag)
         any_unparsed += up + um
         any_lowmass += lp + lm
         total_rows += len(rows_p) + len(rows_m)
 
-        # 9. claim grid: 9 cells per claim for this tag
+        # 9. claim grid: 9 cells per claim for this tag = 5 arm+ kinds
+        # (incl. base) + 4 arm- kinds; key on (arm, kind_name) since the
+        # arm- kind names are a subset of arm+'s
+        n_claims = len({items[i] for i in ids_plus})
         by_claim: dict[str, set] = {}
-        for r in rows_p + rows_m:
-            by_claim.setdefault(items[r["item_id"]], set()).add(r["kind_name"])
-        assert len(by_claim) == 200, f"{tag}: {len(by_claim)} claims != 200"
+        for r in rows_p:
+            by_claim.setdefault(items[r["item_id"]], set()).add(("plus", r["kind_name"]))
+        for r in rows_m:
+            by_claim.setdefault(items[r["item_id"]], set()).add(("minus", r["kind_name"]))
+        assert len(by_claim) == n_claims, f"{tag}: {len(by_claim)} claims != {n_claims}"
         bad = {c: sorted(k) for c, k in by_claim.items() if len(k) != 9}
         assert not bad, f"{tag}: claims without exactly 9 cells: {list(bad)[:3]}"
-        print(f"  {tag}: 1,000 + 800 = 1,800 rows OK "
-              f"(9 cells x 200 claims), unparsed={up + um}, mass<0.5={lp + lm}")
+        print(f"  {tag}: {len(rows_p)} + {len(rows_m)} = "
+              f"{len(rows_p) + len(rows_m)} rows OK "
+              f"(9 cells x {n_claims} claims), unparsed={up + um}, "
+              f"mass<0.5={lp + lm}")
 
     # 10. cross-model grid
-    want_total = 9000 if args.require5 else 1800 * len(tags)
+    per_tag = len(ids_plus) * len(KINDS_PLUS) + len(ids_minus) * len(KINDS_MINUS)
+    want_total = per_tag * len(tags)
+    if args.require5:
+        assert per_tag == 1800, per_tag
+        assert want_total == 9000, want_total
     assert total_rows == want_total, f"total {total_rows} != {want_total}"
-    print(f"OK: {len(tags)} tag(s), {total_rows} rows "
-          f"({'full panel: 200 claims x 9 cells x 5 models' if args.require5 else 'partial'})"
+    scope = ("full panel: 200 claims x 9 cells x 5 models"
+             if args.require5 else
+             f"smoke: {len(ids_plus)} ids/arm" if args.smoke else "partial")
+    print(f"OK: {len(tags)} tag(s), {total_rows} rows ({scope})"
           f", unparsed={any_unparsed}, digit-mass<0.5={any_lowmass}")
     if any_unparsed:
         print(f"  NOTE: {any_unparsed} rows without a numeric value")
