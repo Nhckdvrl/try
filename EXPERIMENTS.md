@@ -1,10 +1,12 @@
 # Experiment registry
 
-The single live index of the experimental programme.
+> **Historical registry.** This file records the original prospective-exclusion programme and its then-current interpretations. Fresh ConfA did not confirm the prospective leakage headline. Use [STATUS.md](STATUS.md) and the [2026-09-27 research audit](results/audits/research_audit_2026_09_27.md) for current conclusions; preserve this ledger for provenance.
+
+Historical index of the original experimental programme. Its chronology remains useful, while its paper roles and headline claims are superseded by fresh ConfA/ConfB evidence.
 
 Original preregistrations are preserved **unchanged** in
-[`preregistrations/`](preregistrations/). Full result tables for the main line are
-in [`PROSPECTIVE_EXCLUSION_FINDINGS.md`](PROSPECTIVE_EXCLUSION_FINDINGS.md) and
+[`preregistrations/`](preregistrations/). Full historical result tables are
+in the [archived prospective-exclusion findings](archive/legacy_root_docs_2026_09_27/PROSPECTIVE_EXCLUSION_FINDINGS.md) and
 [`stages/`](stages/). Use this file to see what each round asked, what happened,
 and what role it has; open a preregistration when you need exact hypotheses,
 estimands, thresholds or freeze chronology.

@@ -1,0 +1,50 @@
+{"id": "g24cfb_147", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "A/B swap Giggs/Rooney in the same exclusive play action; claim says 'before leaving' while evidence says 'while leaving'."}
+{"id": "g24cfb_149", "relation_a": "refute", "relation_b": "ambiguous", "pair_valid": false, "naturalness": "natural", "issue": "B states nine titles but enumerates ten championship years - internally inconsistent, so it cannot cleanly support the claim."}
+{"id": "g24cfb_152", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Garbled quotation nesting in both evidences; also 56% would be 'rotten' on RT, so B's own figure undercuts its 'fresh' label."}
+{"id": "g24cfb_153", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_155", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_157", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_158", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Claim has no referent - no date, disease, place or event given for 'cases'."}
+{"id": "g24cfb_161", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Evidences name him only 'Kgositsile' (Earl Sweatshirt's real name); reader must infer the referent."}
+{"id": "g24cfb_163", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Claim has agreement error 'The Steelers has' and drops context (it is a postseason record)."}
+{"id": "g24cfb_165", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_168", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_169", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "B swaps Reliance Entertainment for Image Nation and never denies Image Nation; conflict assumes the 'in association with' list is exhaustive (borderline omission vs contradiction)."}
+{"id": "g24cfb_170", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_172", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_173", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "B only denies the 505 ft distance and never addresses the 'longest in park history' clause directly."}
+{"id": "g24cfb_174", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "'Mixed' vs 'negative' is a conflict of overall characterization rather than a hard factual opposition."}
+{"id": "g24cfb_176", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Sentences glued together in both evidences ('25 March 2015.Birdy is a soprano .')."}
+{"id": "g24cfb_177", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "broken", "issue": "Mojibake in the scores ('2i??2'); 'United' also has no club referent."}
+{"id": "g24cfb_178", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Glued sentence boundary in both evidences ('...to premiere in 2013.A sequel titled...')."}
+{"id": "g24cfb_179", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Missing citation punctuation before 'Annex III of EC Regulation 110/2008 , amended .' in both evidences."}
+{"id": "g24cfb_180", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Stray comma in claim and B ('from , Duncanville'); B also has 'an Trinidadian' and a trailing ', .'."}
+{"id": "g24cfb_181", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "A gives only 'Chesney Hawkes' without the middle name; same person, no conflict."}
+{"id": "g24cfb_182", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "'Most recent' has no date anchor; both evidences are equally unanchored."}
+{"id": "g24cfb_183", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_185", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_188", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_189", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Metric mismatch: claim says 'scored ... wins'; A's 3-margin is regulation/overtime wins (41-38), B's is total wins (44-43)."}
+{"id": "g24cfb_190", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_191", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_192", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Claim and B have a stray comma after 'from'; Oak Cliff/Dallas and Duncanville are distinct places."}
+{"id": "g24cfb_195", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_196", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "A is hedged ('perhaps second ... at least after China'); B asserts largest; Hydro-Quebec/Quebec spelling differs."}
+{"id": "g24cfb_197", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "Claim says 'surveillance' where evidences say 'observation' (near-synonym, not itself a conflict)."}
+{"id": "g24cfb_198", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Claim conflates actress Clara Rugaard with the character, whom A names 'Daughter'."}
+{"id": "g24cfb_200", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Unnatural article in claim ('the COVID-19'); claim says 'reported' vs evidence 'confirmed to have reached'."}
+{"id": "g24cfb_201", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "A has odd glosses ('eldest son aka Just Doo', '( nana )') though its count of 3 children is clear."}
+{"id": "g24cfb_202", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Truncated citation fragment at the end of both evidences ('... Origins Of Excellence Pt .')."}
+{"id": "g24cfb_203", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "Dangling '( or ;' fragment (a name was dropped) in both evidences."}
+{"id": "g24cfb_206", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_207", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_208", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_210", "relation_a": "support", "relation_b": "ambiguous", "pair_valid": false, "naturalness": "awkward", "issue": "B says three members quit vs claim's 'one' - refutes only under an exactly-one reading, while an existential reading makes B compatible. Typo 'gutarist'."}
+{"id": "g24cfb_211", "relation_a": "ambiguous", "relation_b": "support", "pair_valid": false, "naturalness": "natural", "issue": "A says first 'possible' case, claim says first 'confirmed' - different statuses but not mutually exclusive, so no clear contradiction."}
+{"id": "g24cfb_212", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "'Edgar economics' is not a real school of economic thought - fabricated/nonsensical term in claim and B."}
+{"id": "g24cfb_213", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_216", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "B's nickname 'Pooter' looks like a fabricated swap, but the opposition to 'Scooter' is clean."}
+{"id": "g24cfb_217", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Cast-list fragment with an asterisk used as separator ('Two-Face 's Thug* Ed Begley Jr')."}
+{"id": "g24cfb_218", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "Wikitext braces leaked into both evidences ('Kyra Robinson ( 2019 ) } } Michael Elliot Epps ...')."}
+{"id": "g24cfb_219", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_222", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}

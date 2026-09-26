@@ -1,0 +1,50 @@
+{"id": "g24cfb_065", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_072", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "B asserts a different profession (astrologer); not strictly mutually exclusive with politician, but conflicts as same-slot value"}
+{"id": "g24cfb_073", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_074", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "B substitutes 'terror' for 'depression' inside the same attributed quote; conflict is by substitution, not explicit denial"}
+{"id": "g24cfb_075", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "both evidences have subject-verb disagreement ('upcoming projects ... is set')"}
+{"id": "g24cfb_076", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "minor: B writes 'runningback' as one word"}
+{"id": "g24cfb_077", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_078", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "claim wording vague: 'dedicates his life to what he always wanted after thirty years' has unclear modifier placement"}
+{"id": "g24cfb_080", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "awkward", "issue": "A's 'overwhelming laughable reviews' is garbled; claim's 'diverse reviews' is unusual wording for mixed reviews"}
+{"id": "g24cfb_082", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_083", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "conflict rests on dated rankings (2012 vs 2017); claim itself has no time qualifier"}
+{"id": "g24cfb_084", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_087", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_088", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_089", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_090", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "B internally inconsistent: claims three solo albums but then lists four titles"}
+{"id": "g24cfb_091", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_092", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "claim's 'after defeating the Nevada Wolf Pack' appears in neither evidence; claim phrasing 'have got 1st place' is non-idiomatic"}
+{"id": "g24cfb_093", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_094", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_098", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_099", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_100", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_101", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "A substitutes 'infected' for 'destroyed' as the ending's implication; adjacent outcomes, not an explicit denial"}
+{"id": "g24cfb_102", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_103", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "claim missing terminal punctuation"}
+{"id": "g24cfb_104", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "claim's 'before March 6' vs evidences' on-dates (6 vs 5 March) is a boundary reading; A's 6 March is not before 6 March"}
+{"id": "g24cfb_105", "relation_a": "ambiguous", "relation_b": "support", "pair_valid": false, "naturalness": "natural", "issue": "'Jud' (Jud Birza) is Fabio's real name, so A likely supports too; if so no refuting evidence, and 'Jud' lacks a referent link in-text"}
+{"id": "g24cfb_108", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "evidence_a has corrupted casing: 'washington redskins'"}
+{"id": "g24cfb_109", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "claim phrasing 'until before 1968' is unnatural and boundary-ambiguous"}
+{"id": "g24cfb_111", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_112", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "evidence_a producer 'kulbir yadav' looks like vandalized/inserted text and is lowercased"}
+{"id": "g24cfb_113", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_116", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "neither evidence names Moldova; country referent omitted from both"}
+{"id": "g24cfb_117", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "claim says 'follow up', evidences say 'spin off sequel' (compatible)"}
+{"id": "g24cfb_121", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_123", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_124", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "broken", "issue": "'264 bytes' is corrupted rendering of 2^64 (lost superscript) in claim and both evidences"}
+{"id": "g24cfb_126", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_127", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "Wellston is a St. Louis suburb, so B's conflict with 'St. Louis' is not strictly exclusive"}
+{"id": "g24cfb_128", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_134", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_135", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "claim has title typo 'Eigh Below'; both evidences describe the 1958 event rather than the film"}
+{"id": "g24cfb_136", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "'perturbed' only approximated by B's 'shocked'; A's 'amazed' is the opposing reading"}
+{"id": "g24cfb_140", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "A's 'generally positive' is weaker than claim's 'rave reviews'; support is approximate"}
+{"id": "g24cfb_141", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_142", "relation_a": "support", "relation_b": "refute", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_144", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "awkward", "issue": "both evidences have broken punctuation/capitalization ('Prime Minister . :', 'Aircrafts')"}
+{"id": "g24cfb_145", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}
+{"id": "g24cfb_146", "relation_a": "refute", "relation_b": "support", "pair_valid": true, "naturalness": "natural", "issue": "none"}

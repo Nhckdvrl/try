@@ -1,0 +1,178 @@
+# Reproduction guide
+
+Navigation guide for reproducing the **current paper on advance evidence exclusion**.
+The repository also contains the stopped BTF-3 hindsight branch; its scripts and
+results remain available but are not the default reproduction target.
+
+## 1. Before running anything
+
+Read:
+
+1. [`EXPERIMENTS.md`](EXPERIMENTS.md) for the scientific role and result of each round;
+2. [`PROSPECTIVE_EXCLUSION_FINDINGS.md`](PROSPECTIVE_EXCLUSION_FINDINGS.md) and
+   [`stages/`](stages/) for the full result tables;
+3. the exact original design in [`preregistrations/`](preregistrations/) for the round
+   you intend to reproduce;
+4. [`CLAUDE.md`](CLAUDE.md) for environment and GPU policy.
+
+Do not infer a frozen design from the current paper narrative. The original
+preregistration and freeze commit/tag are the authority for an experiment's exact
+estimands, thresholds, sample and analysis plan.
+
+## 2. Environment
+
+Prefer the project's **existing local conda/virtual environment** and shared model
+cache. Do not create a clean environment by default.
+
+Much of the main line used the existing `fgvd` environment; the masked diffusion
+models (LLaDA-8B, Dream-7B) used `dlm_clean`. Inspect the script and the current
+environment before assuming either. A new environment is warranted only for a genuine
+dependency/CUDA incompatibility.
+
+## 3. GPU use
+
+Check occupancy before launching. Idle cards on `fvcrc10`–`fvcrc13`, `fvcrc15`,
+`fvcrc20` and `fvcrc21` may be used. During daytime, avoid occupying more than eight
+GPUs total unless explicitly authorised otherwise.
+
+## 4. Main paper evidence
+
+Frozen items: `data/items/frozen_v1.json` (144 items, five families). Additional
+frozen sets: `data/items/routing_v1.jsonl` (tagged streams),
+`data/items/frozen_semaddr.json` (similarity ladder), `data/items/linear_v1.jsonl`.
+
+### The reversal (G0)
+
+- `PROSPECTIVE_EXCLUSION_FINDINGS.md` — full narrative and all model tables;
+- `results/g0_*.json` / `results/g0_*.md`, `results/stage1_*` — per-model outputs;
+- `results/cross_model_tables.md`, `results/cued_diffusion_tables.md` — panel and
+  diffusion-model results;
+- `results/cluster_robustness.md` — case-skeleton cluster bootstrap.
+
+Design: `preregistrations/PREREGISTRATION_G0.md`.
+
+### What the failure is not, and what it is
+
+- `results/stage2_tables.md` — distance, anaphora, first weight sweep;
+- `stages/STAGE3.md`, `results/stage3_tables.md`, `results/stage3_pooled.md` — the
+  declarative probe, the zero discontinuity, delay, the announcement ladder, class
+  policy;
+- `stages/STAGE3C.md` — inclusion implicature and the arithmetic boundary condition;
+- `results/paraphrase_tables.md` — eight ruling wordings;
+- `results/routing_tables.md` — tagged evidence streams (`src/gen_routing.py`,
+  `src/analyze_routing.py`).
+
+### Semantic-target diagnostic and discovery history
+
+- `stages/STAGE3D.md`, `results/semaddr_tables.md` — similarity ladder;
+- `stages/STAGE3E.md`, `results/stage7_tables.md` — duplicate control and the
+  proposition relation matrix;
+- `results/onpolicy_tables.md` — on-policy check of the teacher-forced result.
+
+Condition builders: `src/conditions_v3.py` (weights, delay, ladder, class policy),
+`src/conditions_v6.py` / `src/conditions_v7.py` (discovery previews and relation
+matrix).
+
+**G18 frozen semantic diagnostic:**
+- items: `data/items/g18_v1.jsonl`;
+- design: `preregistrations/PREREGISTRATION_G18_SEMANTIC_TARGETING.md`;
+- code: `src/conditions_g18.py`, `src/analyze_g18.py`;
+- result: `results/g18_semantic_targeting_results.md` and
+  `results/g18_semantic_targeting_analysis.json`.
+
+### Agent
+
+- `stages/STAGE4.md`, `results/agent_tables.md`, `results/agent_marginal.md`;
+- builders in `src/conditions_agent.py`, analysis in `src/analyze_agent.py`.
+
+### Mechanism
+
+- `results/mech/mechanism_report.md` — span gate, attention, answer-position patching;
+- `results/mech/patch_matched_report.md`, `stages/STAGE5.md` — matched-chronology
+  bidirectional interchange, including the withdrawal of the earlier
+  recovery-fraction analysis;
+- `results/mech/direct_readout.json` — fixed-position readout validation;
+- code: `src/mech/span_mask.py`, `src/mech/patch_matched.py`, `src/mech/analyze_mech.py`.
+
+### Readout methodology
+
+`results/metric_audit.md` and `src/metric_audit.py` — the three piloted readouts that
+failed, and why single-token rating readouts can anti-correlate with the model's own
+stated reasoning.
+
+## 5. Current scientific-design status
+
+Current authority:
+- `SCIENTIFIC_REGISTER_2026-09-04_V3.md`
+- `G22_DESIGN_AUDIT.md`
+- `NEXT_EXPERIMENTS_POST_RESET.md`
+
+### Cancelled G19 — ReGround
+
+ReGround was **cancelled before G19_FREEZE.md and before any model generation** after a
+novelty audit. The code and preregistration are historical provenance only.
+
+Do not run:
+- `src/run_reground.py`
+- `src/analyze_reground.py`
+
+See:
+- `METHOD_REGROUND.md`
+- `preregistrations/PREREGISTRATION_G19_REGROUND.md`
+
+### G20
+
+Deferred-composition / late-target designs are retained as **conditional hypothesis
+provenance**, not an active frozen experiment.
+
+Do not generate G20. The latest design still mixes target knowledge, evidential
+instantiation, and timing/distance. G20 becomes relevant only if G22 first establishes
+that exact non-evidential target knowledge is sufficient for exclusion.
+
+### G21
+
+Source–Proposition Scope Entanglement is **downgraded before generation**. It may be a
+future side project but does not explain G0.
+
+Do not generate G21.
+
+### G22
+
+G22 Target Knowledge vs Evidential Instantiation is the registered next design audit.
+
+It is:
+- not preregistered;
+- not frozen;
+- not authorized for generation.
+
+Before any G22 run:
+1. construct a genuinely non-evidential target-knowledge carrier;
+2. define/freeze its judgment-neutrality gate;
+3. freeze U/K/I baselines and estimands;
+4. preregister competing H-A/H-B/H-C predictions;
+5. implement analyzer/tests;
+6. commit/tag;
+7. only then generate.
+
+### D22-A
+
+Tagged-routing deconfound is supporting-only and also not authorized for generation.
+
+
+## 6. Stopped branch (BTF-3 hindsight)
+
+Retained for provenance; see `EXPERIMENTS.md` §C. Entry points:
+`BTF3_TRANSFORMATION_CONTRACT.md`, `results/btf3_large_replication_v1_results.md`,
+`results/g1[12]_*`, `results/mech/g1[345]_*`.
+
+Two corrections apply to anything reproduced from this branch:
+
+- `preregistrations/POSTHOC_REDACTION_AUDIT_CORRECTION.md` — the verdict redactor
+  leaves 34/256 packets asserting the outcome. Re-run
+  `PYTHONPATH=src python3 src/audit_redaction_leakage.py` to regenerate the audit and
+  the leak-free re-estimates. **Do not repair and re-run the frozen redactor.**
+- Llama boundary-probe figures must be reported at two-frame scope (73.63%), not the
+  single-frame 97.66%.
+
+The preregistered G4 breadth panel is at 5 of 17 checkpoints and **will not be
+completed**.

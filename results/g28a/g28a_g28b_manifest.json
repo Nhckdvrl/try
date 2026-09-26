@@ -1,0 +1,153 @@
+{
+  "incoming_formal_head": "ebe1dd42507e89f0fbea60b1ef1df1230f3baec9",
+  "created_date": "2026-09-27",
+  "environment": {
+    "name": "verl-clean",
+    "python": "3.12",
+    "torch": "2.8.0+cu128",
+    "vllm": "0.11.0",
+    "transformers": "4.57.6",
+    "host": "fvcrc10",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "driver": "550.54.14"
+  },
+  "failed_planned_model": {
+    "tag": "qwen35-9b",
+    "reason": "qwen3_5 architecture unsupported in driver-compatible vLLM/Transformers stack",
+    "log": "logs/g28a_path_qwen35-9b.log"
+  },
+  "source_files": [
+    {
+      "path": "data/items/g24a_confb_selected_v1.jsonl",
+      "sha256": "0bdbc58708a77f3b9f09e798985d22cef76427e46046dcfba17bee2f4a4bf9c9",
+      "bytes": 153661,
+      "rows": 200
+    },
+    {
+      "path": "data/items/g24a_confb_v1.jsonl",
+      "sha256": "c7a327f7125644434e54c3789884af3029e3e6e5fc38701d394c0ee00635aac5",
+      "bytes": 914678,
+      "rows": 600
+    }
+  ],
+  "code_and_registration": [
+    {
+      "path": "scripts/run_g28a_path.py",
+      "sha256": "60a05755c73655794ea9114ba54150f1fb31dc7404f100649966a81764887a10",
+      "bytes": 7761,
+      "rows": null
+    },
+    {
+      "path": "scripts/run_g28b_read_control.py",
+      "sha256": "89a0a5464a729fdbf6f4900629b8bbe05704f97627fa99e5f868deb0630b6988",
+      "bytes": 3643,
+      "rows": null
+    },
+    {
+      "path": "scripts/analyze_g28a_path.py",
+      "sha256": "c163e86fbed7be6b38965fa41aa377d02e6b6826a23baf86016ae4921d53055e",
+      "bytes": 7592,
+      "rows": null
+    },
+    {
+      "path": "scripts/analyze_g28b_read_control.py",
+      "sha256": "47c5a8423d6914219083ab311089f713904f62dda9cdcd54f90c153fa1170444",
+      "bytes": 6449,
+      "rows": null
+    },
+    {
+      "path": "results/discovery/g28a_path_v1_registration.md",
+      "sha256": "b6cd7b52a3bf86e0594e7e3f785d04daaeb02fd48c4e06d7d08a204e1da59add",
+      "bytes": 7051,
+      "rows": null
+    },
+    {
+      "path": "results/discovery/g28b_read_control_registration.md",
+      "sha256": "0a079ed5c8f6e0167e959881b943c4512d3203a19e0df54d48414228d7388a2e",
+      "bytes": 2756,
+      "rows": null
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "results/raw/mistral-small-24b_g28a_path_v1.jsonl",
+      "sha256": "75925aa3a1f01d004450f3588358d4e2c5ca7e3bd6da3a2f409dddae81221018",
+      "bytes": 3735202,
+      "rows": 2200,
+      "model_tag": "mistral-small-24b",
+      "model_path": "data/mistral_small_24b_hf",
+      "stage": "g28a_path_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/mistral-small-24b_g28b_read_control_v1.jsonl",
+      "sha256": "e4072314691befb0602f2c03f9ce1a803b2b334f5f42c2086a89a2c4b043f996",
+      "bytes": 648763,
+      "rows": 400,
+      "model_tag": "mistral-small-24b",
+      "model_path": "data/mistral_small_24b_hf",
+      "stage": "g28b_read_control_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/qwen3-8b_g28a_path_v1.jsonl",
+      "sha256": "485431e7185fea65d596e865ef8a404973f905dcd694492a6c749332b5d3aa94",
+      "bytes": 3818197,
+      "rows": 2200,
+      "model_tag": "qwen3-8b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+      "stage": "g28a_path_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/qwen3-8b_g28b_read_control_v1.jsonl",
+      "sha256": "cfd9eab7a6cf4e0a5e373b663ef71a6e25a71ce14469c78308a9407a64f84340",
+      "bytes": 646655,
+      "rows": 400,
+      "model_tag": "qwen3-8b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+      "stage": "g28b_read_control_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/gemma3-12b_g28a_path_v1.jsonl",
+      "sha256": "0e79cdbe89a68ad97105012d598c6e869657308be4e9adcd531e8497e04da514",
+      "bytes": 3800443,
+      "rows": 2200,
+      "model_tag": "gemma3-12b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "stage": "g28a_path_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/gemma3-12b_g28b_read_control_v1.jsonl",
+      "sha256": "5ac7e123236e6b74e55bdff4cc614c3fb8b99f96d86f03eeeaacdf6fb22bfede",
+      "bytes": 646365,
+      "rows": 400,
+      "model_tag": "gemma3-12b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "stage": "g28b_read_control_v1",
+      "planned_model": true
+    },
+    {
+      "path": "results/raw/llama31-8b_g28a_path_v1.jsonl",
+      "sha256": "e59aade9976a1337e4737ed9316ac2cee49d022174fe4d594c82d30ac6771ccc",
+      "bytes": 3787485,
+      "rows": 2200,
+      "model_tag": "llama31-8b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "stage": "g28a_path_v1",
+      "planned_model": false
+    },
+    {
+      "path": "results/raw/llama31-8b_g28b_read_control_v1.jsonl",
+      "sha256": "3b55be37e10b16c0ed679db2c24092d08169baefa753170dcc28e95f50eaf017",
+      "bytes": 637537,
+      "rows": 400,
+      "model_tag": "llama31-8b",
+      "model_path": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "stage": "g28b_read_control_v1",
+      "planned_model": false
+    }
+  ]
+}

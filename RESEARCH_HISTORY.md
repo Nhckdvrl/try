@@ -1,5 +1,7 @@
 # Research history — how the question moved, and why it moved back
 
+> **Historical account.** Later fresh ConfA and ConfB results changed the active question and claim ceiling. See [STATUS.md](STATUS.md) and the [current audit](results/audits/research_audit_2026_09_27.md) before treating the older narrative below as a live interpretation.
+
 This file preserves **why the question changed**, including the part where we
 changed it away from a good result and later changed it back. It is not the paper
 narrative and does not replace the original preregistrations in
