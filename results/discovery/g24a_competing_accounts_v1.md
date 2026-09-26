@@ -311,3 +311,44 @@ No RQ4/RQ5, ever. After both confirmations run: **stop experiments regardless of
 **Interpretation rule**: whatever comes back — full replication, shrunk effects, or a reversed detail — gets reported as-is. **After ConfA + ConfB run and report: experiments stop.** Paper structure stands (exclude future evidence → No; undo observed evidence → not by restoring; what instead → a new, compressed inference state).
 
 **§13 pre-sampling erratum (same day, BEFORE any material was written or inspected)**: the ConfA freeze script's reserve-safety floor is ≥ 40 items per source (scifact qualifies 209 → 166 active + 43 reserve; the initial script floor of +100 was arithmetic over-tight). Strata (334/166), seeds, cells, estimands, everything else in §13 unchanged. `freeze_g24a_confa.py` failed on the floor assertion before writing any pool/review file — nothing was sampled or seen.
+
+## 14. RQ3 explanation experiment — second-order / meta-evidence hypothesis + Meta-Neutral Retraction (user ruling, 2026-09-26, post-ConfA+ConfB) — SUPERSEDES §13.1/§13.5's "experiments stop" clause FOR THIS EXPERIMENT ONLY
+
+**The ruling.** ConfA + ConfB are reported (§13.5 readouts, `eaa2194`). The user rules the experiment phase does **not** end there: the paper currently is a strong behavioral finding paper, and the missing step is phenomenon → explanation → intervention. One reopening only, framed as **RQ3's explanation experiment** — NOT RQ4, no new RQ, no new finding-hunting. §13.1's "no RQ4/RQ5, ever" **stands**; the 3 RQ / 3 F freeze **stands**; this experiment either supplies a mechanism-level explanation for F3 or comes back negative, reported as-is either way.
+
+**The hypothesis (registered before any run).** The retraction ruling does two things at once: (a) it suppresses the first-order content of E (already ~87% of direction erased), and (b) it *adds* second-order information R = "an evidence was shown here and then retracted." The model may comply with (a) while still *conditioning on R itself*: it computes f(C, R), not f(C). Prediction shape: neutralizing the informational content of R improves counterfactual restoration (CRE ↓, reconstruction slope ↑ toward 1) while support/refute separation stays ≈ 0 — first-order suppression is unchanged, only the meta-evidence is removed.
+
+### 14.1 Material (no new sampling)
+
+- **Pool**: the original 200 discovery same-claim pairs — `data/items/g24a_p2_v1.jsonl` (400 arm items) + P2's id lists, byte-reused. No new claims, no new evidence, no new validity review (P2's blind audit already covers this material).
+- **Y0 anchor**: `base` re-issued on the `plus` arm in the same run (byte-identical to P2's Base prompt) — same-batch absorption of temp-0 drift, exactly P3's precedent.
+
+### 14.2 Operators (wording frozen verbatim, pre-run)
+
+- **`meta_neutral_post` (MNR)** — G24A POST layout (CLAIM, EVIDENCE E, RULING); RULING =
+  > Evidence E must have no influence on your judgment. Importantly, the fact that Evidence E was shown, withheld, or retracted is itself purely procedural and provides no information about the claim or about the truth or reliability of Evidence E. Judge exactly as if neither Evidence E nor any retraction event had occurred.
+
+  (user's three sentences, verbatim; the middle sentence is the second-order neutralizer)
+- **`random_reason_post`** — RULING = `CF_DELETE_RULE + " " + RANDOM_PROCEDURAL_REASON`, i.e. P1's CF-delete text **byte-identical** (first-order suppression held fixed) + user's sentence:
+  > Evidence E was excluded by a random administrative procedure that is independent of its content, truth, reliability, and the claim.
+
+  Composition decision (flagged for veto): reason appended to the CF core so the only difference from the CF baseline is the second-order reason information; without it the single sentence's "was excluded" would leave first-order suppression implicit.
+- **Reserved, NOT run this round**: the reverse control "Evidence E was excluded because its reliability is uncertain." (`uncertain_reason_post`) — user: not urgent. It can be added later as a 2,400-row follow-up (2 cells × 200 × 6) without re-running anything else.
+- Dispatch: new module `conditions_g24meta`, condition-name-first branch in `schema._blocks` (same proven pattern as g24p1/g24p3/g24p4); the four legacy operators render through the **unmodified** G24A/P1 modules, so their prompts are character-identical to P1/P2 by construction (verified pre-run).
+
+### 14.3 Cells + rows (frozen)
+
+- **13 cells per claim**: `base` (plus only) + {`admit_post`, `exclude_post`, `strong_exclude_post`, `counterfactual_delete_post`, `meta_neutral_post`, `random_reason_post`} × {plus, minus}.
+- The four legacy operators are **re-run in this batch** (not read from committed P1/P2 raws) so the whole CRE table is self-contained and 6-model complete — including Qwen3-32B, which P1/P2 never ran — and every cell shares one batch's temp-0 anchor. Cost accepted: 200 × 13 × 6 = **15,600 rows** (plus 1,400/model, minus 1,200/model).
+- **Models + runner args**: §13.4 unchanged (5 + Qwen3-32B snapshot `9216db5781bf21249d130ec9da846c4624c16137`; reasoned, 110, 4096, tp1, 0.85, eager, temp-0).
+
+### 14.4 Estimands + expected directions (registered pre-run; reporting, NOT gates)
+
+Same discipline as §13.5: **no thresholds, no p-values, no gates, no selection**; paired bootstrap 95% CIs over claims (B = 10,000, seed `g24a_meta_ci_v1`) + per-model consistency n/6; registered expectations are quoted, never evaluated as pass/fail; everything reported as-is.
+
+- **CRE table (the intervention-layer criterion)** — for op ∈ {exclude_post, strong_exclude_post, counterfactual_delete_post, meta_neutral_post, random_reason_post}: **CRE_op = mean|Y0 − Y_op|** (pooled over (model, claim); M_op = (Y_op+ + Y_op−)/2) and signed mean(Y0 − M_op). Registered expectation: **CRE(MNR) < CRE(CF)**, **CRE(random) < CRE(CF)**; trajectory relative to the committed CF restoration error is reported for context.
+- **Separation** — separation_op = mean(Y_op+ − Y_op−) per operator: expected **separation(MNR) ≈ separation(CF) ≈ 0, ≪ separation(admit)** (meta-neutralization must NOT re-open the first-order direction).
+- **Reconstruction trajectory** — claim-level corr(M_op, Y0) and OLS slope(M_op, Y0) for every operator: expected **slope(MNR) > slope(CF)** moving toward 1 (discovery CF: 0.701 / 0.385; fresh ConfB: 0.635 / 0.320), same direction for corr.
+- **Registered conceptual framing**: the report introduces **Counterfactual Restoration Error (CRE) = |Y_R − Y0|** as *the* retraction-success criterion — evidence suppression (forget rate) ≠ successful retraction; the ConfB pair (87% direction erased, ~30-point restoration error) is the standing motivating example. Internal (layerwise / patching) analysis is explicitly **out of scope for this round** — it is a later step only if this round warrants it, decided by the user.
+
+**Interpretation rule**: full restoration, partial restoration, or none — reported as-is with CIs and n/6. If MNR does not restore, F3 stands as a behavioral finding without the second-order explanation, and that is the report. Machinery/verification discipline (pytest before machinery commits, every step pushed, banned lines, housekeeping) unchanged from §13.
