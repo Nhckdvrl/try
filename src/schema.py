@@ -25,6 +25,7 @@ import conditions_g24a as g24a
 import conditions_g24p1 as g24p1
 import conditions_g24p3 as g24p3
 import conditions_g24p4 as g24p4
+import conditions_g24meta as g24meta
 import conditions_g25 as g25
 import conditions_g26a as g26
 import conditions_agent as ag
@@ -97,6 +98,10 @@ G24P3_CONDITIONS = g24p3.G24P3_CONDITIONS
 # Pilot P4 irrelevant-visible cells (g24a_p4_v1.jsonl; dispatch on condition
 # name — see conditions_g24p4; registration §12).
 G24P4_CONDITIONS = g24p4.G24P4_CONDITIONS
+# §14 RQ3 explanation experiment: second-order retraction operators
+# (meta_neutral_post / random_reason_post; dispatch on condition name — see
+# conditions_g24meta; registration §14).
+G24META_CONDITIONS = g24meta.G24META_CONDITIONS
 
 # Stage 4A agentic system -> tool -> answer
 AGENT_CONDITIONS = ag.CONDITIONS
@@ -179,6 +184,12 @@ def _blocks(item: Item, cond: str):
     # file keeps its prompts bit-for-bit (registration §12).
     if g24p4.is_g24p4(cond):
         return g24p4.blocks(item, cond)
+    # §14 second-order retraction operators: dispatch on the condition name
+    # FIRST — the two cells run over the same g24a_* items (CLAIM / EVIDENCE E
+    # / RULING layout); every existing condition name misses this branch, so
+    # every other item file keeps its prompts bit-for-bit (registration §14).
+    if g24meta.is_g24meta(cond):
+        return g24meta.blocks(item, cond)
     # G24A natural-evidence items re-render the five standard conditions over
     # CLAIM / EVIDENCE E blocks; dispatch on task_family so every existing
     # item file keeps its current prompts bit-for-bit (prereg G24A §3, §9.3).
