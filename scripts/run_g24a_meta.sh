@@ -26,15 +26,18 @@
 # (mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, gpu-frac
 # 0.85, eager, temp-0 digit expectation).
 #
-# GPU layout (4 GPUs, 6 models): the five frozen-panel tags follow P2-P4's
-# layout; Qwen3-32B is its OWN segment (one A100, tp 1, gpu-frac 0.85) —
-# launch it alone on a free GPU, never co-resident with another vLLM instance:
-#   GPU0 mistral-small-24b | GPU1 llama31-8b then gemma3-12b
-#   GPU2 qwen3-8b          | GPU3 qwen35-9b
-#   qwen3-32b: own GPU segment (own segment per §13.4)
+# GPU layout (per §14.5: six free A100 80GB — fvcrc10 + fvcrc12, one model
+# per card); Qwen3-32B keeps its OWN segment (one A100, tp 1, gpu-frac 0.85),
+# never co-resident with another vLLM instance:
+#   fvcrc10 GPU0 mistral-small-24b | GPU1 qwen3-32b
+#   fvcrc10 GPU2 llama31-8b        | GPU3 qwen3-8b
+#   fvcrc12 GPU0 qwen35-9b         | GPU1 gemma3-12b
 #
 # Usage: scripts/run_g24a_meta.sh <gpu> <tag>
 #   e.g. scripts/run_g24a_meta.sh 2 qwen3-8b
+# Run env (§14.5 reconstruction for the 550/12.4-driver fvcrc10/12 cards):
+#   prefix G24A_META_PY=/home/xiang/.venvs/vllm023-cu128/bin/python
+#   (default PY = frozen fgvd env, for CUDA-13 driver machines)
 # Smoke (4 ids/arm, suffixed outputs, does NOT touch full raws):
 #   G24A_META_SMOKE=1 scripts/run_g24a_meta.sh <gpu> <tag>
 set -euo pipefail
@@ -45,7 +48,11 @@ export VLLM_LOGGING_LEVEL=WARNING
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TOKENIZERS_PARALLELISM=false
 export VLLM_USE_FLASHINFER_SAMPLER=0
-PY=/home/xiang/miniconda3/envs/fgvd/bin/python
+# PY may be overridden for the §14.3 run-environment addendum (see the
+# registration): the frozen default is the fgvd env; the fvcrc10/12 A100
+# reconstruction (same vllm/transformers versions, torch cu128 build tag)
+# is passed via G24A_META_PY.
+PY=${G24A_META_PY:-/home/xiang/miniconda3/envs/fgvd/bin/python}
 HUB=/home/xiang/.cache/huggingface/hub
 
 GPU=${1:?usage: run_g24a_meta.sh <gpu> <tag>}
