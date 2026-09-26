@@ -9,6 +9,7 @@ Research repository for the question: **after seeing evidence that is later with
 3. [ConfA analysis](results/g24a/g24a_confa_analysis_v1.md): fresh failed replication of the older prospective-exclusion headline.
 4. [G24A competing accounts](results/discovery/g24a_competing_accounts_v1.md), [P2](results/g24a/g24a_p2_analysis_v1.md), [P3](results/g24a/g24a_p3_analysis_v1.md), [P4](results/g24a/g24a_p4_analysis_v1.md), and [§14 meta-evidence test](results/g24a/g24a_meta_analysis_v1.md).
 5. [G28A/G28B integrated assessment](results/g28a/g28a_g28b_integrated_assessment.md): completed staged equal-final-evidence path experiment and matched read-only follow-up, exploratory on the same 200 ConfB claims. [Figure](figures/g28a_path_profiles_v1.png).
+6. [G29/G29B integrated assessment](results/g29/g29_g29b_integrated_assessment.md): fresh audited 80-pair comparison of revoked versus always-inadmissible old evidence, then a matched irrelevant-content control. G29B is a post-G29 exploratory follow-up.
 
 ## Evidence and provenance
 
@@ -18,4 +19,4 @@ Research repository for the question: **after seeing evidence that is later with
 
 ConfB supports a **behavioral suppression–restoration gap** in a single rendered prompt: admit support/refute separation 62.95 drops to 8.33 under retraction, while mean absolute error of the retracted center against each item's no-evidence score remains 29.96. This does not yet prove a hidden state operator is non-invertible, a general multi-turn history law, or a method failure across tasks. New work must report data validity, complete cell counts, paired item-level metrics, and prior-work overlap.
 
-The completed exploratory staged path study found that a revoked *relevant* history can **amplify** use of a later contradictory evidence item relative to a revoked irrelevant history. This direction is opposite the simple stale-evidence-persistence prediction and is not yet separable from ordinary contradictory-advice sensitivity. See the [integrated assessment](results/g28a/g28a_g28b_integrated_assessment.md) for numbers and limits.
+The exploratory G28 path study found that a revoked *relevant* history can **amplify** graded use of a later contradictory evidence item relative to revoked irrelevant history. Fresh G29 finds little coherent directional difference between *revoked* and *never-admissible* exposure to that same E1. Post-G29 G29B finds a graded content effect even when E1 was excluded from first display: N−I signed rating −5.68 [−8.37,−3.15] on three models, with direct choices differing itemwise but no consistent signed direction. This supports a content-exposure interpretation for graded judgments, while leaving the robust ConfB suppression–restoration gap as the paper's center.
