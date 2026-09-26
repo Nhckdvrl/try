@@ -1,0 +1,33 @@
+{
+  "experiment": "g30_bayesian_status_pilot_v1",
+  "status": "exploratory_constructed_theory_anchor",
+  "registered_before_inference": "results/discovery/g30_bayesian_status_registration.md",
+  "data_agent": "opencode/mimo-v2.6-flash-free",
+  "data_agent_brief": "results/discovery/g30_local_data_agent_brief.md",
+  "data_audit": "results/audits/g30_bayesian_status_pilot_audit.md",
+  "data_generator": "scripts/generate_g30_bayesian_status.py",
+  "items": {
+    "path": "data/items/g30_bayesian_status_pilot_v1.jsonl",
+    "rows": 40,
+    "sha256": "69b2df166a9307ea9fcc4c0e35392b0640ac6db89e13d042040ce735bee59fcb"
+  },
+  "runner": "scripts/run_g30_bayesian_status.py",
+  "models": {
+    "qwen3-8b": {
+      "snapshot": "Qwen/Qwen3-8B/b968826d9c46dd6066d109eabc6255188de91218",
+      "rows": 160,
+      "sha256": "fcc97068f123f06c318e52e351d9ddd0c9534c457fbccedf086a7aefa5fe8ff4"
+    },
+    "gemma3-12b": {
+      "snapshot": "google/gemma-3-12b-it/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "rows": 160,
+      "sha256": "083eb477e2b577432dcdc305b2851b8ea552448c8ce495093ddd28f6e7dc065e"
+    },
+    "mistral-small-24b": {
+      "snapshot": "data/mistral_small_24b_hf",
+      "rows": 160,
+      "sha256": "2568a8f01abbe13220c81b71f5c1dc2d84517d230e30b801926f37f810b03a5a"
+    }
+  },
+  "analysis": "results/g30/g30_bayesian_status_analysis_v1.json"
+}
