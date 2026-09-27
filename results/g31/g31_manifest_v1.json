@@ -1,0 +1,124 @@
+{
+  "registration": {
+    "path": "results/discovery/g31_srp_joint_registration.md",
+    "sha256": "4ac09c6f7189ce921ad9db8aa435e9b5876211e09357d2a65ef9294aca1527d0",
+    "bytes": 6222
+  },
+  "source_g29_items": {
+    "path": "data/items/g29_selected_v1.jsonl",
+    "sha256": "8e89ed0861310c4675823c58588ab81d9ff29dabe001371cb5009832723d2ca0",
+    "bytes": 41932
+  },
+  "constructed_candidates": {
+    "path": "data/items/g31_candidates_v1.jsonl",
+    "sha256": "8b07fbcfe8a9d24b79c297941e67cec236aeb7eeace5fb12da9689637c34fe00",
+    "bytes": 62568
+  },
+  "audit_summary": {
+    "path": "results/audits/g31_material_audit_v1.md",
+    "sha256": "a3f7530f18797b2fb2d965568bb0d167201e3c2920bc2a86b28b47d2cedae7c1",
+    "bytes": 981
+  },
+  "selected_items": {
+    "path": "data/items/g31_selected_v1.jsonl",
+    "sha256": "2edf6711f6d358a734d2c4d028c566828eb13800c0b90dbcc57e9964b07a688a",
+    "bytes": 46236
+  },
+  "models": {
+    "qwen3-8b": {
+      "path": "results/raw/qwen3-8b_g31_srp_joint_v1.jsonl",
+      "sha256": "36d3524b22df62bdc336692e51eb2c1543ea823a4b7a654f6ace055891399837",
+      "bytes": 2016668
+    },
+    "gemma3-12b": {
+      "path": "results/raw/gemma3-12b_g31_srp_joint_v1.jsonl",
+      "sha256": "e7b4aea5bb89cd5beed557f57b5a791044caf71a8742a7c9981517958d499ab2",
+      "bytes": 2019300
+    },
+    "llama31-8b": {
+      "path": "results/raw/llama31-8b_g31_srp_joint_v1.jsonl",
+      "sha256": "7bf6b980754e09559141c5fef392b20dca80b8403a9eebb1a3c399252e29a8b8",
+      "bytes": 2019559
+    }
+  },
+  "blind_01": {
+    "path": "data/items/g31_blind_audit_v1/blind_01.jsonl",
+    "sha256": "7394998a34fd04ddb48768b7074b5f8679920ed9c61075b83fc7f139f35a98bc",
+    "bytes": 7944
+  },
+  "audit_01": {
+    "path": "data/items/g31_blind_audit_v1/audit_01.jsonl",
+    "sha256": "ebfc8df0bcccbe517b5cf9c3db86a9f9ed43d1f84eccae8f774f72e2e1c8ce6c",
+    "bytes": 3652
+  },
+  "blind_02": {
+    "path": "data/items/g31_blind_audit_v1/blind_02.jsonl",
+    "sha256": "761c6e803fca3447fc000bb3b3068bce60c40ebd5ec84e0d560e349ec306af8d",
+    "bytes": 7015
+  },
+  "audit_02": {
+    "path": "data/items/g31_blind_audit_v1/audit_02.jsonl",
+    "sha256": "f0ab626f0852faa058f6122933819162e892c9d42608698b437e270b913ec152",
+    "bytes": 7664
+  },
+  "blind_03": {
+    "path": "data/items/g31_blind_audit_v1/blind_03.jsonl",
+    "sha256": "3b0956a50f321201afecbce586f2150c86071f723f6150de5dcfba3f3743e32c",
+    "bytes": 6783
+  },
+  "audit_03": {
+    "path": "data/items/g31_blind_audit_v1/audit_03.jsonl",
+    "sha256": "1c905bf5194139f89b6d71db0d1776cf8cf75779ffe86e2e84101c5c04fe8dc8",
+    "bytes": 6100
+  },
+  "blind_04": {
+    "path": "data/items/g31_blind_audit_v1/blind_04.jsonl",
+    "sha256": "bf134ab80a741fed798845dfdd998d944b8921df8b97bf5816060ac96b81fa9e",
+    "bytes": 7779
+  },
+  "audit_04": {
+    "path": "data/items/g31_blind_audit_v1/audit_04.jsonl",
+    "sha256": "ed4f0822cf3a8c28a159ee6c0ea765b3e23565bee601e9758da795672144f754",
+    "bytes": 7166
+  },
+  "blind_05": {
+    "path": "data/items/g31_blind_audit_v1/blind_05.jsonl",
+    "sha256": "9ddb239c366961211a0763809738ab29073eb5a194bfb279b66057523aa2a37d",
+    "bytes": 7953
+  },
+  "audit_05": {
+    "path": "data/items/g31_blind_audit_v1/audit_05.jsonl",
+    "sha256": "f2025d7fb0f20ffd761d708d8ca52a963d9af971cd137e5e56cdf8138910ab6a",
+    "bytes": 9448
+  },
+  "blind_06": {
+    "path": "data/items/g31_blind_audit_v1/blind_06.jsonl",
+    "sha256": "c009f479cbe7abe2bfd8050e30305cd8398a5d54d6a5689bba4e724696eaa511",
+    "bytes": 6962
+  },
+  "audit_06": {
+    "path": "data/items/g31_blind_audit_v1/audit_06.jsonl",
+    "sha256": "d7de387b76da411ac4fab91571b68379f92d068e9691422dc462b38f49dc947c",
+    "bytes": 4414
+  },
+  "blind_07": {
+    "path": "data/items/g31_blind_audit_v1/blind_07.jsonl",
+    "sha256": "e72e940613d4cab95c17fc76be678130f3b7db44621bcdd642c77880ced40c95",
+    "bytes": 7929
+  },
+  "audit_07": {
+    "path": "data/items/g31_blind_audit_v1/audit_07.jsonl",
+    "sha256": "b251ddba5ff0218e2db5a27ff3c889c97609e1d958251722992a3c106c2c3cf6",
+    "bytes": 3853
+  },
+  "blind_08": {
+    "path": "data/items/g31_blind_audit_v1/blind_08.jsonl",
+    "sha256": "caf1d71abea953e5bb67eeffeb777c329afcac9dfda2e2cdfd4510b7ecfa7eac",
+    "bytes": 7803
+  },
+  "audit_08": {
+    "path": "data/items/g31_blind_audit_v1/audit_08.jsonl",
+    "sha256": "80368c3d52a9bed56fb1c0d4b257aa981b59b556f7f00f51971261a88b0935f2",
+    "bytes": 7855
+  }
+}
