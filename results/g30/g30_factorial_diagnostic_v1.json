@@ -1,0 +1,225 @@
+{
+  "status": "post_hoc_diagnostic",
+  "source_manifest": "results/g30/g30_manifest_v1.json",
+  "models": {
+    "qwen3-8b": {
+      "n": 40,
+      "copy_prior": {
+        "D": 1,
+        "N": 3,
+        "I": 5,
+        "R": 4
+      },
+      "prior_or_complement": {
+        "D": 1,
+        "N": 4,
+        "I": 6,
+        "R": 7
+      },
+      "constant_across_reliability_groups": {
+        "D": 0,
+        "N": 0,
+        "I": 0,
+        "R": 0
+      },
+      "mean_reliability_range": {
+        "D": 20.9,
+        "N": 31.4,
+        "I": 29.8,
+        "R": 22.85
+      },
+      "by_reliability": {
+        "0.65": {
+          "signed_RN": -3.5,
+          "signed_NI": -2.0,
+          "e2_separation": {
+            "D": 27.0,
+            "N": 28.8,
+            "I": 24.8,
+            "R": 35.8
+          },
+          "bayes_e2_separation": 24.946320000000004
+        },
+        "0.75": {
+          "signed_RN": 3.9,
+          "signed_NI": -6.5,
+          "e2_separation": {
+            "D": 36.0,
+            "N": 48.2,
+            "I": 35.2,
+            "R": 40.4
+          },
+          "bayes_e2_separation": 42.684839999999994
+        },
+        "0.85": {
+          "signed_RN": 2.8,
+          "signed_NI": -7.2,
+          "e2_separation": {
+            "D": 51.0,
+            "N": 59.0,
+            "I": 44.6,
+            "R": 53.4
+          },
+          "bayes_e2_separation": 62.41364
+        },
+        "0.95": {
+          "signed_RN": -6.05,
+          "signed_NI": 5.5,
+          "e2_separation": {
+            "D": 67.4,
+            "N": 62.6,
+            "I": 73.6,
+            "R": 74.7
+          },
+          "bayes_e2_separation": 85.86
+        }
+      }
+    },
+    "gemma3-12b": {
+      "n": 40,
+      "copy_prior": {
+        "D": 0,
+        "N": 1,
+        "I": 0,
+        "R": 32
+      },
+      "prior_or_complement": {
+        "D": 0,
+        "N": 3,
+        "I": 1,
+        "R": 40
+      },
+      "constant_across_reliability_groups": {
+        "D": 0,
+        "N": 1,
+        "I": 0,
+        "R": 10
+      },
+      "mean_reliability_range": {
+        "D": 15.7,
+        "N": 10.928999999999998,
+        "I": 13.633,
+        "R": 0.0
+      },
+      "by_reliability": {
+        "0.65": {
+          "signed_RN": 12.667,
+          "signed_NI": 2.3329999999999997,
+          "e2_separation": {
+            "D": 48.7,
+            "N": 43.334,
+            "I": 48.0,
+            "R": 18.0
+          },
+          "bayes_e2_separation": 24.946320000000004
+        },
+        "0.75": {
+          "signed_RN": 14.803999999999998,
+          "signed_NI": 3.096,
+          "e2_separation": {
+            "D": 45.2,
+            "N": 47.608,
+            "I": 53.8,
+            "R": 18.0
+          },
+          "bayes_e2_separation": 42.684839999999994
+        },
+        "0.85": {
+          "signed_RN": 15.771,
+          "signed_NI": 5.061999999999999,
+          "e2_separation": {
+            "D": 48.8,
+            "N": 49.542,
+            "I": 59.666,
+            "R": 18.0
+          },
+          "bayes_e2_separation": 62.41364
+        },
+        "0.95": {
+          "signed_RN": 20.2,
+          "signed_NI": 6.029999999999999,
+          "e2_separation": {
+            "D": 69.6,
+            "N": 58.4,
+            "I": 70.46000000000001,
+            "R": 18.0
+          },
+          "bayes_e2_separation": 85.86
+        }
+      }
+    },
+    "mistral-small-24b": {
+      "n": 40,
+      "copy_prior": {
+        "D": 0,
+        "N": 0,
+        "I": 0,
+        "R": 0
+      },
+      "prior_or_complement": {
+        "D": 0,
+        "N": 0,
+        "I": 0,
+        "R": 0
+      },
+      "constant_across_reliability_groups": {
+        "D": 0,
+        "N": 0,
+        "I": 0,
+        "R": 0
+      },
+      "mean_reliability_range": {
+        "D": 26.764,
+        "N": 25.485,
+        "I": 26.569,
+        "R": 24.854
+      },
+      "by_reliability": {
+        "0.65": {
+          "signed_RN": 2.0820000000000003,
+          "signed_NI": -1.406000000000001,
+          "e2_separation": {
+            "D": 31.036,
+            "N": 29.368000000000002,
+            "I": 26.556,
+            "R": 25.204
+          },
+          "bayes_e2_separation": 24.946320000000004
+        },
+        "0.75": {
+          "signed_RN": 6.065,
+          "signed_NI": -1.2519999999999996,
+          "e2_separation": {
+            "D": 48.135000000000005,
+            "N": 46.844,
+            "I": 44.339999999999996,
+            "R": 34.714
+          },
+          "bayes_e2_separation": 42.684839999999994
+        },
+        "0.85": {
+          "signed_RN": 4.8260000000000005,
+          "signed_NI": -1.418,
+          "e2_separation": {
+            "D": 65.86,
+            "N": 60.146,
+            "I": 57.31,
+            "R": 50.494
+          },
+          "bayes_e2_separation": 62.41364
+        },
+        "0.95": {
+          "signed_RN": 2.963000000000002,
+          "signed_NI": -0.32199999999999945,
+          "e2_separation": {
+            "D": 84.564,
+            "N": 80.338,
+            "I": 79.694,
+            "R": 74.412
+          },
+          "bayes_e2_separation": 85.86
+        }
+      }
+    }
+  }
+}
