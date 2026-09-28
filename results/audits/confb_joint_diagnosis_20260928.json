@@ -1,0 +1,469 @@
+{
+  "status": "exploratory_post_hoc_no_new_model_inference",
+  "source": "results/g24a/g24a_confb_analysis_v1_cells.csv",
+  "source_sha256": "ed0c2a20f0b20189014785ada374e84154258953da60e192a84da5f2edf9a95c",
+  "source_head": "3ae666e235583dccf51ad595db737a71d1b8eacc",
+  "bootstrap_unit": "claim, retaining all six models",
+  "seed": 20260928,
+  "bootstrap_draws": 5000,
+  "n_cells": 1200,
+  "pooled": {
+    "admit_signed": 62.950612114567754,
+    "admit_absolute": 65.79135376023305,
+    "cf_signed": 8.333060477324548,
+    "cf_absolute": 18.040970275152464,
+    "center_mae": 29.955542376149413,
+    "arm_mae": 30.87928950602179,
+    "shared_mse": 1408.863024113397,
+    "polarity_mse": 260.5983218756934,
+    "same_side_fraction": 0.8691666666666666,
+    "irrelevant_mae": 25.818339122227528,
+    "cf_arm_vs_irrelevant": 22.997025521900458,
+    "center_excess_vs_irrelevant": 4.137203253921883,
+    "irrelevant_distance_50": 27.74737262691132,
+    "cf_arm_distance_50": 21.606416066567316,
+    "cf_center_distance_50": 17.069205026886358,
+    "absolute_suppression_fraction": 0.725785088099872,
+    "shared_fraction_of_mse": 0.8439027519254727
+  },
+  "ci95": {
+    "admit_signed": [
+      58.17483045675309,
+      67.48528499960051
+    ],
+    "admit_absolute": [
+      61.764050798335084,
+      69.70534489459546
+    ],
+    "cf_signed": [
+      6.56495270751595,
+      10.015005381375918
+    ],
+    "cf_absolute": [
+      16.49945572935939,
+      19.60333677396175
+    ],
+    "center_mae": [
+      28.13894236943937,
+      31.782996386694382
+    ],
+    "arm_mae": [
+      29.101474153843487,
+      32.671419584537425
+    ],
+    "shared_mse": [
+      1274.0942224078744,
+      1546.0182463477627
+    ],
+    "polarity_mse": [
+      228.3266760581647,
+      294.60882946570115
+    ],
+    "same_side_fraction": [
+      0.8475,
+      0.89
+    ],
+    "irrelevant_mae": [
+      23.938274225813718,
+      27.66642873334494
+    ],
+    "cf_arm_vs_irrelevant": [
+      21.51661302106263,
+      24.441973250350873
+    ],
+    "center_excess_vs_irrelevant": [
+      2.4092013426731795,
+      5.97632347320359
+    ],
+    "irrelevant_distance_50": [
+      26.39006696052857,
+      29.10000671900881
+    ],
+    "cf_arm_distance_50": [
+      20.52435664958098,
+      22.73857161097658
+    ],
+    "cf_center_distance_50": [
+      15.996463903074728,
+      18.23556964249215
+    ],
+    "absolute_suppression_fraction": [
+      0.698668050131347,
+      0.7504480566086853
+    ],
+    "shared_fraction_of_mse": [
+      0.8231466869768986,
+      0.862542758170288
+    ]
+  },
+  "descriptive_outcome_conditioned_slices": [
+    {
+      "threshold": 2,
+      "n": 505,
+      "statistics": {
+        "admit_signed": 60.96294105427057,
+        "admit_absolute": 63.895896200586414,
+        "cf_signed": -0.008925380300422678,
+        "cf_absolute": 0.3465879389510289,
+        "center_mae": 29.18558251421683,
+        "arm_mae": 29.188593889268198,
+        "shared_mse": 1505.8133996763595,
+        "polarity_mse": 0.09244400593748639,
+        "same_side_fraction": 0.9643564356435643,
+        "irrelevant_mae": 26.26037920212601,
+        "cf_arm_vs_irrelevant": 16.172147511010824,
+        "center_excess_vs_irrelevant": 2.9252033120908174,
+        "irrelevant_distance_50": 24.439966592065808,
+        "cf_arm_distance_50": 18.251491019798323,
+        "cf_center_distance_50": 18.251041253933824,
+        "absolute_suppression_fraction": 0.9945757402343494,
+        "shared_fraction_of_mse": 0.9999386123599125
+      }
+    },
+    {
+      "threshold": 5,
+      "n": 594,
+      "statistics": {
+        "admit_signed": 61.6804322504562,
+        "admit_absolute": 64.22316910756712,
+        "cf_signed": 0.012110968847396725,
+        "cf_absolute": 0.7648847319161511,
+        "center_mae": 28.24620653374592,
+        "arm_mae": 28.250365928273474,
+        "shared_mse": 1408.0875324253086,
+        "polarity_mse": 0.4779259385051412,
+        "same_side_fraction": 0.9629629629629629,
+        "irrelevant_mae": 26.151314323343975,
+        "cf_arm_vs_irrelevant": 16.32330954540941,
+        "center_excess_vs_irrelevant": 2.0948922104019405,
+        "irrelevant_distance_50": 25.039020493488568,
+        "cf_arm_distance_50": 18.552652947533755,
+        "cf_center_distance_50": 18.546078550261356,
+        "absolute_suppression_fraction": 0.9880902057225633,
+        "shared_fraction_of_mse": 0.9996607002282589
+      }
+    },
+    {
+      "threshold": 10,
+      "n": 720,
+      "statistics": {
+        "admit_signed": 60.15226434713124,
+        "admit_absolute": 63.08515278292328,
+        "cf_signed": 0.238026463986328,
+        "cf_absolute": 1.9199888686859825,
+        "center_mae": 28.3414047504292,
+        "arm_mae": 28.362512257583326,
+        "shared_mse": 1387.8695589539748,
+        "polarity_mse": 2.852621591553017,
+        "same_side_fraction": 0.9583333333333334,
+        "irrelevant_mae": 26.000262190880843,
+        "cf_arm_vs_irrelevant": 17.31707790342616,
+        "center_excess_vs_irrelevant": 2.3411425595483575,
+        "irrelevant_distance_50": 25.099501425957417,
+        "cf_arm_distance_50": 18.076623722827772,
+        "cf_center_distance_50": 17.958430776684605,
+        "absolute_suppression_fraction": 0.9695651229490926,
+        "shared_fraction_of_mse": 0.9979488199501974
+      }
+    }
+  ],
+  "by_model": {
+    "gemma3-12b": {
+      "statistics": {
+        "admit_signed": 52.34609646567631,
+        "admit_absolute": 54.73350293805027,
+        "cf_signed": -0.20853945951847916,
+        "cf_absolute": 3.1203197862494796,
+        "center_mae": 23.649615210510657,
+        "arm_mae": 23.675160846722147,
+        "shared_mse": 921.6035312195249,
+        "polarity_mse": 14.107258488000152,
+        "same_side_fraction": 0.955,
+        "irrelevant_mae": 22.20425057923066,
+        "cf_arm_vs_irrelevant": 8.633449275910058,
+        "center_excess_vs_irrelevant": 1.4453646312799933,
+        "irrelevant_distance_50": 13.444734577585578,
+        "cf_arm_distance_50": 8.560129799434492,
+        "cf_center_distance_50": 8.196691463599706,
+        "absolute_suppression_fraction": 0.942990679953717,
+        "shared_fraction_of_mse": 0.9849234842184413
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 23.3241568795945,
+        "training_mean_mae": 26.41341897644392
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 22.64754023306346,
+        "training_mean_mae": 26.41341897644392
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0.001152999013696809,
+          0.0015969613948187853,
+          0.006902604626823365,
+          0.00846304108757066,
+          0.0009836047090646086
+        ],
+        "heldout_arm_prediction_mae": 23.640441643988574,
+        "predicted_center_shift_mae": 0.10121241090674371,
+        "observed_center_shift_mae": 23.649615210510657
+      }
+    },
+    "llama31-8b": {
+      "statistics": {
+        "admit_signed": 48.48523409947521,
+        "admit_absolute": 52.51838762793585,
+        "cf_signed": -3.5769156208291935,
+        "cf_absolute": 16.82088125729044,
+        "center_mae": 31.081791021296695,
+        "arm_mae": 32.81256830828124,
+        "shared_mse": 1518.8968042125646,
+        "polarity_mse": 200.15274644562695,
+        "same_side_fraction": 0.84,
+        "irrelevant_mae": 27.671352658860652,
+        "cf_arm_vs_irrelevant": 25.08747635812699,
+        "center_excess_vs_irrelevant": 3.4104383624360453,
+        "irrelevant_distance_50": 23.574181954573387,
+        "cf_arm_distance_50": 22.29383563615681,
+        "cf_center_distance_50": 19.286124865473585,
+        "absolute_suppression_fraction": 0.6797144387512957,
+        "shared_fraction_of_mse": 0.8835677852514535
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 30.18721405242537,
+        "training_mean_mae": 32.255109130506014
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 27.702407910269173,
+        "training_mean_mae": 32.255109130506014
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "heldout_arm_prediction_mae": 32.81256830828124,
+        "predicted_center_shift_mae": 0.0,
+        "observed_center_shift_mae": 31.081791021296695
+      }
+    },
+    "mistral-small-24b": {
+      "statistics": {
+        "admit_signed": 68.43377659384481,
+        "admit_absolute": 69.64616761139914,
+        "cf_signed": 3.5640516937889073,
+        "cf_absolute": 8.934415110511372,
+        "center_mae": 27.354942234587266,
+        "arm_mae": 27.700337169900003,
+        "shared_mse": 1079.4019528623276,
+        "polarity_mse": 48.1583251631271,
+        "same_side_fraction": 0.91,
+        "irrelevant_mae": 23.673473932943402,
+        "cf_arm_vs_irrelevant": 18.24937008342581,
+        "center_excess_vs_irrelevant": 3.6814683016438625,
+        "irrelevant_distance_50": 24.697196048175513,
+        "cf_arm_distance_50": 15.908695565256117,
+        "cf_center_distance_50": 15.110758728978542,
+        "absolute_suppression_fraction": 0.8717170604366599,
+        "shared_fraction_of_mse": 0.9572897998433748
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 27.10802540525085,
+        "training_mean_mae": 33.06297537542754
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 26.120169651462383,
+        "training_mean_mae": 33.06297537542754
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0.03596988121126113,
+          0.036677983234614124,
+          0.03447453425570695,
+          0.027195856538435894,
+          0.037521413057172444
+        ],
+        "heldout_arm_prediction_mae": 26.59135353303642,
+        "predicted_center_shift_mae": 1.3030613957537083,
+        "observed_center_shift_mae": 27.354942234587266
+      }
+    },
+    "qwen3-32b": {
+      "statistics": {
+        "admit_signed": 79.20905433847301,
+        "admit_absolute": 81.17915171351498,
+        "cf_signed": 4.5021176727750225,
+        "cf_absolute": 14.62065029588873,
+        "center_mae": 30.297113035798105,
+        "arm_mae": 30.861956805902174,
+        "shared_mse": 1303.3617277738676,
+        "polarity_mse": 171.7802721048142,
+        "same_side_fraction": 0.905,
+        "irrelevant_mae": 25.459186537906685,
+        "cf_arm_vs_irrelevant": 21.445304655689775,
+        "center_excess_vs_irrelevant": 4.837926497891421,
+        "irrelevant_distance_50": 27.333545434399653,
+        "cf_arm_distance_50": 17.38136880131013,
+        "cf_center_distance_50": 14.782348431927511,
+        "absolute_suppression_fraction": 0.8198964883559552,
+        "shared_fraction_of_mse": 0.883550009342191
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 30.571379919172937,
+        "training_mean_mae": 35.948191208267666
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 28.342612086647804,
+        "training_mean_mae": 35.948191208267666
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0.051984133753082716,
+          0.037775922062016666,
+          0.043549149249900485,
+          0.08244525226035701,
+          0.04005778640739388
+        ],
+        "heldout_arm_prediction_mae": 29.59350150785507,
+        "predicted_center_shift_mae": 2.035145277730921,
+        "observed_center_shift_mae": 30.297113035798105
+      }
+    },
+    "qwen3-8b": {
+      "statistics": {
+        "admit_signed": 57.88617254636601,
+        "admit_absolute": 61.482020593122655,
+        "cf_signed": 11.474083414496373,
+        "cf_absolute": 24.978116974223052,
+        "center_mae": 33.25644847241955,
+        "arm_mae": 34.279043468569064,
+        "shared_mse": 1771.4335276750624,
+        "polarity_mse": 358.2656246161442,
+        "same_side_fraction": 0.85,
+        "irrelevant_mae": 28.37710231224783,
+        "cf_arm_vs_irrelevant": 32.29190367189509,
+        "center_excess_vs_irrelevant": 4.879346160171713,
+        "irrelevant_distance_50": 43.09844684472101,
+        "cf_arm_distance_50": 28.65851754604525,
+        "cf_center_distance_50": 22.514356817604476,
+        "absolute_suppression_fraction": 0.5937329851352171,
+        "shared_fraction_of_mse": 0.8317764158234701
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 33.86946547807289,
+        "training_mean_mae": 39.44306986202545
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 31.036300865535694,
+        "training_mean_mae": 39.44306986202545
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0.17761342705213232,
+          0.1591903158705567,
+          0.2050854000567537,
+          0.18759397004400602,
+          0.20698692004467048
+        ],
+        "heldout_arm_prediction_mae": 30.894376419740926,
+        "predicted_center_shift_mae": 7.229511100834252,
+        "observed_center_shift_mae": 33.25644847241955
+      }
+    },
+    "qwen35-9b": {
+      "statistics": {
+        "admit_signed": 71.34333864357113,
+        "admit_absolute": 75.1888920773754,
+        "cf_signed": 34.24356516323465,
+        "cf_absolute": 39.77143822675171,
+        "center_mae": 34.0933442822842,
+        "arm_mae": 35.94667043675611,
+        "shared_mse": 1858.480600937034,
+        "polarity_mse": 771.1257044364474,
+        "same_side_fraction": 0.755,
+        "irrelevant_mae": 27.524668712175938,
+        "cf_arm_vs_irrelevant": 32.27464908635502,
+        "center_excess_vs_irrelevant": 6.568675570108261,
+        "irrelevant_distance_50": 34.3361309020128,
+        "cf_arm_distance_50": 36.8359490512011,
+        "cf_center_distance_50": 22.524949853734334,
+        "absolute_suppression_fraction": 0.4710463590044164,
+        "shared_fraction_of_mse": 0.7067524127620599
+      },
+      "cv_cf_center": {
+        "affine_inverse_mae": 37.17390668036172,
+        "training_mean_mae": 41.26958761259347
+      },
+      "cv_irrelevant": {
+        "affine_inverse_mae": 32.71301893369997,
+        "training_mean_mae": 41.26958761259347
+      },
+      "cv_residual_weight": {
+        "fold_slopes": [
+          0.4033098387232186,
+          0.4178231315876792,
+          0.41403869113372915,
+          0.42669248912402497,
+          0.43099961358914873
+        ],
+        "heldout_arm_prediction_mae": 28.884122927567077,
+        "predicted_center_shift_mae": 17.189611625329224,
+        "observed_center_shift_mae": 34.0933442822842
+      }
+    }
+  },
+  "raw_readout_check": {
+    "verified_raw_rows": 8400,
+    "raw_sha256": {
+      "results/raw/gemma3-12b_g24a_confb_plus.jsonl": "d47803d5e9de4492a8cdee54dd29cb17874c0e321ac1003a7832d998330c32e8",
+      "results/raw/gemma3-12b_g24a_confb_minus.jsonl": "176ca2052b401b9133020f776f3a34883437ef5660c8eb3fbcee172b8da6948a",
+      "results/raw/gemma3-12b_g24a_confb_control.jsonl": "d0417a20e0776e726cef2bf6ebabb9a4840da665e1e626a65aa2be788e652d6f",
+      "results/raw/llama31-8b_g24a_confb_plus.jsonl": "f1f9612c7adb9208c1b81f17fb3029483efc6c1bc9b56ecefb1a118306411a89",
+      "results/raw/llama31-8b_g24a_confb_minus.jsonl": "2410d3ad383fda6317e53269ff956e24fd9ce9a26bec85aba8b77632ebc70fb7",
+      "results/raw/llama31-8b_g24a_confb_control.jsonl": "95bcc33aacf1c5b0cd76a73daab14a8c10a8139fc4b10726b663833a54076143",
+      "results/raw/mistral-small-24b_g24a_confb_plus.jsonl": "dfccc860a4772edbd4bc1a1c736dc2161018d79fdb4daf6b9753392d3fd4952a",
+      "results/raw/mistral-small-24b_g24a_confb_minus.jsonl": "7dd6015e5e9fadbf3645d785f1969d8358bbd543f29a31618d69c33e36a7ccf1",
+      "results/raw/mistral-small-24b_g24a_confb_control.jsonl": "c12fbd051451f5ea5ad72c47e3777504b77c056eeb481e786cdcb175e2d63c25",
+      "results/raw/qwen3-32b_g24a_confb_plus.jsonl": "ca22dbb8385f399c5ae777718c781ca2df8188fc6bc2b3086cbf3fb4c928bdd6",
+      "results/raw/qwen3-32b_g24a_confb_minus.jsonl": "884193e2a6ff3255907841ae928772366d025ed74b91b20b6dece074705ab8c6",
+      "results/raw/qwen3-32b_g24a_confb_control.jsonl": "f2bf667c33d28997608cb3fd6b0ca8af7134dd1289e2dba73bb66b848563e839",
+      "results/raw/qwen3-8b_g24a_confb_plus.jsonl": "f77b0c964e4ece40bbc34555bbade211b0864da252174a57d39abc18fa4b1b0b",
+      "results/raw/qwen3-8b_g24a_confb_minus.jsonl": "c704c73c69ea7d5b39602858572c0dbb41bc9b18b80a836c6db13b60b6e5e7b7",
+      "results/raw/qwen3-8b_g24a_confb_control.jsonl": "f12018da4f368ddce8723775f327e418045b2d62661eecfa210f5ba9a17fe2a8",
+      "results/raw/qwen35-9b_g24a_confb_plus.jsonl": "a2825982daf4e045801d387d3ff4092264d45fe4e6f37353504762bd6e297081",
+      "results/raw/qwen35-9b_g24a_confb_minus.jsonl": "41c7cf74199af81f8657226a16871fb78fa214a1326d344a349873efbc567878",
+      "results/raw/qwen35-9b_g24a_confb_control.jsonl": "d77bfdb174f8933e05e315b4a6e3464b93e01a616830c9f0977904e508f3292d"
+    },
+    "greedy_digit_statistics": {
+      "admit_signed": 64.19444444444444,
+      "admit_absolute": 67.08333333333333,
+      "cf_signed": 8.935185185185185,
+      "cf_absolute": 19.39814814814815,
+      "center_mae": 31.523148148148145,
+      "arm_mae": 32.43981481481481,
+      "shared_mse": 1583.8734567901233,
+      "polarity_mse": 305.8899176954733,
+      "same_side_fraction": 0.5941666666666666,
+      "irrelevant_mae": 27.25925925925926,
+      "cf_arm_vs_irrelevant": 24.875,
+      "center_excess_vs_irrelevant": 4.263888888888889,
+      "irrelevant_distance_50": 30.212962962962962,
+      "cf_arm_distance_50": 22.88425925925926,
+      "cf_center_distance_50": 17.810185185185187,
+      "absolute_suppression_fraction": 0.7108350586611456,
+      "shared_fraction_of_mse": 0.8381332171924762
+    },
+    "greedy_threshold_disagreement_CF_Y0": 0.35833333333333334,
+    "greedy_threshold_disagreement_I_Y0": 0.28583333333333333,
+    "interpretation": "Thresholding a rating is a readout check, not a new downstream action task."
+  },
+  "limits": [
+    "Two tested polarities do not prove full content invariance.",
+    "The shared component includes framing, calibration and semantic effects; it is not an identified mechanism.",
+    "Outcome-conditioned slices do not identify effects of successful suppression.",
+    "Inverse calibration is a diagnostic using clean targets on training claims, not a practical method."
+  ]
+}
