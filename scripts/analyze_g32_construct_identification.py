@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from run_g32_construct_identification import cases
 
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS = ROOT / "data/items/g32_selected_v1.jsonl"
@@ -37,21 +38,26 @@ def metrics(v):
     m["x_sim_abs"] = np.mean([abs(v[(e, "S+")] - v[(e, "S-")]) for e in E])
     m["x_active_signed"] = avg("A+") - avg("A-")
     m["x_active_abs"] = np.mean([abs(v[(e, "A+")] - v[(e, "A-")]) for e in E])
+    m["active_minus_direct_x_abs"] = m["x_active_abs"] - m["x_direct_abs"]
     m["direct_center_vs_frame"] = (avg("D+") + avg("D-")) / 2 - avg("F_D")
     m["sim_center_vs_frame"] = (avg("S+") + avg("S-")) / 2 - avg("F_S")
     m["direct_arm_mae_vs_frame"] = np.mean([abs(v[(e, c)] - v[(e, "F_D")]) for e in E for c in ("D+", "D-")])
     m["sim_arm_mae_vs_frame"] = np.mean([abs(v[(e, c)] - v[(e, "F_S")]) for e in E for c in ("S+", "S-")])
     m["query_shift_Q"] = avg("F_S") - avg("F_D")
     m["query_shift_Q_abs"] = np.mean([abs(v[(e, "F_S")] - v[(e, "F_D")]) for e in E])
+    m["query_shift_support"] = v[("support", "F_S")] - v[("support", "F_D")]
+    m["query_shift_refute"] = v[("refute", "F_S")] - v[("refute", "F_D")]
     m["direct_frame_shift"] = avg("F_D") - avg("B")
     m["direct_frame_shift_abs"] = np.mean([abs(v[(e, "F_D")] - v[(e, "B")]) for e in E])
     m["sim_frame_to_B"] = avg("F_S") - avg("B")
     m["sim_frame_to_B_abs"] = np.mean([abs(v[(e, "F_S")] - v[(e, "B")]) for e in E])
     m["direct_to_B_abs"] = np.mean([abs(v[(e, c)] - v[(e, "B")]) for e in E for c in ("D+", "D-")])
     m["sim_to_B_abs"] = np.mean([abs(v[(e, c)] - v[(e, "B")]) for e in E for c in ("S+", "S-")])
+    m["sim_minus_direct_B_abs"] = m["sim_to_B_abs"] - m["direct_to_B_abs"]
     for c in CELLS:
         m["E_leverage_" + c] = v[("support", c)] - v[("refute", c)]
     m["E_leverage_direct_vs_frame"] = (m["E_leverage_D+"] + m["E_leverage_D-"]) / 2 - m["E_leverage_F_D"]
+    m["E_leverage_direct_vs_frame_abs"] = abs(m["E_leverage_direct_vs_frame"])
     m["E_leverage_sim_vs_frame"] = (m["E_leverage_S+"] + m["E_leverage_S-"]) / 2 - m["E_leverage_F_S"]
     m["E_leverage_frame_vs_B"] = m["E_leverage_F_D"] - m["E_leverage_B"]
     return m
@@ -62,8 +68,11 @@ def main():
     ap.add_argument("--out", default="results/g32/g32_construct_identification_v1.json")
     args = ap.parse_args()
     raw_items = ITEMS.read_bytes()
-    item_ids = [json.loads(s)["id"] for s in raw_items.splitlines() if s]
+    items = [json.loads(s) for s in raw_items.splitlines() if s]
+    item_ids = [x["id"] for x in items]
     selected_sha = hashlib.sha256(raw_items).hexdigest()
+    expected = {(r["id"], r["contract"], r["e_role"], r["cell"]): r
+                for r in cases(items, raw_items)}
     out = {"selected_sha256": selected_sha, "models": {}, "comparisons": {},
            "limitations": "Exploratory; G31/G29 material reuse; constructed X; numeric-heavy claims."}
     by_model = {}
@@ -74,6 +83,11 @@ def main():
         assert all(r["items_sha256"] == selected_sha for r in rows)
         lookup = {(r["id"], r["contract"], r["e_role"], r["cell"]): r["value"] for r in rows}
         assert len(lookup) == len(rows)
+        assert set(lookup) == set(expected)
+        for r in rows:
+            key = (r["id"], r["contract"], r["e_role"], r["cell"])
+            assert r["prompt_sha256"] == expected[key]["prompt_sha256"]
+            assert r["messages"] == expected[key]["messages"]
         fail = sum(r["value"] is None for r in rows)
         out["models"][tag] = {"n_rows": len(rows), "parse_failures": fail,
                               "raw_sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "contracts": {}}
@@ -87,6 +101,7 @@ def main():
                 claim_metrics[item] = metrics(values)
             out["models"][tag]["contracts"][contract] = {
                 "complete_claims": len(claim_metrics),
+                "item_metrics": claim_metrics,
                 "metrics": {k: mean_ci([v[k] for v in claim_metrics.values()], 3200 + j)
                             for j, k in enumerate(next(iter(claim_metrics.values())).keys())}
                 if claim_metrics else {},

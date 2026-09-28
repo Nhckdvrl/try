@@ -1,6 +1,6 @@
 # Experiment registry
 
-> **Historical registry.** This file records the original prospective-exclusion programme and its then-current interpretations. Fresh ConfA did not confirm the prospective leakage headline. Use [STATUS.md](STATUS.md), the [2026-09-27 research audit](results/audits/research_audit_2026_09_27.md), and the [fresh G29/G29B assessment](results/g29/g29_g29b_integrated_assessment.md) for current conclusions; preserve this ledger for provenance.
+> **Historical registry.** This file records the original prospective-exclusion programme and its then-current interpretations. Fresh ConfA did not confirm the prospective leakage headline. Use [STATUS.md](STATUS.md), the [2026-09-28 diagnosis](results/audits/research_diagnosis_2026_09_28.md), and the [G32 construct-identification assessment](results/g32/g32_construct_identification_assessment.md) for current conclusions; preserve this ledger for provenance.
 
 Historical index of the original experimental programme. Its chronology remains useful, while its paper roles and headline claims are superseded by fresh ConfA/ConfB evidence.
 
