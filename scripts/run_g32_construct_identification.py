@@ -94,7 +94,8 @@ def main():
 
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
-    tok = AutoTokenizer.from_pretrained(args.model)
+    tok_kwargs = {"fix_mistral_regex": True} if args.tag == "mistral-small-24b" else {}
+    tok = AutoTokenizer.from_pretrained(args.model, **tok_kwargs)
     prompts = []
     for row in rows:
         kw = {"tokenize": True, "add_generation_prompt": True}
