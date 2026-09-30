@@ -1,0 +1,14 @@
+{
+  "gemma3-12b_g33_final_v1.jsonl": {
+    "rows": 2120,
+    "sha256": "9e6ab7aa19d9095ccc24574895d1bba4d5aaf8db8b4b051433c35f43058ce9f4"
+  },
+  "mistral-small-24b_g33_final_v1.jsonl": {
+    "rows": 2728,
+    "sha256": "4375b8efd115988cf127fb1bede9a03b761956aab47c8f1a85cf07e649778542"
+  },
+  "qwen3-8b_g33_final_v1.jsonl": {
+    "rows": 3594,
+    "sha256": "321e142b9e216013d13ce391576d78ad66bbcbd70e961cae8b86e700c381be66"
+  }
+}

@@ -16,3 +16,7 @@ figures/
 # Regenerable high-dimensional activation caches; generated-output estimands
 # and summaries remain committed under results/mech/.
 results/mech/*_states.npz
+
+# G33 official checkpoint/tokenizer restored at pinned revision; hashes retained.
+data/external/g33_mistral_checkpoint/
+data/external/g33_mistral_tokenizer/
