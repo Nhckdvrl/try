@@ -51,9 +51,9 @@ def cases(items,raw):
           msg=messages(item,substrate,role,wording,cell)
           yield dict(id=item['id'],substrate=substrate,e_role=role,wording=wording,cell=cell,items_sha256=digest(raw),prompt_sha256=digest(json.dumps(msg,sort_keys=True,ensure_ascii=False).encode()),messages=msg)
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--model',required=True);ap.add_argument('--tag',required=True);ap.add_argument('--out',required=True);ap.add_argument('--limit',type=int);ap.add_argument('--gpu-frac',type=float,default=.82);ap.add_argument('--tokenizer');ap.add_argument('--items',default=str(ITEMS));ap.add_argument('--max-seqs',type=int,default=32);ap.add_argument('--resume',action='store_true')
+    ap=argparse.ArgumentParser(); ap.add_argument('--model',required=True);ap.add_argument('--tag',required=True);ap.add_argument('--out',required=True);ap.add_argument('--limit',type=int);ap.add_argument('--gpu-frac',type=float,default=.82);ap.add_argument('--tokenizer');ap.add_argument('--items',default=str(ITEMS));ap.add_argument('--max-seqs',type=int,default=32);ap.add_argument('--resume',action='store_true');ap.add_argument('--case-start',type=int,default=0);ap.add_argument('--case-end',type=int)
     a=ap.parse_args();raw=Path(a.items).read_bytes();items=[json.loads(s) for s in raw.splitlines() if s];items=items[:a.limit] if a.limit else items
-    rows=list(cases(items,raw))
+    rows=list(cases(items,raw))[a.case_start:a.case_end]
     path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
     completed=[]
     if path.exists():

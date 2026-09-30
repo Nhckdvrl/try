@@ -22,8 +22,10 @@ case "$TAG" in
 esac
 test -d "$MODEL"
 ARGS=(--resume --gpu-frac "${G33_GPU_FRAC:-0.64}")
+if [[ -n "${G33_CASE_START:-}" ]]; then ARGS+=(--case-start "$G33_CASE_START"); fi
+if [[ -n "${G33_CASE_END:-}" ]]; then ARGS+=(--case-end "$G33_CASE_END"); fi
 if [[ -n "${G33_ITEMS:-}" ]]; then ARGS+=(--items "$G33_ITEMS"); fi
 if [[ "$TAG" == "mistral-small-24b" ]]; then ARGS+=(--tokenizer data/external/g33_mistral_tokenizer); fi
 if [[ -n "$LIMIT" ]]; then ARGS+=(--limit "$LIMIT"); fi
 CUDA_VISIBLE_DEVICES="$GPU" "$PY" scripts/run_g33_final.py \
-  --model "$MODEL" --tag "$TAG" --out "results/raw/${TAG}_g33_final_v1${LIMIT:+_smoke}.jsonl" "${ARGS[@]}"
+  --model "$MODEL" --tag "$TAG" --out "${G33_OUTPUT:-results/raw/${TAG}_g33_final_v1${LIMIT:+_smoke}.jsonl}" "${ARGS[@]}"
