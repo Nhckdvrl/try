@@ -1,0 +1,64 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_19.jsonl 
+> build · longcat-2.5-preview-free
+[0m← [0mWrite data/items/g33_final/audit_19_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_19_recovery1.jsonl
+> build · longcat-2.5-preview-free
+[0m⚙ [0mexecute {"code":"import json\n\nwith open('data/items/g33_final/audit_19_recovery1.jsonl', 'r') as f:\n    lines = f.readlines()\n\nprint(f\"Row count: {len(lines)}\")\n\nids = []\nfor i, line in enumerate(lines, 1):\n    try:\n        row = json.loads(line)\n        ids.append(row['id'])\n        # Check required fields\n        required = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']\n        missing = [f for f in required if f not in row]\n        if missing:\n            print(f\"Row {i} ({row.get('id', 'unknown')}): MISSING fields: {missing}\")\n        else:\n            print(f\"Row {i} ({row['id']}): OK - accept={row['accept']}\")\n    except json.JSONDecodeError as e:\n        print(f\"Row {i}: INVALID JSON - {e}\")\n\nprint(f\"\\nAll IDs: {ids}\")\nprint(f\"Unique IDs: {len(set(ids))}\")\n"} 
+> build · longcat-2.5-preview-free
+[0m$ [0mpython3 -c "
+import json
+with open('data/items/g33_final/audit_19_recovery1.jsonl', 'r') as f:
+    lines = f.readlines()
+print(f'Row count: {len(lines)}')
+ids = []
+for i, line in enumerate(lines, 1):
+    row = json.loads(line)
+    ids.append(row['id'])
+    required = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']
+    missing = [f for f in required if f not in row]
+    if missing:
+        print(f'Row {i} ({row[\"id\"]}): MISSING fields: {missing}')
+    else:
+        print(f'Row {i} ({row[\"id\"]}): OK - accept={row[\"accept\"]}')
+print(f'All IDs: {ids}')
+print(f'Unique IDs: {len(set(ids))}')
+"
+Row count: 20
+Row 1 (g33_0360): OK - accept=True
+Row 2 (g33_0361): OK - accept=True
+Row 3 (g33_0362): OK - accept=False
+Row 4 (g33_0363): OK - accept=True
+Row 5 (g33_0364): OK - accept=True
+Row 6 (g33_0365): OK - accept=True
+Row 7 (g33_0366): OK - accept=True
+Row 8 (g33_0367): OK - accept=False
+Row 9 (g33_0368): OK - accept=True
+Row 10 (g33_0369): OK - accept=False
+Row 11 (g33_0370): OK - accept=False
+Row 12 (g33_0371): OK - accept=True
+Row 13 (g33_0372): OK - accept=True
+Row 14 (g33_0373): OK - accept=False
+Row 15 (g33_0374): OK - accept=False
+Row 16 (g33_0375): OK - accept=True
+Row 17 (g33_0376): OK - accept=True
+Row 18 (g33_0377): OK - accept=True
+Row 19 (g33_0378): OK - accept=True
+Row 20 (g33_0379): OK - accept=False
+All IDs: ['g33_0360', 'g33_0361', 'g33_0362', 'g33_0363', 'g33_0364', 'g33_0365', 'g33_0366', 'g33_0367', 'g33_0368', 'g33_0369', 'g33_0370', 'g33_0371', 'g33_0372', 'g33_0373', 'g33_0374', 'g33_0375', 'g33_0376', 'g33_0377', 'g33_0378', 'g33_0379']
+Unique IDs: 20
+> build · longcat-2.5-preview-free
+Audit complete. Wrote `data/items/g33_final/audit_19_recovery1.jsonl` with **20 rows** (one per input), all valid JSON with all required fields present.
+
+**Verification summary:**
+- Row count: 20 (matches input)
+- IDs: g33_0360 through g33_0379 — all 20 unique, matching input exactly
+- All rows have all 10 required fields
+
+**Results:**
+- **Accepted: 13** — g33_0360, 0361, 0363, 0364, 0365, 0366, 0368, 0371, 0372, 0375, 0376, 0377, 0378
+- **Rejected: 7** — g33_0362, 0367, 0369, 0370, 0373, 0374, 0379
+
+All 7 rejections are due to **empty X_A/X_B fields** (failing the `faithful` and `natural` requirements). In each case the E sentences were valid and distinguishable, but the missing X summaries make the row unacceptable per the audit rules.

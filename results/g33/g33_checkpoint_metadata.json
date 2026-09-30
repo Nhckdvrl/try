@@ -1,0 +1,12 @@
+{
+  "mistral_repo": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+  "metadata_sha256": {
+    "tokenizer_config.json": "85090a231c4b1432c95cf62d5857777df08c0939fc698bf89b91ccc96f92400e",
+    "tokenizer.json": "b76085f9923309d873994d444989f7eb6ec074b06f25b58f1e8d7b7741070949",
+    "special_tokens_map.json": "5bc5d1c106bf86895473568ef5211f3fde8415e6fdee039223d6db8ca52cbe01",
+    "config.json": "ff5f8d1747db4e16def20db719d867e74d0b764330249357351b2b44520b8001",
+    "generation_config.json": "ba3438ca12420844b39264cc665c93f8ce16232dff902837791eaf80799ca457"
+  },
+  "note": "Original shim links were broken after cache disappearance. Restore the same pinned revision; no model substitution."
+}

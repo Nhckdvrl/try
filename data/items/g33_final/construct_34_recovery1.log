@@ -1,0 +1,27 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Processing every row per your spec — building the recovery file now.
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+[0m→ [0mRead data/items/g33_final/input_34.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/generated_34_recovery1.jsonl
+Created file successfully: data/items/g33_final/generated_34_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l) for l in open('data/items/g33_final/input_34.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/generated_34_recovery1.jsonl')]; print('input_rows',len(inp)); print('output_rows',len(out)); print('input_ids',[r['id'] for r in inp]); print('output_ids',[r['id'] for r in out]); print('ids_match',[r['id'] for r in inp]==[r['id'] for r in out]); keys=['id','a_relation','b_relation','source_valid','x_a','x_b','reason']; print('keys_ok',all(list(r.keys())==keys or set(r.keys())==set(keys) for r in out)); print('relations_ok',all(r['a_relation'] in ('support','refute','unclear') and r['b_relation'] in ('support','refute','unclear') for r in out)); print('valid_x_check',[(r['id'],r['source_valid'],bool(r['x_a']),bool(r['x_b'])) for r in out])"
+input_rows 20
+output_rows 20
+input_ids ['g33_0660', 'g33_0661', 'g33_0662', 'g33_0663', 'g33_0664', 'g33_0665', 'g33_0666', 'g33_0667', 'g33_0668', 'g33_0669', 'g33_0670', 'g33_0671', 'g33_0672', 'g33_0673', 'g33_0674', 'g33_0675', 'g33_0676', 'g33_0677', 'g33_0678', 'g33_0679']
+output_ids ['g33_0660', 'g33_0661', 'g33_0662', 'g33_0663', 'g33_0664', 'g33_0665', 'g33_0666', 'g33_0667', 'g33_0668', 'g33_0669', 'g33_0670', 'g33_0671', 'g33_0672', 'g33_0673', 'g33_0674', 'g33_0675', 'g33_0676', 'g33_0677', 'g33_0678', 'g33_0679']
+ids_match True
+keys_ok True
+relations_ok True
+valid_x_check [('g33_0660', False, False, False), ('g33_0661', False, False, False), ('g33_0662', True, True, True), ('g33_0663', False, False, False), ('g33_0664', True, True, True), ('g33_0665', False, False, False), ('g33_0666', False, False, False), ('g33_0667', True, True, True), ('g33_0668', False, False, False), ('g33_0669', False, False, False), ('g33_0670', False, False, False), ('g33_0671', True, True, True), ('g33_0672', True, True, True), ('g33_0673', True, True, True), ('g33_0674', False, False, False), ('g33_0675', False, False, False), ('g33_0676', False, False, False), ('g33_0677', False, False, False), ('g33_0678', False, False, False), ('g33_0679', True, True, True)]
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/generated_34_recovery1.jsonl`.
+
+Verification:
+- JSON parses: yes, 20/20 rows
+- Row count matches input: 20 vs 20
+- IDs match in order: `g33_0660`–`g33_0679`, exact match
+- Keys present: `id`, `a_relation`, `b_relation`, `source_valid`, `x_a`, `x_b`, `reason`
+- Valid pairs (7): `g33_0662`, `g33_0664`, `g33_0667`, `g33_0671`, `g33_0672`, `g33_0673`, `g33_0679` with non-empty `x_a`/`x_b`; all invalid have empty `x` strings.

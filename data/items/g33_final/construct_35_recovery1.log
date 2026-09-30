@@ -1,0 +1,11 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Fixing recovery file — reading only the two allowed sources.
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+[0m→ [0mRead data/items/g33_final/input_35.jsonl 
+> build · muse-spark-1.3-contributor-free
+I've mapped support and refute judgments for all 20 rows — now building the output file.
+[0m← [0mWrite data/items/g33_final/generated_35_recovery1.jsonl
+Created file successfully: data/items/g33_final/generated_35_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[91m[1mError: [0mRate limit exceeded. Please try again later.

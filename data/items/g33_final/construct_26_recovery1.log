@@ -1,0 +1,20 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Recovering your file — processing every row per spec.
+[0m→ [0mRead data/items/g33_final/input_26.jsonl 
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/generated_26_recovery1.jsonl
+Created file successfully: data/items/g33_final/generated_26_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l) for l in open('data/items/g33_final/input_26.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/generated_26_recovery1.jsonl')]; print('in:',len(inp),'out:',len(out)); print('ids_match:',[x['id'] for x in inp]==[x['id'] for x in out]); print('keys_ok:',all(set(x)=={'id','a_relation','b_relation','source_valid','x_a','x_b','reason'} for x in out)); print('rels_ok:',all(x['a_relation'] in ('support','refute','unclear') and x['b_relation'] in ('support','refute','unclear') and isinstance(x['source_valid'],bool) for x in out)); print('x_empty_invalid:',all((x['x_a']=='' and x['x_b']=='') for x in out if not x['source_valid'])); print('x_filled_valid:',all((x['x_a']!='' and x['x_b']!='') for x in out if x['source_valid']))"
+in: 20 out: 20
+ids_match: True
+keys_ok: True
+rels_ok: True
+x_empty_invalid: True
+x_filled_valid: True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/generated_26_recovery1.jsonl` with 20 rows.
+
+Verification: JSON parses, 20/20 rows, IDs match `input_26.jsonl` in order, required keys present, relations valid, `source_valid=true` rows have non-empty `x_a`/`x_b` and invalid rows have empty `x_a`/`x_b`.

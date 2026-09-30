@@ -1,0 +1,56 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_26.jsonl 
+> build · longcat-2.5-preview-free
+[0m← [0mWrite data/items/g33_final/audit_26_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_26_recovery1.jsonl
+> build · longcat-2.5-preview-free
+[0m$ [0mpython3 -c "
+import json
+
+with open('data/items/g33_final/review_26.jsonl') as f:
+    input_ids = [json.loads(line)['id'] for line in f if line.strip()]
+
+with open('data/items/g33_final/audit_26_recovery1.jsonl') as f:
+    output_rows = [json.loads(line) for line in f if line.strip()]
+
+output_ids = [row['id'] for row in output_rows]
+
+print(f'Input rows: {len(input_ids)}')
+print(f'Output rows: {len(output_rows)}')
+print(f'IDs match: {input_ids == output_ids}')
+print(f'All IDs unique: {len(output_ids) == len(set(output_ids))}')
+
+required_fields = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']
+for row in output_rows:
+    missing = [f for f in required_fields if f not in row]
+    if missing:
+        print(f'Row {row[\"id\"]} missing fields: {missing}')
+
+print('All rows have required fields: True')
+print(f'Accepted rows: {sum(1 for r in output_rows if r[\"accept\"])}')
+print(f'Rejected rows: {sum(1 for r in output_rows if not r[\"accept\"])}')
+"
+
+Input rows: 20
+Output rows: 20
+IDs match: True
+All IDs unique: True
+All rows have required fields: True
+Accepted rows: 10
+Rejected rows: 10
+> build · longcat-2.5-preview-free
+Audit complete. `data/items/g33_final/audit_26_recovery1.jsonl` written and verified.
+
+**Verification summary:**
+- Input rows: 20 | Output rows: 20
+- IDs match input order exactly (g33_0500–g33_0519), all unique
+- All 10 required fields present in every row
+- Accepted: 10 | Rejected: 10
+
+**Rejection reasons (10 rows):**
+- **Empty X summaries** (g33_0502, 0506, 0510, 0511, 0513, 0515, 0517): X_A/X_B are empty strings — cannot satisfy faithful/natural or the one-support/one-refute X requirement.
+- **Both E's refute** (g33_0512): No supporting E for the claim.
+- **Corrupted source text** (g33_0504): "negative acclaim" is an oxymoron — invalid source.
+- **Corrupted source text** (g33_0518): "gameplay" in the context of a film indicates serious corruption (likely copied from a game review).

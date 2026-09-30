@@ -1,0 +1,8 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/input_17.jsonl 
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+> build · mimo-v2.6-flash-free
+[0m$ [0mwc -l /home/xiang/research_hun/try_clone/data/items/g33_final/input_17.jsonl
+20 /home/xiang/research_hun/try_clone/data/items/g33_final/input_17.jsonl
+> build · mimo-v2.6-flash-free

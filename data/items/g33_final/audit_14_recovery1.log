@@ -1,0 +1,94 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Recovering your audit file — processing every row per spec.
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_14.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mls -l data/items/g33_final/ | head -n 50; wc -l data/items/g33_final/review_14.jsonl; cat data/items/g33_final/AUDIT.md
+total 3108
+-rw-r--r-- 1 xiang cr   1695 Sep 30 18:02 AUDIT.md
+-rw-r--r-- 1 xiang cr   2145 Sep 30 18:02 CONSTRUCTION.md
+-rw-r--r-- 1 xiang cr  11452 Sep 30 18:18 audit_01.jsonl
+-rw-r--r-- 1 xiang cr  11452 Sep 30 18:17 audit_01_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   2897 Sep 30 18:18 audit_01_attempt1.log
+-rw-r--r-- 1 xiang cr    125 Sep 30 18:18 audit_01_provenance.json
+-rw-r--r-- 1 xiang cr   9931 Sep 30 18:53 audit_02.jsonl
+-rw-r--r-- 1 xiang cr  14508 Sep 30 18:33 audit_02_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   1796 Sep 30 18:23 audit_02_attempt1.log
+-rw-r--r-- 1 xiang cr   1633 Sep 30 18:40 audit_02_attempt2.jsonl
+-rw-r--r-- 1 xiang cr    501 Sep 30 18:40 audit_02_attempt2.log
+-rw-r--r-- 1 xiang cr    133 Sep 30 18:53 audit_02_provenance.json
+-rw-r--r-- 1 xiang cr   9931 Sep 30 18:53 audit_02_recovery1.jsonl
+-rw-r--r-- 1 xiang cr   2400 Sep 30 18:53 audit_02_recovery1.log
+-rw-r--r-- 1 xiang cr    302 Sep 30 18:43 audit_02_secondary.log
+-rw-r--r-- 1 xiang cr  12152 Sep 30 18:53 audit_03.jsonl
+-rw-r--r-- 1 xiang cr  17868 Sep 30 18:40 audit_03_attempt1.jsonl
+-rw-r--r-- 1 xiang cr    297 Sep 30 18:24 audit_03_attempt1.log
+-rw-r--r-- 1 xiang cr    327 Sep 30 18:43 audit_03_attempt2.log
+-rw-r--r-- 1 xiang cr    133 Sep 30 18:53 audit_03_provenance.json
+-rw-r--r-- 1 xiang cr  12152 Sep 30 18:53 audit_03_recovery1.jsonl
+-rw-r--r-- 1 xiang cr   1981 Sep 30 18:53 audit_03_recovery1.log
+-rw-r--r-- 1 xiang cr  10073 Sep 30 18:19 audit_04.jsonl
+-rw-r--r-- 1 xiang cr  10073 Sep 30 18:18 audit_04_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   7650 Sep 30 18:19 audit_04_attempt1.log
+-rw-r--r-- 1 xiang cr    125 Sep 30 18:19 audit_04_provenance.json
+-rw-r--r-- 1 xiang cr  10795 Sep 30 18:53 audit_05.jsonl
+-rw-r--r-- 1 xiang cr  14660 Sep 30 18:39 audit_05_attempt1.jsonl
+-rw-r--r-- 1 xiang cr    297 Sep 30 18:24 audit_05_attempt1.log
+-rw-r--r-- 1 xiang cr    538 Sep 30 18:43 audit_05_attempt2.log
+-rw-r--r-- 1 xiang cr    133 Sep 30 18:53 audit_05_provenance.json
+-rw-r--r-- 1 xiang cr  10795 Sep 30 18:53 audit_05_recovery1.jsonl
+-rw-r--r-- 1 xiang cr   2254 Sep 30 18:53 audit_05_recovery1.log
+-rw-r--r-- 1 xiang cr   8631 Sep 30 18:22 audit_06.jsonl
+-rw-r--r-- 1 xiang cr   8631 Sep 30 18:22 audit_06_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   2330 Sep 30 18:22 audit_06_attempt1.log
+-rw-r--r-- 1 xiang cr    125 Sep 30 18:22 audit_06_provenance.json
+-rw-r--r-- 1 xiang cr  11046 Sep 30 18:31 audit_07.jsonl
+-rw-r--r-- 1 xiang cr  11046 Sep 30 18:31 audit_07_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   2968 Sep 30 18:31 audit_07_attempt1.log
+-rw-r--r-- 1 xiang cr    125 Sep 30 18:31 audit_07_provenance.json
+-rw-r--r-- 1 xiang cr   9857 Sep 30 18:34 audit_08.jsonl
+-rw-r--r-- 1 xiang cr   9857 Sep 30 18:34 audit_08_attempt1.jsonl
+-rw-r--r-- 1 xiang cr   2332 Sep 30 18:34 audit_08_attempt1.log
+-rw-r--r-- 1 xiang cr    125 Sep 30 18:34 audit_08_provenance.json
+-rw-r--r-- 1 xiang cr  15240 Sep 30 18:54 audit_09_attempt1.jsonl
+-rw-r--r-- 1 xiang cr    297 Sep 30 18:44 audit_09_attempt1.log
+-rw-r--r-- 1 xiang cr    297 Sep 30 18:53 audit_09_attempt2.log
+-rw-r--r-- 1 xiang cr  10502 Sep 30 18:56 audit_09_recovery1.jsonl
+20 data/items/g33_final/review_14.jsonl
+# G33 independent stimulus audit
+
+Read only this instruction and the assigned review input. Do not read generation judgments, research hypotheses, inference outputs, or any results directory. A/B labels conceal support/refute roles. You are an independent auditor. Every row includes claim, natural E_A/E_B, and experimental paraphrase X_A/X_B. Source sentences are not assumed to be valid merely because a dataset labeled them.
+
+Independently judge each E and X sentence as `support`, `refute`, or `unclear` about the exact claim. Omission is not refutation; spelling variation is not a meaningful factual contrast; overlapping genre labels are not necessarily contradictory. Flag missing referents, ambiguous temporal scope, unsupported inference, serious corrupted source text. Check X_A/X_B preserve the decisive factual content of E_A/E_B WITHOUT adding new facts, asserted publication credentials or motivations, and are grammatical, reasonably natural, similarly styled and not exact copies. The X summaries are constructed stimuli, not source quotes or independently acquired facts.
+
+Return EXACTLY one JSONL row per input to the assigned audit output: `id`, `e_a_relation`, `e_b_relation`, `x_a_relation`, `x_b_relation`, `source_valid` (boolean), `faithful` (boolean), `natural` (boolean), `accept` (boolean), `reason`. `accept` requires source validity, faithful/natural summaries, one support and one refute E, one support and one refute X, and E/X role alignment. Explain concrete item-specific findings, including reasons for passing, for every row. Reject rather than silently fix. Never drop a row. Write only the assigned output. Check JSON/count/ID completeness after writing.
+> build · muse-spark-1.3-contributor-free
+Audited all 20 rows — now writing the recovery file.
+[0m← [0mWrite data/items/g33_final/audit_14_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_14_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "
+import json
+inp=[json.loads(l)['id'] for l in open('data/items/g33_final/review_14.jsonl')]
+out=[json.loads(l) for l in open('data/items/g33_final/audit_14_recovery1.jsonl')]
+print('in:', len(inp), inp)
+print('out:', len(out), [r['id'] for r in out])
+print('match:', [r['id'] for r in out]==inp)
+print('fields ok:', all(set(r)=={'id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason'} for r in out))
+print('relations valid:', all(r['e_a_relation'] in ('support','refute','unclear') and r['e_b_relation'] in ('support','refute','unclear') and r['x_a_relation'] in ('support','refute','unclear') and r['x_b_relation'] in ('support','refute','unclear') for r in out))
+print('bools:', all(isinstance(r[k], bool) for r in out for k in ('source_valid','faithful','natural','accept')))
+"
+
+in: 20 ['g33_0260', 'g33_0261', 'g33_0262', 'g33_0263', 'g33_0264', 'g33_0265', 'g33_0266', 'g33_0267', 'g33_0268', 'g33_0269', 'g33_0270', 'g33_0271', 'g33_0272', 'g33_0273', 'g33_0274', 'g33_0275', 'g33_0276', 'g33_0277', 'g33_0278', 'g33_0279']
+out: 20 ['g33_0260', 'g33_0261', 'g33_0262', 'g33_0263', 'g33_0264', 'g33_0265', 'g33_0266', 'g33_0267', 'g33_0268', 'g33_0269', 'g33_0270', 'g33_0271', 'g33_0272', 'g33_0273', 'g33_0274', 'g33_0275', 'g33_0276', 'g33_0277', 'g33_0278', 'g33_0279']
+match: True
+fields ok: True
+relations valid: True
+bools: True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/audit_14_recovery1.jsonl` with 20/20 rows.
+
+Verification: row count 20 matches input, IDs in order `g33_0260`–`g33_0279` match exactly, all rows have required 10 fields with valid `support/refute/unclear` and boolean types.
+
+Accept: 11 true (0260, 0261, 0262, 0265, 0266, 0269, 0270, 0272, 0273, 0275, 0276); 9 false for missing/empty X, both-E-support, genre-overlap non-contradiction, or temporal ambiguity.

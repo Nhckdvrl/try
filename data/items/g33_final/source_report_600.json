@@ -1,0 +1,12 @@
+{
+  "mechanical_pairs": 22190,
+  "shortlist": 600,
+  "historical_cases_excluded": 1052,
+  "historical_claims_excluded": 18494,
+  "source_hashes": {
+    "train": "7461c6fd1a13459590317c5ccdc8651dd2daf7c1ad8ae4b10ccd88d164fccd5a",
+    "dev": "544934677f5d133873e6d38f4557f8966f4efa5d3d70874ffe6913f2091b86b5",
+    "test": "7ad1808dbc30c62e0a1427a53022d0dfaff668a1fde3c4b612a2d266edd753ad"
+  },
+  "candidates_sha256": "a20afcd8644376bc14ba7c357435928187346139ffb80fc12e434e577302312a"
+}

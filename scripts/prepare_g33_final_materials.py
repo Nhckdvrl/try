@@ -1,4 +1,5 @@
 """Final-round source-only shortlist: fresh natural, nonnumeric revision pairs."""
+import argparse
 import csv
 import hashlib
 import json
@@ -24,6 +25,7 @@ def render(s):
     return s
 
 def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--count',type=int,default=600);args=ap.parse_args();assert args.count%20==0
     old_cases, old_claims = set(), set()
     paths = list((ROOT/'data/items').glob('*.jsonl')) + list((ROOT/'data/items').glob('*.csv'))
     paths += list((ROOT/'results/pilots/vitaminc_pilot_r1').glob('pool*.jsonl'))
@@ -70,8 +72,12 @@ def main():
         if a['case_id'] in cases or a['page'] in pages or norm(a['claim']) in claims: continue
         cases.add(a['case_id']); pages.add(a['page']); claims.add(norm(a['claim']))
         a['id'] = f'g33_{len(chosen):04d}'; chosen.append(a)
-        if len(chosen) == 600: break
-    assert len(chosen) >= 300, len(chosen)
+        if len(chosen) == args.count: break
+    assert len(chosen) == args.count, len(chosen)
+    old_path=OUT/'candidates.jsonl'
+    if old_path.exists():
+        old=[json.loads(s) for s in old_path.read_text().splitlines() if s]
+        assert len(old)<=len(chosen) and chosen[:len(old)]==old, 'Existing seeded prefix must stay byte-equivalent in content.'
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT/'candidates.jsonl').write_text(''.join(json.dumps(a, ensure_ascii=False)+'\n' for a in chosen))
     for j in range(0, len(chosen), 20):

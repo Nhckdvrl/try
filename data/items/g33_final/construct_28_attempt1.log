@@ -1,0 +1,9 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+[0m$ [0mwc -l data/items/g33_final/input_28.jsonl
+20 data/items/g33_final/input_28.jsonl
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/input_28.jsonl 
+> build · mimo-v2.6-flash-free
+[91m[1mError: [0mTransport: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()

@@ -1,0 +1,22 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Auditing every review row — writing the recovery file.
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_02.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/audit_02_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_02_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l) for l in open('data/items/g33_final/review_02.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/audit_02_recovery1.jsonl')]; print('in:',len(inp),'out:',len(out)); print('in_ids:',[r['id'] for r in inp]); print('out_ids:',[r['id'] for r in out]); print('match:',[r['id'] for r in inp]==[r['id'] for r in out]); req=['id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason']; print('keys_ok:',all(list(r.keys())==req or set(r.keys())==set(req) for r in out)); print('rels_ok:',all(r['e_a_relation'] in ('support','refute','unclear') and r['e_b_relation'] in ('support','refute','unclear') and r['x_a_relation'] in ('support','refute','unclear') for r in out)); print('types_ok:',all(isinstance(r['source_valid'],bool) and isinstance(r['faithful'],bool) and isinstance(r['natural'],bool) and isinstance(r['accept'],bool) and isinstance(r['reason'],str) for r in out))"
+
+in: 20 out: 20
+in_ids: ['g33_0020', 'g33_0021', 'g33_0022', 'g33_0023', 'g33_0024', 'g33_0025', 'g33_0026', 'g33_0027', 'g33_0028', 'g33_0029', 'g33_0030', 'g33_0031', 'g33_0032', 'g33_0033', 'g33_0034', 'g33_0035', 'g33_0036', 'g33_0037', 'g33_0038', 'g33_0039']
+out_ids: ['g33_0020', 'g33_0021', 'g33_0022', 'g33_0023', 'g33_0024', 'g33_0025', 'g33_0026', 'g33_0027', 'g33_0028', 'g33_0029', 'g33_0030', 'g33_0031', 'g33_0032', 'g33_0033', 'g33_0034', 'g33_0035', 'g33_0036', 'g33_0037', 'g33_0038', 'g33_0039']
+match: True
+keys_ok: True
+rels_ok: True
+types_ok: True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/audit_02_recovery1.jsonl` with 20/20 rows, IDs `g33_0020`–`g33_0039` matching input order. All rows have required 10 fields with valid enums/types.
+
+Accept: 16 true, 4 false (`g33_0024` Mighty Cats overlap + empty X, `g33_0027` ambiguous him/Chev vs Chelios + empty X, `g33_0037` empty X, `g33_0038` both E/X support doubling).

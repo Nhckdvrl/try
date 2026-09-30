@@ -1,0 +1,36 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair on its own — building your attempt file.
+[0m→ [0mRead data/items/g33_final/challenge_input_05.jsonl 
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+> build · muse-spark-1.3-contributor-free
+I've judged all 20 pairs against the exact claims — now writing the verdict file.
+[0m← [0mWrite data/items/g33_final/challenge_05_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_05_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; p='data/items/g33_final/challenge_05_attempt1.jsonl'; lines=[l for l in open(p) if l.strip()]; print('count', len(lines)); ids=[json.loads(l)['id'] for l in lines]; print(ids); print('unique', len(set(ids))); import json as j; keys=set(); 
+for l in lines:
+  d=j.loads(l)
+  keys.add(tuple(sorted(d.keys())))
+  assert set(d.keys())=={'id','a_relation','b_relation','decisive','clear_scope','readable','reason'}, d
+  assert d['a_relation'] in ('support','refute','unclear')
+  assert d['b_relation'] in ('support','refute','unclear')
+  assert isinstance(d['decisive'], bool) and isinstance(d['clear_scope'], bool) and isinstance(d['readable'], bool)
+print('schema ok', keys)
+# compare to input IDs
+inp=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_input_05.jsonl') if l.strip()]
+print('input ids', inp)
+print('match', ids==inp)
+print('decisive true', sum(1 for l in lines if json.loads(l)['decisive']))"
+
+count 20
+['g33_0152', 'g33_0153', 'g33_0155', 'g33_0158', 'g33_0159', 'g33_0161', 'g33_0162', 'g33_0166', 'g33_0169', 'g33_0172', 'g33_0173', 'g33_0174', 'g33_0178', 'g33_0179', 'g33_0180', 'g33_0182', 'g33_0185', 'g33_0191', 'g33_0196', 'g33_0198']
+unique 20
+schema ok {('a_relation', 'b_relation', 'clear_scope', 'decisive', 'id', 'readable', 'reason')}
+input ids ['g33_0152', 'g33_0153', 'g33_0155', 'g33_0158', 'g33_0159', 'g33_0161', 'g33_0162', 'g33_0166', 'g33_0169', 'g33_0172', 'g33_0173', 'g33_0174', 'g33_0178', 'g33_0179', 'g33_0180', 'g33_0182', 'g33_0185', 'g33_0191', 'g33_0196', 'g33_0198']
+match True
+decisive true 12
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_05_attempt1.jsonl` with 20 rows, IDs match input order exactly.
+
+Decisive `true`: 12, `false`: 8. Challenged contrasts where both statements can be true: 0153 (Variety/Vulture), 0158 (mixed includes positives), 0161 (historical + continued acronym use), 0162 (Albuquerque/Portland base vs origin), 0166 (changing sponsor names), 0172 (League One/Championship over time), 0174 (Panthers/Colts tenures), 0179 (Norwegian-based operating from China).

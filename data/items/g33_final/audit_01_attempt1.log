@@ -1,0 +1,53 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/review_01.jsonl 
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+> build · longcat-2.5-preview-free
+[0m← [0mWrite data/items/g33_final/audit_01_attempt1.jsonl
+Created file successfully: data/items/g33_final/audit_01_attempt1.jsonl
+> build · longcat-2.5-preview-free
+[0m$ [0mpython3 -c "
+import json
+with open('data/items/g33_final/audit_01_attempt1.jsonl') as f:
+    lines = [l for l in f if l.strip()]
+rows = [json.loads(l) for l in lines]
+print(f'Row count: {len(rows)}')
+ids = [r['id'] for r in rows]
+print(f'IDs: {ids}')
+expected = [f'g33_{i:04d}' for i in range(20)]
+print(f'IDs match expected: {ids == expected}')
+print(f'All rows valid JSON: True')
+"
+Row count: 20
+IDs: ['g33_0000', 'g33_0001', 'g33_0002', 'g33_0003', 'g33_0004', 'g33_0005', 'g33_0006', 'g33_0007', 'g33_0008', 'g33_0009', 'g33_0010', 'g33_0011', 'g33_0012', 'g33_0013', 'g33_0014', 'g33_0015', 'g33_0016', 'g33_0017', 'g33_0018', 'g33_0019']
+IDs match expected: True
+All rows valid JSON: True
+> build · longcat-2.5-preview-free
+Audit complete. Wrote `data/items/g33_final/audit_01_attempt1.jsonl` with 20 rows (IDs `g33_0000`–`g33_0019`), all valid JSON, matching the input exactly.
+
+**Summary of judgments:**
+
+| ID | E_A | E_B | X_A | X_B | Accept |
+|---|---|---|---|---|---|
+| g33_0000 | support | unclear | unclear | unclear | **reject** |
+| g33_0001 | refute | support | refute | support | **accept** |
+| g33_0002 | refute | refute | unclear | unclear | **reject** |
+| g33_0003 | support | unclear | unclear | unclear | **reject** |
+| g33_0004 | support | unclear | unclear | unclear | **reject** |
+| g33_0005 | support | refute | support | refute | **accept** |
+| g33_0006 | support | support | unclear | unclear | **reject** |
+| g33_0007 | support | unclear | unclear | unclear | **reject** |
+| g33_0008 | refute | support | refute | support | **accept** |
+| g33_0009 | unclear | support | unclear | unclear | **reject** |
+| g33_0010 | support | refute | support | refute | **accept** |
+| g33_0011 | support | support | unclear | unclear | **reject** |
+| g33_0012 | support | refute | unclear | unclear | **reject** |
+| g33_0013 | support | support | unclear | unclear | **reject** |
+| g33_0014 | refute | support | refute | refute | **reject** |
+| g33_0015 | refute | support | refute | support | **accept** |
+| g33_0016 | support | refute | support | refute | **accept** |
+| g33_0017 | support | refute | support | refute | **accept** |
+| g33_0018 | refute | support | refute | support | **accept** |
+| g33_0019 | support | unclear | unclear | unclear | **reject** |
+
+**8 accepted, 12 rejected.** Common rejection reasons: empty X summaries (no faithful/natural paraphrase), both E's supporting with no refute, or E_B being unclear rather than a genuine refutation (spelling variants, omissions, overlapping genre labels).

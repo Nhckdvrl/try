@@ -1,0 +1,55 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_08.jsonl 
+> build · longcat-2.5-preview-free
+I'll read both files and process each row according to the audit instructions.
+[0m← [0mWrite data/items/g33_final/audit_08_attempt1.jsonl
+Created file successfully: data/items/g33_final/audit_08_attempt1.jsonl
+> build · longcat-2.5-preview-free
+Now let me verify the JSON row count and IDs:
+[0m$ [0mpython3 -c "
+import json
+
+# Read input IDs
+with open('data/items/g33_final/review_08.jsonl') as f:
+    input_ids = [json.loads(line)['id'] for line in f if line.strip()]
+
+# Read output
+with open('data/items/g33_final/audit_08_attempt1.jsonl') as f:
+    output_rows = [json.loads(line) for line in f if line.strip()]
+
+output_ids = [row['id'] for row in output_rows]
+
+print(f'Input rows: {len(input_ids)}')
+print(f'Output rows: {len(output_rows)}')
+print(f'IDs match: {input_ids == output_ids}')
+print(f'All IDs unique: {len(output_ids) == len(set(output_ids))}')
+
+# Check required fields
+required = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']
+for row in output_rows:
+    missing = [f for f in required if f not in row]
+    if missing:
+        print(f'Row {row[\"id\"]} missing fields: {missing}')
+
+# Summary stats
+accepted = sum(1 for r in output_rows if r['accept'])
+print(f'Accepted: {accepted}/{len(output_rows)}')
+"
+
+Input rows: 20
+Output rows: 20
+IDs match: True
+All IDs unique: True
+Accepted: 8/20
+> build · longcat-2.5-preview-free
+Verification complete. The output file `data/items/g33_final/audit_08_attempt1.jsonl` has been written and validated:
+
+- **Row count**: 20 input → 20 output (exact match)
+- **IDs**: All 20 IDs match the input file exactly, all unique
+- **Required fields**: All present in every row
+- **Accepted**: 8/20 rows
+- **Rejected**: 12/20 rows
+
+All 12 rejections are due to empty `x_a`/`x_b` strings (rows g33_0141, 0143–0151, 0154, 0156, 0157), which fail the faithfulness and naturalness requirements. The 8 accepted rows (g33_0140, 0142, 0148, 0152, 0153, 0155, 0158, 0159) all have valid sources, faithful and natural X summaries, one support and one refute E, one support and one refute X, and proper E/X role alignment.

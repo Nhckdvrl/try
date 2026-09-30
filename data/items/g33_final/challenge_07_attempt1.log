@@ -1,0 +1,24 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Locked on 07 — checking sources and challenging each pair independently.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+[0m→ [0mRead data/items/g33_final/challenge_input_07.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_07_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_07_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — verifying IDs and counts.
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l) for l in open('data/items/g33_final/challenge_input_07.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/challenge_07_attempt1.jsonl')]; print('in',len(inp),'out',len(out)); print('ids_in', [r['id'] for r in inp]); print('ids_out', [r['id'] for r in out]); print('match', [r['id'] for r in inp]==[r['id'] for r in out]); keys=['id','a_relation','b_relation','decisive','clear_scope','readable','reason']; print('keys_ok', all(set(r)==set(keys) for r in out)); print('rels_ok', all(r['a_relation'] in ('support','refute','unclear') and r['b_relation'] in ('support','refute','unclear') for r in out)); print('bools_ok', all(isinstance(r[k],bool) for r in out for k in ('decisive','clear_scope','readable')))"
+in 20 out 20
+ids_in ['g33_0233', 'g33_0234', 'g33_0235', 'g33_0237', 'g33_0239', 'g33_0241', 'g33_0242', 'g33_0243', 'g33_0245', 'g33_0246', 'g33_0247', 'g33_0248', 'g33_0249', 'g33_0250', 'g33_0252', 'g33_0253', 'g33_0256', 'g33_0258', 'g33_0260', 'g33_0261']
+ids_out ['g33_0233', 'g33_0234', 'g33_0235', 'g33_0237', 'g33_0239', 'g33_0241', 'g33_0242', 'g33_0243', 'g33_0245', 'g33_0246', 'g33_0247', 'g33_0248', 'g33_0249', 'g33_0250', 'g33_0252', 'g33_0253', 'g33_0256', 'g33_0258', 'g33_0260', 'g33_0261']
+match True
+keys_ok True
+rels_ok True
+bools_ok True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_07_attempt1.jsonl` with 20 rows.
+
+Verify: input 20, output 20, IDs match in order, all keys `id,a_relation,b_relation,decisive,clear_scope,readable,reason` present with valid relations/booleans.
+
+Decisive `true` (11): 0233, 0234, 0235, 0237, 0242, 0248, 0250, 0252, 0253, 0256, 0261. Decisive `false` with challenged refute→`unclear` (9): 0239, 0241, 0243, 0245, 0246, 0247, 0249, 0258, 0260.

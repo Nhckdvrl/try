@@ -3,11 +3,14 @@ import argparse
 import concurrent.futures
 import json
 import subprocess
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT/'data/items/g33_final'
 MODELS = ('opencode/mimo-v2.6-flash-free', 'opencode/longcat-2.5-preview-free')
+RECOVERY=False
+MUSE='opencode/muse-spark-1.3-contributor-free'
 
 def read(p):
     return [json.loads(x) for x in p.read_text().splitlines() if x.strip()]
@@ -37,7 +40,12 @@ def job(batch, stage):
         print(f'{stage} batch {batch:02d}: existing complete output', flush=True)
         return True
     if stage == 'audit':
-        gen = {x['id']:x for x in read(BASE/f'generated_{batch:02d}.jsonl')}
+        gen_path = BASE/f'generated_{batch:02d}.jsonl'
+        deadline = time.monotonic()+3600
+        while not valid(gen_path, ids, 'construct'):
+            if time.monotonic()>deadline: return False
+            time.sleep(10)
+        gen = {x['id']:x for x in read(gen_path)}
         review = [dict(a, x_a=gen[a['id']]['x_a'], x_b=gen[a['id']]['x_b']) for a in read(inp)]
         inp = BASE/f'review_{batch:02d}.jsonl'
         inp.write_text(''.join(json.dumps(a, ensure_ascii=False)+'\n' for a in review))
@@ -47,14 +55,18 @@ def job(batch, stage):
             meta = BASE/f'construct_{batch:02d}_provenance.json'
             gen_model = json.loads(meta.read_text())['model'] if meta.exists() else MODELS[0]
             model = MODELS[1] if gen_model == MODELS[0] else MODELS[0]
+            if RECOVERY:
+                choices=[m for m in (MUSE,MODELS[1],MODELS[0]) if m != gen_model]
+                model=choices[attempt-1]
         else:
-            model = MODELS[(attempt-1)%2]
-        attempt_out = BASE/f'{prefix}_{batch:02d}_attempt{attempt}.jsonl'
+            model = (MUSE,MODELS[1])[attempt-1] if RECOVERY else MODELS[(attempt-1)%2]
+        kind='recovery' if RECOVERY else 'attempt'
+        attempt_out = BASE/f'{prefix}_{batch:02d}_{kind}{attempt}.jsonl'
         instruction = BASE/('CONSTRUCTION.md' if stage == 'construct' else 'AUDIT.md')
         message = (f'Read {instruction.relative_to(ROOT)} and {inp.relative_to(ROOT)} only. '
                    f'Process every row according to the instructions. Write {attempt_out.relative_to(ROOT)}. '
                    'Verify JSON row count and IDs. Do not read any research results or other judgments.')
-        log = BASE/f'{stage}_{batch:02d}_attempt{attempt}.log'
+        log = BASE/f'{stage}_{batch:02d}_{kind}{attempt}.log'
         try:
             with log.open('w') as stream:
                 p = subprocess.run(['opencode', 'run', '--model', model, message], cwd=ROOT,
@@ -72,11 +84,14 @@ def job(batch, stage):
     return False
 
 def main():
+    global RECOVERY
     ap = argparse.ArgumentParser()
     ap.add_argument('--stage', choices=['construct', 'audit'], required=True)
     ap.add_argument('--first', type=int, default=1)
     ap.add_argument('--last', type=int, default=20)
+    ap.add_argument('--recovery',action='store_true')
     args = ap.parse_args()
+    RECOVERY=args.recovery
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
         done = list(ex.map(lambda b:job(b,args.stage), range(args.first, args.last+1)))
     print(json.dumps({'stage':args.stage, 'complete_batches':sum(done), 'requested_batches':len(done)}), flush=True)

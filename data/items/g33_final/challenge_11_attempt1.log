@@ -1,0 +1,18 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair on its own terms — building your attempt file.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+[0m→ [0mRead data/items/g33_final/challenge_input_11.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_11_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_11_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_input_11.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/challenge_11_attempt1.jsonl')]; oids=[o['id'] for o in out]; print('in:', len(inp), 'out:', len(out)); print('ids_match:', inp==oids); print('missing:', set(inp)-set(oids), 'extra:', set(oids)-set(inp)); keys_ok=all(set(o)=={'id','a_relation','b_relation','decisive','clear_scope','readable','reason'} for o in out); print('keys_ok:', keys_ok); rels_ok=all(o['a_relation'] in ('support','refute','unclear') and o['b_relation'] in ('support','refute','unclear') for o in out); print('rels_ok:', rels_ok); print('decisive_count:', sum(1 for o in out if o['decisive']))"
+in: 20 out: 20
+ids_match: True
+missing: set() extra: set()
+keys_ok: True
+rels_ok: True
+decisive_count: 10
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_11_attempt1.jsonl` with 20 rows, IDs match input order, keys and relations valid. Decisive: 10 true, 10 false.

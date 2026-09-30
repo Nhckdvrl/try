@@ -1,0 +1,52 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_18.jsonl 
+> build · longcat-2.5-preview-free
+[0m← [0mWrite data/items/g33_final/audit_18_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_18_recovery1.jsonl
+> build · longcat-2.5-preview-free
+[0m$ [0mpython3 -c "
+import json
+
+with open('data/items/g33_final/review_18.jsonl') as f:
+    input_ids = [json.loads(line)['id'] for line in f if line.strip()]
+
+with open('data/items/g33_final/audit_18_recovery1.jsonl') as f:
+    output_rows = [json.loads(line) for line in f if line.strip()]
+
+output_ids = [row['id'] for row in output_rows]
+
+print(f'Input rows: {len(input_ids)}')
+print(f'Output rows: {len(output_rows)}')
+print(f'IDs match: {input_ids == output_ids}')
+print(f'All IDs present: {set(input_ids) == set(output_ids)}')
+print(f'No duplicates: {len(output_ids) == len(set(output_ids))}')
+
+required_fields = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']
+for row in output_rows:
+    missing = [f for f in required_fields if f not in row]
+    if missing:
+        print(f'Row {row[\"id\"]} missing fields: {missing}')
+print('All rows have required fields: True')
+"
+
+Input rows: 20
+Output rows: 20
+IDs match: True
+All IDs present: True
+No duplicates: True
+All rows have required fields: True
+> build · longcat-2.5-preview-free
+Audit complete. Wrote `data/items/g33_final/audit_18_recovery1.jsonl` with 20 rows.
+
+**Verification:**
+- Input rows: 20
+- Output rows: 20
+- IDs match input order exactly
+- No duplicates
+- All required fields present in every row
+
+**Summary of judgments:**
+- **Accepted (10):** g33_0344, 0345, 0347, 0348, 0349, 0350, 0353, 0355, 0357, 0358, 0359 — all had valid sources, faithful/natural X summaries, one support and one refute E, one support and one refute X, with E/X role alignment.
+- **Rejected (10):** g33_0340–0343, 0351, 0352, 0354 — X fields were empty, so no X relation could be determined. g33_0346 — E_B had corrupted source text (missing punctuation). g33_0356 — both E sentences supported the claim (no refute E).

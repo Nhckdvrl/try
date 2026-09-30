@@ -1,0 +1,5 @@
+[0m
+> build · nemotron-3.5-lightning-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_02.jsonl 
+[91m[1mError: [0mTransport: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()

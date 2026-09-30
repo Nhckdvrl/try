@@ -17,11 +17,13 @@ LIMIT=${3:-}
 case "$TAG" in
   qwen3-8b) MODEL=$HUB/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218 ;;
   gemma3-12b) MODEL=$HUB/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80 ;;
-  mistral-small-24b) MODEL=data/mistral_small_24b_hf ;;
+  mistral-small-24b) MODEL=${G33_MISTRAL_MODEL:-data/mistral_small_24b_hf} ;;
   *) echo "unknown model tag: $TAG" >&2; exit 2 ;;
 esac
 test -d "$MODEL"
-ARGS=()
-if [[ -n "$LIMIT" ]]; then ARGS=(--limit "$LIMIT"); fi
+ARGS=(--gpu-frac "${G33_GPU_FRAC:-0.64}")
+if [[ -n "${G33_ITEMS:-}" ]]; then ARGS+=(--items "$G33_ITEMS"); fi
+if [[ "$TAG" == "mistral-small-24b" ]]; then ARGS+=(--tokenizer data/external/g33_mistral_tokenizer); fi
+if [[ -n "$LIMIT" ]]; then ARGS+=(--limit "$LIMIT"); fi
 CUDA_VISIBLE_DEVICES="$GPU" "$PY" scripts/run_g33_final.py \
   --model "$MODEL" --tag "$TAG" --out "results/raw/${TAG}_g33_final_v1${LIMIT:+_smoke}.jsonl" "${ARGS[@]}"

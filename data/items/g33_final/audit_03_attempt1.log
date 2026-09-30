@@ -1,0 +1,8 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/review_03.jsonl 
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+> build · mimo-v2.6-flash-free
+[0m$ [0mwc -l data/items/g33_final/review_03.jsonl
+20 data/items/g33_final/review_03.jsonl
+> build · mimo-v2.6-flash-free

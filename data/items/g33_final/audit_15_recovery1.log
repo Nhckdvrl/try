@@ -1,0 +1,22 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Recovering your audit file — processing every row per instructions.
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_15.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/audit_15_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_15_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — now verifying counts and IDs.
+[0m$ [0mpython3 -c "import json; rev=[json.loads(l) for l in open('data/items/g33_final/review_15.jsonl')]; aud=[json.loads(l) for l in open('data/items/g33_final/audit_15_recovery1.jsonl')]; print('review',len(rev)); print('audit',len(aud)); print('ids_match', [r['id'] for r in rev]==[a['id'] for a in aud]); print('audit_ids', [a['id'] for a in aud]); keys=set(['id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason']); print('keys_ok', all(set(a.keys())==keys for a in aud)); print('relations_ok', all(a['e_a_relation'] in ('support','refute','unclear') and a['e_b_relation'] in ('support','refute','unclear') and a['x_a_relation'] in ('support','refute','unclear') and a['x_b_relation'] in ('support','refute','unclear') for a in aud)); print('bools_ok', all(isinstance(a[k],bool) for a in aud for k in ['source_valid','faithful','natural','accept']))"
+review 20
+audit 20
+ids_match True
+audit_ids ['g33_0280', 'g33_0281', 'g33_0282', 'g33_0283', 'g33_0284', 'g33_0285', 'g33_0286', 'g33_0287', 'g33_0288', 'g33_0289', 'g33_0290', 'g33_0291', 'g33_0292', 'g33_0293', 'g33_0294', 'g33_0295', 'g33_0296', 'g33_0297', 'g33_0298', 'g33_0299']
+keys_ok True
+relations_ok True
+bools_ok True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/audit_15_recovery1.jsonl` with 20 rows.
+
+Verification: 20 review rows, 20 audit rows, IDs match in order `g33_0280`–`g33_0299`. All rows have required 10 keys with valid relation enums and boolean types.

@@ -1,0 +1,8 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_26.jsonl 
+> build · mimo-v2.6-flash-free
+[0m✗ [0mRead data/items/g33_final/review_26.jsonl failed
+[91m[1mError: [0mOffset 21 is out of range for this file (20 lines)
+> build · mimo-v2.6-flash-free

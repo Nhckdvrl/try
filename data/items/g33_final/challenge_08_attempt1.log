@@ -1,0 +1,35 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair on its own terms — building your attempt file now.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+[0m→ [0mRead data/items/g33_final/challenge_input_08.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_08_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_08_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "
+import json
+inp=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_input_08.jsonl')]
+out=[json.loads(l) for l in open('data/items/g33_final/challenge_08_attempt1.jsonl')]
+print('input count', len(inp))
+print('output count', len(out))
+print('ids match:', [x['id'] for x in out]==inp)
+print('ids:', [x['id'] for x in out])
+# check keys and values
+for r in out:
+  assert set(r)=={'id','a_relation','b_relation','decisive','clear_scope','readable','reason'}, r
+  assert r['a_relation'] in ('support','refute','unclear')
+  assert r['b_relation'] in ('support','refute','unclear')
+  assert isinstance(r['decisive'], bool) and isinstance(r['clear_scope'], bool) and isinstance(r['readable'], bool)
+print('schema ok')
+"
+
+input count 20
+output count 20
+ids match: True
+ids: ['g33_0262', 'g33_0265', 'g33_0266', 'g33_0269', 'g33_0270', 'g33_0272', 'g33_0273', 'g33_0275', 'g33_0276', 'g33_0280', 'g33_0282', 'g33_0286', 'g33_0287', 'g33_0288', 'g33_0290', 'g33_0295', 'g33_0297', 'g33_0298', 'g33_0299', 'g33_0308']
+schema ok
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_08_attempt1.jsonl` with 20 rows.
+
+Verification: input count 20, output count 20, IDs match in order, schema/relations/booleans valid.

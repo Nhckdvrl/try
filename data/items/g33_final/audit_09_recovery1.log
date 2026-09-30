@@ -1,0 +1,26 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Fixing your audit file — processing every row per spec.
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_09.jsonl 
+> build · muse-spark-1.3-contributor-free
+> build · muse-spark-1.3-contributor-free
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/audit_09_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_09_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — now verifying row count and IDs.
+[0m$ [0mpython3 -c "import json; p='data/items/g33_final/audit_09_recovery1.jsonl'; lines=open(p).read().strip().splitlines(); print('count',len(lines)); ids=[json.loads(l)['id'] for l in lines]; print(ids); print('unique',len(set(ids))); exp=[f'g33_{i:04d}' for i in range(160,180)]; print('missing',set(exp)-set(ids)); print('extra',set(ids)-set(exp)); keys=set(['id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason']); print('keys_ok',all(set(json.loads(l).keys())==keys for l in lines)); print('rels_ok',all(json.loads(l)[k] in ('support','refute','unclear') for l in lines for k in ['e_a_relation','e_b_relation','x_a_relation','x_b_relation']))"
+count 20
+['g33_0160', 'g33_0161', 'g33_0162', 'g33_0163', 'g33_0164', 'g33_0165', 'g33_0166', 'g33_0167', 'g33_0168', 'g33_0169', 'g33_0170', 'g33_0171', 'g33_0172', 'g33_0173', 'g33_0174', 'g33_0175', 'g33_0176', 'g33_0177', 'g33_0178', 'g33_0179']
+unique 20
+missing set()
+extra set()
+keys_ok True
+rels_ok True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/audit_09_recovery1.jsonl` with 20 rows.
+
+Verification: count 20, IDs g33_0160–g33_0179 complete with no missing/extra, all rows have exact 10 required keys, relations restricted to support/refute/unclear.
+
+9 accept=true (0161, 0162, 0166, 0169, 0172, 0173, 0174, 0178, 0179); 11 accept=false due to missing X and/or lack of support/refute E contrast with omission/overlap rules applied.

@@ -1,0 +1,23 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair independently — writing your attempt file next.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+[0m→ [0mRead data/items/g33_final/challenge_input_12.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_12_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_12_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+File drafted — now verifying IDs and count.
+[0m$ [0mpython3 -c "import json; a=[json.loads(l) for l in open('data/items/g33_final/challenge_input_12.jsonl')]; b=[json.loads(l) for l in open('data/items/g33_final/challenge_12_attempt1.jsonl')]; print('in:',len(a),'out:',len(b)); print('ids_in:',[x['id'] for x in a]); print('ids_out:',[x['id'] for x in b]); print('match:',[x['id'] for x in a]==[x['id'] for x in b]); print('keys_ok:',all(set(x)=={'id','a_relation','b_relation','decisive','clear_scope','readable','reason'} for x in b)); print('rels_ok:',all(x['a_relation'] in ('support','refute','unclear') and x['b_relation'] in ('support','refute','unclear') for x in b))"
+in: 20 out: 20
+ids_in: ['g33_0436', 'g33_0437', 'g33_0439', 'g33_0440', 'g33_0446', 'g33_0448', 'g33_0449', 'g33_0450', 'g33_0451', 'g33_0452', 'g33_0453', 'g33_0455', 'g33_0457', 'g33_0458', 'g33_0460', 'g33_0461', 'g33_0468', 'g33_0469', 'g33_0473', 'g33_0476']
+ids_out: ['g33_0436', 'g33_0437', 'g33_0439', 'g33_0440', 'g33_0446', 'g33_0448', 'g33_0449', 'g33_0450', 'g33_0451', 'g33_0452', 'g33_0453', 'g33_0455', 'g33_0457', 'g33_0458', 'g33_0460', 'g33_0461', 'g33_0468', 'g33_0469', 'g33_0473', 'g33_0476']
+match: True
+keys_ok: True
+rels_ok: True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_12_attempt1.jsonl` with 20 rows.
+
+Verify: input 20, output 20, IDs match in order, keys and relations valid.
+
+Decisive `true` (13): 0440, 0446, 0448, 0450, 0452, 0453, 0455, 0457, 0458, 0461, 0468, 0473, 0476. Decisive `false` (7): 0436 (several vs all compatible), 0437 (work win vs personal win), 0439 (short does not exclude long), 0449 (English/American dual possible), 0451 (April-Oct includes April-Jul), 0460 (Bay does not exclude Cameron), 0469 (second house does not exclude first).

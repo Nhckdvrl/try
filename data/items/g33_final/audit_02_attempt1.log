@@ -1,0 +1,83 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_02.jsonl 
+> build · mimo-v2.6-flash-free
+[0m$ [0mwc -l data/items/g33_final/review_02.jsonl && ls data/items/g33_final/
+20 data/items/g33_final/review_02.jsonl
+AUDIT.md
+CONSTRUCTION.md
+audit_01.jsonl
+audit_01_attempt1.jsonl
+audit_01_attempt1.log
+audit_01_provenance.json
+audit_02_attempt1.log
+audit_04.jsonl
+audit_04_attempt1.jsonl
+audit_04_attempt1.log
+audit_04_provenance.json
+audit_06.jsonl
+audit_06_attempt1.jsonl
+audit_06_attempt1.log
+audit_06_provenance.json
+candidates.jsonl
+construct_01_provenance.json
+construct_02_attempt1.log
+construct_02_attempt2.log
+construct_02_provenance.json
+construct_03_attempt1.log
+construct_03_attempt2.log
+construct_04_attempt1.log
+construct_04_provenance.json
+construct_05_attempt1.log
+construct_05_attempt2.log
+construct_06_attempt1.log
+construct_06_provenance.json
+construct_07_attempt1.log
+construct_08_attempt1.log
+format_smoke_item.jsonl
+generated_01.jsonl
+generated_02.jsonl
+generated_02_attempt1.jsonl
+generated_02_attempt2.jsonl
+generated_03_attempt1.jsonl
+generated_04.jsonl
+generated_04_attempt1.jsonl
+generated_06.jsonl
+generated_06_attempt1.jsonl
+input_01.jsonl
+input_02.jsonl
+input_03.jsonl
+input_04.jsonl
+input_05.jsonl
+input_06.jsonl
+input_07.jsonl
+input_08.jsonl
+input_09.jsonl
+input_10.jsonl
+input_11.jsonl
+input_12.jsonl
+input_13.jsonl
+input_14.jsonl
+input_15.jsonl
+input_16.jsonl
+input_17.jsonl
+input_18.jsonl
+input_19.jsonl
+input_20.jsonl
+input_21.jsonl
+input_22.jsonl
+input_23.jsonl
+input_24.jsonl
+input_25.jsonl
+input_26.jsonl
+input_27.jsonl
+input_28.jsonl
+input_29.jsonl
+input_30.jsonl
+review_01.jsonl
+review_02.jsonl
+review_04.jsonl
+review_06.jsonl
+source_report.json
+> build · mimo-v2.6-flash-free

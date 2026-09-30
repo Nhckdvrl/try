@@ -101,3 +101,76 @@ an independent novel narrative. Preserve reliable old observations as assets;
 no automatic G34, mechanism, LoRA, or new benchmark. Opposite and null outcomes
 constrain this hypothesis; they are not relabeled as a new discovery. Exploratory
 analyses must be explicitly labeled and cannot change this rescue criterion.
+
+## Operational amendments before full inference (2026-09-30)
+
+Free-provider timeouts/connection resets interrupted several construction and audit
+calls. Retain every attempt; use a recovery provider (OpenCode's free Muse Spark
+1.3 contributor model) with exactly the same instructions and schema. Every
+canonical independent audit still uses a different model from its item's
+constructor. Provider recovery follows file completeness and availability, never
+acceptance rate or research-model behavior. Provenance names the actual provider.
+Stalled original schedulers were stopped before recovery to avoid concurrent
+canonical-file writes. Late attempt files remain artifacts, not silently substituted
+for the selected canonical reviews. Selection requires a completed contiguous
+candidate prefix, preventing quicker later batches from bypassing earlier items.
+
+One fixed candidate (`g33_0001`) supplies a format-only smoke matrix for each
+checkpoint. It does not change the predeclared selection order, is not selected
+by performance, and smoke rows are excluded from all scientific estimates.
+The original Mistral shim's cache links were broken. Restore the **same pinned
+revision** `9527884be6e5616bdd54de542f9ae13384489724` in an isolated local cache,
+using the committed recovery script; do not substitute another model. Exact
+checkpoint metadata hashes and execution deviations will be retained.
+
+Before full inference, add the original source page/topic to E's displayed record
+metadata. Auditors already receive that topic, and many natural source sentences
+use pronouns or “the film”; the research model must receive the same referent
+context used to validate the pair. This adds no factual answer or publication
+credentials. All record-only cells, including B and frames, receive the same topic.
+The no-E bridge remains claim-only apart from its exclusion/query manipulation.
+The earlier format smoke lacks this metadata line and remains format-only; no
+cell outcomes were inspected to choose the change.
+
+### Material challenge amendment, before full inference
+
+A seeded 16-family manual inspection of the tentative selection found important
+false refutations that the first two passes missed (different sunniest city vs
+relative sunlight, different university vs ever attending, different DNA in one
+test vs use in any test), plus alias/scope and review-category ambiguities.
+**The tentative 200 file is not the final frozen dataset.** Add a source-only
+objection audit to every provisionally eligible family, using the same exact-claim
+criterion and no X, prior judgments, or research outputs. This is a separate
+blind pass; it is not necessarily a third distinct provider for each family.
+Require its roles to match, with decisive/clear_scope/readable all true. Keep
+explicit outcome-blind manual exclusions with reasons. Source topic metadata
+remains part of E. Select the first 200 passing ALL filters; expand the seeded
+source prefix if needed rather than lowering quality or N. No research-model
+output motivates these exclusions; the only completed runs remain format smokes.
+Source-only instructions: data/items/g33_final/SOURCE_CHALLENGE.md.
+
+Reserve expansion: append candidates 600–799 from the identical seeded source
+sequence. The first 600 candidates, source hashes, historical exclusion pool, and
+all decisions on them remain unchanged and are checked programmatically. This
+expansion responds to stricter material screening and the fixed N=200 target,
+not to research-model outputs. Selection may freeze once the first 200 fully
+accepted families are known and every earlier potentially eligible candidate has
+a completed challenge; incomplete *later* candidates cannot affect that boundary.
+Pending challenge rows are unassessed, not material rejections.
+
+### Actual-choice safeguard, before full inference
+
+Also report item-wise X-induced TRUE/FALSE disagreement, not just normalized
+probability displacement. A ranking reversal requires C's binary X sensitivity
+to be no more than D+0.02, in addition to the original probability safeguard.
+Otherwise shrinking probabilities toward a decision threshold could leave or
+increase actual X-controlled verdicts: that would not establish successful local
+non-use with collateral damage. This tightens the candidate criterion before
+outputs and requires no extra cells. It is not a new rescue branch.
+
+Execution resource amendment, before full inference: other users' jobs expanded
+into previously available cards. Do not stop them. Limit sequence concurrency to
+32 and batch tokens to 2048; choose a memory fraction appropriate to currently
+free memory, without changing weights, precision, inputs or decoding. Device UUID
+startup in vLLM 0.11 is unsupported; retain its failure log and use verified numeric
+IDs. Smoke logs record device-allocation failures, not scientific outcomes.

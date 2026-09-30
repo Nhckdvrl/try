@@ -1,0 +1,21 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Locked on the challenge pair — reading sources and drafting the attempt.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+[0m→ [0mRead data/items/g33_final/challenge_input_13.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_13_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_13_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — verifying IDs and counts.
+[0m$ [0mpython3 -c "import json; a=[json.loads(l) for l in open('data/items/g33_final/challenge_input_13.jsonl')]; b=[json.loads(l) for l in open('data/items/g33_final/challenge_13_attempt1.jsonl')]; print(len(a), len(b)); print([x['id'] for x in a]==[x['id'] for x in b]); print([sorted(x.keys()) for x in b][:1]); print(set(sum([list(x.keys()) for x in b],[])))"
+20 20
+True
+[['a_relation', 'b_relation', 'clear_scope', 'decisive', 'id', 'readable', 'reason']]
+{'reason', 'id', 'decisive', 'b_relation', 'a_relation', 'clear_scope', 'readable'}
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_13_attempt1.jsonl` with 20/20 rows, IDs match input order, required keys present.
+
+Decisive=true (11): 0477, 0483, 0484, 0486, 0488, 0491, 0496, 0497, 0500, 0507, 0509, 0516 — wait, 12. Recount: London/Manchester, Semi-Pro trade target, A+/A grade, intermediate/definitive host, Brady/Delhomme MVP, Molly's trio, middle names x2, Script lineup, Be Kind Rewind idea credit, Southampton/Reading present club, demo vs debut full-length.
+
+Decisive=false (8): 0478, 0492, 0498, 0501, 0503, 0505, 0508, 0514 — review-sentiment overlaps, alternate cause without exclusivity, alternate record-holder/source, not-great vs success, Algebra vs geometry compatible.

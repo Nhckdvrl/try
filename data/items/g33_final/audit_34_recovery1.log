@@ -1,0 +1,41 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_34.jsonl 
+> build · longcat-2.5-preview-free
+[0m← [0mWrite data/items/g33_final/audit_34_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_34_recovery1.jsonl
+> build · longcat-2.5-preview-free
+[0m$ [0mpython3 -c "
+import json
+
+with open('data/items/g33_final/review_34.jsonl') as f:
+    input_ids = [json.loads(line)['id'] for line in f if line.strip()]
+
+with open('data/items/g33_final/audit_34_recovery1.jsonl') as f:
+    output_rows = [json.loads(line) for line in f if line.strip()]
+
+output_ids = [row['id'] for row in output_rows]
+
+print(f'Input rows: {len(input_ids)}')
+print(f'Output rows: {len(output_rows)}')
+print(f'IDs match: {input_ids == output_ids}')
+print(f'All IDs unique: {len(output_ids) == len(set(output_ids))}')
+
+required_fields = ['id', 'e_a_relation', 'e_b_relation', 'x_a_relation', 'x_b_relation', 'source_valid', 'faithful', 'natural', 'accept', 'reason']
+for row in output_rows:
+    missing = [f for f in required_fields if f not in row]
+    if missing:
+        print(f'Row {row[\"id\"]} missing fields: {missing}')
+
+accepted = sum(1 for row in output_rows if row['accept'])
+print(f'Accepted: {accepted}/{len(output_rows)}')
+"
+
+Input rows: 20
+Output rows: 20
+IDs match: True
+All IDs unique: True
+Accepted: 7/20
+> build · longcat-2.5-preview-free
+Done. Wrote `data/items/g33_final/audit_34_recovery1.jsonl` with exactly 20 rows matching the 20 input IDs. All rows contain the required fields. 7 rows accepted, 13 rejected (primarily due to empty X fields preventing role alignment, or lacking one support and one refute E).

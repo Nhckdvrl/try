@@ -1,0 +1,25 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair independently — reading only the two allowed sources.
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+> build · muse-spark-1.3-contributor-free
+[0m→ [0mRead data/items/g33_final/challenge_input_03.jsonl 
+> build · muse-spark-1.3-contributor-free
+I've judged all 20 pairs against the strict falsification rules — now writing the verdict file.
+[0m← [0mWrite data/items/g33_final/challenge_03_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_03_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l) for l in open('data/items/g33_final/challenge_input_03.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/challenge_03_attempt1.jsonl')]; print('input_count',len(inp)); print('output_count',len(out)); print('input_ids', [r['id'] for r in inp]); print('output_ids',[r['id'] for r in out]); print('ids_match', [r['id'] for r in inp]==[r['id'] for r in out]); print('keys_ok', all(set(r.keys())=={'id','a_relation','b_relation','decisive','clear_scope','readable','reason'} for r in out)); print('relations_ok', all(r['a_relation'] in ('support','refute','unclear') and r['b_relation'] in ('support','refute','unclear') for r in out))"
+input_count 20
+output_count 20
+input_ids ['g33_0080', 'g33_0081', 'g33_0082', 'g33_0084', 'g33_0085', 'g33_0087', 'g33_0088', 'g33_0090', 'g33_0092', 'g33_0093', 'g33_0096', 'g33_0098', 'g33_0099', 'g33_0103', 'g33_0104', 'g33_0105', 'g33_0106', 'g33_0107', 'g33_0110', 'g33_0111']
+output_ids ['g33_0080', 'g33_0081', 'g33_0082', 'g33_0084', 'g33_0085', 'g33_0087', 'g33_0088', 'g33_0090', 'g33_0092', 'g33_0093', 'g33_0096', 'g33_0098', 'g33_0099', 'g33_0103', 'g33_0104', 'g33_0105', 'g33_0106', 'g33_0107', 'g33_0110', 'g33_0111']
+ids_match True
+keys_ok True
+relations_ok True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_03_attempt1.jsonl`.
+
+Verify: 20/20 rows, IDs match input order, keys and relations valid.
+
+15 decisive=true (single-valued ordinals, credited roles, team/status, studio, rank, club, event shooter), 5 decisive=false for overlapping genres, album/mixtape, review language, co-authorship, region overlap, spouse-meeting exclusivity.

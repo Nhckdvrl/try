@@ -1,0 +1,11 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Building your recovery file from just the two sources — no other judgments consulted.
+[0m→ [0mRead data/items/g33_final/input_36.jsonl 
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+> build · muse-spark-1.3-contributor-free
+I've mapped all 20 rows against the construction rules — now writing the output file.
+[0m← [0mWrite data/items/g33_final/generated_36_recovery1.jsonl
+Created file successfully: data/items/g33_final/generated_36_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+[91m[1mError: [0mRate limit exceeded. Please try again later.

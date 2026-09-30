@@ -1,0 +1,23 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Fixing recovery file — reading audit rules and reviews.
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_17.jsonl 
+> build · muse-spark-1.3-contributor-free
+> build · muse-spark-1.3-contributor-free
+I've mapped every claim to support/refute — now building the audit file.
+[0m← [0mWrite data/items/g33_final/audit_17_recovery1.jsonl
+Created file successfully: data/items/g33_final/audit_17_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — verifying counts and IDs.
+[0m$ [0mpython3 -c "import json; p='data/items/g33_final/audit_17_recovery1.jsonl'; rows=[json.loads(l) for l in open(p) if l.strip()]; print(len(rows)); print([r['id'] for r in rows]); q=open('data/items/g33_final/review_17.jsonl').read().strip().splitlines(); import json as j; ids2=[j.loads(l)['id'] for l in q if l.strip()]; print(len(ids2)); print('match:', [r['id'] for r in rows]==ids2); req=['id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason']; print(all(set(req)<=set(r) for r in rows)); print({c for r in rows for c in [r['e_a_relation'],r['e_b_relation'],r['x_a_relation'],r['x_b_relation']]})"
+20
+['g33_0320', 'g33_0321', 'g33_0322', 'g33_0323', 'g33_0324', 'g33_0325', 'g33_0326', 'g33_0327', 'g33_0328', 'g33_0329', 'g33_0330', 'g33_0331', 'g33_0332', 'g33_0333', 'g33_0334', 'g33_0335', 'g33_0336', 'g33_0337', 'g33_0338', 'g33_0339']
+20
+match: True
+True
+{'refute', 'unclear', 'support'}
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/audit_17_recovery1.jsonl` with 20 rows. IDs match `review_17.jsonl` in order (`g33_0320`–`g33_0339`). All rows have required fields with relations limited to `support`/`refute`/`unclear`.
+
+Accept: 8 (0321, 0328, 0330, 0332, 0333, 0335, 0336, 0338, 0339 — actually 9). Reject: remainder due to missing X, no E refute (omission/overlap cases 0320, 0322, 0324–0326, 0331, 0334), missing referent (0327), temporal ambiguity (0329), corrupted text (0337).

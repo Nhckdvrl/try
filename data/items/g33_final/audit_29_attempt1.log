@@ -1,0 +1,58 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/review_29.jsonl 
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+> build · mimo-v2.6-flash-free
+[0m$ [0mwc -l data/items/g33_final/review_29.jsonl
+20 data/items/g33_final/review_29.jsonl
+> build · mimo-v2.6-flash-free
+I've read both files (20 rows total). Now writing the audit output:
+[0m← [0mWrite data/items/g33_final/audit_29_attempt1.jsonl
+Created file successfully: data/items/g33_final/audit_29_attempt1.jsonl
+> build · mimo-v2.6-flash-free
+[0m$ [0mcd data/items/g33_final && python3 -c "
+import json
+src=[json.loads(l) for l in open('review_29.jsonl')]
+out=[json.loads(l) for l in open('audit_29_attempt1.jsonl')]
+print('src rows', len(src), 'out rows', len(out))
+si=[r['id'] for r in src]; oi=[r['id'] for r in out]
+print('ids match order:', si==oi)
+print('missing:', set(si)-set(oi), 'extra:', set(oi)-set(si))
+keys=['id','e_a_relation','e_b_relation','x_a_relation','x_b_relation','source_valid','faithful','natural','accept','reason']
+bad=[(r.get('id'),[k for k in keys if k not in r],[k for k in r if k not in keys]) for r in out]
+bad=[b for b in bad if b[1] or b[2]]
+print('schema issues:', bad)
+vals={'support','refute','unclear'}
+rel=[(r['id'],r[f]) for r in out for f in ['e_a_relation','e_b_relation','x_a_relation','x_b_relation'] if r[f] not in vals]
+print('bad relation values:', rel)
+print('bool fields ok:', all(isinstance(r[f],bool) for r in out for f in ['source_valid','faithful','natural','accept']))
+print('empty reason:', [r['id'] for r in out if not r['reason'].strip()])
+print('accept count:', sum(r['accept'] for r in out))
+print('dupes:', len(set(oi))!=len(oi))
+"
+src rows 20 out rows 20
+ids match order: True
+missing: set() extra: set()
+schema issues: []
+bad relation values: []
+bool fields ok: True
+empty reason: []
+accept count: 10
+dupes: False
+> build · mimo-v2.6-flash-free
+Done. Wrote `data/items/g33_final/audit_29_attempt1.jsonl`.
+
+**Verification (script-checked):**
+- JSON parses: 20/20 rows, one per input row
+- IDs: exact set match with `review_29.jsonl`, same order, no duplicates/drops
+- Schema: all 10 required fields present on every row, relation values all in {support, refute, unclear}, booleans typed correctly, no empty reasons
+
+**Results: 10 accept / 10 reject**
+
+- **Accepted (10):** g33_0560, 0561, 0565, 0568, 0569, 0570, 0571, 0572, 0575, 0579 — valid source pairs, one refute + one support on both E and X sides with A/B role alignment, X summaries faithful, natural, not verbatim copies.
+- **Rejected (10):**
+  - Empty `x_a`/`x_b` (8): g33_0562, 0563, 0564, 0566, 0573, 0574, 0576, 0577 — several also fail the refute-E requirement (omission isn't refutation: 0563 name variant, 0564 "American" vs "Irish-American", 0573 broad genre label, 0577 non-exhaustive "such as" list; 0574 has two supporting Es).
+  - g33_0567 — `source_valid: false`: both evidence sentences have an unanchored "He" (a film character) as agent, never Pink Floyd the band, plus empty X.
+  - g33_0566 also has empty X; note its claim typo "Doobie Bothers".
+
+Non-fatal flags noted in passing rows: "chroom" typo shared by claim/E_A/X_A (g33_0569), "Reflection" vs "Reflections" spelling (g33_0571), "2018.eOne" spacing artifact (g33_0572), near-verbatim X for g33_0565, and a present-tense-claim vs July-2013-evidence note (g33_0560). No rows were fixed silently or dropped.

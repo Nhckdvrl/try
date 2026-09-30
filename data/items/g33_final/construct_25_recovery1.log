@@ -1,0 +1,85 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Fixing your 25 rows — processing every item per spec.
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+[0m→ [0mRead data/items/g33_final/input_25.jsonl 
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mcat > /tmp/opencode/gen_check.py <<'PY'
+import json
+rows=[]
+for i in range(480,500):
+    print(f"g33_{i:04d}")
+PY
+python3 /tmp/opencode/gen_check.py
+g33_0480
+g33_0481
+g33_0482
+g33_0483
+g33_0484
+g33_0485
+g33_0486
+g33_0487
+g33_0488
+g33_0489
+g33_0490
+g33_0491
+g33_0492
+g33_0493
+g33_0494
+g33_0495
+g33_0496
+g33_0497
+g33_0498
+g33_0499
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/generated_25_recovery1.jsonl
+Created file successfully: data/items/g33_final/generated_25_recovery1.jsonl
+> build · muse-spark-1.3-contributor-free
+Draft complete — now verifying the output.
+[0m$ [0mpython3 -c "
+import json
+inp='data/items/g33_final/input_25.jsonl'
+out='data/items/g33_final/generated_25_recovery1.jsonl'
+ids_in=[json.loads(l)['id'] for l in open(inp) if l.strip()]
+rows=[l for l in open(out) if l.strip()]
+print('input_count',len(ids_in),'output_count',len(rows))
+ids_out=[]
+ok=True
+req={'id','a_relation','b_relation','source_valid','x_a','x_b','reason'}
+for i,l in enumerate(rows,1):
+  try:
+    o=json.loads(l)
+  except Exception as e:
+    print(f'row {i} JSON fail: {e}'); ok=False; continue
+  if set(o.keys())!=req:
+    print(f'row {i} keys {sorted(o.keys())}'); ok=False
+  if o['a_relation'] not in ('support','refute','unclear') or o['b_relation'] not in ('support','refute','unclear'):
+    print(f'row {i} bad relation'); ok=False
+  if not isinstance(o['source_valid'],bool):
+    print(f'row {i} bad source_valid'); ok=False
+  if not o['reason']:
+    print(f'row {i} empty reason'); ok=False
+  if o['source_valid']:
+    if not o['x_a'] or not o['x_b']:
+      print(f'row {i} valid but empty x'); ok=False
+    vals=sorted([o['a_relation'],o['b_relation']])
+    if vals!=['refute','support']:
+      print(f'row {i} valid but relations not support/refute split'); ok=False
+  else:
+    if o['x_a']!='' or o['x_b']!='':
+      print(f'row {i} invalid but non-empty x'); ok=False
+  ids_out.append(o.get('id'))
+print('ids_match',ids_in==ids_out)
+if ids_in!=ids_out:
+  print('in ',ids_in)
+  print('out',ids_out)
+print('all_checks_pass',ok and ids_in==ids_out)
+"
+
+input_count 20 output_count 20
+ids_match True
+all_checks_pass True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/generated_25_recovery1.jsonl`.
+
+Verification: JSON parses, 20/20 rows, IDs match `input_25.jsonl` in order. 9 valid (`support`/`refute` split with paraphrased `x_a`/`x_b`), 11 invalid with empty `x` strings.

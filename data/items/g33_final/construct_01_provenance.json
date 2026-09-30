@@ -1,0 +1,7 @@
+{
+  "model": "opencode/mimo-v2.6-flash-free",
+  "attempt": 1,
+  "output": "generated_01.jsonl",
+  "returncode": 0,
+  "note": "Initial CLI run in interactive tool session 71675; subsequent jobs use retained log files."
+}

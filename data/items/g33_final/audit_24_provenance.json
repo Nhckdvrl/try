@@ -1,0 +1,6 @@
+{
+  "model": "opencode/longcat-2.5-preview-free",
+  "attempt": 1,
+  "output": "audit_24_attempt1.jsonl",
+  "returncode": "timeout"
+}

@@ -1,0 +1,22 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Locked to your two sources — building independent challenges.
+[0m→ [0mRead data/items/g33_final/challenge_input_02.jsonl 
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+> build · muse-spark-1.3-contributor-free
+[0m← [0mWrite data/items/g33_final/challenge_02_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_02_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; p='data/items/g33_final/challenge_02_attempt1.jsonl'; lines=open(p).read().strip().splitlines(); print('count',len(lines)); ids=[json.loads(l)['id'] for l in lines]; print(ids); print('unique',len(set(ids))); keys=[set(json.loads(l).keys()) for l in lines]; print(keys[0]); vals=set((json.loads(l)['a_relation'],json.loads(l)['b_relation']) for l in lines); print(vals)"
+count 20
+['g33_0034', 'g33_0035', 'g33_0036', 'g33_0039', 'g33_0045', 'g33_0046', 'g33_0052', 'g33_0053', 'g33_0055', 'g33_0057', 'g33_0062', 'g33_0064', 'g33_0065', 'g33_0068', 'g33_0069', 'g33_0073', 'g33_0074', 'g33_0075', 'g33_0076', 'g33_0077']
+unique 20
+{'readable', 'reason', 'clear_scope', 'id', 'b_relation', 'decisive', 'a_relation'}
+{('refute', 'support'), ('unclear', 'support'), ('support', 'unclear'), ('support', 'refute'), ('unclear', 'unclear')}
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; a=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_input_02.jsonl')]; b=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_02_attempt1.jsonl')]; print('input',len(a),'output',len(b),'match',a==b)"
+input 20 output 20 match True
+> build · muse-spark-1.3-contributor-free
+Wrote `data/items/g33_final/challenge_02_attempt1.jsonl` with 20 rows, IDs match input order exactly, all keys present.
+
+Decisive `true` (10): g33_0034, 0052, 0062, 0065, 0068, 0069, 0073, 0074, 0076, 0077. Decisive `false` (10) for alias/quantifier/time-scope failures: 0035 (reversed Conwood/American Snuff history), 0036 (non-exclusive relationship), 0039 (two older vs three total / three older vs exactly three), 0045 (brand time), 0046 (normal vs yuppie overlap), 0053 (team time), 0055 (non-exhaustive founder list), 0057 (workers/guards vs henchmen overlap), 0064 (Birmingham/Black Country region overlap), 0075 (dual nationality).

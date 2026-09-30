@@ -1,0 +1,23 @@
+[0m
+> build · muse-spark-1.3-contributor-free
+Challenging each pair independently — reading only your two allowed files.
+[0m→ [0mRead data/items/g33_final/challenge_input_10.jsonl 
+[0m→ [0mRead data/items/g33_final/SOURCE_CHALLENGE.md 
+> build · muse-spark-1.3-contributor-free
+I've judged all 20 pairs against the strict source-only bar — writing your output file now.
+[0m← [0mWrite data/items/g33_final/challenge_10_attempt1.jsonl
+Created file successfully: data/items/g33_final/challenge_10_attempt1.jsonl
+> build · muse-spark-1.3-contributor-free
+[0m$ [0mpython3 -c "import json; inp=[json.loads(l)['id'] for l in open('data/items/g33_final/challenge_input_10.jsonl')]; out=[json.loads(l) for l in open('data/items/g33_final/challenge_10_attempt1.jsonl')]; oids=[r['id'] for r in out]; print('in',len(inp),'out',len(out)); print('ids_match',inp==oids); print('missing',set(inp)-set(oids),'extra',set(oids)-set(inp)); keys=set(['id','a_relation','b_relation','decisive','clear_scope','readable','reason']); print('keys_ok',all(set(r)==keys for r in out)); print('rels_ok',all(r['a_relation'] in ('support','refute','unclear') and r['b_relation'] in ('support','refute','unclear') for r in out)); print('types_ok',all(isinstance(r['decisive'],bool) and isinstance(r['clear_scope'],bool) and isinstance(r['readable'],bool) for r in out))"
+in 20 out 20
+ids_match True
+missing set() extra set()
+keys_ok True
+rels_ok True
+types_ok True
+> build · muse-spark-1.3-contributor-free
+Wrote 20/20 rows to `data/items/g33_final/challenge_10_attempt1.jsonl` with IDs matching input order, valid keys/relations/booleans.
+
+Decisive `true` (5): g33_0361, g33_0377, g33_0378, g33_0380, g33_0389 — single-valued birthplace/origin/title with disjoint values.
+
+Others `false`: overlapping review categories (0355,0360), co-director/imprisoner/photo/DNA compatibility (0357,0363,0368,0371,0365), alias/region overlap (0358 Wonderland/Underland, 0364 Albanian/Yugoslavian, 0392 genre/nationality), from vs formed-in (0359), pen-name attachment (0366), time/scope mismatch (0372 initially, 0375 planned vs actual, 0376 native vs normally speaks).

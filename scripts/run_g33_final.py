@@ -29,7 +29,7 @@ def messages(item, substrate, e_role, wording, cell):
         rule=('Decide whether the claim is TRUE or FALSE using your background knowledge and any records explicitly currently admissible.' if w else
               'Determine the truth of the claim using what you already know together with any records currently permitted for this task.')
     parts=['TASK RULE\n'+rule,'CLAIM\n'+item['claim']]
-    if substrate=='record': parts.append('RECORD E — CURRENTLY ADMISSIBLE\n'+item['evidence_s' if e_role=='support' else 'evidence_r'])
+    if substrate=='record': parts.append('RECORD E — CURRENTLY ADMISSIBLE\nSource topic: '+item['page']+'\n'+item['evidence_s' if e_role=='support' else 'evidence_r'])
     if cell!='B':
         x='[REDACTED]' if cell.startswith('F') else item['x_s' if cell.endswith('+') else 'x_r']
         status=('Note X is currently admissible. Use it along with all other admissible information.' if cell.startswith('A') else
@@ -51,12 +51,12 @@ def cases(items,raw):
           msg=messages(item,substrate,role,wording,cell)
           yield dict(id=item['id'],substrate=substrate,e_role=role,wording=wording,cell=cell,items_sha256=digest(raw),prompt_sha256=digest(json.dumps(msg,sort_keys=True,ensure_ascii=False).encode()),messages=msg)
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--model',required=True);ap.add_argument('--tag',required=True);ap.add_argument('--out',required=True);ap.add_argument('--limit',type=int);ap.add_argument('--gpu-frac',type=float,default=.82)
-    a=ap.parse_args();raw=ITEMS.read_bytes();items=[json.loads(s) for s in raw.splitlines() if s];items=items[:a.limit] if a.limit else items
+    ap=argparse.ArgumentParser(); ap.add_argument('--model',required=True);ap.add_argument('--tag',required=True);ap.add_argument('--out',required=True);ap.add_argument('--limit',type=int);ap.add_argument('--gpu-frac',type=float,default=.82);ap.add_argument('--tokenizer');ap.add_argument('--items',default=str(ITEMS));ap.add_argument('--max-seqs',type=int,default=32)
+    a=ap.parse_args();raw=Path(a.items).read_bytes();items=[json.loads(s) for s in raw.splitlines() if s];items=items[:a.limit] if a.limit else items
     rows=list(cases(items,raw))
     from transformers import AutoTokenizer
     from vllm import LLM,SamplingParams
-    tok=AutoTokenizer.from_pretrained(a.model,**({'fix_mistral_regex':True} if a.tag=='mistral-small-24b' else {}))
+    tok=AutoTokenizer.from_pretrained(a.tokenizer or a.model,**({'fix_mistral_regex':True} if a.tag=='mistral-small-24b' else {}))
     tokens={s:tok.encode(s,add_special_tokens=False) for s in ('TRUE','FALSE')}
     assert all(len(v)==1 for v in tokens.values()),tokens
     tid,fid=tokens['TRUE'][0],tokens['FALSE'][0]
@@ -66,7 +66,7 @@ def main():
         if isinstance(ids,dict):ids=ids['input_ids']
         if ids and isinstance(ids[0],list):ids=ids[0]
         prompts.append({'prompt_token_ids':list(ids)})
-    llm=LLM(model=a.model,tensor_parallel_size=1,gpu_memory_utilization=a.gpu_frac,max_model_len=2048,dtype='bfloat16',disable_log_stats=True,enforce_eager=True,enable_prefix_caching=True)
+    llm=LLM(model=a.model,tokenizer=a.tokenizer or a.model,tensor_parallel_size=1,gpu_memory_utilization=a.gpu_frac,max_model_len=2048,dtype='bfloat16',disable_log_stats=True,enforce_eager=True,enable_prefix_caching=True,max_num_seqs=a.max_seqs,max_num_batched_tokens=2048)
     path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
     with path.open('w') as out:
       for start in range(0,len(rows),512):

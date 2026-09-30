@@ -1,0 +1,31 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/AUDIT.md 
+[0m→ [0mRead data/items/g33_final/review_25.jsonl 
+> build · mimo-v2.6-flash-free
+[0m✗ [0mRead data/items/g33_final/review_25.jsonl failed
+[91m[1mError: [0mOffset 21 is out of range for this file (20 lines)
+> build · mimo-v2.6-flash-free
+[0m$ [0mwc -l data/items/g33_final/review_25.jsonl; grep -c '' data/items/g33_final/review_25.jsonl; cut -c1-60 data/items/g33_final/review_25.jsonl
+20 data/items/g33_final/review_25.jsonl
+20
+{"id": "g33_0480", "page": "Jason Biggs", "claim": "Lazlo is
+{"id": "g33_0481", "page": "Lottery Ticket -LRB-2010 film-RR
+{"id": "g33_0482", "page": "Garage Inc.", "claim": "Garage I
+{"id": "g33_0483", "page": "Semi-Pro", "claim": "In the film
+{"id": "g33_0484", "page": "The Social Network", "claim": "T
+{"id": "g33_0485", "page": "Billy Corgan", "claim": "Billy C
+{"id": "g33_0486", "page": "Wuchereria bancrofti", "claim": 
+{"id": "g33_0487", "page": "Prophets of Rage", "claim": "Pro
+{"id": "g33_0488", "page": "Super Bowl XXXVIII", "claim": "T
+{"id": "g33_0489", "page": "Prime -LRB-symbol-RRB-", "claim"
+{"id": "g33_0490", "page": "City Morgue", "claim": "City Mor
+{"id": "g33_0491", "page": "Chicago Fire -LRB-TV series-RRB-
+{"id": "g33_0492", "page": "Johnny Mnemonic -LRB-film-RRB-",
+{"id": "g33_0493", "page": "Travel restrictions related to t
+{"id": "g33_0494", "page": "Red Dragon -LRB-2002 film-RRB-",
+{"id": "g33_0495", "page": "Diary of a Mad Black Woman", "cl
+{"id": "g33_0496", "page": "Daron Malakian", "claim": "Daron
+{"id": "g33_0497", "page": "Kyler Murray", "claim": "Kyler M
+{"id": "g33_0498", "page": "Anaconda -LRB-film-RRB-", "claim
+{"id": "g33_0499", "page": "Netaji Subhas Chandra Bose Inter

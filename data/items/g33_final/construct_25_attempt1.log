@@ -1,0 +1,10 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g33_final/input_25.jsonl 
+[0m→ [0mRead data/items/g33_final/CONSTRUCTION.md 
+> build · mimo-v2.6-flash-free
+[0m✗ [0mRead data/items/g33_final/input_25.jsonl failed
+[91m[1mError: [0mOffset 21 is out of range for this file (20 lines)
+> build · mimo-v2.6-flash-free
+[91m[1mError: [0mOpenAI Chat stream ended without finish_reason
+> build · mimo-v2.6-flash-free
