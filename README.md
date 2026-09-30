@@ -4,7 +4,7 @@ Research repository for the question: **after seeing evidence that is later with
 
 ## Start here
 
-1. [Current status](STATUS.md), [research diagnosis](results/audits/research_diagnosis_2026_09_28.md), and [literature audit](results/audits/literature_diagnosis_2026_09_28.md): current evidence, novelty ceiling, and ranked next steps.
+1. [Current status](STATUS.md) and [2026-09-30 reassessment](results/audits/project_reassessment_2026_09_30.md): current investment decision and corrections to the prior next-step recommendation. The [2026-09-28 diagnosis](results/audits/research_diagnosis_2026_09_28.md) and [literature audit](results/audits/literature_diagnosis_2026_09_28.md) preserve the earlier reasoning and source comparisons.
 2. [G32 construct-identification assessment](results/g32/g32_construct_identification_assessment.md): direct exclusion, hypothetical-self prediction, redacted-frame effects and legal-E leverage on crossed E/X materials. [Registration](results/discovery/g32_construct_identification_registration.md) and [material audit](results/audits/g32_material_audit_v1.md).
 3. [Fresh ConfB analysis](results/g24a/g24a_confb_analysis_v1.md): main held-out result on 200 same-claim VitaminC pairs and six models.
 4. [ConfA analysis](results/g24a/g24a_confa_analysis_v1.md): fresh failed replication of the older prospective-exclusion headline.

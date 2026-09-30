@@ -1,4 +1,6 @@
-# Current research status — 2026-09-28
+# Current research status — 2026-09-30
+
+**Latest research decision:** the [2026-09-30 reassessment](results/audits/project_reassessment_2026_09_30.md) supersedes the default next-experiment recommendation below. ConfB remains reliable empirical evidence, but no sufficiently new central claim has been established. G32 supports a model-bounded query effect, not a completed three-ability decomposition. Its record-only active-X cells also contain an admissible-set scope ambiguity. ConfB is a single rendered evidence-before-ruling prompt, with no initial admission instruction or actual earlier model judgment. Differences between ConfB and G32 therefore do not justify promoting eligibility history to the next mainline; G29's existing R/N findings must also constrain that proposal. The project is currently a **search lead with preserved empirical assets**, not a mainline awaiting one final experiment. No new inference is started by this reassessment.
 
 The old prospective-exclusion paper framing remains superseded; original registrations and results remain unchanged. The [2026-09-28 research diagnosis](results/audits/research_diagnosis_2026_09_28.md) and [literature audit](results/audits/literature_diagnosis_2026_09_28.md) establish that a suppression–restoration gap **alone** is already close to Self-Blinding and cannot carry a novel Main-paper claim. G18's old headline was dropped because it was trivial, not because a clean result automatically deserves promotion.
 
