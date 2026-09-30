@@ -20,3 +20,6 @@ results/mech/*_states.npz
 # G33 official checkpoint/tokenizer restored at pinned revision; hashes retained.
 data/external/g33_mistral_checkpoint/
 data/external/g33_mistral_tokenizer/
+
+# Cross-host G33 writer locks.
+results/raw/*g33*.jsonl.lock

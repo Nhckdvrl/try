@@ -1,0 +1,14 @@
+{
+  "gemma3-12b": {
+    "failed_file": "results/raw/gemma3-12b_g33_final_tail_failed_concurrent.jsonl",
+    "sha256": "44a2e79a5d36189e5e130467a6442fddf99b24a4355aa9041b69b78c5192898e",
+    "lines": 11341,
+    "exclusion_reason": "two host writers overlapped after ineffective SIGINT during loading; exclude entire tail and rerun all fixed 7200 cases in separate private file, without selecting outputs"
+  },
+  "mistral-small-24b": {
+    "failed_file": "results/raw/mistral-small-24b_g33_final_tail_failed_concurrent.jsonl",
+    "sha256": "ab3b6709058052c05ea3ba7ba2f4a8a22ed882141bbbc3e933d3be1c9db9d4a0",
+    "lines": 12832,
+    "exclusion_reason": "two host writers overlapped after ineffective SIGINT during loading; exclude entire tail and rerun all fixed 7200 cases in separate private file, without selecting outputs"
+  }
+}

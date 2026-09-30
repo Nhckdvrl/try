@@ -4,6 +4,8 @@ No hidden-state claim. Binary constrained decisions avoid numerical ratings;
 the normalized binary probability is a readout, not claimed calibration.
 """
 import argparse
+import fcntl
+import socket
 import hashlib
 import json
 import math
@@ -55,6 +57,8 @@ def main():
     a=ap.parse_args();raw=Path(a.items).read_bytes();items=[json.loads(s) for s in raw.splitlines() if s];items=items[:a.limit] if a.limit else items
     rows=list(cases(items,raw))[a.case_start:a.case_end]
     path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
+    lock=path.with_suffix(path.suffix+'.lock').open('a')
+    fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     completed=[]
     if path.exists():
         if not a.resume: raise RuntimeError('Existing output requires --resume; refusing overwrite')
@@ -87,7 +91,7 @@ def main():
           gen=res.outputs[0];logs=gen.logprobs[0]
           lt,lf=logs[tid].logprob,logs[fid].logprob
           p=1/(1+math.exp(max(-700,min(700,lf-lt))))
-          r.update(logprobs_mode='processed_logprobs',model_tag=a.tag,p_true=p,verdict=('TRUE' if gen.token_ids[0]==tid else 'FALSE'),raw=gen.text,true_logprob=lt,false_logprob=lf,true_token=tid,false_token=fid,finish_reason=gen.finish_reason)
+          r.update(execution_host=socket.gethostname(),logprobs_mode='processed_logprobs',model_tag=a.tag,p_true=p,verdict=('TRUE' if gen.token_ids[0]==tid else 'FALSE'),raw=gen.text,true_logprob=lt,false_logprob=lf,true_token=tid,false_token=fid,finish_reason=gen.finish_reason)
           out.write(json.dumps(r,ensure_ascii=False)+'\n')
         out.flush();print(f'{a.tag}: {offset+min(start+512,len(rows))}/{offset+len(rows)}',flush=True)
 if __name__=='__main__':main()
