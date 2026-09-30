@@ -60,13 +60,13 @@ def main():
     tokens={s:tok.encode(s,add_special_tokens=False) for s in ('TRUE','FALSE')}
     assert all(len(v)==1 for v in tokens.values()),tokens
     tid,fid=tokens['TRUE'][0],tokens['FALSE'][0]
+    llm=LLM(model=a.model,tokenizer=a.tokenizer or a.model,tensor_parallel_size=1,gpu_memory_utilization=a.gpu_frac,max_model_len=2048,dtype='bfloat16',disable_log_stats=True,enforce_eager=True,enable_prefix_caching=True,max_num_seqs=a.max_seqs,max_num_batched_tokens=2048)
     prompts=[]
     for r in rows:
         ids=tok.apply_chat_template(r['messages'],tokenize=True,add_generation_prompt=True,enable_thinking=False)
         if isinstance(ids,dict):ids=ids['input_ids']
         if ids and isinstance(ids[0],list):ids=ids[0]
         prompts.append({'prompt_token_ids':list(ids)})
-    llm=LLM(model=a.model,tokenizer=a.tokenizer or a.model,tensor_parallel_size=1,gpu_memory_utilization=a.gpu_frac,max_model_len=2048,dtype='bfloat16',disable_log_stats=True,enforce_eager=True,enable_prefix_caching=True,max_num_seqs=a.max_seqs,max_num_batched_tokens=2048)
     path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
     with path.open('w') as out:
       for start in range(0,len(rows),512):
