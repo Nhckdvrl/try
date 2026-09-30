@@ -21,7 +21,7 @@ case "$TAG" in
   *) echo "unknown model tag: $TAG" >&2; exit 2 ;;
 esac
 test -d "$MODEL"
-ARGS=(--gpu-frac "${G33_GPU_FRAC:-0.64}")
+ARGS=(--resume --gpu-frac "${G33_GPU_FRAC:-0.64}")
 if [[ -n "${G33_ITEMS:-}" ]]; then ARGS+=(--items "$G33_ITEMS"); fi
 if [[ "$TAG" == "mistral-small-24b" ]]; then ARGS+=(--tokenizer data/external/g33_mistral_tokenizer); fi
 if [[ -n "$LIMIT" ]]; then ARGS+=(--limit "$LIMIT"); fi

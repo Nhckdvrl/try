@@ -174,3 +174,6 @@ into previously available cards. Do not stop them. Limit sequence concurrency to
 free memory, without changing weights, precision, inputs or decoding. Device UUID
 startup in vLLM 0.11 is unsupported; retain its failure log and use verified numeric
 IDs. Smoke logs record device-allocation failures, not scientific outcomes.
+
+### Runtime reporting repair after startup (no outcome analysis)
+The first full runs wrote 10 Qwen, 72 Gemma and 168 Mistral valid rows before raising KeyError: vLLM raw top-two vocabulary logprobs omit one constrained answer token. Resume preserves these 250 rows verbatim. Further rows request processed_logprobs, which in vLLM 0.11 greedy sampling applies the allowed-token mask before softmax without temperature scaling. The TRUE/FALSE logprob difference and normalized binary probability have the same mathematical definition as before. Prompts, selected materials, sampling, estimands and decision criteria remain frozen. This repair follows partial execution, not preregistration; no outcome summaries were inspected to choose it.
