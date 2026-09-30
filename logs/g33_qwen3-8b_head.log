@@ -1,0 +1,26 @@
+Resuming qwen3-8b: preserving 3594 rows, 3606 remaining
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.53it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:01,  1.65it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:01<00:01,  1.72it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.87it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  2.38it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  2.03it/s]
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m 
+[1;36m(EngineCore_DP0 pid=3670800)[0;0m WARNING 09-30 20:49:51 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+qwen3-8b: 4106/7200
+qwen3-8b: 4618/7200
+qwen3-8b: 5130/7200
+qwen3-8b: 5642/7200
+qwen3-8b: 6154/7200
+qwen3-8b: 6666/7200
+qwen3-8b: 7178/7200
+qwen3-8b: 7200/7200
+[rank0]:[W930 20:52:52.148242948 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

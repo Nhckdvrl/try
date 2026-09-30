@@ -1,0 +1,40 @@
+Resuming mistral-small-24b: preserving 0 rows, 7200 remaining
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:00<00:04,  2.00it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:01<00:04,  1.79it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:01<00:04,  1.73it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:02<00:03,  1.68it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:02<00:02,  1.67it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:03<00:02,  1.67it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:04<00:01,  1.66it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:04<00:01,  1.66it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:05<00:00,  1.74it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:05<00:00,  1.73it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:05<00:00,  1.71it/s]
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m 
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m WARNING 09-30 20:54:47 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=3671468)[0;0m The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+mistral-small-24b: 512/7200
+mistral-small-24b: 1024/7200
+mistral-small-24b: 1536/7200
+mistral-small-24b: 2048/7200
+mistral-small-24b: 2560/7200
+mistral-small-24b: 3072/7200
+mistral-small-24b: 3584/7200
+mistral-small-24b: 4096/7200
+mistral-small-24b: 4608/7200
+mistral-small-24b: 5120/7200
+mistral-small-24b: 5632/7200
+mistral-small-24b: 6144/7200
+mistral-small-24b: 6656/7200
+mistral-small-24b: 7168/7200
+mistral-small-24b: 7200/7200
+[rank0]:[W930 20:59:44.104123217 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

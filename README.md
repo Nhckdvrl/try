@@ -1,23 +1,14 @@
-# Evidence retraction and counterfactual restoration
+# 垃圾题：Unring the Bell — 整题永久废弃
 
-Research repository for the question: **after seeing evidence that is later withdrawn, does an LLM return to the judgment it would have made without seeing it?** The held-out ConfB result motivates a more precise current question: when clean-context restoration fails, is the problem continued use of excluded evidence, a hypothetical-self query, or a changed judgment rule? ACL / EMNLP / NAACL Main is the intended venue level; no paper claim or method is frozen. The suppression–restoration gap by itself is not a novelty claim after the nearest-prior audit.
+**2026-09-30 最终决定：整个 Unring the Bell 研究题彻底报废，定义为“垃圾题”。**
 
-## Start here
+范围覆盖 prospective/retrospective exclusion、retraction、suppression–restoration、S/R/P、evidence eligibility，以及由本题派生的 evaluation、mechanism、method、agent 分支。没有活跃研究路线，没有下一轮实验，不换 framing 或名字复活。
 
-1. [Current status](STATUS.md) and [2026-09-30 reassessment](results/audits/project_reassessment_2026_09_30.md): current investment decision and corrections to the prior next-step recommendation. The [2026-09-28 diagnosis](results/audits/research_diagnosis_2026_09_28.md) and [literature audit](results/audits/literature_diagnosis_2026_09_28.md) preserve the earlier reasoning and source comparisons.
-2. [G32 construct-identification assessment](results/g32/g32_construct_identification_assessment.md): direct exclusion, hypothetical-self prediction, redacted-frame effects and legal-E leverage on crossed E/X materials. [Registration](results/discovery/g32_construct_identification_registration.md) and [material audit](results/audits/g32_material_audit_v1.md).
-3. [Fresh ConfB analysis](results/g24a/g24a_confb_analysis_v1.md): main held-out result on 200 same-claim VitaminC pairs and six models.
-4. [ConfA analysis](results/g24a/g24a_confa_analysis_v1.md): fresh failed replication of the older prospective-exclusion headline.
-5. [G24A competing accounts](results/discovery/g24a_competing_accounts_v1.md), [P2](results/g24a/g24a_p2_analysis_v1.md), [P3](results/g24a/g24a_p3_analysis_v1.md), [P4](results/g24a/g24a_p4_analysis_v1.md), and [§14 meta-evidence test](results/g24a/g24a_meta_analysis_v1.md).
-6. [G28A/G28B integrated assessment](results/g28a/g28a_g28b_integrated_assessment.md): completed staged equal-final-evidence path experiment and matched read-only follow-up, exploratory on the same 200 ConfB claims. [Figure](figures/g28a_path_profiles_v1.png).
-7. [G29/G29B integrated assessment](results/g29/g29_g29b_integrated_assessment.md): fresh audited 80-pair comparison of revoked versus always-inadmissible old evidence, then a matched irrelevant-content control. G29B is a post-G29 exploratory follow-up.
+最后一次 G33 使用 200 个新 claim families、三个模型、43,200 个完整 cell；主交互 H 分别为 −0.25、−1.88、−0.56 点，没有建立超出 strongest prior 的独立新贡献。历史数据、注册、代码、审查及失败记录保存为档案。
 
-## Evidence and provenance
+- [永久废弃归档索引](archive/abandoned_unring_the_bell_2026_09_30/README.md)：范围、资产地图、快照和终止规则。
+- [最终状态](STATUS.md)。
+- [G33 最终科学判断](results/g33/g33_integrated_assessment.md)及[完整统计](results/g33/g33_registered_summaries.md)。
+- [归档核验说明](REPRODUCE.md)：只核验已有结果。
 
-`preregistrations/`, `data/items/`, and `results/raw/` preserve the experiment lineage; do not treat an earlier failure as confirmation. `results/audits/` contains later checks and reanalyses, explicitly labeled post hoc. The original project began with prospective exclusion; its historical registry remains in [EXPERIMENTS.md](EXPERIMENTS.md) and [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md). Superseded root-level paper drafts and RQ searches are in [the archive](archive/legacy_root_docs_2026_09_27/README.md). Git history preserves their original locations.
-
-## Current claim ceiling
-
-ConfB supports a **behavioral suppression–restoration gap** in a single rendered prompt: admit support/refute separation 62.95 drops to 8.33 under retraction, while mean absolute error of the retracted center against each item's no-evidence score remains 29.96. [Self-Blinding](https://arxiv.org/abs/2601.14553) reports a close prior version of this contrast, so the gap alone cannot be the paper's new idea. G32 shows a model-specific hypothetical-query effect with legal-E controls, while also showing that direct X leakage is not universally absent. It does not yet explain the retrospective ConfB gap. New work must report data validity, complete cell counts, paired item-level metrics, and prior-work overlap.
-
-The exploratory G28 path study found that a revoked *relevant* history can **amplify** graded use of a later contradictory evidence item relative to revoked irrelevant history. Fresh G29 finds little coherent directional difference between *revoked* and *never-admissible* exposure to that same E1. Post-G29 G29B finds a graded content effect even when E1 was excluded from first display: N−I signed rating −5.68 [−8.37,−3.15] on three models, with direct choices differing itemwise but no consistent signed direction. This supports a content-exposure interpretation for graded judgments, while leaving the robust ConfB suppression–restoration gap as the paper's center.
+原入口文档的完整原文保存在归档 snapshots 中。任何历史文档内的“active”“next”“mainline”“paper center”仅记录当时的判断，不构成当前任务。

@@ -1,0 +1,21 @@
+{
+  "topic": "Unring the Bell in LLMs",
+  "classification": "垃圾题",
+  "status": "PERMANENTLY_ABANDONED",
+  "date": "2026-09-30",
+  "authority": "Explicit user instruction: entire topic completely abandoned, not only G33 or current framing",
+  "scope": [
+    "prospective and retrospective exclusion",
+    "evidence retraction",
+    "suppression versus restoration",
+    "selective evidence control / S-R-P",
+    "evidence eligibility / final admissible set",
+    "mechanism, method, evaluation and agent derivatives of this topic"
+  ],
+  "active_branches": [],
+  "next_experiment": null,
+  "G33_final_unique_rows": 43200,
+  "G33_claim_families": 200,
+  "G33_candidate_models": 0,
+  "preservation": "Historical numerical results, registrations, data, code and failure provenance remain unchanged; no rebranding or automatic revival."
+}

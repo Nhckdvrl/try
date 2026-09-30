@@ -1,0 +1,27 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m WARNING 09-30 20:23:23 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:57<03:49, 57.41s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [02:08<03:17, 65.74s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [02:37<01:37, 48.71s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [02:37<00:29, 29.70s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [02:38<00:00, 19.10s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [02:38<00:00, 31.66s/it]
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m 
+[1;36m(EngineCore_DP0 pid=3668728)[0;0m WARNING 09-30 20:26:04 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 76, in main
+    lt,lf=logs[tid].logprob,logs[fid].logprob
+                            ~~~~^^^^^
+KeyError: 30351
+[rank0]:[W930 20:26:40.614838194 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+ERROR 09-30 20:26:40 [core_client.py:564] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.

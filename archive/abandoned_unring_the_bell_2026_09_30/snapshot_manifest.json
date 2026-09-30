@@ -1,0 +1,40 @@
+{
+  "pre_archive_git_head": "ab62adaaed54b68ef2d771c26a34589d5e1f572f",
+  "snapshots": [
+    {
+      "original_path": "README.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/README.md.txt",
+      "sha256": "d3c0ee070e0641bbb20a2de9b06aa1e5ed91aad98894efd737b727f45339a057"
+    },
+    {
+      "original_path": "STATUS.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/STATUS.md.txt",
+      "sha256": "81032c6e173da44ac2ea9a79744cfb0ccd76d772e1c9e4347095c995ec764a04"
+    },
+    {
+      "original_path": "EXPERIMENTS.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/EXPERIMENTS.md.txt",
+      "sha256": "0600be8acbdcc5d381447ecc72af614a96e7356cde9a929f15a525cf023d1b09"
+    },
+    {
+      "original_path": "RESEARCH_HISTORY.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/RESEARCH_HISTORY.md.txt",
+      "sha256": "b89fb68d2af12d169d81ce9a8b901bf9bd63b3dc6a72ad76a9105fd0f02656bc"
+    },
+    {
+      "original_path": "REPRODUCE.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/REPRODUCE.md.txt",
+      "sha256": "cb044a97528e5d3e1c231664a4566dfe294f182751b7e501de08fe025ffd736d"
+    },
+    {
+      "original_path": "CLAUDE.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/CLAUDE.md.txt",
+      "sha256": "14e55d9234f268c2c7198b6f468f44f184e2409b549e1bdd473aa723ae330656"
+    },
+    {
+      "original_path": "archive/README.md",
+      "snapshot_path": "archive/abandoned_unring_the_bell_2026_09_30/snapshots/archive__README.md.txt",
+      "sha256": "d64d94489c4fa2aa37d6ac070269b36196d361e99e562fa15e9a110c29718585"
+    }
+  ]
+}

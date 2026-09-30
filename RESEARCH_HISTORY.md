@@ -1,3 +1,5 @@
+> **最终归档状态（2026-09-30）：整个 Unring the Bell 题定义为“垃圾题”，永久废弃。以下内容仅为历史；所有继续推进、active/mainline 及候选方向均已终止。见[最终归档索引](archive/abandoned_unring_the_bell_2026_09_30/README.md)。**
+
 # Research history — how the question moved, and why it moved back
 
 > **Historical account.** Later fresh ConfA and ConfB results changed the active question and claim ceiling. See [STATUS.md](STATUS.md) and the [current audit](results/audits/research_audit_2026_09_27.md) before treating the older narrative below as a live interpretation.
@@ -434,3 +436,8 @@ and:
 
 > **simple question → conceptual novelty assassination → scale/growth-path test →
 > only then a tiny discovery pilot.**
+
+
+## 2026-09-30：最终 G33 与整题永久废弃
+
+G33 完成 200 新 claim families、三模型、43,200 唯一 cell。H 为 −0.25/−1.88/−0.56 点，候选条件 0/3；见[最终分析](results/g33/g33_integrated_assessment.md)。用户随后明确终止整个 Unring the Bell 题并定义为“垃圾题”。全部同题分支终止，不再保留 lead 或下一步。原注册、数据与真实失败史保留。

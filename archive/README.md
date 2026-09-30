@@ -1,17 +1,9 @@
-# Archived research branches
+# Research archive — Unring the Bell permanently abandoned
 
-These files are preserved for scientific history but are **not live paper documents**.
+**整个 Unring the Bell 题于 2026-09-30 按用户决定定义为“垃圾题”，彻底报废。** 此目录及仓库中的历史 research files 均为档案，不是活跃论文或实验指令。
 
-- `FANTOM_TRANSFORMATION_CONTRACT.md` — perspective-family transformation work; this
-  branch did not qualify.
-- `FOMC_TRANSFORMATION_CONTRACT.md` — attempted second temporal source; the source did
-  not pass its frozen qualification gate.
+- [最终废弃决定与完整资产地图](abandoned_unring_the_bell_2026_09_30/README.md)。
+- [旧 root 草稿及 RQ 搜索](legacy_root_docs_2026_09_27/README.md)。
+- 原 killed-RQ ledgers、FANToM/FOMC transformation contracts 保留为失败史。
 
-`UNRING_THE_BELL_FINDINGS.md` was moved out of this folder on 2026-09-03 and is now
-the live main-line results document
-[`../PROSPECTIVE_EXCLUSION_FINDINGS.md`](../PROSPECTIVE_EXCLUSION_FINDINGS.md). It was
-archived while the project ran the BTF-3 hindsight branch; that branch is stopped.
-
-For the current scientific story read [`../PAPER_FRAME.md`](../PAPER_FRAME.md). For
-how the branches relate, read [`../RESEARCH_HISTORY.md`](../RESEARCH_HISTORY.md) and
-[`../EXPERIMENTS.md`](../EXPERIMENTS.md).
+旧 archive index 的原文保存在最终归档 snapshots 中。仓库根目录 README.md/STATUS.md 表示终止状态，不再指向 active paper frame。

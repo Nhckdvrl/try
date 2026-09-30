@@ -1,0 +1,20 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m WARNING 09-30 18:30:36 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:50<03:20, 50.02s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [01:37<02:25, 48.34s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [02:26<01:37, 48.96s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [03:16<00:49, 49.20s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [04:07<00:00, 49.99s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [04:07<00:00, 49.57s/it]
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m 
+[1;36m(EngineCore_DP0 pid=3657045)[0;0m WARNING 09-30 18:35:35 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+gemma3-12b: 72/72
+[rank0]:[W930 18:35:40.686688715 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

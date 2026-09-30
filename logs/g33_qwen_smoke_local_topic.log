@@ -1,0 +1,175 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708] EngineCore failed to start.
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708] Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 83, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     self.model_executor = executor_class(vllm_config)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 54, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     self._init_executor()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 53, in _init_executor
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     self.collective_rpc("init_worker", args=([kwargs], ))
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     return [run_method(self.driver_worker, method, args, kwargs)]
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 3122, in run_method
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     return func(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/worker/worker_base.py", line 212, in init_worker
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     worker_class = resolve_obj_by_qualname(
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                    ^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 2680, in resolve_obj_by_qualname
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     module = importlib.import_module(module_name)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     return _bootstrap._gcd_import(name[level:], package, level)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 24, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.warmup.kernel_warmup import kernel_warmup
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 14, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.warmup.deep_gemm_warmup import deep_gemm_warmup
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/warmup/deep_gemm_warmup.py", line 14, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.fused_moe.deep_gemm_moe import DeepGemmExperts
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/__init__.py", line 8, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.fused_moe.layer import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/layer.py", line 28, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.fused_moe.fused_moe import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/fused_moe.py", line 16, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     import vllm.model_executor.layers.fused_moe.modular_kernel as mk
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/modular_kernel.py", line 13, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.fused_moe.utils import (  # yapf: disable
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/utils.py", line 9, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.quantization.utils.fp8_utils import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/fp8_utils.py", line 18, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     from vllm.model_executor.layers.quantization.utils.w8a8_utils import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/w8a8_utils.py", line 72, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     CUTLASS_FP8_SUPPORTED = cutlass_fp8_supported()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                             ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/w8a8_utils.py", line 46, in cutlass_fp8_supported
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     capability_tuple = current_platform.get_device_capability()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/cuda.py", line 46, in wrapper
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     return fn(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/cuda.py", line 538, in get_device_capability
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     physical_device_id = cls.device_id_to_physical_device_id(device_id)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/interface.py", line 184, in device_id_to_physical_device_id
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]     return int(physical_device_id)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708]            ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ERROR 09-30 19:28:35 [core.py:708] ValueError: invalid literal for int() with base 10: 'GPU-1acd95ff-7d72-8dd8-77f2-77418f90965e'
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m Process EngineCore_DP0:
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     self.run()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/multiprocessing/process.py", line 108, in run
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     self._target(*self._args, **self._kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 712, in run_engine_core
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     raise e
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 83, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     self.model_executor = executor_class(vllm_config)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 54, in __init__
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     self._init_executor()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 53, in _init_executor
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     self.collective_rpc("init_worker", args=([kwargs], ))
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     return [run_method(self.driver_worker, method, args, kwargs)]
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 3122, in run_method
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     return func(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/worker/worker_base.py", line 212, in init_worker
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     worker_class = resolve_obj_by_qualname(
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                    ^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/utils/__init__.py", line 2680, in resolve_obj_by_qualname
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     module = importlib.import_module(module_name)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     return _bootstrap._gcd_import(name[level:], package, level)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 24, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.warmup.kernel_warmup import kernel_warmup
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/warmup/kernel_warmup.py", line 14, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.warmup.deep_gemm_warmup import deep_gemm_warmup
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/warmup/deep_gemm_warmup.py", line 14, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.fused_moe.deep_gemm_moe import DeepGemmExperts
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/__init__.py", line 8, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.fused_moe.layer import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/layer.py", line 28, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.fused_moe.fused_moe import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/fused_moe.py", line 16, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     import vllm.model_executor.layers.fused_moe.modular_kernel as mk
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/modular_kernel.py", line 13, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.fused_moe.utils import (  # yapf: disable
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/utils.py", line 9, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.quantization.utils.fp8_utils import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/fp8_utils.py", line 18, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     from vllm.model_executor.layers.quantization.utils.w8a8_utils import (
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/w8a8_utils.py", line 72, in <module>
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     CUTLASS_FP8_SUPPORTED = cutlass_fp8_supported()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                             ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/w8a8_utils.py", line 46, in cutlass_fp8_supported
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     capability_tuple = current_platform.get_device_capability()
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/cuda.py", line 46, in wrapper
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     return fn(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m            ^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/cuda.py", line 538, in get_device_capability
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     physical_device_id = cls.device_id_to_physical_device_id(device_id)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m   File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/platforms/interface.py", line 184, in device_id_to_physical_device_id
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m     return int(physical_device_id)
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=3390023)[0;0m ValueError: invalid literal for int() with base 10: 'GPU-1acd95ff-7d72-8dd8-77f2-77418f90965e'
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 69, in main
+    llm=LLM(model=a.model,tokenizer=a.tokenizer or a.model,tensor_parallel_size=1,gpu_memory_utilization=a.gpu_frac,max_model_len=2048,dtype='bfloat16',disable_log_stats=True,enforce_eager=True,enable_prefix_caching=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(vllm_config=vllm_config,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 114, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 80, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 602, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 448, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 732, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 785, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

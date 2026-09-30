@@ -1,0 +1,55 @@
+Resuming mistral-small-24b: preserving 168 rows, 14232 remaining
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:03<00:32,  3.61s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:04<00:15,  1.93s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:05<00:09,  1.41s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:05<00:06,  1.15s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:07<00:05,  1.17s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:08<00:04,  1.14s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:09<00:03,  1.10s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:10<00:02,  1.07s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:10<00:00,  1.11it/s]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:11<00:00,  1.21it/s]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:11<00:00,  1.14s/it]
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m 
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m WARNING 09-30 20:45:13 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=3669756)[0;0m The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+mistral-small-24b: 680/14400
+mistral-small-24b: 1192/14400
+mistral-small-24b: 1704/14400
+mistral-small-24b: 2216/14400
+mistral-small-24b: 2728/14400
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 93, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 85, in main
+    outputs=llm.generate(prompts[start:start+512],SamplingParams(temperature=0,max_tokens=1,logprobs=2,allowed_token_ids=[tid,fid]),use_tqdm=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 401, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 1600, in _run_engine
+    step_outputs = self.llm_engine.step()
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 265, in step
+    outputs = self.engine_core.get_output()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 668, in get_output
+    outputs = self.outputs_queue.get()
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/queue.py", line 171, in get
+    self.not_empty.wait()
+  File "/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/threading.py", line 334, in wait
+    waiter.acquire()
+KeyboardInterrupt
+[rank0]:[W930 20:48:33.561802556 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+ERROR 09-30 20:48:33 [core_client.py:564] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.

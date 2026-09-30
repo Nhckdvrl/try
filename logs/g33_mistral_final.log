@@ -1,0 +1,34 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m WARNING 09-30 20:23:23 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:11<01:40, 11.19s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:22<01:32, 11.53s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:33<01:17, 11.14s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:39<00:55,  9.25s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:43<00:35,  7.10s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:45<00:21,  5.50s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:47<00:13,  4.36s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:49<00:07,  3.54s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:50<00:02,  2.63s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:50<00:00,  2.03s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:50<00:00,  5.08s/it]
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m 
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m WARNING 09-30 20:24:17 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=3668750)[0;0m The tokenizer you are loading from 'data/external/g33_mistral_tokenizer' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/xiang/research_hun/try_clone/scripts/run_g33_final.py", line 76, in main
+    lt,lf=logs[tid].logprob,logs[fid].logprob
+          ~~~~^^^^^
+KeyError: 65645
+[rank0]:[W930 20:25:51.971047098 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+ERROR 09-30 20:25:51 [core_client.py:564] Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.

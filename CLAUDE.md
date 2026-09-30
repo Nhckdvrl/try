@@ -1,5 +1,7 @@
-# Project context for local agents
+# Project context: permanently abandoned topic
 
-Read [README.md](README.md), [STATUS.md](STATUS.md), and [research audit](results/audits/research_audit_2026_09_27.md) first. Current question: after an LLM observes evidence and is explicitly told to retract it, does it recover its same-item no-evidence judgment? The strongest established result is a behavioral **suppression–restoration gap** in fresh ConfB. G28A is the active staged path experiment.
+The entire Unring the Bell research topic is classified by the user as **垃圾题 / PERMANENTLY_ABANDONED**, effective 2026-09-30. Read README.md, STATUS.md and archive/abandoned_unring_the_bell_2026_09_30/README.md first.
 
-Preserve original registrations, raw outputs, materials, failures, and commit chronology. Never promote discovery to held-out confirmation or filter the main sample after seeing model outcomes. Old root paper and RQ documents were moved to `archive/legacy_root_docs_2026_09_27/`; they record history and are not current instructions. The older prospective-exclusion headline failed fresh ConfA confirmation. For material review, inspect text blind to labels and model outputs, keep item-level issue notes, and never edit frozen data.
+There are no active branches or next experiments. Do not revive this topic through exclusion, retraction, restoration, eligibility, S/R/P, mechanism, method, evaluation, agent or paper reframing. Historical instructions and next-step plans are superseded. Do not start inference, new curation or new paper work for this topic. Archive maintenance and explicitly requested verification of existing records are allowed. Only an explicit user reversal of the whole-topic termination can change this decision.
+
+Preserve original registrations, frozen materials, raw outputs, failed attempts and commit chronology. Never rewrite a failed confirmation as success or change a historical number to fit the terminal classification. G33 concurrent-write failure artifacts are excluded whole; only designated verified final files belong to its analysis. The previous local-agent context is preserved verbatim in the archive snapshots.

@@ -1,0 +1,19 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m WARNING 09-30 18:23:38 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:50<03:23, 50.81s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [01:37<02:24, 48.11s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [02:15<01:27, 43.63s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [02:50<00:40, 40.26s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [03:03<00:00, 30.28s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [03:03<00:00, 36.60s/it]
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m 
+[1;36m(EngineCore_DP0 pid=3652096)[0;0m WARNING 09-30 18:26:49 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+qwen3-8b: 72/72
+[rank0]:[W930 18:27:18.454340165 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
